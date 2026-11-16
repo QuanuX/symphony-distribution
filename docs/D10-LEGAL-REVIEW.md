@@ -3,7 +3,7 @@
 On 16 November 2026, the release owner selected the retained Mac build for the
 next qualification and identified themselves as the human legal reviewer.
 `evidence/d10-reviewer-assignment.json` records that direction and binds the
-selected candidate and prepared review packet. The reviewer is @quantDIY.
+selected candidate and prepared review packet. The public record uses a release-owner role alias; the original user direction binds the assignment.
 This records an assignment; it does not invent a completed legal review,
 independent review, source-integration approval or public beta promotion.
 
@@ -42,4 +42,4 @@ The existing handoff checker checks record structure and exact packet binding.
 It cannot decide legal applicability or authenticate an external approval.
 Retain the human's actual decision separately; do not substitute generated text
 for it. The earlier D09 packet remains unchanged, with this assignment supplied
-as a later overlay. Release authority remains with @quantDIY.
+as a later overlay. Release authority remains with the release owner.

@@ -4,7 +4,7 @@
   "source": "explicit user direction in active task",
   "statement": "Ok use my mac build, I'm legal human review as well. Let's check the runs and issue fixes for anything failing. Then, proceed through the gate if possible.",
   "statement_sha256": "3fb28e7439a2fdc80c81946ef88f9fc0b9233590acf8e41e9d95c09ab4e13df5",
-  "reviewer": "quantDIY",
+  "reviewer": "publisher-release-owner",
   "reviewer_kind": "human",
   "role": "redistribution_reviewer",
   "assignment": "selected_by_user",
@@ -23,5 +23,7 @@
   "main_changes_authorized": false,
   "legal_approval": false,
   "release_acceptance_complete": false,
-  "publication_promotion_authorized": false
+  "publication_promotion_authorized": false,
+  "reviewer_identifier_kind": "public_role_alias",
+  "identity_binding": "explicit user direction retained by release owner"
 }

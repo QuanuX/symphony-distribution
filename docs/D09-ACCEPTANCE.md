@@ -141,14 +141,14 @@ lifecycle safety, genuine two-release journeys, live provider/fault campaigns,
 backup/support drills or the D12 release decision. These retain their own exact
 artifact and human acceptance gates.
 
-The accepted distribution plan retains @quantDIY as release/scope approver and
+The accepted distribution plan retains the release owner as release/scope approver and
 rollback primary. The packet's unfilled role entries represent outstanding
 review handoffs for this exact candidate; they do not transfer that authority
 or imply that the assistant can make an independent release decision. The user
-has not yet selected independent acceptance, redistribution or backup reviewers.
+has not yet selected independent acceptance or backup reviewers; the later redistribution reviewer assignment is recorded below.
 
 Current follow-up: the release owner selected the existing Mac candidate and
-assigned @quantDIY as human redistribution reviewer. See
+assigned themselves as human redistribution reviewer. See
 [D10 legal review](D10-LEGAL-REVIEW.md) and
 `evidence/d10-reviewer-assignment.json`. This later assignment does not rewrite
 the historical packet or record a legal approval that has not been supplied.
