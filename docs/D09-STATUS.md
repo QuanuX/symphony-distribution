@@ -40,7 +40,7 @@ the original completed upload plan retains its exact original helper binding.
 | Native maintenance | All 51 delivered-owner cycles passed: 612 commands, 1,250 retained entries preserved | Live-use retirement, native installation and managed shared-root authority remain separate |
 | Upgrade and rollback | Distinct-release admission rejects rebuilds/relabels of one candidate | Second independently qualified native versions and real transition/rollback compatibility |
 | Final integration | Exact core/client/distribution PR graph and source-bound acceptance packet | Authorized integration, fresh required-check review, rebuild/rebinding when source identity changes |
-| Signing | Selected self-signed certificate and all 76 original artifact signatures verified | Recognized publisher identity, notarization and independent key/trust policy |
+| Signing | Selected self-signed certificate and manifest signature covering all 76 original artifacts verified | Recognized publisher identity, notarization and independent key/trust policy |
 | Legal and independent acceptance | 131 selected notices plus 115-component bootstrap inventory and seven review-role checklists | Qualified redistribution review, bootstrap source/build/offer closure, named independent/backup reviewers and their actual decisions |
 
 The user has not selected independent reviewers or physical fresh hosts. Disposable
