@@ -84,6 +84,16 @@ claim live manager/process retirement or the complete historical L20/L22 campaig
 [Focused tooling validation](d06-focused-validation.json) records 145 passing
 regressions (74 build-cohort and 71 qualification cases), plus workflow validation. Unchanged broad core suites were not rerun.
 
+## Hosted cohort repair follow-up
+
+The first hosted D06 run completed with four platform failures. The
+[repair record](d06-hosted-cohort-repair.json) binds each original diagnostic and
+records 166 passing focused checks, a real Go failure/fix reproduction and a
+compiled Darwin archive finalization/link test. Full frozen-graph preparation,
+pre-seal archive metadata finalization and exact reachable system TLS dependency
+records address the three observed failure classes. Confirmation on the four
+primary hosted profiles remains pending; prior candidate evidence is unchanged.
+
 ## Delivery records and remaining gates
 
 The [completed delivery record](d06-delivery-record.json) binds candidate B to

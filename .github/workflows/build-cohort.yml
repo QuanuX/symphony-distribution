@@ -106,6 +106,8 @@ jobs:
           set -euo pipefail
           sudo apt-get -o Acquire::Retries=3 update
           sudo apt-get -o Acquire::Retries=3 install --no-install-recommends -y "$CC" patchelf libssl-dev pkg-config
+      - name: Record additional qualification helper provenance
+        run: python3 qualification/d06_failure_summary.py --record-baseline "$RUNNER_TEMP/d06-helper-baseline.json"
       - name: Verify source and prepare public Go dependencies
         shell: bash
         run: |
@@ -114,21 +116,8 @@ jobs:
           test "$(go env GOVERSION)" = go1.26.5
           command -v "$CC"
           command -v "$CXX"
-          python3 - <<'PY'
-          import json, pathlib, subprocess, time
-          source = pathlib.Path('work/core').resolve()
-          modules = json.loads((source / 'cmake/mvp-dependencies.json').read_text())['go_modules']
-          for module in modules:
-              # Retry only this network preparation. Builds themselves never retry.
-              for attempt in range(3):
-                  result = subprocess.run(['go', 'mod', 'download'], cwd=source / module['path'])
-                  if result.returncode == 0:
-                      break
-                  if attempt == 2:
-                      raise SystemExit(result.returncode)
-                  time.sleep(2 ** attempt)
-              subprocess.run(['go', 'mod', 'verify'], cwd=source / module['path'], check=True)
-          PY
+          python3 qualification/d06_prepare_go.py --source "$GITHUB_WORKSPACE/work/core" \
+            --work "$RUNNER_TEMP/d06-go-preparation" --go "$(command -v go)" --gomodcache "$GOMODCACHE"
       - name: Download exact dependency source archives
         shell: bash
         run: |
@@ -140,8 +129,6 @@ jobs:
           curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
             https://github.com/meta/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz \
             --output "$RUNNER_TEMP/d06-archives/zstd-1.5.7.tar.gz"
-      - name: Record additional qualification helper provenance
-        run: python3 qualification/d06_failure_summary.py --record-baseline "$RUNNER_TEMP/d06-helper-baseline.json"
       - name: Prepare exact external libraries with explicit TLS selection
         shell: bash
         run: |
@@ -225,5 +212,6 @@ jobs:
             ${{ runner.temp }}/d06-sdk-closure/result.json
             ${{ runner.temp }}/d06-delivery/delivery-record.json
             ${{ runner.temp }}/d06-failure-summary.json
+            ${{ runner.temp }}/d06-go-preparation/result.json
           if-no-files-found: warn
           retention-days: 14

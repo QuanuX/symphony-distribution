@@ -98,6 +98,36 @@ class PaddingTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'identity or timestamp'):
                 m.normalize_bytes(bytes(raw))
 
+    def test_explicit_unsealed_finalization_converges_and_preserves_object_semantics(self):
+        raw = fixture(); members = m.archive_members(raw)
+        altered = bytearray(raw)
+        for item in members:
+            for start, width, value in ((16, 12, b'123456'), (28, 6, b'501'), (34, 6, b'20')):
+                begin = item['header_offset'] + start
+                altered[begin:begin + width] = value.ljust(width, b' ')
+        fixed, proof = m.finalize_unsealed_bytes(bytes(altered))
+        expected, _ = m.normalize_bytes(raw)
+        self.assertEqual(fixed, expected)
+        self.assertEqual(m.archive_members(fixed), members)
+        for item in members[1:]:
+            start, end = item['payload_start'], item['payload_end']
+            self.assertEqual(fixed[start:end], altered[start:end])
+        self.assertEqual(len(proof['metadata_fields']), 6)
+        self.assertEqual(m.finalize_unsealed_bytes(fixed)[1]['changed_byte_count'], 0)
+        self.assertEqual(proof['source_sha256'], m.sha(bytes(altered)))
+        self.assertEqual(proof['normalized_sha256'], m.sha(fixed))
+
+    def test_unsealed_finalization_cannot_hide_malformed_metadata_or_references(self):
+        for value in (b'-1', b'0x99', b'12\x00'):
+            raw = bytearray(fixture()); raw[36:42] = value.ljust(6, b' ')
+            with self.assertRaisesRegex(ValueError, 'numeric field'):
+                m.finalize_unsealed_bytes(bytes(raw))
+        raw = bytearray(fixture()); raw[24:36] = b'123'.ljust(12, b' ')
+        struct.pack_into('<I', raw, 76, 0)
+        with self.assertRaisesRegex(ValueError, 'object-member header'):
+            m.finalize_unsealed_bytes(bytes(raw))
+        with self.assertRaises(ValueError): m.finalize_unsealed_bytes(fixture(table='__.SYMDEF_64'))
+
     def test_copy_requires_exact_bytes_and_new_nonaliased_output(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary).resolve(); source = root / 'source.a'; source.write_bytes(fixture())

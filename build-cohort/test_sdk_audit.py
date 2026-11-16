@@ -93,7 +93,7 @@ class SdkAuditTests(unittest.TestCase):
             evidence.write_text(json.dumps({'tls': {'backend': 'OpenSSL', 'inputs': {
                 'ssl_library': {'system_path': '/usr/bin/true', 'sha256': '0' * 64},
                 'crypto_library': {'system_path': '/usr/bin/false', 'sha256': '0' * 64}}}}))
-            with self.assertRaisesRegex(ValueError, 'differs'):
+            with self.assertRaisesRegex(ValueError, 'differs|not a reviewed system library'):
                 loader.system_runtime_allowance(root)
 
 

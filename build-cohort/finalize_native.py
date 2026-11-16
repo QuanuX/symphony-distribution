@@ -115,11 +115,11 @@ def finalize(root, paths, original=None, copied=None, verified_external=None):
         if header == b'!<arch>\n' and platform.system() == 'Darwin':
             # Only unsealed declared files (or exact copied external inputs)
             # enter this hook. Object bytes and archive offsets stay unchanged.
-            normalized, proof = archive_padding.normalize_bytes(binary.read_bytes())
+            normalized, proof = archive_padding.finalize_unsealed_bytes(binary.read_bytes())
             if proof['changed_byte_count']:
                 binary.write_bytes(normalized)
             results.append({'path': str(binary.relative_to(root)), 'sha256': sha(binary),
-                            'kind': 'static_archive', 'padding_normalization': proof})
+                            'kind': 'static_archive', 'archive_finalization': proof})
             continue
         magic = header[:4]
         if magic not in loader.MACHO and magic != b'\x7fELF':

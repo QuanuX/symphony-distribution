@@ -46,12 +46,38 @@ scripts retain distinct provenance.
 | Independent final comparison | All 1,250 entries match: 1,248 files plus two relative links, including modes and receipts |
 | Source SDK and native removal | Public Go SDK roundtrip, five-core SNV API smoke, and tamper/interrupted/repeated removal checks for all 51 units passed on candidate B |
 | Notices, dependency inventory and corresponding source | Complete inventory: 51 native records, six Go artifacts, 131 notices, 18 linked Go source modules and 7,480 corresponding-source entries; publisher review remains pending |
-| Four required native profiles | Workflows prepared/requested; no hosted result or supported-platform acceptance inferred here |
+| Four required native profiles | First hosted cohort failed on four profiles; bounded packaging repairs prepared and locally tested; new hosted results remain pending |
 
 The [D06 evidence summary](../evidence/D06-RESULTS.md) retains the attempt history
 and source-bound reports. The same exact clean curl/zstd input was reused for both
 constructions; independent rebuilding of those upstream inputs is not claimed.
 These observations grant no release acceptance.
+
+## First hosted cohort repairs
+
+Run [43858056305](https://github.com/QuanuX/symphony-distribution/actions/runs/43858056305)
+at `dff9b87699374e72a0d63381f2277df532eb2e1c` exposed three packaging defects:
+
+- Ubuntu 24.04 AMD64 and ARM64 completed all 51 native builds, then refused an
+  incompletely cached Go module graph. Preparation now downloads the full frozen
+  graph into a fresh private cache, verifies checksums and runs the builder's exact
+  offline graph check against unchanged source manifests before native compilation.
+- macOS 15 ARM64 produced valid nonneutral archive member metadata despite the
+  deterministic-build environment. The unsealed-file finalizer now zeros only
+  date/UID/GID fields before validating symbol references and unused padding.
+  Object bytes and member offsets are unchanged; sealed-payload audits still reject
+  nonneutral archives. The existing padding-only copy API remains strict.
+- Ubuntu 26.04 refused a nonplatform dependency of the bound OpenSSL runtime.
+  Preparation now records and rechecks the exact reachable TLS compression closure
+  (paths, hashes, SONAMEs, dependency edges and ELF ABI). Only SSL/crypto roots enter
+  the product-facing system allowance; direct product zstd dependencies still need
+  a staged payload. The original CI report did not retain the missing SONAME, so
+  the zlib/zstd diagnosis is supported by the corresponding upstream OS package
+  contract and separately inspected official binaries, not an exact CI file match.
+
+The [repair evidence](../evidence/d06-hosted-cohort-repair.json) separates observed
+failures, local regressions and pending hosted confirmation. Historical candidate,
+delivery and repair records are unchanged; these edits do not reseal those bytes.
 
 ## Clean build and final-byte checks
 

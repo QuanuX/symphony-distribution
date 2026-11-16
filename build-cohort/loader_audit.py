@@ -15,6 +15,9 @@ import subprocess
 
 MACHO = {bytes.fromhex(x) for x in ('feedface', 'feedfacf', 'cefaedfe', 'cffaedfe', 'cafebabe', 'bebafeca', 'cafebabf', 'bfbafeca')}
 LINUX_SYSTEM = re.compile(r'^(?:lib(?:c|m|dl|rt|pthread|resolv|util|gcc_s|stdc\+\+|c\+\+|c\+\+abi|unwind)\.so(?:\.[0-9]+)*|ld-linux[^/]*\.so(?:\.[0-9]+)*)$')
+# Ubuntu OpenSSL 3.5 uses these compression runtimes. They are admitted only
+# when reachable from the two selected TLS roots, never as product fallbacks.
+TLS_TRANSITIVE_SONAMES = frozenset({'libz.so.1', 'libzstd.so.1'})
 
 
 def require(value, message):
@@ -63,32 +66,92 @@ def elf_records(dynamic):
     return needed, rpaths
 
 
+def system_library_path(value):
+    raw = Path(value)
+    require(raw.is_absolute(), 'TLS runtime path must be absolute')
+    path = raw.resolve(strict=True)
+    roots = (Path('/usr/lib'), Path('/usr/lib64'))
+    require(any(root in path.parents for root in roots) and path.is_file(),
+            'TLS dependency is not a reviewed system library')
+    return path
+
+
+def inspect_system_elf(path, readelf='readelf'):
+    """Inspect declarations without ldd, executing libraries, or ambient paths."""
+    path = system_library_path(path)
+    raw = path.read_bytes()
+    require(len(raw) >= 20 and raw[:4] == b'\x7fELF' and raw[4] in (1, 2) and raw[5] in (1, 2),
+            'TLS runtime is not a supported ELF file')
+    digest = hashlib.sha256(raw).hexdigest()
+    dynamic = subprocess.check_output([readelf, '-d', str(path)], text=True, stderr=subprocess.STDOUT,
+        stdin=subprocess.DEVNULL, env={'PATH': '/usr/bin:/bin', 'LANG': 'C', 'LC_ALL': 'C'}, timeout=30)
+    sonames = re.findall(r'\(SONAME\).*\[(.+?)\]', dynamic)
+    needed, rpaths = elf_records(dynamic)
+    require(len(sonames) == 1 and re.fullmatch(r'[A-Za-z0-9_+.-]+\.so(?:\.[0-9]+)*', sonames[0]),
+            'TLS runtime has no single safe ELF SONAME')
+    require(not rpaths, 'System TLS runtime has an unreviewed loader search path')
+    require(len(needed) == len(set(needed)) and all('/' not in name and
+            re.fullmatch(r'[A-Za-z0-9_+.-]+\.so(?:\.[0-9]+)*', name) for name in needed),
+            'System TLS runtime has an unsafe or duplicate dependency')
+    require(hashlib.sha256(path.read_bytes()).hexdigest() == digest, 'System TLS runtime changed while inspected')
+    return {'system_path': str(path), 'sha256': digest, 'soname': sonames[0], 'needed': sorted(needed),
+            'elf_abi': {'class': raw[4], 'data_encoding': raw[5],
+                        'machine': int.from_bytes(raw[18:20], 'little' if raw[5] == 1 else 'big')}}
+
+
+def observe_system_tls_closure(inputs, readelf='readelf'):
+    """Observe exact reachable TLS roots plus the bounded compression closure."""
+    require(set(inputs) == {'ssl_library', 'crypto_library'}, 'Exact system TLS input set differs')
+    entries, roots = {}, {}
+    for kind, entry in sorted(inputs.items()):
+        record = inspect_system_elf(entry['system_path'], readelf)
+        require(record['sha256'] == entry['sha256'], 'Current TLS runtime differs from clean-build selection')
+        stem = 'libssl' if kind == 'ssl_library' else 'libcrypto'
+        require(re.fullmatch(re.escape(stem) + r'\.so\.[0-9.]+', record['soname']), 'Unexpected bound TLS SONAME')
+        require(record['soname'] not in entries, 'Duplicate TLS runtime identity')
+        entries[record['soname']] = record
+        roots[kind] = record['soname']
+    directories = sorted({Path(record['system_path']).parent for record in entries.values()})
+    abi = next(iter(entries.values()))['elf_abi']
+    require(all(record['elf_abi'] == abi for record in entries.values()), 'TLS root ELF architectures differ')
+    pending = list(sorted(entries))
+    while pending:
+        record = entries[pending.pop(0)]
+        for name in record['needed']:
+            if name in entries or LINUX_SYSTEM.fullmatch(name):
+                continue
+            require(name in TLS_TRANSITIVE_SONAMES, 'Unreviewed transitive system TLS dependency: ' + name)
+            candidates = {system_library_path(parent / name) for parent in directories if (parent / name).is_file()}
+            require(len(candidates) == 1, 'Transitive TLS runtime is missing or ambiguous: ' + name)
+            dependency = inspect_system_elf(candidates.pop(), readelf)
+            require(dependency['soname'] == name and dependency['elf_abi'] == abi,
+                    'Transitive TLS runtime identity or architecture differs: ' + name)
+            entries[name] = dependency
+            pending.append(name)
+    require(len(entries) <= 2 + len(TLS_TRANSITIVE_SONAMES), 'TLS dependency closure exceeded its bound')
+    return {'protocol': 'symphony.distribution.system-tls-closure.v1', 'roots': roots,
+            'libraries': [entries[name] for name in sorted(entries)],
+            'scope': 'exact static dependency closure of selected system TLS roots; platform baseline remains separate',
+            'dynamic_provider_loading_qualified': False, 'fresh_host_accepted': False}
+
+
 def system_runtime_allowance(prefix, readelf='readelf'):
-    """Bind only the exact Linux TLS inputs recorded by the clean dependency build."""
+    """Recheck TLS closure, admitting only its roots at the product boundary."""
     evidence = prefix / 'third-party/share/symphony/dependency-evidence/curl-zstd.json'
     if not evidence.is_file():
         return {}
     tls = json.loads(evidence.read_text()).get('tls', {})
     if tls.get('backend') != 'OpenSSL':
         return {}
-    inputs = tls.get('inputs', {})
-    require(set(inputs) == {'ssl_library', 'crypto_library'}, 'Exact system TLS input set differs')
-    admitted, dependencies = {}, {}
-    for kind, entry in inputs.items():
-        path = Path(entry['system_path']).resolve(strict=True)
-        require(Path('/usr') in path.parents and Path('/usr/local') not in path.parents and path.is_file(), 'TLS dependency is not a system library')
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
-        require(digest == entry['sha256'], 'Current TLS runtime differs from clean-build selection')
-        dynamic = subprocess.check_output([readelf, '-d', str(path)], text=True, stderr=subprocess.STDOUT, timeout=30)
-        names = re.findall(r'\(SONAME\).*\[(.+?)\]', dynamic)
-        stem = 'libssl' if kind == 'ssl_library' else 'libcrypto'
-        require(len(names) == 1 and re.fullmatch(re.escape(stem) + r'\.so\.[0-9.]+', names[0]), 'Unexpected bound TLS SONAME')
-        require(names[0] not in admitted, 'Duplicate TLS runtime identity')
-        admitted[names[0]] = digest
-        dependencies[names[0]] = elf_records(dynamic)[0]
-    for names in dependencies.values():
-        require(all(name in admitted or LINUX_SYSTEM.fullmatch(name) for name in names), 'Bound TLS runtime has an unrecorded nonplatform dependency')
-    return admitted
+    observed = observe_system_tls_closure(tls.get('inputs', {}), readelf)
+    recorded = tls.get('runtime_closure')
+    if recorded is None:
+        require(len(observed['libraries']) == 2, 'Transitive TLS dependencies require exact recorded closure')
+    else:
+        require(recorded == observed, 'Recorded system TLS dependency closure differs from current exact runtime')
+    roots = set(observed['roots'].values())
+    # A product's direct libzstd dependency must still resolve inside its payload.
+    return {record['soname']: record['sha256'] for record in observed['libraries'] if record['soname'] in roots}
 
 
 def origin_path(value, binary, prefix, system):

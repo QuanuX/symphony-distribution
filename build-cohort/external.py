@@ -172,6 +172,10 @@ def system_tls(platform_name, openssl):
               'trust': 'target-user system OpenSSL default trust; no publisher trust material',
               'inputs': {key: {'system_path': str(path), 'sha256': digest(path)} for key, path in paths.items() if key != 'include_dir'},
               'header': {'system_path': str(header), 'sha256': digest(header)}}
+    loader_spec = importlib.util.spec_from_file_location('external_system_tls', Path(__file__).with_name('loader_audit.py'))
+    loader = importlib.util.module_from_spec(loader_spec)
+    loader_spec.loader.exec_module(loader)
+    record['runtime_closure'] = loader.observe_system_tls_closure(record['inputs'])
     return record, {'CURL_USE_OPENSSL': 'ON', 'CURL_USE_SECTRANSP': 'OFF', 'OPENSSL_SSL_LIBRARY': str(paths['ssl_library']),
                     'OPENSSL_CRYPTO_LIBRARY': str(paths['crypto_library']), 'OPENSSL_INCLUDE_DIR': str(paths['include_dir']),
                     'CURL_CA_BUNDLE': 'none', 'CURL_CA_PATH': 'none', 'CURL_CA_FALLBACK': 'ON'}

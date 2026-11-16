@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Canonicalize only unused Darwin BSD32 archive symbol-string alignment bytes.
+"""Validate and finalize bounded Darwin BSD32 archives before receipt sealing.
 
 Every symbol reference and object-member header offset is checked before any
-change. Member order, names, headers, sizes, offsets, referenced strings and
-object bytes are preserved. Unknown formats fail closed. This is a pre-seal
+change. The strict padding API preserves headers; explicit unsealed finalization
+also neutralizes date/uid/gid. Member names, sizes, offsets, referenced strings
+and object bytes are preserved. Unknown formats fail closed. This is a pre-seal
 packaging transformation, never an update to an already receipted installation.
 """
 from __future__ import annotations
@@ -38,7 +39,7 @@ def number(field, *, base=10, empty=False):
     return int(value, base) if value else 0
 
 
-def archive_members(raw):
+def archive_members(raw, *, require_neutral=True):
     require(isinstance(raw, bytes) and len(raw) <= MAX_ARCHIVE and raw.startswith(MAGIC),
             'bounded regular Darwin archive required; thin/unknown formats refused')
     offset, members = len(MAGIC), []
@@ -47,7 +48,8 @@ def archive_members(raw):
         header = raw[offset:offset + 60]
         require(len(header) == 60 and header[58:60] == b'`\n', 'invalid archive member header')
         for field in (header[16:28], header[28:34], header[34:40]):
-            require(number(field, empty=True) == 0, 'archive retains builder identity or timestamp')
+            value = number(field, empty=True)
+            require(not require_neutral or value == 0, 'archive retains builder identity or timestamp')
         require(number(header[40:48], base=8, empty=True) & 0o6000 == 0, 'privileged archive member')
         size = number(header[48:58])
         payload_start, end = offset + 60, offset + 60 + size
@@ -132,6 +134,37 @@ def normalize_bytes(raw):
              'padding_offset': used_end, 'padding_size': len(padding), 'changed_byte_count': sum(b != 0 for b in padding),
              'original_padding_sha256': sha(padding), 'normalized_padding_sha256': sha(bytes(len(padding))),
              'object_members': objects, 'member_offsets_preserved': True, 'all_nonpadding_bytes_preserved': True,
+             'publication_authorized': False, 'release_acceptance_complete': False}
+    return normalized, proof
+
+
+def finalize_unsealed_bytes(raw):
+    """Neutralize valid member metadata before sealing, then validate padding.
+
+    Only fresh owner files enter this path. The strict padding/copy APIs and
+    installed-payload audit continue to reject nonneutral sealed archives.
+    No original numeric identity or timestamp is included in portable evidence.
+    """
+    members = archive_members(raw, require_neutral=False)
+    neutral = bytearray(raw)
+    fields = []
+    for member in members:
+        for label, offset, width in (('timestamp', 16, 12), ('uid', 28, 6), ('gid', 34, 6)):
+            begin = member['header_offset'] + offset
+            canonical = b'0'.ljust(width, b' ')
+            if raw[begin:begin + width] != canonical:
+                fields.append({'field': label, 'offset': begin, 'size': width})
+                neutral[begin:begin + width] = canonical
+    # Validating all ranlib references is mandatory even when only metadata
+    # needed changing. The original bytes are never written on a failure.
+    normalized, padding = normalize_bytes(bytes(neutral))
+    changed = sum(a != b for a, b in zip(raw, normalized))
+    proof = {'protocol': 'symphony.distribution.darwin-archive-finalization.v1',
+             'scope': 'pre-seal date/uid/gid neutralization and checked unused symbol padding only',
+             'source_sha256': sha(raw), 'normalized_sha256': sha(normalized),
+             'archive_size': len(raw), 'changed_byte_count': changed,
+             'metadata_fields': fields, 'padding_normalization': padding,
+             'object_bytes_and_member_offsets_preserved': True,
              'publication_authorized': False, 'release_acceptance_complete': False}
     return normalized, proof
 

@@ -18,7 +18,7 @@ import stat
 ROOT = Path(__file__).resolve().parents[1]
 HELPERS = ('qualification/native_campaign.py', 'owner-catalog/native_owners.py',
            'source-export/export_source.py', 'qualification/d06_sdk_closure.py', 'qualification/d06_delivery_record.py',
-           'qualification/d06_failure_summary.py')
+           'qualification/d06_failure_summary.py', 'qualification/d06_prepare_go.py')
 MAX_JSON = 2 * 1024 * 1024
 MAX_LOG = 64 * 1024 * 1024
 TAIL_BYTES, TAIL_LINES = 8192, 40

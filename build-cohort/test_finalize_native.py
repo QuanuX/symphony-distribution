@@ -13,6 +13,40 @@ spec.loader.exec_module(finalizer)
 
 
 class FinalizeTests(unittest.TestCase):
+    @unittest.skipUnless(platform.system() == 'Darwin' and Path('/usr/bin/clang').exists(), 'Darwin archive linker proof requires Apple tools')
+    def test_actual_archive_finalization_preserves_linking_and_sealed_bytes(self):
+        with tempfile.TemporaryDirectory(prefix='d06-unsealed-archive-') as temporary:
+            root = Path(temporary).resolve()
+            (root / 'value.c').write_text('int value(void) { return 42; }\n')
+            (root / 'main.c').write_text('int value(void); int main(void) { return value() != 42; }\n')
+            def run(argv):
+                subprocess.run([str(x) for x in argv], check=True, capture_output=True, timeout=60)
+            run(['/usr/bin/clang', '-c', root / 'value.c', '-o', root / 'value.o'])
+            library = root / 'libvalue.a'
+            run(['/usr/bin/ar', '-rcs', library, root / 'value.o'])
+            raw = bytearray(library.read_bytes())
+            members = finalizer.archive_padding.archive_members(bytes(raw), require_neutral=False)
+            # Reproduce valid runner-dependent member metadata even on a host
+            # whose archiver already emits zeroes.
+            for item in members:
+                begin = item['header_offset']
+                raw[begin + 16:begin + 28] = b'123456'.ljust(12, b' ')
+                raw[begin + 28:begin + 34] = b'501'.ljust(6, b' ')
+                raw[begin + 34:begin + 40] = b'20'.ljust(6, b' ')
+            library.write_bytes(raw)
+            with self.assertRaisesRegex(ValueError, 'identity or timestamp'):
+                finalizer.archive_padding.normalize_bytes(bytes(raw))
+            report = finalizer.finalize(root, [library])
+            sealed = library.read_bytes()
+            self.assertEqual(report[0]['sha256'], finalizer.sha(library))
+            finalizer.archive_padding.archive_members(sealed)
+            run(['/usr/bin/clang', root / 'main.c', library, '-o', root / 'client'])
+            run([root / 'client'])
+            self.assertEqual(library.read_bytes(), sealed)
+            for item in members[1:]:
+                start, end = item['payload_start'], item['payload_end']
+                self.assertEqual(raw[start:end], sealed[start:end])
+
     def test_refuse_unowned_or_uncontrolled_paths(self):
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw).resolve()
