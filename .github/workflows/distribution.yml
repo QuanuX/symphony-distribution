@@ -4,6 +4,11 @@ on:
     branches: ['codex/**']
   pull_request:
   workflow_dispatch:
+    inputs:
+      run_conda_transactions:
+        description: Run the independent Conda transaction job
+        type: boolean
+        default: true
 permissions:
   contents: read
 concurrency:
@@ -42,6 +47,7 @@ jobs:
           python3 -m unittest discover -s recipes -p 'test_build_go_carriers.py'
           python3 -m unittest discover -s tests -p 'test_conda_journey_inputs.py'
   conda-transactions:
+    if: github.event_name != 'workflow_dispatch' || inputs.run_conda_transactions
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
