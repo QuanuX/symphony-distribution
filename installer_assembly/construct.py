@@ -22,6 +22,7 @@ import stat
 import subprocess
 import sys
 import tarfile
+from urllib.parse import urlsplit
 import zipfile
 
 HERE = Path(__file__).resolve().parent
@@ -214,6 +215,34 @@ def markers_from_policy(path):
     return markers
 
 
+def bootstrap_components(zipped, pin):
+    """Bind the stream reader's logical filename to the selected package identity."""
+    require(all(isinstance(pin.get(key), str) and
+                re.fullmatch(r'[A-Za-z0-9_.]{1,128}', pin[key]) for key in ('version', 'build')),
+            'invalid standalone package identity')
+    stem = f"conda-standalone-{pin['version']}-{pin['build']}"
+    filename = stem + '.conda'
+    url = urlsplit(pin.get('url', ''))
+    require(url.scheme == 'https' and url.netloc == 'conda.anaconda.org' and
+            not url.query and not url.fragment and url.path.split('/')[-1] == filename,
+            'standalone URL differs from selected package identity')
+    infos = zipped.infolist()
+    expected = {'metadata.json', f'pkg-{stem}.tar.zst', f'info-{stem}.tar.zst'}
+    require(len(infos) == len(expected) and {item.filename for item in infos} == expected,
+            'standalone archive components differ from selected package identity')
+    require(all(not item.is_dir() and not item.flag_bits & 1 and
+                stat.S_IFMT(item.external_attr >> 16) in (0, stat.S_IFREG) and
+                item.compress_type == zipfile.ZIP_STORED and 0 < item.file_size <= MAX_WRAPPER
+                for item in infos), 'unsupported standalone ZIP member')
+    require(zipped.getinfo('metadata.json').file_size <= 4096, 'standalone metadata exceeds bound')
+    # Preserve the selected upstream bytes; reject duplicate keys rather than letting
+    # JSON parsing silently choose a competing archive-format declaration.
+    pairs = json.loads(zipped.read('metadata.json'), object_pairs_hook=list)
+    require(pairs == [('conda_pkg_format_version', 2)] and type(pairs[0][1]) is int,
+            'unsupported standalone package metadata')
+    return filename
+
+
 def bootstrap_proof(archive, executable, pin):
     """Read the pinned public package without extracting archive-owned paths."""
     from conda_package_streaming.package_streaming import stream_conda_component
@@ -221,8 +250,11 @@ def bootstrap_proof(archive, executable, pin):
     expected_binary = None
     notices = {}
     with zipfile.ZipFile(archive) as zipped:
+        filename = bootstrap_components(zipped, pin)
         for component in ('pkg', 'info'):
-            for stream, member in stream_conda_component(archive, component=component, zf=zipped):
+            # With an open ZIP, the library uses this name only to select pkg/info
+            # members. The download's storage name (e.g. standalone.conda) is unrelated.
+            for stream, member in stream_conda_component(filename, component=component, zf=zipped):
                 safe_path(member.name.rstrip('/') if member.isdir() else member.name)
                 wanted = member.name == 'standalone_conda/conda.exe' or member.name.startswith('info/licenses/')
                 if not wanted or member.isdir():
@@ -241,6 +273,7 @@ def bootstrap_proof(archive, executable, pin):
     require(expected_binary is not None and expected_binary == file_sha(executable),
             'standalone executable differs from pinned package')
     require(notices, 'standalone package has no license notices')
+    require(file_sha(archive) == pin['sha256'], 'standalone archive changed during inspection')
     return expected_binary, notices
 
 

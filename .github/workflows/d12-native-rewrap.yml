@@ -176,6 +176,33 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write('result_sha256=' + hashlib.sha256(path.read_bytes()).hexdigest() + '\n')
           PYCODE
+      - name: Verify completed carrier checkpoint after packaging attempt
+        if: always()
+        id: carrier_checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f "$RUNNER_TEMP/d12-package/work/carrier-capsule/result.json" ]; then
+            "$RUNNER_TEMP/d12-tools/publisher/bin/python" -B - <<'PYCODE'
+          import hashlib, os, pathlib
+          from qualification.d09_platform import verify_capsule
+          root = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd12-package/work/carrier-capsule'
+          digest = hashlib.sha256((root / 'result.json').read_bytes()).hexdigest()
+          verify_capsule(root, digest)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('ready=true\nresult_sha256=' + digest + '\n')
+          PYCODE
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Retain verified carriers even if wrapper construction failed
+        if: ${{ always() && steps.carrier_checkpoint.outputs.ready == 'true' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d13-recovered-carrier-capsule-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d12-package/work/carrier-capsule/
+          if-no-files-found: error
+          retention-days: 14
       - name: Retain exact verified wrapper inputs for separate consumer
         id: upload
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

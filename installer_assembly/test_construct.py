@@ -5,11 +5,13 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
+import zipfile
 
 HERE = Path(__file__).resolve().parent
 
@@ -64,6 +66,141 @@ def shell_bytes(payload, *, extra=None, neutral=True, bootstrap=b'bootstrap'):
               + (r.CONSTRUCTOR_COMMAND + ' --extract-tarball\n') * 4 +
               'if [ -e "$PREFIX" ] || [ -L "$PREFIX" ]; then\nexit 1\nfi\n@@END_HEADER@@\n').encode()
     return header + bootstrap + raw
+
+
+class BootstrapContracts(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.archive = self.root / 'standalone.conda'
+        self.executable = self.root / 'conda.exe'
+        self.executable.write_bytes(b'exact-bootstrap')
+        self.pin = {'version': '26.9.4.post1', 'build': 'fixture_0',
+                    'url': 'https://conda.anaconda.org/conda-forge/osx-64/'
+                           'conda-standalone-26.9.4.post1-fixture_0.conda'}
+        self.stem = 'conda-standalone-26.9.4.post1-fixture_0'
+        self.members = {
+            'metadata.json': b'{"conda_pkg_format_version":2}',
+            f'pkg-{self.stem}.tar.zst': tar_bytes([('standalone_conda/conda.exe', b'exact-bootstrap')]),
+            f'info-{self.stem}.tar.zst': tar_bytes([('info/licenses/LICENSE.txt', b'upstream-notice')])}
+        self.calls = []
+        self.write_archive()
+
+    def write_archive(self, entries=None):
+        with zipfile.ZipFile(self.archive, 'w', compression=zipfile.ZIP_STORED) as archive:
+            for name, raw in (self.members.items() if entries is None else entries):
+                archive.writestr(name, raw)
+        self.pin['sha256'] = c.file_sha(self.archive)
+
+    def fake_stream(self, filename, *, component, zf):
+        self.calls.append((filename, component))
+        # Reproduce the library's filename-based component lookup. These fixture
+        # members are uncompressed TARs; the separate codec test uses real zstd.
+        name = f'{component}-{Path(filename).stem}.tar.zst'
+        with tarfile.open(fileobj=io.BytesIO(zf.read(name))) as stream:
+            for member in stream:
+                yield stream, member
+
+    def proof(self, stream=None):
+        reader = SimpleNamespace(stream_conda_component=stream or self.fake_stream)
+        with patch.dict(sys.modules, {'conda_package_streaming': SimpleNamespace(),
+                                      'conda_package_streaming.package_streaming': reader}):
+            return c.bootstrap_proof(self.archive, self.executable, self.pin)
+
+    def test_generic_download_name_uses_selected_component_identity(self):
+        before = self.archive.read_bytes()
+        binary, notices = self.proof()
+        self.assertEqual(binary, c.sha(b'exact-bootstrap'))
+        self.assertEqual(notices, {'LICENSE.txt': b'upstream-notice'})
+        self.assertEqual(self.calls, [(self.stem + '.conda', 'pkg'), (self.stem + '.conda', 'info')])
+        self.assertEqual(self.archive.read_bytes(), before)
+        self.assertFalse((self.root / (self.stem + '.conda')).exists())
+
+    def test_archive_hash_and_executable_mismatch_refuse(self):
+        self.pin['sha256'] = '0' * 64
+        with self.assertRaisesRegex(ValueError, 'exact tool pin'):
+            self.proof()
+        self.assertEqual(self.calls, [])
+        self.pin['sha256'] = c.file_sha(self.archive)
+        self.executable.write_bytes(b'changed')
+        with self.assertRaisesRegex(ValueError, 'executable differs'):
+            self.proof()
+
+    def test_mismatched_ambiguous_or_unsafe_components_refuse_before_streaming(self):
+        pkg = f'pkg-{self.stem}.tar.zst'
+        for extra in ('pkg-other.tar.zst', pkg + '.extra', '../escape', 'metadata.json'):
+            with self.subTest(extra=extra):
+                entries = [(name, raw) for name, raw in self.members.items() if name != pkg]
+                entries.append((extra, self.members[pkg]))
+                if extra == 'metadata.json':
+                    # ZipFile correctly warns when constructing this hostile fixture.
+                    import warnings
+                    with warnings.catch_warnings():
+                        warnings.simplefilter('ignore', UserWarning)
+                        self.write_archive(entries)
+                else:
+                    self.write_archive(entries)
+                with self.assertRaisesRegex(ValueError, 'components differ'):
+                    self.proof()
+        self.assertEqual(self.calls, [])
+
+    def test_unknown_or_duplicate_metadata_refuses(self):
+        for raw in (b'{"conda_pkg_format_version":1}', b'{"conda_pkg_format_version":2.0}',
+                    b'{"conda_pkg_format_version":2,"conda_pkg_format_version":2}',
+                    b'{"conda_pkg_format_version":2,"extra":true}'):
+            with self.subTest(raw=raw):
+                self.members['metadata.json'] = raw
+                self.write_archive()
+                with self.assertRaisesRegex(ValueError, 'package metadata'):
+                    self.proof()
+        self.assertEqual(self.calls, [])
+
+    def test_selected_pin_url_and_identity_must_agree(self):
+        self.pin['build'] = 'different_0'
+        with self.assertRaisesRegex(ValueError, 'URL differs'):
+            self.proof()
+        self.pin['build'] = '../escape'
+        with self.assertRaisesRegex(ValueError, 'invalid standalone'):
+            self.proof()
+        self.assertEqual(self.calls, [])
+
+    def test_symlink_component_refuses(self):
+        name = f'pkg-{self.stem}.tar.zst'
+        linked = zipfile.ZipInfo(name)
+        linked.external_attr = 0o120777 << 16
+        self.write_archive([(linked if key == name else key, raw) for key, raw in self.members.items()])
+        with self.assertRaisesRegex(ValueError, 'unsupported standalone ZIP'):
+            self.proof()
+        self.assertEqual(self.calls, [])
+
+    def test_mutation_during_inspection_refuses(self):
+        def changing_stream(filename, *, component, zf):
+            yield from self.fake_stream(filename, component=component, zf=zf)
+            if component == 'info':
+                with self.archive.open('ab') as output:
+                    output.write(b'changed')
+        with self.assertRaisesRegex(ValueError, 'changed during inspection'):
+            self.proof(changing_stream)
+
+    def test_real_streaming_library_reads_renamed_archive(self):
+        try:
+            from conda_package_streaming import package_streaming as streaming
+        except ImportError:
+            self.skipTest('real Conda codec is exercised with the pinned publisher interpreter')
+        if streaming.zstd is None:
+            self.skipTest('real Conda codec is unavailable in this interpreter')
+        for name in list(self.members):
+            if name.endswith('.tar.zst'):
+                self.members[name] = streaming.zstd.compress(self.members[name])
+        self.write_archive()
+        with zipfile.ZipFile(self.archive) as archive:
+            with self.assertRaisesRegex(LookupError, 'pkg-standalone'):
+                list(streaming.stream_conda_component(self.archive, component='pkg', zf=archive))
+        binary, notices = c.bootstrap_proof(self.archive, self.executable, self.pin)
+        self.assertEqual(binary, c.sha(b'exact-bootstrap'))
+        self.assertEqual(notices, {'LICENSE.txt': b'upstream-notice'})
+        self.assertEqual(c.file_sha(self.archive), self.pin['sha256'])
 
 
 class ConstructorContracts(unittest.TestCase):

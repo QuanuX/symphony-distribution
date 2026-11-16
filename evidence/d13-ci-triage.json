@@ -1,0 +1,1087 @@
+{
+  "ci_waited": false,
+  "finding": {
+    "affected_runs": [
+      43951749057,
+      43951786672,
+      43951815598,
+      43951845155
+    ],
+    "cause": "The stream reader selects pkg/info members using the supplied filename basename; the selected public archive is stored locally as standalone.conda while its internal component stem retains its selected package identity.",
+    "error": "LookupError: didn't find pkg-standalone component in <bootstrap-download>/standalone.conda",
+    "fresh_user_executed": false,
+    "native_rebuild_required": false,
+    "new_carrier_payload_artifact_retained": false,
+    "passed_before_failure": [
+      "native artifact retrieval",
+      "native restoration and source verification",
+      "Go dependency preparation",
+      "delivery and source closure recollection"
+    ]
+  },
+  "observed_at": "2026-11-16T21:03:23Z",
+  "protocol": "symphony.distribution.ci-triage.v1",
+  "raw_log_evidence": [
+    {
+      "job_id": 133595841024,
+      "sha256": "84371577839a127bc763b39557bdf4c3f7bfeebc86a35ba3bef766674372cab8",
+      "size": 60634
+    },
+    {
+      "job_id": 133595958778,
+      "sha256": "87abbd4e5dcb9aed8334a4c534c4df31834992f375fc7d4ec6af2090f2e92dfb",
+      "size": 60150
+    },
+    {
+      "job_id": 133596110263,
+      "sha256": "01013e0d5bf6de3d121a1981ba77f5c03dfd2be07395d859d39cc7ab4fffa484",
+      "size": 60291
+    },
+    {
+      "job_id": 133596226923,
+      "sha256": "e037753314c497639f1baa3528252fee842143151fdcb789b583c71bad7a4829",
+      "size": 61197
+    }
+  ],
+  "read_only": true,
+  "repository": "QuanuX/symphony-distribution",
+  "runs": [
+    {
+      "conclusion": "success",
+      "event": "workflow_dispatch",
+      "head_sha": "7422b6fc59479da43cbd7d2694f4767643246f5f",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43945383060",
+      "id": 43945383060,
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 133573541286,
+          "name": "Cohort selection and refusal contracts",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select the exact reviewed source",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify cohort source and focused refusal tests",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "success",
+          "id": 133573952393,
+          "name": "Clean cohort (ubuntu26.04-amd64)",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select private dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Select the mapped Apple toolchain",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install the selected Linux compiler and payload inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Record additional qualification helper provenance",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify source and prepare public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Download exact dependency source archives",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare exact external libraries with explicit TLS selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Record final package and public dependency closure",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Summarize incomplete gates without exporting private logs",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded public evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "success",
+          "id": 133573952488,
+          "name": "Clean cohort (ubuntu24.04-amd64)",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select private dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Select the mapped Apple toolchain",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install the selected Linux compiler and payload inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Record additional qualification helper provenance",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify source and prepare public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Download exact dependency source archives",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare exact external libraries with explicit TLS selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Record final package and public dependency closure",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Summarize incomplete gates without exporting private logs",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded public evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "success",
+          "id": 133573952631,
+          "name": "Clean cohort (ubuntu24.04-arm64)",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select private dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Select the mapped Apple toolchain",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install the selected Linux compiler and payload inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Record additional qualification helper provenance",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify source and prepare public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Download exact dependency source archives",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare exact external libraries with explicit TLS selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Record final package and public dependency closure",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Summarize incomplete gates without exporting private logs",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded public evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "path": ".github/workflows/build-cohort.yml",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "artifacts": [
+        {
+          "expired": false,
+          "id": 14267522934,
+          "name": "d12-native-rewrap-evidence-macos15-arm64-1",
+          "sha256": "sha256:c3e2895340a607d010a4ef34ca0686c61da555702f683d1146e0d77128dd17d1",
+          "size": 204095
+        }
+      ],
+      "conclusion": "failure",
+      "event": "workflow_dispatch",
+      "head_sha": "074b02755422fcfc2a6db3b929be529c33090252",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951749057",
+      "id": 43951749057,
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 133595755671,
+          "name": "contracts",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Check only native recovery and carrier handoff contracts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Admit exact committed native recovery selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "failure",
+          "id": 133595841024,
+          "name": "rewrap",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select isolated public dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve exact original native and SDK artifacts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare isolated packaging and archive inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Restore verified native bytes and original successful SDK evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify frozen source and prepare exact public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve pinned external sources for delivery notices",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Recollect notices and source closure without rebuilding native payloads",
+              "status": "completed"
+            },
+            {
+              "conclusion": "failure",
+              "name": "Assemble repaired carriers and wrappers from unchanged native bytes",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Retain exact verified wrapper inputs for separate consumer",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded recovery evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "skipped",
+          "id": 133597299342,
+          "name": "fresh-user",
+          "status": "completed"
+        }
+      ],
+      "path": ".github/workflows/d12-native-rewrap.yml",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "artifacts": [
+        {
+          "expired": false,
+          "id": 14267018379,
+          "name": "d12-native-rewrap-evidence-ubuntu24.04-amd64-1",
+          "sha256": "sha256:bd8c3c6613302c156dbe1f8f6c87cbdedd812bc903d5aedb30ece6440e76e9b5",
+          "size": 204583
+        }
+      ],
+      "conclusion": "failure",
+      "event": "workflow_dispatch",
+      "head_sha": "074b02755422fcfc2a6db3b929be529c33090252",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951786672",
+      "id": 43951786672,
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 133595885132,
+          "name": "contracts",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Check only native recovery and carrier handoff contracts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Admit exact committed native recovery selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "failure",
+          "id": 133595958778,
+          "name": "rewrap",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select isolated public dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve exact original native and SDK artifacts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare isolated packaging and archive inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Restore verified native bytes and original successful SDK evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify frozen source and prepare exact public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve pinned external sources for delivery notices",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Recollect notices and source closure without rebuilding native payloads",
+              "status": "completed"
+            },
+            {
+              "conclusion": "failure",
+              "name": "Assemble repaired carriers and wrappers from unchanged native bytes",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Retain exact verified wrapper inputs for separate consumer",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded recovery evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "skipped",
+          "id": 133597147165,
+          "name": "fresh-user",
+          "status": "completed"
+        }
+      ],
+      "path": ".github/workflows/d12-native-rewrap.yml",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "artifacts": [
+        {
+          "expired": false,
+          "id": 14267488119,
+          "name": "d12-native-rewrap-evidence-ubuntu24.04-arm64-1",
+          "sha256": "sha256:710f8d31fda38539ed54bc4b100ab8c7ede8ed2e9320ae52e4108bc32841a7dc",
+          "size": 204588
+        }
+      ],
+      "conclusion": "failure",
+      "event": "workflow_dispatch",
+      "head_sha": "074b02755422fcfc2a6db3b929be529c33090252",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951815598",
+      "id": 43951815598,
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 133595985273,
+          "name": "contracts",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Check only native recovery and carrier handoff contracts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Admit exact committed native recovery selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "failure",
+          "id": 133596110263,
+          "name": "rewrap",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select isolated public dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve exact original native and SDK artifacts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare isolated packaging and archive inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Restore verified native bytes and original successful SDK evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify frozen source and prepare exact public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve pinned external sources for delivery notices",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Recollect notices and source closure without rebuilding native payloads",
+              "status": "completed"
+            },
+            {
+              "conclusion": "failure",
+              "name": "Assemble repaired carriers and wrappers from unchanged native bytes",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Retain exact verified wrapper inputs for separate consumer",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded recovery evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "skipped",
+          "id": 133597412100,
+          "name": "fresh-user",
+          "status": "completed"
+        }
+      ],
+      "path": ".github/workflows/d12-native-rewrap.yml",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "artifacts": [
+        {
+          "expired": false,
+          "id": 14266903537,
+          "name": "d12-native-rewrap-evidence-ubuntu26.04-amd64-1",
+          "sha256": "sha256:a53e39e7098a86e36432f1208fc35e7e7630c15276fb9484c14714e455837afe",
+          "size": 204751
+        }
+      ],
+      "conclusion": "failure",
+      "event": "workflow_dispatch",
+      "head_sha": "074b02755422fcfc2a6db3b929be529c33090252",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951845155",
+      "id": 43951845155,
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 133596093115,
+          "name": "contracts",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Check only native recovery and carrier handoff contracts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Admit exact committed native recovery selection",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "failure",
+          "id": 133596226923,
+          "name": "rewrap",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Select isolated public dependency caches",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve exact original native and SDK artifacts",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Prepare isolated packaging and archive inspection tools",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Restore verified native bytes and original successful SDK evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify frozen source and prepare exact public Go dependencies",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retrieve pinned external sources for delivery notices",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Recollect notices and source closure without rebuilding native payloads",
+              "status": "completed"
+            },
+            {
+              "conclusion": "failure",
+              "name": "Assemble repaired carriers and wrappers from unchanged native bytes",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Retain exact verified wrapper inputs for separate consumer",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Retain bounded recovery evidence",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "conclusion": "skipped",
+          "id": 133597549598,
+          "name": "fresh-user",
+          "status": "completed"
+        }
+      ],
+      "path": ".github/workflows/d12-native-rewrap.yml",
+      "run_attempt": 1,
+      "status": "completed"
+    }
+  ],
+  "source_changes_in_snapshot": false
+}
