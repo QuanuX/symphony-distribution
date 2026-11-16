@@ -179,7 +179,7 @@ def bound_publisher_transport(api):
     import binstar_client
     import requests
     from requests_toolbelt import MultipartEncoder, MultipartEncoderMonitor
-    c.require(api.session.verify is not False, 'Publisher TLS verification must remain enabled')
+    c.require(bool(api.session.verify), 'Publisher TLS verification must remain enabled')
     api.session.trust_env = False
     request = api.session.request
     def bounded_request(method, url, **kwargs):
@@ -191,7 +191,7 @@ def bound_publisher_transport(api):
     def bounded_multipart(url, data, files=None, progress_bar=None, **kwargs):
         p = destination(url)
         c.require(p.hostname.endswith('.amazonaws.com'), 'Unselected object-upload destination')
-        c.require(kwargs.get('verify', True) is not False, 'Object upload TLS verification required')
+        c.require(bool(kwargs.get('verify', True)), 'Object upload TLS verification required')
         body = dict(data)
         if files: body.update(files)
         encoder = MultipartEncoder(body)

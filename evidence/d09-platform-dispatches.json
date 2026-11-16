@@ -1,0 +1,31 @@
+{
+  "branch": "codex/d09-review-channel-gates",
+  "commit": "5090c0aaea4dec188f696eb4ba88deeefed71be5",
+  "dispatches": [
+    {
+      "profile": "macos15-arm64",
+      "dispatch_accepted": true,
+      "stdout": "https://github.com/QuanuX/symphony-distribution/actions/runs/43915717269",
+      "stderr": ""
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "dispatch_accepted": true,
+      "stdout": "https://github.com/QuanuX/symphony-distribution/actions/runs/43915723610",
+      "stderr": ""
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "dispatch_accepted": true,
+      "stdout": "https://github.com/QuanuX/symphony-distribution/actions/runs/43915729491",
+      "stderr": ""
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "dispatch_accepted": true,
+      "stdout": "https://github.com/QuanuX/symphony-distribution/actions/runs/43915735379",
+      "stderr": ""
+    }
+  ],
+  "results_waited_for": false
+}

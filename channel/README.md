@@ -13,8 +13,9 @@ signed manifest.
 existing account authentication. Account/token values are never arguments or
 retained evidence. Existing immutable builds must match bytes, size and selected
 label; different builds are refused. There is no overwrite, deletion, promotion
-to `main`/`beta`, or implicit relabel operation. A durable mutation-intent record
-precedes each upload. An uncertain result stops the attempt: inspect the journal
+to `main`/`beta`, or implicit relabel operation. The exact corresponding-source carrier is uploaded and freshly retrieved first;
+its URL and extraction directions accompany each binary record. A durable
+mutation-intent record precedes each upload. An uncertain result stops the attempt: inspect the journal
 and remote identity before making a new explicit decision; do not blindly retry.
 
 `retrieve --plan PLAN --output NEW_DIRECTORY` uses an empty authentication/cookie

@@ -126,8 +126,9 @@ class StageTests(unittest.TestCase):
         requests.Session=Session; belt.MultipartEncoder=Encoder; belt.MultipartEncoderMonitor=Encoder
         with patch.dict('sys.modules',{'binstar_client':sdk,'requests':requests,'requests_toolbelt':belt}):
             api=types.SimpleNamespace(session=Session())
-            api.session.verify=False
-            with self.assertRaisesRegex(ValueError,'TLS'): s.bound_publisher_transport(api)
+            for disabled in (False, None, 0, ''):
+                api.session.verify=disabled
+                with self.assertRaisesRegex(ValueError,'TLS'): s.bound_publisher_transport(api)
             api.session.verify=True;s.bound_publisher_transport(api)
             api.session.request('GET','https://api.anaconda.org/user',timeout=36000)
             sdk.multipart_files_upload('https://binstar-cio-packages-prod.s3.amazonaws.com/',{},verify=True)
