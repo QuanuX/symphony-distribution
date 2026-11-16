@@ -1,5 +1,8 @@
 # D10 selected Mac and acceptance-gate follow-up
 
+The selected local Mac shell-installer check passed. The broader Public Beta
+acceptance gate remains incomplete for the reasons listed below.
+
 The release owner selected the retained Intel Mac build and assigned themselves
 as the human redistribution reviewer. The feature freeze remains in effect.
 Core and client `main` are unchanged; no source pull request has been merged.
@@ -36,10 +39,35 @@ artifacts remain unchanged; the failure and private-log hashes are retained in
 `evidence/d10-original-mac-wrapper-failure.json`. Earlier carrier-only Conda
 installation evidence remains valid for that separately tested delivery route.
 
-The [selected Mac campaign](D10-MAC-SHELL.md) separately verifies wrapper
-installation, refusal of unsafe existing-prefix operations, named inert-carrier
-removal, and preservation of caller state. Repaired wrapper bytes must receive
-their own source and signature binding before this campaign can pass.
+The [selected Mac campaign](D10-MAC-SHELL.md) passed against the separately signed
+repair using the shipped installation defaults. All 59 packages installed and
+all 177 carrier files matched their selected bytes and modes. Existing-prefix,
+forced-replacement, upgrade and dangling-link requests refused without changing
+installed or caller state. Named offline removal removed every selected carrier
+and preserved private-home/user/outside state, wrapper notices and the bootstrap.
+`evidence/d10-selected-mac-shell.json` retains the exact result, six command-log
+hashes and 23 executing-helper hashes. Original signed inputs, the new overlay
+and the verified private execution copy were rechecked unchanged.
+
+Both repaired formats now pass their final audits and a separate automated
+artifact review, preserving all 59 original carrier archives. Their separate six-artifact
+review signature and exact source binding are retained in
+`evidence/d10-repaired-wrapper-overlay.json` and
+`evidence/d10-repaired-wrapper-manifest.json`. The original review identity and
+all published carrier bytes are unchanged. The Mac package is audited but has
+not been installed through Apple's system installer.
+
+The final affected suites passed: 21 platform, 25 constructor, 15 package
+finalizer and 17 selected-Mac/overlay tests. The final constructor and Mac changes
+were independently rechecked across all 42 tests. Workflow lint and the private
+source-policy scans passed. These checks are separate from actual installer
+execution and from hosted CI results.
+
+The primary platform runs started before the wrapper repair can still retain
+useful native-build outputs. Preserve those outputs for the bounded
+[wrapper-only follow-up](D10-PRIMARY-REWRAP.md); repeating their original jobs
+would use the old wrapper producer. No additional full-platform build was
+dispatched or awaited for this follow-up.
 
 ## Gate interpretation
 

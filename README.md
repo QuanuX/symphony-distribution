@@ -77,7 +77,10 @@ This local harness explicitly uses the supplemental Intel macOS fixture profile.
 
 ## Distribution and remaining gates
 
-Conda packages are intended for the QuanuX organization on Anaconda. macOS `.pkg` and Linux `.sh` downloads are intended for Cloudflare storage and the website. Neither destination is activated by this repository.
+Conda review packages are staged under the QuanuX organization on Anaconda's
+dedicated review label. macOS `.pkg` and Linux `.sh` downloads remain intended
+for Cloudflare storage and the website. Publication requires explicit selection;
+repository checks do not promote review artifacts to a beta release.
 
 Remaining release gates include genuine two-version compatibility where available; real supported-host journeys; complete native/C++ and raw-consumer retirement coverage; external/shared ownership and pending-work recovery; final clean CI builds; publisher signing and trust; license/redistribution review; and approved publication. Installation preparation must never promote a refused or untested cell into acceptance.
 
@@ -101,3 +104,14 @@ keep public review staging separate from beta approval, and the
 notice, trust and integration boundaries. Four primary-profile workflows have
 been dispatched without waiting for results; [native maintenance](docs/D09-NATIVE-MAINTENANCE.md)
 and real cross-version transitions retain their separate safety gates.
+
+## D10 selected Mac qualification
+
+The [D10 status](docs/D10-STATUS.md) records the primary-workflow setup repair,
+the corrected and separately signed Mac wrappers, and the successful actual
+shell-installer check: 59 packages, 177 matching carrier files, safe refusal and
+named removal with caller-state preservation. The [legal handoff](docs/D10-LEGAL-REVIEW.md)
+records the release owner's reviewer assignment and exact materials for a later
+decision. Primary build outputs are preserved for [wrapper-only qualification](docs/D10-PRIMARY-REWRAP.md).
+Native PKG execution, full native maintenance, genuine version transitions and
+the broader Public Beta acceptance gate remain open.

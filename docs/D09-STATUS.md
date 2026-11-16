@@ -67,3 +67,8 @@ assigned themselves as human redistribution reviewer. See
 [D10 legal review](D10-LEGAL-REVIEW.md) and
 `evidence/d10-reviewer-assignment.json`. This later assignment does not rewrite
 the historical packet or record a legal approval that has not been supplied.
+
+The [D10 follow-up](D10-STATUS.md) records the subsequent CI repairs and successful
+local Mac shell-installer check against separately signed repaired wrappers.
+The original public carrier packages and their D09 retrieval records are
+unchanged; the broader release gates remain open.

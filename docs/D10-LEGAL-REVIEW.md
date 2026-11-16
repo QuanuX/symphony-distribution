@@ -43,3 +43,32 @@ It cannot decide legal applicability or authenticate an external approval.
 Retain the human's actual decision separately; do not substitute generated text
 for it. The earlier D09 packet remains unchanged, with this assignment supplied
 as a later overlay. Release authority remains with the release owner.
+
+## Repaired wrapper supplement
+
+The original signed shell wrapper failed its first actual installation check.
+Its replacement preserves all 59 selected carrier archives and adds a separately
+signed wrapper/source supplement. The existing Anaconda staging record still
+describes the original, unchanged 60 carrier packages; it has not been recreated
+or relabelled as a new wrapper publication.
+
+Review `evidence/d10-repaired-wrapper-overlay.json` together with the original
+packet. The selected supplement manifest is
+`97152020349962e044f4e89971da3cecd7deba89babee1be001b3c7aeda9c8b7`.
+Its six artifacts include the repaired `.pkg` and `.sh`, wrapper audit and repair
+binding, and the exact 231-file wrapper-toolkit source archive/index from
+`afa7f9f127112564dc917152071bdf07da560fca`. The signature uses the original review
+certificate; it does not grant Apple publisher trust or notarization.
+
+The repaired shell SHA-256 is
+`98ba45f86fe3f2603713d73a550edc08bcf18c99f7bbb8b6fa0b4dd191d288d6`;
+the repaired package SHA-256 is
+`dfe548bf595bf5cb8524c84ca7b332674cc92c71cfa6ae9d18786bfe522110d0`.
+Any standalone-installer decision must identify this supplement as well as the
+original carrier/bootstrap notice and source materials. The earlier assignment
+remains in force; no legal approval is inferred from rebuilding or signing.
+
+The repaired shell subsequently passed its local installation, refusal and
+removal check (`evidence/d10-selected-mac-shell.json`). The package wrapper is
+audited but unexecuted through Apple's installer. These technical results are
+supporting review material; they do not supply the human's legal decision.

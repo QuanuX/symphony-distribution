@@ -68,3 +68,27 @@ shell bytes through a bounded no-follow read to a read-only private snapshot,
 rechecks its size/hash, audits it, and executes only that snapshot. Original
 inputs, overlay source, helper closure and execution snapshot are verified again
 before success. Reassembly and actual execution remain distinct evidence states.
+
+## Reproduce the selected check
+
+Select the retained original delivery, the repaired wrapper supplement and the
+existing exact publisher interpreter/OpenSSL. The output must be a new private
+directory. Obtain the certificate pin through the separately selected review
+trust process; this command does not establish publisher trust.
+
+```sh
+"$PUBLISHER_PYTHON" -B qualification/d10_mac.py \
+  --plan evidence/d09-anaconda-stage-plan.json \
+  --stage-record evidence/d09-anaconda-staging.json \
+  --plan-sha256 30cbed74ccfa9e42eeedb664356cd37ecb01a5629480010d628ab468a42bae15 \
+  --delivery "$ORIGINAL_REVIEW_DELIVERY" \
+  --wrapper-overlay "$REPAIRED_WRAPPER_SUPPLEMENT" \
+  --wrapper-manifest-sha256 97152020349962e044f4e89971da3cecd7deba89babee1be001b3c7aeda9c8b7 \
+  --certificate-sha256 "$SELECTED_REVIEW_CERTIFICATE_SHA256" \
+  --openssl "$EXACT_OPENSSL" \
+  --output "$NEW_PRIVATE_OUTPUT" \
+  --allow-selected-mac
+```
+
+Installation uses the shipped solver-default path. Only the separately named
+offline removal requests the pinned bootstrap's builtin classic solver.
