@@ -98,3 +98,40 @@ in this source repository.
 
 The runner labels are defined by [GitHub's hosted-runner documentation](https://docs.github.com/en/actions/reference/runners/github-hosted-runners).
 Bootstrap assets are pinned by digest to the [official Miniforge release](https://github.com/conda-forge/miniforge/releases/tag/26.9.4-2).
+
+## D06 final-source SDK and removal closure
+
+After `build-cohort/build.py` completes, the additional closure runs against one
+exact final round. Repeated-build equality is established by the cohort builder;
+this campaign verifies the selected round's source provenance, helper hashes,
+51 native receipts and full payload inventory before using it.
+
+```sh
+python3 qualification/d06_sdk_closure.py \
+  --repository /absolute/exact-core-checkout \
+  --cohort-output /absolute/completed-cohort --output /absolute/new-closure-work \
+  --go /absolute/go1.26.5/bin/go --gomodcache /absolute/verified-module-cache \
+  --cmake /absolute/cmake --cc /absolute/clang --cxx /absolute/clang++
+```
+
+On Apple hosts, also pass the same explicit `--developer-dir` used to build the
+cohort. The copied original L20 census function produces the synthetic native
+evaluation used by the unmodified shipped `libraries/sbv-go/examples/roundtrip`.
+This runs independent source compilation, typed streaming, cancellation,
+proposal evaluation, resume and comparison against final qxctl/native bytes.
+Its declared synthetic probabilities do not become calibrated provider evidence;
+the broader L20 process-fault campaign is not claimed by this selection.
+
+Each native owner is configured without rebuilding or installing its payload.
+The resulting detached uninstaller's configured file set must exactly match the
+final receipt. On a disposable full-prefix copy, the campaign checks owned-byte,
+SDK header/export, receipt-digest and resealed-identity tamper refusal; incomplete
+receipt admission; resumable removal; exact retry; and unrelated-file preservation
+in reverse dependency order. A timeout is a failed gate, never a successful
+refusal. External libraries, Go binaries and caller evidence remain outside these
+native removal claims and must survive unchanged.
+
+The final candidate, source inventory and helpers are checked again afterward.
+Only the bounded `result.json` is retained for sharing; raw fixture outputs and
+logs remain private. A passing report closes these observed engineering checks,
+not live process retirement, publisher trust or fresh-host acceptance.

@@ -1,0 +1,228 @@
+name: D06 clean native and SDK cohort
+on:
+  push:
+    branches: ['codex/**']
+    paths: ['.github/workflows/build-cohort.yml', 'build-cohort/**', 'source-binding.json', 'qualification/native_campaign.py', 'qualification/d06_*.py', 'qualification/test_d06_*.py', 'source-export/**', 'owner-catalog/native_owners.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: d06-cohort-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    name: Cohort selection and refusal contracts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      source: ${{ steps.source.outputs.commit }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Select the exact reviewed source
+        id: source
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          commit = json.load(open('source-binding.json'))['source_commit']
+          assert re.fullmatch('[0-9a-f]{40}', commit)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('commit=' + commit + '\n')
+          PY
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ steps.source.outputs.commit }}
+          path: work/core
+          persist-credentials: false
+      - name: Verify cohort source and focused refusal tests
+        run: |
+          python3 tests/check_source_binding.py work/core
+          python3 build-cohort/plan.py verify --core work/core
+          python3 -m unittest discover -s build-cohort -p 'test_*.py' -v
+          python3 -m unittest discover -s qualification -p 'test_d06_*.py' -v
+  native:
+    name: Clean cohort (${{ matrix.profile }})
+    needs: contracts
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - profile: macos15-arm64
+            runner: macos-15
+            cc: /usr/bin/clang
+            cxx: /usr/bin/clang++
+          - profile: ubuntu24.04-amd64
+            runner: ubuntu-24.04
+            cc: clang-18
+            cxx: clang++-18
+          - profile: ubuntu24.04-arm64
+            runner: ubuntu-24.04-arm
+            cc: clang-18
+            cxx: clang++-18
+          - profile: ubuntu26.04-amd64
+            runner: ubuntu-26.04
+            cc: clang-21
+            cxx: clang++-21
+    env:
+      GOWORK: 'off'
+      GOENV: 'off'
+      GOTOOLCHAIN: local
+      GOTELEMETRY: 'off'
+      GOPROXY: https://proxy.golang.org
+      GOSUMDB: sum.golang.org
+      PROFILE: ${{ matrix.profile }}
+      CC: ${{ matrix.cc }}
+      CXX: ${{ matrix.cxx }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ needs.contracts.outputs.source }}
+          path: work/core
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.5'
+          cache: false
+      - name: Select private dependency caches
+        shell: bash
+        run: |
+          echo "GOMODCACHE=$RUNNER_TEMP/d06-gomodcache" >> "$GITHUB_ENV"
+          echo "GOCACHE=$RUNNER_TEMP/d06-prefetch-cache" >> "$GITHUB_ENV"
+      - name: Select the mapped Apple toolchain
+        if: runner.os == 'macOS'
+        run: echo 'DEVELOPER_DIR=/Applications/Xcode_26.3.app/Contents/Developer' >> "$GITHUB_ENV"
+      - name: Install the selected Linux compiler and payload inspection tools
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update
+          sudo apt-get -o Acquire::Retries=3 install --no-install-recommends -y "$CC" patchelf libssl-dev pkg-config
+      - name: Verify source and prepare public Go dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 build-cohort/plan.py verify --core work/core
+          test "$(go env GOVERSION)" = go1.26.5
+          command -v "$CC"
+          command -v "$CXX"
+          python3 - <<'PY'
+          import json, pathlib, subprocess, time
+          source = pathlib.Path('work/core').resolve()
+          modules = json.loads((source / 'cmake/mvp-dependencies.json').read_text())['go_modules']
+          for module in modules:
+              # Retry only this network preparation. Builds themselves never retry.
+              for attempt in range(3):
+                  result = subprocess.run(['go', 'mod', 'download'], cwd=source / module['path'])
+                  if result.returncode == 0:
+                      break
+                  if attempt == 2:
+                      raise SystemExit(result.returncode)
+                  time.sleep(2 ** attempt)
+              subprocess.run(['go', 'mod', 'verify'], cwd=source / module['path'], check=True)
+          PY
+      - name: Download exact dependency source archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/d06-archives"
+          curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
+            https://curl.se/download/curl-8.7.1.tar.xz \
+            --output "$RUNNER_TEMP/d06-archives/curl-8.7.1.tar.xz"
+          curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
+            https://github.com/meta/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz \
+            --output "$RUNNER_TEMP/d06-archives/zstd-1.5.7.tar.gz"
+      - name: Record additional qualification helper provenance
+        run: python3 qualification/d06_failure_summary.py --record-baseline "$RUNNER_TEMP/d06-helper-baseline.json"
+      - name: Prepare exact external libraries with explicit TLS selection
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, pathlib, platform, re, shutil, subprocess, sys
+          temporary = pathlib.Path(os.environ['RUNNER_TEMP'])
+          cc, cxx = shutil.which(os.environ['CC']), shutil.which(os.environ['CXX'])
+          assert cc and cxx
+          command = [sys.executable, 'build-cohort/external.py',
+              '--source', str(pathlib.Path('work/core').resolve()),
+              '--work', str(temporary / 'd06-external'),
+              '--curl-archive', str(temporary / 'd06-archives/curl-8.7.1.tar.xz'),
+              '--zstd-archive', str(temporary / 'd06-archives/zstd-1.5.7.tar.gz'),
+              '--cmake', shutil.which('cmake'), '--cc', cc, '--cxx', cxx]
+          if os.environ.get('DEVELOPER_DIR'):
+              command += ['--developer-dir', os.environ['DEVELOPER_DIR']]
+          if platform.system() == 'Linux':
+              header = pathlib.Path('/usr/include/openssl/opensslv.h').read_text()
+              version = re.search(r'^\s*#\s*define\s+OPENSSL_VERSION_STR\s+"([^"]+)"', header, re.M)
+              assert version, 'Exact installed OpenSSL header version is required'
+              command += ['--openssl-version', version.group(1), '--openssl-include-dir', '/usr/include']
+              for name, flag in [('ssl', '--openssl-ssl-library'), ('crypto', '--openssl-crypto-library')]:
+                  library = pathlib.Path(subprocess.check_output([cc, '-print-file-name=lib' + name + '.so'], text=True).strip()).resolve(strict=True)
+                  command += [flag, str(library)]
+          subprocess.run(command, check=True)
+          PY
+      - name: Build two clean cohorts and qualify final installed SDKs
+        shell: bash
+        run: |
+          set -euo pipefail
+          extra=()
+          if [ -n "${DEVELOPER_DIR:-}" ]; then
+            extra+=(--developer-dir "$DEVELOPER_DIR")
+          fi
+          python3 build-cohort/build.py --repository "$GITHUB_WORKSPACE/work/core" \
+            --output "$RUNNER_TEMP/d06-cohort" --profile "$PROFILE" \
+            --cmake "$(command -v cmake)" --cc "$(command -v "$CC")" --cxx "$(command -v "$CXX")" \
+            --go "$(command -v go)" --gomodcache "$GOMODCACHE" \
+            --external-prefix "$RUNNER_TEMP/d06-external/prefix" --repeat --prune-builds "${extra[@]}"
+      - name: Record final package and public dependency closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qualification/d06_delivery_record.py --build-root "$RUNNER_TEMP/d06-cohort" \
+            --repository "$GITHUB_WORKSPACE/work/core" --go "$(command -v go)" \
+            --gomodcache "$GOMODCACHE" --external-sources "$RUNNER_TEMP/d06-archives" \
+            --output "$RUNNER_TEMP/d06-delivery"
+      - name: Qualify copied Go SDK and disposable native removal
+        shell: bash
+        run: |
+          set -euo pipefail
+          extra=()
+          if [ -n "${DEVELOPER_DIR:-}" ]; then
+            extra+=(--developer-dir "$DEVELOPER_DIR")
+          fi
+          python3 qualification/d06_sdk_closure.py --repository "$GITHUB_WORKSPACE/work/core" \
+            --cohort-output "$RUNNER_TEMP/d06-cohort" --output "$RUNNER_TEMP/d06-sdk-closure" \
+            --cmake "$(command -v cmake)" --cc "$(command -v "$CC")" --cxx "$(command -v "$CXX")" \
+            --go "$(command -v go)" --gomodcache "$GOMODCACHE" "${extra[@]}"
+      - name: Summarize incomplete gates without exporting private logs
+        if: always()
+        run: |
+          python3 qualification/d06_failure_summary.py \
+            --cohort "$RUNNER_TEMP/d06-cohort" --external "$RUNNER_TEMP/d06-external" \
+            --workspace "$GITHUB_WORKSPACE" --runner-temp "$RUNNER_TEMP" \
+            --helper-baseline "$RUNNER_TEMP/d06-helper-baseline.json" \
+            --output "$RUNNER_TEMP/d06-failure-summary.json"
+      - name: Retain bounded public evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d06-cohort-${{ matrix.profile }}
+          path: |
+            ${{ runner.temp }}/d06-cohort/result.json
+            ${{ runner.temp }}/d06-cohort/round-*/result.json
+            ${{ runner.temp }}/d06-cohort/round-*/sdk-audit/sdk-audit.json
+            ${{ runner.temp }}/d06-cohort/round-*/owner-audit/result.json
+            ${{ runner.temp }}/d06-external/prefix/share/symphony/dependency-evidence/curl-zstd.json
+            ${{ runner.temp }}/d06-sdk-closure/result.json
+            ${{ runner.temp }}/d06-delivery/delivery-record.json
+            ${{ runner.temp }}/d06-failure-summary.json
+          if-no-files-found: warn
+          retention-days: 14

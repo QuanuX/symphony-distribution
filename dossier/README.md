@@ -141,3 +141,11 @@ precise native restart/delete crash boundaries, escaped process lifetimes,
 mid-operation native response loss, genuine distinct-release selection/rollback,
 unresolved audit recovery and unsupported raw/C++/shared-environment ownership.
 No source/documentation consistency check closes those gates.
+
+## D06 continuation
+
+The [D06 clean-cohort supplement](../docs/D06-CLEAN-COHORT.md) records the full
+native/SDK construction work on a separate distribution branch. Its source-bound
+selection and new evidence extend this dossier; they do not rewrite the S08
+observations or mark its acceptance cells complete. See the D06 evidence report
+for actual local build results, requested hosted builds and remaining blockers.
