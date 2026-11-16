@@ -120,13 +120,10 @@ jobs:
         run: |
           python3 - <<'PYCODE'
           import os, pathlib, subprocess, sys
+          sys.path.insert(0, 'qualification')
+          from d09_platform import write_private_policy
           root = pathlib.Path(os.environ['RUNNER_TEMP'])
-          raw = os.environ.pop('PRIVATE_SOURCE_POLICY')
-          if not raw:
-              raise SystemExit('Reviewed source privacy policy secret is required; no raw-source fallback')
-          policy = root / 'd09-source-policy.json'
-          with policy.open('x', opener=lambda path, flags: os.open(path, flags, 0o600)) as stream:
-              stream.write(raw)
+          policy = write_private_policy(root / 'd09-source-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY', ''))
           subprocess.run([sys.executable, '-B', 'qualification/d09_platform.py', 'source',
               '--repository', str(pathlib.Path('work/core').resolve()), '--policy', str(policy),
               '--output', str(root / 'd09-source'), '--export-digest', os.environ['EXPECTED_EXPORT'],

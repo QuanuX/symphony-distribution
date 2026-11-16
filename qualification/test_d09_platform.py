@@ -1,7 +1,11 @@
 import copy
+import contextlib
+import io
 import json
 import os
 from pathlib import Path
+import re
+import subprocess
 import tempfile
 import textwrap
 from types import SimpleNamespace
@@ -58,6 +62,55 @@ class PlatformTests(unittest.TestCase):
         policy = self.root / 'policy'; policy.write_text('{}'); policy.chmod(0o644)
         with self.assertRaisesRegex(ValueError, '0600'):
             gate.prepare_source(self.root, policy, self.root / 'export', 'a' * 64, 'b' * 64)
+
+    def test_private_policy_exclusive0600_under_permissive_umask(self):
+        path = self.root / 'policy.json'
+        original_umask = os.umask(0)
+        try:
+            self.assertEqual(gate.write_private_policy(path, '{"private":"fixture-only"}'), path)
+        finally:
+            os.umask(original_umask)
+        self.assertEqual(path.stat().st_mode & 0o777, 0o600)
+        self.assertEqual(path.read_text(), '{"private":"fixture-only"}')
+        with self.assertRaises(FileExistsError): gate.write_private_policy(path, 'replacement')
+        self.assertEqual(path.read_text(), '{"private":"fixture-only"}')
+
+    def test_private_policy_missing_or_linked_input_refuses_without_mutation(self):
+        absent = self.root / 'absent'
+        for raw in ('', None, 'x' * 65537):
+            with self.assertRaises(ValueError): gate.write_private_policy(absent, raw)
+            self.assertFalse(absent.exists())
+        linked = self.root / 'linked'; linked.symlink_to(absent)
+        with self.assertRaises(ValueError): gate.write_private_policy(linked, 'fixture')
+        self.assertTrue(linked.is_symlink()); self.assertFalse(absent.exists())
+        directory = self.root / 'directory'; directory.mkdir()
+        parent = self.root / 'linked-parent'; parent.symlink_to(directory, target_is_directory=True)
+        with self.assertRaises(ValueError): gate.write_private_policy(parent / 'policy', 'fixture')
+        self.assertEqual(list(directory.iterdir()), [])
+
+    def test_actual_workflow_source_step_creates_private_policy_before_export_invocation(self):
+        workflow = (gate.ROOT / '.github/workflows/d09-platform.yml').read_text()
+        step = workflow.split('      - name: Reproduce only the independently selected reviewed source export\n', 1)[1]
+        step = step.split('      - name:', 1)[0]
+        match = re.search(r"python3 - <<'PYCODE'\n(.*?)\n          PYCODE", step, re.S)
+        self.assertIsNotNone(match)
+        program = textwrap.dedent(match.group(1))
+        output = io.StringIO()
+        environment = {'RUNNER_TEMP': str(self.root), 'PRIVATE_SOURCE_POLICY': '{"private":"fixture-only"}',
+                       'EXPECTED_EXPORT': 'a' * 64, 'EXPECTED_MANIFEST': 'b' * 64}
+        with patch.dict(os.environ, environment, clear=True), patch.object(subprocess, 'run') as child, \
+             contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
+            exec(compile(program, '<actual-d09-workflow-source-step>', 'exec'), {})
+            self.assertNotIn('PRIVATE_SOURCE_POLICY', os.environ)
+        policy = self.root / 'd09-source-policy.json'
+        self.assertEqual(policy.stat().st_mode & 0o777, 0o600)
+        self.assertEqual(policy.read_text(), environment['PRIVATE_SOURCE_POLICY'])
+        command = child.call_args.args[0]
+        self.assertEqual(command[1:4], ['-B', 'qualification/d09_platform.py', 'source'])
+        self.assertEqual(command[command.index('--policy') + 1], str(policy))
+        self.assertEqual(command[command.index('--export-digest') + 1], 'a' * 64)
+        self.assertEqual(command[command.index('--manifest-sha256') + 1], 'b' * 64)
+        self.assertEqual(output.getvalue(), '')
 
     def test_new_output_custody(self):
         source = self.root / 'input'; source.mkdir()

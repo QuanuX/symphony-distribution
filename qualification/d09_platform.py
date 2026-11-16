@@ -69,6 +69,19 @@ def safe(path):
     return path
 
 
+def write_private_policy(path, raw):
+    """Create the selected private input exclusively, never through a link."""
+    require(isinstance(raw, str) and 0 < len(raw.encode('utf-8')) <= 65536,
+            'Reviewed source privacy policy secret is required; no raw-source fallback')
+    path = safe(path)
+    require(path.parent.is_dir(), 'Private policy parent is absent')
+    descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC, 0o600)
+    with os.fdopen(descriptor, 'w', encoding='utf-8') as stream:
+        os.fchmod(stream.fileno(), 0o600)
+        stream.write(raw)
+    return path
+
+
 def fresh(path, inputs):
     path = safe(path)
     require(not path.exists() and path.parent.is_dir(), 'Output must be new with an existing parent')
