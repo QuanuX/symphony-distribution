@@ -37,7 +37,7 @@ the original completed upload plan retains its exact original helper binding.
 | Area | Current evidence | Remaining gate |
 | --- | --- | --- |
 | Primary platforms and fresh users | Reviewed source independently reproduced; four hosted profile workflows dispatched with separate disposable-user jobs | Hosted outcomes, matching primary clients, Apple PKG installation and full 36-cell independent acceptance |
-| Native maintenance | Exact 51-owner register and focused refusal/recovery harness | Completed delivered-byte campaign; live-use retirement and managed shared-root authority remain separate |
+| Native maintenance | All 51 delivered-owner cycles passed: 612 commands, 1,250 retained entries preserved | Live-use retirement, native installation and managed shared-root authority remain separate |
 | Upgrade and rollback | Distinct-release admission rejects rebuilds/relabels of one candidate | Second independently qualified native versions and real transition/rollback compatibility |
 | Final integration | Exact core/client/distribution PR graph and source-bound acceptance packet | Authorized integration, fresh required-check review, rebuild/rebinding when source identity changes |
 | Signing | Selected self-signed certificate and all 76 original artifact signatures verified | Recognized publisher identity, notarization and independent key/trust policy |
@@ -54,7 +54,7 @@ review inputs and execution boundaries.
 The prior client PR #8 cancellation had no runner and no executed steps. Only
 that cancelled job was retried. The Linux D06 SDK failure was caused by resolving
 `clang++` to `clang`; the audit now preserves the selected C++ driver name.
-Focused regression tests passed. New D09 checks and the four primary profile
+All 90 focused regression tests passed; workflow lint and the public-evidence privacy scan passed. New D09 checks and the four primary profile
 workflows were started without waiting for results.
 
 The source privacy policy was configured as an encrypted repository secret;

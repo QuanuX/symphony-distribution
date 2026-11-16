@@ -76,3 +76,19 @@ The remaining gates are:
 
 Historical development artifacts are not silently selected as rollback releases.
 This campaign cannot grant publisher trust, reviewer approval or publication.
+
+## Completed supplemental campaign
+
+The delivered-byte campaign completed successfully for all 51 owners, with 612
+logged commands and 1,250 retained payload entries preserved. Exact refusal
+reasons were verified for 51 immutable-version cases, 204 shared-root marker
+cases, 51 receipt aliases and 51 changed-owned-byte cases. Interrupted removal,
+absent-removal retry, empty-version preflight and exact same-candidate recovery
+also passed for every owner.
+
+The portable result and source-bound register are
+`evidence/d09-native-maintenance.json` and
+`evidence/d09-native-maintenance-register.json`. Their private-policy scan passed.
+Source, imported helpers, configuration tools, original carrier archives and
+retained payload bytes were unchanged at completion. This is supplemental local
+macOS Intel evidence; every remaining gate above stays open.
