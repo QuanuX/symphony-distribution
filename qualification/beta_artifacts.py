@@ -21,6 +21,7 @@ ROLES = {
     'consumer': ('.github/workflows/d12-native-rewrap.yml', 'd12-native-rewrap-consumer-'),
     'maintenance': ('.github/workflows/d13-native-maintenance.yml', 'd13-native-maintenance-'),
     'beta': ('.github/workflows/d14-beta-assembly.yml', 'd14-beta-assembly-'),
+    'native_pkg': ('.github/workflows/d14-native-pkg.yml', 'd14-native-pkg-'),
 }
 
 
@@ -31,6 +32,7 @@ def validate_selection(path, expected):
         selected['profile'] in gate.PROFILES, 'Selected beta artifact source differs')
     rows = selected['artifacts']
     gate.require(type(rows) is dict and rows and set(rows) <= ROLES.keys(), 'Unselected artifact roles')
+    gate.require('native_pkg' not in rows or selected['profile'] == 'macos15-arm64', 'Native PKG qualification is Apple ARM only')
     ids = set()
     for role, row in rows.items():
         gate.require(set(row) == {'run_id', 'run_attempt', 'workflow_commit', 'workflow_path', 'artifact', 'result_sha256'} and
@@ -63,7 +65,7 @@ def validate_metadata(row, run, artifact):
 
 
 def result_identity(directory, profile, role, digest):
-    result_name = {'consumer': 'd12-consumer/result.json', 'maintenance': 'd13-maintenance/result.json'}.get(role, 'result.json')
+    result_name = {'consumer': 'd12-consumer/result.json', 'maintenance': 'd13-maintenance/result.json', 'native_pkg': 'd14-pkg-public/result.json'}.get(role, 'result.json')
     record = native.read_document(directory / result_name, digest)
     if role == 'consumer':
         gate.require(record['state'] == 'primary_shell_install_refusals_and_named_removal_passed',
@@ -75,6 +77,10 @@ def result_identity(directory, profile, role, digest):
     elif role == 'package':
         gate.require(record['state'] == 'inherited_native_and_sdk_new_carriers_and_wrappers_audited',
             'Selected wrapper assembly incomplete')
+    elif role == 'native_pkg':
+        gate.require(profile == 'macos15-arm64' and record['state'] == 'native_pkg_install_and_named_carrier_removal_passed' and
+            record['native_pkg_executed'] is True and record['all_named_carriers_removed'] is True and
+            record['original_inputs_unchanged'] is True, 'Native PKG qualification incomplete')
     # Maintenance and final beta bodies are admitted by their owner-specific verifier.
     gate.require(record['profile'] == profile, 'Artifact result belongs to another platform')
     return record

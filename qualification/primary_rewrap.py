@@ -269,7 +269,7 @@ def admit_rewrap(root, expected_result):
     return result, cohort, row
 
 
-def exercise(execution, row, cohort, expected, output):
+def exercise(execution, row, cohort, expected, output, *, after_install=None):
     env = consumer.isolated_environment(output); env['CONDA_SUBDIR'] = cohort['conda_subdir']
     c.require('CONDA_SOLVER' not in env, 'Installer qualification must use its default explicit-install path')
     home_before = platform_gate.inventory(output / 'home')
@@ -281,6 +281,11 @@ def exercise(execution, row, cohort, expected, output):
     names = consumer.installed_metadata(prefix, cohort['archives'])
     bootstrap = signing.regular(prefix / '_conda')
     c.require(signing.digest(bootstrap) == row['bootstrap_sha256'], 'Installed maintenance bootstrap differs')
+    if after_install is not None:
+        installed_before = platform_gate.inventory(prefix, allow_hardlinks=True)
+        after_install(prefix, env)
+        c.require(platform_gate.inventory(prefix, allow_hardlinks=True) == installed_before,
+                  'Explicit retention probe changed installed prefix')
     auxiliary = platform_gate.inventory(prefix / 'share/symphony/installer')
     (prefix / 'user-state.txt').write_bytes(b'caller state survives removal\n')
     before = platform_gate.inventory(prefix, allow_hardlinks=True)

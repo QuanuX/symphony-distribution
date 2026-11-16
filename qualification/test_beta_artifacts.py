@@ -76,5 +76,15 @@ class BetaArtifactTests(unittest.TestCase):
         self.assertEqual(b.result_identity(self.root,'macos15-arm64','consumer',digest)['profile'],'macos15-arm64')
         with self.assertRaises(ValueError): b.result_identity(self.root,'ubuntu24.04-amd64','consumer',digest)
 
+    def test_native_pkg_uses_exact_nested_result_and_platform(self):
+        value={'profile':'macos15-arm64','state':'native_pkg_install_and_named_carrier_removal_passed',
+               'native_pkg_executed':True,'all_named_carriers_removed':True,'original_inputs_unchanged':True}
+        path=self.root/'d14-pkg-public/result.json';path.parent.mkdir();path.write_text(json.dumps(value))
+        digest=hashlib.sha256(path.read_bytes()).hexdigest()
+        self.assertEqual(b.result_identity(self.root,'macos15-arm64','native_pkg',digest),value)
+        with self.assertRaises(ValueError):b.result_identity(self.root,'ubuntu24.04-amd64','native_pkg',digest)
+        value['native_pkg_executed']=False;path.write_text(json.dumps(value))
+        with self.assertRaises(ValueError):b.result_identity(self.root,'macos15-arm64','native_pkg',hashlib.sha256(path.read_bytes()).hexdigest())
+
 
 if __name__ == '__main__': unittest.main()

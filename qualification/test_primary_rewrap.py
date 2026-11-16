@@ -278,5 +278,23 @@ class RewrapTests(unittest.TestCase):
                         with self.assertRaises(ValueError): m.exercise(directory / 'private.sh', row, cohort, expected, directory)
                 finally: self.root = original
 
+    def test_optional_retention_probe_runs_after_admission_before_removal(self):
+        cohort,row,expected,seen,invoke=self.exercise_fixture(); called=[]
+        def retain(prefix, env):
+            self.assertEqual(m.consumer.carrier_namespace(prefix),expected)
+            self.assertEqual(len(seen),1)
+            called.append(prefix)
+        with patch.object(m.consumer,'invoke',side_effect=invoke):
+            m.exercise(self.root/'private.sh',row,cohort,expected,self.root,after_install=retain)
+        self.assertEqual(called,[self.root/'prefix'])
+        self.assertEqual(m.consumer.carrier_namespace(self.root/'prefix'),{})
+
+    def test_retention_probe_cannot_mutate_original_installed_prefix(self):
+        cohort,row,expected,seen,invoke=self.exercise_fixture()
+        def mutate(prefix, env): (prefix/'unexpected').write_bytes(b'change')
+        with patch.object(m.consumer,'invoke',side_effect=invoke),self.assertRaisesRegex(ValueError,'retention probe changed'):
+            m.exercise(self.root/'private.sh',row,cohort,expected,self.root,after_install=mutate)
+        self.assertEqual(len(seen),1)
+
 
 if __name__ == '__main__': unittest.main()

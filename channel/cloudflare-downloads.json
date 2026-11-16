@@ -1,0 +1,15 @@
+{
+  "protocol": "symphony.distribution.download-destination.v1",
+  "account_id": "82afd25f0c2dee226529c3177be8b950",
+  "bucket": "symphony-downloads",
+  "jurisdiction": "default",
+  "storage_class": "Standard",
+  "custom_domain": "downloads.quanux.org",
+  "zone_id": "bc926b82d4227e73e80880e77e496352",
+  "minimum_tls": "1.2",
+  "release_prefix": "symphony/0.2.0-beta.1/",
+  "immutable_release_objects": true,
+  "upload_existing_object_policy": "verify exact bytes or refuse; never overwrite a differing object",
+  "public_contents": "selected signed release artifacts, corresponding source, notices, verification keys and instructions only",
+  "website_application_changed": false
+}

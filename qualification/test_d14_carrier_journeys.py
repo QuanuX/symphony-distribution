@@ -97,5 +97,11 @@ class CarrierJourneys(unittest.TestCase):
         self.assertEqual(before, (q.ROOT / 'lifecycle/conda_transaction.py').read_bytes())
         with self.assertRaises(ValueError): engine.artifact_identity(Path('unknown.conda'))
 
+    def test_primary_entrypoint_requires_opt_in_before_artifact_admission(self):
+        from types import SimpleNamespace
+        with patch.object(q, 'hashes') as hashes, self.assertRaisesRegex(ValueError, 'opt-in'):
+            q.run_primary(SimpleNamespace(allow_ephemeral_maintenance=False))
+        hashes.assert_not_called()
+
 
 if __name__ == '__main__': unittest.main()

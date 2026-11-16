@@ -1,0 +1,33 @@
+{
+  "artifacts": {
+    "client": {
+      "artifact": {
+        "id": 14274168852,
+        "name": "d13-primary-client-macos15-arm64-1",
+        "sha256": "a015012e552f5a3cc62f91bb763705ddd326ee39c49d377680e4c1297188de09",
+        "size": 650806
+      },
+      "result_sha256": "3fede142cd72c80746afbfe630cfa184e4fd6949a1edb3a2f8e4fcbda0ef212f",
+      "run_attempt": 1,
+      "run_id": 43962233562,
+      "workflow_commit": "392172439725396933a00117b6df295266ea58dd",
+      "workflow_path": ".github/workflows/d13-primary-client.yml"
+    },
+    "package": {
+      "artifact": {
+        "id": 14270994420,
+        "name": "d10-rewrapped-macos15-arm64-1",
+        "sha256": "830e35d3c7af9ba0eccc091ffee9d9695bdd8de410d29dfa5111b0fed1c2366a",
+        "size": 417389823
+      },
+      "result_sha256": "e70b15167e899abe24276626c800aa308e30e0fc303bc88028594e7a1f5eefd9",
+      "run_attempt": 1,
+      "run_id": 43957778146,
+      "workflow_commit": "f853fcff027bf559a6c366b8f444b122c7711696",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml"
+    }
+  },
+  "profile": "macos15-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}

@@ -1,0 +1,35 @@
+{
+  "helper_sha256": {
+    ".github/workflows/d14-native-pkg.yml": "380a328613d4d743fcc80580ec13d74913dfeef2adfbc407fead699e5bed07d7",
+    "channel/beta_downloads.py": "5691bb6f23c8b7100b284854f65eda07749eb6cbe94215846e41e1e98bf3675f",
+    "channel/beta_publish.py": "95aba5e6431e76c33024eba9a41cff494228117d78d57d050d8ed07ba4fa9356",
+    "channel/cloudflare-downloads.json": "d1b8ef7c99736de61eb34cf38bf872c5629e153a5d978a1762a2e2f94d18cc9a",
+    "channel/keys/symphony-beta-2026.json": "4cd909f2f9013837845d70186a166af6b698e542c521b1d1245f6954fc59e5a3",
+    "channel/keys/symphony-beta-2026.pem": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+    "channel/test_beta_downloads.py": "144edda04ebb9a1488e4ba84e27b0536ceb3fb4b546b2f6d73671f3eeb5f4107",
+    "channel/test_beta_publish.py": "5097f1df7f52d770e657e6ad17b9ad36926787472e7cdff260ea847a89154f84",
+    "channel/test_verify_beta.py": "4cccc5d4fd1c68180ccf1b62f0c5ce104afdcf296e75e6f3d59f111ebd2cccf1",
+    "channel/verify_beta.py": "03cf6d36e7f67184a848e35f0424f9d56788b97eb7596fec7b54b6798489a234",
+    "installer_assembly/beta_signing.py": "5fe0ad1db6f7b70f642819326453f6226857a5e170ab8b7cb6fab7e379b0867c",
+    "installer_assembly/test_beta_signing.py": "f7040b9712aee59d1f0eceed92e669053f5572bd2e9b5b65562fac23350edce7",
+    "qualification/beta_artifacts.py": "a67930c2412cb2fe9c1a0216f6dd4ea456074bda86e11b452372fb6284b4047b",
+    "qualification/d14_pkg.py": "b374effbbb917a60dbf8cf3eb3057c25c7a27d659fd557ae98249a876e71739d",
+    "qualification/test_beta_artifacts.py": "3aba003bb0fddc660327fa33c9eebb43cdbae141ef08819c2813fd7297b4efd0",
+    "qualification/test_d14_pkg.py": "88758550369d2a924e890da5be4a66453826313d2b845a2ff80986383b88c3c6"
+  },
+  "independent_review": "completed_with_findings_resolved",
+  "private_key_published": false,
+  "public_certificate_readback_sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+  "public_certificate_url": "https://downloads.quanux.org/symphony/keys/2026-beta.pem",
+  "release_artifacts_uploaded": false,
+  "scope": "public beta signing and immutable download transport",
+  "system_trust_changed": false,
+  "tests": {
+    "anaconda_publisher": 15,
+    "artifact_transport": 9,
+    "beta_signature_crypto": 10,
+    "download_transport": 11,
+    "native_pkg_contracts": 12,
+    "standalone_verifier_real_crypto": 5
+  }
+}
