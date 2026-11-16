@@ -12,6 +12,77 @@ spec.loader.exec_module(d)
 
 
 class DeliveryRecordTests(unittest.TestCase):
+    def qxctl_identity_fixture(self, root):
+        source, round_root = root / 'source', root / 'round'
+        local = round_root / 'qxctl-identity'; local.mkdir(parents=True)
+        sources = {'tools/qxctl/main.go': b'package main\n', 'tools/qxctl/go.mod': b'module example\n',
+                   'tools/qxctl/go.sum': b'checksums', 'tools/qxctl/tests/reproducible_build.cmake': b'recipe',
+                   'cmake/mvp-dependencies.json': b'original map'}
+        for name, raw in sources.items():
+            path = source / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(raw)
+        binary = root / 'qxctl'; binary.write_bytes(b'stamped binary')
+        info = {'protocol': 'symphony.qxctl.build-info.v1', 'source_state': 'stamped', 'component_id': 'qxctl',
+                'version': '0.1.0-dev', 'source_commit': '1' * 40, 'source_tree': '2' * 40, 'source_date_epoch': '1234',
+                'dependency_map_sha256': d.sha(source / 'cmake/mvp-dependencies.json'),
+                'build_recipe': 'symphony.qxctl.reproducible-build.v1', 'go_version': 'go1.26.5',
+                'goos': 'darwin', 'goarch': 'amd64', 'executable_sha256': d.sha(binary)}
+        artifact = {k: v for k, v in info.items() if k not in ('protocol', 'source_state')}
+        artifact.update(protocol='symphony.artifact-build-identity.v1', isolated_builds=2, reproducibility='verified_on_recorded_profile',
+                        publication_authorized=False, go_mod_sha256=d.sha(source / 'tools/qxctl/go.mod'),
+                        go_sum_sha256=d.sha(source / 'tools/qxctl/go.sum'))
+        for copy in ('first', 'second'):
+            path = local / 'recipe' / copy / 'bin/qxctl'; path.parent.mkdir(parents=True); path.write_bytes(binary.read_bytes())
+            (local / 'recipe' / (copy + '-build-info.json')).write_text(json.dumps(info))
+        compiled = local / 'recipe/first/tools/qxctl/main.go'; compiled.parent.mkdir(parents=True); compiled.write_bytes(sources['tools/qxctl/main.go'])
+        artifact_path = local / 'recipe/artifact-identity.json'; artifact_path.write_text(json.dumps(artifact))
+        inputs = [{'path': 'tools/qxctl/main.go', 'sha256': d.sha(compiled), 'size': compiled.stat().st_size, 'mode': 0o644}]
+        proof = {'protocol': 'symphony.distribution.qxctl-original-source.v1', 'state': 'reproducible_stamped_original_git_source',
+                 'component_id': 'qxctl', 'isolated_builds': 2, 'publication_authorized': False, 'release_acceptance_complete': False,
+                 'helper_sha256': '3' * 64, 'network_policy': 'local_file_proxy_only_no_network_or_VCS_fallback',
+                 'binary': 'recipe/first/bin/qxctl', 'binary_sha256': d.sha(binary),
+                 'original_source': {'commit': info['source_commit'], 'tree': info['source_tree'], 'source_date_epoch': '1234'},
+                 'build_info': info, 'recipe': {'id': info['build_recipe'], 'modified': False,
+                    'sha256': d.sha(source / 'tools/qxctl/tests/reproducible_build.cmake')},
+                 'artifact_identity': artifact, 'artifact_identity_sha256': d.sha(artifact_path),
+                 'compiled_input_equivalence': {'inputs': inputs, 'inventory_sha256': d.digest(d.canonical(inputs)),
+                    'original_matches_cohort_source': True, 'method': 'native_go_list_deps_compiled_json_CGO0', 'goos': 'darwin', 'goarch': 'amd64'},
+                 'cohort_source': {'kind': 'exact_committed_source_archive', 'commit': info['source_commit'], 'tree': info['source_tree']},
+                 'privacy': {'private_build_paths_absent': True}}
+        proof_path = local / 'result.json'; proof_path.write_text(json.dumps(proof))
+        recorded = {'sha256': d.sha(binary), 'version': '0.1.0-dev', 'qxctl_source_proof': {
+            'path': 'qxctl-identity/result.json', 'sha256': d.sha(proof_path), 'protocol': proof['protocol'],
+            'source_kind': 'original_git_recipe_with_equal_cohort_compiled_inputs'}}
+        build = {'source_commit': info['source_commit'], 'source_tree': info['source_tree'], 'host': {'os': 'macos', 'architecture': 'amd64'},
+                 'source_input': {'kind': 'exact_committed_source_archive'}, 'build_helpers': {'qxctl_identity.py': '3' * 64}}
+        return recorded, build, {'repair_provenance': None}, round_root, source, binary
+
+    def test_qxctl_original_git_proof_is_retained_without_relabeling_source(self):
+        with tempfile.TemporaryDirectory() as raw:
+            args = self.qxctl_identity_fixture(Path(raw).resolve())
+            proof = d.go_build_provenance('qxctl', *args)
+            self.assertEqual(proof['kind'], 'original_git_recipe_with_equal_cohort_compiled_inputs')
+            self.assertFalse(proof['publication_authorized'])
+            self.assertEqual(proof['proof']['isolated_builds'], 2)
+
+    def test_qxctl_missing_mismatched_or_changed_compiled_proof_refuses(self):
+        with tempfile.TemporaryDirectory() as raw:
+            args = self.qxctl_identity_fixture(Path(raw).resolve())
+            recorded = args[0]; selected = recorded.pop('qxctl_source_proof')
+            with self.assertRaisesRegex(ValueError, 'lacks'): d.go_build_provenance('qxctl', *args)
+            recorded['qxctl_source_proof'] = {**selected, 'sha256': 'f' * 64}
+            with self.assertRaisesRegex(ValueError, 'digest'): d.go_build_provenance('qxctl', *args)
+            recorded['qxctl_source_proof'] = selected
+            (args[4] / 'tools/qxctl/main.go').write_bytes(b'changed')
+            with self.assertRaisesRegex(ValueError, 'compiled bytes'): d.go_build_provenance('qxctl', *args)
+
+    def test_qxctl_historical_provenance_stays_explicit_and_unmodified(self):
+        prior = {'repair_provenance': {'origin_tool_commit': 'a' * 40, 'origin_payload_inventory_sha256': 'b' * 64}}
+        observed = d.go_build_provenance('qxctl', {}, {'build_helpers': {}}, prior, None, None, None)
+        self.assertEqual(observed['kind'], 'inherited_exact_origin_bytes')
+        self.assertEqual(observed['origin_tool_commit'], 'a' * 40)
+        plain = d.go_build_provenance('qxctl', {}, {'build_helpers': {}}, {'repair_provenance': None}, None, None, None)
+        self.assertEqual(plain, {'kind': 'built_in_selected_full_cohort_round'})
+
     def source_scanner(self, root, markers=None):
         spec = importlib.util.spec_from_file_location('delivery_privacy_fixture', d.ROOT / 'source-export/export_source.py')
         scanner = importlib.util.module_from_spec(spec)

@@ -264,6 +264,22 @@ def build_round(args, source, plan, root, external):
     for unit in plan['profiles'][args.profile]['go_commands']:
         cid=unit['component_id']; module=source/unit['source_root']
         path=stage/'go'/cid/'bin'/unit['binary_name'];path.parent.mkdir(parents=True)
+        if cid == 'qxctl':
+            from qxctl_identity import build_identity
+            require(unit['source_root'] == 'tools/qxctl' and unit['binary_name'] == 'qxctl' and
+                    unit['recipe'] == 'qxctl-reproducible', 'qxctl source identity recipe differs')
+            identity_work = work/'qxctl-identity'
+            proof = build_identity(args.repository, source, identity_work, go=args.go, cmake=args.cmake,
+                gomodcache=args.gomodcache, commit=plan['source_commit'], tree=plan['source_tree'],
+                export=args.export, privacy_policy=args.privacy_policy, timeout=args.timeout)
+            shutil.copy2(identity_work/proof['binary'], path)
+            require(sha(path) == proof['binary_sha256'], 'Copied qxctl identity artifact differs')
+            version=runner.run(cid+'-go-version',[path,'--version']).read_text().strip()
+            require(version == unit['version_output_prefix']+unit['package_version'], 'Go compiled version differs')
+            go_results.append({'component_id':cid, 'version':unit['package_version'], 'sha256':sha(path),
+                'qxctl_source_proof': {'path':'qxctl-identity/result.json', 'sha256':sha(identity_work/'result.json'),
+                    'protocol':proof['protocol'], 'source_kind':'original_git_recipe_with_equal_cohort_compiled_inputs'}})
+            continue
         flags='-buildid='
         if unit['version_symbol']:flags+=' -X '+unit['version_symbol']+'='+unit['package_version']
         listing=runner.run(cid+'-go-closure',[args.go,'list','-mod=readonly','-m','-f','{{if .Replace}}{{.Path}}{{end}}','all'],module)
