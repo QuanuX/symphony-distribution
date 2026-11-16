@@ -122,6 +122,13 @@ proposal evaluation, resume and comparison against final qxctl/native bytes.
 Its declared synthetic probabilities do not become calibrated provider evidence;
 the broader L20 process-fault campaign is not claimed by this selection.
 
+An additional consumer imports, explicitly links and calls `operations()` on all
+five core SNV SDKs: SNIV, SNRV, SCIV, SCNV and SNV. It does not require the optional
+local observer. This is a separately reported `core_snv_api_smoke` gate: the
+original cohort audit's all-imports check does not itself establish these API
+calls. The copied native import proof binds every imported header/library to the
+selected relocated prefix and rejects source fallback.
+
 Each native owner is configured without rebuilding or installing its payload.
 The resulting detached uninstaller's configured file set must exactly match the
 final receipt. On a disposable full-prefix copy, the campaign checks owned-byte,
@@ -135,3 +142,19 @@ The final candidate, source inventory and helpers are checked again afterward.
 Only the bounded `result.json` is retained for sharing; raw fixture outputs and
 logs remain private. A passing report closes these observed engineering checks,
 not live process retirement, publisher trust or fresh-host acceptance.
+
+
+D06 local evidence binds the final cohort comparison, source SDK/removal campaign
+and delivery record to the same selected payload. The delivery collector verifies
+all build/imported/repair helper identities and preserves exact original toolkit
+source when artifacts are inherited. Source-defined SSIAG and Cloudflare notice
+files under `share/doc` must match their two original legal files byte for byte;
+arbitrary documentation is never treated as a license.
+
+`d06_upstream_source.py` admits only the pinned curl archive's exact public TLS
+fixture members and unchanged attribution overlaps during corresponding-source
+scanning. Archive bytes stay unchanged and exceptions are included in the source
+index. Installed payloads and publisher-created files receive no such exception.
+
+See [D06 results](../evidence/D06-RESULTS.md) for completed local evidence and
+remaining platform, ownership, signing, delivery and independent acceptance gates.

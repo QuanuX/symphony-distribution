@@ -1,54 +1,112 @@
 # D06 construction and qualification evidence
 
-This increment implements the frozen 51-native/six-Go build cohort and its
-source/SDK delivery checks at core commit
-`5fd6cee1bae477048bf0045b691ee8bdf334e216`. It is not release acceptance.
+The frozen 51-native/six-Go cohort is implemented and locally qualified at core
+commit `5fd6cee1bae477048bf0045b691ee8bdf334e216`. Core main remains
+`976b23290857be613005eea5cdc130d0f457b8c3`; no core source, feature or main branch
+was changed. These are supplemental Intel macOS engineering observations, not
+four-platform or release acceptance.
 
 ## PR errors addressed first
 
-[Selective CI triage](d06-pr-ci-triage.json) records the original jobs and exact
-heads. PR #200 exhausted its CodeQL job time budget; the corresponding #202
-CodeQL job completed. PR #202 encountered Go dependency download timeouts after
-its preceding ownership groups passed. Only the two affected jobs were retried.
-No source defect was established and no speculative core patch was pushed.
-Retry results were not awaited. The focused local foundation lifecycle race test
-passed with Go 1.26.5 and the verified offline module cache.
+[Selective CI triage](d06-pr-ci-triage.json) binds the original jobs and exact
+heads. PR #200 exhausted its CodeQL job time budget; the equivalent #202 CodeQL
+job completed. PR #202 encountered Go dependency download timeouts after eleven
+preceding ownership groups passed. Only the two affected jobs were retried.
+No source defect was established, so no speculative core patch was made. Retry
+results were not awaited. The focused local foundation lifecycle race test passed
+with Go 1.26.5 and a verified offline module cache.
 
-## Completed preparation checks
+## Construction and final comparison
 
-- The source-derived four-profile inventory reconciles 51 native units, six core
-  Go commands, eight optional native units, the separate administrator and all
-  73 source-root dispositions.
-- 57 focused build/selection/finalization/SDK/owner contract tests passed.
-- 32 focused source delivery, SDK closure and diagnostic tests passed.
-- Workflow validation and whitespace checks passed.
-- The exact curl 8.7.1 and zstd 1.5.7 clean dependency build passed, retaining
-  pinned notices, explicit SecureTransport selection and no optional dependency
-  autodiscovery. A detached relocated consumer linked and ran both libraries.
-- A real Mach-O relocation test executed after its original dependency prefix
-  was removed. This is harness evidence, not full-cohort acceptance.
+[Final cohort evidence](d06-clean-cohort-qualification.json) records two independent
+full native/Go constructions and two separate bounded repairs. Each repair rebuilt
+eight native dependency units through the existing native owners, retained the
+other 43 native units and six Go commands byte for byte, and finalized external
+zstd separately. Original stages and evidence were preserved. The first original
+construction stopped at an owner fixture and has a separate
+[read-only requalification](d06-retained-requalification.json); it was not relabelled
+as a successful original two-round invocation.
 
-The first full native build was deliberately interrupted after an archive check
-found local numeric ownership and timestamps in a foundation static library.
-The builder now supplies deterministic archive settings and rejects nonneutral
-static-archive member metadata. Its repaired foundation build passed that check.
-The interrupted stage remains incomplete; none of its bytes are accepted here.
+The final candidates match across all **1,250 entries**: 1,248 regular files and
+two relative links, including modes and native receipts. Their canonical payload
+inventory SHA256 is
+`f846ea311ba10a43da7f3bc9cf79c5e32cdaf6dfe12637f11f79b21bf80bf752`.
+Candidate B is the selected delivery-record input. Both candidates passed:
 
-## Full cohort status at this increment
+- All 51 native receipt checks and six compiled Go command/version checks.
+- The detached audit for 20 SDK producers, including 12 ordinary consumers,
+  foundation/SNV mechanics and SBV C/C++/provider ABI checks (45 audit commands).
+- Six existing installed-owner tests, with no skipped selections.
+- Final native loader checks, privacy scans and static-archive metadata checks.
 
-The repaired two-round local build is in progress. Full final SDK, six installed
-owner fixtures, repeated-byte comparison, corresponding-source collection and
-disposable native removal are implemented but not yet claimed as completed for
-this cohort. Their exact results will be attached in a subsequent evidence commit.
-The local Intel macOS host is supplemental and cannot qualify any of the four
-required native targets. Hosted builds are requested by pushing this branch;
-no hosted result is inferred or awaited.
+The exact [curl/zstd input build](d06-external-inputs.json) passed and a relocated
+consumer linked and ran both libraries. Its TLS backend selection is recorded.
+That same exact external input was reused for both constructions; independent
+external rebuild reproducibility and live TLS/provider acceptance are not claimed.
 
-## Remaining release gates
+## Corrections exercised by the cohort
 
-External runtime carrier ownership, privacy-reviewed final bytes on every target,
-actual-manager/privilege/fresh-host lifecycle behavior, genuine second-release
-upgrade and selection journeys, publisher signing/trust, final Anaconda and
-Cloudflare retrieval, and independent/backup acceptance remain open. Optional
-native SDKs and physical/provider-specific claims retain their separate gates.
-The feature freeze and core main remain unchanged.
+The initial partial build exposed local ownership/timestamp metadata in static
+archives. Deterministic settings and strict inner-archive checks now prevent it;
+that interrupted stage remains incomplete. The
+[archive privacy record](d06-static-archive-privacy.json) retains the observation.
+
+The SNV tamper fixture assumed every file under a prefix was regular. Its corrected
+fixture receives complete, byte-verified native receipt units while the other
+owner tests use the full prefix with legitimate external library symlinks. Core
+ownership guards were not weakened.
+
+[Reproducibility diagnosis](d06-reproducibility-diagnosis.json) found unused Apple
+archive symbol-table padding and private initial link RPATHs. The finalizer now
+clears only validated unreferenced padding before receipt sealing, preserving
+object bytes and offsets. Initial linking uses stable install paths so private
+build paths do not influence linker UUIDs. Two independent repaired outputs match;
+no UUID or receipt was hand-forged.
+
+The source collector preserves exact original toolkit source as well as current
+repair scripts, explicitly labels inherited artifacts, and checks all build,
+imported and repair helper hashes. Native notices in source-declared documentation
+directories receive exact source-byte verification. Unchanged public upstream
+curl TLS fixtures and attribution overlaps have archive/member-hash-bound scan
+exceptions; no exception applies to installed payloads or publisher-added files.
+
+## Final source SDK and removal campaign
+
+The [final SDK closure](d06-sdk-closure.json) passed 600 bounded commands against
+candidate B. It compiled and ran five-core SNV APIs, exercised the unchanged public
+Go SDK roundtrip using a synthetic 15-record native fixture, and checked every
+one of the 51 native owners for applicable byte/header/export/receipt tampering,
+partial-removal admission refusal, resumed removal and repeated removal. Unrelated
+Go, external and sentinel files were preserved. The original final candidate and
+source remained unchanged. This is disposable-stage qualification; it does not
+claim live manager/process retirement or the complete historical L20/L22 campaigns.
+
+[Focused tooling validation](d06-focused-validation.json) records 145 passing
+regressions (74 build-cohort and 71 qualification cases), plus workflow validation. Unchanged broad core suites were not rerun.
+
+## Delivery records and remaining gates
+
+The [completed delivery record](d06-delivery-record.json) binds candidate B to
+51 native records, six Go artifacts, 131 retained notices and 18 exact linked Go
+source modules. Its corresponding-source archive contains 7,480 entries
+(118,231,040 bytes), including the reviewed core source, unchanged pinned curl/zstd
+archives, the exact original toolkit and the current repair toolkit. Archive
+SHA256: `6952acd7fef459209af6ed42d20507195805d0ad026232e661741cdc99156f49`.
+The archive and binary stages remain local candidate artifacts; code and portable
+evidence are pushed. The record is complete with publisher review pending. It does
+not grant redistribution approval, publisher trust or publication authority.
+
+Remaining release/safety gates include:
+
+- Observed results and privacy-approved final bytes on the four primary profiles;
+  actual manager, privilege, fresh-host and delivered-byte qualification.
+- External runtime carrier ownership; precise native restart/delete crash and
+  response-loss boundaries; escaped process lifetimes, audit recovery and
+  unsupported raw/C++/shared-environment ownership.
+- Genuine distinct-release upgrade, swap, selection and rollback journeys.
+- Publisher signing/trust, applicable notarization and system-runtime review,
+  final Anaconda and Cloudflare delivery/retrieval, and independent/backup review.
+
+Optional native SDKs, the protected administrator and physical/provider-specific
+claims retain separate gates. No CI outcome was awaited, package published,
+provider activated or main branch modified. The feature freeze remains in force.

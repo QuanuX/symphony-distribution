@@ -24,6 +24,22 @@ import plan as cohort_plan
 import build as cohort_build
 from qualification.native_campaign import bounded_run, parse_events
 
+CORE_SNV_IDS = ('sniv-engine', 'snrv-engine', 'sciv-engine', 'scnv-engine', 'snv-engine')
+CORE_SNV_SMOKE = '''#include <stdexcept>
+#include <symphony/snv/sniv.hpp>
+#include <symphony/snv/snrv.hpp>
+#include <symphony/snv/sciv.hpp>
+#include <symphony/snv/scnv.hpp>
+#include <symphony/snv/snv.hpp>
+int main() {
+  namespace s = symphony::snv;
+  if (s::sniv::operations().empty() || s::snrv::operations().empty() ||
+      s::sciv::operations().empty() || s::scnv::operations().empty() ||
+      s::snv::operations().empty())
+    throw std::runtime_error("installed core SNV SDK operation contract is empty");
+}
+'''
+
 
 def require(value, message):
     if not value:
@@ -162,6 +178,59 @@ def copy_regular_tree(source, destination):
         require(not any(part in ('.git', 'build', 'CMakeFiles', '__pycache__') for part in path.relative_to(source).parts),
                 'source SDK contains build artifacts')
     shutil.copytree(source, destination)
+
+
+def core_snv_projection(mapping, selected_ids, prefix):
+    """The optional observer must not suppress the five required core APIs."""
+    require(set(CORE_SNV_IDS) <= set(selected_ids), 'five core SNV SDKs must be selected')
+    selected = [row for row in mapping['native_components'] if row['component_id'] in CORE_SNV_IDS]
+    require(len(selected) == 5 and {row['component_id'] for row in selected} == set(CORE_SNV_IDS),
+            'five unique core SNV SDK producers required')
+    require(all(row['exported_packages'] for row in selected), 'core SNV SDK export missing')
+    from sdk_audit import import_project, consumer_metadata
+    targets = [target for row in selected for package in row['exported_packages'] for target in package['targets']]
+    require(len(targets) == len(set(targets)) == 5, 'five unique core SNV imported targets required')
+    project = import_project(selected, prefix)
+    project += 'target_link_libraries(consumer PRIVATE ' + ' '.join(targets) + ')\n'
+    return selected, project, consumer_metadata(selected, ['consumer'])
+
+
+def core_snv_api_smoke(args, source, prefix, work, units, runner):
+    """Supplement the original all-imports audit with actual core API calls."""
+    audit = work / 'core-snv-api'; audit.mkdir(mode=0o700)
+    harness = audit / 'harness'; harness.mkdir(mode=0o700)
+    hashes = {}
+    for name in ('common.cmake', 'prove-imports.cmake'):
+        original = source / 'tests/mvp-dependencies' / name
+        shutil.copyfile(original, harness / name)
+        hashes['tests/mvp-dependencies/' + name] = sha(original)
+    map_path = source / 'cmake/mvp-dependencies.json'
+    shutil.copyfile(map_path, harness / 'mvp-dependencies.json')
+    hashes['cmake/mvp-dependencies.json'] = sha(map_path)
+    selected, project, metadata = core_snv_projection(json.loads(map_path.read_bytes()),
+        [unit['component_id'] for unit in units], prefix)
+    consumer = audit / 'consumer'; consumer.mkdir(mode=0o700)
+    (consumer / 'CMakeLists.txt').write_text(project)
+    (consumer / 'main.cpp').write_text(CORE_SNV_SMOKE)
+    metadata_path = audit / 'metadata.json'; dump(metadata_path, metadata)
+    proof_log = work / 'logs/core-snv-api-imports.log'
+    runner.run('core-snv-api-configure', [args.cmake, '-S', consumer, '-B', audit / 'build',
+        '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_POSITION_INDEPENDENT_CODE=ON',
+        f'-DCMAKE_C_COMPILER={args.cc}', f'-DCMAKE_CXX_COMPILER={args.cxx}', f'-DCMAKE_PREFIX_PATH={prefix}',
+        '-DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF', '-DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF',
+        '-DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON', '-DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON',
+        '-DCMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH=OFF',
+        f'-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES={harness}/prove-imports.cmake',
+        f'-DMVP_REPOSITORY={harness}', f'-DMVP_MAP={harness}/mvp-dependencies.json',
+        f'-DMVP_SELECTED_PREFIX={prefix}', f'-DMVP_COMPONENT_FILE={metadata_path}', f'-DMVP_PROOF_LOG={proof_log}'])
+    runner.run('core-snv-api-build', [args.cmake, '--build', audit / 'build', '--parallel', '2'])
+    runner.run('core-snv-api-run', [audit / 'build/consumer'])
+    return {'status': 'passed', 'scope': 'supplemental actual linked core SNV SDK API calls; distinct from original all-imports audit',
+        'sdk_producers': sorted(row['component_id'] for row in selected), 'sdk_producer_count': 5,
+        'operations_api_called': ['sniv', 'snrv', 'sciv', 'scnv', 'snv'],
+        'optional_observer_selected': False, 'source_harness_sha256': hashes,
+        'consumer_cmake_sha256': sha(consumer / 'CMakeLists.txt'), 'consumer_cpp_sha256': sha(consumer / 'main.cpp'),
+        'consumer_binary_sha256': sha(audit / 'build/consumer'), 'import_proof_sha256': sha(proof_log)}
 
 
 def source_roundtrip(args, source, prefix, work, runner):
@@ -361,11 +430,18 @@ def run(args):
         'source_commit': plan['source_commit'], 'source_tree': plan['source_tree'], 'round': round_name,
         'cohort_result_sha256': sha(args.cohort_output / 'result.json'), 'round_result_sha256': sha(round_file),
         'harness_sha256': sha(__file__), 'extra_helpers_sha256': extra_helpers, 'source_inventory_sha256': source_digest,
+        'construction_provenance': {'fresh_whole_cohort_build': summary.get('fresh_whole_cohort_build', True),
+            'repair_provenance': summary.get('repair_provenance'),
+            'native_unit_provenance': observed.get('native_unit_provenance'),
+            'repaired_native_count': observed.get('repaired_native_count', 0),
+            'inherited_native_count': observed.get('inherited_native_count', 0),
+            'inherited_go_count': observed.get('inherited_go_count', 0)},
         'original_payload_inventory_sha256': hashlib.sha256(canonical(before)).hexdigest(),
-        'source_consumer': None, 'disposable_native_removal': None,
+        'core_snv_api_smoke': None, 'source_consumer': None, 'disposable_native_removal': None,
         'release_acceptance_complete': False, 'publication_authorized': False, 'fresh_host_accepted': False,
         'full_original_L22_campaign_replayed': False, 'scope': 'existing source consumer and native removal assertions on final core51 cohort'}
     try:
+        report['core_snv_api_smoke'] = core_snv_api_smoke(args, source, prefix, output, units, runner)
         report['source_consumer'] = source_roundtrip(args, source, prefix, output, runner)
         report['disposable_native_removal'] = removal_campaign(args, source, prefix, output, units, runner)
         require(file_snapshot(prefix) == before and cohort_build.verify_receipts(prefix, units) == observed['native_receipts'],

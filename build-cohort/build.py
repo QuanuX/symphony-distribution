@@ -197,6 +197,14 @@ def verify_receipts(prefix, units):
     return rows
 
 
+def native_link_policy():
+    # Use the final stable identity while linking: deleting a private build
+    # RPATH later does not undo its contribution to the Apple linker UUID.
+    return ['-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=OFF', '-DCMAKE_INSTALL_RPATH=',
+            '-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON', '-DCMAKE_INSTALL_NAME_DIR=@rpath',
+            '-DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON']
+
+
 def build_round(args, source, plan, root, external):
     work = root
     work.mkdir(mode=0o700)
@@ -218,8 +226,7 @@ def build_round(args, source, plan, root, external):
             '-DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON', '-DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON',
             '-DCMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH=OFF',
             '-DCMAKE_IGNORE_PREFIX_PATH=/opt/homebrew;/usr/local',
-            '-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=OFF', '-DCMAKE_INSTALL_RPATH=',
-            '-DCMAKE_INSTALL_NAME_DIR=@rpath', f'-DCMAKE_C_COMPILER={args.cc}', f'-DCMAKE_CXX_COMPILER={args.cxx}',
+            *native_link_policy(), f'-DCMAKE_C_COMPILER={args.cc}', f'-DCMAKE_CXX_COMPILER={args.cxx}',
             f'-DCMAKE_C_FLAGS={flags}', f'-DCMAKE_CXX_FLAGS={flags}',
             f'-DSYMPHONY_PACKAGE_FINALIZER={Path(__file__).with_name("FinalizeNative.cmake")}',
             f'-DCMAKE_PROJECT_TOP_LEVEL_INCLUDES={source}/tests/mvp-dependencies/prove-imports.cmake',

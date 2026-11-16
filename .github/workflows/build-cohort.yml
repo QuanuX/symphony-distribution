@@ -189,8 +189,9 @@ jobs:
           python3 qualification/d06_delivery_record.py --build-root "$RUNNER_TEMP/d06-cohort" \
             --repository "$GITHUB_WORKSPACE/work/core" --go "$(command -v go)" \
             --gomodcache "$GOMODCACHE" --external-sources "$RUNNER_TEMP/d06-archives" \
+            --external-build-report "$RUNNER_TEMP/d06-external/external-build.json" \
             --output "$RUNNER_TEMP/d06-delivery"
-      - name: Qualify copied Go SDK and disposable native removal
+      - name: Qualify core SNV APIs, copied Go SDK and disposable removal
         shell: bash
         run: |
           set -euo pipefail

@@ -17,7 +17,7 @@ import stat
 
 ROOT = Path(__file__).resolve().parents[1]
 HELPERS = ('qualification/native_campaign.py', 'owner-catalog/native_owners.py',
-           'source-export/export_source.py', 'qualification/d06_sdk_closure.py',
+           'source-export/export_source.py', 'qualification/d06_sdk_closure.py', 'qualification/d06_delivery_record.py',
            'qualification/d06_failure_summary.py')
 MAX_JSON = 2 * 1024 * 1024
 MAX_LOG = 64 * 1024 * 1024
@@ -121,7 +121,7 @@ def sanitize(text, aliases=(), identities=()):
     return '\n'.join(output[-TAIL_LINES:]).encode()[-TAIL_BYTES:].decode(errors='ignore')
 
 
-def selected_log(cohort, external, sdk_closure=None):
+def selected_log(cohort, external, sdk_closure=None, delivery=None):
     """Select only a known failed step; never recursively collect arbitrary logs."""
     incomplete = cohort / 'INCOMPLETE.json'
     rounds = sorted((p for p in cohort.glob('round-*') if re.fullmatch(r'round-[12]', p.name)), reverse=True)
@@ -156,6 +156,13 @@ def selected_log(cohort, external, sdk_closure=None):
                 label = failed[-1]['name']
                 return reason, label, external / 'logs' / (label + '.log'), False
             return reason, None, None, False
+    if delivery is not None and (delivery / 'delivery-record.json').is_file():
+        value = document(delivery / 'delivery-record.json')
+        if value.get('state') in ('failed', 'incomplete'):
+            logs = [p for p in (delivery / 'logs').glob('*.log') if re.fullmatch(LABEL + r'\.log', p.name)]
+            require(len(logs) <= 1000, 'delivery diagnostic log set exceeds bound')
+            latest = max(logs, key=lambda p: p.lstat().st_mtime_ns) if logs else None
+            return 'Delivery record incomplete before SDK closure; latest command context retained.', 'delivery-record', latest, False
     if sdk_closure is not None and (sdk_closure / 'result.json').is_file():
         value = document(sdk_closure / 'result.json')
         if value.get('status') == 'incomplete':
@@ -170,11 +177,12 @@ def selected_log(cohort, external, sdk_closure=None):
     return None, None, None, False
 
 
-def summarize(cohort, external, workspace, runner_temp, helper_baseline=None, sdk_closure=None):
+def summarize(cohort, external, workspace, runner_temp, helper_baseline=None, sdk_closure=None, delivery=None):
     cohort, external, workspace, runner_temp = map(no_links, (cohort, external, workspace, runner_temp))
     sdk_closure = no_links(sdk_closure or runner_temp / 'd06-sdk-closure')
+    delivery = no_links(delivery or runner_temp / 'd06-delivery')
     aliases = [(cohort, 'cohort'), (external, 'external'), (workspace, 'workspace'), (runner_temp, 'temporary'),
-               (sdk_closure, 'sdk-closure')]
+               (sdk_closure, 'sdk-closure'), (delivery, 'delivery')]
     identities = {getpass.getuser(), socket.gethostname()}
     for path, _ in aliases:
         match = re.search(r'/(?:Users|home)/([^/]+)', str(path))
@@ -192,7 +200,7 @@ def summarize(cohort, external, workspace, runner_temp, helper_baseline=None, sd
               'candidate_privacy_approved': False, 'release_acceptance_complete': False,
               'publication_authorized': False, 'extra_helper_closure': closure, 'status': 'no_failure_recorded'}
     try:
-        reason, label, log, json_lines = selected_log(cohort, external, sdk_closure)
+        reason, label, log, json_lines = selected_log(cohort, external, sdk_closure, delivery)
         if reason:
             report.update(status='failure_observed', failure=scrub(reason), failed_step=scrub(label) if label else None)
         if log is not None:
@@ -227,7 +235,7 @@ def summarize(cohort, external, workspace, runner_temp, helper_baseline=None, sd
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    for name in ('cohort', 'external', 'workspace', 'runner-temp', 'output', 'helper-baseline', 'record-baseline', 'sdk-closure'):
+    for name in ('cohort', 'external', 'workspace', 'runner-temp', 'output', 'helper-baseline', 'record-baseline', 'sdk-closure', 'delivery'):
         parser.add_argument('--' + name, type=Path)
     args = parser.parse_args()
     if args.record_baseline:
@@ -237,7 +245,7 @@ def main():
         return
     require(all(getattr(args, name) is not None for name in ('cohort', 'external', 'workspace', 'runner_temp', 'output')),
             'summary requires explicit cohort, external, workspace, runner-temp and output paths')
-    report = summarize(args.cohort, args.external, args.workspace, args.runner_temp, args.helper_baseline, args.sdk_closure)
+    report = summarize(args.cohort, args.external, args.workspace, args.runner_temp, args.helper_baseline, args.sdk_closure, args.delivery)
     write_new(args.output, report)
     print(json.dumps({'diagnostic_status': report['status'], 'candidate_privacy_approved': False}))
     require(report['extra_helper_closure']['unchanged_from_baseline'] is not False, 'imported helper bytes changed during the job')

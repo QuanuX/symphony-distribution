@@ -1,0 +1,322 @@
+{
+  "build_report_sha256": "a6e82c5b42a3af4de43854fe45233f0f22940951b9c2a17d1858296ff9c1e05b",
+  "commands": [
+    {
+      "exit_code": 0,
+      "log_sha256": "b52c2251079e76191c72476e9a85a5f9ce400ad99ad5cf6882bfa46e8dbdfa43",
+      "name": "curl-configure"
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "480beb4193aff11d66a68803f5d5c9b3f8ee30c415f381f30dbfa7a2c589dbd5",
+      "name": "curl-build"
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "8c47de0a6464cb64749edd5e3019ec945f2ada03fc108a8c3d1991483b527af3",
+      "name": "curl-install"
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "df1a45fe1c8ea904eb954c7c33a9799ec7e1fef532442eb88c5329dda4639ac9",
+      "name": "zstd-configure"
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "2687af9c15cbc3778b11bdd5ccc1f16dbc72c13397c14e6379206e26e18bebde",
+      "name": "zstd-build"
+    },
+    {
+      "exit_code": 0,
+      "log_sha256": "3faf0114f6acda7ec64bd25098869cc54a0e850619e74f07ba45f940a7b33c6f",
+      "name": "zstd-install"
+    }
+  ],
+  "compiler_tools": {
+    "cc": {
+      "sha256": "5b1ddb7e9c11b87a034fc88b212e8ac243cfe2b4db696d767aa44c79595fc09a"
+    },
+    "cmake": {
+      "sha256": "34abf6b1ed0e438fb8378d314a5eb120df760076a2335e7308a46de2e2a09cb2"
+    },
+    "cxx": {
+      "sha256": "5b1ddb7e9c11b87a034fc88b212e8ac243cfe2b4db696d767aa44c79595fc09a"
+    }
+  },
+  "dependency_builds_per_cohort_platform": 1,
+  "fresh_host_acceptance": false,
+  "inventory": [
+    {
+      "path": "bin/curl-config",
+      "sha256": "c14a0e8ad6fe878de459b7070c98f33f4145e7ae6fd9ae4df1be8c09ea66b6b3",
+      "size": 5574,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/curl.h",
+      "sha256": "63be5ca2cfb8f57e23956f7c84657e700b40c8fbd713c893d896b73dcb66af3b",
+      "size": 129041,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/curlver.h",
+      "sha256": "454e77732340eeb1119d47f501fa448a3577ea613d9e98d81b36d5bb72c242df",
+      "size": 3044,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/easy.h",
+      "sha256": "0890e063d2bea8ba815d747d4f665994e263e1043f0e14a85733c9445cb83a6d",
+      "size": 4013,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/header.h",
+      "sha256": "614be48a86f4e5d304c5aa40ef1c85245e25b97732921c3631840146669d992f",
+      "size": 2910,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/mprintf.h",
+      "sha256": "0fbaa71216afdd6ca44af67e3d1fae18087f635e5291136fce6294ff81322e63",
+      "size": 2846,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/multi.h",
+      "sha256": "4a4dd7ed318808dceab8ab7b105357821b9032ba6d05898c14b4fc891881ff57",
+      "size": 17769,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/options.h",
+      "sha256": "5716018d27e783283825bed2a8a051190487722fdeb64b7aa2d03a997e99b8d1",
+      "size": 2401,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/stdcheaders.h",
+      "sha256": "d7588b86814a35ffc3766ff6242e6f6705e04401fc9c208a195caff3503af81c",
+      "size": 1362,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/system.h",
+      "sha256": "8933eee495010267862744096910914211e40d43935a81864a3780a61299e44f",
+      "size": 18714,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/typecheck-gcc.h",
+      "sha256": "1b6f728317c451c0debdf0f244c9e85bd985566717e32c44417a9fabe71699f7",
+      "size": 43548,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/urlapi.h",
+      "sha256": "99736f84dc62afd76ac60e0c80a285527d72b7b1d164d3e43f1abaa931b25563",
+      "size": 5519,
+      "type": "file"
+    },
+    {
+      "path": "include/curl/websockets.h",
+      "sha256": "b58bb1d7eda3fd2372feb4d856c256897d83006dfe7933d69be54bc4a2ba5a3f",
+      "size": 2741,
+      "type": "file"
+    },
+    {
+      "path": "include/zdict.h",
+      "sha256": "abacadb94e3f79e591f4b1648e839b0160fbf4291211fd01bdba1380269b245c",
+      "size": 26516,
+      "type": "file"
+    },
+    {
+      "path": "include/zstd.h",
+      "sha256": "9b4bc8245565c98ccfc61c07749928b57e7c0f6fddb0530c4f6aa1971893d88b",
+      "size": 181748,
+      "type": "file"
+    },
+    {
+      "path": "include/zstd_errors.h",
+      "sha256": "66a8c3f71d12ea6e797e4f622f31f3f8f81c41b36f48cad4f5de7d8bfb6aac0a",
+      "size": 4278,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/CURL/CURLConfig.cmake",
+      "sha256": "83733efa8aa26eb755b9138639c55d18c59f220bdc8ccfc75fb31b4bf0caab3b",
+      "size": 2244,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/CURL/CURLConfigVersion.cmake",
+      "sha256": "f3eb6bb445f7f58bb05de85f7cace35abb45807b04f9920b58aedfa918955532",
+      "size": 2987,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/CURL/CURLTargets-release.cmake",
+      "sha256": "bbcb2a3edf11c460ec4797c0c5e1fb78b0e0f21c5dfa3c5abd4c0eef7dfc0d42",
+      "size": 890,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/CURL/CURLTargets.cmake",
+      "sha256": "e510f31d267152849b036ef2b38c796caa9f84501b8b0847cff0ff868d7df015",
+      "size": 4137,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/zstd/zstdConfig.cmake",
+      "sha256": "351ab7939d946cec7d7c6742ec0ff73bcff252813c3eaef08f97fc511240ebaa",
+      "size": 1053,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/zstd/zstdConfigVersion.cmake",
+      "sha256": "f79742115e59cd99594b5007817d19056ee9dbc338ce32728a61223f489d6965",
+      "size": 2762,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/zstd/zstdTargets-release.cmake",
+      "sha256": "2e284ae61caa37a4f41422d91211a3fe7cdb371f09c1f651758eed58ce44f272",
+      "size": 867,
+      "type": "file"
+    },
+    {
+      "path": "lib/cmake/zstd/zstdTargets.cmake",
+      "sha256": "9d1be40183c2de7cf49092214ce865c9d0fe52a730dba8ade78052cc381564b2",
+      "size": 4397,
+      "type": "file"
+    },
+    {
+      "path": "lib/libcurl.4.8.0.dylib",
+      "sha256": "33d34d8bd66cb906be8febe74923bfd582402e1000247d56ce5fd8500856f1bc",
+      "size": 634672,
+      "type": "file"
+    },
+    {
+      "path": "lib/libcurl.4.dylib",
+      "target": "libcurl.4.8.0.dylib",
+      "type": "symlink"
+    },
+    {
+      "path": "lib/libcurl.dylib",
+      "target": "libcurl.4.dylib",
+      "type": "symlink"
+    },
+    {
+      "path": "lib/libzstd.a",
+      "sha256": "dd10b6977710fb29dba10a111cb1e50c13d02bb9691c6ee5d644230776bc317b",
+      "size": 1107560,
+      "type": "file"
+    },
+    {
+      "path": "lib/pkgconfig/libcurl.pc",
+      "sha256": "10ae7e07216d98a7ae0a549314c6ff3e6fdc3975dda7b7c330d38a68e928bef0",
+      "size": 1734,
+      "type": "file"
+    },
+    {
+      "path": "lib/pkgconfig/libzstd.pc",
+      "sha256": "88bf3f8fd8fe709dc13ac0395e437cd3efd35921dba7ac0c00cdd7a353b02889",
+      "size": 464,
+      "type": "file"
+    },
+    {
+      "path": "share/licenses/curl/8.7.1/LICENSE",
+      "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+      "size": 1088,
+      "type": "file"
+    },
+    {
+      "path": "share/licenses/zstd/1.5.7/LICENSE",
+      "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+      "size": 1549,
+      "type": "file"
+    },
+    {
+      "path": "share/symphony/dependency-evidence/curl-zstd.json",
+      "sha256": "0154cd5a0bde2a9ef9f9243cf7c752ae6442f9b3b10abdf08c35027f05890401",
+      "size": 2481,
+      "type": "file"
+    }
+  ],
+  "live_tls_acceptance": false,
+  "native_and_go_repeat_builds_use_same_verified_external_inputs": true,
+  "protocol": "symphony.distribution.d06-external-inputs.v1",
+  "publication_authorized": false,
+  "scope": "supplemental local macOS Intel exact-source dependency build and relocated SDK consumer",
+  "sdk_relocated_consumer": "passed",
+  "sdk_smoke_report_sha256": "84ce2e4d87319b58dc64fc2726f05fa2322b70fa593fda1f3f60c1185df95e56",
+  "selection": {
+    "components": [
+      {
+        "id": "curl",
+        "license": "curl",
+        "linkage": "Qualification recipe builds shared libcurl; actual target loader and TLS backend must be observed.",
+        "notice_file": "curl-8.7.1.COPYING",
+        "notice_sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+        "source_sha256": "6fea2aac6a4610fbd0400afb0bcddbe7258a64c63f1f68e5855ebc0c659710cd",
+        "source_url": "https://curl.se/download/curl-8.7.1.tar.xz",
+        "upstream_notice": "https://raw.githubusercontent.com/curl/curl/curl-8_7_1/COPYING",
+        "version": "8.7.1"
+      },
+      {
+        "id": "zstd",
+        "license": "BSD-3-Clause",
+        "linkage": "Existing recipe selects libzstd_static and retains upstream BSD LICENSE; no alternative-license selection is introduced.",
+        "notice_file": "zstd-1.5.7.LICENSE",
+        "notice_sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+        "source_sha256": "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3",
+        "source_url": "https://github.com/meta/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz",
+        "upstream_notice": "https://raw.githubusercontent.com/facebook/zstd/v1.5.7/LICENSE",
+        "version": "1.5.7"
+      }
+    ],
+    "curl_zlib": false,
+    "format_version": 1,
+    "linkage": {
+      "curl": "shared",
+      "zstd": "static"
+    },
+    "observation_scope": "verified source and build-time selection; no TLS handshake, publisher approval or fresh-host acceptance",
+    "optional_curl_dependencies": {
+      "CURL_BROTLI": false,
+      "CURL_USE_BEARSSL": false,
+      "CURL_USE_GNUTLS": false,
+      "CURL_USE_GSSAPI": false,
+      "CURL_USE_LIBPSL": false,
+      "CURL_USE_LIBSSH": false,
+      "CURL_USE_LIBSSH2": false,
+      "CURL_USE_MBEDTLS": false,
+      "CURL_USE_WOLFSSL": false,
+      "CURL_ZSTD": false,
+      "ENABLE_ARES": false,
+      "USE_LIBIDN2": false,
+      "USE_MSH3": false,
+      "USE_NGHTTP2": false,
+      "USE_NGTCP2": false,
+      "USE_OPENSSL_QUIC": false,
+      "USE_QUICHE": false
+    },
+    "protocol": "symphony.distribution.external-selection.v1",
+    "publication_authorized": false,
+    "relocated_exports": [
+      "lib/pkgconfig/libcurl.pc",
+      "lib/pkgconfig/libzstd.pc",
+      "bin/curl-config"
+    ],
+    "runtime_tls_qualified": false,
+    "scope": "Exact notice inputs for already selected qualification dependencies; not publisher approval.",
+    "tls": {
+      "backend": "SecureTransport",
+      "system_runtime": true,
+      "trust": "target-user macOS system trust"
+    }
+  },
+  "selection_sha256": "0154cd5a0bde2a9ef9f9243cf7c752ae6442f9b3b10abdf08c35027f05890401",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "state": "built_and_scanned"
+}

@@ -11,6 +11,34 @@ spec.loader.exec_module(closure)
 
 
 class ClosureTests(unittest.TestCase):
+    def snv_mapping(self):
+        return {'native_components': [{'component_id': name, 'exported_packages': [{
+            'package': 'Symphony' + name.split('-')[0].title(), 'version': '0.1.0',
+            'receipt_release': '0.1.0-dev', 'cmake_version_file': True,
+            'targets': ['Symphony::' + name.split('-')[0].title()]}]} for name in closure.CORE_SNV_IDS]}
+
+    def test_five_core_snv_apis_link_without_optional_observer(self):
+        selected, project, metadata = closure.core_snv_projection(self.snv_mapping(), closure.CORE_SNV_IDS, Path('/final'))
+        self.assertEqual(len(selected), 5)
+        self.assertEqual(len(metadata['first_party_sdk_dependencies']), 5)
+        self.assertEqual(project.count('NO_DEFAULT_PATH'), 5)
+        self.assertIn('target_link_libraries(consumer PRIVATE ', project)
+        for owner in ('sniv', 'snrv', 'sciv', 'scnv', 'snv'):
+            self.assertIn('s::' + owner + '::operations()', closure.CORE_SNV_SMOKE)
+            self.assertIn('Symphony::' + owner.title(), project)
+        self.assertNotIn('observer', project)
+        self.assertNotIn('observer', closure.CORE_SNV_SMOKE)
+
+    def test_missing_or_duplicate_core_snv_producer_refused(self):
+        missing = self.snv_mapping(); missing['native_components'].pop()
+        with self.assertRaisesRegex(ValueError, 'five unique'): closure.core_snv_projection(missing, closure.CORE_SNV_IDS, Path('/final'))
+        duplicate = self.snv_mapping(); duplicate['native_components'].append(duplicate['native_components'][0])
+        with self.assertRaisesRegex(ValueError, 'five unique'): closure.core_snv_projection(duplicate, closure.CORE_SNV_IDS, Path('/final'))
+
+    def test_optional_observer_cannot_replace_core_snv_selection(self):
+        wrong = [*closure.CORE_SNV_IDS[:-1], 'snv-local-observer']
+        with self.assertRaisesRegex(ValueError, 'must be selected'): closure.core_snv_projection(self.snv_mapping(), wrong, Path('/final'))
+
     def report(self):
         return {'status': 'passed', 'provider_requests': '0', 'spend_usd': '0',
                 'resume_executed': '0', 'external_trials': '2', 'selected_proposal': 'proposal-2',

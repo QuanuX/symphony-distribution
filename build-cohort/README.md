@@ -52,11 +52,77 @@ four required targets.
 qualification manifest: SNV receipt tampering, consumer and adversarial transport,
 the SBV installed boundary, SQAV installed requests, and the Cloudflare installed
 receipt/process contract. Each selected test and every subtest must pass without
-skips against the relocated prefix. The prefix and Go manifests must remain
-unchanged. Optional observer and SRRAPIV tests are explicitly unrun in this
+skips. The SNV tamper fixture receives a fresh projection of its complete seven
+native receipt units and runtime dependencies, with every original byte and mode
+verified. This preserves its strict regular-file copy guard while unrelated
+external libraries retain legitimate symlinks in the full candidate. The other
+five tests use the complete relocated prefix. Both the original prefix and the
+projection, together with Go manifests, must remain unchanged. Optional observer
+and SRRAPIV tests are explicitly unrun in this
 core-only cohort; the broader native CTest and direct-process campaigns are also
 reported separately as unrun by this focused audit.
 
 D06 prepares and checks candidates. Publisher signing, public trust, Anaconda
 upload/retrieval, Cloudflare installers and the final fresh-host acceptance
 campaign remain separate. This work grants no publication or feature expansion.
+
+## Run a reviewed cohort
+
+Use the exact bound core checkout, the verified S08 export and its separately held
+private scan policy. Prepare the pinned Go module cache first; the build has no
+network fallback. Supply the exact selected compiler, CMake and Go executables.
+The workflow shows the four native platform selections and explicit Linux TLS
+inputs; local Apple builds may also supply `--developer-dir`.
+
+```sh
+python3 build-cohort/external.py --source /work/core \
+  --work /work/new-external \
+  --curl-archive /inputs/curl-8.7.1.tar.xz \
+  --zstd-archive /inputs/zstd-1.5.7.tar.gz \
+  --cmake /tools/cmake --cc /tools/clang --cxx /tools/clang++
+
+python3 build-cohort/build.py --repository /work/core \
+  --output /work/new-cohort --profile macos15-arm64 \
+  --cmake /tools/cmake --cc /tools/clang --cxx /tools/clang++ \
+  --go /tools/go --gomodcache /inputs/verified-go-modules \
+  --external-prefix /work/new-external/prefix \
+  --export /inputs/reviewed-export --privacy-policy /private/source-policy.json \
+  --repeat --prune-builds
+```
+
+These are placeholders for explicitly selected local inputs, not paths to create
+on an end user's machine. Every output directory must be new and disjoint from
+inputs. An interrupted or failed output is retained as incomplete and cannot be
+adopted by a retry. `--supplemental` is an explicit local engineering mode; it
+cannot convert a different host into a supported target.
+
+After the aggregate build passes, run `qualification/d06_delivery_record.py` and
+`qualification/d06_sdk_closure.py` as described in the qualification README.
+The delivery collector rechecks the exact built source, receipts, Go modules,
+notices and payload inventory. Its optional source archive has neutral tar owner
+metadata and contains the complete build/install toolkit snapshot. The native
+builder also refuses static archives whose member metadata retains builder IDs
+or timestamps; outer archive normalization alone cannot repair those inner bytes.
+
+
+## Stable archive and link metadata
+
+The native link uses its stable install RPATH and install-name policy from the
+initial link. Removing private search paths afterward would leave Apple linker
+UUIDs dependent on those paths. A regression builds and executes the same
+consumer under two independent private prefixes and compares the finalized bytes.
+
+On Darwin, `archive_padding.py` validates the complete BSD32 symbol index and
+member offsets, then clears only its fully unreferenced string-table alignment
+tail. Object bytes, names, headers and offsets are preserved. Unknown layouts
+refuse. This happens in the existing finalizer before native receipt sealing;
+external archives are finalized and inventoried separately after native installs.
+Neutral inner member ownership and timestamps are still required.
+
+`qualification/d06_repair_cohort.py` is a bounded recovery tool for the two exact
+recorded local D06 origins. It creates a new candidate, uses source-generated
+owners to remove and rebuild the eight affected dependency units, and verifies
+the other 43 native units and six Go commands byte for byte. Its reports explicitly
+distinguish inherited artifacts from fresh compilation. Only the external zstd
+archive may change outside those eight owners. Original evidence and stages are
+retained; the ordinary clean builder never resumes an incomplete output.

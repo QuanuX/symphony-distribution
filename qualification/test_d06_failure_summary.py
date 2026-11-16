@@ -119,6 +119,15 @@ class FailureSummaryTests(unittest.TestCase):
         self.assertEqual(result['failed_step'], 'sdk-closure-source-sdk-build')
         self.assertIn('SDK symbol absent', result['log']['tail'])
 
+    def test_delivery_failure_precedes_missing_sdk_closure(self):
+        delivery = self.root / 'd06-delivery'
+        (delivery / 'logs').mkdir(parents=True)
+        (delivery / 'logs/qxctl-version.log').write_text('error: module checksum differs\n')
+        (delivery / 'delivery-record.json').write_text(json.dumps({'state': 'failed'}))
+        result = self.report()
+        self.assertEqual(result['failed_step'], 'delivery-record')
+        self.assertIn('module checksum differs', result['log']['tail'])
+
     def test_output_never_overwrites_or_follows_links(self):
         output = self.root / 'summary.json'
         summary.write_new(output, {'retained': True})

@@ -11,6 +11,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import platform
 from pathlib import Path, PurePosixPath
 import shutil
 import subprocess
@@ -18,6 +19,10 @@ import subprocess
 spec = importlib.util.spec_from_file_location('finalize_loader', Path(__file__).with_name('loader_audit.py'))
 loader = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(loader)
+
+archive_spec = importlib.util.spec_from_file_location('finalize_archive', Path(__file__).with_name('archive_padding.py'))
+archive_padding = importlib.util.module_from_spec(archive_spec)
+archive_spec.loader.exec_module(archive_padding)
 
 
 def require(value, message):
@@ -106,7 +111,17 @@ def finalize(root, paths, original=None, copied=None, verified_external=None):
     allowed_system = loader.system_runtime_allowance(root)
     for binary in paths:
         with binary.open('rb') as stream:
-            magic = stream.read(4)
+            header = stream.read(8)
+        if header == b'!<arch>\n' and platform.system() == 'Darwin':
+            # Only unsealed declared files (or exact copied external inputs)
+            # enter this hook. Object bytes and archive offsets stay unchanged.
+            normalized, proof = archive_padding.normalize_bytes(binary.read_bytes())
+            if proof['changed_byte_count']:
+                binary.write_bytes(normalized)
+            results.append({'path': str(binary.relative_to(root)), 'sha256': sha(binary),
+                            'kind': 'static_archive', 'padding_normalization': proof})
+            continue
+        magic = header[:4]
         if magic not in loader.MACHO and magic != b'\x7fELF':
             continue
         if magic in loader.MACHO:

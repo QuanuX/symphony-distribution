@@ -1,0 +1,25 @@
+{
+  "scope": "preparatory upstream/source-toolkit qualification only",
+  "archives": [
+    {
+      "component": "curl",
+      "regular_files_scanned": 3821,
+      "source_archive_sha256": "6fea2aac6a4610fbd0400afb0bcddbe7258a64c63f1f68e5855ebc0c659710cd",
+      "unchanged": true
+    },
+    {
+      "component": "zstd",
+      "regular_files_scanned": 637,
+      "source_archive_sha256": "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3",
+      "unchanged": true
+    }
+  ],
+  "reviewed_exact_member_exceptions": 15,
+  "remaining_findings": 0,
+  "unchanged_upstream_source_archive": {
+    "sha256": "aeb3ef4e2c36356159dfb7a6cda499424b90f7d54ab0d625d3e83ae0e8cc7df8",
+    "size": 5160960,
+    "file_count": 3
+  },
+  "current_toolkit_files_scanned": 109
+}
