@@ -145,3 +145,8 @@ The [retained native recovery increment](docs/D12-NATIVE-RECOVERY.md) fixes the
 fresh-build carrier handoff and prepares wrapper qualification from verified
 primary artifacts, preserving original native/SDK provenance without a new
 native build. Its engineering status does not close the release-decision gate.
+
+The [primary host/client increment](docs/D13-FRESH-HOST-CLIENT.md) repairs the
+bootstrap archive lookup and starts separate disposable native-owner and Codex
+qualification from exact retained platform artifacts. Main remains unchanged;
+dispatches and focused checks are distinct from final acceptance.
