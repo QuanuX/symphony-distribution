@@ -140,3 +140,8 @@ materials and identify the required client/fresh-host, native installer, version
 transition, integration, recognized trust and independent review evidence.
 Historical passing artifacts, source identities and unfilled decisions remain
 explicit; feature work and changes to main remain frozen.
+
+The [retained native recovery increment](docs/D12-NATIVE-RECOVERY.md) fixes the
+fresh-build carrier handoff and prepares wrapper qualification from verified
+primary artifacts, preserving original native/SDK provenance without a new
+native build. Its engineering status does not close the release-decision gate.
