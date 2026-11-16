@@ -1,0 +1,20 @@
+{
+  "protocol": "symphony.distribution.d10-selected-mac-original-wrapper-failure.v1",
+  "state": "failed_before_carrier_installation",
+  "profile": "local-macos-amd64-fixture",
+  "original_signed_manifest_sha256": "7a6b055dc7478b23c5183941163145ce747619c9f3ee53b5fe968f4aa6a44da8",
+  "original_shell_wrapper_sha256": "af4a51db0a5e0debba1c157a763441f837eaa8ced5de7ce0d9086dfc5f08b3d5",
+  "reason": "Global CONDA_NO_PLUGINS=true suppresses the pinned standalone constructor subcommand needed to extract the embedded payload.",
+  "installer_exit_code": 1,
+  "installed_conda_package_records": 0,
+  "install_log_sha256": "bb904ab966a6456a5a7e5a1ed6775bb0b997c4fa247b3d7df1c4326a0993eb61",
+  "incomplete_record_sha256": "602db8ac61408e8e7d5fbc664e5f42daf2e731ce927d049efcbf739c096801c9",
+  "original_artifacts_edited": false,
+  "native_runtime_activated": false,
+  "system_package_installer_invoked": false,
+  "system_trust_changed": false,
+  "legal_approval": false,
+  "release_acceptance_complete": false,
+  "publication_authorized": false,
+  "disposition": "Preserve original signed delivery and failed attempt; independently bind any repaired wrapper and rerun in fresh private state."
+}

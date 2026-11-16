@@ -8,6 +8,7 @@ setup; they never change a supplied Conda archive.
 import hashlib
 import json
 import importlib.metadata
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -49,7 +50,76 @@ def public_build_info(platform, versions):
 
 def inactive_script(data):
     require(data.startswith('#!/bin/bash\n'), 'constructor native script shebang drift')
-    return data.replace('#!/bin/bash\n', '#!/bin/bash\nexport CONDA_REPORT_ERRORS=false\nexport CONDA_NO_PLUGINS=true\n', 1)
+    return data.replace('#!/bin/bash\n', '#!/bin/bash\nexport CONDA_REPORT_ERRORS=false\nexport CONDA_NO_PLUGINS=true\n'
+                        'export CONDA_RESTRICT_RC_SEARCH_PATH=1\nexport CONDARC=/dev/null\n', 1)
+
+
+# The pinned 26.9.4 standalone registers its embedded constructor command as an
+# external plugin, and has no selective --enable-plugins option. Only extraction
+# receives this command-local override. The assembly probe below proves that the
+# selected frozen executable cannot discover caller Python distributions.
+CONSTRUCTOR_COMMAND = ('CONDA_NO_PLUGINS=false CONDA_RESTRICT_RC_SEARCH_PATH=1 '
+                       'CONDARC=/dev/null PYTHONNOUSERSITE=1 PYTHONPATH= "$CONDA_EXEC" constructor')
+
+
+def scope_constructor_commands(data, expected):
+    original = '"$CONDA_EXEC" constructor'
+    require(data.count(original) == expected and 'CONDA_NO_PLUGINS=false' not in data,
+            'constructor extraction command scope drift')
+    return data.replace(original, CONSTRUCTOR_COMMAND)
+
+
+FROZEN_CONSTRUCTOR_PROBE = '''import importlib.metadata as metadata, json, pathlib, sys
+root = pathlib.Path(sys._MEIPASS).resolve()
+assert getattr(sys, 'frozen', False) and sys.path
+for entry in sys.path:
+    assert pathlib.Path(entry).resolve().is_relative_to(root)
+distributions = list(metadata.distributions())
+assert distributions
+for distribution in distributions:
+    assert pathlib.Path(distribution.locate_file('')).resolve().is_relative_to(root)
+    assert distribution.metadata.get('Name', '').lower() != 'symphony-unselected-host-plugin'
+import conda, __main__
+assert conda.__version__ == '26.9.4' and hasattr(__main__, '_conda_main')
+print(json.dumps({'protocol': 'symphony.distribution.frozen-constructor-probe.v1',
+    'conda_version': conda.__version__, 'frozen_paths_only': True, 'frozen_distributions_only': True,
+    'sys_path_entries': len(sys.path), 'embedded_distributions': len(distributions)}), flush=True)
+sys.argv = [sys.executable, 'constructor', '--no-rc', '--help']
+raise SystemExit(__main__._conda_main())
+'''
+
+
+def probe_frozen_constructor(bootstrap, work):
+    probe = Path(work) / 'constructor-isolation-probe'; probe.mkdir(mode=0o700)
+    caller = probe / 'caller'; caller.mkdir(mode=0o700)
+    marker = probe / 'HOST_PLUGIN_IMPORTED'
+    body = 'from pathlib import Path\nPath(' + repr(str(marker.resolve())) + ').write_text("unexpected import")\n'
+    (caller / 'rogue_plugin.py').write_text(body)
+    (caller / 'sitecustomize.py').write_text(body)
+    metadata = caller / 'symphony_unselected_host_plugin-1.0.dist-info'; metadata.mkdir()
+    (metadata / 'METADATA').write_text('Metadata-Version: 2.1\nName: symphony-unselected-host-plugin\nVersion: 1.0\n')
+    (metadata / 'entry_points.txt').write_text('[conda]\nrogue = rogue_plugin\n')
+    env = dict(os.environ)
+    env.update(CONDA_NO_PLUGINS='false', CONDA_RESTRICT_RC_SEARCH_PATH='1', CONDARC='/dev/null',
+               PYTHONNOUSERSITE='1', PYTHONPATH=str(caller.resolve()), CONDA_REPORT_ERRORS='false')
+    result = subprocess.run([str(Path(bootstrap).resolve()), 'python', '-c', FROZEN_CONSTRUCTOR_PROBE],
+                            cwd=caller, env=env, capture_output=True, text=True, timeout=240)
+    (probe / 'stdout.log').write_text(result.stdout); (probe / 'stderr.log').write_text(result.stderr)
+    require(result.returncode == 0 and not marker.exists(), 'frozen constructor isolation/help probe failed')
+    lines = result.stdout.splitlines()
+    require(lines and any(line.startswith('usage: conda constructor ') for line in lines),
+            'embedded constructor command was not observed')
+    proof = json.loads(lines[0])
+    require(set(proof) == {'protocol', 'conda_version', 'frozen_paths_only', 'frozen_distributions_only',
+                          'sys_path_entries', 'embedded_distributions'} and
+            proof['protocol'] == 'symphony.distribution.frozen-constructor-probe.v1' and
+            proof['conda_version'] == '26.9.4' and proof['frozen_paths_only'] is True and
+            proof['frozen_distributions_only'] is True and 0 < proof['sys_path_entries'] <= 16 and
+            0 < proof['embedded_distributions'] <= 512, 'unqualified frozen constructor result')
+    return {**proof, 'caller_plugin_fixture_ignored': True, 'constructor_help_exit_code': 0,
+            'probe_sha256': hashlib.sha256(FROZEN_CONSTRUCTOR_PROBE.encode()).hexdigest(),
+            'stdout_sha256': hashlib.sha256(result.stdout.encode()).hexdigest(),
+            'stderr_sha256': hashlib.sha256(result.stderr.encode()).hexdigest()}
 
 
 AMBIENT_CONDA_OWNERSHIP = '''CONDA_DIR="${HOME}/.conda"
@@ -80,6 +150,7 @@ def scope_native_script(name, data):
         guard = 'if [[ -e "$PREFIX" ]]; then'
         require(data.count(guard) == 1, 'constructor native prefix guard drift')
         data = data.replace(guard, 'if [[ -e "$PREFIX" || -L "$PREFIX" ]]; then')
+    data = scope_constructor_commands(data, 1 if name == 'prepare_installation.sh' else 0)
     require('${HOME}/.conda' not in data and '${HOME}/.condarc' not in data,
             'ambient Conda-home mutation remains in generated script')
     return inactive_script(data)
@@ -104,6 +175,12 @@ fi
 ''' + header[last:]
     require('FORCE=1' not in header and 'REINSTALL=1' not in header, 'existing-prefix overwrite path remains')
     return header
+
+
+def scope_shell_header(header):
+    require(header.count('unset CONDARC\n') == 1, 'constructor shell RC isolation drift')
+    header = header.replace('unset CONDARC\n', 'export CONDARC=/dev/null\nexport CONDA_RESTRICT_RC_SEARCH_PATH=1\n')
+    return scope_constructor_commands(fresh_shell_header(header), 4)
 
 
 def run(request_path):
@@ -131,6 +208,7 @@ def run(request_path):
     bootstrap = Path('bootstrap/conda.exe').resolve()
     bootstrap_sha = hashlib.sha256(bootstrap.read_bytes()).hexdigest()
     require(bootstrap_sha == request['bootstrap_sha256'], 'selected bootstrap changed before construction')
+    constructor_isolation = probe_frozen_constructor(bootstrap, Path.cwd())
     # A one-file standalone decompresses on every --version invocation. Reuse
     # this observed version only for these exact unchanged executable bytes.
     def verified_identity(executable=None):
@@ -160,7 +238,7 @@ def run(request_path):
         return result
     osxpkg.move_script = move_script
     original_get_header = shar.get_header
-    shar.get_header = lambda *args, **kwargs: fresh_shell_header(original_get_header(*args, **kwargs))
+    shar.get_header = lambda *args, **kwargs: scope_shell_header(original_get_header(*args, **kwargs))
     # Solver results are checked before constructor copies or wraps any package.
     original_fetch = fcp._fetch_precs
     def fetch(precs, *args, **kwargs):
@@ -178,7 +256,10 @@ def run(request_path):
         'public_build_metadata_only': True, 'tar_owner_metadata_neutral': True,
         'pkgbuild_ownership': 'recommended', 'installer_executed': False,
         'bootstrap_version_observed': '26.9.4', 'bootstrap_sha256': bootstrap_sha,
-        'bootstrap_external_plugins_disabled': True, 'error_reporting_disabled': True,
+        'bootstrap_external_plugins_disabled_by_default': True,
+        'constructor_plugin_override': 'command_local_frozen_bundle_extraction_only',
+        'constructor_isolation': constructor_isolation, 'caller_rc_configuration_ignored': True,
+        'error_reporting_disabled': True,
         'ambient_conda_home_ownership_unchanged': True, 'fresh_prefix_only': True,
         'signing_requested': False, 'publication_authorized': False}, sort_keys=True, indent=2) + '\n')
 

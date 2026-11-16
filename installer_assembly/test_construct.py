@@ -4,9 +4,12 @@ import importlib.util
 import io
 import json
 from pathlib import Path
+import subprocess
 import tarfile
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 
@@ -57,6 +60,8 @@ def shell_bytes(payload, *, extra=None, neutral=True, bootstrap=b'bootstrap'):
               f'boundary3=$(( boundary2 + {len(raw)} ))\n'
               'CONDA_REGISTER_ENVS="false"\n'
               "export CONDA_REPORT_ERRORS='false'\nexport CONDA_NO_PLUGINS='true'\n"
+              'export CONDARC=/dev/null\nexport CONDA_RESTRICT_RC_SEARCH_PATH=1\n'
+              + (r.CONSTRUCTOR_COMMAND + ' --extract-tarball\n') * 4 +
               'if [ -e "$PREFIX" ] || [ -L "$PREFIX" ]; then\nexit 1\nfi\n@@END_HEADER@@\n').encode()
     return header + bootstrap + raw
 
@@ -122,7 +127,8 @@ class ConstructorContracts(unittest.TestCase):
     def test_builtin_scripts_disable_reporting_and_external_plugins(self):
         script = '#!/bin/bash\nset -eu\necho "inert"\n'
         changed = r.inactive_script(script)
-        self.assertEqual(changed, '#!/bin/bash\nexport CONDA_REPORT_ERRORS=false\nexport CONDA_NO_PLUGINS=true\nset -eu\necho "inert"\n')
+        self.assertEqual(changed, '#!/bin/bash\nexport CONDA_REPORT_ERRORS=false\nexport CONDA_NO_PLUGINS=true\n'
+                         'export CONDA_RESTRICT_RC_SEARCH_PATH=1\nexport CONDARC=/dev/null\nset -eu\necho "inert"\n')
         with self.assertRaisesRegex(ValueError, 'shebang drift'):
             r.inactive_script('#!/bin/zsh\necho unsafe\n')
 
@@ -151,6 +157,67 @@ class ConstructorContracts(unittest.TestCase):
         self.assertNotIn('REINSTALL=1', result)
         self.assertIn('if [ -e "$PREFIX" ] || [ -L "$PREFIX" ]; then', result)
         self.assertEqual(result.count('Existing-prefix replacement is unavailable'), 2)
+
+    def test_constructor_override_is_command_local_and_keeps_install_denied(self):
+        script = '#!/bin/bash\n"$CONDA_EXEC" constructor --extract-conda-pkgs\n"$CONDA_EXEC" install --offline\n'
+        result = r.scope_native_script('prepare_installation.sh', script)
+        self.assertEqual(r.CONSTRUCTOR_COMMAND.encode(), c.CONSTRUCTOR_COMMAND)
+        self.assertIn('export CONDA_NO_PLUGINS=true\n', result)
+        self.assertIn(r.CONSTRUCTOR_COMMAND + ' --extract-conda-pkgs', result)
+        self.assertIn('\n"$CONDA_EXEC" install --offline\n', result)
+        c.audit_constructor_policy(result.encode(), 1)
+        with self.assertRaisesRegex(ValueError, 'scope drift'):
+            r.scope_constructor_commands(script, 2)
+        with self.assertRaisesRegex(ValueError, 'scope drift'):
+            r.scope_constructor_commands('CONDA_NO_PLUGINS=false ' + script, 1)
+
+    def test_actual_shell_override_does_not_leak_to_following_install_command(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            stub = root / 'bootstrap'
+            stub.write_text('#!/bin/sh\nprintf "%s|%s|%s|%s|%s\\n" "$CONDA_NO_PLUGINS" "$CONDARC" '
+                            '"$CONDA_RESTRICT_RC_SEARCH_PATH" "${PYTHONPATH:-}" "$1"\n')
+            stub.chmod(0o700)
+            original = '#!/bin/bash\nif ! "$CONDA_EXEC" constructor --extract-conda-pkgs; then exit 3; fi\n"$CONDA_EXEC" install --offline\n'
+            script = root / 'prepare.sh'; script.write_text(r.scope_native_script('prepare_installation.sh', original))
+            env = {'PATH': '/usr/bin:/bin', 'CONDA_EXEC': str(stub), 'PYTHONPATH': 'caller-module-path',
+                   'CONDARC': '/unselected/caller-config', 'CONDA_NO_PLUGINS': 'false'}
+            result = subprocess.run(['/bin/bash', str(script)], env=env, capture_output=True, text=True, check=True)
+            self.assertEqual(result.stdout.splitlines(), ['false|/dev/null|1||constructor',
+                                                          'true|/dev/null|1|caller-module-path|install'])
+
+    def test_override_or_caller_configuration_broadening_refuses(self):
+        correct = (r.CONSTRUCTOR_COMMAND + '\nexport CONDARC=/dev/null\nexport CONDA_RESTRICT_RC_SEARCH_PATH=1\n').encode()
+        for bad in (correct + b'export CONDA_NO_PLUGINS=false\n',
+                    correct.replace(b'PYTHONPATH= ', b''),
+                    correct.replace(b'CONDARC=/dev/null', b'CONDARC="$HOME/.condarc"'),
+                    correct + b'unset CONDARC\n'):
+            with self.assertRaises(ValueError): c.audit_constructor_policy(bad, 1)
+
+    def test_frozen_constructor_probe_requires_actual_help_and_closed_metadata(self):
+        proof = {'protocol': 'symphony.distribution.frozen-constructor-probe.v1', 'conda_version': '26.9.4',
+                 'frozen_paths_only': True, 'frozen_distributions_only': True,
+                 'sys_path_entries': 4, 'embedded_distributions': 14}
+        for case in ('passed', 'missing-help', 'bad-metadata', 'wrong-exit', 'caller-plugin-imported'):
+            with tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary); executable = root / 'bootstrap'; executable.write_bytes(b'fixture')
+                selected = dict(proof)
+                if case == 'bad-metadata': selected['frozen_distributions_only'] = False
+                output = json.dumps(selected) + ('\nusage: conda constructor [-h] ...\n' if case != 'missing-help' else '\n')
+                def invoke(*args, **kwargs):
+                    self.assertEqual(kwargs['env']['CONDA_NO_PLUGINS'], 'false')
+                    self.assertEqual(kwargs['env']['CONDARC'], '/dev/null')
+                    self.assertEqual(kwargs['env']['CONDA_RESTRICT_RC_SEARCH_PATH'], '1')
+                    self.assertIn('python', args[0]); self.assertIn('rogue_plugin.py', [p.name for p in Path(kwargs['cwd']).iterdir()])
+                    if case == 'caller-plugin-imported':
+                        (root / 'constructor-isolation-probe/HOST_PLUGIN_IMPORTED').write_text('bad')
+                    return SimpleNamespace(returncode=1 if case == 'wrong-exit' else 0, stdout=output, stderr='')
+                with patch.object(r.subprocess, 'run', side_effect=invoke):
+                    if case == 'passed':
+                        result = r.probe_frozen_constructor(executable, root)
+                        self.assertTrue(result['caller_plugin_fixture_ignored'])
+                    else:
+                        with self.assertRaises(ValueError): r.probe_frozen_constructor(executable, root)
 
     def test_output_refuses_linked_parent_and_overlap(self):
         with tempfile.TemporaryDirectory() as temporary:

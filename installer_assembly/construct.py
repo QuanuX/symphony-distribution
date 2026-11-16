@@ -33,6 +33,8 @@ PROFILES = {'macos15-arm64': ('osx-arm64', 'Darwin', 'arm64'),
             'ubuntu24.04-arm64': ('linux-aarch64', 'Linux', 'aarch64'),
             'ubuntu26.04-amd64': ('linux-64', 'Linux', 'x86_64'),
             'local-macos-amd64-fixture': ('osx-64', 'Darwin', 'x86_64')}
+CONSTRUCTOR_COMMAND = ('CONDA_NO_PLUGINS=false CONDA_RESTRICT_RC_SEARCH_PATH=1 '
+                       'CONDARC=/dev/null PYTHONNOUSERSITE=1 PYTHONPATH= "$CONDA_EXEC" constructor').encode()
 
 
 def require(value, message):
@@ -295,6 +297,16 @@ def audit_nested_tar(raw, expected, markers, *, depth=0):
     return found
 
 
+def audit_constructor_policy(data, expected):
+    require(data.count(CONSTRUCTOR_COMMAND) == expected and
+            data.count(b'CONDA_NO_PLUGINS=false') == expected and
+            data.count(b'"$CONDA_EXEC" constructor') == expected and
+            b"CONDA_NO_PLUGINS='false'" not in data and b'CONDA_NO_PLUGINS="false"' not in data,
+            'constructor plugin override escapes its bounded extraction calls')
+    require(b'export CONDARC=/dev/null\n' in data and b'export CONDA_RESTRICT_RC_SEARCH_PATH=1\n' in data and
+            b'unset CONDARC\n' not in data, 'constructor caller configuration isolation differs')
+
+
 def audit_sh(path, rows, bootstrap_sha, markers):
     require(Path(path).stat().st_size <= MAX_WRAPPER, 'wrapper exceeds size limit')
     raw = Path(path).read_bytes()
@@ -316,6 +328,7 @@ def audit_sh(path, rows, bootstrap_sha, markers):
             'shell wrapper initialization/registration policy differs')
     require(b"export CONDA_REPORT_ERRORS='false'" in header and b"export CONDA_NO_PLUGINS='true'" in header,
             'shell wrapper reporting/plugin policy differs')
+    audit_constructor_policy(header, 4)
     require(b'if [ -e "$PREFIX" ] || [ -L "$PREFIX" ]; then' in header and
             b'FORCE=1' not in header and b'REINSTALL=1' not in header,
             'shell wrapper permits existing-prefix replacement')
@@ -344,6 +357,7 @@ def audit_pkg(path, rows, bootstrap_sha, markers, *, work, env):
     found = {}
     bootstraps = []
     scripts = []
+    constructor_calls = 0
     for entry in sorted(destination.rglob('*')):
         require(not entry.is_symlink(), 'unexpected link in expanded wrapper')
         require(entry.is_dir() or entry.is_file(), 'special file in expanded wrapper')
@@ -365,13 +379,16 @@ def audit_pkg(path, rows, bootstrap_sha, markers, *, work, env):
                 scripts.append(str(entry.relative_to(destination)))
                 require(b'export CONDA_REPORT_ERRORS=false\nexport CONDA_NO_PLUGINS=true\n' in data,
                         'PKG reporting/plugin policy differs')
+                expected_calls = 1 if entry.name == 'postinstall' and 'prepare_installation.pkg' in entry.parts else 0
+                audit_constructor_policy(data, expected_calls)
+                constructor_calls += expected_calls
                 require(b'${HOME}/.conda' not in data and b'${HOME}/.condarc' not in data and
                         b'"${CONDA_DIR}"' not in data, 'PKG mutates ambient Conda user state')
                 if entry.name == 'preinstall':
                     require(b'if [[ -e "$PREFIX" || -L "$PREFIX" ]]; then' in data, 'PKG fresh-prefix guard differs')
                 require(not any(token in data for token in (b'qxctl', b'symphony-ssiag', b'stav-append-authority', b'conda init')),
                         'unexpected runtime owner or activation call in PKG scripts')
-    require(found == {name: row['sha256'] for name, row in expected.items()} and len(bootstraps) == 1,
+    require(found == {name: row['sha256'] for name, row in expected.items()} and len(bootstraps) == 1 and constructor_calls == 1,
             'PKG does not contain exact cohort and bootstrap')
     distribution = (destination / 'Distribution').read_bytes()
     require(b'run_conda_init' not in distribution and b'user_pre_install' not in distribution and
@@ -448,6 +465,13 @@ def assemble(cohort_root, output, *, interpreter, standalone, standalone_archive
         (work / 'request.json').write_bytes(canonical(request))
         run([str(interpreter), '-I', '-B', str(HERE / 'constructor_runner.py'), 'request.json'],
             cwd=work, env=env, log=work / 'constructor.log')
+        constructor_proof = json.loads((work / 'constructor-proof.json').read_text())
+        isolation = constructor_proof['constructor_isolation']
+        require(constructor_proof['adapter_sha256'] == file_sha(HERE / 'constructor_runner.py') and
+                constructor_proof['bootstrap_sha256'] == bootstrap_sha and
+                isolation['frozen_paths_only'] is True and isolation['frozen_distributions_only'] is True and
+                isolation['caller_plugin_fixture_ignored'] is True and isolation['constructor_help_exit_code'] == 0,
+                'selected bootstrap constructor isolation was not established')
         markers = markers_from_policy(privacy_policy) + [str(p).encode() for p in
                   (output, cohort_root, interpreter.parent.parent, standalone.parent, HERE.parent)]
         records = []
@@ -472,6 +496,7 @@ def assemble(cohort_root, output, *, interpreter, standalone, standalone_archive
         require(carriers.audit_cohort(cohort_root) == cohort, 'original cohort changed during assembly')
         report = {**public_cohort, 'state': 'unsigned_wrappers_audited', 'wrappers': records,
                   'constructor_adapter_sha256': file_sha(HERE / 'constructor_runner.py'),
+                  'constructor_isolation': isolation,
                   'assembler_sha256': file_sha(Path(__file__)), 'tool_lock_sha256': file_sha(HERE / 'tool-lock.json'),
                   'private_policy_sha256': file_sha(privacy_policy) if privacy_policy else None,
                   'local_cli_cohort_identical': True, 'installer_executed': False,

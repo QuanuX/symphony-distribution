@@ -1,0 +1,13 @@
+{
+  "protocol": "symphony.distribution.d10-protected-refs.v1",
+  "date": "2026-11-16",
+  "core_main": "976b23290857be613005eea5cdc130d0f457b8c3",
+  "client_main": "874402db2163bc44ba8fe2247c00b30ba439adf8",
+  "verification": "GitHub ref reads matched retained D09 main selections; local source checkouts were clean at their selected feature commits.",
+  "core_feature_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "client_feature_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+  "core_or_client_source_changed": false,
+  "main_branch_mutated": false,
+  "source_pr_merged": false,
+  "feature_freeze_preserved": true
+}
