@@ -57,6 +57,7 @@ jobs:
           python3 - <<'PYCODE'
           import hashlib, os, pathlib, re, subprocess, sys
           from qualification.beta_artifacts import validate_selection
+          sys.path.insert(0, 'qualification')
           from qualification.d09_platform_tools import TARGETS
           sys.path.insert(0, 'installer_assembly')
           from construct import beta_authorization

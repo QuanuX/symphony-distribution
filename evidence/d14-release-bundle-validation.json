@@ -1,0 +1,56 @@
+{
+  "actual_maintenance_preflight": {
+    "helper_sha256": "15ef40431a2b1fe7dd0cb9ea72efe9e9b18a2a9a8b5887424746ebea4448935b",
+    "new_native_execution": false,
+    "observations": [
+      {
+        "lineage_matches": true,
+        "maintenance_result_sha256": "053ac9488b9e6937fffd15e4d65f7c9c36a81c2678042db10d74d8b5f88c5677",
+        "native_receipt_units": 51,
+        "original_package_result_sha256": "e70b15167e899abe24276626c800aa308e30e0fc303bc88028594e7a1f5eefd9",
+        "owner_predicates_per_unit": 9,
+        "profile": "macos15-arm64",
+        "status": "passed"
+      },
+      {
+        "lineage_matches": true,
+        "maintenance_result_sha256": "1ccc28bacee57fc4dae0b40a758d6bb4e49c8fe69ebffbd93a597fb7e6b52a53",
+        "native_receipt_units": 51,
+        "original_package_result_sha256": "590f450bb91cfcac2094863e8fed9516ea7e3406eb2f724e45c65412c5951163",
+        "owner_predicates_per_unit": 9,
+        "profile": "ubuntu24.04-amd64",
+        "status": "passed"
+      },
+      {
+        "lineage_matches": true,
+        "maintenance_result_sha256": "20cedccda96316c7bacf25f70f53442f7bc3870a5da18b1e5bf3d8d15c1e60c2",
+        "native_receipt_units": 51,
+        "original_package_result_sha256": "12f152b472ee3530e2422fe34e7ad6fed1bee14e18acbb2cf30c1fffe582f60a",
+        "owner_predicates_per_unit": 9,
+        "profile": "ubuntu24.04-arm64",
+        "status": "passed"
+      },
+      {
+        "lineage_matches": true,
+        "maintenance_result_sha256": "7bd7e624ee22f494625ea8c19b144ef0cc047cbe8e3356d6bff0a353bc344b0b",
+        "native_receipt_units": 51,
+        "original_package_result_sha256": "9fee099f44094dc6a20612de038a2528e92be256281987a72461fe89cf4aed89",
+        "owner_predicates_per_unit": 9,
+        "profile": "ubuntu26.04-amd64",
+        "status": "passed"
+      }
+    ],
+    "protocol": "symphony.distribution.release-maintenance-preflight.v1",
+    "publication_performed": false,
+    "scope": "exact retained D13 observations against original D12 receipt units; final beta still independently admitted",
+    "state": "actual_four_profile_maintenance_schema_and_lineage_passed"
+  },
+  "focused_release_bundle_tests": 9,
+  "helpers": {
+    "channel/release-request.example.json": "fe74eea879ed8eb1f37282a50f0427b84684b4b28ed591b2b8269fcf6863d77d",
+    "channel/release_bundle.py": "15ef40431a2b1fe7dd0cb9ea72efe9e9b18a2a9a8b5887424746ebea4448935b",
+    "channel/test_release_bundle.py": "9d6e4e4845493abba6ffa419e0c4ed204bc73a4c01b5ac64ee7685266dc63222"
+  },
+  "independent_review": "passed",
+  "publication_performed": false
+}
