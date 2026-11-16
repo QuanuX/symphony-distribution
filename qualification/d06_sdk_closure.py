@@ -392,8 +392,11 @@ def removal_campaign(args, source, prefix, work, units, runner):
 
 
 def run(args):
-    for name in ('repository', 'cohort_output', 'go', 'cmake', 'cc', 'cxx', 'gomodcache'):
+    for name in ('repository', 'cohort_output', 'gomodcache'):
         setattr(args, name, Path(getattr(args, name)).resolve(strict=True))
+    from sdk_audit import selected_tool
+    for name in ('go', 'cmake', 'cc', 'cxx'):
+        setattr(args, name, Path(selected_tool(getattr(args, name))))
     binding = cohort_plan.read_json((ROOT / 'source-binding.json').read_bytes())
     plan = cohort_plan.read_json((ROOT / 'build-cohort/cohort.json').read_bytes())
     cohort_plan.validate(plan, args.repository, binding)
