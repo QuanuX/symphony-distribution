@@ -1,0 +1,66 @@
+{
+  "client_main_changed": false,
+  "client_origin": {
+    "commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+    "tree": "83a5aad51f809358b72d2cb9f96833b8977b57a0"
+  },
+  "codex_archive": {
+    "asset_id": 742912577,
+    "executed": false,
+    "filename": "codex-aarch64-apple-darwin.tar.gz",
+    "hash_size_and_layout_verified": true,
+    "member": "codex-aarch64-apple-darwin",
+    "observed_executable_size": 280704736,
+    "observed_regular_members": 1,
+    "sha256": "7f4c49c80bae1d0b4e347acfcdf11faa3475d87ae5e65a5eb1261d3c358145ee",
+    "size": 113553246,
+    "url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-aarch64-apple-darwin.tar.gz"
+  },
+  "core_main_changed": false,
+  "files": {
+    ".github/workflows/d13-primary-client.yml": "38027545ea5d98bbbdd6540ffb752d3a950e8a4ee85fa6c6fee096805f5d0381",
+    "qualification/primary-client-tools.json": "cc02ab9036c5d5db3b1a959175e08cd7b9d1bd1dad3914c9565a4ce16c2868bd",
+    "qualification/primary_client.py": "116ce11270b410d457f912bf0d787fed83e25d6b4a0e7550dcf34478f61e7aed",
+    "qualification/test_primary_client.py": "9caf75968744b1c0d1c2fce617144d0569a32d02a4bc92423434a184236b09cf"
+  },
+  "prepared_checks": {
+    "additional_derived_catalog_test": true,
+    "compiler_cmake_ctest_digests_before_and_after": true,
+    "connection_modes": [
+      "stdio",
+      "same_user_ipc"
+    ],
+    "legacy_verifier_unchanged": true,
+    "real_codex_cases_per_profile": 22,
+    "unchanged_native_ctest_suites": 9
+  },
+  "prepared_primary_profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "primary_native_client_runs_observed": 0,
+  "primary_real_codex_cases_observed": 0,
+  "protocol": "symphony.distribution.primary-client-preparation.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "source_export": {
+    "file_count": 101,
+    "git_archive_sha256": "820ea095d600eef5a6a9a47bfe2d7ca4fa0c75f11fa0bee2bdfcf8876040b4a1",
+    "git_blobs_and_modes_verified": true,
+    "private_policy_scan": "passed",
+    "proof_sha256": "45739329b643cdd7b20867c6bccbe9ef9b4b7cba69faa58ae59e99ab51b97a60"
+  },
+  "state": "focused_preparation_passed",
+  "validation": {
+    "focused_command": "python3 -B -m unittest qualification.test_primary_client -q",
+    "focused_tests": 23,
+    "independent_source_review": "passed",
+    "new_files_privacy_scan": "passed",
+    "result": "passed",
+    "whitespace": "passed",
+    "workflow_actionlint": "passed"
+  }
+}
