@@ -4,6 +4,12 @@ on:
     branches: ['codex/**']
     paths: ['.github/workflows/build-cohort.yml', 'build-cohort/**', 'source-binding.json', 'qualification/native_campaign.py', 'qualification/d06_*.py', 'qualification/test_d06_*.py', 'source-export/**', 'owner-catalog/native_owners.py']
   workflow_dispatch:
+    inputs:
+      platforms:
+        description: Native platform cohort to qualify
+        type: choice
+        default: all
+        options: [all, linux, macos]
 permissions:
   contents: read
 concurrency:
@@ -16,19 +22,36 @@ jobs:
     timeout-minutes: 15
     outputs:
       source: ${{ steps.source.outputs.commit }}
+      matrix: ${{ steps.source.outputs.matrix }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           persist-credentials: false
       - name: Select the exact reviewed source
         id: source
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REQUESTED_PLATFORMS: ${{ inputs.platforms || 'all' }}
         run: |
           python3 - <<'PY'
           import json, os, re
           commit = json.load(open('source-binding.json'))['source_commit']
           assert re.fullmatch('[0-9a-f]{40}', commit)
+          # Pushes retain all four profiles; only explicit dispatch narrows scope.
+          selected = os.environ['REQUESTED_PLATFORMS'] if os.environ['EVENT_NAME'] == 'workflow_dispatch' else 'all'
+          if selected not in ('all', 'linux', 'macos'):
+              raise ValueError('Unknown native platform selection')
+          rows = [
+              {'profile': 'macos15-arm64', 'runner': 'macos-15', 'cc': '/usr/bin/clang', 'cxx': '/usr/bin/clang++'},
+              {'profile': 'ubuntu24.04-amd64', 'runner': 'ubuntu-24.04', 'cc': 'clang-18', 'cxx': 'clang++-18'},
+              {'profile': 'ubuntu24.04-arm64', 'runner': 'ubuntu-24.04-arm', 'cc': 'clang-18', 'cxx': 'clang++-18'},
+              {'profile': 'ubuntu26.04-amd64', 'runner': 'ubuntu-26.04', 'cc': 'clang-21', 'cxx': 'clang++-21'},
+          ]
+          rows = [row for row in rows if selected == 'all' or
+                  (row['profile'].startswith('macos') if selected == 'macos' else row['profile'].startswith('ubuntu'))]
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write('commit=' + commit + '\n')
+              output.write('matrix=' + json.dumps({'include': rows}, separators=(',', ':')) + '\n')
           PY
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
@@ -49,24 +72,7 @@ jobs:
     timeout-minutes: 240
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - profile: macos15-arm64
-            runner: macos-15
-            cc: /usr/bin/clang
-            cxx: /usr/bin/clang++
-          - profile: ubuntu24.04-amd64
-            runner: ubuntu-24.04
-            cc: clang-18
-            cxx: clang++-18
-          - profile: ubuntu24.04-arm64
-            runner: ubuntu-24.04-arm
-            cc: clang-18
-            cxx: clang++-18
-          - profile: ubuntu26.04-amd64
-            runner: ubuntu-26.04
-            cc: clang-21
-            cxx: clang++-21
+      matrix: ${{ fromJSON(needs.contracts.outputs.matrix) }}
     env:
       GOWORK: 'off'
       GOENV: 'off'

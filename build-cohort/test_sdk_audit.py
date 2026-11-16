@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import subprocess
+from unittest.mock import patch
 
 
 def load(name):
@@ -17,6 +19,27 @@ loader = load('loader_audit')
 
 
 class SdkAuditTests(unittest.TestCase):
+    def test_cxx_driver_alias_survives_selection_and_execution(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw).resolve()
+            driver = root / 'clang'
+            driver.write_text('#!/bin/sh\ncase "$0" in *clang++) exit 0;; *) exit 19;; esac\n')
+            driver.chmod(0o755)
+            alias = root / 'clang++'; alias.symlink_to('clang')
+            selected = sdk.selected_tool(alias)
+            self.assertEqual(selected, str(alias))
+            self.assertEqual(subprocess.run([selected], check=False).returncode, 0)
+            self.assertEqual(subprocess.run([str(alias.resolve())], check=False).returncode, 19)
+            with patch.dict('os.environ', {'PATH': str(root)}):
+                self.assertEqual(sdk.selected_tool('clang++'), str(alias))
+
+    def test_driver_selection_refuses_broken_and_nonexecutable_tools(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw); broken = root / 'clang++'; broken.symlink_to('missing')
+            with self.assertRaises(ValueError): sdk.selected_tool(broken)
+            missing = root / 'missing'; missing.write_text('not executable')
+            with self.assertRaises(ValueError): sdk.selected_tool(missing)
+
     def test_detached_copy_refuses_symlinks_and_build_outputs(self):
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)
