@@ -193,15 +193,50 @@ def exercise(pkg, row, cohort, expected, output):
             'system_trust_changed': False, 'gatekeeper_bypassed': False, 'native_runtime_owner_invoked': False}
 
 
-def qualify(args):
-    c.require(args.allow_ephemeral_install is True, 'Explicit disposable native installer opt-in required')
-    # Host authority is checked before inspecting, creating or executing anything.
-    custody = reuse.custody(PROFILE, args.output)
-    c.require(os.geteuid() == 0, 'Only the disposable hosted root account may execute this gate')
-    cohort_root, wrappers = c.safe_root(args.cohort_root), c.safe_root(args.wrapper_root)
-    c.require(signing.digest(cohort_root / 'cohort.json') == c.digest(args.cohort_sha256) and
-              signing.digest(wrappers / 'result.json') == c.digest(args.wrapper_result_sha256),
+def private_input_snapshot(source, destination):
+    """Create caller-owned copies; never transfer ownership of runner inputs."""
+    source, destination = c.safe_root(source), c.safe_root(destination, exists=False)
+    c.require(source != destination and source not in destination.parents and destination not in source.parents,
+              'Private input snapshot overlaps original evidence')
+    before = reuse.copy_tree(source, destination)
+    verify_private_snapshot(destination, before)
+    return before
+
+
+def verify_private_snapshot(root, before):
+    root = c.safe_root(root)
+    c.require(root.stat().st_uid == os.geteuid() and stat.S_IMODE(root.stat().st_mode) == 0o700,
+              'Input snapshot root must be private to the executing account')
+    reuse.records_equal(root, before)
+    for row in before:
+        info = (root / row['path']).lstat()
+        c.require(info.st_uid == os.geteuid() and not stat.S_IMODE(info.st_mode) & 0o022 and
+                  not info.st_mode & (stat.S_ISUID | stat.S_ISGID | stat.S_ISVTX),
+                  'Input snapshot member ownership or mode differs')
+        if row['kind'] == 'file':
+            c.require(info.st_nlink == 1, 'Input snapshot must not share original inodes')
+
+
+def retain_failure(output, error):
+    output = gate.safe(output)
+    if output.is_dir() and gate.OWNED_OUTPUTS.get(output) == (output.stat().st_dev, output.stat().st_ino):
+        if not (output / 'INCOMPLETE.json').exists():
+            signing.write(output / 'INCOMPLETE.json', signing.canonical({'protocol': PROTOCOL, 'state': 'incomplete',
+                'error_type': type(error).__name__, 'private_logs_retained': True, 'publication_authorized': False}), 0o644)
+
+
+def qualify_selected(args, custody, output):
+    original_cohort, original_wrappers = c.safe_root(args.cohort_root), c.safe_root(args.wrapper_root)
+    c.require(signing.digest(original_cohort / 'cohort.json') == c.digest(args.cohort_sha256) and
+              signing.digest(original_wrappers / 'result.json') == c.digest(args.wrapper_result_sha256),
               'Explicit native installer evidence selection differs')
+    snapshots = output / 'input-snapshots'; snapshots.mkdir(mode=0o700)
+    cohort_root, wrappers = snapshots / 'cohort', snapshots / 'wrappers'
+    cohort_before = private_input_snapshot(original_cohort, cohort_root)
+    wrapper_before = private_input_snapshot(original_wrappers, wrappers)
+    # The existing archive reader deliberately admits only root/current-owner
+    # files. Root validates newly created private copies, never runner-owned
+    # artifacts or originals whose ownership has been changed.
     cohort = c.audit_cohort(cohort_root); audit = c.document(wrappers / 'result.json')
     row = select_pkg(cohort, audit, args.pkg_sha256)
     tools = reuse.inspection_tools(args.inspection_tools, PROFILE); identity = helper_identity()
@@ -209,17 +244,23 @@ def qualify(args):
     for entry in cohort['entries']:
         _, files = c.validate_recipe(cohort_root, entry)
         c.require(not expected.keys() & files.keys(), 'Carrier ownership overlaps'); expected.update(files)
-    output = gate.fresh(args.output, (cohort_root, wrappers, args.inspection_tools, ROOT))
     observations = exercise(wrappers / row['filename'], row, cohort, expected, output)
-    c.require(signing.digest(cohort_root / 'cohort.json') == args.cohort_sha256 and
-              signing.digest(wrappers / 'result.json') == args.wrapper_result_sha256 and
-              signing.digest(wrappers / row['filename']) == args.pkg_sha256 and c.audit_cohort(cohort_root) == cohort and
+    reuse.records_equal(original_cohort, cohort_before); reuse.records_equal(original_wrappers, wrapper_before)
+    verify_private_snapshot(cohort_root, cohort_before); verify_private_snapshot(wrappers, wrapper_before)
+    c.require(signing.digest(original_cohort / 'cohort.json') == args.cohort_sha256 and
+              signing.digest(original_wrappers / 'result.json') == args.wrapper_result_sha256 and
+              signing.digest(original_wrappers / row['filename']) == args.pkg_sha256 and c.audit_cohort(cohort_root) == cohort and
               helper_identity() == identity and reuse.inspection_tools(args.inspection_tools, PROFILE) == tools,
               'Original inputs or executing helpers changed')
+    snapshot_proof = {role: {'inventory_sha256': c.sha(c.canonical(rows)),
+        'file_count': sum(row['kind'] == 'file' for row in rows), 'byte_and_mode_verified': True,
+        'owned_by_executing_root_account': True, 'original_ownership_changed': False}
+        for role, rows in (('cohort', cohort_before), ('wrappers', wrapper_before))}
     result = {'protocol': PROTOCOL, 'state': 'native_pkg_install_and_named_carrier_removal_passed', 'profile': PROFILE,
         'cohort_sha256': args.cohort_sha256, 'cohort_digest': cohort['cohort_digest'],
         'wrapper_result_sha256': args.wrapper_result_sha256, 'pkg_sha256': args.pkg_sha256,
         'hosted_custody': custody, 'executing_toolkit': identity, 'inspection_tools': tools, **observations,
+        'input_snapshots': snapshot_proof,
         'scope': 'selected native PKG on disposable hosted root home; inert carrier install/removal only',
         'original_inputs_unchanged': True, 'apple_developer_id': False, 'notarized': False,
         'gatekeeper_acceptance_qualified': False, 'gui_install_qualified': False,
@@ -227,6 +268,21 @@ def qualify(args):
         'two_release_rollback_qualified': False, 'publication_authorized': False}
     signing.write(output / 'result.json', signing.canonical(result), 0o644)
     return result
+
+
+def qualify(args):
+    c.require(args.allow_ephemeral_install is True, 'Explicit disposable native installer opt-in required')
+    # Host authority is checked before inspecting, creating or executing anything.
+    custody = reuse.custody(PROFILE, args.output)
+    c.require(os.geteuid() == 0, 'Only the disposable hosted root account may execute this gate')
+    # Reserve an owned attempt before pins, copies or archive admission so early
+    # failures also leave bounded evidence for the workflow's always() upload.
+    output = gate.fresh(args.output, (args.cohort_root, args.wrapper_root, args.inspection_tools, ROOT))
+    try:
+        return qualify_selected(args, custody, output)
+    except BaseException as error:
+        retain_failure(output, error)
+        raise
 
 
 def main():
@@ -239,11 +295,7 @@ def main():
     try:
         result = qualify(args); print(json.dumps({'state': result['state'], 'carrier_count': result['carrier_count']}))
     except BaseException as error:
-        output = gate.safe(args.output)
-        if output.is_dir() and gate.OWNED_OUTPUTS.get(output) == (output.stat().st_dev, output.stat().st_ino):
-            if not (output / 'INCOMPLETE.json').exists():
-                signing.write(output / 'INCOMPLETE.json', signing.canonical({'protocol': PROTOCOL, 'state': 'incomplete',
-                    'error_type': type(error).__name__, 'private_logs_retained': True, 'publication_authorized': False}), 0o644)
+        retain_failure(args.output, error)
         raise
 
 

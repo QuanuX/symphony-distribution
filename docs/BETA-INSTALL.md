@@ -5,8 +5,8 @@ with each module delivered as an independently maintainable Conda package.
 Source and its build instructions are available separately. The SDK headers,
 libraries and CMake exports remain with their respective module owners.
 
-The supported profiles are macOS15 on Apple Silicon, Ubuntu24.04 on AMD64,
-Ubuntu24.04 on ARM64, and Ubuntu26.04 on AMD64. Choose the exact operating-system
+The supported profiles are macOS 15 on Apple Silicon, Ubuntu 24.04 on AMD64,
+Ubuntu 24.04 on ARM64, and Ubuntu 26.04 on AMD64. Choose the exact operating-system
 profile: the two AMD64 Linux cohorts share a Conda subdirectory but are distinct
 qualified builds. Use the explicit package lists below to preserve that choice.
 
@@ -18,7 +18,7 @@ Download `beta-manifest.json`, `beta-manifest.sig`, `beta-cert.pem` and
 `release-index.json` into a new directory. The release page lists each platform's
 installer and corresponding source. Preserve their relative paths when saving.
 
-Use Python3.11+ and OpenSSL with the verifier from the immutable source revision:
+Use Python 3.11+ and OpenSSL with the verifier from the immutable source revision:
 
 `https://raw.githubusercontent.com/QuanuX/symphony-distribution/22355061a066862f3a8d303217165f672e281874/channel/verify_beta.py`
 
@@ -63,7 +63,7 @@ For an existing Conda installation, download and verify
 conda create --prefix "$SYMPHONY_PREFIX" --file "$VERIFIED_PROFILE_EXPLICIT_FILE"
 ```
 
-Conda26.10.0 was qualified. Each explicit URL names the exact QuanuX/beta archive
+Conda 26.10.0 was qualified. Each explicit URL names the exact QuanuX/beta archive
 and its SHA256; this avoids choosing another platform through a solver. The
 standalone installer already contains the qualified package manager. Neither
 route activates services, creates credentials, chooses application modules or
@@ -71,7 +71,7 @@ uses the publisher's local state.
 
 ## Make the supplied binaries ready
 
-Python3.11+ is required for the setup scripts; a compiler, source checkout or SDK
+Python 3.11+ is required for the setup scripts; a compiler, source checkout or SDK
 is not required to run the supplied binaries. Choose a new absolute private
 custody directory outside the installed package prefix. Read the platform's
 `retention_index_sha256` from the verified `release-index.json` and run:
@@ -97,8 +97,7 @@ Every selected file is checked before use, and the new directory receives a
 `CUSTODY.json` record. These independent copies survive package removal. They
 are candidate files; native installation and activation remain explicit.
 
-Select a workspace that belongs to the installing user and create a new0700
-private profile directory. The existing client scripts create new0600 profiles
+Select a workspace that belongs to the installing user and create a new private profile directory with mode 0700. The existing client scripts create new profiles with mode 0600
 and refuse to overwrite an existing selection:
 
 ```sh
@@ -143,7 +142,7 @@ implicitly change retained binaries, running processes or active profiles.
 
 Before a future upgrade, retain the accepted explicit list and archives. Apply
 the separately verified new profile or unit list; to roll back, apply the
-retained prior exact list. This beta qualifies packaging revision0→1→0 with
+retained prior exact list. This beta qualifies packaging revision 0→1→0 with
 identical native bytes, independent module changes, swap, removal and retained
 same-candidate recovery. It does not invent a second native release. Native
 version transitions and live retirement outside the qualified owner contracts

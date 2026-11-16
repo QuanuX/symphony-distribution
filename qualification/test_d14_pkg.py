@@ -105,6 +105,78 @@ class NativePkgContracts(unittest.TestCase):
         path.unlink(); path.symlink_to('/dev/null')
         with self.assertRaisesRegex(ValueError, 'Aliased'): m.caller_files(self.root)
 
+    def test_foreign_owned_input_refuses_strict_reader_but_private_copy_passes(self):
+        from lifecycle import go_delivery as strict
+        source=self.root/'runner-input';source.mkdir(mode=0o700)
+        original=source/'selected.conda';original.write_bytes(b'exact selected archive');original.chmod(0o644)
+        source_stat=original.stat(); source_key=(source_stat.st_dev,source_stat.st_ino)
+        actual_fstat=os.fstat
+        class ForeignOwner:
+            def __init__(self,value):self.value=value
+            def __getattr__(self,name):
+                return os.geteuid()+10000 if name=='st_uid' else getattr(self.value,name)
+        def owner_boundary(fd):
+            value=actual_fstat(fd)
+            return ForeignOwner(value) if (value.st_dev,value.st_ino)==source_key else value
+        # Simulate only the kernel UID on the original runner-owned inode. The
+        # production strict reader and actual copy/open/write operations run.
+        with patch.object(os,'fstat',side_effect=owner_boundary):
+            with self.assertRaisesRegex(ValueError,'ownership'):strict.regular(original)
+            before=m.private_input_snapshot(source,self.root/'private-copy')
+            self.assertEqual(strict.regular(self.root/'private-copy/selected.conda'),(b'exact selected archive',0o644))
+            with self.assertRaisesRegex(ValueError,'ownership'):strict.regular(original)
+        self.assertEqual(original.stat().st_uid,source_stat.st_uid)
+        self.assertEqual(original.stat().st_ino,source_stat.st_ino)
+        self.assertNotEqual(original.stat().st_ino,(self.root/'private-copy/selected.conda').stat().st_ino)
+        m.reuse.records_equal(source,before)
+
+    def test_private_snapshot_rejects_alias_overlap_and_detects_modified_copy(self):
+        source=self.root/'source';source.mkdir();(source/'file').write_bytes(b'exact')
+        with self.assertRaisesRegex(ValueError,'overlaps'):m.private_input_snapshot(source,source/'nested')
+        target=self.root/'snapshot';before=m.private_input_snapshot(source,target)
+        (target/'file').write_bytes(b'changed')
+        with self.assertRaisesRegex(ValueError,'changed'):m.verify_private_snapshot(target,before)
+        (source/'alias').symlink_to(source/'file')
+        with self.assertRaisesRegex(ValueError,'Linked'):m.private_input_snapshot(source,self.root/'linked-snapshot')
+
+    def test_early_admission_failure_retains_bounded_attempt_before_audit(self):
+        source=self.root/'cohort';source.mkdir();(source/'cohort.json').write_text('{}')
+        wrappers=self.root/'wrappers';wrappers.mkdir();(wrappers/'result.json').write_text('{}')
+        tools=self.root/'tools';tools.mkdir();out=self.root/'attempt'
+        args=SimpleNamespace(allow_ephemeral_install=True,output=out,cohort_root=source,wrapper_root=wrappers,
+            inspection_tools=tools,cohort_sha256='0'*64,wrapper_result_sha256='0'*64,pkg_sha256='0'*64)
+        with patch.object(m.reuse,'custody',return_value={}),patch.object(m.os,'geteuid',return_value=0),             patch.object(m.c,'audit_cohort') as audit,patch.object(m,'exercise') as exercise:
+            with self.assertRaisesRegex(ValueError,'evidence selection'):m.qualify(args)
+            audit.assert_not_called();exercise.assert_not_called()
+        record=json.loads((out/'INCOMPLETE.json').read_bytes())
+        self.assertEqual(record['error_type'],'ValueError');self.assertFalse(record['publication_authorized'])
+        self.assertFalse((out/'result.json').exists())
+
+    def test_both_full_audits_and_execution_use_private_snapshots_only(self):
+        cohort,audit,row=self.selected();cohort['entries']=[]
+        row['sha256']=m.c.sha(b'exact pkg');audit['wrappers']=[row]
+        source=self.root/'cohort';source.mkdir();(source/'cohort.json').write_bytes(m.signing.canonical(cohort))
+        wrappers=self.root/'wrappers';wrappers.mkdir();(wrappers/'result.json').write_bytes(m.signing.canonical(audit))
+        (wrappers/row['filename']).write_bytes(b'exact pkg');tools=self.root/'tools';tools.mkdir()
+        out=m.gate.fresh(self.root/'attempt',(source,wrappers,tools))
+        args=SimpleNamespace(cohort_root=source,wrapper_root=wrappers,inspection_tools=tools,
+            cohort_sha256=m.signing.digest(source/'cohort.json'),wrapper_result_sha256=m.signing.digest(wrappers/'result.json'),
+            pkg_sha256=row['sha256'])
+        with patch.object(m.c,'audit_cohort',return_value=cohort) as full_audit,             patch.object(m.reuse,'inspection_tools',return_value={}),patch.object(m,'helper_identity',return_value={}),             patch.object(m,'exercise',return_value={'native_pkg_executed':False}) as exercise:
+            result=m.qualify_selected(args,{},out)
+        self.assertEqual([call.args[0] for call in full_audit.call_args_list],[out/'input-snapshots/cohort']*2)
+        self.assertEqual(exercise.call_args.args[0],out/'input-snapshots/wrappers'/row['filename'])
+        self.assertTrue(result['original_inputs_unchanged'])
+        self.assertEqual(result['input_snapshots']['cohort']['file_count'],1)
+        self.assertFalse(result['input_snapshots']['cohort']['original_ownership_changed'])
+
+    def test_changed_original_after_private_execution_refuses_completion(self):
+        source=self.root/'source';source.mkdir();(source/'file').write_bytes(b'original')
+        before=m.private_input_snapshot(source,self.root/'snapshot')
+        (source/'file').write_bytes(b'changed')
+        with self.assertRaisesRegex(ValueError,'changed'):m.reuse.records_equal(source,before)
+        m.verify_private_snapshot(self.root/'snapshot',before)
+
     def test_default_conda_cache_hardlinks_are_confined_to_new_prefix(self):
         prefix = self.root / 'prefix'; cache = prefix / 'pkgs/cache/source'
         cache.parent.mkdir(parents=True); cache.write_bytes(b'exact carrier'); cache.chmod(0o644)
