@@ -251,6 +251,21 @@ def derivation_proof(source, derived, export, generated, profile, qxctl_proof_sh
         'native_command_contracts_unchanged': True, 'publication_authorized': False}
 
 
+def finalize_bridge_copy(built, work, env, index, host):
+    need(index in (0, 1) and host in ('macos', 'ubuntu'), 'Unsupported bridge finalization selection')
+    path = work / ('final-bridge-' + str(index))
+    if host == 'macos':
+        # Apple strip rebuilds the linker ad-hoc signature using the output
+        # basename. Separate roots must retain the same shipped filename.
+        path.mkdir(mode=0o700)
+        path = path / 'symphony-mcp'
+    write(path, built.read_bytes(), 0o755)
+    command(['/usr/bin/strip', '-S' if host == 'macos' else '--strip-unneeded', path], env, work, 'strip-' + str(index))
+    if host == 'macos':
+        command(['/usr/bin/codesign', '--verify', '--strict', path], env, work, 'verify-adhoc-' + str(index))
+    return path
+
+
 def finalized_bridge(source, work, env, compiler, cmake, ctest, profile, developer_dir):
     host = 'macos' if profile.startswith('macos') else 'ubuntu'
     arch = 'arm64' if profile.endswith('arm64') else 'x86_64'
@@ -273,9 +288,7 @@ def finalized_bridge(source, work, env, compiler, cmake, ctest, profile, develop
     command([cmake, '--build', second, '--parallel', '2'], build_env, work, 'repeat-build')
     binaries = []
     for index, built in enumerate((first / 'build/symphony-mcp', second / 'symphony-mcp')):
-        path = work / ('final-bridge-' + str(index)); write(path, built.read_bytes(), 0o755)
-        command(['/usr/bin/strip', '-S' if host == 'macos' else '--strip-unneeded', path], env, work, 'strip-' + str(index))
-        binaries.append(path)
+        binaries.append(finalize_bridge_copy(built, work, env, index, host))
     need(sha(binaries[0]) == sha(binaries[1]), 'Independent finalized bridge bytes differ')
     raw = binaries[0].read_bytes()
     need(not any(str(p).encode() in raw for p in (source, work, ROOT, Path(env['HOME']))), 'Private path in final bridge')

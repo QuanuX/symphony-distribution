@@ -1,0 +1,93 @@
+{
+  "actual_regression": {
+    "old_final_sha256": [
+      "c6b3a17226b1991af7f12fb99837f55edb15703fdd6b703bce73b0c05960766a",
+      "15d819b57c5fa478ada80f96d0cf24c7166ace37cda9d3f49d7b207acafa2d9d"
+    ],
+    "old_signature_identifiers": [
+      "final-bridge-0",
+      "final-bridge-1"
+    ],
+    "report": {
+      "built_by": "AppleClang21 local cross-build; not primary host execution",
+      "finalizer_helper_sha256": "38619802ecf0deb9ba39af8698d4c48ffd101697fc93840debde044721fc9c06",
+      "primary_client_acceptance": false,
+      "protocol": "symphony.distribution.apple-client-finalization-regression.v1",
+      "publisher_signing": false,
+      "rows": [
+        {
+          "final_sha256": "8ae045a4e7853d7ecee21f4fbb92614ee351b0b2c66ad7bfe5c7179af5d5bdc8",
+          "input_sha256": "e95a84e584d8b409d924bc1a8d37ceef30c8a233609ddafc2b7b7e83babf8e8a",
+          "signature": [
+            "Identifier=symphony-mcp",
+            "CodeDirectory v=20400 size=261 flags=0x20002(adhoc,linker-signed) hashes=5+0 location=embedded",
+            "CDHash=b5d5c6b9dcbe602cd6b835a74ba0913e8e4cb29c",
+            "Signature=adhoc"
+          ]
+        },
+        {
+          "final_sha256": "8ae045a4e7853d7ecee21f4fbb92614ee351b0b2c66ad7bfe5c7179af5d5bdc8",
+          "input_sha256": "e95a84e584d8b409d924bc1a8d37ceef30c8a233609ddafc2b7b7e83babf8e8a",
+          "signature": [
+            "Identifier=symphony-mcp",
+            "CodeDirectory v=20400 size=261 flags=0x20002(adhoc,linker-signed) hashes=5+0 location=embedded",
+            "CDHash=b5d5c6b9dcbe602cd6b835a74ba0913e8e4cb29c",
+            "Signature=adhoc"
+          ]
+        }
+      ],
+      "same_shipped_basename": true,
+      "source_fixture": "int main() {return 0;}",
+      "state": "passed",
+      "target": "Apple ARM64",
+      "two_independent_builds": true
+    },
+    "report_sha256": "ce29d569f5e9710690aab7578737ba2e98e0742d22c682000ae6d7a0eb9c6c05"
+  },
+  "cause": "Apple strip rebuilds a linker ad-hoc signature using the destination basename; final-bridge-0 and final-bridge-1 caused different CodeDirectory identities despite identical original binary bytes.",
+  "core_or_client_source_changed": false,
+  "failed_run": {
+    "failure": "Independent finalized bridge bytes differ",
+    "job_id": 133623601708,
+    "retained_failure": {
+      "error_type": "ValueError",
+      "last_command": "strip-1",
+      "last_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "protocol": "symphony.distribution.primary-client.v1",
+      "publication_authorized": false,
+      "release_acceptance_complete": false,
+      "state": "incomplete"
+    },
+    "retained_status_artifact": {
+      "id": 14273436441,
+      "sha256": "ad68584cb67e0cc6e55b12de8b1eba580974d2ebd0c9027aa4a730dbdff7d83f",
+      "size": 6842
+    },
+    "run_id": 43959684639,
+    "step": "Build exact client, preserve adapters and qualify actual Codex",
+    "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43959684639",
+    "workflow_commit": "1543cc31c9ba48d3da91cc0c9acbb78b976d6a6d"
+  },
+  "files": {
+    "qualification/primary_client.py": "38619802ecf0deb9ba39af8698d4c48ffd101697fc93840debde044721fc9c06",
+    "qualification/test_primary_client.py": "e7bd9140961eba9e7f0eb0e256e50ecf1883ca55a63189f319bc347b274faaee"
+  },
+  "focused_tests": {
+    "command": "python3 -B -m unittest qualification.test_primary_client -q",
+    "failed": 0,
+    "passed": 26
+  },
+  "hosted_mac_rerun_observed": false,
+  "linux_finalization_changed": false,
+  "protocol": "symphony.distribution.primary-client-macos-repair.v1",
+  "publication_authorized": false,
+  "publisher_signing_claimed": false,
+  "release_acceptance_complete": false,
+  "repair": "Finalize each Mac copy in a separate new directory with shipped basename symphony-mcp, then verify its ad-hoc signature strictly. Full-byte equality remains required.",
+  "state": "focused_repair_validated",
+  "validation": {
+    "independent_review": "passed",
+    "private_policy": "passed",
+    "whitespace": "passed"
+  }
+}

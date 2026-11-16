@@ -92,6 +92,43 @@ class PrimaryClientTests(unittest.TestCase):
         with self.assertRaises(ValueError): p.extract_codex(archive, self.root / 'out', row)
         self.assertFalse((self.root / 'out').exists())
 
+    def test_apple_repeat_copies_keep_identical_signature_basename(self):
+        built = self.file('compiled', b'mach-o-before-strip', 0o755)
+        commands = []
+        def apple_tool(argv, env, output, label, timeout=900):
+            commands.append(tuple(map(str, argv)))
+            path = Path(argv[-1])
+            if argv[0] == '/usr/bin/strip':
+                # The observed Apple strip boundary binds the ad-hoc signature
+                # to this basename; differing final-bridge-N names must fail.
+                path.write_bytes(b'same-code;adhoc-identifier=' + path.name.encode())
+            return output / (label + '.log')
+        with patch.object(p, 'command', side_effect=apple_tool):
+            first = p.finalize_bridge_copy(built, self.root, {}, 0, 'macos')
+            second = p.finalize_bridge_copy(built, self.root, {}, 1, 'macos')
+        self.assertNotEqual(first.parent, second.parent)
+        self.assertEqual(first.name, 'symphony-mcp')
+        self.assertEqual(second.name, first.name)
+        self.assertEqual(first.read_bytes(), second.read_bytes())
+        self.assertEqual(len([c for c in commands if c[:3] == ('/usr/bin/codesign', '--verify', '--strict')]), 2)
+        self.assertEqual(built.read_bytes(), b'mach-o-before-strip')
+
+    def test_linux_finalization_preserves_existing_path_and_strip_policy(self):
+        built = self.file('compiled', b'ELF', 0o755)
+        with patch.object(p, 'command') as run:
+            path = p.finalize_bridge_copy(built, self.root, {}, 0, 'ubuntu')
+        self.assertEqual(path, self.root / 'final-bridge-0')
+        self.assertEqual(run.call_args.args[0], ['/usr/bin/strip', '--strip-unneeded', path])
+        self.assertEqual(run.call_count, 1)
+
+    def test_apple_finalization_preserves_existing_destination(self):
+        built = self.file('compiled', b'new bytes', 0o755)
+        original = self.file('final-bridge-0/symphony-mcp', b'preserve', 0o755)
+        with patch.object(p, 'command') as run, self.assertRaises(FileExistsError):
+            p.finalize_bridge_copy(built, self.root, {}, 0, 'macos')
+        self.assertFalse(run.called)
+        self.assertEqual(original.read_bytes(), b'preserve')
+
     def test_archive_link_refused(self):
         archive, row = self.archive([('codex-target', tarfile.SYMTYPE, b'')])
         with self.assertRaises(ValueError): p.extract_codex(archive, self.root / 'out', row)
