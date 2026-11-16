@@ -1,0 +1,1880 @@
+{
+  "artifact_identity": {
+    "binary_name": "qxctl",
+    "build_recipe": "symphony.qxctl.reproducible-build.v1",
+    "component_id": "qxctl",
+    "dependency_map_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+    "executable_sha256": "abbcdd7e4c66ae74cf5faefe28e30600446d2a1859bb24e4bf04fdd84e40d6b4",
+    "go_mod_sha256": "486a66c8931a6f14f7486ca586121331f077590ff0821c0a376c923abea54da1",
+    "go_sum_sha256": "8784e92ba07718b5c9dec5f15b4ccc0f8e979deb8289917ae866628d0f920551",
+    "go_version": "go1.26.5",
+    "goarch": "amd64",
+    "goos": "darwin",
+    "isolated_builds": 2,
+    "protocol": "symphony.artifact-build-identity.v1",
+    "publication_authorized": false,
+    "release_identity_catalog_sha256": "1e0965f3083df1c61122085ff99994fce15206719d99aa76cba6e050fabe81f3",
+    "reproducibility": "verified_on_recorded_profile",
+    "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "source_date_epoch": "1794811262",
+    "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+    "version": "0.1.0-dev"
+  },
+  "artifact_identity_sha256": "d97da351e98540177c2da08891b700c020b011c81a1bd8ea285feebbfeeaf7d1",
+  "binary": "recipe/first/bin/qxctl",
+  "binary_sha256": "abbcdd7e4c66ae74cf5faefe28e30600446d2a1859bb24e4bf04fdd84e40d6b4",
+  "build_info": {
+    "build_recipe": "symphony.qxctl.reproducible-build.v1",
+    "component_id": "qxctl",
+    "dependency_map_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+    "executable_sha256": "abbcdd7e4c66ae74cf5faefe28e30600446d2a1859bb24e4bf04fdd84e40d6b4",
+    "go_version": "go1.26.5",
+    "goarch": "amd64",
+    "goos": "darwin",
+    "protocol": "symphony.qxctl.build-info.v1",
+    "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "source_date_epoch": "1794811262",
+    "source_state": "stamped",
+    "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+    "version": "0.1.0-dev"
+  },
+  "cohort_source": {
+    "archive_sha256": "cc1b576f1bba12edb6c877fb30d446fae03331568fc57a12848fe62b95cc526a",
+    "export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+    "is_original_git_tree": false,
+    "kind": "verified_reviewed_derived_export"
+  },
+  "compiled_input_equivalence": {
+    "goarch": "amd64",
+    "goos": "darwin",
+    "inputs": [
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/accordare_host.go",
+        "sha256": "4b96cc0e56e35a88a24d3e8256303c9ffeddf5aaa99d25277c9bb550b111014c",
+        "size": 7119
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/cli_errors.go",
+        "sha256": "f57190bca299aa24532a1019d0ceac13a7d849b3fb7274d04b1c6143127870e3",
+        "size": 8873
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/cli_help.go",
+        "sha256": "dc041ea40dbca9211d12c6e9e30e8d6bbdbe1ba3751c7567f2a9ae048ea31041",
+        "size": 1976
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/command_manifest.go",
+        "sha256": "54b7dbcd299bbde4dbfa2107bc5d3bfcec41a6da6a66bf962ea229b65df6d92b",
+        "size": 5502
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/command_specs.go",
+        "sha256": "f6df0ba2966b17596c5be57bdc3bca9c7d43a5f9a97488e34a5d224817d8c0ac",
+        "size": 26395
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/commands.go",
+        "sha256": "f4f43c87da795ef84bd93c2359c26e259d5cc6a9a8115e52ad919c355cf802d3",
+        "size": 81532
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/foundation_lifecycle.go",
+        "sha256": "8cf9c123e99333f2b52e2f441135cc4e38bba7e39b702fc93dffdf9734ccc80a",
+        "size": 11559
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/knowledge_invariant.go",
+        "sha256": "c39925af4d48ab6441ea0076b4bc31fca77a8445bb1bf42d834c0862fa6c746f",
+        "size": 6161
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/lifecycle.go",
+        "sha256": "cabc531da53e4e6ff76c7e187d1cde2b07bca6a2e4e32821630503a1f4e54845",
+        "size": 59894
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/lifecycle_apply.go",
+        "sha256": "b04f83d791ba9dac9aaee55138cd3c6feb2a1db50936891977e73f6df6491786",
+        "size": 48616
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/lifecycle_execution_scope.go",
+        "sha256": "f979761f43c4b56aa032e8d076df1ea40acbc08ad18d35e2cf9572dd89656c24",
+        "size": 9868
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/lifecycle_host.go",
+        "sha256": "cef064b11c1428583c55905a2f040f9c651027969bb4059c963d86440b6677f9",
+        "size": 9011
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/maestro.go",
+        "sha256": "6bd7f0586cb16b96cac200523909d03373709e06559d09fc20eed2e3208253a7",
+        "size": 9974
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/main.go",
+        "sha256": "42c1a77db3acd315e7eadb2de956faed234c63b73302ee29584e426474514395",
+        "size": 141277
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/named_version.go",
+        "sha256": "22302f967ec91ac1541404a3651d36b89ad9a26186abe79a72b23146edb2a315",
+        "size": 21642
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sbv.go",
+        "sha256": "a63ea28f965e064a232ecff3cd9903aba65bf3c05b0fa4ff2c7936992de480b5",
+        "size": 17994
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sbv_signal_unix.go",
+        "sha256": "c9338730518c80ea8aec0a8ac87cc28a8bf74cea3f6a5c2ee235d1d4b335293a",
+        "size": 251
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sclv_warning.go",
+        "sha256": "0265c61723154c170dd0d667e4561e9666d97b703d17890f614f5823fe743e21",
+        "size": 3296
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv.go",
+        "sha256": "6d3c4a18d58e0e17e05e7bc5d2c42a6c3594c4d0ab6b4d0e2c6d18ef08b82f69",
+        "size": 18495
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_acquire.go",
+        "sha256": "28d372843a78cfebac7ab41dd3599b0e5fe143ade3f77c8ca297c1b406f337a9",
+        "size": 1227
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_bundle.go",
+        "sha256": "84936bdef27ecdd70d2e72bdacef892fd7610e9e3bfa16ca7241ef17fca84342",
+        "size": 6140
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_bundle_obligation.go",
+        "sha256": "fe507ee2c359f264a3fbaaa04a0ac1831180f14b40a69f5792ba9f4fe31ce574",
+        "size": 9125
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_bundle_workflow.go",
+        "sha256": "35953a61abcf17ad3e3b61ca270bfc06b5748e38423b887f4ad8a7f9cb984c97",
+        "size": 18301
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_composition.go",
+        "sha256": "2b1181a04a43dfbfc46d9ead909726abbbc0fbc04b52728140fec17c5d46b6e8",
+        "size": 1601
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_composition_workflow.go",
+        "sha256": "056e02d54558f62dfecf180a43a222a90494dbc4f447917a10c6ba2b16deba6f",
+        "size": 15171
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_corpus.go",
+        "sha256": "b76c35979b689900ccf5a16bff3a186c45f13fccc8f7e47edd75ca6835d4b9af",
+        "size": 27300
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_coverage.go",
+        "sha256": "8cf85a5d2cfa9b1ec7b857737df148a4a110527ff7a0aff113a2ff9d73f31dc2",
+        "size": 445
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_graph.go",
+        "sha256": "f7aaa37d5641977bcf13c62da8008e915472f72ed78188b2b47771d9c5a5487f",
+        "size": 7754
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_graph_index.go",
+        "sha256": "d726e47a12bd1e15f00a2b155cbf2de6bef4ae3536afc54c864a02d169526890",
+        "size": 15953
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_graph_index_maintenance.go",
+        "sha256": "dd85d798a580d51f89fcb5a0cf21da08783b3dc915b144cc1b1e10a4157882df",
+        "size": 10040
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_graph_index_schema.go",
+        "sha256": "1aeeb833ef4db82ace4edfdcc3439e8568ceca976154904bc2f55f760186a8e1",
+        "size": 4994
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_graph_index_transfer.go",
+        "sha256": "8e44eaa584db75c1c7fe6dc945045e11247047d51ef04ddf29344e0af4c9b6ec",
+        "size": 12126
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_graph_index_transfer_commands.go",
+        "sha256": "d8c8a94d9b9a0a70fa4374a287646098cd226f065c142e25f90f5fe068fd3dc4",
+        "size": 4170
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_interface.go",
+        "sha256": "b7148f02aec0db3d3c5a28ef75e471ac74fb5aa6bfa956daaaa5fd21782eef88",
+        "size": 1420
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_interpretation.go",
+        "sha256": "96af5314bf39b2dda1b1e883cd46a26d3bd6dd726330a87f2d5310a2acec28e9",
+        "size": 1213
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_logical_reference.go",
+        "sha256": "a21e231395b2413bab74ea9f092ac8a2ecf9dd8bcc0d598fedb5b6b16b01ba20",
+        "size": 6726
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_obligation.go",
+        "sha256": "556dc39a19f51ca96b37e4cb5a0aa341d44eada51d2590e6be40659e0591e8c8",
+        "size": 7762
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_profile.go",
+        "sha256": "2e5c70c3768950ff2f27a7c1a8924bdd5832a39eac597235ecf8feb8d78cf3e6",
+        "size": 562
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_schema.go",
+        "sha256": "ee0cf95283f7502a816e37757f6dfa7981fcf63f70e934c63611c50d5d0494e8",
+        "size": 1705
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_transfer_barrier.go",
+        "sha256": "dee5ba3099ef14a5128e62f63572d94be95692793344922c1f90464cf2602a19",
+        "size": 176
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/scv_workflow.go",
+        "sha256": "0a04040321fc4008399123130f3c7aa649a1d306b6dbee0a036e38743c364f6c",
+        "size": 31255
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv.go",
+        "sha256": "af156a598b1a6545af600381200825f55e31ad170958cc3292057e74f7df2f0f",
+        "size": 7022
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_activation.schema.json",
+        "sha256": "8ccec51539364127fb7391a8e89ae6641e3c1cb9248aaa9017ba1b5ff7001209",
+        "size": 45860
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_activation_discovery.go",
+        "sha256": "5c969fc69cba2b90992d53cb7a48fbc638d178fba572b5b35ce8ac4a2527a879",
+        "size": 2422
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_dossier.go",
+        "sha256": "eb2cc8283084e6a83f00e92b3056f01713751c56f773b1ad40bf319e1fa268fb",
+        "size": 12548
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_dossier.schema.json",
+        "sha256": "a9ad21764e652c9d4a45b190f3bb541af8924151b500fe7ff94490754a9f40a0",
+        "size": 185856
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_inventory.go",
+        "sha256": "5974f020c2b14aea6f9eac7dcdbbb0e028e60f80b2c278204cfa00223449f8a6",
+        "size": 11498
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_inventory.schema.json",
+        "sha256": "85dda8fd7c218717163e66fe2b8ae1caeea75b2f684862315308e657b4c6948b",
+        "size": 162329
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_materialization.go",
+        "sha256": "c428d5de6ae7a1aa42793b425d4c3eabaa673703bba402ff14510430676b979d",
+        "size": 17468
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_materialization.schema.json",
+        "sha256": "97e4bee3fdc35929c8f5f428dd1e8dd4d7b1c73cc09df32f8829eba93d598225",
+        "size": 153333
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_materialization_discovery.go",
+        "sha256": "663df123dc5c75c81e88b58e25e93f926a080789b197fef7242d1baaa7fe6e46",
+        "size": 726
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_partition.go",
+        "sha256": "ef81317154e4895dd4dd0e164c325e4e6485c45114947add11755fba6075358b",
+        "size": 7629
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_pdf.go",
+        "sha256": "73853e81f5bd417a4950742c05cc48852a7394590df21ab1d24eeb154ab8e682",
+        "size": 4014
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_pdf_graph.go",
+        "sha256": "dbf46e19779430bf80d823f4e6458643b6c1660e3ded947a21fc85580c969055",
+        "size": 4291
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_profile.go",
+        "sha256": "ea4bc543ec3f7a97d8e00a4ffb5dbc44f06304b1deb497554e6c759fd0490d81",
+        "size": 3467
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_publication.go",
+        "sha256": "932d17db9921bd5a36747fdbb36cb1b7273fd46abd75206ae81a2b3e05c25663",
+        "size": 11559
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_publication_evidence.go",
+        "sha256": "e3def677d2c740a4f581577ced56e2ccc7698324311b046eff56cd7fcd203c3c",
+        "size": 6467
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_refresh.go",
+        "sha256": "31fe91072ca488c19f88f5be26d9fd306f67b29bb06e83ee7bd54455729df226",
+        "size": 13450
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_refresh.schema.json",
+        "sha256": "9d23df2abdb56d9964fb0baeacb9a8d7d22af0a9c418d8d13d8028e454b027c2",
+        "size": 105469
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_refresh_compare.go",
+        "sha256": "cbff4ae04d2ff5ab3ed2fa6accd4ecbb9ca2c65d3d14e16e0686dbd74bd885a5",
+        "size": 9518
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_relocation.go",
+        "sha256": "ede50255b16ceb469b1752d9210762ed498cd3daf6a1b142becac4699144aaab",
+        "size": 9285
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_relocation.schema.json",
+        "sha256": "c311684e107601328f15cbb40c3715a3bd0874e5fac60b7115228a0499d7c3a1",
+        "size": 155415
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_resolution.go",
+        "sha256": "d65698bd69a9b881034dd8d94ca3aac0041e7f9ec41dae72074f82b278c76505",
+        "size": 7123
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_resolution.schema.json",
+        "sha256": "641a58c0436621bba4fd8a828bf73dce47b684979b02350471ef20d9aaac9c62",
+        "size": 20377
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_source.go",
+        "sha256": "59d91f9c3733dcacd5993ce949473e33bff51773984e75928171e07172d1332f",
+        "size": 4576
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_source_activation.go",
+        "sha256": "a91746cf10c9ddd9b968dfa66952a44574be3d9bd75d2956e2f6d8684e997f90",
+        "size": 10920
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_store.go",
+        "sha256": "01cb73038a7f04dd25ff7315a629933013049bbeeb50995069c6a9ce3c275807",
+        "size": 5499
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_store_transfer.go",
+        "sha256": "d9a48806248efb16f9b1cd3f8d0b7ae3ba48204810ed850c57a21f9d92bc3f85",
+        "size": 12540
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_store_transfer_commands.go",
+        "sha256": "c1a94b6ccbc104d43df7957c49a1f6a294987d0218ce908b2a83d9c3b0b16434",
+        "size": 3515
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/shv_transfer_barrier.go",
+        "sha256": "562e5107f3888f4cfc4c94f343f5a5be48b09081d002d945e5154444327d9daa",
+        "size": 180
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/snv.go",
+        "sha256": "6a13a28c9912e112679458b969afc801e82ff1dbefcfd1f7d350bd2200c8dce0",
+        "size": 21961
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/snv_state.go",
+        "sha256": "35f60db19de573cf090bb902ca8f2539357a03f389b45473d7ea42d7ebb05049",
+        "size": 9871
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sov.go",
+        "sha256": "b51d0aeb7b6dbcf306b98a742600efa3c1441d0125fb60c0a4430bf557029dd4",
+        "size": 3552
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sov_cloudflare.go",
+        "sha256": "16f57a93b3d60044f3d0454e9a6031161eaa0363ba3db66b741e9dcdb153b207",
+        "size": 4243
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sov_execution.go",
+        "sha256": "9dca6cf5e453271e87633cb18de9a5258362b0c69509a4212b3721f595142583",
+        "size": 7077
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sov_ssh.go",
+        "sha256": "e5e3a243d9e037c77c0329493f29b4a4850570a51b0a4801cc9279f04165370d",
+        "size": 3338
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sov_transport_profile.go",
+        "sha256": "842b863ebfc71a7a2cd4f93276b519a2e89e98a5403c4e841de7b683b98449c5",
+        "size": 3730
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sov_transport_session.go",
+        "sha256": "4ee6e31db01e4cff489f2a0fde8b5de6e31af5bf587b3fef0f35b2ddfe56aac4",
+        "size": 3771
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/sqv.go",
+        "sha256": "de3be084172bb2ec786436363efb96f94100b39a20c848722e27d045bd586e1b",
+        "size": 6441
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/srrapiv.go",
+        "sha256": "a0242e8524c52103e2df40ca11b84675e43d97655e875f9f61dd0d23c46f77b6",
+        "size": 5269
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/ssfv.go",
+        "sha256": "393da44a077e3246e4f7a536306ec3f542bf47bbf32fb7361eb03fe19957032d",
+        "size": 31985
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/ssfv_maintenance.go",
+        "sha256": "ff46fd05164b25acf0fb6cee8e1b32e8ae199aa712e153662982253b60e7d7af",
+        "size": 22719
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/ssiag_provider_binding.go",
+        "sha256": "103b33d33b0e7c3daa9a136d18f97620ffc59233dcefedf0caec02d4eac90150",
+        "size": 12842
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/stav_accordare.go",
+        "sha256": "7e6cb6789aa39afb5f02ada0e1fda92a62b78a213dfbd05dff3edec07e577f3a",
+        "size": 6637
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/stav_grant.go",
+        "sha256": "b8938d17c0d57ed2ff16a933ecf5840b6002f7f8847a8d89b439625611c8ae1d",
+        "size": 13987
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/validation.go",
+        "sha256": "17535787c2f66f3a0ac6b74f2c7c8a8c544d05f3d426e980cdde3fdfd079fe93",
+        "size": 29675
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/cmd/qxctl/version.go",
+        "sha256": "39c04ed67bbbe2b50684ebd66c8abbdb606ea4064f42bffa0695c103b54ef6ff",
+        "size": 1222
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/commandregistry/registry.go",
+        "sha256": "577601353f92d697c4135bcf5fe6a95f1254e3218ee23d351bea81028b4edf39",
+        "size": 27422
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/contracts/contracts.go",
+        "sha256": "8a03e9a810f901ab8825e8b676a6002e3f8f1dd8fe078b85835ed33a35f088d5",
+        "size": 1257
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/foundationlifecycle/authority_unix.go",
+        "sha256": "fa78acc92b8a91953557f37be90ab31a716307899969944795cae3be25815655",
+        "size": 284
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/foundationlifecycle/client.go",
+        "sha256": "1c60ef8f61040ed4dc0feb5e1e037b0c07c0d538fbaecafa05a9a7f18635e895",
+        "size": 45866
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/invariantregistry/registry.go",
+        "sha256": "af3bad8735683cd26cc8a472584ce4f10e0f52ea79d101a1ff91a8a314761c58",
+        "size": 22076
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/inventory/inventory.go",
+        "sha256": "86d907cf4da8b0ad09de18141a683d5b57b2ecf6b7d4739d517daf23dbd919f3",
+        "size": 4649
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgebinding/registry.go",
+        "sha256": "0ea6cc2bb4d7051ae58fb360ebc450e99c4d74d7b3fc1d7e8879ea30451cdf73",
+        "size": 28442
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgebinding/state_unix.go",
+        "sha256": "9debe8fd522844256e1eb1dd368c7fa32e1e7cd721a9a3acd9bd363bfb67d918",
+        "size": 8756
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/client.go",
+        "sha256": "58a9caaaad25498d7f07e662bad97d13ce415308f3783ddd81c64b7afb76efc2",
+        "size": 54481
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/open_relative_unix.go",
+        "sha256": "7849de8873ef25403a35230910ae6c3880c364c449ac2bba8115d92b65c602e3",
+        "size": 3173
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/process_unix.go",
+        "sha256": "f045a3a7199d1928442c8eb798a0ad29d830a5f2e52036e69b8c7e2dd7c1be3a",
+        "size": 929
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/receipt_v2.go",
+        "sha256": "63531d6997bd1932ed6e81126b0dbe9893d987c94fa444b74cdbcc206297faf1",
+        "size": 14407
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv.go",
+        "sha256": "af3f4d6f0a8a69fc2fb35d426d8b8ab2e364154d444b7630ad8ab7617150c817",
+        "size": 35183
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_bulk_stream.go",
+        "sha256": "a6cbe449476e0d1540d892cf7dcab13a5f7134c9c90804a1c91234fa26df9897",
+        "size": 6745
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_bundle.go",
+        "sha256": "96a59e0bbde9ccddfbda1a1fbf188e22df7fd25bde6402e5b17d624b08d85bbd",
+        "size": 16371
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_interface_generated.go",
+        "sha256": "30bf8a1342586ca0fd382a3bdf9989353a944d3eb705cc3984d102e3bcaf392c",
+        "size": 4996
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_jobs.go",
+        "sha256": "a57a82624b9839174ed18eeeeda8a8f663bf700388a6009594b502733c44b218",
+        "size": 5839
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_partitioned.go",
+        "sha256": "67fff2fe55757f0230b8d675f98595bd95ffc9c9671bd05703696efd66831609",
+        "size": 14012
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_recovery.go",
+        "sha256": "3d3e4f946ed0368b22659135e1f4b3f0df4ba5b8d6c95067e963a69aeda67bc3",
+        "size": 11645
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sbv_resident.go",
+        "sha256": "1d695a7698d0acd8d3b918e62a7f4b29711a44d43b87d5df71091e252ad7fba9",
+        "size": 4174
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sciv_interface_generated.go",
+        "sha256": "5d7aa2cd76e22934035dda915f1c4995d259fd6896b2f2c06f34fe75b5b0e5db",
+        "size": 1327
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scnv_interface_generated.go",
+        "sha256": "de7cd537a423cba681a00218dabc239366de919e1051d90a2c8c8fbe0b010a8f",
+        "size": 1147
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv.go",
+        "sha256": "1a07f634bf0b00fb6039545a5a4144d0613a8b408f59dbb2f4aa6efd4abd2683",
+        "size": 32100
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_bundle.go",
+        "sha256": "663bcdf5705c7540b9cca50d1088a5edd7cc1e2055469fb04d8cab42c2509fc5",
+        "size": 20191
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_bundle_file.go",
+        "sha256": "70f3350283bf52eff22027374ffec12c261c9b2e101b27fff826ab9757b7a7b3",
+        "size": 1404
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_bundle_text.go",
+        "sha256": "aae7bdeba57a77985da986192f1d7c5db946c54acc9fbde8751356bcbc50c748",
+        "size": 906
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_composition.go",
+        "sha256": "dcd83094107484286829dbefbc496fffa6998e6419be300007815b5b0fe8ca84",
+        "size": 28059
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_coverage.go",
+        "sha256": "db24b1e4dc91f1db4933ae494c466d5b50f47c376a5f30ccb33b4881db281189",
+        "size": 13450
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_graph_index.go",
+        "sha256": "81a35cffbc4f7f961d5295e7456afa7f4f61696d26b012c7e5652d79fa8f7802",
+        "size": 25226
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_graph_index_maintenance.go",
+        "sha256": "04ac22d0b2f12975cecaa01f201a864a028b5cc9dc4919a33f8b6afd0dfc9fc4",
+        "size": 10576
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_graph_index_schema.go",
+        "sha256": "d3457da372aee4ee064f2e5ade37ebdcbff1ee29f6d7f8d197a16073de5c809e",
+        "size": 1465
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_interface_generated.go",
+        "sha256": "80aeb3cea2ddf3b8ece4bdf82f33643f2b3c12760b53b806c9237840e2a38e51",
+        "size": 24160
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_interpretation.go",
+        "sha256": "5dd37fc953cf96a927ef8ac6ef3653aaa8d1c1006ae9a13619a2d55e2be686f9",
+        "size": 33126
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_obligation.go",
+        "sha256": "9c7243f619bbcd857d278804d950576604e95a2e2658784ceb572abe4599cff8",
+        "size": 14605
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_owner_interface.go",
+        "sha256": "332773fdc317124278fc162059749fe235a2e486f2c2c6a63286948d6f64fd22",
+        "size": 3142
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_pack.go",
+        "sha256": "2b81203d14a3234f7a5f7f626233bff4cdaa486dfad6171eaed2d50c3bbbb11d",
+        "size": 31820
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_profile.go",
+        "sha256": "a3c5f6aa36689de6bd90b1179f542782e31f777c65301beea01b648549d39fd6",
+        "size": 1405
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/scv_schema.go",
+        "sha256": "7af9261ef6bfc17be7e8574ee4472978df76dedc12c112a826920df1e5950f85",
+        "size": 8044
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv.go",
+        "sha256": "6219ce4f3fe574c9487d9aa761f9e5bb34498db10b8204a945e056a5bb823af8",
+        "size": 5879
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_discovery_schema.go",
+        "sha256": "bda5fe43695b1b0c9bc7275aec43e158294aad9bbdd7d60ec84a88a7ab2e7562",
+        "size": 2064
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_document.go",
+        "sha256": "b6c9fa34e67ac33ffcbebc7fc2e3dbdc8e1f53d4bbd85d895c54a8c5e1bec033",
+        "size": 1338
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_graph_adapter_interface_generated.go",
+        "sha256": "bd099e09468d6d9cdbaccc0973974fdfa021ad19020be981d87e9e81079980bf",
+        "size": 686
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_kernel_interface_generated.go",
+        "sha256": "1307d66a1fe9216b528f136f1f674651ef54e60a1bc0c9be4e7deb01ec344d92",
+        "size": 1591
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_lifecycle.go",
+        "sha256": "b4b91446eb9b95036dbe1502903b2f4af4626444f5d9870ba4adadfa5b33a520",
+        "size": 4465
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_lifecycle_descriptor.go",
+        "sha256": "a65d1048db3a21dc28c9ee52041e7a11f8debe93be80a525d54a541962065d32",
+        "size": 3273
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_lifecycle_schema.go",
+        "sha256": "c50ec64368d437a33739014e0b789faab0c372594d796c608b0bd346fae6d598",
+        "size": 3440
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_lifecycle_validation.go",
+        "sha256": "ad5be2f4c4265ec41f95624f4597f57a1e24bf0af9b0b3dcfcc2626840f63880",
+        "size": 14521
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_partition.go",
+        "sha256": "bd2c5c00bb7e59d4581ceeb63a32034bc3bbb88c6c3fa86485c71889f750c8d9",
+        "size": 4807
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_partition_descriptor.go",
+        "sha256": "8d66f8ee7fad47496beb7c8e50b61da8ac4782f61db2cc88bb278726da72039e",
+        "size": 3158
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_partition_interface_generated.go",
+        "sha256": "16aa6ded4aa2534864913c740a070ccf8d16f5cd3314c7a3da69695c2d85c482",
+        "size": 1035
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_partition_validation.go",
+        "sha256": "f501bbaae5ed658fe9eec3cd6ed8848d4f1886ffe7b9a09321947c3739e8300f",
+        "size": 9391
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_pdf.go",
+        "sha256": "e190e6429171456b62a8c0ef4b61503af4fc0a2a8e07984d2d6d52a5f1919b23",
+        "size": 4657
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_pdf_descriptor.go",
+        "sha256": "cc7da2e22de180ca0eb06c19f0e824c2a94cc484f8ceed63dca22707217e33c4",
+        "size": 3220
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_pdf_graph.go",
+        "sha256": "ebd788b420f8230344a303f436c337b732e9c6b28e3017ef13d030461b59d49b",
+        "size": 3413
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_pdf_interface_generated.go",
+        "sha256": "1f80e3123d1e1d1bd5ee364e75740035e8eb7b0f30941151e6b28605e96e198a",
+        "size": 824
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_pdf_validation.go",
+        "sha256": "bb569508c313ab13911bda130b9539bdcf70962bb7acf82224c04d319fcfc225",
+        "size": 3585
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_profile.go",
+        "sha256": "852b173a8d3e87b11330a077edeb7686212ae4c8ec1a47a62acdd45960a53beb",
+        "size": 4037
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_profile_descriptor.go",
+        "sha256": "97b42ffa81e29acf383abf1186ddb276fdca8e49ff3ff226aff5b50764b9d900",
+        "size": 3188
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_profile_diagnostics.go",
+        "sha256": "db002a7a8eda0705d9067f1d8f2a5943059868a44b13fbc6b70baa086cc8971a",
+        "size": 10047
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_profile_interface.go",
+        "sha256": "88a06ccef7796b62af31488f99c6a85d41d69ede927c334e52fda790cd08e830",
+        "size": 1950
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_profile_interface_generated.go",
+        "sha256": "1124a0dadcbae46ed4162adbe15f393620384bc790dab81ff643bbec223cd99d",
+        "size": 1299
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_profile_validation.go",
+        "sha256": "489749f3ae56534acdaa4c05b1871b8304c2a5fc147a1c562efba56dbdf34ea7",
+        "size": 12706
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_publication.go",
+        "sha256": "55d5a9740ac55d72ce0caaa1011cce4c1918b0fab8f2a0e5948cb123608047db",
+        "size": 4369
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_publication_descriptor.go",
+        "sha256": "17e859927ccc3ecdaf70e6b1b7e2dd748eab4e020ae8d0b541b3741fec626f6a",
+        "size": 3256
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_publication_interface_generated.go",
+        "sha256": "c01b14789aebfce2435decda4f58e836a2d08efa72bd19a3809f5388e3b545f5",
+        "size": 1085
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_publication_validation.go",
+        "sha256": "c9e65b14fae7d3b33a17b237308520d1f68cd5ca7ba196ff9e01e81a7405dd36",
+        "size": 9663
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_schema.go",
+        "sha256": "783b87ff75b38971049220c0f8f6f5498dfdad2cf2447b57cc5cad043e8b7bc0",
+        "size": 3831
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_source.go",
+        "sha256": "0b19f69ccc97980f00e473558f4bcf7c65592d7ec14f36f9be65729d17a8a3ab",
+        "size": 11178
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_source_interface_generated.go",
+        "sha256": "0084fe9649509f14505de173722bfc5673146ca9890f3e505b1d424b2c084635",
+        "size": 1195
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_store.go",
+        "sha256": "07aa1d86af5757111f870a5e7c8a6410c4d2da15e9a158c6f6b27a2d668e982b",
+        "size": 4983
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_store_descriptor.go",
+        "sha256": "c345469faaf4806ec6b6219e7290d067c3fe581170f26d38f57a8168a7241bee",
+        "size": 3805
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_store_interface_generated.go",
+        "sha256": "84d848f038baab8180a29860257d790cc5fa0dc56ab3276275ec6157863e428f",
+        "size": 1393
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_store_inventory.go",
+        "sha256": "e5fb4291d9ac799a00cac8d91c65be8ed6a7f80bedeeeaee825423bf0fc94c8e",
+        "size": 12024
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_store_validation.go",
+        "sha256": "d4b47fd658cf50a5ed0b9887210525301a2053a87694daf837d5e9682d3deabb",
+        "size": 9442
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_tables.go",
+        "sha256": "1134bed71f2e57608db2b7004dd874c602905e3d2e6c49c21b829b74b577bcfa",
+        "size": 13970
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/shv_validation.go",
+        "sha256": "96f152f8d103768adb545067a8b84892e20abf7d66f8988f09c599c7f40e42c5",
+        "size": 25973
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sniv_interface_generated.go",
+        "sha256": "4400d47e67c1439d5b9b113593ca973b51b438e1b3122d1d8444f3b6394027c8",
+        "size": 769
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/snrv_interface_generated.go",
+        "sha256": "4a04fb55b80d0a25cc2fe37a5d252b2f6bf8d4b0df034989ded571ddacde50a9",
+        "size": 772
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/snv.go",
+        "sha256": "e91f78c58d9f2ee2c76ecaa669c1279bbaf46eed9828d967fa3732253a8783aa",
+        "size": 26440
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/snv_descriptor.go",
+        "sha256": "c334f80872544f4ca9dd792f23d814b44981b5a548b3deb4d1b359972b6dcdba",
+        "size": 5531
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/snv_interface_generated.go",
+        "sha256": "fb63312206449aadeebf2013ca120e07920ed586e30f14801635b44cecdf7507",
+        "size": 2064
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/snv_observer_interface_generated.go",
+        "sha256": "8f13962cda828f4ed7067555f9565a17db214c2b7c725677d81590488cd894d9",
+        "size": 786
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/snv_schema.go",
+        "sha256": "85979b6289951eec4759298508f1380b41ae0d3f28f9f5db618afc388200dbfe",
+        "size": 7516
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqav_attempt_interface_generated.go",
+        "sha256": "d0a430f2146e5bcb56b271fd5165e60e898952a4408b08f3bdfafeac835a7251",
+        "size": 739
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqav_request.go",
+        "sha256": "dd3001fb3f80083882f5b33ec8d5b1ea05c785382a85e58387b1901d353f10f0",
+        "size": 7082
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqav_request_interface_generated.go",
+        "sha256": "30c69eb427fb9a60d734cd46d03dfbe6499c52ad815fe951dbb96c79038e1b2a",
+        "size": 745
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqdv_checkpoint_interface_generated.go",
+        "sha256": "8614b8dc5352c05e68d45dab4a7e8b4ba236528dca76b7cd7f0c524bcaa6ec23",
+        "size": 763
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqfv_flow_interface_generated.go",
+        "sha256": "046ccbabe0cc6af02519e66996072ea6a13e1c4bb78180456b4b69138ae5aadb",
+        "size": 712
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqmv_metadata_interface_generated.go",
+        "sha256": "0610629ba3d384adb318372d580fa49946eaf8cb4cbc320aa45f2f430cbed207",
+        "size": 833
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqpv_inspection_interface_generated.go",
+        "sha256": "ff4fa564f04d551e9a8c54f58accbaf0983d909110a25118f91b6339732724a7",
+        "size": 748
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqtv_conversion_interface_generated.go",
+        "sha256": "fe89d9fd1ae9d93351d4be436e0353403aafdaa0d45236db00047dbc337d80f6",
+        "size": 766
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/sqv_administration.go",
+        "sha256": "a8b8e1c84c4fcb0612ac666e4e2a6d9eacc9e2fa0e67bddda972bd56a89c4b89",
+        "size": 12044
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/srrapiv.go",
+        "sha256": "c8a39d6993c9ca44c47564539a472f6553ba9cc3a0d6ae63a4875aefc454e0e1",
+        "size": 9066
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/srrapiv_interface_generated.go",
+        "sha256": "4100da994974c1f6eaee07149e20a573308675377f30c1c85587074a6141b424",
+        "size": 485
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgeengine/srrapiv_shape.go",
+        "sha256": "d74d52d222dc80ae5ff1eaf5d6f8f562456af5a9707448c584768399cd2b3557",
+        "size": 3934
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/execution_lease_unix.go",
+        "sha256": "9814be5c310d76b4a1f3c0da5e3ef0eef02bd024ef2a80594ac89f77dfbbea76",
+        "size": 1459
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope.go",
+        "sha256": "9f0e2434f5e618221a9095a232008aa34532f9330f5a6d6a28393ac218284957",
+        "size": 22125
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_unix.go",
+        "sha256": "a133b24b19ea90bf9b12cb286970b0d59871483efbeccd93eb5b884ca75e177f",
+        "size": 2298
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/executor.go",
+        "sha256": "c83e9cc8c436a06ffef4c2f2c5fc52ef34473ba09795289bb5fad048f816239e",
+        "size": 21739
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/host.go",
+        "sha256": "7f96fbfe55a57b90970de6e8dd548daf939fbc0d48278ff06b3a12f35b350380",
+        "size": 15499
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/host_admin_unix.go",
+        "sha256": "3e412a73a691f509124809a9c62896502c21e3c1e3185ee0919d0ee4d4a03166",
+        "size": 22282
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+        "sha256": "d9bae0aa118ad30cc2c39cecc365a18297b2774863303a97c9639d505f5dc5d5",
+        "size": 12654
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/native_owner.go",
+        "sha256": "994612b88f95c6388659c3e0b114c771d3565d3349473ae4ad294407bb0bc27c",
+        "size": 3334
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix.go",
+        "sha256": "6221d6d1329eae9f8d6c3dde47e87d3ced3f530e21e9f08f27e44b56d2a1929d",
+        "size": 19272
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/observation.go",
+        "sha256": "8d71944dfbfe82998231a3fb9010244aa81529163003ebce903f4e0ca4edb961",
+        "size": 29330
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/ownership.go",
+        "sha256": "4d0b7abbef1020bf13842e89349e9a60c8b2d1cde0b54753cb087a9c02cc0171",
+        "size": 23504
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/ownership_scoped.go",
+        "sha256": "3ce27ad12e820ba243f0bf6c145e2bd0bbabb00ae6d5b8a85522d54635a690e7",
+        "size": 5124
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/ownership_unix.go",
+        "sha256": "5c3b108f4e375be8d9488523455e5e2d008da2189c296abf7459e4f7ec818cee",
+        "size": 9375
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/profile.go",
+        "sha256": "589f319492eb719407dd5a1a52b07fc962e59b0429278dbaf4514469ea3da004",
+        "size": 31852
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/runtime.go",
+        "sha256": "6294ee5459d8c6e92964f2b5fb403d229f5eda03e8bd6694d8feeddec1b57afa",
+        "size": 11222
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/runtime_unix.go",
+        "sha256": "fa5fa88dad3a0dff627b17946b06d572bb0691f760e3601484ca77605a5887f0",
+        "size": 5434
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/scan_unix.go",
+        "sha256": "b803bbe55e07680e1ee126e57b0e9c3266683729256d3670daf3d42c8f7c2bd0",
+        "size": 9042
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/knowledgelifecycle/state_unix.go",
+        "sha256": "135c5e38558d12acf5cd7ba9d38fec1dd7609fddd5699dda2e6f6634cbf0ab78",
+        "size": 10625
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/maestroclient/client.go",
+        "sha256": "b8fb096c5feec88d58a77c3ad82ec34fcd2a6da6704c1876a18c1cf423cb65d1",
+        "size": 23630
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/modules/modules.go",
+        "sha256": "402f8ed3a694594dc9a8eef9a11e6b1210cdabf22284987222d86587c3411cc1",
+        "size": 13275
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/repository/repository.go",
+        "sha256": "9892f9538919a60b9dd6eacce46198aff3cba7fff7ce4f1b99f31f1ff2635e56",
+        "size": 1032
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvcorpus/rename_darwin.go",
+        "sha256": "71b102291d9c9669d5e128f11f324756804e17ff47ea04381a82c2ef75af7efc",
+        "size": 208
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvcorpus/storage_unix.go",
+        "sha256": "78686a57a3f4e457f82b9184b6ca0e9bc6055ec1a1f99c63102526d60a3d9907",
+        "size": 9158
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvcorpus/store.go",
+        "sha256": "01d7939d041814907214a5a74e848ba3aaaa04209abb02d78aef0dc1c54bb927",
+        "size": 7477
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvgraph/store.go",
+        "sha256": "d1cd8d89ee8df0d5a59c43fd59a688ea6ac87599c3af4b9f874e837ccfd40ae0",
+        "size": 12709
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvstate/projection_unix.go",
+        "sha256": "72060063158e50d1505b2278c4646633bb77ee44cae310bf3d39995f9ce386df",
+        "size": 1956
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvstate/storage_unix.go",
+        "sha256": "38c120591d8a447df87ed4f0572ec279942aa8a35a9ec25ea88fc65a1768233f",
+        "size": 6359
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvstate/store.go",
+        "sha256": "8432fa863f9ad7f36229fcb82bf9b4262a8921e9cb24e0143d6dbb6c368a2588",
+        "size": 15647
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvtransfer/journal.go",
+        "sha256": "76937f098e4545d31381c74a0c53016f09a4faff7955d9ea855da5a6554eb277",
+        "size": 5490
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvtransfer/rename_darwin.go",
+        "sha256": "e8355d8f17860dce0569e1ab4a644c43b3ede283c03b635485dfa6af1128a95c",
+        "size": 173
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvtransfer/schema.go",
+        "sha256": "269e1ea28b0b953014c1939f2df8cba670c00adf5e054ae17f6ab48b53d43650",
+        "size": 265
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvtransfer/storage_unix.go",
+        "sha256": "08f38ea430732f430339528ea485070b3c84d815d3caf0533d818982d721d7d2",
+        "size": 9707
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvtransfer/transfer.schema.json",
+        "sha256": "785b37b6db8b7cd81e13136d00517107ad9d1cb6a9ae24bfe8644c55ee08598a",
+        "size": 48327
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvtransport/https.go",
+        "sha256": "df87ad8a873ff0e4a971d014bb08d7893e2813bc13e33fe649b4e28cf91ff805",
+        "size": 10636
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/composition.go",
+        "sha256": "910ddf5e45c5312273842154df51cd8cb88737ff07521eaf3404c0d05fbe6759",
+        "size": 9221
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/composition_storage_unix.go",
+        "sha256": "454fde3ff0b78a434997dcc312ee16e59573a060603b5b54701a00dc530b33d8",
+        "size": 2845
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/composition_v2.go",
+        "sha256": "d18c2d0959ee221301282a07f772f7702251b1b305d9756c17e3a130dffb42e8",
+        "size": 5801
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/composition_v2_storage_unix.go",
+        "sha256": "bc2280678ee22a051c4150243c36299d4b77f4618c55805425e6a86c8a5f7d27",
+        "size": 2863
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/filesystem_unix.go",
+        "sha256": "e747ac6bedb22c47487d8ec922904b92681cf4d286e532189c4bd94abdea0093",
+        "size": 3812
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/rename_darwin.go",
+        "sha256": "bbc10e451c89f8f61e0dece07601464ec65c8bef54ddf588a89498dd23412bdc",
+        "size": 210
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/storage_unix.go",
+        "sha256": "ee361921ec7304fe9613856ffd471c617888d8d54eb9c35fb6143663b824d578",
+        "size": 7998
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/scvworkflow/store.go",
+        "sha256": "c8272daa906f251de788e45c65f86f9bdd8e084cdd14ffa5bfee08f9d9b2325d",
+        "size": 11834
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvjob/storage_unix.go",
+        "sha256": "273afcb0808de45aeeb51b5636cd2d75261f94d350367b3c8393f17b662f163f",
+        "size": 6533
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvjob/store.go",
+        "sha256": "f37707e6b3b8ad7c8b714dcc7725c8faf4303da66805dbd324430cf039e9e520",
+        "size": 2085
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvpublicationstate/authorization.go",
+        "sha256": "80464894244030864f70d3ed2cd0f9ec70764cd97fd1f88c52e1dfd7258f145a",
+        "size": 4006
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvpublicationstate/barrier.go",
+        "sha256": "320eac1ded553256bb1fb88575d091ebc7e120487fff39386f0de5c7c0d84227",
+        "size": 181
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvpublicationstate/storage_unix.go",
+        "sha256": "bf0807ab11070934552dc53f6a90f0bd9047bcc8d5814e5a8dc6601a677e1388",
+        "size": 6792
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvpublicationstate/store.go",
+        "sha256": "85b6106c424cf377120b3ba4f0a50029c04e15234598c83c18c5a205e3a4627b",
+        "size": 11270
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvpublicationstate/validation.go",
+        "sha256": "5e7fba6db4761cadc19364f529e3be714e44fa58061fcc72ff135bd9227dfa56",
+        "size": 11111
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvstate/authorization.go",
+        "sha256": "1b9cf0c2dd1d66ef51a98a8543ebdd657969949665b317fc947f865021b14397",
+        "size": 4130
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvstate/storage_unix.go",
+        "sha256": "613fb55b54a8710ad2aebcc450808e941ec53710c6fe5ef52c90f07885a5dce5",
+        "size": 6569
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvstate/store.go",
+        "sha256": "f3fc06780ef74ca387f23e5e2115179a715f0085a64b0023cf4617170157f0ca",
+        "size": 11133
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvstate/validation.go",
+        "sha256": "8f16f1fc8a96ec274c858a38e19f0b9d5bf419a27c11b89a1cf016fe57f5dce6",
+        "size": 10697
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvtransfer/journal.go",
+        "sha256": "832036c9161de062668b5ac7d869be97697ccb59b16fb51f848c2b0967b17058",
+        "size": 5600
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvtransfer/rename_darwin.go",
+        "sha256": "4db76f39588d1cfc5d0dc5dbb54c0d71eae4c82500536bcba60b4511709250fe",
+        "size": 173
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvtransfer/schema.go",
+        "sha256": "6772488dc91ca737a9f01d1ac8080069c1896f44f021d8a83fc42489b452ba6d",
+        "size": 265
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvtransfer/storage_unix.go",
+        "sha256": "f0c6d7389f76f2272749d28439d31b55cef11e04009cdd069c02c3a167797ab3",
+        "size": 9707
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/shvtransfer/transfer.schema.json",
+        "sha256": "fc3c14d36f621a0f048c530f71611a20a41d0dc229026ea2498144e02fe795ef",
+        "size": 44711
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/snvstate/authorization.go",
+        "sha256": "b7bdd8aa50c5499092878f542448e84ae9dd674dd0a5437b3a8430f8de0384ea",
+        "size": 3641
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/snvstate/barrier.go",
+        "sha256": "3dbf1f0ee3c8a0b4b6a836d79a9a8ee7264131501479d3fdfe0d5fad69c2b8a8",
+        "size": 151
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/snvstate/errors.go",
+        "sha256": "3709fb0c89a9a81c810df416354815294b824aaa6adb671c1f86605c7b52e4b1",
+        "size": 550
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/snvstate/storage_unix.go",
+        "sha256": "b69027351931d322b66848f6a2d3b76ca36c824a5a5f12bbc2b7c3d2e54cec35",
+        "size": 10417
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/snvstate/store.go",
+        "sha256": "e72651461a7c0ad8c158cb9719ae8c66ac68686e74a9799a4d96b426e3137520",
+        "size": 18146
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovcloudflare/cloudflare.go",
+        "sha256": "362c7a024a5ba28f2ded36aa81b0a43e98b162ed7b4b53d7f9db1d4e0fec8ce2",
+        "size": 11903
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovcloudflare/operations_generated.go",
+        "sha256": "c281a2d4e51cfeaad23e61eba65231188c89dd28d30d1325b3aec6ea0f8bc0ad",
+        "size": 992
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovcloudflare/process_unix.go",
+        "sha256": "cc760a28638307d0ac9056b2533cdc3b9c280bdd0f9b9035ca0fc14e061fcd3f",
+        "size": 469
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovcloudflare/schema.go",
+        "sha256": "c44bb0319d0ad84d656fb0e574f82e0f0ed68ad3e3353035c3c91b030672a776",
+        "size": 2535
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovremote/execution.go",
+        "sha256": "6a1eba61138c5b7edfba334f790ef26177184d3e66a1ea74e21384f35adacd58",
+        "size": 17054
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovremote/files_unix.go",
+        "sha256": "1954548dea91e4a56f0642d3aa73efac2d7f25bbacb679aa072209696e8565e2",
+        "size": 5741
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovremote/plan.go",
+        "sha256": "1a1a9fc07ce7153905fd315576d58af6c8c9a75b5c41fb918a3220e68b97fa16",
+        "size": 12021
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovremote/resources.go",
+        "sha256": "c0a9fdb94c7fec574f16b27c095cd4b89adde962a46cfa21da765e69f3bba1db",
+        "size": 10122
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovremote/ssh.go",
+        "sha256": "cd78319d1ead5b2a70d6983035fd838e3f252b6e2b8eb5234e903ff5ab7c5bea",
+        "size": 5529
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sovremote/ssh_profile.go",
+        "sha256": "6e3570af33f4904f48a8aef8f757f3197269a19596857febfcca0b9e66b0e1d5",
+        "size": 6333
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofile/files_unix.go",
+        "sha256": "8d0efb333405759d8f636ab2cfe59c9eaba537a4c1fffbf6310bf69e6409b971",
+        "size": 4760
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofile/packages_unix.go",
+        "sha256": "03cc2bf2e6c867a95edf146727c1acbac35dad4dbb68e697c05c52be0d806b68",
+        "size": 3848
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofile/private.go",
+        "sha256": "7b2dbd20801d449e83929f00ae7ce8c86621f742f747def0c71cc6cbccc89d92",
+        "size": 4154
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofile/receipt.go",
+        "sha256": "c3e008adc7d2c18e2ce1e7b0b7619d0cc1e5d10f4a67cd42a981b1bec5468099",
+        "size": 4888
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofile/store.go",
+        "sha256": "1875d169f410305956a4a553486ce706fa9395074a240b4378c3cd09e3ddb299",
+        "size": 6238
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofile/wire.go",
+        "sha256": "23273c1870b7e07646ecbc15f04ddb88d920665fa1b28b530f0c7aac575ea5aa",
+        "size": 6880
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofilewire/codec.go",
+        "sha256": "2c35dc69a1a1e63dfe30c1a92ac195c1bc95382954ad69ec32d8c488995dd328",
+        "size": 4091
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofilewire/presentation.go",
+        "sha256": "3a1b40f72285566d3416ca11de17532782a70a77eb9226ae34d50e5a5bfca302",
+        "size": 4926
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofilewire/types.go",
+        "sha256": "a9c0378156927d24572399fab3f48bce4431b0c2c70fbd5feefdcca873184496",
+        "size": 6996
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/sshprofilewire/validate.go",
+        "sha256": "55a478a9a123e88c513e6d7557cfb9d80bbd7c3fb3d868a83e8f338ec7e5e62d",
+        "size": 10597
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/ssiagclient/client.go",
+        "sha256": "2a3277344aabfcbf1deda297fd9a8cd7a9937fcc233856dda6edf2df539f8ac8",
+        "size": 36301
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/ssiagclient/peerauth_darwin.go",
+        "sha256": "451e339f832166e296433a59c9e3e847c08fd8fb984513bed163202d95e6f668",
+        "size": 1668
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/ssiagclient/provider_binding.go",
+        "sha256": "86da1d65293cdb1492e4af03789c916123fb798bdebde567c1022806a0f8beb7",
+        "size": 26747
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/ssiagclient/provider_readiness.go",
+        "sha256": "156c41c7913dd3361c9f085fe3d8b7a7ff0853579e412154c4a507876b90fd4c",
+        "size": 10519
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/ssiagclient/trust_unix.go",
+        "sha256": "399f7ff382953aa4b55ad4313c6d2871dff86397f6755d8a740ea58ba200fe68",
+        "size": 870
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/status/status.go",
+        "sha256": "67b92fc650fa7f06974b20146d4bdeb21bc332c195d50647d4fffc283de2d089",
+        "size": 5064
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/stavclient/client.go",
+        "sha256": "8190906b5ad316773b01be364c7e63050dabd224a573b1b4e5ac0a0ae849eb0f",
+        "size": 1104
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/stavclient/paths.go",
+        "sha256": "a89159df3f89e1185bcbd03f0f2a15cb44c28f1d1a14ed228523729bdf2449e5",
+        "size": 2283
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportprofile/client_unix.go",
+        "sha256": "e4d86626cf13ef7c2c2550edb8c8466b9b8d72f5635660cb5666b0a178e2d1e9",
+        "size": 4890
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportprofile/wire/codec_generated.go",
+        "sha256": "f593ac6cbb2318d1673356f4b52e35e32a27d82049c99febf398db47cd9b4d96",
+        "size": 4155
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportprofile/wire/presentation_generated.go",
+        "sha256": "1a634beeb21c8250accf7c639a307c413e0dd82a2a8aa7cc109fa1bdef7e5eba",
+        "size": 4990
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportprofile/wire/schema_generated.go",
+        "sha256": "d7cbe428759bcbd8a6cb488760abbc063105863fcb84b686ab994aabeee9274a",
+        "size": 18775
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportprofile/wire/types_generated.go",
+        "sha256": "158e88e3315a301f2429b85aad781ef5b7646fe55f8f50581f4bad9ee46ae83b",
+        "size": 7060
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportprofile/wire/validate_generated.go",
+        "sha256": "f6412adec5c4e594573d6f5a2a77e248a5ed8a4cef10a82d613ce4c4cc3e2045",
+        "size": 10661
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportsession/client.go",
+        "sha256": "6b38f4e3c4ebbc16d3374d45122628f6005f833d31e989d78681b8bada4a8f97",
+        "size": 2036
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportsession/presentation.go",
+        "sha256": "11a54d10bde87a5f43ba83a65813dabf3169bc7d6733cafa1a630a4ea678779c",
+        "size": 2268
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/transportsession/wire.go",
+        "sha256": "449644e5e7abef8bdd74d5e472ebf9b4ddc23d8880fadd25de106bca3f1e85ae",
+        "size": 7004
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/client.go",
+        "sha256": "3dafad2caad7ab891179e716d842eb4d011bc0e0793a61bf7c47db3003c3b259",
+        "size": 13041
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/digest.go",
+        "sha256": "0209e8e663752a8327337b753d49e5ec1c483447959fe10f97871c7c2399626d",
+        "size": 2445
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/evaluate.go",
+        "sha256": "205664cd4a1ee6045921e8cd70fd4e9387ec08aec6dc288ba304152b733adb3e",
+        "size": 10041
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/policy.go",
+        "sha256": "855666c47c6faddf0a95db1e28fa9bdd9a3f783e5378ac40baaa56f99d6a24e7",
+        "size": 14709
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/state_unix.go",
+        "sha256": "486779994505dbbdd8a892c43e1b94b919fc3ddf909820c0d9774c8b02ecf149",
+        "size": 10039
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/types.go",
+        "sha256": "2247b1fdf004ed88857ee757a8de7fb2f9ef494ce81a373d8f15371dbad2a786",
+        "size": 11595
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/validation/warnings.go",
+        "sha256": "cb3894cdaf917b2865b91544afa1f39e7d4124885ccfb81a3bbff4b0e2300d22",
+        "size": 31727
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/version/build_info.go",
+        "sha256": "f79cd04d53f3a42de65923b997827ac820063844225d222d919f0ee289f2ceef",
+        "size": 2716
+      },
+      {
+        "mode": 420,
+        "path": "tools/qxctl/internal/version/version.go",
+        "sha256": "db49d7737a99030fdb6f44bdfa5dcd3dfd6f3a03cf59a56c33764f46df5e5378",
+        "size": 498
+      }
+    ],
+    "inventory_sha256": "a87911f81bbc2bb2ed10bd207438ff59296bdb7c22901e4c660afc8de2ca9e22",
+    "method": "native_go_list_deps_compiled_json_CGO0",
+    "original_matches_cohort_source": true,
+    "uncompiled_module_differences": [
+      "internal/knowledgeengine/testdata/shv-store/native-results.json"
+    ]
+  },
+  "component_id": "qxctl",
+  "helper_sha256": "b2a10ae9e1d85d73cee8e30eb94fb4d5eb193dc755d9d85a796a34a4725af1f1",
+  "isolated_builds": 2,
+  "logs": [
+    {
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "df614943c6953b7f620aa61b812f25336c7bb2ed80d5902fddec3c107c41c4a4",
+      "step": "native-toolchain"
+    },
+    {
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "06ded05905bf314cc3d27af417be60ebde03fd7a9b60274d6501309aba24d3ef",
+      "step": "offline-module-graph"
+    },
+    {
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "step": "offline-module-verification"
+    },
+    {
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "80c5a3c97e9de1fa32f607e829e0130b7eba8a32d9b6e6a1271c93c75d603aeb",
+      "step": "original-compiled-inputs"
+    },
+    {
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6a47e5c7fef7a4dba272f98772c451fa4b3234e99c61b9d3338786ad2065af55",
+      "step": "cohort-compiled-inputs"
+    },
+    {
+      "exit_code": 0,
+      "stderr_sha256": "283aac396feb88072b9932a02fbd670be6a862538e2108aaa31aa2280b41af21",
+      "stdout_sha256": "8ae977b280249b602f3b45cb409c65bdebe8a8f9c19bab068bc37ce78f4dfe8f",
+      "step": "original-two-build-recipe"
+    },
+    {
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "7299455569844aff0a4ad046548636872a6f37a63db236cbbd377c6c8f86d47e",
+      "step": "selected-binary-identity"
+    }
+  ],
+  "network_policy": "local_file_proxy_only_no_network_or_VCS_fallback",
+  "original_module_archive_sha256": "418274b9b8c8996b5dac444b6005124f9f5636c88f345a98884ea6ee451afc7a",
+  "original_module_inventory_sha256": "268001154881b00306b49cc17d3bf3ccf7fa63631990252c8029708d5fd7cf63",
+  "original_source": {
+    "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "source_date_epoch": "1794811262",
+    "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+  },
+  "privacy": {
+    "policy_digest": "d339123b990d9de1eaa1fd439e33e4ae0b15e6abc57882fd8afa49dd0224a837",
+    "private_build_paths_absent": true,
+    "private_original_fixture_archive_distributable": false,
+    "publisher_policy_scanned": true
+  },
+  "protocol": "symphony.distribution.qxctl-original-source.v1",
+  "publication_authorized": false,
+  "recipe": {
+    "id": "symphony.qxctl.reproducible-build.v1",
+    "modified": false,
+    "path": "tools/qxctl/tests/reproducible_build.cmake",
+    "sha256": "3985c45bd55e2652365abee1f66377f5150bd959198ec6158c5e64943e895b45"
+  },
+  "release_acceptance_complete": false,
+  "state": "reproducible_stamped_original_git_source",
+  "toolchain_binaries": {
+    "cmake_sha256": "34abf6b1ed0e438fb8378d314a5eb120df760076a2335e7308a46de2e2a09cb2",
+    "go_sha256": "21ddfdbc069184f97abf82e00003d990120b274968133f0a5e59af0a2df62ac2"
+  }
+}

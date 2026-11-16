@@ -190,3 +190,12 @@ There is no automatic retry after a failed or lost outcome. Follow
 Final release gates include fresh-host and actual-manager journeys, real
 two-release transitions, remaining raw/C++ ownership, publisher trust,
 redistribution review and approved public delivery.
+
+## D08 review assembly
+
+The [D08 installer handoff](D08-INSTALLER-ASSEMBLY.md) describes the separately
+sealed full-cohort carriers, unchanged native ownership boundaries, same-byte
+wrapper audits and self-signed review manifests. These review artifacts do not
+replace the seven-Go native installation contract or establish public release
+approval. The formerly open qxctl embedded-source gate now passes on the new
+D08 bytes; historical D06/D07 records remain unchanged.

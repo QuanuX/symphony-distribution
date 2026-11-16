@@ -1,0 +1,11 @@
+{
+  "protocol": "symphony.distribution.native-review-signature-probe.v1",
+  "installer_eku_selected": true,
+  "productsign_returncode": 1,
+  "signed_file_created": false,
+  "system_trust_granted": false,
+  "installer_executed": false,
+  "search_list_unchanged": true,
+  "default_keychain_unchanged": true,
+  "error": "productsign: error: Could not find appropriate signing identity for \u201cQuanuX Symphony Review Package Test\u201d in keychain at \u201c<private-custody>/review-signing.keychain-db\u201d.\n"
+}

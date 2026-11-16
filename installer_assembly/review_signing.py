@@ -140,7 +140,7 @@ def sign(paths, custody, expected, output, openssl):
     password = regular(root / 'password', private=True)
     cert = pinned_certificate(openssl, root / 'review-cert.pem', expected)
     files = artifact_rows(paths)
-    require(all(plain(p) not in (key, password, cert, root / 'public-identity.json') for p in paths),
+    require(all(plain(p) != root and root not in plain(p).parents for p in paths),
             'Credential custody is never an artifact')
     out = new_directory(output)
     value = {'protocol': SCHEMA, 'scope': SCOPE,

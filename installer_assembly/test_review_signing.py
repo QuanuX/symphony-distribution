@@ -89,6 +89,14 @@ class ReviewSigningTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'OpenSSL'):
             m.sign([self.artifact], other, self.pin, self.signed, self.openssl)
 
+    def test_other_private_custody_material_is_never_an_artifact(self):
+        container = self.custody / 'review-identity.p12'
+        container.write_bytes(b'private encrypted container fixture')
+        try:
+            with self.assertRaisesRegex(ValueError, 'Credential custody'):
+                m.sign([container], self.custody, self.pin, self.signed, self.openssl)
+        finally: container.unlink()
+
     def test_exposed_private_key_or_custody_refuses(self):
         key = self.custody / 'review-key.pem'
         try:
