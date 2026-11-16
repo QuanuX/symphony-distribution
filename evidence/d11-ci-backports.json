@@ -1,0 +1,188 @@
+{
+  "boundaries": {
+    "automatic_broad_runs_suppressed_by_commit_marker": "[skip ci]",
+    "candidate_bytes_changed": false,
+    "ci_completion_awaited": false,
+    "descendant_history_rewritten": false,
+    "distribution_default_mutated": false,
+    "force_push_performed": false,
+    "main_mutated": false,
+    "merge_performed": false,
+    "production_host_guard_changed": false
+  },
+  "d06": {
+    "backported_commit": "72b25452f25f14b9c71bde2c3985095800c5fcc3",
+    "branch": "codex/d06-clean-native-sdk-cohort",
+    "cause": "Resolving the clang++ symlink selected the clang invocation name and omitted C++ runtime linkage in detached SDK consumers.",
+    "default_selection": "All four profiles on push and default manual execution; explicit manual input is required to narrow.",
+    "dispatch": {
+      "completion_awaited": false,
+      "event": "workflow_dispatch",
+      "head_verified": true,
+      "inputs": {
+        "platforms": "linux"
+      },
+      "jobs_requested": [
+        "contracts",
+        "ubuntu24.04-amd64",
+        "ubuntu24.04-arm64",
+        "ubuntu26.04-amd64"
+      ],
+      "run_id": 43945383060,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43945383060"
+    },
+    "failed_jobs": [
+      133296217198,
+      133296217355,
+      133296217145
+    ],
+    "files": [
+      {
+        "path": ".github/workflows/build-cohort.yml",
+        "sha256": "be664a5353631fead69dd7e10de6a8833a9ad1a8a96797e139ef2c9646decfe2"
+      },
+      {
+        "path": "build-cohort/sdk_audit.py",
+        "sha256": "33c30e4a21d1a442220e25c3eef4f48274aa9d15f88d3a8300b10f4bccec259a"
+      },
+      {
+        "path": "build-cohort/test_sdk_audit.py",
+        "sha256": "3be127ea338bc628226dc2bb20d4db20b5f05771781a0c2a852e9c6655828203"
+      },
+      {
+        "path": "build-cohort/test_workflow_selection.py",
+        "sha256": "6df5ac1739ab6a10b7df9c5e52bb3a3cd0ff41203e49b6a485f367a03a3238d2"
+      },
+      {
+        "path": "qualification/d06_sdk_closure.py",
+        "sha256": "1939f4f0a6c4ec06834aca9e178133bc2b8446e5250e1c3acc6f30e9e2fb2f37"
+      }
+    ],
+    "original_head": "10330095aec4c9e6e99c0e2aace8fc243a9ae2c2",
+    "original_run": 43866449586,
+    "pr": 3,
+    "repair_head": "7422b6fc59479da43cbd7d2694f4767643246f5f",
+    "retained_macos_success_job": 133296217113,
+    "tests": {
+      "result": "passed",
+      "sdk_audit": 9,
+      "sdk_closure": 16,
+      "workflow_selection": 5
+    },
+    "url": "https://github.com/QuanuX/symphony-distribution/pull/3"
+  },
+  "date": "2026-11-16",
+  "integration_note": "The D06 PR head advanced by fast-forward. Existing descendant branches, package identities and pinned D11 snapshots remain unchanged. Refresh ancestry, checks and exact source bindings when integration is separately authorized. The S06 default remains unchanged pending PR7 review and merge.",
+  "protocol": "symphony.distribution.d11-ci-backports.v1",
+  "remaining_gates": "These backports do not establish fresh-host/client acceptance, native installer or live/shared-root maintenance safety, distinct-release upgrade/rollback, final source integration, recognized publisher trust, completed legal review, independent acceptance or recovery review.",
+  "s06": {
+    "backported_commit": "df6aca83966d930c5598f8270864fe33a221339f",
+    "base": "codex/s06-conda-journeys",
+    "branch": "codex/ci-s06-native-result-fixture",
+    "cause": "The test dropped its Darwin/x64 host mock before retrying the bad native-result fixture, so Linux reached the correct production cross-host refusal first.",
+    "default_selection": "Conda transactions remain enabled for push/PR and default manual execution.",
+    "dispatch": {
+      "completion_awaited": false,
+      "event": "workflow_dispatch",
+      "head_verified": true,
+      "inputs": {
+        "run_conda_transactions": false
+      },
+      "jobs_requested": [
+        "contracts"
+      ],
+      "run_id": 43945410578,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43945410578"
+    },
+    "failed_contracts_job": 133150745707,
+    "files": [
+      {
+        "path": ".github/workflows/distribution.yml",
+        "sha256": "98b8c4a19547902cbc2832627e1ef690591547e257b73b39d2cca543d3e063b3"
+      },
+      {
+        "path": "lifecycle/test_go_delivery.py",
+        "sha256": "66737970e93f5e2c21f67bad72c812d2884f5ec9944ef99a946127bbf6b34afc"
+      }
+    ],
+    "original_head": "aa86cb90443822134c2800c3eea20837b600291b",
+    "original_run": 43823181347,
+    "pr": 7,
+    "repair_head": "3677c186c619181e418882ce14f4b77bc8c0bd86",
+    "retained_conda_success_job": 133150746149,
+    "url": "https://github.com/QuanuX/symphony-distribution/pull/7",
+    "validation": {
+      "backported_commit": "df6aca83966d930c5598f8270864fe33a221339f",
+      "base_commit": "aa86cb90443822134c2800c3eea20837b600291b",
+      "conda_transactions_rerun": false,
+      "default_branch_mutated": false,
+      "delivery_tests": {
+        "count": 12,
+        "result": "passed"
+      },
+      "dispatch_condition_truth_table": [
+        {
+          "conda_job_enabled": true,
+          "event": "push",
+          "input": null
+        },
+        {
+          "conda_job_enabled": true,
+          "event": "pull_request",
+          "input": null
+        },
+        {
+          "conda_job_enabled": true,
+          "event": "workflow_dispatch",
+          "input": true
+        },
+        {
+          "conda_job_enabled": false,
+          "event": "workflow_dispatch",
+          "input": false
+        }
+      ],
+      "files": [
+        {
+          "path": "lifecycle/test_go_delivery.py",
+          "sha256": "66737970e93f5e2c21f67bad72c812d2884f5ec9944ef99a946127bbf6b34afc"
+        },
+        {
+          "path": ".github/workflows/distribution.yml",
+          "sha256": "98b8c4a19547902cbc2832627e1ef690591547e257b73b39d2cca543d3e063b3"
+        }
+      ],
+      "main_mutated": false,
+      "manual_input_default": true,
+      "outer_host_regression": [
+        {
+          "ambient_host_simulated": "Linux/x86_64",
+          "error_class": "ValueError",
+          "passed": false,
+          "refusal": "cannot execute a carrier for a different host",
+          "source": "original",
+          "tests": 1
+        },
+        {
+          "ambient_host_simulated": "Linux/x86_64",
+          "error_class": null,
+          "passed": true,
+          "refusal": null,
+          "source": "repaired",
+          "tests": 1
+        }
+      ],
+      "production_files_changed": false,
+      "protocol": "symphony.distribution.s06-native-result-fixture-repair.v1",
+      "workflow_lint": "passed"
+    }
+  },
+  "scope": "Feature-frozen repairs to historical D06 and default S06 CI failures; no merge or release qualification",
+  "validation": {
+    "changed_files_privacy": "passed",
+    "focused_tests_passed": 42,
+    "independent_code_review": "passed",
+    "whitespace": "passed",
+    "workflow_lint": "passed"
+  }
+}

@@ -58,14 +58,20 @@ signing/trust, legal, independent acceptance and recovery workorders. The human
 template preserves the user's legal-review assignment while leaving decisions
 and independent roles pending. Its existing evidence files are hash-bound.
 
-The [integration snapshot](../evidence/d11-integration-snapshot.json) verifies
-13 current PR heads and their branch relationships. Core #199–#202 each have
+The [integration snapshot](../evidence/d11-integration-snapshot.json) records
+13 PR heads and their branch relationships at its observation time. Core #199–#202 each have
 59 successful checks, and client #8 has one successful check. Client #6 diverges
 from current main, so its main-side onboarding/catalog changes must be preserved
 when preparing final integration. Distribution #3 still displays three old
-Linux SDK failures; the compiler-alias fix exists downstream and the later
+Linux SDK failures at that observation; the compiler-alias fix exists downstream and the later
 four-profile D06 run passed. Neither a green downstream head nor this handoff
 changes that old PR's status. No branch stack was rewritten or merged.
+
+The subsequent [historical CI repair pass](D11-CI-BACKPORTS.md) backported that
+fix to PR #3 and opened PR #7 for the default S06 fixture failure. All 42 focused
+tests passed. Only the three affected Linux cohorts and S06 contract checks
+were requested; completion was not awaited. Default/main branches, candidate
+bytes and this snapshot's hash-bound records remain unchanged.
 
 No actual legal decision, independent acceptance, recognized publisher trust,
 source integration or release approval is inferred. Native `.pkg` installation,
