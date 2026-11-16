@@ -18,6 +18,10 @@ SHA-256 values, source revisions, signed manifest, review certificate and upload
 helper. `d09-anaconda-staging.json` records server metadata equality for all 60.
 `d09-anaconda-fresh-retrieval.json` records all 60 fresh downloads without account
 credentials, exact byte equality and sanitized redirect observations.
+`d09-public-conda-install.json` additionally records an actual Conda CLI journey:
+all 60 public HTTPS URLs fetched into an empty cache, 180 linked files matched
+the signed inputs, and named offline removal preserved user/outside sentinels.
+No account credentials or native owner commands were supplied.
 The review label is publicly reachable; it is not an access-control boundary.
 
 This remains the supplemental local Intel macOS review cohort. It does not claim

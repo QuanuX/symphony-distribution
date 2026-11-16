@@ -35,3 +35,10 @@ review is a separate open gate.
 A staging success does not establish public beta approval, Apple Developer ID,
 notarization, independent publisher authentication, a trusted key distribution
 channel, live provider acceptance, or independent legal/backup review.
+
+`install_qualification.py` separately verifies the selected completed stage and
+signed delivery, then uses Conda 26.10.0 with explicit HTTPS URLs and SHA-256
+fragments. It starts with an empty private cache, environment and user folder;
+checks all 60 downloaded archives and 180 linked files; and removes only those
+carriers offline while preserving caller/outside sentinels. This tests the real
+public CLI route without invoking native owners or claiming fresh-host acceptance.

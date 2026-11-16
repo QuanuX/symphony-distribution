@@ -90,3 +90,14 @@ The [D07 client handoff](docs/D07-CLIENT-GATE.md) and [source-bound results](evi
 ## D08 source identity and review installers
 
 The [D08 handoff](docs/D08-INSTALLER-ASSEMBLY.md) and [retained results](evidence/D08-RESULTS.md) close qxctl's embedded-source identity defect and bind the refreshed client to the repaired bytes. The review delivery has 59 independent default carriers, a separate optional source package, and same-cohort supplemental Intel macOS PKG/SH wrappers. Source and native ownership remain explicit; self-signed review integrity does not establish Apple trust or release acceptance. See the results for focused tests, exact artifact proofs and remaining release gates.
+
+## D09 review delivery and release gates
+
+The [D09 status](docs/D09-STATUS.md) records 60 immutable review packages staged
+under QuanuX and freshly retrieved without account credentials. The corresponding
+source is available before binary carriers. The [channel tools](channel/README.md)
+keep public review staging separate from beta approval, and the
+[independent review packet](docs/D09-ACCEPTANCE.md) preserves exact source,
+notice, trust and integration boundaries. Four primary-profile workflows have
+been dispatched without waiting for results; [native maintenance](docs/D09-NATIVE-MAINTENANCE.md)
+and real cross-version transitions retain their separate safety gates.
