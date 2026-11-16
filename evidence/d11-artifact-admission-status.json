@@ -1,0 +1,36 @@
+{
+  "protocol": "symphony.distribution.d11-artifact-admission-status.v1",
+  "observation_date": "2026-11-16",
+  "state": "no_completed_carrier_artifact_available",
+  "scope": "Bounded artifact-availability refresh after implementing preparation work; no wait for CI or retry.",
+  "runs": [
+    {
+      "run_id": 43939021560,
+      "total_count": 0,
+      "artifacts": []
+    },
+    {
+      "run_id": 43939059852,
+      "total_count": 0,
+      "artifacts": []
+    },
+    {
+      "run_id": 43939100597,
+      "total_count": 0,
+      "artifacts": []
+    },
+    {
+      "run_id": 43939137887,
+      "total_count": 0,
+      "artifacts": []
+    }
+  ],
+  "selected_primary_capsule": false,
+  "wrapper_only_dispatched": false,
+  "native_maintenance_dispatched": false,
+  "new_primary_build_dispatched": false,
+  "ci_waited": false,
+  "main_mutated": false,
+  "publication_authorized": false,
+  "release_acceptance_complete": false
+}

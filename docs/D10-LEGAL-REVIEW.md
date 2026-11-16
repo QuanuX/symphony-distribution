@@ -19,7 +19,7 @@ Mac user account into a fresh independent host.
 - `evidence/d09-acceptance-packet.json` binds all 131 selected native/Go/external
   notices and the standalone bootstrap's 115 declared components. It preserves
   the original legal and source review limitations.
-- `evidence/d09-corresponding-source.json` identifies the exact original-versus-
+- `evidence/d08-corresponding-source.json` identifies the exact original-versus-
   derived source scope. The source package listed first in the staging plan is
   publicly available and was freshly retrieved before binary uploads.
 - `evidence/d09-anaconda-fresh-retrieval.json` and

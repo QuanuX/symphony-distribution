@@ -119,3 +119,24 @@ older runs retained reports only; recovery producer runs must supply real
 capsules before primary wrapper-only execution can qualify them.
 Native PKG execution, full native maintenance, genuine version transitions and
 the broader Public Beta acceptance gate remain open.
+
+## D11 primary artifact admission and remaining gates
+
+The [artifact admission helper](docs/D11-ARTIFACT-SELECTION.md) validates a
+completed carrier ZIP, explicit source and artifact pins, and saved transport
+metadata before producing a wrapper-only selection. Hosted execution rechecks
+GitHub metadata and the selected bytes. Unfinished runs and report-only archives
+cannot become installer inputs.
+
+The [primary maintenance helper](qualification/d11_native_maintenance.md) prepares
+the existing 51-owner refusal, removal and same-candidate recovery campaign for
+a selected primary capsule in a new disposable prefix. It does not grant live
+retirement, native installation, distinct-version rollback or release acceptance.
+The [D11 status](docs/D11-STATUS.md) separates prepared checks from actual runs.
+
+The [remaining-gate handoff](docs/D11-REMAINING-GATES.md) and
+[human review template](evidence/templates/d11-human-review.json) bind review
+materials and identify the required client/fresh-host, native installer, version
+transition, integration, recognized trust and independent review evidence.
+Historical passing artifacts, source identities and unfilled decisions remain
+explicit; feature work and changes to main remain frozen.

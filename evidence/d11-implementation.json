@@ -1,0 +1,86 @@
+{
+  "actual_dependency_map_regression": {
+    "native_campaign_executed": false,
+    "path": "evidence/d11-dependency-map-regression.json",
+    "sha256": "6c6533b5d0068302c768e5f0d02197e8de14b665750e00f1373393c2a2e7b444"
+  },
+  "base_toolkit_commit": "e3ec48a24d37872af153a97af8dcbc4d125ecdc2",
+  "changed_file_privacy_scan": "passed",
+  "ci_waited": false,
+  "current_primary_artifact_observation": {
+    "completed_capsule_selected": false,
+    "path": "evidence/d11-artifact-admission-status.json",
+    "sha256": "380c2d12326c7b966b964d09ade41101cbf00d867af14837d69c34b913bd1b92"
+  },
+  "feature_freeze_preserved": true,
+  "focused_suites": [
+    {
+      "state": "passed",
+      "suite": "test_primary_selection.py",
+      "tests": 17
+    },
+    {
+      "state": "passed",
+      "suite": "test_d11_native_maintenance.py",
+      "tests": 12
+    },
+    {
+      "state": "passed",
+      "suite": "test_d09_maintenance.py",
+      "tests": 12
+    }
+  ],
+  "focused_test_count": 41,
+  "human_handoff_validation": {
+    "existing_evidence_bindings": 15,
+    "human_approval_authenticated": false,
+    "path": "evidence/d11-handoff-validation.json",
+    "sha256": "8c3e08745cb2c636ed6ec132b6e4aa9d38d56788bc3483ea85928c155304e019"
+  },
+  "independent_fresh_host_acceptance": false,
+  "independent_implementation_review": "no_remaining_material_finding",
+  "main_mutated": false,
+  "matching_primary_client_qualified": false,
+  "native_pkg_executed": false,
+  "new_primary_build_dispatched": false,
+  "primary_native_maintenance_executed": false,
+  "protocol": "symphony.distribution.d11-implementation.v1",
+  "publication_authorized": false,
+  "publisher_trust_accepted": false,
+  "release_acceptance_complete": false,
+  "runtime_activation": false,
+  "source_files": [
+    {
+      "path": ".github/workflows/d11-primary-gates.yml",
+      "sha256": "7593eb27a874b40b1208860e18a34e363bc4f2b6c86f9c0557e7313dac9a36f8"
+    },
+    {
+      "path": "qualification/d11_native_maintenance.md",
+      "sha256": "4d20c5db6b60a149925fcb0e26497631d8674c86e63798386cf8afcddc81dddd"
+    },
+    {
+      "path": "qualification/d11_native_maintenance.py",
+      "sha256": "0eb32b6021cae147fd1eee88ea5f775a44d7815daf37dbc06fee32587a3b56cf"
+    },
+    {
+      "path": "qualification/primary_selection.py",
+      "sha256": "3b7e4aece884a27021078852900b48ba1dfb904d2307ad742af481dbfa06e6b4"
+    },
+    {
+      "path": "qualification/test_d11_native_maintenance.py",
+      "sha256": "abaf023f178dd0f75c4f77496f48f83049a0c264ef9347e043314fb651ad476e"
+    },
+    {
+      "path": "qualification/test_primary_selection.py",
+      "sha256": "764b44afa5f0a00162814714df4bb55e22131fc595cfe992c29e5a613133175f"
+    }
+  ],
+  "state": "prepared_and_focused_tests_passed_artifacts_pending",
+  "two_release_rollback_qualified": false,
+  "two_release_upgrade_qualified": false,
+  "workflow_lint": {
+    "path": ".github/workflows/d11-primary-gates.yml",
+    "state": "passed"
+  },
+  "wrapper_only_executed": false
+}
