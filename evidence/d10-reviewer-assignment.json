@@ -1,0 +1,27 @@
+{
+  "protocol": "symphony.distribution.d10-reviewer-assignment.v1",
+  "date": "2026-11-16",
+  "source": "explicit user direction in active task",
+  "statement": "Ok use my mac build, I'm legal human review as well. Let's check the runs and issue fixes for anything failing. Then, proceed through the gate if possible.",
+  "statement_sha256": "3fb28e7439a2fdc80c81946ef88f9fc0b9233590acf8e41e9d95c09ab4e13df5",
+  "reviewer": "quantDIY",
+  "reviewer_kind": "human",
+  "role": "redistribution_reviewer",
+  "assignment": "selected_by_user",
+  "legal_review_decision": "pending_explicit_scope_bound_decision",
+  "independence_claimed": false,
+  "mac_candidate_selection": {
+    "profile": "local-macos-amd64-fixture",
+    "carrier_cohort_digest": "sha256:0b5ad60ceaafeb13b7e7edf0a1908cb2c04774d29823ced6b017216c40fdea70",
+    "signed_manifest_sha256": "7a6b055dc7478b23c5183941163145ce747619c9f3ee53b5fe968f4aa6a44da8",
+    "stage_plan_sha256": "30cbed74ccfa9e42eeedb664356cd37ecb01a5629480010d628ab468a42bae15",
+    "use_authorized": true,
+    "primary_profile_substitution_authorized": false
+  },
+  "review_packet_digest": "sha256:c35055c8be5573c7b65f1659e8f1e0ccdc44bb2f63956e81af32d971129f663d",
+  "review_packet_file_sha256": "4148f706cf38a68bc4f479b78b41c389d9a98319104c0ac75705f092da950fa8",
+  "main_changes_authorized": false,
+  "legal_approval": false,
+  "release_acceptance_complete": false,
+  "publication_promotion_authorized": false
+}

@@ -61,3 +61,9 @@ The source privacy policy was configured as an encrypted repository secret;
 its contents never enter public source, artifacts or workflow inputs. Both
 reviewed source pins were reproduced locally before dispatch. Published D09
 source/evidence files passed the existing private-policy scan.
+
+Current follow-up: the release owner selected the existing Mac candidate and
+assigned @quantDIY as human redistribution reviewer. See
+[D10 legal review](D10-LEGAL-REVIEW.md) and
+`evidence/d10-reviewer-assignment.json`. This later assignment does not rewrite
+the historical packet or record a legal approval that has not been supplied.

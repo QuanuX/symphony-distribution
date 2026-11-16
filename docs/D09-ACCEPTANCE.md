@@ -146,3 +146,9 @@ rollback primary. The packet's unfilled role entries represent outstanding
 review handoffs for this exact candidate; they do not transfer that authority
 or imply that the assistant can make an independent release decision. The user
 has not yet selected independent acceptance, redistribution or backup reviewers.
+
+Current follow-up: the release owner selected the existing Mac candidate and
+assigned @quantDIY as human redistribution reviewer. See
+[D10 legal review](D10-LEGAL-REVIEW.md) and
+`evidence/d10-reviewer-assignment.json`. This later assignment does not rewrite
+the historical packet or record a legal approval that has not been supplied.

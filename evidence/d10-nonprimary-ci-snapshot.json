@@ -1,0 +1,72 @@
+{
+  "ci_waited": false,
+  "client": {
+    "conclusion": "success",
+    "head": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "new_retry_issued": false,
+    "pr": 8,
+    "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+    "run": 43876130505
+  },
+  "current_head_runs": [
+    {
+      "conclusion": "success",
+      "event": "pull_request",
+      "id": 43918421989,
+      "name": "S08 dossier and source delivery"
+    },
+    {
+      "conclusion": "success",
+      "event": "pull_request",
+      "id": 43918421635,
+      "name": "Distribution preparation"
+    },
+    {
+      "conclusion": "success",
+      "event": "push",
+      "id": 43918409453,
+      "name": "S08 dossier and source delivery"
+    }
+  ],
+  "d09_contracts": {
+    "conclusion": "success",
+    "head": "175ff9a6537d3306e990f9a2eac800e3f0b2f193",
+    "job": 133475963039,
+    "observed_test_groups": {
+      "acceptance": 12,
+      "channel": 23,
+      "maintenance": 12
+    },
+    "run": 43917626732,
+    "selected_paths_identical_at_current_head": [
+      "channel",
+      "qualification/d09_acceptance.py",
+      "qualification/test_d09_acceptance.py",
+      "qualification/d09_maintenance.py",
+      "qualification/test_d09_maintenance.py",
+      ".github/workflows/d09-review-gates.yml"
+    ]
+  },
+  "distribution_head": "ed53ca2e359e8c80bbd1cd534a127348ae3484b9",
+  "distribution_pr": 6,
+  "historical_pr1": {
+    "branch_action": "pending_root_coordination",
+    "cause": "Default Linux temporary ancestry is world-writable; existing workflow repair supplies and verifies private trusted-owner TMPDIR. Core guards remain unchanged.",
+    "existing_repair_commit": "0c732e4eacb3d4e89510a5db7e76d7769570f90b",
+    "existing_repair_is_direct_child": true,
+    "failed_jobs": [
+      133160669022,
+      133160669048,
+      133160669096
+    ],
+    "failed_scope": "Linux scoped-native-dispatch fixtures",
+    "head": "8d9474e89b4974ecbf139ca7e95c60772e7127de",
+    "run": 43826233073
+  },
+  "main_mutated": false,
+  "observed_at": "2026-11-16T17:33:40.873030+00:00",
+  "pr_merged": false,
+  "primary_build_runs": "separately_assigned_not_polled_here",
+  "protocol": "symphony.distribution.d09-nonprimary-ci-triage.v1",
+  "publication_authorized": false
+}
