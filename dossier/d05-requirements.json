@@ -1,0 +1,189 @@
+{
+  "protocol": "symphony.distribution.d05-requirements.v1",
+  "source_title": "D05 safety acceptance supplement",
+  "source_sha256": "82acec67f7e401956d373c3f1c6dca02ae7a1dcbd9e2ca3c00536c3485ee36d0",
+  "source_status": "approved implementation plan; requirements are not executed outcomes",
+  "replaces_beta_requirements": false,
+  "requirements": [
+    {
+      "id": "D05-S01",
+      "requirement": "Go and native readers produce identical canonical scope digests; reject extra/duplicate fields, wildcard roots, missing identities, unsupported versions and mismatched profile/source evidence before a mutable attempt.",
+      "increments": "S02",
+      "paper_mapping": "C07.2, C08.1"
+    },
+    {
+      "id": "D05-S02",
+      "requirement": "A direct native prepare request outside the approved effects is refused even if Python/CLI validation is bypassed. Staged exact bytes cannot bypass scope or dependency blockers.",
+      "increments": "S02\u2013S03",
+      "paper_mapping": "C06.3, C07.4"
+    },
+    {
+      "id": "D05-S03",
+      "requirement": "Scope A while B has independently ready install/select/deactivate/undock/uninstall actions. B's files, selection and ownership claims remain unchanged through each A replan.",
+      "increments": "S03",
+      "paper_mapping": "C06.2\u20133"
+    },
+    {
+      "id": "D05-S04",
+      "requirement": "A's next valid action changes ID after verified progress: exact authorized effect is allowed; changed target receipt/root/receptor/kind or extra uninstall receipt is refused.",
+      "increments": "S03",
+      "paper_mapping": "C06.2, C07.2"
+    },
+    {
+      "id": "D05-S05",
+      "requirement": "A requires action B: full-plan prerequisite remains visible and blocks A; B is not automatically authorized. Explicit new review is required to include its effect. PR #199 retained-dependency regression remains effective.",
+      "increments": "S03",
+      "paper_mapping": "C06.3\u20134"
+    },
+    {
+      "id": "D05-S06",
+      "requirement": "Ownership reconciliation preserves out-of-scope and other-profile claims; no hidden stale-claim pruning, root adoption or partial-inventory substitution. Unknown shared-root evidence blocks mutation.",
+      "increments": "S03",
+      "paper_mapping": "C06.3, C07.4"
+    },
+    {
+      "id": "D05-S07",
+      "requirement": "Scope finishes with unrelated divergence: terminal scoped result is true, global convergence is false, full applied-state evidence is unchanged. Next scope is a new exact linked operation.",
+      "increments": "S03",
+      "paper_mapping": "C03, C06.2, C09.4"
+    },
+    {
+      "id": "D05-S08",
+      "requirement": "Old writer/recovery client, missing critical scope extension, changed scope on retry, incompatible replacement coordinator and scope downgrade all refuse. Legacy unscoped journals retain their explicit full-profile semantics.",
+      "increments": "S02\u2013S03",
+      "paper_mapping": "C06.2, C07.2, C09.2"
+    },
+    {
+      "id": "D05-S09",
+      "requirement": "Two executors race for the same prepared action; profile/root/claim changes race prepare and execute. Exactly one authorized effect occurs, or both refuse safely; no lock deadlock or implicit replay.",
+      "increments": "S03",
+      "paper_mapping": "C07.4, C09.2"
+    },
+    {
+      "id": "D05-S10",
+      "requirement": "A real disposable process holds old payload use. Inactive/undocked metadata does not permit reclamation; every owned byte remains until the covered owner releases use.",
+      "increments": "S04",
+      "paper_mapping": "C06.2\u20133"
+    },
+    {
+      "id": "D05-S11",
+      "requirement": "Deterministically inject start/restart at reference scan, stop completion and first delete. Closed admission prevents a new covered user; removal holds exclusion through final owned-byte verification/deletion.",
+      "increments": "S04",
+      "paper_mapping": "C07.4, C09.2"
+    },
+    {
+      "id": "D05-S12",
+      "requirement": "All supported launch paths, including direct serve and supervisor recovery, share the fence. Older or uncontrolled launchers cannot be silently adopted as managed users.",
+      "increments": "S04",
+      "paper_mapping": "C06.1, C07.3\u20134"
+    },
+    {
+      "id": "D05-S13",
+      "requirement": "Stale/reused PID, wrong process generation/executable, changed endpoint/descriptor, missing manager and inaccessible other-user domain yield unknown/refused, not stopped.",
+      "increments": "S04",
+      "paper_mapping": "C07.2\u20133"
+    },
+    {
+      "id": "D05-S14",
+      "requirement": "Controlled child detaches or escapes the promised lifetime domain. Report unsupported/uncertain and retain bytes rather than inferring quiescence from the original process group.",
+      "increments": "S04",
+      "paper_mapping": "C06.2, C09.4"
+    },
+    {
+      "id": "D05-S15",
+      "requirement": "Kill the controller before stop, after stop and after deletion; drop an accepted owner response. Durable retirement remains closed and recovery reconciles the same attempt before any further effect.",
+      "increments": "S04/S06",
+      "paper_mapping": "C09.2\u20134"
+    },
+    {
+      "id": "D05-S16",
+      "requirement": "Partial deletion, damaged rollback artifact, changed receipt/file, symlink/hardlink/root replacement and foreign ownership refuse unsafe continuation. Recovery preserves sentinels and other versions.",
+      "increments": "S04/S06",
+      "paper_mapping": "C06.3, C09.2\u20134"
+    },
+    {
+      "id": "D05-S17",
+      "requirement": "Two profiles or TOPS retain the same receipt. Releasing one claim does not allow deletion; complete claimed-domain release and real use release are separately required.",
+      "increments": "S03\u2013S04",
+      "paper_mapping": "C06.3\u20134"
+    },
+    {
+      "id": "D05-S18",
+      "requirement": "Request removal of the executing controller, sole recovery reader or required audit/authorization substrate. Refuse absent an exact existing out-of-place/native maintenance route; never auto-select deferred audit or purge.",
+      "increments": "S04\u2013S06",
+      "paper_mapping": "C07.2\u20134, C09.4"
+    },
+    {
+      "id": "D05-S19",
+      "requirement": "Invoke a service package's removal through the generic receipt executor. It refuses unsupported dispatch or delegates to the exact native owner; retained references and pending work cannot be bypassed.",
+      "increments": "S04\u2013S05",
+      "paper_mapping": "C06.3, C07.4"
+    },
+    {
+      "id": "D05-S20",
+      "requirement": "All seven Go units map to exact supported owners. Component/owner/compiled-version substitution, forged argv and unknown critical owner metadata refuse before execution.",
+      "increments": "S01/S05",
+      "paper_mapping": "C07.2, C08.1"
+    },
+    {
+      "id": "D05-S21",
+      "requirement": "Install SSIAG, STAV and Accordare through their actual installers in fresh isolated prefixes; independently verify owner-generated receipt, final executable bytes and native refusal behavior. No enrollment/start is inferred from package install.",
+      "increments": "S05",
+      "paper_mapping": "C06.1\u20133"
+    },
+    {
+      "id": "D05-S22",
+      "requirement": "Different packaging builds of one native version coexist in distinct prefixes; a different byte set cannot overwrite the same immutable path. Old exact owner can recover/uninstall only its bound installation.",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.2\u20133, C08.1"
+    },
+    {
+      "id": "D05-S23",
+      "requirement": "qxctl/SSH/stdio raw-delivery custody never masquerades as a native receipt. Changing future launch selection leaves existing sessions unchanged; uncertain use keeps old bytes retained.",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.2, C07.4"
+    },
+    {
+      "id": "D05-S24",
+      "requirement": "Failed next-qxctl identity/protocol probe leaves old selection intact. Successful explicit selection retains old recovery binary; configured Linux host slots/fallbacks remain under their real host owner.",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.2, C09.4"
+    },
+    {
+      "id": "D05-S25",
+      "requirement": "Nonroot Conda install cannot provision/elevate the optional administrator. Pending attempts bind old exact binary; reviewed admin replacement preserves profile/history/audit and required recovery bytes.",
+      "increments": "S05",
+      "paper_mapping": "C07.2\u20134"
+    },
+    {
+      "id": "D05-S26",
+      "requirement": "Conda update/remove/cache cleanup affects carriers only; no shared inode or duplicate ownership with runtime/rollback files. Previewed and actual transaction stay within reviewed package effects or stop.",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.3, C08.2"
+    },
+    {
+      "id": "D05-S27",
+      "requirement": "Install \u2192 stage upgrade \u2192 explicit compatible selection \u2192 rollback \u2192 qualified retirement using exact independent module versions. Incompatible target leaves selection unchanged. Removing one component never reinstalls it through a cohort marker.",
+      "increments": "S06\u2013S07",
+      "paper_mapping": "C06.2\u20134"
+    },
+    {
+      "id": "D05-S28",
+      "requirement": "Every transition preserves user knowledge, credentials, TOPS config, journals, unrelated packages and deliberately placed foreign sentinels. Same package installed for a fresh user generates no publisher-system identity.",
+      "increments": "S05\u2013S07",
+      "paper_mapping": "C06.3, C07.3, C08.4"
+    },
+    {
+      "id": "D05-S29",
+      "requirement": "Run applicable installed-owner/service-manager lanes on all four core profiles and selected supplements, including user/system privilege and race cases. Missing host or manager is incomplete, not a pass.",
+      "increments": "S07/D10",
+      "paper_mapping": "C06.1, C08.4"
+    },
+    {
+      "id": "D05-S30",
+      "requirement": "Bind final candidate bytes, recipe/source/export/toolchain, exact owner capabilities, signatures, retrieval and real two-release results. Independent reviewer checks a failure, its correction and recovery outcome.",
+      "increments": "S08/D06/D10",
+      "paper_mapping": "C05, C08.1\u20134, C09.4"
+    }
+  ]
+}

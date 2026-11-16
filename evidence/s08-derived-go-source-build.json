@@ -1,0 +1,167 @@
+{
+  "all_source_roots_build_tested": false,
+  "architecture": "amd64",
+  "core_checkout_used_as_build_input": false,
+  "derived_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+  "fresh_build_cache": true,
+  "go_commands": [
+    {
+      "candidate_bytes_equal": true,
+      "candidate_identity_sha256": "61a3bddac209a2cbfea40f9750f13a6b8814e65a7ec6ac87061ba36d769af997",
+      "component_id": "accordare-stav-producer",
+      "executable_sha256": "28588a619eafe53a86fbffc520c7d5c927cc2a7321469cd328ef19321f8604b8",
+      "logs": [
+        {
+          "name": "0.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "1.log",
+          "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "name": "2.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "module_cache_verified": true,
+      "native_version": "0.1.0-dev",
+      "private_path_scan_passed": true,
+      "version_output": "symphony-accordare-stav-producer version 0.1.0-dev"
+    },
+    {
+      "candidate_bytes_equal": true,
+      "candidate_identity_sha256": "9df40d2a71d79c452d70a39e674036c546115e5e3708af0de4a3b87798be8735",
+      "component_id": "secure-identity-access-governance",
+      "executable_sha256": "042572fb4b8dd5c3fb3277c043c03f057785d504de85dbebe11a2525c360a2e6",
+      "logs": [
+        {
+          "name": "0.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "1.log",
+          "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "name": "2.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "module_cache_verified": true,
+      "native_version": "0.1.0-dev",
+      "private_path_scan_passed": true,
+      "version_output": "symphony-ssiag version 0.1.0-dev"
+    },
+    {
+      "candidate_bytes_equal": true,
+      "candidate_identity_sha256": "7ac2ee4d9cc03d1d523a998f1a0ca193fb1bd1f078044318149b5da833154cb6",
+      "component_id": "stav-append-authority",
+      "executable_sha256": "6798f6a2a3c83298eec1bac85b709a2304d6adb961a5a0a7a7a4ac16bc89c4d1",
+      "logs": [
+        {
+          "name": "0.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "1.log",
+          "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "name": "2.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "module_cache_verified": true,
+      "native_version": "0.2.1",
+      "private_path_scan_passed": true,
+      "version_output": "symphony-stav-append-authority version 0.2.1"
+    },
+    {
+      "candidate_bytes_equal": true,
+      "candidate_identity_sha256": "b98a15a47bc7a40cf765a2ab7db83ceb76f2bd2ee7b606e75aea90b24615800e",
+      "component_id": "sov-ssh-adapter",
+      "executable_sha256": "a776d1060a226e0eadf799ebc4c5afb6e49c692cabd7b44a6f0b95a4108268ff",
+      "logs": [
+        {
+          "name": "0.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "1.log",
+          "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "name": "2.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "module_cache_verified": true,
+      "native_version": "0.1.0-dev",
+      "private_path_scan_passed": true,
+      "version_output": "sov-ssh-adapter version 0.1.0-dev"
+    },
+    {
+      "candidate_bytes_equal": true,
+      "candidate_identity_sha256": "f753c209698a014490f55a7d9199d4db509e6bfeace27ea6f56517ed557d71fc",
+      "component_id": "sov-stdio-adapter",
+      "executable_sha256": "dedd0690a169ce195a7684e8371246c468bb1aedbf772c96e67e1c0ea5a78273",
+      "logs": [
+        {
+          "name": "0.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "1.log",
+          "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "name": "2.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "module_cache_verified": true,
+      "native_version": "0.1.0-dev",
+      "private_path_scan_passed": true,
+      "version_output": "sov-stdio-adapter version 0.1.0-dev"
+    },
+    {
+      "candidate_bytes_equal": true,
+      "candidate_identity_sha256": "3648ce416057fd60b8b31b4a3d061a0aa227de05dc8c5154de4f95f2286c9f86",
+      "component_id": "sov-transport-profile-admin",
+      "executable_sha256": "be497cbc6fa148796005fe333b41eb3829493577005ecaec67f4dd8b0230612e",
+      "logs": [
+        {
+          "name": "0.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "name": "1.log",
+          "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "name": "2.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "module_cache_verified": true,
+      "native_version": "0.1.0-dev",
+      "private_path_scan_passed": true,
+      "version_output": "sov-transport-profile-admin version 0.1.0-dev"
+    }
+  ],
+  "host_acceptance": false,
+  "os": "darwin",
+  "private_build_home": true,
+  "protocol": "symphony.distribution.derived-go-source-build.v1",
+  "publication_authorized": false,
+  "qxctl_rebuilt": false,
+  "recipe_sha256": "ebbeda1a4a242e9a6c79937457712145641531db6754d2d9395131deae41a0be",
+  "release_acceptance_complete": false,
+  "source_archive_sha256": "cc1b576f1bba12edb6c877fb30d446fae03331568fc57a12848fe62b95cc526a",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_replacements": false,
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "status": "passed",
+  "toolchain": "go1.26.5"
+}

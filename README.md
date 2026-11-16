@@ -26,6 +26,13 @@ maps the fault cases to acceptance requirements and the four requested CI
 platforms. It explicitly separates source/owner fixtures from real-manager and
 fresh-host acceptance.
 
+The current [S08 dossier](dossier/README.md) binds the corrected core source,
+seven Go owners, retained beta requirements, rebuilt carriers and reviewed
+source export. Start with the [delivery guide](docs/DELIVERY.md) for supported
+preparation commands and the [recovery guide](docs/RECOVERY.md) for interrupted
+or uncertain operations. [S08 results](evidence/S08-RESULTS.md) distinguish
+reconstructed payloads from pending D06/D10 release acceptance.
+
 | Go delivery | Runtime owner |
 | --- | --- |
 | SSIAG | `symphony-ssiag package`; native user receipt and retirement fence |

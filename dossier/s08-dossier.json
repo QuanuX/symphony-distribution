@@ -1,0 +1,2118 @@
+{
+  "candidate_rebuild_report": {
+    "interpretation": "Exact candidate reconstruction evidence; not final-download, signature, live-owner or release acceptance.",
+    "path": "evidence/s08-candidate-rebuild.json",
+    "sha256": "bd80434a8887dd8278a3f647a72a31585d8bdfeed5f3884a89cd7fd34f30640c"
+  },
+  "capability_baseline": [
+    {
+      "component_roots": [
+        "tools/qxctl",
+        "libraries/knowledge-vector-engine-cpp",
+        "tools/symphony-validator"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-CORE",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-CORE",
+      "title": "CLI and native foundation"
+    },
+    {
+      "component_roots": [
+        "modules/secure-identity-access-governance",
+        "modules/stav-append-authority",
+        "modules/accordare-stav-producer",
+        "libraries/stav-protocol-go"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_subset_general_credential_integration_incomplete",
+      "id": "CAP-IDENTITY-AUDIT",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-IDENTITY-AUDIT",
+      "title": "Identity, policy and audit"
+    },
+    {
+      "component_roots": [
+        "modules/knowledge-session-coordinator",
+        "modules/maestro"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-COORDINATION",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-COORDINATION",
+      "title": "Sessions, lifecycle journals and presence"
+    },
+    {
+      "component_roots": [
+        "modules/skvi-engine",
+        "modules/sclv-engine",
+        "modules/sacv-engine",
+        "modules/sodv-engine",
+        "modules/ssfv-engine"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-GOVERNANCE",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-GOVERNANCE",
+      "title": "Index, change, API, release and feature evidence"
+    },
+    {
+      "component_roots": [
+        "modules/sav-engine",
+        "modules/sev-engine"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-COMPOSITION",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-COMPOSITION",
+      "title": "Accordare and evolution"
+    },
+    {
+      "component_roots": [
+        "modules/scv-engine",
+        "modules/schv-engine",
+        "modules/scev-engine",
+        "modules/schv-aws-engine",
+        "modules/schv-azure-engine",
+        "modules/schv-do-engine",
+        "modules/schv-gcp-engine",
+        "modules/scev-cf-engine"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-CLOUD-KNOWLEDGE",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-CLOUD-KNOWLEDGE",
+      "title": "Cloud/provider source knowledge"
+    },
+    {
+      "component_roots": [
+        "modules/shv-engine",
+        "modules/shv-source-engine",
+        "modules/shv-profile-engine",
+        "modules/shv-partition-engine",
+        "modules/shv-publication-engine",
+        "modules/shv-graph-adapter"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-HARDWARE",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-HARDWARE",
+      "title": "Hardware source, catalogue, composition and graph"
+    },
+    {
+      "component_roots": [
+        "modules/shv-pdf-adapter"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-HARDWARE-PDF",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-HARDWARE-PDF",
+      "title": "Selected SHV PDF ingestion"
+    },
+    {
+      "component_roots": [
+        "modules/scv-graph-duckdb-connector",
+        "modules/shv-graph-duckdb-connector"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-DUCKDB",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-DUCKDB",
+      "title": "Optional retained graph indexes"
+    },
+    {
+      "component_roots": [
+        "libraries/snv-common-cpp",
+        "modules/sniv-engine",
+        "modules/snrv-engine",
+        "modules/sciv-engine",
+        "modules/scnv-engine",
+        "modules/snv-engine"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-NODES",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-NODES",
+      "title": "Supplied Node evidence"
+    },
+    {
+      "component_roots": [
+        "modules/snv-local-observer"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-NODE-OBSERVER",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-NODE-OBSERVER",
+      "title": "Linux exposure observer"
+    },
+    {
+      "component_roots": [
+        "modules/sqav-capture-cpp",
+        "modules/sqmv-metadata-cpp",
+        "modules/sqfv-batch-cpp",
+        "modules/sqpv-local-store-cpp",
+        "modules/sqtv-integer-conversion-cpp",
+        "modules/sqdv-delivery-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-SQV-DATA",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-SQV-DATA",
+      "title": "Native quantitative data libraries"
+    },
+    {
+      "component_roots": [
+        "modules/sqav-attempt-engine",
+        "modules/sqav-request-engine",
+        "modules/sqmv-metadata-engine",
+        "modules/sqfv-flow-engine",
+        "modules/sqtv-conversion-engine",
+        "modules/sqpv-inspection-engine",
+        "modules/sqdv-checkpoint-engine"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-SQV-ADMIN",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-SQV-ADMIN",
+      "title": "Quantitative administration owners"
+    },
+    {
+      "component_roots": [
+        "modules/sbv-engine",
+        "libraries/sbv-go"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-SBV",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-SBV",
+      "title": "Native research and optional Go transport"
+    },
+    {
+      "component_roots": [
+        "modules/native-source-support-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-SOURCE-TRANSPORT",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-SOURCE-TRANSPORT",
+      "title": "Native source I/O support"
+    },
+    {
+      "component_roots": [
+        "modules/sqav-databento-dbn-cpp",
+        "modules/sqav-databento-reference-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_subset_general_credential_integration_incomplete",
+      "id": "CAP-DATABENTO",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-DATABENTO",
+      "title": "Databento file/replay and acquisition composition"
+    },
+    {
+      "component_roots": [
+        "modules/sqav-fred-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_subset_general_credential_integration_incomplete",
+      "id": "CAP-FRED",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-FRED",
+      "title": "FRED/ALFRED composition"
+    },
+    {
+      "component_roots": [
+        "modules/sqav-news-api-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-NEWS",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-NEWS",
+      "title": "Vendor-neutral news ingress"
+    },
+    {
+      "component_roots": [
+        "modules/scabv-ibkr-client-portal-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-IBKR-CP",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-IBKR-CP",
+      "title": "IBKR Client Portal reads"
+    },
+    {
+      "component_roots": [
+        "modules/scabv-ibkr-tws-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_fixture_host_boundary_vendor_bridge_missing",
+      "id": "CAP-IBKR-TWS",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-IBKR-TWS",
+      "title": "IBKR TWS host boundary"
+    },
+    {
+      "component_roots": [
+        "modules/srrapiv-runtime-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-SRRAPIV",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-SRRAPIV",
+      "title": "Sovereign R API+ control/runtime"
+    },
+    {
+      "component_roots": [
+        "tools/sov-stdio-adapter",
+        "tools/sov-ssh-adapter",
+        "tools/sov-transport-profile-admin"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_bounded_source",
+      "id": "CAP-SOV",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-SOV",
+      "title": "Explicit local/SSH carriers and profiles"
+    },
+    {
+      "component_roots": [
+        "modules/sov-cloudflare-adapter",
+        "modules/ssiag-provider-private-store"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_local_routes_rotation_and_project_execution_missing",
+      "id": "CAP-CLOUDFLARE",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-CLOUDFLARE",
+      "title": "Pinned Cloudflare administration/private credentials"
+    },
+    {
+      "component_roots": [
+        "modules/ssiag-provider-macos-keychain"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_metadata_only_operational_keychain_missing",
+      "id": "CAP-APPLE-METADATA",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-APPLE-METADATA",
+      "title": "Apple metadata/readiness adapter"
+    },
+    {
+      "component_roots": [
+        "tools/authoring-cpp",
+        "tools/shv-interface-codegen",
+        "tools/sqv-administration-cpp"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "implemented_build_support_not_runtime_packages",
+      "id": "CAP-AUTHORING",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-AUTHORING",
+      "title": "Build-time authoring/shared support"
+    },
+    {
+      "component_roots": [
+        "modules/hotpath-runtime"
+      ],
+      "final_acceptance": "incomplete",
+      "historical_implementation_statement": "proposal_only_no_implementation_or_installer",
+      "id": "CAP-HOTPATH",
+      "s08_disposition": "carried_forward_not_waived_or_requalified",
+      "source_reference": "tests/public-beta/capability-groups.json#CAP-HOTPATH",
+      "title": "hotpath-runtime proposal"
+    }
+  ],
+  "completion_boundary": "S08 documentation/candidate preparation does not close S07 E2, D06 clean CI cohort, D10 final-download or W12 release gates.",
+  "core_source": {
+    "binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
+    "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+  },
+  "d05_safety_acceptance": [
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S01",
+      "increments": "S02",
+      "paper_mapping": "C07.2, C08.1",
+      "remaining_limit": "Canonical scope source exists; this supplement does not rerun the complete native/Go parity matrix.",
+      "requirement": "Go and native readers produce identical canonical scope digests; reject extra/duplicate fields, wildcard roots, missing identities, unsupported versions and mismatched profile/source evidence before a mutable attempt."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S02",
+      "increments": "S02\u2013S03",
+      "paper_mapping": "C06.3, C07.4",
+      "remaining_limit": "Direct native scope enforcement remains source-bound; final delivered-owner acceptance is open.",
+      "requirement": "A direct native prepare request outside the approved effects is refused even if Python/CLI validation is bypassed. Staged exact bytes cannot bypass scope or dependency blockers."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S03",
+      "increments": "S03",
+      "paper_mapping": "C06.2\u20133",
+      "remaining_limit": "Unrelated profile effects remain outside authorization; final complete user-profile journeys are open.",
+      "requirement": "Scope A while B has independently ready install/select/deactivate/undock/uninstall actions. B's files, selection and ownership claims remain unchanged through each A replan."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S04",
+      "increments": "S03",
+      "paper_mapping": "C06.2, C07.2",
+      "remaining_limit": "Exact effect identity must survive replanning; fresh-host progression remains unaccepted.",
+      "requirement": "A's next valid action changes ID after verified progress: exact authorized effect is allowed; changed target receipt/root/receptor/kind or extra uninstall receipt is refused."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S05",
+      "increments": "S03",
+      "paper_mapping": "C06.3\u20134",
+      "remaining_limit": "Unapproved dependencies remain blockers; no automatic authorization or selection.",
+      "requirement": "A requires action B: full-plan prerequisite remains visible and blocks A; B is not automatically authorized. Explicit new review is required to include its effect. PR #199 retained-dependency regression remains effective."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S06",
+      "increments": "S03",
+      "paper_mapping": "C06.3, C07.4",
+      "remaining_limit": "Unknown/adopted/shared ownership remains blocked; fixture evidence is bounded.",
+      "requirement": "Ownership reconciliation preserves out-of-scope and other-profile claims; no hidden stale-claim pruning, root adoption or partial-inventory substitution. Unknown shared-root evidence blocks mutation."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Effect completion leaves selection pending; it is not global convergence.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestScopedEffectCompletionLeavesSelectionPending"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S07",
+      "increments": "S03",
+      "paper_mapping": "C03, C06.2, C09.4",
+      "remaining_limit": "Scoped effect completion is not full profile convergence or selection.",
+      "requirement": "Scope finishes with unrelated divergence: terminal scoped result is true, global convergence is false, full applied-state evidence is unchanged. Next scope is a new exact linked operation."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S08",
+      "increments": "S02\u2013S03",
+      "paper_mapping": "C06.2, C07.2, C09.2",
+      "remaining_limit": "Legacy and incompatible reader/recovery paths remain distinct; no new universal compatibility claim.",
+      "requirement": "Old writer/recovery client, missing critical scope extension, changed scope on retry, incompatible replacement coordinator and scope downgrade all refuse. Legacy unscoped journals retain their explicit full-profile semantics."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A channel confirms executor entry; competing executor refuses busy without callback; release admits next executor.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestExecutionLeaseSerializesWholeExternalExecution"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Scoped reconciliation preserves unrelated claims and refuses unknown adoption/fence repair.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unauthorized scoped action refuses before binding.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestScopedExecutorRejectsUnauthorizedActionBeforeBinding"
+        },
+        {
+          "evidence": "evidence/s07-conda-local-qualification.json",
+          "expected": "Exact reviewed carrier effects or safe refusal; unrelated data and uncertain attempts retained.",
+          "scope": "new_private_attempts_only; real Conda with inert carriers"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S09",
+      "increments": "S03",
+      "paper_mapping": "C07.4, C09.2",
+      "remaining_limit": "Private creator/process and whole-execution lease evidence does not cover arbitrary existing Conda clients.",
+      "requirement": "Two executors race for the same prepared action; profile/root/claim changes race prepare and execute. Exactly one authorized effect occurs, or both refuse safely; no lock deadlock or implicit replay."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Delegated retirement preserves use exclusion.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Delegated retirement preserves use exclusion.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Delegated retirement preserves use exclusion.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Held use retains bytes; closed admission blocks new use; release permits exact retirement and idempotent replay.",
+          "suite": "ssiag-owner",
+          "test": "TestRetirementRetainsLivePackageAndRecoversExactAttempt"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Installed real child confirms use; removal retains payload/receipt and late enroll, descriptor, restart refuse; release allows retirement.",
+          "suite": "stav-owner",
+          "test": "TestManagedRetirementBlocksUseAndNewReferences"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Held use retains receipt; retirement remains closed until release; exact recovery creates tombstone.",
+          "suite": "accordare-owner",
+          "test": "TestRetirementClosesAdmissionUntilExactRecovery"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S10",
+      "increments": "S04",
+      "paper_mapping": "C06.2\u20133",
+      "remaining_limit": "Covered real-child leases do not establish shutdown for every actual supervisor or raw consumer.",
+      "requirement": "A real disposable process holds old payload use. Inactive/undocked metadata does not permit reclamation; every owned byte remains until the covered owner releases use."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Closed retirement admission blocks descriptor mutation and start before native manager invocation; descriptor cleanup remains possible.",
+          "suite": "ssiag-supervision",
+          "test": "TestRetirementFencesSupervisorInstallAndStart"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Installed real child confirms use; removal retains payload/receipt and late enroll, descriptor, restart refuse; release allows retirement.",
+          "suite": "stav-owner",
+          "test": "TestManagedRetirementBlocksUseAndNewReferences"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Exclusive maintenance excludes live use/start without reopening pending retirement.",
+          "suite": "stav-owner",
+          "test": "TestMaintenanceExcludesStartsWithoutReopeningRetirement"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Maintenance excludes use/start without retiring an open package.",
+          "suite": "accordare-owner",
+          "test": "TestMaintenanceFencesStartAndPreservesOpenAdmission"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S11",
+      "increments": "S04",
+      "paper_mapping": "C07.4, C09.2",
+      "remaining_limit": "Restart injection at each reference-scan, stop-completion and first-delete boundary remains incomplete.",
+      "requirement": "Deterministically inject start/restart at reference scan, stop completion and first delete. Closed admission prevents a new covered user; removal holds exclusion through final owned-byte verification/deletion."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Missing custody cannot silently adopt existing payload.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestFreshGuardCannotAdoptExistingBytes"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Missing custody cannot silently adopt existing payload.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestFreshGuardCannotAdoptExistingBytes"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Missing custody cannot silently adopt existing payload.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestFreshGuardCannotAdoptExistingBytes"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Missing guard refuses adoption/removal and preserves payload.",
+          "suite": "ssiag-owner",
+          "test": "TestMissingGuardRefusesLegacyAdoptionAndRemoval"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Uncontrolled source cannot create native custody.",
+          "suite": "ssiag-owner",
+          "test": "TestInstallRefusesUncontrolledSourceBytes"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Closed retirement admission blocks descriptor mutation and start before native manager invocation; descriptor cleanup remains possible.",
+          "suite": "ssiag-supervision",
+          "test": "TestRetirementFencesSupervisorInstallAndStart"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Installed real child confirms use; removal retains payload/receipt and late enroll, descriptor, restart refuse; release allows retirement.",
+          "suite": "stav-owner",
+          "test": "TestManagedRetirementBlocksUseAndNewReferences"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Exclusive maintenance excludes live use/start without reopening pending retirement.",
+          "suite": "stav-owner",
+          "test": "TestMaintenanceExcludesStartsWithoutReopeningRetirement"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Maintenance excludes use/start without retiring an open package.",
+          "suite": "accordare-owner",
+          "test": "TestMaintenanceFencesStartAndPreservesOpenAdmission"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Legacy/foreign bytes cannot acquire managed custody.",
+          "suite": "accordare-owner",
+          "test": "TestLegacyAndForeignSourcesCannotAcquireCustody"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S12",
+      "increments": "S04",
+      "paper_mapping": "C06.1, C07.3\u20134",
+      "remaining_limit": "Uncontrolled/legacy launch paths cannot acquire managed custody by inference.",
+      "requirement": "All supported launch paths, including direct serve and supervisor recovery, share the fence. Older or uncontrolled launchers cannot be silently adopted as managed users."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A retained native descriptor prevents removal.",
+          "suite": "ssiag-owner",
+          "test": "TestUninstallRefusesSupervisorReference"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Orphan descriptor retains executable.",
+          "suite": "stav-owner",
+          "test": "TestRetirementRetainsOrphanedNativeDescriptor"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "An isolated empty PATH yields manager_unavailable, never stopped.",
+          "suite": "stav-manager-unavailable",
+          "test": "TestObserveReportsManagerUnavailableOffline"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S13",
+      "increments": "S04",
+      "paper_mapping": "C07.2\u20133",
+      "remaining_limit": "Actual stale/reused process identity and inaccessible user-domain behavior need supported-host evidence.",
+      "requirement": "Stale/reused PID, wrong process generation/executable, changed endpoint/descriptor, missing manager and inaccessible other-user domain yield unknown/refused, not stopped."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S14",
+      "increments": "S04",
+      "paper_mapping": "C06.2, C09.4",
+      "remaining_limit": "Detached/escaped descendant lifetime is not qualified; uncertain use retains bytes.",
+      "requirement": "Controlled child detaches or escapes the promised lifetime domain. Report unsupported/uncertain and retain bytes rather than inferring quiescence from the original process group."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Kill the disposable controller after lease-held barrier; admission stays closed and exact recovery retains retirement intent.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestControllerCrashPreservesClosedAdmission"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Kill the disposable controller after lease-held barrier; admission stays closed and exact recovery retains retirement intent.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestControllerCrashPreservesClosedAdmission"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Kill the disposable controller after lease-held barrier; admission stays closed and exact recovery retains retirement intent.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestControllerCrashPreservesClosedAdmission"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Held use retains bytes; closed admission blocks new use; release permits exact retirement and idempotent replay.",
+          "suite": "ssiag-owner",
+          "test": "TestRetirementRetainsLivePackageAndRecoversExactAttempt"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Receipt-last interruption recovery preserves unrelated sentinel and exact retry is unchanged.",
+          "suite": "stav-owner",
+          "test": "TestManagedRetirementRecoversAfterPayloadUnlink"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Held use retains receipt; retirement remains closed until release; exact recovery creates tombstone.",
+          "suite": "accordare-owner",
+          "test": "TestRetirementClosesAdmissionUntilExactRecovery"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery after payload removal and after receipt removal finishes the exact attempt.",
+          "suite": "accordare-owner",
+          "test": "TestRetirementRecoversReceiptLastInterruption"
+        },
+        {
+          "case": "accordare-stav-producer-completed-response-loss",
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged."
+        },
+        {
+          "case": "secure-identity-access-governance-completed-response-loss",
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged."
+        },
+        {
+          "case": "stav-append-authority-completed-response-loss",
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged."
+        },
+        {
+          "evidence": "evidence/s07-conda-local-qualification.json",
+          "expected": "Exact reviewed carrier effects or safe refusal; unrelated data and uncertain attempts retained.",
+          "scope": "new_private_attempts_only; real Conda with inert carriers"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S15",
+      "increments": "S04/S06",
+      "paper_mapping": "C09.2\u20134",
+      "remaining_limit": "Completed native response loss is observed; mid-operation response loss and every actual native stop/delete crash point remain open.",
+      "requirement": "Kill the controller before stop, after stop and after deletion; drop an accepted owner response. Durable retirement remains closed and recovery reconciles the same attempt before any further effect."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Replacing use.lock cannot bypass live use; payload remains.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestReplacedUseLockCannotBypassLiveConsumer"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Symlink, hardlink, changed state and replacement root refuse both use and reclamation.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestUnsafeGuardAndRootRefuse"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Publication refuses replacement parent and conflicting files without overwriting foreign bytes.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestPublicationRefusesReplacementAndConflictingFile"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Replacing use.lock cannot bypass live use; payload remains.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestReplacedUseLockCannotBypassLiveConsumer"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Symlink, hardlink, changed state and replacement root refuse both use and reclamation.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestUnsafeGuardAndRootRefuse"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Publication refuses replacement parent and conflicting files without overwriting foreign bytes.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestPublicationRefusesReplacementAndConflictingFile"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Replacing use.lock cannot bypass live use; payload remains.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestReplacedUseLockCannotBypassLiveConsumer"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Symlink, hardlink, changed state and replacement root refuse both use and reclamation.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestUnsafeGuardAndRootRefuse"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Publication refuses replacement parent and conflicting files without overwriting foreign bytes.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestPublicationRefusesReplacementAndConflictingFile"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Moved or changed published receipt never activates.",
+          "suite": "ssiag-owner",
+          "test": "TestActivationRequiresExactReceiptAtPublishedPath"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Receipt-last interruption recovery preserves unrelated sentinel and exact retry is unchanged.",
+          "suite": "stav-owner",
+          "test": "TestManagedRetirementRecoversAfterPayloadUnlink"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Missing/changed receipt refuses installed use.",
+          "suite": "stav-owner",
+          "test": "TestManagedAdmissionRefusesMissingOrChangedReceipt"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Replaced payload/receipt path refuses activation and preserves administrator bytes.",
+          "suite": "stav-owner",
+          "test": "TestActivationRefusesReplacedPublicationPaths"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery after payload removal and after receipt removal finishes the exact attempt.",
+          "suite": "accordare-owner",
+          "test": "TestRetirementRecoversReceiptLastInterruption"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Fresh/existing activation refuses altered payload-parent and receipt.",
+          "suite": "accordare-owner",
+          "test": "TestActivationRechecksBothFinalFiles"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Retained exact controller has independent inode; changed carrier, symlink, hardlink refuse.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeControllerIndependentCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Recovery refuses replacement root lock.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeRecoveryRejectsReplacedRootLock"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Shared evidence inodes cannot prove completed native removal.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeOutcomeRejectsSharedEvidenceInodes"
+        },
+        {
+          "evidence": "evidence/s07-conda-local-qualification.json",
+          "expected": "Exact reviewed carrier effects or safe refusal; unrelated data and uncertain attempts retained.",
+          "scope": "new_private_attempts_only; real Conda with inert carriers"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S16",
+      "increments": "S04/S06",
+      "paper_mapping": "C06.3, C09.2\u20134",
+      "remaining_limit": "Damaged/replaced custody safely refuses; refusal is not a universal repair or successful removal claim.",
+      "requirement": "Partial deletion, damaged rollback artifact, changed receipt/file, symlink/hardlink/root replacement and foreign ownership refuse unsafe continuation. Recovery preserves sentinels and other versions."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Real executables of all three native owners install/remove in disposable shared roots; inherited parent lock persists; foreign claim and real caller descriptor retain bytes; sentinels and other claims survive.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeOwnersSharedRootDispatch"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Scoped reconciliation preserves unrelated claims and refuses unknown adoption/fence repair.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "One retained foreign claim blocks reclamation until complete release.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestOwnershipNewRootEnforcesClaimsAndTwoProfileRetirement"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S17",
+      "increments": "S03\u2013S04",
+      "paper_mapping": "C06.3\u20134",
+      "remaining_limit": "Complete foreign-claim release and real process release are independent prerequisites.",
+      "requirement": "Two profiles or TOPS retain the same receipt. Releasing one claim does not allow deletion; complete claimed-domain release and real use release are separately required."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real installed child refuses to remove itself and leaves admission unchanged.",
+          "suite": "stav-owner",
+          "test": "TestRetirementRetainsExecutingController"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Pending intents and outbox retain payload; unresolved audit work cannot be removed.",
+          "suite": "accordare-owner",
+          "test": "TestOrphanPendingStateBlocksReclamation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Retained exact controller has independent inode; changed carrier, symlink, hardlink refuse.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeControllerIndependentCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Native recovery source/controller inside approved roots refuses.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeSourcesMustSurviveScopedRemoval"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S18",
+      "increments": "S04\u2013S06",
+      "paper_mapping": "C07.2\u20134, C09.4",
+      "remaining_limit": "Executing/recovery/audit substrates remain protected; unresolved Accordare audit recovery is open.",
+      "requirement": "Request removal of the executing controller, sole recovery reader or required audit/authorization substrate. Refuse absent an exact existing out-of-place/native maintenance route; never auto-select deferred audit or purge."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Delegated retirement preserves use exclusion.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child validates inherited authority descriptors across exec.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDelegatedDescriptorsCrossExec"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Delegated retirement preserves use exclusion.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child validates inherited authority descriptors across exec.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDelegatedDescriptorsCrossExec"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Delegated retirement preserves use exclusion.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A real child validates inherited authority descriptors across exec.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDelegatedDescriptorsCrossExec"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A retained native descriptor prevents removal.",
+          "suite": "ssiag-owner",
+          "test": "TestUninstallRefusesSupervisorReference"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Closed retirement admission blocks descriptor mutation and start before native manager invocation; descriptor cleanup remains possible.",
+          "suite": "ssiag-supervision",
+          "test": "TestRetirementFencesSupervisorInstallAndStart"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Orphan descriptor retains executable.",
+          "suite": "stav-owner",
+          "test": "TestRetirementRetainsOrphanedNativeDescriptor"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Pending intents and outbox retain payload; unresolved audit work cannot be removed.",
+          "suite": "accordare-owner",
+          "test": "TestOrphanPendingStateBlocksReclamation"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Real executables of all three native owners install/remove in disposable shared roots; inherited parent lock persists; foreign claim and real caller descriptor retain bytes; sentinels and other claims survive.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeOwnersSharedRootDispatch"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Only exact native routes and closed owner arguments are accepted.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeOwnerBindingsAndClosedArguments"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Owner output is bounded.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeOwnerOutputIsBounded"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S19",
+      "increments": "S04\u2013S05",
+      "paper_mapping": "C06.3, C07.4",
+      "remaining_limit": "Three exact native dispatch routes exist; remaining C++/raw consumers require their real owners.",
+      "requirement": "Invoke a service package's removal through the generic receipt executor. It refuses unsupported dispatch or delegates to the exact native owner; retained references and pending work cannot be bypassed."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S20",
+      "increments": "S01/S05",
+      "paper_mapping": "C07.2, C08.1",
+      "remaining_limit": "Seven Go deliveries are catalogued; unknown owner/version/arguments have no fallback route.",
+      "requirement": "All seven Go units map to exact supported owners. Component/owner/compiled-version substitution, forged argv and unknown critical owner metadata refuse before execution."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S21",
+      "increments": "S05",
+      "paper_mapping": "C06.1\u20133",
+      "remaining_limit": "Fresh stopped installations are E1; no enrollment, host activation or fresh-host acceptance is inferred.",
+      "requirement": "Install SSIAG, STAV and Accordare through their actual installers in fresh isolated prefixes; independently verify owner-generated receipt, final executable bytes and native refusal behavior. No enrollment/start is inferred from package install."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S22",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.2\u20133, C08.1",
+      "remaining_limit": "Two packaging builds do not constitute two distinct compatible native releases.",
+      "requirement": "Different packaging builds of one native version coexist in distinct prefixes; a different byte set cannot overwrite the same immutable path. Old exact owner can recover/uninstall only its bound installation."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S23",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.2, C07.4",
+      "remaining_limit": "Raw executable custody is not a native receipt; future selection does not stop current sessions.",
+      "requirement": "qxctl/SSH/stdio raw-delivery custody never masquerades as a native receipt. Changing future launch selection leaves existing sessions unchanged; uncertain use keeps old bytes retained."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S24",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.2, C09.4",
+      "remaining_limit": "Full final-byte qxctl selection and host-slot rollback journeys remain open.",
+      "requirement": "Failed next-qxctl identity/protocol probe leaves old selection intact. Successful explicit selection retains old recovery binary; configured Linux host slots/fallbacks remain under their real host owner."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S25",
+      "increments": "S05",
+      "paper_mapping": "C07.2\u20134",
+      "remaining_limit": "Conda carries inert administrator bytes; privileged host provisioning and replacement remain separate.",
+      "requirement": "Nonroot Conda install cannot provision/elevate the optional administrator. Pending attempts bind old exact binary; reviewed admin replacement preserves profile/history/audit and required recovery bytes."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Retained exact controller has independent inode; changed carrier, symlink, hardlink refuse.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeControllerIndependentCustody"
+        },
+        {
+          "evidence": "evidence/s07-conda-local-qualification.json",
+          "expected": "Exact reviewed carrier effects or safe refusal; unrelated data and uncertain attempts retained.",
+          "scope": "new_private_attempts_only; real Conda with inert carriers"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S26",
+      "increments": "S05\u2013S06",
+      "paper_mapping": "C06.3, C08.2",
+      "remaining_limit": "Only fresh private attempts are supported; external/shared prefixes are not adopted.",
+      "requirement": "Conda update/remove/cache cleanup affects carriers only; no shared inode or duplicate ownership with runtime/rollback files. Previewed and actual transaction stay within reviewed package effects or stop."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S27",
+      "increments": "S06\u2013S07",
+      "paper_mapping": "C06.2\u20134",
+      "remaining_limit": "Distinct-release native upgrade, explicit selection and rollback acceptance remain open.",
+      "requirement": "Install \u2192 stage upgrade \u2192 explicit compatible selection \u2192 rollback \u2192 qualified retirement using exact independent module versions. Incompatible target leaves selection unchanged. Removing one component never reinstalls it through a cohort marker."
+    },
+    {
+      "engineering_evidence": "bounded_E1_recorded",
+      "evidence_refs": [
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A use lease in one prefix does not authorize or interfere with another prefix.",
+          "suite": "secure-identity-access-governance-guards",
+          "test": "TestDistinctPrefixesKeepIndependentUse"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A use lease in one prefix does not authorize or interfere with another prefix.",
+          "suite": "stav-append-authority-guards",
+          "test": "TestDistinctPrefixesKeepIndependentUse"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "A use lease in one prefix does not authorize or interfere with another prefix.",
+          "suite": "accordare-stav-producer-guards",
+          "test": "TestDistinctPrefixesKeepIndependentUse"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Receipt-last interruption recovery preserves unrelated sentinel and exact retry is unchanged.",
+          "suite": "stav-owner",
+          "test": "TestManagedRetirementRecoversAfterPayloadUnlink"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Native retirement after explicit unenrollment preserves user configuration and state.",
+          "suite": "stav-owner",
+          "test": "TestRetirementRecoveryPreservesUnenrolledData"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Replaced payload/receipt path refuses activation and preserves administrator bytes.",
+          "suite": "stav-owner",
+          "test": "TestActivationRefusesReplacedPublicationPaths"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Real executables of all three native owners install/remove in disposable shared roots; inherited parent lock persists; foreign claim and real caller descriptor retain bytes; sentinels and other claims survive.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestNativeOwnersSharedRootDispatch"
+        },
+        {
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Scoped action projection protects unrelated desired fields.",
+          "suite": "scoped-native-dispatch",
+          "test": "TestScopedActionProjectionProtectsUnrelatedFields"
+        },
+        {
+          "case": "accordare-stav-producer-completed-response-loss",
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged."
+        },
+        {
+          "case": "secure-identity-access-governance-completed-response-loss",
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged."
+        },
+        {
+          "case": "stav-append-authority-completed-response-loss",
+          "evidence": "evidence/s07-native-local-qualification.json",
+          "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged."
+        },
+        {
+          "evidence": "evidence/s07-conda-local-qualification.json",
+          "expected": "Exact reviewed carrier effects or safe refusal; unrelated data and uncertain attempts retained.",
+          "scope": "new_private_attempts_only; real Conda with inert carriers"
+        }
+      ],
+      "final_acceptance": "incomplete",
+      "id": "D05-S28",
+      "increments": "S05\u2013S07",
+      "paper_mapping": "C06.3, C07.3, C08.4",
+      "remaining_limit": "Sentinel preservation is fixture evidence; all user data on unexamined systems is not accepted.",
+      "requirement": "Every transition preserves user knowledge, credentials, TOPS config, journals, unrelated packages and deliberately placed foreign sentinels. Same package installed for a fresh user generates no publisher-system identity."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S29",
+      "increments": "S07/D10",
+      "paper_mapping": "C06.1, C08.4",
+      "remaining_limit": "Hosted fixtures, actual manager/privilege domains and fresh-host acceptance require separate evidence.",
+      "requirement": "Run applicable installed-owner/service-manager lanes on all four core profiles and selected supplements, including user/system privilege and race cases. Missing host or manager is incomplete, not a pass."
+    },
+    {
+      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "evidence_refs": [],
+      "final_acceptance": "incomplete",
+      "id": "D05-S30",
+      "increments": "S08/D06/D10",
+      "paper_mapping": "C05, C08.1\u20134, C09.4",
+      "remaining_limit": "S08 candidate binding is preparation; signatures, real retrieval, independent review and publication remain open.",
+      "requirement": "Bind final candidate bytes, recipe/source/export/toolchain, exact owner capabilities, signatures, retrieval and real two-release results. Independent reviewer checks a failure, its correction and recovery outcome."
+    }
+  ],
+  "decisions": {
+    "application_selection": "existing_user_authorized_composition_and_Maestro_contracts; packaging_does_not_select",
+    "binary_delivery": "clean_CI_binaries_selected_local_candidates_are_supplemental",
+    "conda_channel": "QuanuX",
+    "downloadable_installer_formats": [
+      "macOS.pkg",
+      "Linux.sh"
+    ],
+    "downloadable_installer_host": "Cloudflare_storage_and_website_later",
+    "module_version_policy": "independent_rolling_versions_no_invented_suite_version",
+    "source_sdk_delivery": "optional_reviewed_source_and_SDK",
+    "user_state_policy": "users_generate_local_state_on_their_own_systems; no_publisher_home_hardware_credentials_or_workflows"
+  },
+  "distribution_inputs": [
+    {
+      "path": "source-binding.json",
+      "sha256": "81f4f36a003fae15cada6ebc9d8f2e482cda2e29f4d97cbd245c7a64993207a9"
+    },
+    {
+      "path": "go-owner-catalog.json",
+      "sha256": "ee0487c4dce69c7b0e34a02282316abcddab41c648d43a667be9156ce7fdee04"
+    },
+    {
+      "path": "evidence/s06-local-qualification.json",
+      "sha256": "c0e0eb46a2efeb41bce532324da76355c66a931df7be714ee32f3247682cd811"
+    },
+    {
+      "path": "evidence/go-candidate-closure.json",
+      "sha256": "0faa3f03e1343435575fe010c48dd62485eba4a1c5a88f138a379815e8930854"
+    },
+    {
+      "path": "evidence/s07-conda-local-qualification.json",
+      "sha256": "2d8b2767582c91559dd0440c37063628f1c6a63ad62f420dbbddd83503dedc8d"
+    },
+    {
+      "path": "evidence/s07-native-local-qualification.json",
+      "sha256": "8204e2d3a6640cf0dfefc25a56a6c5035cdb58db241bd44199f001cedb326ffb"
+    },
+    {
+      "path": "evidence/s07-local-platform.json",
+      "sha256": "a6b1fe0ca938bf6d3d5813f51dac12823bb2e6216106099fed7c49a30945b7d7"
+    },
+    {
+      "path": "dossier/d05-requirements.json",
+      "sha256": "83b8e3c4e1030f6d4fda7ca8ae36191aa40a53bf4525972a50bdfe23ed63b833"
+    }
+  ],
+  "feature_freeze": {
+    "core_changed_by_S08": false,
+    "in_force": true,
+    "new_features_authorized": false
+  },
+  "go_delivery_units": [
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "symphony-accordare-stav-producer",
+      "component_id": "accordare-stav-producer",
+      "conda_name": "symphony-accordare-stav-producer-payload",
+      "conda_version": "0.1.0dev0",
+      "definition_digest": "sha256:2b8fd7ba46e0aab7dc53b9c28202e1ab0312a606a4a27f2f4adf1718e0fd3b67",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.1.0-dev",
+      "owner_contract": "accordare.package-owner.v1",
+      "owner_invocation_implemented": true,
+      "payload_files": [
+        "symphony-accordare-stav-producer",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "module_receipt_owner",
+      "runtime_python_required": false,
+      "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+      "selection_owner": "accordare_enrollment_supervision",
+      "source_root": "modules/accordare-stav-producer",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    },
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "qxctl",
+      "component_id": "qxctl",
+      "conda_name": "symphony-qxctl-payload",
+      "conda_version": "0.1.0dev0",
+      "definition_digest": "sha256:2ca8bd0ff7c2d85c7e8952bd1dc725845741e0a50991a71725ad662210a21b3b",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.1.0-dev",
+      "owner_contract": "qxctl.executable-and-host-owner.v1",
+      "owner_invocation_implemented": false,
+      "payload_files": [
+        "qxctl",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "raw_executable_host_binding",
+      "runtime_python_required": false,
+      "runtime_receipt": null,
+      "selection_owner": "explicit_client_or_linux_host_binding",
+      "source_root": "tools/qxctl",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    },
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "symphony-ssiag",
+      "component_id": "secure-identity-access-governance",
+      "conda_name": "symphony-secure-identity-access-governance-payload",
+      "conda_version": "0.1.0dev0",
+      "definition_digest": "sha256:7fac3dfeba3672c88bee3d350415da448e545834f860b3b0368a465c0130a6da",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.1.0-dev",
+      "owner_contract": "ssiag.package-owner.v1",
+      "owner_invocation_implemented": true,
+      "payload_files": [
+        "symphony-ssiag",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "module_receipt_owner",
+      "runtime_python_required": false,
+      "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+      "selection_owner": "ssiag_foundation_lifecycle",
+      "source_root": "modules/secure-identity-access-governance",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    },
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "sov-ssh-adapter",
+      "component_id": "sov-ssh-adapter",
+      "conda_name": "symphony-sov-ssh-adapter-payload",
+      "conda_version": "0.1.0dev0",
+      "definition_digest": "sha256:e82ce46321f269e69b25c04b372e49e0a0a70f0b0674287ae116f2f10654e417",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.1.0-dev",
+      "owner_contract": "sov-ssh.exact-invocation-owner.v1",
+      "owner_invocation_implemented": false,
+      "payload_files": [
+        "sov-ssh-adapter",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "raw_executable_invocation",
+      "runtime_python_required": false,
+      "runtime_receipt": null,
+      "selection_owner": "sov_endpoint_or_qualified_transport_profile",
+      "source_root": "tools/sov-ssh-adapter",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    },
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "sov-stdio-adapter",
+      "component_id": "sov-stdio-adapter",
+      "conda_name": "symphony-sov-stdio-adapter-payload",
+      "conda_version": "0.1.0dev0",
+      "definition_digest": "sha256:333756062ada7c9054a2aa62d1f6949ae8e14e1966ed77e4bf5bed216c160a30",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.1.0-dev",
+      "owner_contract": "sov-stdio.exact-invocation-owner.v1",
+      "owner_invocation_implemented": false,
+      "payload_files": [
+        "sov-stdio-adapter",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "raw_executable_invocation",
+      "runtime_python_required": false,
+      "runtime_receipt": null,
+      "selection_owner": "sov_target_and_invocation",
+      "source_root": "tools/sov-stdio-adapter",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    },
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "sov-transport-profile-admin",
+      "component_id": "sov-transport-profile-admin",
+      "conda_name": "symphony-sov-transport-profile-admin-payload",
+      "conda_version": "0.1.0dev0",
+      "definition_digest": "sha256:d36182885d4299933b3a0b46e6d90640f4a21287ecb96fd7e01bf7703788106e",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.1.0-dev",
+      "owner_contract": "sov-admin.protected-host-provisioning.v1",
+      "owner_invocation_implemented": false,
+      "payload_files": [
+        "sov-transport-profile-admin",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "protected_host_provisioning",
+      "runtime_python_required": false,
+      "runtime_receipt": null,
+      "selection_owner": "protected_host_policy",
+      "source_root": "tools/sov-transport-profile-admin",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    },
+    {
+      "automatic_activation": false,
+      "automatic_privilege": false,
+      "binary_name": "symphony-stav-append-authority",
+      "component_id": "stav-append-authority",
+      "conda_name": "symphony-stav-append-authority-payload",
+      "conda_version": "0.2.1",
+      "definition_digest": "sha256:9c4acc609ad1f563e3477ae7e163e79016e33f36526cd67d937889600c4f074c",
+      "live_raw_cleanup_supported": false,
+      "native_version": "0.2.1",
+      "owner_contract": "stav.package-owner.v1",
+      "owner_invocation_implemented": true,
+      "payload_files": [
+        "symphony-stav-append-authority",
+        "artifact-identity.json",
+        "LICENSE-AGPL-3.0",
+        "carrier-manifest.json"
+      ],
+      "runtime_dependencies": [],
+      "runtime_owner_kind": "module_receipt_owner",
+      "runtime_python_required": false,
+      "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+      "selection_owner": "stav_foundation_lifecycle",
+      "source_root": "modules/stav-append-authority",
+      "supported_profiles": [],
+      "system_removal_qualified": false
+    }
+  ],
+  "historical_core_dossier": {
+    "declared_source_commit": "887e074780e1d0633bd6e6f57c3d4e07ca3925fc",
+    "declared_source_tree": "3c989eb589bc2e84eff012aa5428a7e93170d81d",
+    "interpretation": "Historical W01/W06 preparation. Later explicit user continuation and distribution decisions govern this supplement; original approval/acceptance fields are not rewritten.",
+    "path": "tests/public-beta/dossier.json"
+  },
+  "hosted_status_report": {
+    "interpretation": "Observed completed S07 CI at the recorded historical head; no later run, final-host or release acceptance inferred.",
+    "path": "evidence/s07-hosted-status-20261116.json",
+    "sha256": "724da726915ec6b3e768b6135d18138e2e43445f6481e6d218d74d9098d7d3a0"
+  },
+  "package_boundary": {
+    "conda_owns": "four_inert_carrier_files_only",
+    "forbidden_payloads": [
+      "developer_build_trees",
+      "publisher_home_or_absolute_paths",
+      "credentials_or_private_keys",
+      "user_profiles_or_journals",
+      "host_bindings_or_custody",
+      "licensed_vendor_bytes_without_rights",
+      "automatic_activation_hooks"
+    ],
+    "native_sdk": "complete_receipt_owned_exports; do_not_split_sealed_receipts_without_owner_review",
+    "runtime_owns": "existing_native_or_host_owner; independent_runtime_and_rollback_inodes",
+    "source_export": "exact_committed_first_party_source_plus_reviewed_build_install_material; dependency_source_and_rights_separately_reviewed",
+    "tooling_python": "publisher_and_qualification_only"
+  },
+  "platforms": [
+    {
+      "fresh_host_acceptance": "incomplete",
+      "hosted_evidence_in_this_dossier": {
+        "conclusion": "success",
+        "conda_step_conclusion": "success",
+        "final_host_acceptance": false,
+        "job_id": 133160669115,
+        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669115",
+        "native_step_conclusion": "success",
+        "profile": "macos15-arm64"
+      },
+      "id": "macos15-arm64",
+      "installed_manager_acceptance": "incomplete",
+      "purpose": "requested_core_CI_and_final_acceptance_target",
+      "release_supported": false
+    },
+    {
+      "fresh_host_acceptance": "incomplete",
+      "hosted_evidence_in_this_dossier": {
+        "conclusion": "failure",
+        "conda_step_conclusion": "skipped_after_native_failure",
+        "final_host_acceptance": false,
+        "job_id": 133160669048,
+        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669048",
+        "native_step_conclusion": "failure",
+        "profile": "ubuntu24.04-amd64"
+      },
+      "id": "ubuntu24.04-amd64",
+      "installed_manager_acceptance": "incomplete",
+      "purpose": "requested_core_CI_and_final_acceptance_target",
+      "release_supported": false
+    },
+    {
+      "fresh_host_acceptance": "incomplete",
+      "hosted_evidence_in_this_dossier": {
+        "conclusion": "failure",
+        "conda_step_conclusion": "skipped_after_native_failure",
+        "final_host_acceptance": false,
+        "job_id": 133160669096,
+        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669096",
+        "native_step_conclusion": "failure",
+        "profile": "ubuntu24.04-arm64"
+      },
+      "id": "ubuntu24.04-arm64",
+      "installed_manager_acceptance": "incomplete",
+      "purpose": "requested_core_CI_and_final_acceptance_target",
+      "release_supported": false
+    },
+    {
+      "fresh_host_acceptance": "incomplete",
+      "hosted_evidence_in_this_dossier": {
+        "conclusion": "failure",
+        "conda_step_conclusion": "skipped_after_native_failure",
+        "final_host_acceptance": false,
+        "job_id": 133160669022,
+        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669022",
+        "native_step_conclusion": "failure",
+        "profile": "ubuntu26.04-amd64"
+      },
+      "id": "ubuntu26.04-amd64",
+      "installed_manager_acceptance": "incomplete",
+      "purpose": "requested_core_CI_and_final_acceptance_target",
+      "release_supported": false
+    }
+  ],
+  "prepared_on": "2026-11-16",
+  "protocol": "symphony.distribution.s08-dossier.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "retained_beta_requirements": {
+    "core_cell_ids": [
+      "macos15-arm64::verified_download_and_tamper_refusal",
+      "macos15-arm64::fresh_install_discovery_version_loader",
+      "macos15-arm64::bounded_offline_quantitative_result",
+      "macos15-arm64::source_hardware_knowledge_workflow",
+      "macos15-arm64::protected_administration_denial_and_success",
+      "macos15-arm64::every_promised_provider_operation_and_refusal",
+      "macos15-arm64::timeout_cancellation_uncertainty_reconciliation",
+      "macos15-arm64::side_by_side_upgrade_and_compatible_rollback",
+      "macos15-arm64::removal_preserving_user_data",
+      "ubuntu24.04-amd64::verified_download_and_tamper_refusal",
+      "ubuntu24.04-amd64::fresh_install_discovery_version_loader",
+      "ubuntu24.04-amd64::bounded_offline_quantitative_result",
+      "ubuntu24.04-amd64::source_hardware_knowledge_workflow",
+      "ubuntu24.04-amd64::protected_administration_denial_and_success",
+      "ubuntu24.04-amd64::every_promised_provider_operation_and_refusal",
+      "ubuntu24.04-amd64::timeout_cancellation_uncertainty_reconciliation",
+      "ubuntu24.04-amd64::side_by_side_upgrade_and_compatible_rollback",
+      "ubuntu24.04-amd64::removal_preserving_user_data",
+      "ubuntu24.04-arm64::verified_download_and_tamper_refusal",
+      "ubuntu24.04-arm64::fresh_install_discovery_version_loader",
+      "ubuntu24.04-arm64::bounded_offline_quantitative_result",
+      "ubuntu24.04-arm64::source_hardware_knowledge_workflow",
+      "ubuntu24.04-arm64::protected_administration_denial_and_success",
+      "ubuntu24.04-arm64::every_promised_provider_operation_and_refusal",
+      "ubuntu24.04-arm64::timeout_cancellation_uncertainty_reconciliation",
+      "ubuntu24.04-arm64::side_by_side_upgrade_and_compatible_rollback",
+      "ubuntu24.04-arm64::removal_preserving_user_data",
+      "ubuntu26.04-amd64::verified_download_and_tamper_refusal",
+      "ubuntu26.04-amd64::fresh_install_discovery_version_loader",
+      "ubuntu26.04-amd64::bounded_offline_quantitative_result",
+      "ubuntu26.04-amd64::source_hardware_knowledge_workflow",
+      "ubuntu26.04-amd64::protected_administration_denial_and_success",
+      "ubuntu26.04-amd64::every_promised_provider_operation_and_refusal",
+      "ubuntu26.04-amd64::timeout_cancellation_uncertainty_reconciliation",
+      "ubuntu26.04-amd64::side_by_side_upgrade_and_compatible_rollback",
+      "ubuntu26.04-amd64::removal_preserving_user_data"
+    ],
+    "final_acceptance": "incomplete",
+    "paper_criterion_ids": [
+      "UE1",
+      "UE2",
+      "UE3",
+      "UE4",
+      "UE5",
+      "UE6",
+      "C01.1",
+      "C01.2",
+      "C01.3",
+      "C01.4",
+      "C02.1",
+      "C02.2",
+      "C02.3",
+      "C02.4",
+      "C03.1",
+      "C03.2",
+      "C03.3",
+      "C03.4",
+      "C04.1",
+      "C04.2",
+      "C04.3",
+      "C04.4",
+      "C05.1",
+      "C05.2",
+      "C05.3",
+      "C05.4",
+      "C06.1",
+      "C06.2",
+      "C06.3",
+      "C06.4",
+      "C07.1",
+      "C07.2",
+      "C07.3",
+      "C07.4",
+      "C08.1",
+      "C08.2",
+      "C08.3",
+      "C08.4",
+      "C09.1",
+      "C09.2",
+      "C09.3",
+      "C09.4",
+      "C10.1",
+      "C10.2",
+      "C10.3",
+      "C10.4",
+      "C11.1",
+      "C11.2",
+      "C11.3",
+      "C11.4",
+      "C12.1",
+      "C12.2",
+      "C12.3",
+      "C12.4",
+      "C13.1",
+      "C13.2",
+      "C13.3",
+      "C13.4"
+    ],
+    "replaced_by_D05_supplement": false,
+    "scores_assessed": false,
+    "supplemental_ids": [
+      "CF-CONNECTOR-ACCESS",
+      "CF-PROJECT-PLAN",
+      "CF::dns.records.create",
+      "CF::dns.records.delete",
+      "CF::dns.records.get",
+      "CF::dns.records.list",
+      "CF::dns.records.update",
+      "CF::tunnels.config.get",
+      "CF::tunnels.config.update",
+      "CF::tunnels.create",
+      "CF::tunnels.delete",
+      "CF::tunnels.edit",
+      "CF::tunnels.get",
+      "CF::tunnels.list",
+      "CF::tunnels.token.get",
+      "CF::zero-trust.access.applications.create",
+      "CF::zero-trust.access.applications.delete",
+      "CF::zero-trust.access.applications.get",
+      "CF::zero-trust.access.applications.list",
+      "CF::zero-trust.access.applications.update",
+      "CF::zero-trust.access.policies.create",
+      "CF::zero-trust.access.policies.delete",
+      "CF::zero-trust.access.policies.get",
+      "CF::zero-trust.access.policies.list",
+      "CF::zero-trust.access.policies.update",
+      "MCP-CHANNELS",
+      "OPTIONAL-RUNTIMES",
+      "PERFORMANCE-RECOVERY",
+      "PROVIDER-EXACT-CELLS",
+      "PUBLIC-ENGINE",
+      "SEPARATE-OWNER-PACKAGES"
+    ]
+  },
+  "roles": [
+    {
+      "assignment_reference": "tests/public-beta/owners.json#release_approver",
+      "assignment_state": "assigned_existing",
+      "id": "release_approver",
+      "new_assignment_made": false,
+      "responsibility": "Select scope and issue final release decision; this dossier contains no new approval."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#rollback_primary",
+      "assignment_state": "assigned_existing",
+      "id": "rollback_primary",
+      "new_assignment_made": false,
+      "responsibility": "Stop rollout, preserve uncertainty and select a verified compatible rollback."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#release_coordinator",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "release_coordinator",
+      "new_assignment_made": false,
+      "responsibility": "Own scope, dependency graph, source/candidate identities and blockers."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#packaging_engineer",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "packaging_engineer",
+      "new_assignment_made": false,
+      "responsibility": "Build exact per-profile closures and retain receipts/recipes."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#payload_reviewer",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "payload_reviewer",
+      "new_assignment_made": false,
+      "responsibility": "Review actual runtime/TLS/notices/source/vendor payload closure."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#signing_custodian",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "signing_custodian",
+      "new_assignment_made": false,
+      "responsibility": "Provide independently distributed trust policy and authorized signing process; retain keys privately."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#acceptance_reviewer",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "acceptance_reviewer",
+      "new_assignment_made": false,
+      "responsibility": "Independently review exact final-byte observations; structural checks are insufficient."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#platform_operator",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "platform_operator",
+      "new_assignment_made": false,
+      "responsibility": "Run fresh-host/lifecycle cells for each selected profile."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#sdk_research_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "sdk_research_owner",
+      "new_assignment_made": false,
+      "responsibility": "Prepare independent user-engine and complete-output research oracles."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#authority_security_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "authority_security_owner",
+      "new_assignment_made": false,
+      "responsibility": "Review authority, credential and audit boundaries and refusal/recovery evidence."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#provider_review_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "provider_review_owner",
+      "new_assignment_made": false,
+      "responsibility": "Review user-led selected provider observations and exact account/SDK/operation scope."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#provider_testers",
+      "assignment_state": "user_led_after_packaging_unassigned",
+      "id": "provider_testers",
+      "new_assignment_made": false,
+      "responsibility": "Users run authorized live profiles after packaging; no credentials enter Git."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#state_recovery_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "state_recovery_owner",
+      "new_assignment_made": false,
+      "responsibility": "Select state/risk composition ownership and verify recovery against independent oracle."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#performance_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "performance_owner",
+      "new_assignment_made": false,
+      "responsibility": "Predeclare measurable workloads and budgets; retain all observations."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#rollback_backup",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "rollback_backup",
+      "new_assignment_made": false,
+      "responsibility": "Execute independent restore/incident/rollback handoff."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#security_response_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "security_response_owner",
+      "new_assignment_made": false,
+      "responsibility": "Own private intake, routing, access, response and escalation."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#component_maintainers",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "component_maintainers",
+      "new_assignment_made": false,
+      "responsibility": "Assign named coverage per capability group, including independent Go/Swift/native owners."
+    },
+    {
+      "assignment_reference": "tests/public-beta/owners.json#channel_owner",
+      "assignment_state": "proposed_role_unassigned",
+      "id": "channel_owner",
+      "new_assignment_made": false,
+      "responsibility": "Qualify only approved distribution/client channels with exact native/catalogue/package bindings."
+    }
+  ],
+  "source_documents": [
+    {
+      "path": "tests/public-beta/dossier.json",
+      "sha256": "4fd34dc840b1299ca633ed6d361147a00df045c9cdff9a337b965d0167ea93c7"
+    },
+    {
+      "path": "tests/public-beta/capability-groups.json",
+      "sha256": "5d8d281346602351d7e4ae75a007364fc0abee551034219d34fc2440afc6cfae"
+    },
+    {
+      "path": "tests/public-beta/package-plan.json",
+      "sha256": "2cef5f8d646583282170503f0912827c889a7a9ea74a600d16ca3971a902649a"
+    },
+    {
+      "path": "tests/public-beta/owners.json",
+      "sha256": "e3591e34829b9abffdc957d076413057f87eea98ebf2f460b190e673093b930d"
+    },
+    {
+      "path": "tests/public-beta/paper-criteria.json",
+      "sha256": "8a94bf39d12514027ef045d112db38441e7f6b36a1df2bcac21bb502e66bf7f6"
+    },
+    {
+      "path": "tests/public-beta/acceptance-mapping.json",
+      "sha256": "a12eb6fe15130c503ff906241cd69c7ab85cd9b234ea8840e4a1d1e41d0d153f"
+    },
+    {
+      "path": "tests/public-beta/execution/W12-REVIEW.md",
+      "sha256": "3ea5ccce9ce403e4f5c025fc7e50dcb53a74319a9636e2a2aecec22be25dd79b"
+    },
+    {
+      "path": "tests/public-beta/execution/w12-review/requirements.json",
+      "sha256": "e518ff8ffa1a67476078beeafc464d593aa434a8826d6684a71d7cb29e5c69fc"
+    },
+    {
+      "path": "cmake/mvp-dependencies.json",
+      "sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65"
+    },
+    {
+      "path": "cmake/mvp-release-identities.json",
+      "sha256": "1e0965f3083df1c61122085ff99994fce15206719d99aa76cba6e050fabe81f3"
+    },
+    {
+      "path": "cmake/mvp-platform-profiles.json",
+      "sha256": "5919db98185207278845d1d63c5c2a77b4daff032d44ebb0f4889b8785173bd5"
+    },
+    {
+      "path": "cmake/mvp-go-owner-closure.json",
+      "sha256": "3be692d3a8e3a2b2a03cc87956f2ca35cba605c4782cf28e7a9afc8d9b70f9e7"
+    }
+  ],
+  "source_export_report": {
+    "interpretation": "Reviewed derived source export with original-blob verification and explicit map rebindings; no all-root build, publisher-trust or release acceptance.",
+    "path": "evidence/s08-source-export.json",
+    "sha256": "b1edc80206b66b1ae636e2ecea04fb05e6dc2516ca660c6394e9d567996c1ce6"
+  },
+  "state": "source_bound_distribution_supplement_release_incomplete",
+  "supplemental_platform": {
+    "conda_evidence_level": "E1_real_conda_inert_carriers",
+    "final_host_acceptance": "incomplete",
+    "id": "local-macos-amd64-fixture",
+    "native_evidence_level": "E1",
+    "not_a_substitute_for_core_profiles": true
+  },
+  "supported_profiles": [],
+  "trust": {
+    "anaconda_upload_rights": "user_confirmed_organization_owner_or_coowner; no_token_in_repository",
+    "archive_hash": "integrity_and_identity_only_not_publisher_authority",
+    "credentials_in_git": false,
+    "final_retrieval_verified": false,
+    "independent_public_trust_policy": null,
+    "linux_installer_integrity_and_trust": "pending_for_final_download",
+    "native_macos_signing_notarization": "pending_for_final_pkg_and_applicable_bundles",
+    "publisher_signing_identity": null,
+    "redistribution_review": "pending_actual_runtime_dependency_source_notices_and_vendor_payload_review",
+    "signing_or_publication_performed": false
+  }
+}
