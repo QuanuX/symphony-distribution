@@ -1,0 +1,67 @@
+name: Distribution preparation
+on:
+  push:
+    branches: ['codex/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: distribution-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Read exact Symphony source binding
+        id: source
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          source = json.load(open('source-binding.json'))['source_commit']
+          assert re.fullmatch('[0-9a-f]{40}', source)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('commit=' + source + '\n')
+          PY
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ steps.source.outputs.commit }}
+          path: work/core
+          persist-credentials: false
+      - name: Verify source binding and preparation contracts
+        env:
+          SYMPHONY_SCOPE_TEST_SOURCE: ${{ github.workspace }}/work/core
+        run: |
+          python3 tests/check_source_binding.py work/core
+          python3 -m unittest discover -s owner-catalog -p 'test_*.py'
+          python3 -m unittest discover -s lifecycle -p 'test_go_delivery.py'
+          python3 -m unittest discover -s lifecycle -p 'test_handoff.py'
+          python3 -m unittest discover -s lifecycle -p 'test_journeys.py'
+          python3 -m unittest discover -s recipes -p 'test_build_go_carriers.py'
+          python3 -m unittest discover -s tests -p 'test_conda_journey_inputs.py'
+  conda-transactions:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install isolated pinned transaction tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          installer="$RUNNER_TEMP/miniforge.sh"
+          curl --fail --location --retry 2 \
+            https://github.com/conda-forge/miniforge/releases/download/26.9.4-2/Miniforge3-26.9.4-2-Linux-x86_64.sh \
+            --output "$installer"
+          printf '%s  %s\n' bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf "$installer" | sha256sum --check
+          bash "$installer" -b -p "$RUNNER_TEMP/conda-bootstrap"
+          "$RUNNER_TEMP/conda-bootstrap/bin/conda" create --yes --override-channels \
+            --channel conda-forge --prefix "$RUNNER_TEMP/conda-test-tools" \
+            python=3.12 conda=26.10.0 conda-build=26.9.1
+      - name: Test actual isolated Conda transactions and refusal boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/conda-test-tools/bin/python" -m unittest discover \
+            -s lifecycle -p test_conda_transaction.py -v

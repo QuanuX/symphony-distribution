@@ -1,0 +1,1156 @@
+{
+  "binding_digest": "sha256:df1e58b4e326d2874c21a0a74d2a7a23bab667e64684863f158001270fc56bc5",
+  "protocol": "symphony.distribution.go-owner-source.v1",
+  "source_commit": "ad7ed0e0857a1d8cc9d0fa3617579bbf5fc46b70",
+  "source_evidence": [
+    {
+      "path": "LICENSE",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "path": "cmake/SymphonyGoCandidateIdentities.cmake",
+      "sha256": "2ef2d94c2bd3ed02046a5094f3613424a973efdcfde78d08906b245b86202ebc"
+    },
+    {
+      "path": "cmake/mvp-dependencies.json",
+      "sha256": "b6e4b83d965a82d1ef39dc4690d88b83e5e971c702ab4d07315124460430a0e5"
+    },
+    {
+      "path": "cmake/mvp-go-owner-closure.json",
+      "sha256": "3be692d3a8e3a2b2a03cc87956f2ca35cba605c4782cf28e7a9afc8d9b70f9e7"
+    },
+    {
+      "path": "cmake/mvp-release-identities.json",
+      "sha256": "1e0965f3083df1c61122085ff99994fce15206719d99aa76cba6e050fabe81f3"
+    },
+    {
+      "path": "go.work",
+      "sha256": "8c0868f8a8969974d2e944522bed4a780723da07a285d6be08fa3b3b0f6b6a77"
+    },
+    {
+      "path": "modules/accordare-stav-producer/cmd/symphony-accordare-stav-producer/main.go",
+      "sha256": "e91b0934d736409caf67e40e9c0e56491eab6a57aa5e9b26f59b1efa96f2cd0b"
+    },
+    {
+      "path": "modules/accordare-stav-producer/go.mod",
+      "sha256": "f584fd1e52f6f7073e908bc2d455a6f3d419a7b59b09711f2ca89f286b0fc44a"
+    },
+    {
+      "path": "modules/accordare-stav-producer/go.sum",
+      "sha256": "2528b2c0cea4b8ee603a814c6daa86b1578cc0a42d88c89c64162fd6db7cc084"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/config/config.go",
+      "sha256": "7a251166826de15531dfb9a0159fef2f8f46b9d71abdf3f063a12b634c6310c8"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/enrollment/enrollment.go",
+      "sha256": "e2220ba84a311605e72fe66c505e6933aaedd867ce8225d3390b40522baf8c62"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/enrollment/enrollment_test.go",
+      "sha256": "745f84d22828bc5579ea30d7f590cbe6fb8aa4bc91b90e33b4e79c682027878d"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/intent/store.go",
+      "sha256": "813b2ee6ff7ae92d1894ac7bf861f948e7f2bd644860021f53d7f25aba85daa8"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/intent/store_test.go",
+      "sha256": "97c0404f5dfe52e5aab1377b4e18c09f73f6295ed0190711ce962b4d37ec0fc9"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/outbox/outbox.go",
+      "sha256": "549cc3f1692b1ed113dd6bde87b51d53d3b2e8122ed06b66128d68c9d2b02641"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/outbox/outbox_test.go",
+      "sha256": "6c692513750da2f5d06c56e16dca4f26e92a2f77415e20cf099a309da093f4d0"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageinstall/package.go",
+      "sha256": "b18984afc26738fcb8ecb63e58130eed1f301f6a03304b05e512a1dbe1ad43f7"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageinstall/package_test.go",
+      "sha256": "c1584d5d67c1fe934daa4edfb09690e807ab92c6d557dac6db5aa3c68c155b8d"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+      "sha256": "17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageinstall/source_unix.go",
+      "sha256": "44a8c671cac95cb9faa4efb75b6375265efb65b5539f89b4fa35b6eacd7382fb"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageinstall/source_unsupported.go",
+      "sha256": "d4541b27b91373bcd331612dc6bf428b2508aeaa462b684d98007ba975020510"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/delegation.go",
+      "sha256": "115637c6990f2f46c809bfb3f5d0e316bc2240084bd90664c1e33b8fd0852cc1"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unix.go",
+      "sha256": "c3aae84b0d3cba7227bc742deb0942e7633c5922b6baf09cb2cb85c7ce886b81"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unix_test.go",
+      "sha256": "1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unsupported.go",
+      "sha256": "6d6ab7646a774afee8fdf4b0c14ec866c1273e71613fb3ded94567de3dc17f8c"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix.go",
+      "sha256": "424cab8505a7a11fcae2a3763cd6526cd902db940a94e948def888603e728703"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+      "sha256": "125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unsupported.go",
+      "sha256": "c855eb82689765c58c0b772c189db75d14e4c39e8468e264e668fb55ff348be3"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/identity.go",
+      "sha256": "c814a1829e1d6a8107ed6d5f7c4ce4ab4cf20d4bebd8073104a470c36fa3f249"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/publish_unix.go",
+      "sha256": "9803261cbc3ca3a001c983c10c85afe669b16bb3edd79bd310888f1148e59b36"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/publish_unix_test.go",
+      "sha256": "ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageretirement/publish_unsupported.go",
+      "sha256": "e2a827fd4c3f478fc7d08a6e064642c3caf9c48b2792324f9fefe9a8676a604d"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/paths/paths.go",
+      "sha256": "8e6c8d221ee2ec057eef85cb3ac19aba1f0bcb75b5c55dc6ff2888f1b0713390"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/peer/peer.go",
+      "sha256": "d1059665116d8edea66b382910b8bf7160dd00103a1197149a935490bb42078f"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/peer/peer_darwin.go",
+      "sha256": "a06b5ac69e1c2de2f870fd7ab4d0065f0018be1ddae12168af7c382846ad184c"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/peer/peer_linux.go",
+      "sha256": "10e31c79b6f7180cac7c08cbae3fec5065f64260114eeac64a0f552ca5a8b2d1"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/peer/peer_unsupported.go",
+      "sha256": "d94bf51a9c40cba4c119e4fce9f8e5c6967fe444c9eeae850c1a5c38948d2e28"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/producer/installed_stav_acceptance_test.go",
+      "sha256": "279c9f19d298ae09ce3d852984a526007871ad132ea7364ef4b26a5c77f58f4b"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/producer/producer.go",
+      "sha256": "074177f01b4249cbc449f1a0a3786fb0a53aa47c546b86b7b919568ae73a0ba5"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/producer/producer_test.go",
+      "sha256": "fecdd0c4328b946ee08d3dfd9513e04b7a80dd73c4b2273176d84ad26972631d"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/protocol/canonical.go",
+      "sha256": "fc25decefe7131ad84cee08a0faddd10a73babde9f8a5a4538b4a5efe949df95"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/protocol/codec.go",
+      "sha256": "eed8b59c52ae9329e53d6ac59243eb92ebadb73e3e9c4b2f154287c4e4f70b94"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/protocol/model.go",
+      "sha256": "f0309fa65b0c454b9fbd98640399f75bb48af3b4e974b0ffba63795eafe93dad"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/protocol/validate.go",
+      "sha256": "a9660194dae4abfece8119264e0f5c3383523ea2dea71ce446ceac2e6c6c7f20"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/protocol/validate_test.go",
+      "sha256": "4f4930d050005b28d11c73fb051e5e0c193114dad811429192336250bfe37fba"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/server/server.go",
+      "sha256": "db2bcec389f9add452f40a24e6be2735f3830b854bf287429bae8ed4ba7fe41a"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/server/server_test.go",
+      "sha256": "85ed93218d7086dd969a3e8431c16d695b04c87765f3b6c6d4836dd66b39cb26"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/server/socketlock_unix.go",
+      "sha256": "ef423817dcfd59517758607faf4160f958812d86d7431100b6ced14e04d0372f"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/server/socketlock_unsupported.go",
+      "sha256": "e1d8e4839bdb227f623fac1c632da036259ab3b2151ca3cd30869a08c3943412"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/supervision/supervision.go",
+      "sha256": "9bfacc2f21e4fd9152a8391103efa44fc559e544021f2f97e0cef0aa2715ac8f"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/supervision/supervision_test.go",
+      "sha256": "9cf409dd9e89de1772958c2f4edceca3e9d124a89f307ceb294edc8c34b5e838"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/version/version.go",
+      "sha256": "ace7e2559ff95a38a376ba03741756a9b8b5d396ec9d47dde9975f20e57605b6"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/cmd/symphony-ssiag/main.go",
+      "sha256": "058525d842f165afd6926886fecc45676c838c14d556dbcc249f6fc03efbb800"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/go.mod",
+      "sha256": "64f07a19182e0191fd546cb9c55a5af4eb79edf0f9b29d64ed1e79db462f1050"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/go.sum",
+      "sha256": "2528b2c0cea4b8ee603a814c6daa86b1578cc0a42d88c89c64162fd6db7cc084"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/client/client.go",
+      "sha256": "df4470ebc13fed816dfe9855bd32bab188b18a524cbc97841844effa5dcea2e5"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/client/client_test.go",
+      "sha256": "8d29371c1e5cfe2459c69228f7fe49eaa6dce77037245b5736fbe57cd2d9590e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/client/foundation_audit.go",
+      "sha256": "f28777e8cd9fc22cb672d2469c9df7bc3aa77fabca49fa853b6a26658611255d"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/client/socket_owner_unix.go",
+      "sha256": "233f0137c7eb75a830aa3d544af1ea2dddb72171dea7ed4dffe253129abc84eb"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/client/socket_owner_unsupported.go",
+      "sha256": "5c2e7f80eeb7ef4982e531f99e3ab0e0778751f7cdfeee8f36b4ff8535752ba5"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/cloudflareuse/contract.go",
+      "sha256": "f39b6b5d015f69f9c7fc54e6c8de96046b8cbd40cf8846211a15c7592e9e4399"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/config.go",
+      "sha256": "e811f41ea0d7c9fc01f66dd9f99ac63605e2e5d2358fade504770f78dd15f967"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/config_test.go",
+      "sha256": "956d6b0ae1d730b5bd2f88cbb2ecb93fdd5c5a6d586de791268d75a4e7b177ad"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/open_nofollow_unix.go",
+      "sha256": "fde9ce7a3249b7ebd94432137efa545e67bdf45b507d3fad88b1f0b18625c016"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/open_nofollow_unsupported.go",
+      "sha256": "ad95e809d41840025e31097a93b9d13b664af10d6f2e375697859d72c34ab910"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/owner_unix.go",
+      "sha256": "57128b0673406bd8d6c02e4aecca2a232c7e59012d4d67659b5516bc4e8f4726"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/owner_unsupported.go",
+      "sha256": "ea946b7cf387d1fb8096be3e08178559cbb8f0a7c7f90142f0688ce4e8e696ea"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/ownership_test.go",
+      "sha256": "0429f3a8dbc3434378a62529198b145cf40e482fe5e8cf6c80d5c11bd50141b7"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/config/trusted.go",
+      "sha256": "71b03bec383e2eefe57fc06f3f13ae2d6474802dff48f4c0997119754aa6f460"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/connectionaudit/contract.go",
+      "sha256": "3c37961597be1843abb9a6ddd4e7a0a8185f51c169f751dd15a1291113c9860d"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/admission.go",
+      "sha256": "6dee3e45a3a3cc7878b486e6181fbe534e17aa90c431bbdfce88ce6d3b0f5453"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/admission_store.go",
+      "sha256": "8b69bf3cdd9b6ec800d5db14cba8f316705eb77298093e6862163fd40db5b904"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/admission_store_test.go",
+      "sha256": "1c174ecd11314b96dbc134c1dd9db4fa7d71e8cb562e22f9a6a4bb76f1711b39"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/admission_test.go",
+      "sha256": "65c7d9dc4ef38e868b02282ed90d655900e93f0fa5c362d0729325c6a5448476"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/dispatch.go",
+      "sha256": "6555872e32a1660122d027011f70a1fde90b48edae56baacdab68607a0a877e6"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/dispatch_test.go",
+      "sha256": "26c5f7a929d11942919e68ace0ca1b72b715ddd29d86591acb064ddb61f94012"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/journal.go",
+      "sha256": "4aff053204287fae2b1b075b8069a319a265ad03b0e72359758ded59df179afd"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/journal_test.go",
+      "sha256": "a554cdd34db257edf9eb37144146105a732a7b39f68ac61b880affbffd57db44"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/journal_unix.go",
+      "sha256": "c7fa7614e8c6c295bb8210ca59945146ff03308e5aa581c8b0868215fed7d329"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/journal_unsupported.go",
+      "sha256": "60ad2ebee924680e310e53c5673bbf5ddf024dd0b2f399210b50517db8bc62ab"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/model.go",
+      "sha256": "b5a59b049716ceee23fc3fa98958567c29aa2076deefcb8c4df38a2c506b576e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/outcome.go",
+      "sha256": "d2f8bbd7d4bdd4b71f9eb212d68d3d141c9507080fbdb1310fb2a8aae67dc4d2"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/outcome_process_test.go",
+      "sha256": "e46a3c42da8cc98924da0484187933a57a7aefbf1348043ca97ca6082c09cf05"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/outcome_test.go",
+      "sha256": "3bb29995c07a47d73c4eebd959f736294aab44950761e1b6a035618a1c145e43"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/use.go",
+      "sha256": "e72b9227177a5280ceb3360385d91949b5ec7f2f4c689a0734f1e85df96ea664"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/credential/use_test.go",
+      "sha256": "7ea6a0cbc7a46a1a3be010c6a7e38fa3929221b498246a196695b3dec37f8d38"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationaudit/contract.go",
+      "sha256": "9f482db88dc57ea7bdb7f2f899d6c0735bef514cbc0db50c333098aee8a9d2ab"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationaudit/contract_test.go",
+      "sha256": "cf8c39a145a26cd5b92841d28ff6b009138eff97fff80ddea358bde4c2f8fe24"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationaudit/journal_unix.go",
+      "sha256": "7b7b6e46a9cce864041a6d7c1beae226ff6b83d4c071fe402aa5ca0342fc2da6"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/audit.go",
+      "sha256": "4b6830ea3cff3c4cbb4d3bbe5116ea23f9371fc15c4da9236212689bdd0567ac"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/audit_process_test.go",
+      "sha256": "446c58f5f76c20ac943258551226cdd3f88487376b73bf93d5b1a08cd46bfd1a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/audit_test.go",
+      "sha256": "a15d31af6900e1398167dbc279593fa55a1799a7c83e9df552b213b99116a1da"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/codec.go",
+      "sha256": "e68b8ec011e59516a2327dd073326fdfaa92e9859412e810581368806672284c"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/engine.go",
+      "sha256": "565161f8f4f8ad3eeda6ecbd434bcf42b61a3152024dee709143a00253380b0d"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/engine_test.go",
+      "sha256": "a249ae00a82805fbc27ba19d3eafd7766d009a4f8e914efa84a9e3ab3685c2f0"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/ownership_test.go",
+      "sha256": "1bfda0a396dd909ac3b2400bb8387b843c199b7a4bd43315240968c7d9831512"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/store_unix.go",
+      "sha256": "dcbc5dccb9427a85c0b28cc9c5a3578f98c7c7a4a1834a1652871f95e9dc78be"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/store_unsupported.go",
+      "sha256": "483976ec69d0ea54479944859f2fa67911709549a166d41c5f9ee4a13fe90ad4"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/foundationlifecycle/types.go",
+      "sha256": "c752bc49561ef45a5b8100f8692ae75cbacd59729f6d6f3076390bd0dcb4e9a4"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/identity/model.go",
+      "sha256": "0c45bba8627c15b61a0c7d07aca3e0491913d6d798f53c05a8cc87b69cc9d98f"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/lifecycle/lifecycle.go",
+      "sha256": "7524a3ff35f4b1c3d9bef4c352fc792b76ae6cff3b461128fe3256a8849d4361"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/lifecycle/lifecycle_test.go",
+      "sha256": "10ae253099d27e9b9c1de226f6498bc34d60ecea1f018d9756e8ebf0fce6ee00"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/lifecycle/ownership_test.go",
+      "sha256": "ad841203719811fd24353d48f195be01a5a8f3de240d5079a797a68183cee23e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/lifecycle/purge_lock_unix.go",
+      "sha256": "da177f09f373029b1692896976f15fa78866dec43a298c255d6ab6bd2ed67ff2"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/lifecycle/purge_lock_unsupported.go",
+      "sha256": "c0a68ec72e1155550f6a9bbb94027ab64a51db4d20a754e043aba7e202894df7"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/model/model.go",
+      "sha256": "66760500f26bab89dadfa95b413f42e137b07fcdc274399d0e6319f9a266bedf"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageinstall/package.go",
+      "sha256": "a5f410fa9cf0fac29cebd45f092bb1a70ef65f14684a1508fccb16a8a9a56127"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageinstall/package_test.go",
+      "sha256": "b063a6fe54afe0f28567a7c35e93256940dab3b79fe812b6fde922d16a28a95e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation.go",
+      "sha256": "115637c6990f2f46c809bfb3f5d0e316bc2240084bd90664c1e33b8fd0852cc1"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unix.go",
+      "sha256": "c3aae84b0d3cba7227bc742deb0942e7633c5922b6baf09cb2cb85c7ce886b81"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unix_test.go",
+      "sha256": "1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unsupported.go",
+      "sha256": "6d6ab7646a774afee8fdf4b0c14ec866c1273e71613fb3ded94567de3dc17f8c"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix.go",
+      "sha256": "424cab8505a7a11fcae2a3763cd6526cd902db940a94e948def888603e728703"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+      "sha256": "125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unsupported.go",
+      "sha256": "c855eb82689765c58c0b772c189db75d14e4c39e8468e264e668fb55ff348be3"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/identity.go",
+      "sha256": "c814a1829e1d6a8107ed6d5f7c4ce4ab4cf20d4bebd8073104a470c36fa3f249"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/publish_unix.go",
+      "sha256": "9803261cbc3ca3a001c983c10c85afe669b16bb3edd79bd310888f1148e59b36"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/publish_unix_test.go",
+      "sha256": "ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageretirement/publish_unsupported.go",
+      "sha256": "e2a827fd4c3f478fc7d08a6e064642c3caf9c48b2792324f9fefe9a8676a604d"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/paths/paths.go",
+      "sha256": "7e28ee2acc86431a2db60f45dab23016c34e883d35bcfc6e718ec1226d658d56"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/paths/paths_test.go",
+      "sha256": "208f1b76ffe9a1460024caa1d2e9bac85af3ab47da46c0f24bceecf440da66db"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/credentials.go",
+      "sha256": "5d5c4a571ec5f71ac60228f473c89d93ee5ce2125649db7ac0136ad793f74924"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/credentials_darwin.go",
+      "sha256": "b7b59be9b7e4b14c37aaec084474bcc0c9a2000abbf6df6f7081b8dd8d4f1b04"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/credentials_linux.go",
+      "sha256": "1c774732291d171b0716b4cc2e835f67e629689dc1b7cbd8ac8a5bb90f193a1d"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/credentials_supported_test.go",
+      "sha256": "422067aedf43a189f242eae8f365ec141deafc8635988aae92ec1f23e5f5d66e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/credentials_unsupported.go",
+      "sha256": "604622e71d0e8c059a404234e04212ce8d859577d2c29302696bbae52a276d1a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/peerauth.go",
+      "sha256": "b98639ec316cecffd40cf3cd4fa76d0c4a2a19e33169c1e9443c575e3d4c70f5"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/peerauth/peerauth_test.go",
+      "sha256": "e04e34c81f2fb3d97fa972afa5243e34512bc1005ce1749e5dee7fb38a4b8b02"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/policy/admission_test.go",
+      "sha256": "9cb90f2319b4429d32698b1dc0a75e715051a6c1b697b54ab72e25fbb3a95ccc"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/policy/policy.go",
+      "sha256": "ef0a15772f24462d4fb66bfefe28b69313b144802f00b4ac9ad8102450e54829"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/policy/policy_test.go",
+      "sha256": "badf1af9179384494c6c5eaad86c9be0a090fd1df76b1a815cddee05b7907b6b"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/policyadmin/manager.go",
+      "sha256": "6439c9e7076e0c286fc202e0d59f2c03e3fadb8181f9e30c612d7d3631171631"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/policyadmin/manager_test.go",
+      "sha256": "169c92b8eb79ef35b813a1db31f73eb530c1a0fbb59f77e915801404d408b0d8"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/policyadmin/storage_unix.go",
+      "sha256": "d015389f1ed1602f47b7e590accba3741d2d463cce8db4fdd09990d3aef28591"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/binding.go",
+      "sha256": "9b47b5bd0edd5cfcf42411c7349feeb0af391294a78e44e2164cd49d11137dc8"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/binding_storage_unix.go",
+      "sha256": "f3a13acda61822d748f9a88a36de042c251cd03cdf1aec6b83c86b568633b9c6"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/binding_test.go",
+      "sha256": "aa1a983ddff9ab45fa31bfc20c4989819570731d545d8c063340b113d1c91f5a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/launcher.go",
+      "sha256": "65ae681e2517070076989d233c2a20be494ae23ddae5031d1eed03a5aa2da04e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/launcher_test.go",
+      "sha256": "6bb299ec2d2b5d758c86c1550de85d37952a2eee2364cd623f15e5cedea58842"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/os_unix.go",
+      "sha256": "78175243698afed14f209dc391f2cca207e715a5a0555523600c2d4f5212a6f1"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/os_unsupported.go",
+      "sha256": "95772966054e040efe0272cece1cb7186582bd1019b39e089ec57928e5aeaf46"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/process_unix.go",
+      "sha256": "e5fcea2d9929d83755c4b6994414cf2fbdfed63b3e95b843dba293a4a994d01a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/process_unsupported.go",
+      "sha256": "ff7c1fee3e0bc08361560f55569a2f61854b7074d61be096e816b60d27873436"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/readiness.go",
+      "sha256": "01eae81b79cc87c7af5707a33f17318f2d2527301b1a669992c1e896ffad19e9"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/readiness_test.go",
+      "sha256": "1b189a07c5e478f493bafedeaeea7ac77201206d892547cf883ce93e55de20af"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/receipt.go",
+      "sha256": "5cbaa40423a0d09dbd0b4d680a4dc84e1ed6c8348a784bca31774f655856d727"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/registry.go",
+      "sha256": "86750959bdc82b4c339f9681cc9bbf774f6395f1f37d9c6dedb57c4fa30cd8e1"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/registry_test.go",
+      "sha256": "201486038cbdb915fe517bc951d0ab22f46e7be5f31b1629823a9577aa8b57dd"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/trust.go",
+      "sha256": "cfd7e0c61296c96ffed794237e620d7e5b35c80d9bbe72ec44942304e8fb442e"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/provider/trust_test.go",
+      "sha256": "dd4a1772c83a79caef4dece4a0ea9956f1558c78477bd688dae8bebdf244bc13"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/cloudflare_use.go",
+      "sha256": "50b12d7245a53e51ba98a0b6f741ca5081c2cfa1c12e2267203ca441610fbce9"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/cloudflare_use_test.go",
+      "sha256": "238c95c8a481674d78da55cca68a038345c7034817918e8a0009ed52d5fd6d7c"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/distinct_identity_integration_test.go",
+      "sha256": "49469d2099839ecd757ae5916739693823912149bd73e64e126530277752c7c7"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/foundation_audit.go",
+      "sha256": "b71914836bee45c51caf49d29feb390c6616d8847e5c98686d0ed29e95648aa2"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/foundation_audit_test.go",
+      "sha256": "974423a5ec86c3d3b2698b644ed74c0cf8796a52b0f5dcdc06c577c7d43e641a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/handler_drain.go",
+      "sha256": "f2c1f766f7372908e182e1abf8f787efc8a45511c7768ea167b4acaa92b44cbd"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/handler_drain_test.go",
+      "sha256": "5ec625c733f1b1093117daaeded441ce111efb19ee8d95bb244b5b3962bf8846"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/server.go",
+      "sha256": "3a1d315ff0cd524645e96817e6b0e41da0d623f093a610a9f78dd359f3721ff4"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/server_test.go",
+      "sha256": "95619e4125002dea75a7e47eacf9c3b59273983fec58f1031d04e3c715b38c88"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/socket_readiness_test.go",
+      "sha256": "2e9b9fd47afb095e4787a7cef1c7e939e4415e72969022351e73435ffa6409f4"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/socketlock_test.go",
+      "sha256": "d999713f100035257b8bf8434f493533547f164549a4bfcd2b833b4f68e7e0ad"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/socketlock_unix.go",
+      "sha256": "c2c70a66bf1eb99630410c321a8a06f30eb9e2cd4e98ec29ae3e2afdb77bc18b"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/socketlock_unsupported.go",
+      "sha256": "e46264daf38f38381fd6ef2e37c9f5e5d9b531292ce060c05d141315a9f997c7"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/transport_connection_audit.go",
+      "sha256": "f5d10bbf70652772d98bed4f1d565862b729394eb99d911ebd4a99875a41a0bf"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/transport_connection_audit_test.go",
+      "sha256": "497fd1eaf75e8fb4891269276ed7e80d21dc5bd5eeba771f723aaa31cecf0a2d"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/transport_profile_audit.go",
+      "sha256": "6d334dfc0301feefa31a22004e1ccf4a5894b175d98a7f5946f49c48fbb35583"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/server/transport_profile_audit_test.go",
+      "sha256": "028c4a52f228c6f0e3066b08631d95dbc2092c61cbab22862a288790aa72114c"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/stavproducer/producer.go",
+      "sha256": "de157ccf268c8619143cfb4ca0b856851beb37229d83c0f7c7fe98b23bb3fb6a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/stavproducer/producer_test.go",
+      "sha256": "98fd018b491ae406259c2216293a98342d371407015b73397652ec60950730e0"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/supervision/ownership_test.go",
+      "sha256": "1b7f73983d4e8840be87b7c77ec612ca9e738aef49ac28efacacca0743d7f74c"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/supervision/supervision.go",
+      "sha256": "624d954935cb18a274afb46552eae75105c4d70bf6abcac642ca545a9c85e404"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/supervision/supervision_test.go",
+      "sha256": "f45e0393d95197751f5470c738a419568b86770bdc215d84505f534b3c65d449"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/transportaudit/contract.go",
+      "sha256": "53424f9648ab7bdafc554b07e26e40deef861ddad7fa950c47b5bd80d4a20d30"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/transportaudit/contract_test.go",
+      "sha256": "d17ecda202c615f57a13d1060652fa7cfd5256c9cd6112aae083e6320f7d7986"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/version/version.go",
+      "sha256": "34a169bf630d86bcc6dc329e0a1a29766568ef16b143c08e34e96ab0dd7a98ce"
+    },
+    {
+      "path": "modules/stav-append-authority/cmd/symphony-stav-append-authority/main.go",
+      "sha256": "600b5e7682e15b4b804fd945335f0bfbbf5c03f5f2e6fb12503e76ac642c591a"
+    },
+    {
+      "path": "modules/stav-append-authority/go.mod",
+      "sha256": "6a36a515a9bb328b95eb243c860d469799a396ebdab48cabf0090845510d07f2"
+    },
+    {
+      "path": "modules/stav-append-authority/go.sum",
+      "sha256": "c7cda3173deb371d7ebe7f820385ceb1809a4a6c0074f6ac3154888d776ca613"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/config/config.go",
+      "sha256": "138262639c2200df530b5ce7544a78a2add133f7aa6189e0226f11966dc90c20"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/config/config_test.go",
+      "sha256": "b3e086972750c1f775ec5ae98e7c852905605e810ae32cfecfcf051f19b9185c"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/config/open_nofollow_unix.go",
+      "sha256": "fde9ce7a3249b7ebd94432137efa545e67bdf45b507d3fad88b1f0b18625c016"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/config/open_nofollow_unsupported.go",
+      "sha256": "6aba4e0d8c3bd3e3a97b2eb4367d08dfe83034acffd55a952f01f547a44d01f9"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/config/ownership_test.go",
+      "sha256": "1dfbbab761fa09a0a9e92d53ceebf44dc35454c9990b1e8bbbde8b69d34d72c7"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/audit.go",
+      "sha256": "ce99d3a429c6bd3e4a7075163c7e201c0f7a5b3c03b25ff9ee17f8352982df37"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/audit_test.go",
+      "sha256": "7dc2f5d0d6dc97ff341143669fdd81d92b32952fbe708cf58e51bd9378087ab2"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/engine.go",
+      "sha256": "00f8f021ee5d4120b0d4d00638b85cbc0b6bebe70dd60f5a1f268d029176bda6"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/engine_test.go",
+      "sha256": "9a2ec9566792380a0eb4dace927206ca20669826279e96f25130f383bf905819"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/lock_unix.go",
+      "sha256": "66604fa3961d0af3391f9743f499a617ad783270bfe067d0d55fc6e7319e29a5"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/lock_unsupported.go",
+      "sha256": "baeacf8c9c57009f622a172ab41af5216529c31a8a926afba697eef1acfe652b"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/ownership_test.go",
+      "sha256": "1c2c8c8c04eb18b851aececa246001c6fc24f753f8434c51eeaa3ef6efb39193"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/transaction.go",
+      "sha256": "284a70bb96c482298916e0b02f5a279969f439256da791524eb7680578874610"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundation/types.go",
+      "sha256": "55e17a8457fc3dfb202463e052cee338e16ceb937772f726c98b5074c3d11409"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundationaudit/client_test.go",
+      "sha256": "232d95430e2c8bfd00536aada2f252833c177bc1d09d689b0406c9013ff67c3f"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundationaudit/client_unix.go",
+      "sha256": "84c646b1707245641a99fe718c9ef8e8c214b75d042bbaccf579385647eb2acd"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundationaudit/contract.go",
+      "sha256": "9f482db88dc57ea7bdb7f2f899d6c0735bef514cbc0db50c333098aee8a9d2ab"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundationaudit/contract_test.go",
+      "sha256": "cf8c39a145a26cd5b92841d28ff6b009138eff97fff80ddea358bde4c2f8fe24"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/foundationaudit/journal_unix.go",
+      "sha256": "7b7b6e46a9cce864041a6d7c1beae226ff6b83d4c071fe402aa5ca0342fc2da6"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/enrollment.go",
+      "sha256": "7194ac7210b2bb03cbc339e8f296a601572c579dea3d55db5902ca4dc733ae10"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/enrollment_test.go",
+      "sha256": "d4ec437e3c2a3181311801f38930248b6305b881c44693db0caa39a14612c22c"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/lifecycle.go",
+      "sha256": "c982e3b1fefd59850cd07e43789463b3e2ab775e53f095386e6113fcf73d3155"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/lifecycle_test.go",
+      "sha256": "727a4c4f2cd7e53335d18940b59b250d15f16290562d911c4eb29d757a6a3909"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/ownership_test.go",
+      "sha256": "5a8ac1863156109ca058b047adeff0d14bbf80689e2aff30918e0a2eaeda969f"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+      "sha256": "f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/socketlock_unix.go",
+      "sha256": "97ae74efdaf39a0ae5fc2dfc8fbfb4eac36c3fcbdb13fbed000afebe0253c343"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/socketlock_unsupported.go",
+      "sha256": "5ad027ae973ce2b3af58c6bce2ba6e10eff81ed613af3044fdc058a8217f8a11"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/delegation.go",
+      "sha256": "115637c6990f2f46c809bfb3f5d0e316bc2240084bd90664c1e33b8fd0852cc1"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/delegation_unix.go",
+      "sha256": "c3aae84b0d3cba7227bc742deb0942e7633c5922b6baf09cb2cb85c7ce886b81"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/delegation_unix_test.go",
+      "sha256": "1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/delegation_unsupported.go",
+      "sha256": "6d6ab7646a774afee8fdf4b0c14ec866c1273e71613fb3ded94567de3dc17f8c"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/guard_unix.go",
+      "sha256": "424cab8505a7a11fcae2a3763cd6526cd902db940a94e948def888603e728703"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+      "sha256": "125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/guard_unsupported.go",
+      "sha256": "c855eb82689765c58c0b772c189db75d14e4c39e8468e264e668fb55ff348be3"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/identity.go",
+      "sha256": "c814a1829e1d6a8107ed6d5f7c4ce4ab4cf20d4bebd8073104a470c36fa3f249"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/publish_unix.go",
+      "sha256": "9803261cbc3ca3a001c983c10c85afe669b16bb3edd79bd310888f1148e59b36"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/publish_unix_test.go",
+      "sha256": "ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageretirement/publish_unsupported.go",
+      "sha256": "e2a827fd4c3f478fc7d08a6e064642c3caf9c48b2792324f9fefe9a8676a604d"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/packageuse/use.go",
+      "sha256": "f33005437f4b5049ef505c0dd13e2e26a1a7c3d84063abf120786493b747fc5d"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/paths/paths.go",
+      "sha256": "b21f26d1417ef9f4555a53e2057847c702c528a5b213839a649a3408d94de9f3"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/paths/paths_test.go",
+      "sha256": "409a6581a5873d91be4bb66220067469ca5455a863f63e417d3c00c38cf851d7"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/peerauth/credentials.go",
+      "sha256": "2f17f9b12d03de2059deae38cd67dfb5e8e45de793aa4d350b865113c3ad9937"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/peerauth/credentials_darwin.go",
+      "sha256": "64c8dcf9f88b9bcf4a637b7b344549999c06dba3d7e21be746a911970849e097"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/peerauth/credentials_linux.go",
+      "sha256": "e944f594913285b63ec59d260042fd8e5a26cf54c664d755eb53853595746807"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/peerauth/credentials_unsupported.go",
+      "sha256": "23157c0004ab8793b559846e031144eb4454c8cd09ac98e1ec9eacb904badeb8"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/peerauth/resolver.go",
+      "sha256": "69faba5fab1a504275928a8cbe2806adbafe7a3ac8902b2c1ed265af134b966b"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/server/server.go",
+      "sha256": "bf0e847b2e11fac83d43d4916ebe13c3973a3e7509b82c4a538224798ac4f4ec"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/server/server_test.go",
+      "sha256": "afae8e345da567913b20e7106b3bf14dee10af2c42dd536a78069c22f85defb3"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/server/socketlock_test.go",
+      "sha256": "da4d9d99dca8a0030b71c99e3df7719bbd7faa44433fd81b5b061cb670b198f2"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/server/socketlock_unix.go",
+      "sha256": "20d5fbcbe300ed9847909aa47d2b48e13cd9931cbac6008e6ca808606f4b26ea"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/server/socketlock_unsupported.go",
+      "sha256": "d1b46512f17a13770cbfacc7aa4bafa0b5cea802217cd2c77e8566375002731e"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/storage/ledger.go",
+      "sha256": "ee7dce57d7998445ad00dde3051bc7e00de09df9617fe5e486f73947a9768c75"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/storage/ledger_test.go",
+      "sha256": "b5cb7c3950f1ee0abecac07eadb35d207da133daafd602677d13efcc72637ad6"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/storage/platform_unix.go",
+      "sha256": "68e59984efa7b6bd3e7bb6613f52400c7ba753860db89c69dbe46eb9e93364a6"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/storage/platform_unsupported.go",
+      "sha256": "860189ebb900df9be16c242c6641d23c0baa368565d7e36682e807e3a76c0d75"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/supervision/ownership_test.go",
+      "sha256": "62c0f5ff23c086ff24b546102fd0e0653bb528263f2d041d250cc991f5884ab5"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/supervision/supervision.go",
+      "sha256": "afabe1ed4813e034084b0227631803902e0ca8943b150a3656d0f130bf6753c1"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/supervision/supervision_test.go",
+      "sha256": "7a22daf271f49bbeeb36cbe1d4db93077c25356dd441c6c8149017405ede857f"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/version/version.go",
+      "sha256": "ee7a882d970abacb90cbf928cf81dd7947ed460945426fda8678e9c746859320"
+    },
+    {
+      "path": "tests/launch-acceptance/go-candidate-closure.go",
+      "sha256": "49614655decc43902f97da935997734cd806d16ac152f024ec1b8e5c617a7a20"
+    },
+    {
+      "path": "tests/launch-acceptance/qualify-go-owners.go",
+      "sha256": "46116259db1644169b0d3183c95998e2f2b3db5893e15ce7ffb79eed090505e5"
+    },
+    {
+      "path": "tools/qxctl/cmd/qxctl/commands.go",
+      "sha256": "f4f43c87da795ef84bd93c2359c26e259d5cc6a9a8115e52ad919c355cf802d3"
+    },
+    {
+      "path": "tools/qxctl/cmd/qxctl/lifecycle_apply.go",
+      "sha256": "b04f83d791ba9dac9aaee55138cd3c6feb2a1db50936891977e73f6df6491786"
+    },
+    {
+      "path": "tools/qxctl/cmd/qxctl/main.go",
+      "sha256": "42c1a77db3acd315e7eadb2de956faed234c63b73302ee29584e426474514395"
+    },
+    {
+      "path": "tools/qxctl/go.mod",
+      "sha256": "486a66c8931a6f14f7486ca586121331f077590ff0821c0a376c923abea54da1"
+    },
+    {
+      "path": "tools/qxctl/go.sum",
+      "sha256": "8784e92ba07718b5c9dec5f15b4ccc0f8e979deb8289917ae866628d0f920551"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/execution_lease_unix.go",
+      "sha256": "9814be5c310d76b4a1f3c0da5e3ef0eef02bd024ef2a80594ac89f77dfbbea76"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/execution_lease_unsupported.go",
+      "sha256": "a9f1e506cf800616d495ca4ac2423a633faa34ee858fa134f641989afbf75392"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope.go",
+      "sha256": "9f0e2434f5e618221a9095a232008aa34532f9330f5a6d6a28393ac218284957"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_test.go",
+      "sha256": "73dad59ef4feab45449239b1f56f292a59fe7d3c33d5c16a7c898c625f69c747"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_unix.go",
+      "sha256": "a133b24b19ea90bf9b12cb286970b0d59871483efbeccd93eb5b884ca75e177f"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_unsupported.go",
+      "sha256": "eef6f5d5a64de06fcbee4fdfbdaea7d45cb44a1650e0cc5ba87d6406b4e08717"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/executor.go",
+      "sha256": "c83e9cc8c436a06ffef4c2f2c5fc52ef34473ba09795289bb5fad048f816239e"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/executor_test.go",
+      "sha256": "2844e328479733bf14ce9f41f72e74368c6f3d895d11915575e3db4604c8204d"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/host.go",
+      "sha256": "7f96fbfe55a57b90970de6e8dd548daf939fbc0d48278ff06b3a12f35b350380"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/host_admin_unix.go",
+      "sha256": "3e412a73a691f509124809a9c62896502c21e3c1e3185ee0919d0ee4d4a03166"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/host_admin_unsupported.go",
+      "sha256": "358bb5bf3ad9230f573e2e34b2c1e60fc6ba4cd7d031b2cea35f3053a985a8e9"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/host_test.go",
+      "sha256": "fc25bfffdcdc32a139ae6c85bc1d9ed012d69f842555d7a9ec72d6f280905764"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+      "sha256": "d9bae0aa118ad30cc2c39cecc365a18297b2774863303a97c9639d505f5dc5d5"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/install_unsupported.go",
+      "sha256": "45d7d830cbab77a34aa252aa05b8bfac1784ac78f495a7239a20e878bc6ed2bb"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/native_owner.go",
+      "sha256": "994612b88f95c6388659c3e0b114c771d3565d3349473ae4ad294407bb0bc27c"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_test.go",
+      "sha256": "4bd8a995a0c74339328c9b40aef3c4158f789011d292409012aa202fc6745844"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix.go",
+      "sha256": "6221d6d1329eae9f8d6c3dde47e87d3ced3f530e21e9f08f27e44b56d2a1929d"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+      "sha256": "d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unsupported.go",
+      "sha256": "73640657e36c42ea780d08db4b801a213f2ca7f0bf3d8b4c25c31c034a2e99b7"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/observation.go",
+      "sha256": "8d71944dfbfe82998231a3fb9010244aa81529163003ebce903f4e0ca4edb961"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/ownership.go",
+      "sha256": "4d0b7abbef1020bf13842e89349e9a60c8b2d1cde0b54753cb087a9c02cc0171"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/ownership_scoped.go",
+      "sha256": "3ce27ad12e820ba243f0bf6c145e2bd0bbabb00ae6d5b8a85522d54635a690e7"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/ownership_test.go",
+      "sha256": "2f6b4bf964d58d3e6b8e0f3a5a248e4645602ec2a62fdbf6b17a4029f7ca44a4"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/ownership_unix.go",
+      "sha256": "5c3b108f4e375be8d9488523455e5e2d008da2189c296abf7459e4f7ec818cee"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/ownership_unsupported.go",
+      "sha256": "683c4317dbcd2d71fc63390ead8fb2ee531b7e023f7d3b8b6fb8082c41aad44e"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/profile.go",
+      "sha256": "589f319492eb719407dd5a1a52b07fc962e59b0429278dbaf4514469ea3da004"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/profile_test.go",
+      "sha256": "cc9e7b7697245b08b5d7d7dfa7d220ec9cd6a53a632dbb66207023a7a68fca45"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/runtime.go",
+      "sha256": "6294ee5459d8c6e92964f2b5fb403d229f5eda03e8bd6694d8feeddec1b57afa"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/runtime_unix.go",
+      "sha256": "fa5fa88dad3a0dff627b17946b06d572bb0691f760e3601484ca77605a5887f0"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/runtime_unsupported.go",
+      "sha256": "eff204540eb26914a25020c15e90affe562075af579d1cf5bf151f5947b2db96"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/scan_unix.go",
+      "sha256": "b803bbe55e07680e1ee126e57b0e9c3266683729256d3670daf3d42c8f7c2bd0"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/scan_unsupported.go",
+      "sha256": "a7de5d7e1767c3e3c595791cd7440576aeafd89fe2651155f3646a1bb9019bc0"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/state_unix.go",
+      "sha256": "135c5e38558d12acf5cd7ba9d38fec1dd7609fddd5699dda2e6f6634cbf0ab78"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/state_unsupported.go",
+      "sha256": "4d121365025d1cc7de34441498636df9faba8fef4199fb844f9dc86c248cc564"
+    },
+    {
+      "path": "tools/qxctl/tests/reproducible_build.cmake",
+      "sha256": "3985c45bd55e2652365abee1f66377f5150bd959198ec6158c5e64943e895b45"
+    },
+    {
+      "path": "tools/sov-ssh-adapter/go.mod",
+      "sha256": "ab3b400ee6a9b40abc287d4bf2c9decdc343e751d86f82fbc02233e10e311fb7"
+    },
+    {
+      "path": "tools/sov-ssh-adapter/go.sum",
+      "sha256": "c7cda3173deb371d7ebe7f820385ceb1809a4a6c0074f6ac3154888d776ca613"
+    },
+    {
+      "path": "tools/sov-ssh-adapter/main.go",
+      "sha256": "d664cc38fcf8c19713a83b0e1c17eea99a230f68a8459c3dbf5c0612b8ffc7dd"
+    },
+    {
+      "path": "tools/sov-stdio-adapter/go.mod",
+      "sha256": "17d9f33e645880745f3c28c9efac06783266d5701b2a55ffa4109172a755e0bb"
+    },
+    {
+      "path": "tools/sov-stdio-adapter/main.go",
+      "sha256": "fb404f94c2fbb1b5cf5fad5ea5ca8b8f96d4d2db76f92d180fda568d0a42b6da"
+    },
+    {
+      "path": "tools/sov-transport-profile-admin/go.mod",
+      "sha256": "ac57620cf11f64706efabeebd9f36b321aca2fcec65dd6c05f791d3bcf506e0d"
+    },
+    {
+      "path": "tools/sov-transport-profile-admin/go.sum",
+      "sha256": "c7cda3173deb371d7ebe7f820385ceb1809a4a6c0074f6ac3154888d776ca613"
+    },
+    {
+      "path": "tools/sov-transport-profile-admin/main.go",
+      "sha256": "59fd2f2baab585ec80d10af4ff7e876c1eeba73d51fa8dd4ad1f204e9dc1f8e8"
+    }
+  ],
+  "source_tree": "f0bb667817514515d33b86679c72431947260f39"
+}

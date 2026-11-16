@@ -1,0 +1,262 @@
+{
+  "protocol": "symphony.release.go-candidate-closure.v1",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "goos": "darwin",
+  "goarch": "amd64",
+  "go_version": "go1.26.5",
+  "accordare_owner_source_commit": "71bbb60d870ab1da205b1b82d62adec38dca9a68",
+  "accordare_go_module_version": "v0.1.0-dev.0.20261116054240-71bbb60d870a",
+  "accordare_go_module_sum": "h1:NWYhZIkqW9h+sSEOqI6jS9AeSNO/QYV5VPoXRmxps6A=",
+  "accordare_go_mod_sum": "h1:922EvrCQ21+/WziKvvrJhoEdff7K4MLECsrcZ8RXSK4=",
+  "module_download_evidence_sha256": "25feebe229bed8574267728e79c2715fdd5511765f21f9aea1109552282cf706",
+  "owner_source_selection_sha256": "3be692d3a8e3a2b2a03cc87956f2ca35cba605c4782cf28e7a9afc8d9b70f9e7",
+  "dependency_map_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+  "release_identity_catalog_sha256": "1e0965f3083df1c61122085ff99994fce15206719d99aa76cba6e050fabe81f3",
+  "units": [
+    {
+      "component_id": "accordare-stav-producer",
+      "native_version": "0.1.0-dev",
+      "executable_sha256": "28588a619eafe53a86fbffc520c7d5c927cc2a7321469cd328ef19321f8604b8",
+      "executable_size": 7554432,
+      "artifact_identity_sha256": "61a3bddac209a2cbfea40f9750f13a6b8814e65a7ec6ac87061ba36d769af997",
+      "main_module": "github.com/QuanuX/Symphony/modules/accordare-stav-producer",
+      "go_mod_sha256": "f584fd1e52f6f7073e908bc2d455a6f3d419a7b59b09711f2ca89f286b0fc44a",
+      "go_sum_sha256": "2528b2c0cea4b8ee603a814c6daa86b1578cc0a42d88c89c64162fd6db7cc084",
+      "build_recipe": "symphony.go.candidate-build.v1",
+      "linked_go_modules": [
+        {
+          "module": "github.com/QuanuX/Symphony/libraries/stav-protocol-go",
+          "version": "v0.2.0",
+          "sum": "h1:DGVd771sqzeRpEkTUuuF+9TOK1JVQtyMh2GYR840g70="
+        },
+        {
+          "module": "github.com/QuanuX/Symphony/modules/stav-append-authority",
+          "version": "v0.2.1",
+          "sum": "h1:B90Nn4cI0BzcycgL5guW13bUBB1i4vzT5fYBjvoPAns="
+        },
+        {
+          "module": "golang.org/x/sys",
+          "version": "v0.47.0",
+          "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs="
+        }
+      ]
+    },
+    {
+      "component_id": "qxctl",
+      "native_version": "0.1.0-dev",
+      "executable_sha256": "abbcdd7e4c66ae74cf5faefe28e30600446d2a1859bb24e4bf04fdd84e40d6b4",
+      "executable_size": 24603792,
+      "artifact_identity_sha256": "d97da351e98540177c2da08891b700c020b011c81a1bd8ea285feebbfeeaf7d1",
+      "main_module": "github.com/QuanuX/Symphony/tools/qxctl",
+      "go_mod_sha256": "486a66c8931a6f14f7486ca586121331f077590ff0821c0a376c923abea54da1",
+      "go_sum_sha256": "8784e92ba07718b5c9dec5f15b4ccc0f8e979deb8289917ae866628d0f920551",
+      "build_recipe": "symphony.qxctl.reproducible-build.v1",
+      "linked_go_modules": [
+        {
+          "module": "github.com/QuanuX/Symphony/libraries/stav-protocol-go",
+          "version": "v0.2.0",
+          "sum": "h1:DGVd771sqzeRpEkTUuuF+9TOK1JVQtyMh2GYR840g70="
+        },
+        {
+          "module": "github.com/QuanuX/Symphony/modules/accordare-stav-producer",
+          "version": "v0.1.0-dev.0.20261116054240-71bbb60d870a",
+          "sum": "h1:NWYhZIkqW9h+sSEOqI6jS9AeSNO/QYV5VPoXRmxps6A="
+        },
+        {
+          "module": "github.com/QuanuX/Symphony/modules/stav-append-authority",
+          "version": "v0.2.1",
+          "sum": "h1:B90Nn4cI0BzcycgL5guW13bUBB1i4vzT5fYBjvoPAns="
+        },
+        {
+          "module": "github.com/QuanuX/Symphony/tools/sov-ssh-adapter",
+          "version": "v0.1.0-dev",
+          "sum": "h1:QdA+R9MXg1uJzX6Qs2VLtVXGOdwMXGbCc7B4LBVzn4A="
+        },
+        {
+          "module": "github.com/fsnotify/fsnotify",
+          "version": "v1.9.0",
+          "sum": "h1:2Ml+OJNzbYCTzsxtv8vKSFD9PbJjmhYF14k/jKC7S9k="
+        },
+        {
+          "module": "github.com/go-viper/mapstructure/v2",
+          "version": "v2.4.0",
+          "sum": "h1:EBsztssimR/CONLSZZ04E8qAkxNYq4Qp9LvH92wZUgs="
+        },
+        {
+          "module": "github.com/pelletier/go-toml/v2",
+          "version": "v2.2.4",
+          "sum": "h1:mye9XuhQ6gvn5h28+VilKrrPoQVanw5PMw/TB0t5Ec4="
+        },
+        {
+          "module": "github.com/sagikazarmark/locafero",
+          "version": "v0.11.0",
+          "sum": "h1:1iurJgmM9G3PA/I+wWYIOw/5SyBtxapeHDcg+AAIFXc="
+        },
+        {
+          "module": "github.com/sourcegraph/conc",
+          "version": "v0.3.1-0.20240121214520-5f936abd7ae8",
+          "sum": "h1:+jumHNA0Wrelhe64i8F6HNlS8pkoyMv5sreGx2Ry5Rw="
+        },
+        {
+          "module": "github.com/spf13/afero",
+          "version": "v1.15.0",
+          "sum": "h1:b/YBCLWAJdFWJTN9cLhiXXcD7mzKn9Dm86dNnfyQw1I="
+        },
+        {
+          "module": "github.com/spf13/cast",
+          "version": "v1.10.0",
+          "sum": "h1:h2x0u2shc1QuLHfxi+cTJvs30+ZAHOGRic8uyGTDWxY="
+        },
+        {
+          "module": "github.com/spf13/cobra",
+          "version": "v1.10.2",
+          "sum": "h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU="
+        },
+        {
+          "module": "github.com/spf13/pflag",
+          "version": "v1.0.10",
+          "sum": "h1:4EBh2KAYBwaONj6b2Ye1GiHfwjqyROoF4RwYO+vPwFk="
+        },
+        {
+          "module": "github.com/spf13/viper",
+          "version": "v1.21.0",
+          "sum": "h1:x5S+0EU27Lbphp4UKm1C+1oQO+rKx36vfCoaVebLFSU="
+        },
+        {
+          "module": "github.com/subosito/gotenv",
+          "version": "v1.6.0",
+          "sum": "h1:9NlTDc1FTs4qu0DDq7AEtTPNw6SVm7uBMsUCUjABIf8="
+        },
+        {
+          "module": "go.yaml.in/yaml/v3",
+          "version": "v3.0.4",
+          "sum": "h1:tfq32ie2Jv2UxXFdLJdh3jXuOzWiL1fo0bu/FbuKpbc="
+        },
+        {
+          "module": "golang.org/x/sys",
+          "version": "v0.47.0",
+          "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs="
+        },
+        {
+          "module": "golang.org/x/text",
+          "version": "v0.28.0",
+          "sum": "h1:rhazDwis8INMIwQ4tpjLDzUhx6RlXqZNPEM0huQojng="
+        }
+      ]
+    },
+    {
+      "component_id": "secure-identity-access-governance",
+      "native_version": "0.1.0-dev",
+      "executable_sha256": "042572fb4b8dd5c3fb3277c043c03f057785d504de85dbebe11a2525c360a2e6",
+      "executable_size": 15093744,
+      "artifact_identity_sha256": "9df40d2a71d79c452d70a39e674036c546115e5e3708af0de4a3b87798be8735",
+      "main_module": "github.com/QuanuX/Symphony/modules/secure-identity-access-governance",
+      "go_mod_sha256": "64f07a19182e0191fd546cb9c55a5af4eb79edf0f9b29d64ed1e79db462f1050",
+      "go_sum_sha256": "2528b2c0cea4b8ee603a814c6daa86b1578cc0a42d88c89c64162fd6db7cc084",
+      "build_recipe": "symphony.go.candidate-build.v1",
+      "linked_go_modules": [
+        {
+          "module": "github.com/QuanuX/Symphony/libraries/stav-protocol-go",
+          "version": "v0.2.0",
+          "sum": "h1:DGVd771sqzeRpEkTUuuF+9TOK1JVQtyMh2GYR840g70="
+        },
+        {
+          "module": "github.com/QuanuX/Symphony/modules/stav-append-authority",
+          "version": "v0.2.1",
+          "sum": "h1:B90Nn4cI0BzcycgL5guW13bUBB1i4vzT5fYBjvoPAns="
+        },
+        {
+          "module": "golang.org/x/sys",
+          "version": "v0.47.0",
+          "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs="
+        }
+      ]
+    },
+    {
+      "component_id": "sov-ssh-adapter",
+      "native_version": "0.1.0-dev",
+      "executable_sha256": "a776d1060a226e0eadf799ebc4c5afb6e49c692cabd7b44a6f0b95a4108268ff",
+      "executable_size": 10028960,
+      "artifact_identity_sha256": "b98a15a47bc7a40cf765a2ab7db83ceb76f2bd2ee7b606e75aea90b24615800e",
+      "main_module": "github.com/QuanuX/Symphony/tools/sov-ssh-adapter",
+      "go_mod_sha256": "ab3b400ee6a9b40abc287d4bf2c9decdc343e751d86f82fbc02233e10e311fb7",
+      "go_sum_sha256": "c7cda3173deb371d7ebe7f820385ceb1809a4a6c0074f6ac3154888d776ca613",
+      "build_recipe": "symphony.go.candidate-build.v1",
+      "linked_go_modules": [
+        {
+          "module": "github.com/QuanuX/Symphony/libraries/stav-protocol-go",
+          "version": "v0.2.0",
+          "sum": "h1:DGVd771sqzeRpEkTUuuF+9TOK1JVQtyMh2GYR840g70="
+        },
+        {
+          "module": "golang.org/x/sys",
+          "version": "v0.47.0",
+          "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs="
+        }
+      ]
+    },
+    {
+      "component_id": "sov-stdio-adapter",
+      "native_version": "0.1.0-dev",
+      "executable_sha256": "dedd0690a169ce195a7684e8371246c468bb1aedbf772c96e67e1c0ea5a78273",
+      "executable_size": 3609296,
+      "artifact_identity_sha256": "f753c209698a014490f55a7d9199d4db509e6bfeace27ea6f56517ed557d71fc",
+      "main_module": "github.com/QuanuX/Symphony/tools/sov-stdio-adapter",
+      "go_mod_sha256": "17d9f33e645880745f3c28c9efac06783266d5701b2a55ffa4109172a755e0bb",
+      "go_sum_sha256": null,
+      "build_recipe": "symphony.go.candidate-build.v1",
+      "linked_go_modules": []
+    },
+    {
+      "component_id": "sov-transport-profile-admin",
+      "native_version": "0.1.0-dev",
+      "executable_sha256": "be497cbc6fa148796005fe333b41eb3829493577005ecaec67f4dd8b0230612e",
+      "executable_size": 9839968,
+      "artifact_identity_sha256": "3648ce416057fd60b8b31b4a3d061a0aa227de05dc8c5154de4f95f2286c9f86",
+      "main_module": "github.com/QuanuX/Symphony/tools/sov-transport-profile-admin",
+      "go_mod_sha256": "ac57620cf11f64706efabeebd9f36b321aca2fcec65dd6c05f791d3bcf506e0d",
+      "go_sum_sha256": "c7cda3173deb371d7ebe7f820385ceb1809a4a6c0074f6ac3154888d776ca613",
+      "build_recipe": "symphony.go.candidate-build.v1",
+      "linked_go_modules": [
+        {
+          "module": "github.com/QuanuX/Symphony/libraries/stav-protocol-go",
+          "version": "v0.2.0",
+          "sum": "h1:DGVd771sqzeRpEkTUuuF+9TOK1JVQtyMh2GYR840g70="
+        },
+        {
+          "module": "golang.org/x/sys",
+          "version": "v0.47.0",
+          "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs="
+        }
+      ]
+    },
+    {
+      "component_id": "stav-append-authority",
+      "native_version": "0.2.1",
+      "executable_sha256": "6798f6a2a3c83298eec1bac85b709a2304d6adb961a5a0a7a7a4ac16bc89c4d1",
+      "executable_size": 13041024,
+      "artifact_identity_sha256": "7ac2ee4d9cc03d1d523a998f1a0ca193fb1bd1f078044318149b5da833154cb6",
+      "main_module": "github.com/QuanuX/Symphony/modules/stav-append-authority",
+      "go_mod_sha256": "6a36a515a9bb328b95eb243c860d469799a396ebdab48cabf0090845510d07f2",
+      "go_sum_sha256": "c7cda3173deb371d7ebe7f820385ceb1809a4a6c0074f6ac3154888d776ca613",
+      "build_recipe": "symphony.go.candidate-build.v1",
+      "linked_go_modules": [
+        {
+          "module": "github.com/QuanuX/Symphony/libraries/stav-protocol-go",
+          "version": "v0.2.0",
+          "sum": "h1:DGVd771sqzeRpEkTUuuF+9TOK1JVQtyMh2GYR840g70="
+        },
+        {
+          "module": "golang.org/x/sys",
+          "version": "v0.47.0",
+          "sum": "h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs="
+        }
+      ]
+    }
+  ],
+  "status": "source_bound_candidate_closure_verified",
+  "public_release_completed": false,
+  "release_acceptance_complete": false,
+  "publication_authorized": false
+}

@@ -1,0 +1,80 @@
+{
+  "checks": {
+    "clean_checkout": true,
+    "exact_commit": true,
+    "exact_tree": true,
+    "immutable_schema_objects_read": true,
+    "scoped_source_capability_markers_present": true
+  },
+  "executable_source_attestation_verified": false,
+  "format_version": 1,
+  "platform_accepted": false,
+  "protocol": "symphony.distribution.scoped-handoff-source-binding.v1",
+  "publication_authorized": false,
+  "runtime_capability_negotiated": false,
+  "runtime_owner_invoked": false,
+  "schema_count": 11,
+  "source": {
+    "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "files": [
+      {
+        "path": "knowledge/schemas/v1/lifecycle-profile.schema.json",
+        "sha256": "40a7b36d3d7114be9ab45260c6071a6c3bf43ca5036cda662b213145420ea16e"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-desired-state.schema.json",
+        "sha256": "b67eb349a232c95cd6777bda0f58fb5e62ac4be77682c307676e116ad4bec7f0"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-observation.schema.json",
+        "sha256": "5c94445a32102989339dfc256d2806c43420b90f05fd7236edacdab7f135fab3"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-boot-result.schema.json",
+        "sha256": "7ac43b95238738494eeb1f7cf5b89d1b3b23f9d41b7e8db18f36db54f5aba154"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-boot-journal.schema.json",
+        "sha256": "2a42ce871783b1666866056212dceaf0d430a1c06b60de376e3f34de647b9224"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-plan.schema.json",
+        "sha256": "4a4bdb420015f7050531eb152e06108311d4d0296bf542bb57067b3ea0afcbac"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-execution-scope.schema.json",
+        "sha256": "65af7520aada9d487ccadc0c4d24175374016a6cbbd6c6a7cc18bd759ac04c9c"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-apply-result.schema.json",
+        "sha256": "575d8b245e3421436704babb95614249a452a0dc9cb446928260277336ae0b10"
+      },
+      {
+        "path": "knowledge/schemas/v1/lifecycle-applied-state.schema.json",
+        "sha256": "bec4cef76f91f5182b4a2b22cbb810aab16f514ba321f3d53805c527c59f9275"
+      },
+      {
+        "path": "knowledge/schemas/v2/install-receipt.schema.json",
+        "sha256": "c18463a4dbebd1d3e0d5c9b60e7dbf4c8e6e03f13c9f042d09cc9ed863db6b2e"
+      },
+      {
+        "path": "knowledge/schemas/v2/lifecycle-boot-journal.schema.json",
+        "sha256": "ad501bfbaec67704c1b6034f2fc0f0bf93b97cec57b2129b10fbb395e899e381"
+      },
+      {
+        "path": "tools/qxctl/cmd/qxctl/commands.go",
+        "sha256": "f4f43c87da795ef84bd93c2359c26e259d5cc6a9a8115e52ad919c355cf802d3"
+      },
+      {
+        "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope.go",
+        "sha256": "9f0e2434f5e618221a9095a232008aa34532f9330f5a6d6a28393ac218284957"
+      },
+      {
+        "path": "modules/knowledge-session-coordinator/src/lifecycle_journal.cpp",
+        "sha256": "bdc732b36dd2e6289583f4d0231f3914144bb99c46abc4b1352dd81081cbc8d6"
+      }
+    ],
+    "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+  },
+  "status": "immutable_candidate_source_verified"
+}

@@ -1,0 +1,3925 @@
+{
+  "catalog_digest": "sha256:587ad36494a7d67c14a612dab9a2197bee116b4c6f94ae3fc39faaedeec7cef1",
+  "classification_only": true,
+  "contract_source": {
+    "commit": "82abaa1421b99aefb836ba4030dfd80895d70ebb",
+    "tree": "f874d76f5102aba9251ec8a988501ff7e7547553"
+  },
+  "delivery_snapshot_sha256": "49e358f8b9e6b3085eef79b3e57235f8bad740e6068db15ad55ef8190d2a5335",
+  "delivery_source": {
+    "prior_catalog_sha256": "96c3bad2d94c5753fd8a88803065f37049e72445b5d6cb169f85e025f9205cd3",
+    "source_commit": "976b23290857be613005eea5cdc130d0f457b8c3",
+    "source_tree": "ffec92cedc5e169a5c21b82d5c4b246bf19eee54"
+  },
+  "format_version": 1,
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "runtime_execution_authorized": false,
+  "schema": "symphony.distribution.runtime-owner-catalog.v1",
+  "source_evidence": [
+    {
+      "path": "modules/accordare-stav-producer/INSTALL.md",
+      "sha256": "46cfb7921e9703040107ed15d1a3f2bb9dd81632c39309b2dbdd700daeb701f1"
+    },
+    {
+      "path": "modules/accordare-stav-producer/internal/packageinstall/package.go",
+      "sha256": "7b983baf62c376e5e47ba52ad898a9a1dcdf16c408804cd369de82cf4e88f2db"
+    },
+    {
+      "path": "modules/maestro/SPEC.md",
+      "sha256": "fbdf152c09a47d20e475b176db7b9c095ada97feea40e675b7d9c9fbc519541a"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/INSTALL.md",
+      "sha256": "19f8941962b2e35d9d0d2727986c5be073feb5d4422955da84d54b15f53c1da3"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/SPEC.md",
+      "sha256": "b97eace53eb1ab9723172c71c65035567b02e42c6771ae19eb999f9087127e43"
+    },
+    {
+      "path": "modules/secure-identity-access-governance/internal/packageinstall/package.go",
+      "sha256": "c34dffe8b30e76b8ad7cd8e437d3443e128410a80c6d8fe416cd453f4dae6bb2"
+    },
+    {
+      "path": "modules/stav-append-authority/INSTALL.md",
+      "sha256": "26e3e969521830232019c0b2ebd859560144161dff7fb488386a85ff058ffa01"
+    },
+    {
+      "path": "modules/stav-append-authority/SPEC.md",
+      "sha256": "cc23ce0609284a8d11928721a3238d093c4424e2436f2800d7f4482fc2125163"
+    },
+    {
+      "path": "modules/stav-append-authority/internal/lifecycle/lifecycle.go",
+      "sha256": "c42ef7aed92dcbc61c7f3c77027bf68ea3380e5d23f1834785a08dffa4db67e7"
+    },
+    {
+      "path": "tools/qxctl/README.md",
+      "sha256": "ba36853f04c359fc56e5d40f42bf599a50a950f165193ecd6f0e267c1a9a6113"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/executor.go",
+      "sha256": "bf7ae4e55113ba7bb28d5586c5874b802ef306b369c12fb41cb202058b3c6a74"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/host_admin_unix.go",
+      "sha256": "3e412a73a691f509124809a9c62896502c21e3c1e3185ee0919d0ee4d4a03166"
+    },
+    {
+      "path": "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+      "sha256": "ed9b100293f45a3a17344145ba009bff1d55457ed6480e0b3c0dfebf84022a0e"
+    },
+    {
+      "path": "tools/sov-ssh-adapter/README.md",
+      "sha256": "834f32819e0b8bc1d43382910ea15d761f3bb10d825cb605598738a1cdfbc4fd"
+    },
+    {
+      "path": "tools/sov-stdio-adapter/README.md",
+      "sha256": "d3f4d2e5a15b5dc77b5f43d7d6f3452cf8b9bcbe5fb96839b86a05f3a3678ba5"
+    },
+    {
+      "path": "tools/sov-transport-profile-admin/INSTALL.md",
+      "sha256": "349eec9633208873049193826ca83b1565c88bcbc2bdbf55f59a8675966fb2b5"
+    },
+    {
+      "path": "tools/sov-transport-profile-admin/SPEC.md",
+      "sha256": "cb4c1ffe6d295cb405ea35c0b2282d3c2b5653b0ad6a959ccc68c720ac405e7e"
+    }
+  ],
+  "units": [
+    {
+      "binary_name": "symphony-accordare-stav-producer",
+      "component_id": "accordare-stav-producer",
+      "definition_sha256": "aff17e46e5cdc32ca0b942997a26ca2a1579990e593490808db5f4241b3e497b",
+      "kind": "go_command",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "owner_dispatch_not_qualified",
+          "admission_retirement_race",
+          "pending_intents_outbox_and_grants"
+        ],
+        "contract": "accordare.package-owner.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "modules/accordare-stav-producer/INSTALL.md",
+          "modules/accordare-stav-producer/internal/packageinstall/package.go"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "module_receipt_owner",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "user",
+          "system"
+        ],
+        "selection_owner": "accordare_enrollment_supervision",
+        "source_operations": [
+          "install",
+          "uninstall",
+          "enrollment",
+          "supervision",
+          "grant_lifecycle"
+        ]
+      },
+      "selection": "include_in_core_delivery_set",
+      "unit_id": "PKG-GO-accordare-stav-producer"
+    },
+    {
+      "binary_name": "qxctl",
+      "component_id": "qxctl",
+      "definition_sha256": "4ecce196e5d06361eb79b00a8909a1942d8784f942841c13a4fe215109c09398",
+      "kind": "go_command",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "raw_delivery_custody_not_implemented",
+          "self_and_recovery_copy_retention",
+          "external_use_unknown"
+        ],
+        "contract": "qxctl.executable-and-host-owner.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/README.md",
+          "tools/qxctl/internal/knowledgelifecycle/host_admin_unix.go"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "raw_executable_host_binding",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": null,
+        "scopes": [
+          "user",
+          "system"
+        ],
+        "selection_owner": "explicit_client_or_linux_host_binding",
+        "source_operations": [
+          "exact_executable_selection",
+          "linux_host_provision"
+        ]
+      },
+      "selection": "include_in_core_delivery_set",
+      "unit_id": "PKG-GO-qxctl"
+    },
+    {
+      "binary_name": "symphony-ssiag",
+      "component_id": "secure-identity-access-governance",
+      "definition_sha256": "0160664f16d4281e5182a074b0aaa51a954703c8b5e3fd6bc5e283885e4f849a",
+      "kind": "go_command",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "owner_dispatch_not_qualified",
+          "admission_retirement_race",
+          "authority_and_audit_required"
+        ],
+        "contract": "ssiag.package-owner.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "modules/secure-identity-access-governance/SPEC.md",
+          "modules/secure-identity-access-governance/INSTALL.md",
+          "modules/secure-identity-access-governance/internal/packageinstall/package.go"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "module_receipt_owner",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "user",
+          "system"
+        ],
+        "selection_owner": "ssiag_foundation_lifecycle",
+        "source_operations": [
+          "package_install",
+          "package_uninstall",
+          "foundation_lifecycle"
+        ]
+      },
+      "selection": "include_in_core_delivery_set",
+      "unit_id": "PKG-GO-secure-identity-access-governance"
+    },
+    {
+      "binary_name": "sov-ssh-adapter",
+      "component_id": "sov-ssh-adapter",
+      "definition_sha256": "c7a4dcd918442c3cff762513a302bd2547f57e653b0d446bca6e8dffe9e77d09",
+      "kind": "go_command",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "raw_delivery_custody_not_implemented",
+          "v2_closure_not_supplied_by_raw_carrier",
+          "admitted_session_release_required"
+        ],
+        "contract": "sov-ssh.exact-invocation-owner.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/sov-ssh-adapter/README.md",
+          "tools/sov-transport-profile-admin/INSTALL.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "raw_executable_invocation",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": null,
+        "scopes": [
+          "selected_invocation"
+        ],
+        "selection_owner": "sov_endpoint_or_qualified_transport_profile",
+        "source_operations": [
+          "direct_v1_exact_invocation",
+          "qualified_v2_transport_binding"
+        ]
+      },
+      "selection": "include_in_core_delivery_set",
+      "unit_id": "PKG-GO-sov-ssh-adapter"
+    },
+    {
+      "binary_name": "sov-stdio-adapter",
+      "component_id": "sov-stdio-adapter",
+      "definition_sha256": "6d120f553e425a4aa441eb5e20f7bcfe52b718c787a825fbd391626701769b7a",
+      "kind": "go_command",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "raw_delivery_custody_not_implemented",
+          "configuration_removal_does_not_cancel_jobs",
+          "admitted_outcome_reconciliation_required"
+        ],
+        "contract": "sov-stdio.exact-invocation-owner.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/sov-stdio-adapter/README.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "raw_executable_invocation",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": null,
+        "scopes": [
+          "selected_invocation"
+        ],
+        "selection_owner": "sov_target_and_invocation",
+        "source_operations": [
+          "target_configuration",
+          "exact_invocation",
+          "explicit_job_cancel"
+        ]
+      },
+      "selection": "include_in_core_delivery_set",
+      "unit_id": "PKG-GO-sov-stdio-adapter"
+    },
+    {
+      "binary_name": "sov-transport-profile-admin",
+      "component_id": "sov-transport-profile-admin",
+      "definition_sha256": "334cf1c6f4b65fe290fb2856d77f06e1aef0e241f16e69cc25fe0927f465d012",
+      "kind": "go_command",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "protected_host_deployment_not_qualified",
+          "pending_attempt_exact_binary_retention",
+          "no_user_carrier_elevation"
+        ],
+        "contract": "sov-admin.protected-host-provisioning.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/sov-transport-profile-admin/INSTALL.md",
+          "tools/sov-transport-profile-admin/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "protected_host_provisioning",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": null,
+        "scopes": [
+          "administrator"
+        ],
+        "selection_owner": "protected_host_policy",
+        "source_operations": [
+          "administrator_provisioning",
+          "reviewed_sudo_policy"
+        ]
+      },
+      "selection": "separately_selectable_protected_profile_admin",
+      "unit_id": "PKG-GO-sov-transport-profile-admin"
+    },
+    {
+      "binary_name": "symphony-stav-append-authority",
+      "component_id": "stav-append-authority",
+      "definition_sha256": "1b7c4d57715f48a8c70317988f7c6c9c8887c05d70fc03ab86979d61206153e3",
+      "kind": "go_command",
+      "native_version": "0.2.1",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "owner_dispatch_not_qualified",
+          "admission_retirement_race",
+          "pending_work_and_audit_required"
+        ],
+        "contract": "stav.package-owner.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "modules/stav-append-authority/SPEC.md",
+          "modules/stav-append-authority/INSTALL.md",
+          "modules/stav-append-authority/internal/lifecycle/lifecycle.go"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "module_receipt_owner",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "user",
+          "system"
+        ],
+        "selection_owner": "stav_foundation_lifecycle",
+        "source_operations": [
+          "install",
+          "uninstall",
+          "foundation_lifecycle"
+        ]
+      },
+      "selection": "include_in_core_delivery_set",
+      "unit_id": "PKG-GO-stav-append-authority"
+    },
+    {
+      "binary_name": null,
+      "component_id": "knowledge-session-coordinator",
+      "definition_sha256": "e576abdef58aeea79cea0a21904c76841cd52dfaede74f1d76c4171448e6ef08",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-knowledge-session-coordinator"
+    },
+    {
+      "binary_name": null,
+      "component_id": "knowledge-vector-engine-cpp",
+      "definition_sha256": "6217822528f53290780391fa08aaf19d68d8831f70fe166202785d3e63838e96",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-knowledge-vector-engine-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "maestro",
+      "definition_sha256": "0502f5f0e2cd59ec49e1f17a3f5ad217ff7f8df8dc1bebb2d28f9ae7bb0bba32",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-maestro"
+    },
+    {
+      "binary_name": null,
+      "component_id": "native-source-support-cpp",
+      "definition_sha256": "7c5b0dafcd52bd86fa4d32f943257df1ba76367281677fb6fb6a706ef9f6b88e",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_complete_receipt_as_core_dependency_only",
+      "unit_id": "PKG-NATIVE-native-source-support-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sacv-engine",
+      "definition_sha256": "a161dfcef3bfadffcf64728f11f1591d8a1869296c452c72986fc56904898547",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sacv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sav-engine",
+      "definition_sha256": "bbd129872fb3178011ce759c55bb169493a7c3e1056dd3892c562cac7fd75e60",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sav-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sbv-engine",
+      "definition_sha256": "43d1dd711eea931a99d1e2e502b76b22288e0eac0ded6ffaa604315f572c8f61",
+      "kind": "native_receipt_unit",
+      "native_version": "0.33.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sbv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scabv-ibkr-client-portal-cpp",
+      "definition_sha256": "2dd7a742baf5494aae5ada60946157b27eb265b0cf4e96e99ec5bb00e1fe904c",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-scabv-ibkr-client-portal-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scabv-ibkr-tws-cpp",
+      "definition_sha256": "a11f4a09b9cf2d6420562badb9ca7710fde2d91f70f536b9cda4d8418ab2b948",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-scabv-ibkr-tws-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scev-cf-engine",
+      "definition_sha256": "c68932d5baf229996806097ec03a3e0c8bb1c9e1fcc20280734b1f15835503f3",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-scev-cf-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scev-engine",
+      "definition_sha256": "eb3f59a60fcd1aa4d7d8140f4447d7e2b320da5a99dc3cbd31d9640b706e3989",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-scev-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "schv-aws-engine",
+      "definition_sha256": "1c59af38d611990ba1759cb2bcfe64310ec2c9833e675b0bf75ad618de94d16e",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-schv-aws-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "schv-azure-engine",
+      "definition_sha256": "8618ca16e214466233ce2ce53d338ef351fd4d32937928ad322b490070c7f68f",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-schv-azure-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "schv-do-engine",
+      "definition_sha256": "00e6b2adc3c774cff0efb56e366dedb7d4687157f51a5f2ec9248638dbc8528a",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-schv-do-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "schv-engine",
+      "definition_sha256": "f560d55e376f0286fcebba1f38b04ae0402e0b84a6d6bf04e579fe9cd4214743",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-schv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "schv-gcp-engine",
+      "definition_sha256": "35a8f265e75d55a378562f42118c23450fd7c6013edc0c76ae42210a457f51ea",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-schv-gcp-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sciv-engine",
+      "definition_sha256": "d44a0e6b8614e6e41f63c624c85bcc68de9cb481c11df175382beab38ff8fea9",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sciv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sclv-engine",
+      "definition_sha256": "bea913e95a42059add611a644bf4f523e03c179286124faed33ac11c3eac3864",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sclv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scnv-engine",
+      "definition_sha256": "9b5e6aa5ff4b090110dde0e50f0c6d407cbbc536ef001375666c61e39f8b9846",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-scnv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scv-engine",
+      "definition_sha256": "62f401c23cd65bd27d2b3533a019f1b8114985a055591f16c35b3f3a9dd6b42f",
+      "kind": "native_receipt_unit",
+      "native_version": "0.10.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-scv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "scv-graph-duckdb-connector",
+      "definition_sha256": "fd6e78a468f384f79d3d6519ebc51f4a50a3e2ab21edff80bc758dc3853f74ed",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-scv-graph-duckdb-connector"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sev-engine",
+      "definition_sha256": "b5f53d280789017425fb3e63b2713d2658d752b57a25599cb3f966cbc8113efe",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sev-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-engine",
+      "definition_sha256": "1a65a5591bb680c6e6ac79160fc99858ab3f2e3b6389bbe7abf54d45e35bf9a0",
+      "kind": "native_receipt_unit",
+      "native_version": "0.4.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-shv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-graph-adapter",
+      "definition_sha256": "17ec3b004c0c684d03ddf5bde3b6376c300f3ca0d9c9c4f5e958cf3a726d9af6",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-shv-graph-adapter"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-graph-duckdb-connector",
+      "definition_sha256": "b8a7200d02a6120be7277eeedff4594678e857905f5aea0cee439687531049c5",
+      "kind": "native_receipt_unit",
+      "native_version": "0.4.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-shv-graph-duckdb-connector"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-partition-engine",
+      "definition_sha256": "4a25cc82ef18b7cae1e5a53033f24e1aa1eca028b34feafb08c3f998272b67bc",
+      "kind": "native_receipt_unit",
+      "native_version": "0.4.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-shv-partition-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-pdf-adapter",
+      "definition_sha256": "d899a9779a2b37c06802b0e58ba875cee1ddbf0bfb6eaad8b7b38c977c69857f",
+      "kind": "native_receipt_unit",
+      "native_version": "0.3.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-shv-pdf-adapter"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-profile-engine",
+      "definition_sha256": "caa8e9305d106d965a75d9522f3927963a5c96fc4c4abda6d0b8258692768334",
+      "kind": "native_receipt_unit",
+      "native_version": "0.3.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-shv-profile-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-publication-engine",
+      "definition_sha256": "bd42e13d36ebde5d5907fd510104b9d86cb5313ed57136ca7e0a56d2abec303e",
+      "kind": "native_receipt_unit",
+      "native_version": "0.4.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-shv-publication-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "shv-source-engine",
+      "definition_sha256": "8b5240663daba58c328450004fda1ca9bb450a612c5e7c2c4ff1887526ee5b5b",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-shv-source-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "skvi-engine",
+      "definition_sha256": "6436a12abb5f54be21620714abd329bf894021a28c6512229b18d06ce1d7d154",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-skvi-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sniv-engine",
+      "definition_sha256": "35a2c6150958c787f78ab22f24b7e15a7c38a9f47e4b916563c1b6d57f10ef2d",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sniv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "snrv-engine",
+      "definition_sha256": "2adb05604f2ae8bde24e20a90311040cf72071caecd3e66b9b7a0d0f1aae9407",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-snrv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "snv-common-cpp",
+      "definition_sha256": "11a1242c94869bae4c6935ef0a7f8fa70b35b965bee8d89684bb8e2baec360f5",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-snv-common-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "snv-engine",
+      "definition_sha256": "886a409f3752991f131d982f9ced77fab15855e3c541c2ba26db2322827cb387",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-snv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "snv-local-observer",
+      "definition_sha256": "9004df2c13cdcbb6e2999e4b8287a384c6edf189dcfbacfa4f638ff6dd263632",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-snv-local-observer"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sodv-engine",
+      "definition_sha256": "9633e0f0fd992e36ccf668c82d5004fe5cf632eb8964fe349cd3e3a48f39a1b1",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sodv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sov-cloudflare-adapter",
+      "definition_sha256": "43d8a1275ded6a9cdf064b1872bf563fb4fa2b06c024ad03bbd4d11faa8d760b",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sov-cloudflare-adapter"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-attempt-engine",
+      "definition_sha256": "692f4f588f85f40584d576171e56c981a4d9149b3dcde0ffc78a77b5de62ef12",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqav-attempt-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-capture-cpp",
+      "definition_sha256": "f9ee9c51d4a71575340f895d040d8079b2c5a4312fc9132ccdb7edf4cf1e2507",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqav-capture-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-databento-dbn-cpp",
+      "definition_sha256": "c37f8f92f633ce5230e97cb0cce890c485f2e75431f6a39ceabcbde2d7d18897",
+      "kind": "native_receipt_unit",
+      "native_version": "0.5.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_complete_receipt_as_core_dependency_only",
+      "unit_id": "PKG-NATIVE-sqav-databento-dbn-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-databento-reference-cpp",
+      "definition_sha256": "cb29f188dd6c550b4ab63aecc1ac9a3fa7e2025889f093386d41adb0e51e2904",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_complete_receipt_as_core_dependency_only",
+      "unit_id": "PKG-NATIVE-sqav-databento-reference-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-fred-cpp",
+      "definition_sha256": "f9454d1c0d570f16ec441df5903cd09f8ab53f563597d92f457f99e7498b7d63",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_complete_receipt_as_core_dependency_only",
+      "unit_id": "PKG-NATIVE-sqav-fred-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-news-api-cpp",
+      "definition_sha256": "c46457c8b494abe16d2fade9605f83a839644cbd5e29b38349b1faaae8950c7b",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-sqav-news-api-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqav-request-engine",
+      "definition_sha256": "267eb3b4c979f802f550586ea9b74cef72e42fd0b3f7e9996e889d8835422538",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqav-request-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqdv-checkpoint-engine",
+      "definition_sha256": "49b7bff26ab32c70c15f4973a143badbd624babaa1406e6ce69d5341859a2b68",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqdv-checkpoint-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqdv-delivery-cpp",
+      "definition_sha256": "42294c2e8993cc422534f69dd817398abc12647836e52ce4d20586f7613cacf2",
+      "kind": "native_receipt_unit",
+      "native_version": "0.3.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqdv-delivery-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqfv-batch-cpp",
+      "definition_sha256": "77bd12d5699393f9fa76ee50bf1968b6d96f0cdd97bfee7a0d019b62c82fe7fa",
+      "kind": "native_receipt_unit",
+      "native_version": "0.3.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqfv-batch-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqfv-flow-engine",
+      "definition_sha256": "68a81430066accd7729a2e1152cb59ef55aed41d53ed0ac191c20d347d16b719",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqfv-flow-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqmv-metadata-cpp",
+      "definition_sha256": "c91260b126a2f61be6e216c2078d45d8c3f9a20e779ce6f7bcd87146cb2469be",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqmv-metadata-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqmv-metadata-engine",
+      "definition_sha256": "e3bd093f70d95ea6723ba0340ba2278c4a2e69842079e1d0417a5c0cda9d0414",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqmv-metadata-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqpv-inspection-engine",
+      "definition_sha256": "4de1cbeeed0bf48467948fad93edbbb043ef8ea5357e2d70731654ceb638cc60",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqpv-inspection-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqpv-local-store-cpp",
+      "definition_sha256": "68008e700c9e2f750c5ca9f7b2a57b94eb978833047b87ac2fe4109f2ff7e35a",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqpv-local-store-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqtv-conversion-engine",
+      "definition_sha256": "357e9be6d3c56d82355db772d7cd68217b17fd6fd334f696196e6b8236dbe297",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqtv-conversion-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "sqtv-integer-conversion-cpp",
+      "definition_sha256": "d21dd722c313f5d71a463973288baa2650bad2c215c1843a94808fe1ec59a4b8",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-sqtv-integer-conversion-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "srrapiv-runtime-cpp",
+      "definition_sha256": "926d3fce1901c1ce06f15d0cb4f83dd440407b4e3cd7ff2813f2a3714db50307",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "separately_selectable_native_unit",
+      "unit_id": "PKG-NATIVE-srrapiv-runtime-cpp"
+    },
+    {
+      "binary_name": null,
+      "component_id": "ssfv-engine",
+      "definition_sha256": "d20d547977aea5b45e17d14be653c6a42f6b2de10d7c65b2bbbe3ed930f8bdb4",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-ssfv-engine"
+    },
+    {
+      "binary_name": null,
+      "component_id": "ssiag-provider-private-store",
+      "definition_sha256": "22cefa221280a058f0fb7e0903275831d817e8b2815db6db49d8b9405a6b0196",
+      "kind": "native_receipt_unit",
+      "native_version": "0.1.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-ssiag-provider-private-store"
+    },
+    {
+      "binary_name": null,
+      "component_id": "symphony-validator",
+      "definition_sha256": "4ed469c5374234c9d47d43a5328cab16acc7dc37767d28153806979e94dbc4bb",
+      "kind": "native_receipt_unit",
+      "native_version": "0.2.0-dev",
+      "platform_candidates": [
+        {
+          "profile": "macos15-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "osx-arm64"
+        },
+        {
+          "profile": "ubuntu24.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu26.04-amd64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-64"
+        },
+        {
+          "profile": "ubuntu24.04-arm64",
+          "qualification": "not_built_or_accepted",
+          "subdir": "linux-aarch64"
+        }
+      ],
+      "runtime_owner": {
+        "blockers": [
+          "exact_owner_dispatch_requires_review",
+          "live_use_release_unqualified"
+        ],
+        "contract": "native.receipt-v2.classification.v1",
+        "contract_version": 1,
+        "critical": true,
+        "evidence": [
+          "tools/qxctl/internal/knowledgelifecycle/executor.go",
+          "tools/qxctl/internal/knowledgelifecycle/install_unix.go",
+          "modules/maestro/SPEC.md"
+        ],
+        "generic_receipt_delete_authorized": false,
+        "kind": "native_receipt_classification",
+        "live_removal_qualified": false,
+        "owner_invocation_implemented": false,
+        "runtime_receipt": "symphony.knowledge.install-receipt.v2",
+        "scopes": [
+          "explicit_prefix"
+        ],
+        "selection_owner": "existing_profile_binding_and_receptor",
+        "source_operations": [
+          "candidate_verification",
+          "exact_receipt_owned_files"
+        ]
+      },
+      "selection": "include_in_core_native_set",
+      "unit_id": "PKG-NATIVE-symphony-validator"
+    }
+  ]
+}
