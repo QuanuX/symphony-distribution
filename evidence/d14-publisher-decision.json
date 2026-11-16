@@ -1,0 +1,66 @@
+{
+  "acceptance_basis": {
+    "prior_production_or_independent_person_requirements": "superseded for initial beta release by the publisher's direct acceptance; historical evidence is unchanged",
+    "publisher_direct_approval": true,
+    "separate_reviewer_independence_established": false,
+    "technical_results_must_remain_actual": true
+  },
+  "date": "2026-11-16",
+  "interpretation": "Release-owner approval is recorded as supplied. It is not proof of an unobserved host test, an unrelated independent reviewer, Apple trust or a successful future job.",
+  "legal_approval": true,
+  "preserved_constraints": {
+    "feature_freeze": true,
+    "main_unchanged": true,
+    "no_automatic_runtime_or_provider_activation": true,
+    "no_private_publisher_state_in_distribution": true
+  },
+  "profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "protocol": "symphony.distribution.beta-publisher-decision.v1",
+  "publication_authorized": true,
+  "publication_destinations": {
+    "conda_label": "beta",
+    "conda_organization": "QuanuX",
+    "standalone_storage": "Cloudflare R2",
+    "website_integration": "separate later step; direct download links permitted"
+  },
+  "publisher_acceptance": true,
+  "release_acceptance_complete": false,
+  "release_class": "public-beta",
+  "release_version": "0.2.0-beta.1",
+  "reviewer_kind": "human",
+  "reviewer_role": "publisher-release-owner",
+  "scope": [
+    "four primary platform packages and downloadable installers",
+    "existing native module and Go owner contracts",
+    "Codex primary with existing adapters maintained",
+    "verified source and optional SDK delivery",
+    "package revision upgrade swap removal and rollback",
+    "self-signed detached artifact integrity under an explicit publisher key pin"
+  ],
+  "source": "explicit release-owner instruction in the active task",
+  "source_binding": {
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216"
+  },
+  "statement": "Ok I want this to be the last prompt I send until we clear the next gates. Independent host acceptance should be ready to rock.  Qualification results should be ready. This is a beta, not production product. get the upgrade/rollback, installer, maintenance signing done now I am giving you legal and independent acceptance. Check for failed runs and fix them. Let's stop messing around and ship the beta.",
+  "statement_sha256": "f05c908533d8c86a74b3b9bd1384f426564b1b0a77bfaec8b56872a1f6e1ac6e",
+  "technical_release_conditions": [
+    "all selected artifacts retain exact source and byte identities",
+    "failed supported-platform qualification repaired and passing",
+    "actual final installer and carrier journeys pass",
+    "unsupported live or native-version operations refuse without altering user state",
+    "release manifests identify actual qualification and known limits"
+  ],
+  "trust": {
+    "apple_developer_id": false,
+    "earlier_self_signing_authorization": "I don't have those currently. Can we self sign for now?",
+    "mode": "publisher-pinned-self-signed-detached-manifest",
+    "notarization": false,
+    "os_trust_store_change_authorized": false
+  }
+}
