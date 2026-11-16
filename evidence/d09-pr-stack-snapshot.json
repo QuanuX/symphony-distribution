@@ -1,0 +1,669 @@
+{
+  "complete_required_check_coverage": false,
+  "limitations": [
+    "Workflow connector is first-page and pull_request-only; workflow_dispatch, required-check configuration and approval completeness are not established.",
+    "Snapshot is point-in-time and must be refreshed before an authorized integration decision.",
+    "GitHub mergeability is not integration authorization; no merge or main mutation occurred."
+  ],
+  "main_mutated": false,
+  "merge_performed": false,
+  "observed_at": "2026-11-16 16:55:22 UTC",
+  "protocol": "symphony.distribution.pr-stack-snapshot.v1",
+  "publication_authorized": false,
+  "pull_requests": [
+    {
+      "base": "main",
+      "base_sha": "976b23290857be613005eea5cdc130d0f457b8c3",
+      "commit_statuses": [],
+      "draft": false,
+      "head": "codex/d05-dependency-safety",
+      "head_sha": "82abaa1421b99aefb836ba4030dfd80895d70ebb",
+      "local_base_is_ancestor_of_head": null,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 199,
+      "repository": "QuanuX/Symphony",
+      "state": "open",
+      "title": "Protect retained lifecycle dependencies during package transitions",
+      "updated_at": "2026-11-15T17:42:34Z",
+      "url": "https://github.com/QuanuX/Symphony/pull/199",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43742442385,
+          "name": "MVP dependency map",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442385"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442417,
+          "name": "Package candidate and lifecycle qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442417"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442477,
+          "name": "SQV retained inspection",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442477"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442388,
+          "name": "Release functional qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442388"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442394,
+          "name": "Ownership regression",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442394"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442489,
+          "name": "qxctl standalone build",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442489"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442471,
+          "name": "SRRAPIV native integration",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442471"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442430,
+          "name": "Protected transport profiles",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442430"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442458,
+          "name": "Cloudflare native local foundation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442458"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442565,
+          "name": "Native DuckDB connectors",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442565"
+        },
+        {
+          "conclusion": "success",
+          "id": 43742442512,
+          "name": "CodeQL",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43742442512"
+        }
+      ]
+    },
+    {
+      "base": "codex/d05-dependency-safety",
+      "base_sha": "82abaa1421b99aefb836ba4030dfd80895d70ebb",
+      "commit_statuses": [],
+      "draft": false,
+      "head": "codex/d05-scoped-maintenance",
+      "head_sha": "12543673b91d45ab39ac018d1ceb940cea685b67",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 200,
+      "repository": "QuanuX/Symphony",
+      "state": "open",
+      "title": "Bound lifecycle apply to reviewed execution scopes",
+      "updated_at": "2026-11-16T06:39:01Z",
+      "url": "https://github.com/QuanuX/Symphony/pull/200",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43818213009,
+          "name": "CodeQL",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212936,
+          "name": "Protected transport profiles",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212936"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212941,
+          "name": "qxctl standalone build",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212941"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212981,
+          "name": "SQV retained inspection",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212981"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212842,
+          "name": "Cloudflare native local foundation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212842"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212989,
+          "name": "MVP dependency map",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212995,
+          "name": "Release functional qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212945,
+          "name": "Ownership regression",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212945"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818213144,
+          "name": "Native DuckDB connectors",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818213144"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818213426,
+          "name": "Package candidate and lifecycle qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818213426"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818212866,
+          "name": "SRRAPIV native integration",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818212866"
+        }
+      ]
+    },
+    {
+      "base": "codex/d05-scoped-maintenance",
+      "base_sha": "12543673b91d45ab39ac018d1ceb940cea685b67",
+      "commit_statuses": [],
+      "draft": false,
+      "head": "codex/d05-safe-retirement",
+      "head_sha": "261c5374b03ca61a0f79d7e717fdd843ef413777",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 201,
+      "repository": "QuanuX/Symphony",
+      "state": "open",
+      "title": "Fence native package starts and safe process retirement",
+      "updated_at": "2026-11-16T06:40:30Z",
+      "url": "https://github.com/QuanuX/Symphony/pull/201",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43818388543,
+          "name": "MVP dependency map",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388321,
+          "name": "qxctl standalone build",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388321"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388293,
+          "name": "Ownership regression",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388293"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388329,
+          "name": "Native DuckDB connectors",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388329"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388298,
+          "name": "SRRAPIV native integration",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388298"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388363,
+          "name": "SQV retained inspection",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388363"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388316,
+          "name": "CodeQL",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388391,
+          "name": "Protected transport profiles",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388391"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388348,
+          "name": "Package candidate and lifecycle qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388348"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388313,
+          "name": "Cloudflare native local foundation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388313"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818388333,
+          "name": "Release functional qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333"
+        }
+      ]
+    },
+    {
+      "base": "codex/d05-safe-retirement",
+      "base_sha": "261c5374b03ca61a0f79d7e717fdd843ef413777",
+      "commit_statuses": [],
+      "draft": false,
+      "head": "codex/d05-native-owner-dispatch",
+      "head_sha": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 202,
+      "repository": "QuanuX/Symphony",
+      "state": "open",
+      "title": "Qualify S05 native owner dispatch and Go source closure",
+      "updated_at": "2026-11-16T06:41:06Z",
+      "url": "https://github.com/QuanuX/Symphony/pull/202",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43818463130,
+          "name": "MVP dependency map",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818463024,
+          "name": "Native DuckDB connectors",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463024"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818463102,
+          "name": "SQV retained inspection",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463102"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818463155,
+          "name": "Release functional qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818462966,
+          "name": "Ownership regression",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818462966"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818462971,
+          "name": "SRRAPIV native integration",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818462971"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818462997,
+          "name": "Protected transport profiles",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818462997"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818462973,
+          "name": "CodeQL",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818463146,
+          "name": "Cloudflare native local foundation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463146"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818463164,
+          "name": "Package candidate and lifecycle qualification",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463164"
+        },
+        {
+          "conclusion": "success",
+          "id": 43818463138,
+          "name": "qxctl standalone build",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/Symphony/actions/runs/43818463138"
+        }
+      ]
+    },
+    {
+      "base": "main",
+      "base_sha": "874402db2163bc44ba8fe2247c00b30ba439adf8",
+      "commit_statuses": [],
+      "draft": false,
+      "head": "codex/w13-beta-compatibility",
+      "head_sha": "3fa4c666c36d947f40b68471f13aa5d1cff3ba28",
+      "local_base_is_ancestor_of_head": null,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 6,
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+      "state": "open",
+      "title": "Implement W13 beta compatibility with Codex primary",
+      "updated_at": "2026-11-15T16:34:02Z",
+      "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/pull/6",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43736129072,
+          "name": "Beta compatibility",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/actions/runs/43736129072"
+        },
+        {
+          "conclusion": "success",
+          "id": 43736128939,
+          "name": "MCP registry bundle",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/actions/runs/43736128939"
+        }
+      ]
+    },
+    {
+      "base": "codex/w13-beta-compatibility",
+      "base_sha": "3fa4c666c36d947f40b68471f13aa5d1cff3ba28",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/d07-distribution-client",
+      "head_sha": "71b2021aeefb704b9c3e63797d04a0cc021757a9",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 7,
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+      "state": "open",
+      "title": "D07: bind the client to the clean distribution candidate",
+      "updated_at": "2026-11-16T12:45:26Z",
+      "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/pull/7",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43868308124,
+          "name": "Beta compatibility",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/actions/runs/43868308124"
+        },
+        {
+          "conclusion": "success",
+          "id": 43868308007,
+          "name": "MCP registry bundle",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/actions/runs/43868308007"
+        }
+      ]
+    },
+    {
+      "base": "codex/d07-distribution-client",
+      "base_sha": "71b2021aeefb704b9c3e63797d04a0cc021757a9",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/d08-stamped-client",
+      "head_sha": "572627e939250763756167a9dc05d8cb37ab4e30",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 8,
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+      "state": "open",
+      "title": "Bind beta client to reproducible stamped qxctl",
+      "updated_at": "2026-11-16T13:41:31Z",
+      "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/pull/8",
+      "workflow_runs": [
+        {
+          "conclusion": "failure",
+          "id": 43876130505,
+          "name": "Beta compatibility",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/actions/runs/43876130505"
+        }
+      ]
+    },
+    {
+      "base": "codex/s06-conda-journeys",
+      "base_sha": "aa86cb90443822134c2800c3eea20837b600291b",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/s07-fault-platform-qualification",
+      "head_sha": "8d9474e89b4974ecbf139ca7e95c60772e7127de",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 1,
+      "repository": "QuanuX/symphony-distribution",
+      "state": "open",
+      "title": "S07: qualify fault, concurrency and platform boundaries",
+      "updated_at": "2026-11-16T07:47:00Z",
+      "url": "https://github.com/QuanuX/symphony-distribution/pull/1",
+      "workflow_runs": [
+        {
+          "conclusion": "failure",
+          "id": 43826233073,
+          "name": "Distribution preparation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073"
+        }
+      ]
+    },
+    {
+      "base": "codex/s07-fault-platform-qualification",
+      "base_sha": "8d9474e89b4974ecbf139ca7e95c60772e7127de",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/s08-dossier-delivery-rebuild",
+      "head_sha": "5fa0103651bec94314956e382ef16007467dcaf8",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 2,
+      "repository": "QuanuX/symphony-distribution",
+      "state": "open",
+      "title": "S08: bind beta dossier, delivery guidance and rebuilt candidates",
+      "updated_at": "2026-11-16T09:08:39Z",
+      "url": "https://github.com/QuanuX/symphony-distribution/pull/2",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43837105876,
+          "name": "S08 dossier and source delivery",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43837105876"
+        },
+        {
+          "conclusion": "success",
+          "id": 43837105800,
+          "name": "Distribution preparation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43837105800"
+        }
+      ]
+    },
+    {
+      "base": "codex/s08-dossier-delivery-rebuild",
+      "base_sha": "5fa0103651bec94314956e382ef16007467dcaf8",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/d06-clean-native-sdk-cohort",
+      "head_sha": "10330095aec4c9e6e99c0e2aace8fc243a9ae2c2",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 3,
+      "repository": "QuanuX/symphony-distribution",
+      "state": "open",
+      "title": "D06: build and qualify the frozen native and SDK cohort",
+      "updated_at": "2026-11-16T12:26:21Z",
+      "url": "https://github.com/QuanuX/symphony-distribution/pull/3",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43866458623,
+          "name": "Distribution preparation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43866458623"
+        },
+        {
+          "conclusion": "success",
+          "id": 43866458660,
+          "name": "S08 dossier and source delivery",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43866458660"
+        }
+      ]
+    },
+    {
+      "base": "codex/d06-clean-native-sdk-cohort",
+      "base_sha": "10330095aec4c9e6e99c0e2aace8fc243a9ae2c2",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/d07-distribution-client-gate",
+      "head_sha": "19b11a2610de5e2f8ac56bcc29a29586c04fc82d",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 4,
+      "repository": "QuanuX/symphony-distribution",
+      "state": "open",
+      "title": "D07: record source-bound client distribution qualification",
+      "updated_at": "2026-11-16T12:45:30Z",
+      "url": "https://github.com/QuanuX/symphony-distribution/pull/4",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43869393235,
+          "name": "S08 dossier and source delivery",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43869393235"
+        }
+      ]
+    },
+    {
+      "base": "codex/d07-distribution-client-gate",
+      "base_sha": "19b11a2610de5e2f8ac56bcc29a29586c04fc82d",
+      "commit_statuses": [],
+      "draft": true,
+      "head": "codex/d08-installer-assembly",
+      "head_sha": "1b76f2a51860a5ebd719c1bdcba6ab277e84cfe4",
+      "local_base_is_ancestor_of_head": true,
+      "merge_commit_sha": null,
+      "mergeable": true,
+      "merged": false,
+      "number": 5,
+      "repository": "QuanuX/symphony-distribution",
+      "state": "open",
+      "title": "Repair qxctl identity and prepare self-signed D08 review installers",
+      "updated_at": "2026-11-16T16:41:57Z",
+      "url": "https://github.com/QuanuX/symphony-distribution/pull/5",
+      "workflow_runs": [
+        {
+          "conclusion": "success",
+          "id": 43910329147,
+          "name": "Distribution preparation",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43910329147"
+        },
+        {
+          "conclusion": "success",
+          "id": 43910329264,
+          "name": "S08 dossier and source delivery",
+          "status": "completed",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43910329264"
+        }
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "default_branch": "main",
+      "repository": "QuanuX/Symphony"
+    },
+    {
+      "default_branch": "main",
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills"
+    },
+    {
+      "default_branch": "codex/s06-conda-journeys",
+      "repository": "QuanuX/symphony-distribution"
+    }
+  ],
+  "source": "GitHub connector read-only open-PR metadata and exact-head PR-triggered workflow snapshots"
+}
