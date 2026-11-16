@@ -46,15 +46,21 @@ def committed_helpers(expected):
 
 def dependency_map_binding(source, capsule, manifest, record):
     """Admit only the exact reviewed source-input rebindings, never owner changes."""
+    return dependency_map_files(source / 'cmake/mvp-dependencies.json',
+        capsule / 'evidence/mvp-dependencies.json', manifest, record['dependency_map_sha256'])
+
+
+def dependency_map_files(original_path, reviewed_path, manifest, reviewed_sha256):
+    """Same source-input proof for actual source files, independent of carriers."""
     name = 'cmake/mvp-dependencies.json'
-    original_raw, _ = c.bounded(source / name)
-    exported_raw, _ = c.bounded(capsule / 'evidence/mvp-dependencies.json')
+    original_raw, _ = c.bounded(original_path)
+    exported_raw, _ = c.bounded(reviewed_path)
     rows = {row['path']: row for row in manifest['source_files']}
     excluded = {row['path']: row for row in manifest['excluded_files']}
     c.require(len(excluded) == len(manifest['excluded_files']) and not rows.keys() & excluded.keys(),
               'Derived source exclusion inventory differs')
     c.require(c.sha(original_raw) == rows[name]['source_sha256'] and
-              c.sha(exported_raw) == rows[name]['export_sha256'] == record['dependency_map_sha256'],
+              c.sha(exported_raw) == rows[name]['export_sha256'] == reviewed_sha256,
               'Original or retained reviewed dependency map differs')
     original = reuse.supplements.parse(original_raw)
     transformed = reuse.supplements.parse(original_raw)

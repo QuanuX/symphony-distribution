@@ -1,0 +1,31 @@
+{
+  "files": {
+    ".github/workflows/d13-native-maintenance.yml": "edcb200358bbeced5f3c08c639a005d1560395d9852acfcd02fcb360b9bdcf90",
+    "qualification/d09_maintenance.py": "a6f0b97a2e0fba80a223d613554e3c62c6bb051ff3c691f32e75d969b32e5d07",
+    "qualification/d11_native_maintenance.py": "6d7684a255afb81320831024429335a1337092d91267b2aa1df95c674ae38c82",
+    "qualification/native_maintenance.py": "c5405ff9f355f58c45b0d11b58f874e1eb2e1c8f2c8e7f86969a1d6d75197e37",
+    "qualification/test_native_maintenance.py": "69b857319783e7e03f18b371f8286a1f0aac3c6438775f8c266c4ba8fab00785"
+  },
+  "focused_tests": {
+    "existing_d09": 12,
+    "existing_d11": 12,
+    "new_native_maintenance": 9,
+    "passed": true,
+    "total": 33
+  },
+  "git_diff_check": "pass",
+  "independent_review": "passed; no material findings",
+  "live_activation_performed": false,
+  "main_modified": false,
+  "native_build_executed": false,
+  "native_owner_campaign_executed": false,
+  "offline_source_preflight_sha256": "21caf21ecbfb03c791812a64b168626bcb2b938bf54a78fafb0c82427da56f5f",
+  "private_source_policy_scan": {
+    "file_count": 5,
+    "state": "pass"
+  },
+  "protocol": "symphony.distribution.native-maintenance-focused-validation.v1",
+  "publication_authorized": false,
+  "state": "focused_contracts_and_offline_source_inputs_passed",
+  "workflow_actionlint": "pass"
+}

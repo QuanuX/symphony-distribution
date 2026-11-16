@@ -68,11 +68,17 @@ def owner_sources(source, unit):
 
 
 def source_register(source, cohort):
+    return source_register_units(source, [row for row in cohort['entries'] if row['kind'] == 'native_receipt_unit'],
+                                 cohort['selected_evidence']['source_binding'])
+
+
+def source_register_units(source, selected_native_rows, source_binding):
+    """Bind existing owner configuration to explicit verified native selection rows."""
     source = carrier.safe_root(source)
     require(git(source, 'rev-parse', 'HEAD').decode().strip() == COMMIT and
             git(source, 'rev-parse', 'HEAD^{tree}').decode().strip() == TREE, 'Selected native owner source differs')
     require(not git(source, 'status', '--porcelain=v1', '--untracked-files=all').strip(), 'Owner checkout is dirty')
-    require(cohort['selected_evidence']['source_binding'] == {'commit': COMMIT, 'tree': TREE}, 'Carrier/core source binding differs')
+    require(source_binding == {'commit': COMMIT, 'tree': TREE}, 'Carrier/core source binding differs')
     plan = document(ROOT / 'build-cohort/cohort.json')
     require((plan['source_commit'], plan['source_tree']) == (COMMIT, TREE), 'Build plan source differs')
     for row in plan['source_inputs']:
@@ -80,8 +86,8 @@ def source_register(source, cohort):
         require(file_sha(path) == row['sha256'] and path.read_bytes() == git(source, 'show', COMMIT + ':' + row['path']),
                 'Core selection source differs')
     units = plan['profiles']['macos15-arm64']['native_build_order']
-    selected = {row['component_id']: row for row in cohort['entries'] if row['kind'] == 'native_receipt_unit'}
-    require(len(units) == len(selected) == 51 and {u['component_id'] for u in units} == set(selected), 'Exact native51 selection differs')
+    selected = {row['component_id']: row for row in selected_native_rows}
+    require(len(units) == len(selected) == len(selected_native_rows) == 51 and {u['component_id'] for u in units} == set(selected), 'Exact native51 selection differs')
     evidence = {}
     def bind(name):
         raw = carrier.bounded(source / carrier.relative(name))[0]
