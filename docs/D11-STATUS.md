@@ -46,7 +46,9 @@ been manufactured from the unfinished producers. Actual campaigns remain
 pending completed artifacts and explicit selections. All 41 focused tests
 passed, along with workflow validation, the actual reviewed dependency-map
 regression and handoff binding/privacy checks. Exact evidence is recorded in
-`evidence/d11-implementation.json`.
+`evidence/d11-implementation.json`. The complete 267-file implementation source
+export also passed privacy scanning; its exact commit and archive digest are in
+`evidence/d11-toolkit-source-seal.json`.
 
 ## Remaining acceptance work
 
