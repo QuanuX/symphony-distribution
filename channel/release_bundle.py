@@ -105,6 +105,13 @@ def assemble(request_path, request_sha256, output, openssl):
         c.require(set(request[key]) == {'path', 'sha256'}, 'Explicit release identity input required')
     decision_raw = raw(request['publisher_decision']['path'], signing.DECISION)
     c.require(request['publisher_decision']['sha256'] == signing.DECISION, 'Publisher decision differs')
+    decision = signing.strict_json(decision_raw)
+    c.require(decision['release_class'] == 'public-beta' and decision['release_version'] == signing.RELEASE and
+        set(decision['profiles']) == set(publisher.PROFILES) and
+        all(decision[key] is True for key in ('legal_approval', 'publisher_acceptance', 'publication_authorized')) and
+        decision['acceptance_basis']['publisher_direct_approval'] is True and
+        decision['acceptance_basis']['separate_reviewer_independence_established'] is False,
+        'Bound publisher beta acceptance differs')
     certificate_raw = raw(request['public_certificate']['path'], verifier.CERTIFICATE_SHA256)
     c.require(request['public_certificate']['sha256'] == verifier.CERTIFICATE_SHA256, 'Release verifier certificate differs')
     signing.certificate(openssl, Path(request['public_certificate']['path']), verifier.CERTIFICATE_SHA256, verifier.PUBLIC_KEY_SHA256)
@@ -145,7 +152,7 @@ def assemble(request_path, request_sha256, output, openssl):
         inventory[name] = {'path': name, 'sha256': c.sha(data), 'size': len(data)}
         return inventory[name]
     def copy(name, path, expected=None, *, opaque=False): return put(name, raw(path, expected), opaque=opaque)
-    packages, profiles = [], {}
+    packages, profiles, gate_counts = [], {}, {}
     put('publisher-decision.json', decision_raw); put('identity/beta-cert.pem', certificate_raw)
     put('verify_beta.py', verifier_raw)
     for name, value in docs: put(name, value)
@@ -175,6 +182,17 @@ def assemble(request_path, request_sha256, output, openssl):
         for row in wrapper['wrappers']:
             copied = copy('installers/'+profile+'/'+row['filename'], base/'wrappers'/row['filename'], row['sha256'], opaque=True)
             c.require(copied['size'] == row['size'], 'Copied installer size differs')
+        client_report = doc(base/'provenance/client/result.json', beta['input_artifacts']['client']['result_sha256'])
+        journey_report = doc(base/'provenance/carrier-journeys.json', beta['carrier_journeys_sha256'])
+        c.require(client_report['actual_codex_cases'] == 22 and journey_report['transaction_count'] == 182 and
+            beta['shell_qualification']['state'] == 'installed_refusals_and_named_removal_passed' and
+            beta['retention_qualification']['state'] == 'installed_retention_and_read_only_entrypoints_passed' and
+            beta['retention_qualification']['retained_after_carrier_removal'] is True,
+            'Supported beta gate completion differs')
+        gate_counts[profile] = {'default_carrier_packages': len(default_rows), 'optional_source_packages': len(optional['archives']),
+            'codex_cases': client_report['actual_codex_cases'], 'native_owner_receipts': maintained['native_unit_count'],
+            'carrier_packaging_revision_transactions': journey_report['transaction_count'],
+            'shell_install_and_removal_profiles': 1, 'first_run_retention_profiles': 1}
         evidence = 'evidence/'+profile+'/'
         copy(evidence+'beta-qualification.json', base/'result.json', selected['selection']['artifacts']['beta']['result_sha256'])
         copy(evidence+'client-qualification.json', base/'provenance/client/result.json', beta['input_artifacts']['client']['result_sha256'])
@@ -194,12 +212,20 @@ def assemble(request_path, request_sha256, output, openssl):
         pkg_selected['selection']['artifacts']['native_pkg']['result_sha256'])
     put('evidence/native-pkg-selection.json', fs.canonical(pkg_selected))
     c.require(len(packages) == 240 and len(profiles) == 4, 'Incomplete final public package set')
+    acceptance = {'scope': 'initial-public-beta', 'engineering_qualification_complete': True,
+        'publisher_legal_approval': decision['legal_approval'], 'publisher_acceptance': decision['publisher_acceptance'],
+        'publisher_decision_sha256': signing.DECISION, 'separate_reviewer_independence_claimed': False,
+        'historical_qualification_records_preserved': True, 'per_profile_supported_gates': gate_counts,
+        'supported_gate_counts': {'profiles': len(profiles), 'native_pkg_install_and_removal_profiles': 1,
+            **{key: sum(row[key] for row in gate_counts.values()) for key in next(iter(gate_counts.values()))}},
+        'recognized_apple_trust_claimed': False, 'distinct_native_version_upgrade_qualified': False,
+        'distinct_native_version_rollback_qualified': False}
     index = {'protocol': PROTOCOL, 'release': signing.RELEASE, 'state': 'qualified_public_beta_bundle_prepared',
         'publisher_decision_sha256': signing.DECISION, 'certificate_sha256': verifier.CERTIFICATE_SHA256,
         'public_key_sha256': verifier.PUBLIC_KEY_SHA256, 'profiles': profiles, 'conda_packages': packages,
         'public_downloads': sorted([name for name in inventory if not name.endswith('.conda')] + ['release-index.json'],
             key=lambda name: (0 if name.startswith('source/') else 1 if name.startswith('installers/') else 2, name)),
-        'artifacts': sorted(inventory.values(), key=lambda row: row['path']), 'private_request_sha256': request_sha256,
+        'artifacts': sorted(inventory.values(), key=lambda row: row['path']), 'private_request_sha256': request_sha256, 'beta_acceptance': acceptance,
         'bundle_helper_sha256': helper_sha, 'publication_performed': False, 'signature_performed': False,
         'apple_developer_id': False, 'notarized': False, 'independent_separate_reviewer_claimed': False,
         'main_modified': False, 'feature_freeze_preserved': True}

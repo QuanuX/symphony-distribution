@@ -58,10 +58,12 @@ class BundleTests(unittest.TestCase):
         for name,data in [('symphony-retain.py',b'script'),('BOOTSTRAP-INDEX.json',b'index'),('COHORT.json',b'cohort')]: self.write(root/'setup'/name,data)
         source=b'exact reviewed source'; self.write(root/'source/source.tar',source)
         source_sha=self.write(root/'source/source-index.json',{'archive':{'filename':'source.tar','sha256':r.c.sha(source),'size':len(source)}})
-        client_sha=self.write(root/'provenance/client/result.json',{'state':'client-qualified'})
-        journey_sha=self.write(root/'provenance/carrier-journeys.json',{'state':'journeys-qualified'})
+        client_sha=self.write(root/'provenance/client/result.json',{'state':'client-qualified','actual_codex_cases':22})
+        journey_sha=self.write(root/'provenance/carrier-journeys.json',{'state':'journeys-qualified','transaction_count':182})
         lineage={k:profile if k=='profile' else 'f'*64 for k in r.LINEAGE}
         beta={'profile':profile,'publisher_decision_sha256':r.signing.DECISION,'original_native_lineage':lineage,
+            'shell_qualification':{'state':'installed_refusals_and_named_removal_passed'},
+            'retention_qualification':{'state':'installed_retention_and_read_only_entrypoints_passed','retained_after_carrier_removal':True},
             'cohort_sha256':'c'*64,'optional_source_cohort_digest':optional_doc['cohort_digest'],'wrappers_result_sha256':wrapper_sha,'source_index_sha256':source_sha,
             'input_artifacts':{'client':{'result_sha256':client_sha}},'carrier_journeys_sha256':journey_sha,'client_sources':{'commit':'d'*40}}
         self.request['profiles'][profile]={'beta':self.selected(profile,'beta',root,beta,'result.json')}
@@ -145,6 +147,28 @@ class BundleTests(unittest.TestCase):
         doc=self.root/'guide.md'; doc.write_bytes(b'Approved beta instructions')
         self.request['additional_documents']=[{'source':str(doc),'path':'docs/INSTALL.md','sha256':r.c.sha(doc.read_bytes())}]; self.save_request()
         result=self.assemble(); self.assertIn('docs/INSTALL.md',result['public_downloads'])
+    def test_beta_acceptance_maps_bound_approval_and_actual_supported_gates(self):
+        result=self.assemble(); acceptance=result['beta_acceptance']
+        decision=json.loads((self.root/'release/publisher-decision.json').read_bytes())
+        self.assertEqual(acceptance['scope'],'initial-public-beta')
+        self.assertTrue(acceptance['engineering_qualification_complete'])
+        self.assertEqual(acceptance['publisher_legal_approval'],decision['legal_approval'])
+        self.assertEqual(acceptance['publisher_acceptance'],decision['publisher_acceptance'])
+        self.assertEqual(acceptance['publisher_decision_sha256'],r.c.sha((self.root/'release/publisher-decision.json').read_bytes()))
+        self.assertFalse(decision['release_acceptance_complete'])
+        self.assertFalse(acceptance['separate_reviewer_independence_claimed'])
+        self.assertTrue(acceptance['historical_qualification_records_preserved'])
+        self.assertEqual(acceptance['supported_gate_counts'],{'profiles':4,'native_pkg_install_and_removal_profiles':1,
+            'default_carrier_packages':236,'optional_source_packages':4,'codex_cases':88,'native_owner_receipts':204,
+            'carrier_packaging_revision_transactions':728,'shell_install_and_removal_profiles':4,'first_run_retention_profiles':4})
+        self.assertFalse(result['publication_performed']);self.assertFalse(result['signature_performed'])
+        for key in ('recognized_apple_trust_claimed','distinct_native_version_upgrade_qualified','distinct_native_version_rollback_qualified'):
+            self.assertFalse(acceptance[key])
+    def test_changed_publisher_acceptance_cannot_create_beta_mapping(self):
+        path=Path(self.request['publisher_decision']['path']);decision=json.loads(path.read_bytes())
+        decision['publisher_acceptance']=False;path.write_bytes(r.fs.canonical(decision))
+        with self.assertRaisesRegex(ValueError,'input changed'):self.assemble()
+        self.assertFalse((self.root/'release').exists())
     def test_source_package_independent_selection_and_false_claims_preserved(self):
         result=self.assemble()
         for profile in r.publisher.PROFILES:

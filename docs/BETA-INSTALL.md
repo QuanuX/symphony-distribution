@@ -51,9 +51,10 @@ bash "$SELECTED_INSTALLER_PATH" -b -p "$SYMPHONY_PREFIX"
 ```
 
 The Mac `.pkg` is the native Apple installer format and selects the current
-user's home installation domain. Its native installation/removal was qualified
+user's home installation domain. The release gate exercises native installation/removal
 in a disposable hosted Mac root account; interactive GUI and Gatekeeper
-acceptance are separate from the detached signature.
+acceptance are separate from the detached signature. The release dossier records
+the actual result for the exact downloadable bytes.
 
 For an existing Conda installation, download and verify
 `setup/<profile>/default-explicit.txt`, then use:
@@ -131,7 +132,7 @@ Download it, verify it, and install or change that carrier explicitly:
 
 ```sh
 conda install --prefix "$SYMPHONY_PREFIX" --file "$VERIFIED_UNIT_EXPLICIT_FILE"
-conda remove --prefix "$SYMPHONY_PREFIX" "$SELECTED_PACKAGE_NAME"
+conda remove --prefix "$SYMPHONY_PREFIX" --offline --solver classic "$SELECTED_PACKAGE_NAME"
 ```
 
 For standalone installations, use `"$SYMPHONY_PREFIX/_conda"` in place of `conda`.

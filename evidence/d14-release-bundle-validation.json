@@ -45,11 +45,12 @@
     "scope": "exact retained D13 observations against original D12 receipt units; final beta still independently admitted",
     "state": "actual_four_profile_maintenance_schema_and_lineage_passed"
   },
-  "focused_release_bundle_tests": 9,
+  "beta_acceptance_mapping": "exact publisher approval plus admitted supported gate results; historical records unchanged",
+  "focused_release_bundle_tests": 11,
   "helpers": {
     "channel/release-request.example.json": "fe74eea879ed8eb1f37282a50f0427b84684b4b28ed591b2b8269fcf6863d77d",
-    "channel/release_bundle.py": "15ef40431a2b1fe7dd0cb9ea72efe9e9b18a2a9a8b5887424746ebea4448935b",
-    "channel/test_release_bundle.py": "9d6e4e4845493abba6ffa419e0c4ed204bc73a4c01b5ac64ee7685266dc63222"
+    "channel/release_bundle.py": "201ffd1cb58da5cf64bcbce037df6c0d9d648fe5d179596c57d62a16456c610a",
+    "channel/test_release_bundle.py": "be8548ed7000f358e9d82723e4fb0cd5a11cc275d40ffd9fd9e650ae30e6ff12"
   },
   "independent_review": "passed",
   "publication_performed": false
