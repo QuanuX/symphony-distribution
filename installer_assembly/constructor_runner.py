@@ -150,6 +150,11 @@ def scope_native_script(name, data):
         guard = 'if [[ -e "$PREFIX" ]]; then'
         require(data.count(guard) == 1, 'constructor native prefix guard drift')
         data = data.replace(guard, 'if [[ -e "$PREFIX" || -L "$PREFIX" ]]; then')
+    # The two native execution templates reset CONDARC after their shebang.
+    # Keep the selected empty configuration in force at that exact location.
+    expected_resets = 1 if name in ('prepare_installation.sh', 'run_installation.sh') else 0
+    require(data.count('unset CONDARC\n') == expected_resets, 'constructor native RC reset drift')
+    data = data.replace('unset CONDARC\n', 'export CONDARC=/dev/null\n')
     data = scope_constructor_commands(data, 1 if name == 'prepare_installation.sh' else 0)
     require('${HOME}/.conda' not in data and '${HOME}/.condarc' not in data,
             'ambient Conda-home mutation remains in generated script')

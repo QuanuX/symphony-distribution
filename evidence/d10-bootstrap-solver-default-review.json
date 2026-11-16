@@ -1,0 +1,54 @@
+{
+  "conda_source_archive_sha256": "0b084bdaac353c6b1ce8aa6be860d9348eca2b6ba26a3741d615fd704641a1fd",
+  "conda_version": "26.9.4",
+  "findings": [
+    {
+      "finding": "Default solver is libmamba; global plugin denial does not make the default classic.",
+      "line": 331,
+      "source": "conda/base/constants.py"
+    },
+    {
+      "finding": "Explicit packages with no requested package specs return install_explicit_packages before solver backend selection at line349.",
+      "line": 320,
+      "source": "conda/cli/install.py"
+    },
+    {
+      "finding": "Explicit install constructs PrefixSetup and UnlinkLinkTransaction directly; no solver backend is selected.",
+      "line": 139,
+      "source": "conda/misc.py"
+    },
+    {
+      "finding": "Install does not append create-default packages; explicit-file packages remain distinct from requested specs.",
+      "line": 531,
+      "source": "conda/models/environment.py"
+    },
+    {
+      "finding": "The explicit-file parser returns Environment with explicit_packages; requested_packages keeps its empty default.",
+      "line": 72,
+      "source": "conda/env/specs/explicit.py"
+    }
+  ],
+  "protocol": "symphony.distribution.d10-default-solver-source-review.v1",
+  "publication_authorized": false,
+  "qualification_direction": [
+    "Remove CONDA_SOLVER from the isolated shell-installer environment so actual execution tests the ordinary default.",
+    "Keep the separate named removal command explicit --solver classic; named removal is a solve.",
+    "Do not enable external solver plugins or alter frozen assembly helpers on the basis of this source check."
+  ],
+  "release_acceptance_complete": false,
+  "runtime_default_install_observed": false,
+  "scope": "read-only source control-flow proof; actual wrapper execution without solver override remains separate",
+  "source_files_sha256": {
+    "conda_base_constants.py": "969cc5cfbd5864109d5f5b34349d25fb5d3aa6f05a027f021582dc4afd36aedd",
+    "conda_base_context.py": "dbda56d93212c1cb6837a7a8918e5439ac4c32d83d11ffd5affb90b1ef8f33bd",
+    "conda_cli_common.py": "c8efcbb6347028dda5fe5347d305b8c58878bd287c8f99b5f3c1b07009826f09",
+    "conda_cli_install.py": "2f92377e56e65586b2b8c2186d041dac4295d9d589d16fa8f2f64b1ff2ba76ba",
+    "conda_cli_main_install.py": "a7d50d94b50d13abe030deb8d3e2f39f49c70f787abfb84712dfbb93746ee922",
+    "conda_env_specs_explicit.py": "e7a54ac754bb5824fd6cb8498253ef0738bb464fa490d443f009dc702fbd505c",
+    "conda_misc.py": "44ecbf9d90273d7ae7b48dbe90016f437dd3dfa622a730f6db5701349b3dd30c",
+    "conda_models_environment.py": "395bbb519071f45e34b43455000d5ea0e8df09bf97acb73e2cf5894e5e33432b",
+    "conda_plugins_environment_specifiers_explicit.py": "6a0615dfb5cb7e29ad7f7a81a7bc9a1ea6d469be7543cdea087129037ae605e4"
+  },
+  "state": "explicit_install_solver_bypass_confirmed_in_pinned_source",
+  "wrapper_rebuild_required_by_this_check": false
+}

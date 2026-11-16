@@ -97,7 +97,7 @@ def isolated_environment(output):
         'TMP': str(output / 'tmp'), 'TEMP': str(output / 'tmp'), 'XDG_CONFIG_HOME': str(home / '.config'),
         'XDG_CACHE_HOME': str(output / 'cache'), 'LANG': 'C.UTF-8', 'LC_ALL': 'C', 'USER': 'builder', 'LOGNAME': 'builder',
         'CONDARC': str(config), 'CONDA_ALWAYS_COPY': 'true', 'CONDA_OFFLINE': 'true', 'CONDA_SUBDIR': 'osx-64', 'CONDA_NO_PLUGINS': 'true',
-        'CONDA_SOLVER': 'classic', 'CONDA_REGISTER_ENVS': 'false', 'CONDA_ADD_ANACONDA_TOKEN': 'false',
+        'CONDA_REGISTER_ENVS': 'false', 'CONDA_ADD_ANACONDA_TOKEN': 'false',
         'CONDA_REPORT_ERRORS': 'false', 'CONDA_PKGS_DIRS': str(output / 'pkgs'), 'CONDA_ENVS_PATH': str(output / 'envs'),
         'PYTHONNOUSERSITE': '1', 'PYTHONDONTWRITEBYTECODE': '1'}
 

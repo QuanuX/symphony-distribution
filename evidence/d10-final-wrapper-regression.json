@@ -1,0 +1,19 @@
+{
+  "protocol": "symphony.distribution.d10-final-wrapper-regression.v1",
+  "state": "passed",
+  "constructor_tests": 25,
+  "mac_and_overlay_tests": 17,
+  "total": 42,
+  "independent_repeat": "all 42 passed; three exact installed vendor templates also passed strict configuration audit",
+  "strict_audit_weakened": false,
+  "install_solver_override_supplied": false,
+  "named_removal_solver": "classic",
+  "helper_sha256": {
+    "installer_assembly/constructor_runner.py": "653cdec07ad1915255b4664caa91377d9e6a9a64867659ca46ac60109df1ae23",
+    "installer_assembly/test_construct.py": "e2f9575286f7181bf6010adc9f605f4cf606d661b5f8f5dfc12a806b4ad816f6",
+    "qualification/d10_mac.py": "49db0e2cb6b5dbad5bc6ce0807613e98dcb3b0fa9e2218ea29731c4f2fc00638",
+    "qualification/test_d10_mac.py": "1f4c9b9941361548b10496f6ce9fbd5d5028abc2a59386dd21fd4c18fa3bc080"
+  },
+  "actual_new_wrapper_execution_assessed": false,
+  "publication_authorized": false
+}

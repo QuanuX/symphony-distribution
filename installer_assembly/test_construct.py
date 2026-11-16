@@ -134,7 +134,7 @@ class ConstructorContracts(unittest.TestCase):
 
     def test_native_adapter_preserves_only_selected_prefix_ownership(self):
         selected = 'chown -R "${USER}" "$PREFIX"\n'
-        script = '#!/bin/bash\n' + selected + r.AMBIENT_CONDA_OWNERSHIP + '\nexit 0\n'
+        script = '#!/bin/bash\nunset CONDARC\n' + selected + r.AMBIENT_CONDA_OWNERSHIP + '\nexit 0\n'
         result = r.scope_native_script('run_installation.sh', script)
         self.assertIn(selected, result)
         self.assertNotIn('${HOME}/.conda', result)
@@ -159,7 +159,7 @@ class ConstructorContracts(unittest.TestCase):
         self.assertEqual(result.count('Existing-prefix replacement is unavailable'), 2)
 
     def test_constructor_override_is_command_local_and_keeps_install_denied(self):
-        script = '#!/bin/bash\n"$CONDA_EXEC" constructor --extract-conda-pkgs\n"$CONDA_EXEC" install --offline\n'
+        script = '#!/bin/bash\nunset CONDARC\n"$CONDA_EXEC" constructor --extract-conda-pkgs\n"$CONDA_EXEC" install --offline\n'
         result = r.scope_native_script('prepare_installation.sh', script)
         self.assertEqual(r.CONSTRUCTOR_COMMAND.encode(), c.CONSTRUCTOR_COMMAND)
         self.assertIn('export CONDA_NO_PLUGINS=true\n', result)
@@ -178,13 +178,29 @@ class ConstructorContracts(unittest.TestCase):
             stub.write_text('#!/bin/sh\nprintf "%s|%s|%s|%s|%s\\n" "$CONDA_NO_PLUGINS" "$CONDARC" '
                             '"$CONDA_RESTRICT_RC_SEARCH_PATH" "${PYTHONPATH:-}" "$1"\n')
             stub.chmod(0o700)
-            original = '#!/bin/bash\nif ! "$CONDA_EXEC" constructor --extract-conda-pkgs; then exit 3; fi\n"$CONDA_EXEC" install --offline\n'
+            original = '#!/bin/bash\nunset CONDARC\nif ! "$CONDA_EXEC" constructor --extract-conda-pkgs; then exit 3; fi\n"$CONDA_EXEC" install --offline\n'
             script = root / 'prepare.sh'; script.write_text(r.scope_native_script('prepare_installation.sh', original))
             env = {'PATH': '/usr/bin:/bin', 'CONDA_EXEC': str(stub), 'PYTHONPATH': 'caller-module-path',
                    'CONDARC': '/unselected/caller-config', 'CONDA_NO_PLUGINS': 'false'}
             result = subprocess.run(['/bin/bash', str(script)], env=env, capture_output=True, text=True, check=True)
             self.assertEqual(result.stdout.splitlines(), ['false|/dev/null|1||constructor',
                                                           'true|/dev/null|1|caller-module-path|install'])
+
+    def test_native_vendor_rc_reset_cannot_erase_empty_configuration(self):
+        common = '#!/bin/bash\n# Installers should ignore pre-existing configuration files.\nunset CONDARC\nunset MAMBARC\n'
+        bodies = {
+            'prepare_installation.sh': 'if ! "$CONDA_EXEC" constructor --prefix "$PREFIX" --extract-conda-pkgs; then exit 1; fi\n',
+            'run_installation.sh': '"$CONDA_EXEC" install --offline\nchown -R "${USER}" "$PREFIX"\n' + r.AMBIENT_CONDA_OWNERSHIP,
+        }
+        for name, body in bodies.items():
+            with self.subTest(name=name):
+                result = r.scope_native_script(name, common + body)
+                self.assertNotIn('unset CONDARC', result)
+                self.assertIn('# Installers should ignore pre-existing configuration files.\nexport CONDARC=/dev/null\n', result)
+                c.audit_constructor_policy(result.encode(), 1 if name == 'prepare_installation.sh' else 0)
+                for invalid in ((common + body).replace('unset CONDARC\n', ''), common + body + 'unset CONDARC\n'):
+                    with self.assertRaisesRegex(ValueError, 'native RC reset drift'):
+                        r.scope_native_script(name, invalid)
 
     def test_override_or_caller_configuration_broadening_refuses(self):
         correct = (r.CONSTRUCTOR_COMMAND + '\nexport CONDARC=/dev/null\nexport CONDA_RESTRICT_RC_SEARCH_PATH=1\n').encode()

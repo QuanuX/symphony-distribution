@@ -68,6 +68,7 @@ class MacTests(unittest.TestCase):
     def test_isolated_environment_does_not_inherit_credentials_or_home(self):
         env = m.isolated_environment(self.root)
         self.assertEqual(env['HOME'], str(self.root / 'home'))
+        self.assertNotIn('CONDA_SOLVER', env)
         self.assertEqual(env['CONDA_ALWAYS_COPY'], 'true'); self.assertEqual(env['CONDA_OFFLINE'], 'true'); self.assertEqual(env['CONDA_REGISTER_ENVS'], 'false')
         self.assertFalse(any(key in env for key in ('AWS_ACCESS_KEY_ID', 'GH_TOKEN', 'ANACONDA_API_TOKEN', 'DYLD_INSERT_LIBRARIES')))
         self.assertEqual((self.root / 'home/.zshrc').read_bytes(), b'# isolated caller state must survive\n')
