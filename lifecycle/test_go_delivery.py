@@ -206,8 +206,25 @@ class DeliveryTests(unittest.TestCase):
         self.assertTrue((self.root / 'retained/outcome-unknown.json').exists())
         self.assertTrue((self.root / 'retained/owner-call.json').exists())
         self.assertFalse((self.root / 'retained/custody.json').exists())
-        with self.assertRaises(FileExistsError):
-            self.retain(carrier, manifest, install_native=True)
+        # The retry reaches the existing-output guard on every test host; this
+        # synthetic Darwin carrier is never executed by a real native owner.
+        with patch.object(d.subprocess, 'run') as retry, \
+             patch.object(d.platform, 'system', return_value='Darwin'), patch.object(d.platform, 'machine', return_value='x86_64'):
+            with self.assertRaises(FileExistsError):
+                self.retain(carrier, manifest, install_native=True)
+            retry.assert_not_called()
+
+    def test_wrong_host_native_carrier_refused_before_output_or_execution(self):
+        carrier, manifest, _ = self.carrier('stav-append-authority')
+        for system, machine in [('Linux', 'x86_64'), ('Darwin', 'arm64')]:
+            with self.subTest(system=system, machine=machine), \
+                 patch.object(d.subprocess, 'run') as call, \
+                 patch.object(d.platform, 'system', return_value=system), \
+                 patch.object(d.platform, 'machine', return_value=machine):
+                with self.assertRaisesRegex(ValueError, 'different host'):
+                    self.retain(carrier, manifest, install_native=True)
+                call.assert_not_called()
+                self.assertFalse((self.root / 'retained').exists())
 
     def test_raw_commands_have_no_native_install_fallback(self):
         for component in sorted(set(o.OWNERS) - o.SERVICE_IDS):
