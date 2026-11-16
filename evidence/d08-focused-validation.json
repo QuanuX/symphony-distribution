@@ -1,0 +1,77 @@
+{
+  "protocol": "symphony.distribution.d08-focused-validation.v1",
+  "state": "passed",
+  "scope": "source identity, inert carrier, constructor privacy/fresh-prefix and review-integrity boundaries",
+  "implementation_commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+  "helper_sha256": {
+    "carriers.py": "a8b901119f148ba3c06759de9fdd3c91621cfe6cb978974e79eb291c7f539176",
+    "cohort.py": "227561ab2dcfd2ae4e2990b83a23d8ad12334eddc6b62af8c658aa2327c6339d",
+    "construct.py": "7bd65f0dfe0d3f5acc25a67643a7caa473f4d7d25d3ef2ed2d4b9bf7a6c1a156",
+    "constructor_runner.py": "8a76e81b7b293b951641b18e291043d1d23a4f5df8ee3b17347b74f6dba2775e",
+    "corresponding_source.py": "661e3a97f85f4445dea4cef5fe772a4e8d14c634cd546257d8831f4c91a48079",
+    "link_qualification.py": "36b0ed5a7a7251a66f33fffd17db98d37dd727218be0635370d6e8085a7efeb2",
+    "pkg_finalize.py": "1b44368b541a4d7826b407a2cd88b58155c6131913351f45d427070811c81fed",
+    "review_signing.py": "5ae7d4aea5542265e72ac5dd73b94d31bd37d36e37fe25b92d0d1984c3b95268",
+    "supplements.py": "7c5743ee07b65b4db61f115e6c8897fade391866b45581a3dc20d7d36aedc57a",
+    "test_carriers.py": "07884948a9d89845ca7a1cc90e9c53912a11c9575d54afa056e06b610c2d47ba",
+    "test_cohort.py": "7ec26ce1b8864f7908897d17d89037c4c03b0c44e01075f55895bde0d7dbebc8",
+    "test_construct.py": "a62dd94bc1974344dbe5c267b725672f7681a3990be5d63584d0de186c906005",
+    "test_corresponding_source.py": "f8a693c9432e8ae72bcdbfac7799af0da0dc03e6770984028dc2a36933e6dc03",
+    "test_link_qualification.py": "a983bab1a51cbab03c3699dcd482ce4f8f8cc881ad5951a63645f52fdfee715d",
+    "test_pkg_finalize.py": "29ad258afb9d542e4e3d8ecdd8594a5248d553c87f98ed077da85fae9234bfa1",
+    "test_review_signing.py": "668292b27dfa1d3f5e3425496b303507eb1c4a466e92e0f7535aafe34c4d5086",
+    "test_supplements.py": "410eebca23150a402d5ce76b795b7e5ba759dc8b28453e089f35f975d7f25abf"
+  },
+  "observations": [
+    {
+      "suite": "combined installer_assembly",
+      "cases": 89,
+      "passed": 89,
+      "skipped": 0,
+      "publisher_python": "3.12.16",
+      "note": "Includes real pinned Conda package writer and OpenSSL cryptographic regressions."
+    },
+    {
+      "suite": "final Apple finalizer",
+      "cases": 15,
+      "passed": 15,
+      "note": "Includes additional final refusal coverage; overlaps the earlier combined run."
+    },
+    {
+      "suite": "final constructor contracts",
+      "cases": 20,
+      "passed": 20,
+      "note": "Focused final helper review; overlaps the combined run."
+    },
+    {
+      "suite": "qxctl identity",
+      "cases": 11,
+      "passed": 11
+    },
+    {
+      "suite": "delivery provenance collector",
+      "cases": 26,
+      "passed": 26
+    },
+    {
+      "suite": "existing build cohort contracts",
+      "cases": 9,
+      "passed": 9
+    },
+    {
+      "suite": "client catalog, legacy verifier and historical D07 verifier",
+      "cases": 32,
+      "passed": 32
+    }
+  ],
+  "actual_codex_cases": 22,
+  "reproducible_qxctl_builds": 2,
+  "compiled_inputs_equal": 291,
+  "default_conda_carriers_linked_and_removed": 59,
+  "optional_source_carriers_linked_and_removed": 1,
+  "main_changed": false,
+  "ci_waited": false,
+  "installer_executed": false,
+  "publication_authorized": false,
+  "release_acceptance_complete": false
+}

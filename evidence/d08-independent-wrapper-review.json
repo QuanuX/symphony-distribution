@@ -1,0 +1,96 @@
+{
+  "archive_count": 59,
+  "carrier_cohort_sha256": "6136d5946263e9cd8e1665997a2497f2d97c3f62f6e0b39f78be8ea4bf317220",
+  "carrier_records_reused_without_rebuilding": true,
+  "code_sha256": {
+    "installer_assembly/construct.py": "7bd65f0dfe0d3f5acc25a67643a7caa473f4d7d25d3ef2ed2d4b9bf7a6c1a156",
+    "installer_assembly/constructor_runner.py": "8a76e81b7b293b951641b18e291043d1d23a4f5df8ee3b17347b74f6dba2775e",
+    "installer_assembly/pkg_finalize.py": "1b44368b541a4d7826b407a2cd88b58155c6131913351f45d427070811c81fed",
+    "installer_assembly/tool-lock.json": "4eeace9afddd4ef4619447072c59f503ba3dfd4166b295a6495c9d856c754630"
+  },
+  "cohort_digest": "sha256:0b5ad60ceaafeb13b7e7edf0a1908cb2c04774d29823ced6b017216c40fdea70",
+  "cpio_preservation": [
+    {
+      "component_part": "prepare_installation.pkg/Payload",
+      "content_inventory_sha256": "6a1209a78e18b7968fbf2219fca0eed4e056c63f5cc70bc8d07c121de2f50087",
+      "neutral_header_metadata": true,
+      "real_bytes_and_modes_unchanged": true,
+      "real_members": 259,
+      "recognized_appledouble_removed": 258
+    },
+    {
+      "component_part": "prepare_installation.pkg/Scripts",
+      "content_inventory_sha256": "eedd505120b240276eea3e25ea5585172e541b14d5fb2b821fdd75e5f0fa9ee1",
+      "neutral_header_metadata": true,
+      "real_bytes_and_modes_unchanged": true,
+      "real_members": 3,
+      "recognized_appledouble_removed": 2
+    },
+    {
+      "component_part": "run_installation.pkg/Payload",
+      "content_inventory_sha256": "bdf82800ff7ecd9ae1c865bcb802bfd795b8fe600ed14131ced3e812f3a686e5",
+      "neutral_header_metadata": true,
+      "real_bytes_and_modes_unchanged": true,
+      "real_members": 1,
+      "recognized_appledouble_removed": 0
+    },
+    {
+      "component_part": "run_installation.pkg/Scripts",
+      "content_inventory_sha256": "d0b7ec8425f880cb9f30b793a3ab232a47a0f938449075a650fdc6ed0f3630ff",
+      "neutral_header_metadata": true,
+      "real_bytes_and_modes_unchanged": true,
+      "real_members": 2,
+      "recognized_appledouble_removed": 1
+    }
+  ],
+  "exact_frozen_code_verified": true,
+  "fresh_host_installation_verified": false,
+  "guards": {
+    "activation_hooks_absent": true,
+    "ambient_conda_home_mutation_absent": true,
+    "existing_or_linked_prefix_refused": true,
+    "reporting_and_plugins_disabled": true,
+    "shell_force_and_update_disabled": true
+  },
+  "installer_executed": false,
+  "notarization_verified": false,
+  "pkg_final_toc_sha256": "a2557e2bc1c794271aabe8249db422d1f89c8724b04c0269c6dd34d57e397389",
+  "pkg_original_sha256": "072b0e456cde4c38c8ec011b5bbbdf1c4840a94c62d9d9d55d7c5e60d12297a1",
+  "private_policy_sha256": "f089c67c6730d3ef89c18e63c0c1c0dc277b0a313ac7b0066af520b923cd9ff6",
+  "profile": "local-macos-amd64-fixture",
+  "protocol": "symphony.distribution.d08-independent-wrapper-review.v1",
+  "publication_authorized": false,
+  "publisher_trust_accepted": false,
+  "release_acceptance_complete": false,
+  "runtime_activated": false,
+  "scope": "supplemental_native_macos_amd64_unsigned_container_inspection",
+  "selected_cli_archive_ledger_identical": true,
+  "source_commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+  "state": "selected_wrapper_bytes_and_guards_verified",
+  "wrapper_result_sha256": "99491df00d9f43f46a0b8db86ded0ffb47352a069e6b401fd6333f0731ab09f7",
+  "wrappers": {
+    "pkg": {
+      "archive_count": 59,
+      "bootstrap_sha256": "fd7c7e8355d2e015ded0b63848614ea09dea94fe63776a1bc23634ec83a069be",
+      "filename": "SymphonyReview-0.0.0.0b5ad60ceaaf-MacOSX-x86_64.pkg",
+      "fresh_audit_passed": true,
+      "nested_archives_inventory_sha256": "869fdf6a047a59549c64817299550297bd7a3b883004c0e6e45ecc060670fe50",
+      "scripts": [
+        "prepare_installation.pkg/Scripts/postinstall",
+        "prepare_installation.pkg/Scripts/preinstall",
+        "run_installation.pkg/Scripts/postinstall"
+      ],
+      "sha256": "407b9a8651e3f880090671f2346f11f6f4ac39e9b883effd04306adc71aaeb72",
+      "size": 115618204
+    },
+    "sh": {
+      "archive_count": 59,
+      "bootstrap_sha256": "fd7c7e8355d2e015ded0b63848614ea09dea94fe63776a1bc23634ec83a069be",
+      "filename": "SymphonyReview-0.0.0.0b5ad60ceaaf-MacOSX-x86_64.sh",
+      "fresh_audit_passed": true,
+      "nested_archives_inventory_sha256": "869fdf6a047a59549c64817299550297bd7a3b883004c0e6e45ecc060670fe50",
+      "sha256": "af4a51db0a5e0debba1c157a763441f837eaa8ced5de7ce0d9086dfc5f08b3d5",
+      "size": 115865214
+    }
+  }
+}

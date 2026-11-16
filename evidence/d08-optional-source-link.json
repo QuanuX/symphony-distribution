@@ -1,0 +1,37 @@
+{
+  "all_selected_carriers_removed": true,
+  "archive_count": 1,
+  "auditor_routing": "explicit isolated-process dependency injection; unchanged qualification helper",
+  "cohort_digest": "sha256:bb33a02d7a9323e89c6059511efbe4a60ce1fe5e205b64717b08287d83d27011",
+  "conda_version": "26.10.0",
+  "copy_mode": true,
+  "create_log_sha256": "1fef0b73362e378addf62f10b6801ae0187de9f7404479759cb89c780a2220f2",
+  "default_suite_qualification": false,
+  "exact_linked_bytes_and_modes": true,
+  "fresh_host_accepted": false,
+  "helper_identities": {
+    "link_qualification": "36b0ed5a7a7251a66f33fffd17db98d37dd727218be0635370d6e8085a7efeb2",
+    "source_carrier_auditor": "7c5743ee07b65b4db61f115e6c8897fade391866b45581a3dc20d7d36aedc57a"
+  },
+  "helper_sha256": "36b0ed5a7a7251a66f33fffd17db98d37dd727218be0635370d6e8085a7efeb2",
+  "linked_file_count": 3,
+  "native_runtime_owner_invoked": false,
+  "original_archive_bytes_unchanged": true,
+  "outside_state_preserved": true,
+  "private_harness_sha256": "b5eb13a342f6d96683d9f7c356f6862830e62b3eef6960c21972aecb32f3ac74",
+  "protocol": "symphony.distribution.d08-conda-inert-link-qualification.v1",
+  "publication_authorized": false,
+  "publisher_trust_accepted": false,
+  "remove_log_sha256": "a77d81329e7673597771d10df25268b4bdb344c3635ec45f5f2eac97c1da2087",
+  "runtime_installation_accepted": false,
+  "scope": "single optional corresponding-source inert carrier",
+  "selected_auditor": "installer_assembly.supplements.audit_source",
+  "solver_tool_identity": {
+    "conda": "26.10.0",
+    "solver": "26.10.0",
+    "solver_module_sha256": "36d92ec2c980989bb0641ed4176940165f9a874d394a609f9943d4835e2f056b"
+  },
+  "source_only_carrier_count": 1,
+  "state": "passed",
+  "user_state_preserved": true
+}

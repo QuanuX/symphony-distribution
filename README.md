@@ -86,3 +86,7 @@ Conda behavior references: [create](https://docs.conda.io/projects/conda/en/stab
 ## D07 client gate
 
 The [D07 client handoff](docs/D07-CLIENT-GATE.md) and [source-bound results](evidence/D07-RESULTS.md) record clean client packaging, all existing adapters maintained and 22 passing actual Codex cases on the exact retained D06 candidate. The separate distribution verifier preserves the unavailable embedded-source-stamp gate; final-platform, channel, trust and fresh-host acceptance remain open. Neither main branch is changed.
+
+## D08 source identity and review installers
+
+The [D08 handoff](docs/D08-INSTALLER-ASSEMBLY.md) and [retained results](evidence/D08-RESULTS.md) close qxctl's embedded-source identity defect and bind the refreshed client to the repaired bytes. The review delivery has 59 independent default carriers, a separate optional source package, and same-cohort supplemental Intel macOS PKG/SH wrappers. Source and native ownership remain explicit; self-signed review integrity does not establish Apple trust or release acceptance. See the results for focused tests, exact artifact proofs and remaining release gates.

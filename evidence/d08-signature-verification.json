@@ -1,0 +1,13 @@
+{
+  "protocol": "symphony.distribution.review-signature.v1",
+  "state": "review_signature_and_artifacts_verified",
+  "certificate_sha256": "db271ed442ac9dc51e309ad4b9e67f9a94f75c7c4ab4ae4c4bef65d436fea272",
+  "artifact_count": 76,
+  "system_trust_changed": false,
+  "publication_authorized": false,
+  "manifest_sha256": "7a6b055dc7478b23c5183941163145ce747619c9f3ee53b5fe968f4aa6a44da8",
+  "signature_sha256": "59dba94f823ef23197b9b8582d5c5fcbb19d20188468b4b8dab8fff045d9986a",
+  "implementation_commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+  "native_pkg_signed": false,
+  "installer_executed": false
+}
