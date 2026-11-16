@@ -20,6 +20,12 @@ The Conda adapter accepts only prefixes it creates inside a fresh private attemp
 
 After exact carrier removal, an empty owned prefix may request normal cleanup of its private Conda cache. Global caches and existing environments are outside that operation. Completed local checks and remaining gates are recorded in [the S06 qualification report](evidence/RESULTS.md).
 
+S07 adds process-bound attempt authority, concurrent-call exclusion, custody
+identity checks and focused crash/recovery evidence. The [S07 campaign guide](qualification/README.md)
+maps the fault cases to acceptance requirements and the four requested CI
+platforms. It explicitly separates source/owner fixtures from real-manager and
+fresh-host acceptance.
+
 | Go delivery | Runtime owner |
 | --- | --- |
 | SSIAG | `symphony-ssiag package`; native user receipt and retirement fence |

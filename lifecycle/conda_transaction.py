@@ -10,8 +10,10 @@ custody is a precondition, not a promise about unrelated Conda clients.
 from __future__ import annotations
 
 import argparse
+import errno
 from contextlib import contextmanager, redirect_stdout
 import fcntl
+from functools import wraps
 import hashlib
 import io
 import json
@@ -244,6 +246,21 @@ def _snapshot(root):
     return result
 
 
+def _single_owner(method):
+    """Reject a competing caller before it can change attempt state/evidence."""
+    @wraps(method)
+    def guarded(self, *args, **kwargs):
+        with self._exclusive():
+            try:
+                return method(self, *args, **kwargs)
+            except BaseException:
+                # Includes failures while creating the durable intent, before
+                # the method's execution/outcome handler has been entered.
+                self.poisoned = True
+                raise
+    return guarded
+
+
 class Attempt:
     """Fresh private carrier prefix; all files/evidence persist on close or failure."""
     def __init__(self):
@@ -261,21 +278,25 @@ class Attempt:
         obj = object.__new__(cls)
         obj.root, obj.prefix, obj.channel, obj.subdir = root, root / 'prefix', root / 'channel', subdir
         obj.poisoned, obj.closed, obj.sequence = False, False, 0
+        obj._creator_pid, obj._operation_lock = os.getpid(), threading.Lock()
         obj.catalog, obj.installed, obj.previous_snapshot = {}, {}, {}
-        obj._lock = os.open(root / 'owner.lock', os.O_RDWR | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
-        fcntl.flock(obj._lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        obj._lock, obj._lock_identity, obj._directory_identities = None, None, {}
         obj._root_identity = root.stat().st_dev, root.stat().st_ino
-        obj._lock_identity = os.fstat(obj._lock).st_dev, os.fstat(obj._lock).st_ino
-        for p in ('prefix', 'channel', 'cache', 'home', 'envs', 'evidence'):
-            (root / p).mkdir(mode=0o700)
-        (obj.prefix / 'conda-meta').mkdir(mode=0o700)
-        _write_new(obj.prefix / 'conda-meta/history', b'')
-        obj._prefix_identity = obj.prefix.stat().st_dev, obj.prefix.stat().st_ino
-        obj._cache_identity = (root / 'cache').stat().st_dev, (root / 'cache').stat().st_ino
-        _write_new(root / 'ATTEMPT.json', canonical({'protocol': 'symphony.conda.private-attempt.v1', 'id': str(uuid.uuid4()),
-            'conda_version': PINNED_CONDA, 'subdir': subdir, 'reopen_supported': False,
-            'boundary': 'new private carrier prefix; no arbitrary environment or concurrent external writer guarantee'}))
         try:
+            obj._lock = os.open(root / 'owner.lock', os.O_RDWR | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+            obj._lock_identity = os.fstat(obj._lock).st_dev, os.fstat(obj._lock).st_ino
+            fcntl.flock(obj._lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            for p in ('prefix', 'channel', 'cache', 'home', 'envs', 'evidence'):
+                (root / p).mkdir(mode=0o700)
+            (obj.prefix / 'conda-meta').mkdir(mode=0o700)
+            _write_new(obj.prefix / 'conda-meta/history', b'')
+            obj._prefix_identity = obj.prefix.stat().st_dev, obj.prefix.stat().st_ino
+            obj._cache_identity = (root / 'cache').stat().st_dev, (root / 'cache').stat().st_ino
+            obj._directory_identities = {name: ((root / name).stat().st_dev, (root / name).stat().st_ino)
+                                         for name in ('channel', 'cache', 'home', 'envs', 'evidence', 'prefix/conda-meta')}
+            _write_new(root / 'ATTEMPT.json', canonical({'protocol': 'symphony.conda.private-attempt.v1', 'id': str(uuid.uuid4()),
+                'conda_version': PINNED_CONDA, 'subdir': subdir, 'reopen_supported': False,
+                'boundary': 'new private carrier prefix; no arbitrary environment or concurrent external writer guarantee'}))
             for target in (subdir, 'noarch'):
                 out = obj.channel / target
                 out.mkdir(mode=0o700)
@@ -311,29 +332,83 @@ class Attempt:
             return obj
         except BaseException as exc:
             obj.poisoned = True
-            _write_new(root / 'evidence/create-failed.json', canonical({'status': 'refused-retained', 'error_type': type(exc).__name__, 'error': str(exc)}))
-            obj.close()
+            try:
+                _absolute(root)
+                held_root = root.lstat()
+                require((held_root.st_dev, held_root.st_ino) == obj._root_identity and
+                        held_root.st_uid == os.geteuid() and not held_root.st_mode & 0o077,
+                        'Cannot write failure evidence outside retained custody')
+                folder = root
+                if 'evidence' in obj._directory_identities:
+                    evidence = _absolute(root / 'evidence')
+                    held_evidence = evidence.lstat()
+                    if ((held_evidence.st_dev, held_evidence.st_ino) == obj._directory_identities['evidence'] and
+                            held_evidence.st_uid == os.geteuid() and not held_evidence.st_mode & 0o077):
+                        folder = evidence
+                _write_new(folder / 'create-failed.json', canonical({'status': 'refused-retained',
+                    'error_type': type(exc).__name__, 'error': str(exc), 'automatic_retry': False}))
+            except (OSError, ValueError):
+                pass
+            try:
+                obj.close()
+            except (OSError, ValueError):
+                pass  # retain the original setup failure; never close a foreign descriptor
             raise
 
     def __enter__(self):
-        self._check()
+        with self._exclusive():
+            self._check()
         return self
 
     def __exit__(self, *ignored):
         self.close()
 
+    @contextmanager
+    def _exclusive(self):
+        # flock belongs to an open file description and is inherited by fork.
+        # It is not proof that a child process may reuse this live authority.
+        require(os.getpid() == self._creator_pid, 'Attempt belongs to its creating process; fork reuse is forbidden')
+        require(self._operation_lock.acquire(blocking=False), 'Attempt already has an active operation')
+        try:
+            yield
+        finally:
+            self._operation_lock.release()
+
+    @_single_owner
     def close(self):
-        if not self.closed:
-            self.closed = True
-            os.close(self._lock)
+        if self.closed:
+            return
+        self.closed = True
+        if self._lock is None:
+            return  # creation failed before a lock descriptor was acquired
+        try:
+            held = os.fstat(self._lock)
+        except OSError as exc:
+            self.poisoned = True
+            if exc.errno == errno.EBADF:
+                return  # an already-closed descriptor has nothing to release
+            raise
+        require((held.st_dev, held.st_ino) == self._lock_identity,
+                'Custody lock descriptor changed; foreign handle retained')
+        os.close(self._lock)
 
     def _check(self):
+        require(os.getpid() == self._creator_pid, 'Attempt belongs to its creating process; fork reuse is forbidden')
         require(not self.closed and not self.poisoned, 'Closed/failed attempts cannot be replayed or reopened')
         for path, expected in ((self.root, self._root_identity), (self.prefix, self._prefix_identity), (self.root / 'cache', self._cache_identity), (self.root / 'owner.lock', self._lock_identity)):
             _absolute(path)
             s = path.lstat()
             require((s.st_dev, s.st_ino) == expected and s.st_uid == os.geteuid() and not s.st_mode & 0o077,
                     'Private custody identity/permissions changed')
+        for name, expected in self._directory_identities.items():
+            path = _absolute(self.root / name)
+            s = path.lstat()
+            require(stat.S_ISDIR(s.st_mode) and (s.st_dev, s.st_ino) == expected and
+                    s.st_uid == os.geteuid() and not s.st_mode & 0o077,
+                    'Private directory custody identity/permissions changed')
+        held = os.fstat(self._lock)
+        require(stat.S_ISREG(held.st_mode) and held.st_nlink == 1 and
+                (held.st_dev, held.st_ino) == self._lock_identity, 'Live custody lock descriptor changed')
         require(_snapshot(self.channel) == self._channel_snapshot, 'Private channel changed')
 
     @contextmanager
@@ -379,7 +454,11 @@ class Attempt:
             finally:
                 _CONTEXT_LOCK.release()
 
+    @_single_owner
     def inventory(self):
+        return self._inventory()
+
+    def _inventory(self):
         self._check()
         rows = {}
         for path in (self.prefix / 'conda-meta').glob('*.json'):
@@ -486,6 +565,7 @@ class Attempt:
                             require(action.target_short_path == 'conda-meta/history', 'Unexpected history destination')
         require(seen_link == links and seen_unlink == unlinks and seen_records == set(links), 'Prepared package effects differ from full solver delta')
 
+    @_single_owner
     def clean_cache(self):
         """Run normal Conda clean --all only on this empty attempt's own cache.
 
@@ -508,7 +588,7 @@ class Attempt:
             'tempfile_scope': 'this-attempt-cache-only', 'automatic_retry': False}))
         executing = False
         try:
-            require(not self.installed and not self.inventory(), 'Cache cleanup requires an empty owned delivery prefix')
+            require(not self.installed and not self._inventory(), 'Cache cleanup requires an empty owned delivery prefix')
             before = _snapshot(self.prefix)
             require(all(before.get(k) == v for k, v in self.previous_snapshot.items()), 'Prefix changed before cache cleanup')
             cache_before = _snapshot(cache)
@@ -558,7 +638,7 @@ class Attempt:
                 require(status == 0 and result.get('success') is True and targets(result) <= planned,
                         'Conda cleanup result differs from reviewed private-cache scope')
             self._check()
-            require(_snapshot(self.prefix) == before and not self.inventory(), 'Cache cleanup changed delivery prefix')
+            require(_snapshot(self.prefix) == before and not self._inventory(), 'Cache cleanup changed delivery prefix')
             require(all(not os.path.lexists(path) for path in planned), 'Conda did not remove every selected cache target')
             cache_after = _snapshot(cache)
             removed = {name for name in cache_before if any(cache / name == path or path in (cache / name).parents for path in planned)}
@@ -583,6 +663,7 @@ class Attempt:
                 pass
             raise
 
+    @_single_owner
     def transact(self, operation, *, add_specs=(), remove_names=(), expected_link=(), expected_unlink=()):
         """Solve, validate and execute the SAME transaction object exactly once.
 
@@ -631,7 +712,7 @@ class Attempt:
                 for phase in ('pre-link', 'post-link', 'pre-unlink', 'post-unlink'):
                     require(f'bin/.{name}-{phase}.sh' not in before, 'Existing lifecycle hook prevents inert transaction')
             require(all(before.get(k) == v for k, v in self.previous_snapshot.items()), 'Private prefix changed since prior observation')
-            actual_before = self.inventory()
+            actual_before = self._inventory()
             require(actual_before == self.installed, 'Installed metadata changed since prior observation')
             require(all(actual_before.get(k) == v for k, v in unlinks.items()), 'Unlink identity is not installed')
             require(not (set(links) & set(actual_before) - set(unlinks)), 'Replacement lacks exact reviewed unlink identity')
@@ -668,7 +749,7 @@ class Attempt:
                 _write_new(evidence / 'execution-started.json', canonical({'status': 'outcome-unknown-until-observed'}))
                 executing = True
                 transaction.execute()
-            after = self.inventory()
+            after = self._inventory()
             expected_final = {k: v for k, v in actual_before.items() if k not in unlinks}
             expected_final.update(links)
             require(after == expected_final, 'Final complete installed inventory differs from reviewed delta')

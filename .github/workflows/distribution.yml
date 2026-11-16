@@ -2,32 +2,73 @@ name: Distribution preparation
 on:
   push:
     branches: ['codex/**']
+    paths: ['.github/workflows/distribution.yml', 'source-binding.json', 'go-owner-catalog.json', 'owner-catalog/**', 'lifecycle/**', 'recipes/**', 'tests/**', 'qualification/**']
   pull_request:
+    paths: ['.github/workflows/distribution.yml', 'source-binding.json', 'go-owner-catalog.json', 'owner-catalog/**', 'lifecycle/**', 'recipes/**', 'tests/**', 'qualification/**']
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: distribution-${{ github.ref }}
+  group: distribution-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: false
 jobs:
+  scope:
+    runs-on: ubuntu-24.04
+    outputs:
+      contracts: ${{ steps.scope.outputs.contracts }}
+      native: ${{ steps.scope.outputs.native }}
+      conda: ${{ steps.scope.outputs.conda }}
+      source: ${{ steps.scope.outputs.source }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Select affected boundaries and exact source
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+          source = json.load(open('source-binding.json'))['source_commit']
+          assert re.fullmatch('[0-9a-f]{40}', source)
+          base = os.environ['PR_BASE'] if os.environ['EVENT_NAME'] == 'pull_request' else os.environ['PUSH_BEFORE']
+          all_checks = os.environ['EVENT_NAME'] == 'workflow_dispatch' or not re.fullmatch('[0-9a-f]{40}', base or '') or base == '0' * 40
+          names = []
+          if not all_checks:
+              result = subprocess.run(['git', 'diff', '--name-only', '-z', base, 'HEAD', '--'], capture_output=True, check=False)
+              all_checks = result.returncode != 0
+              names = result.stdout.decode().split('\0') if not all_checks else []
+          shared = {'.github/workflows/distribution.yml', 'source-binding.json', 'go-owner-catalog.json'}
+          conda_files = {'lifecycle/conda_transaction.py', 'lifecycle/test_conda_transaction.py', 'lifecycle/test_conda_faults.py'}
+          platform_files = {'qualification/host_platform.py', 'qualification/test_platform.py'}
+          native_files = {'qualification/native_campaign.py', 'qualification/test_native_campaign.py'}
+          flags = {
+              'contracts': all_checks or any(p in shared or (p.startswith(('owner-catalog/', 'lifecycle/', 'recipes/', 'tests/')) and p not in conda_files) for p in names),
+              'native': all_checks or any(p in shared or p.startswith('owner-catalog/') or p in platform_files or p in native_files for p in names),
+              'conda': all_checks or any(p in shared or p in conda_files or p in platform_files or p in {'qualification/conda_campaign.py', 'qualification/test_conda_campaign.py'} for p in names),
+          }
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('source=' + source + '\n')
+              for key, value in flags.items():
+                  output.write(key + '=' + str(value).lower() + '\n')
+          print(json.dumps(flags, sort_keys=True))
+          PY
   contracts:
+    needs: scope
+    if: needs.scope.outputs.contracts == 'true'
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Read exact Symphony source binding
-        id: source
-        run: |
-          python3 - <<'PY'
-          import json, os, re
-          source = json.load(open('source-binding.json'))['source_commit']
-          assert re.fullmatch('[0-9a-f]{40}', source)
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write('commit=' + source + '\n')
-          PY
+        with:
+          persist-credentials: false
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           repository: QuanuX/Symphony
-          ref: ${{ steps.source.outputs.commit }}
+          ref: ${{ needs.scope.outputs.source }}
           path: work/core
           persist-credentials: false
       - name: Verify source binding and preparation contracts
@@ -41,27 +82,124 @@ jobs:
           python3 -m unittest discover -s lifecycle -p 'test_journeys.py'
           python3 -m unittest discover -s recipes -p 'test_build_go_carriers.py'
           python3 -m unittest discover -s tests -p 'test_conda_journey_inputs.py'
-  conda-transactions:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
+  platform-qualification:
+    needs: scope
+    if: needs.scope.outputs.native == 'true' || needs.scope.outputs.conda == 'true'
+    name: S07 fixtures (${{ matrix.profile }})
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        # Asset digests verified against the publisher's 26.9.4-2 GitHub release.
+        include:
+          - profile: macos15-arm64
+            runner: macos-15
+            installer: Miniforge3-26.9.4-2-MacOSX-arm64.sh
+            sha256: fb567612b76f4ef46de326f04425dbe381b6afc6a66c545f5043255a5ef34258
+          - profile: ubuntu24.04-amd64
+            runner: ubuntu-24.04
+            installer: Miniforge3-26.9.4-2-Linux-x86_64.sh
+            sha256: bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf
+          - profile: ubuntu24.04-arm64
+            runner: ubuntu-24.04-arm
+            installer: Miniforge3-26.9.4-2-Linux-aarch64.sh
+            sha256: 1adf18b530e4ffb00886ce6d5bd2eb1fa6311d2f14709b13bd154d8cd98d94c8
+          - profile: ubuntu26.04-amd64
+            runner: ubuntu-26.04
+            installer: Miniforge3-26.9.4-2-Linux-x86_64.sh
+            sha256: bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Record actual host and read-only manager availability
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/s07-evidence"
+          python3 -m unittest discover -s qualification -p test_platform.py -v
+          python3 qualification/host_platform.py --profile "$PROFILE" --output "$RUNNER_TEMP/s07-evidence/platform.json"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        if: needs.scope.outputs.native == 'true'
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ needs.scope.outputs.source }}
+          path: work/core
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        if: needs.scope.outputs.native == 'true'
+        with:
+          go-version: '1.26.5'
+          cache: false
+      - name: Verify source and prepare isolated native test dependencies
+        if: needs.scope.outputs.native == 'true'
+        env:
+          GOWORK: 'off'
+          GOENV: 'off'
+          GOTOOLCHAIN: local
+          GOMODCACHE: ${{ runner.temp }}/s07-gomodcache
+          GOCACHE: ${{ runner.temp }}/s07-gocache
+        run: |
+          set -euo pipefail
+          test "$(go env GOVERSION)" = go1.26.5
+          python3 tests/check_source_binding.py work/core
+          python3 -m unittest discover -s qualification -p test_native_campaign.py -v
+          for module in modules/secure-identity-access-governance modules/stav-append-authority modules/accordare-stav-producer tools/qxctl; do
+            (cd "work/core/$module" && go mod download && go mod verify)
+          done
+      - name: Run source-bound native fault and concurrency fixtures
+        if: needs.scope.outputs.native == 'true'
+        env:
+          PROFILE: ${{ matrix.profile }}
+        run: |
+          python3 qualification/native_campaign.py --source "$GITHUB_WORKSPACE/work/core" \
+            --profile "$PROFILE" --output "$RUNNER_TEMP/s07-evidence/native" \
+            --gomodcache "$RUNNER_TEMP/s07-gomodcache" --gocache "$RUNNER_TEMP/s07-gocache"
       - name: Install isolated pinned transaction tools
+        if: needs.scope.outputs.conda == 'true'
         shell: bash
+        env:
+          MINIFORGE_ASSET: ${{ matrix.installer }}
+          MINIFORGE_SHA256: ${{ matrix.sha256 }}
         run: |
           set -euo pipefail
           installer="$RUNNER_TEMP/miniforge.sh"
           curl --fail --location --retry 2 \
-            https://github.com/conda-forge/miniforge/releases/download/26.9.4-2/Miniforge3-26.9.4-2-Linux-x86_64.sh \
+            "https://github.com/conda-forge/miniforge/releases/download/26.9.4-2/$MINIFORGE_ASSET" \
             --output "$installer"
-          printf '%s  %s\n' bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf "$installer" | sha256sum --check
+          python3 - "$installer" "$MINIFORGE_SHA256" <<'PY'
+          import hashlib, pathlib, sys
+          assert hashlib.sha256(pathlib.Path(sys.argv[1]).read_bytes()).hexdigest() == sys.argv[2], 'Installer SHA-256 mismatch'
+          PY
           bash "$installer" -b -p "$RUNNER_TEMP/conda-bootstrap"
           "$RUNNER_TEMP/conda-bootstrap/bin/conda" create --yes --override-channels \
             --channel conda-forge --prefix "$RUNNER_TEMP/conda-test-tools" \
             python=3.12 conda=26.10.0 conda-build=26.9.1
-      - name: Test actual isolated Conda transactions and refusal boundaries
+      - name: Test real Conda faults and isolated transaction boundaries
+        if: needs.scope.outputs.conda == 'true'
         shell: bash
         run: |
           set -euo pipefail
           "$RUNNER_TEMP/conda-test-tools/bin/python" -m unittest discover \
-            -s lifecycle -p test_conda_transaction.py -v
+            -s qualification -p test_conda_campaign.py -v
+          "$RUNNER_TEMP/conda-test-tools/bin/python" qualification/conda_campaign.py \
+            --output "$RUNNER_TEMP/s07-evidence/conda"
+      - name: Retain S07 evidence including incomplete platform gates
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: s07-${{ matrix.profile }}-${{ github.run_attempt }}
+          # Preserve reports and diagnostic logs, never fixture homes, binaries,
+          # installed runtime trees, module caches or host custody descriptors.
+          path: |
+            ${{ runner.temp }}/s07-evidence/platform.json
+            ${{ runner.temp }}/s07-evidence/native/result.json
+            ${{ runner.temp }}/s07-evidence/native/*.jsonl
+            ${{ runner.temp }}/s07-evidence/native/*.stderr.log
+            ${{ runner.temp }}/s07-evidence/native/lost-response-*/*.log
+            ${{ runner.temp }}/s07-evidence/conda/result.json
+            ${{ runner.temp }}/s07-evidence/conda/tests.json
+            ${{ runner.temp }}/s07-evidence/conda/*.log
+          if-no-files-found: error
+          retention-days: 14
