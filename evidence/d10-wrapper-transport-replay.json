@@ -1,0 +1,69 @@
+{
+  "artifact_count": 8,
+  "artifacts": [
+    {
+      "archive_sha256": "8d4b2525a89062d2842fe23e344a28dbb974a4e9e527c822cbe9924fb6b93b0f",
+      "artifact_id": 14255095274,
+      "file_count": 12,
+      "inventory_sha256": "c5219120f3a3360b47e47c25f38e7bae2317eb173d6683f545f14adc794e2d36",
+      "size": 267049
+    },
+    {
+      "archive_sha256": "78eefa5986ba7bd545017a32da2c7482870e2f89a4bf7ccc77c2b87f7e7d66bf",
+      "artifact_id": 14253585540,
+      "file_count": 12,
+      "inventory_sha256": "fc52c5b07fa3802cc2b9096469803c0f0f121b42678fc4b80068841e162bde16",
+      "size": 267324
+    },
+    {
+      "archive_sha256": "4724b03ac0019ffaf6c78941f2fbc7676023261c0469f4775eb7c1837f070aed",
+      "artifact_id": 14253320586,
+      "file_count": 12,
+      "inventory_sha256": "af56583531c2fa7c02974102b2953d6437243fae637dd6e85866d6ee910f00a9",
+      "size": 267149
+    },
+    {
+      "archive_sha256": "b865d1fa33f1427539e20fafdc2d84d1b40a816eddea9c497007e400183649c2",
+      "artifact_id": 14252414871,
+      "file_count": 12,
+      "inventory_sha256": "06f286c048a4358b84b36eaef7e83fb8d45551cfa62ed57f072a1a44979297c2",
+      "size": 265610
+    },
+    {
+      "archive_sha256": "ee1935ffe242e34f9d334a34e4614802cd5d7c04cab7330d99c0db6e0f7124b9",
+      "artifact_id": 14255141817,
+      "file_count": 5,
+      "inventory_sha256": "75b3bab034d38c220ca7ff5b936ed8a0c3f673e2260aa21b015678aa3e0d1f48",
+      "size": 106633
+    },
+    {
+      "archive_sha256": "24bec3ff5ad335d30a1b16d484dba119cdb7dbc588c9dfa34df0e30d7a51147b",
+      "artifact_id": 14254878827,
+      "file_count": 5,
+      "inventory_sha256": "ea887adc04a045971c3fcc411c5affc925d65ed64235fad502495903f2e71d54",
+      "size": 107069
+    },
+    {
+      "archive_sha256": "1d717a802b637b453ec198ea6177ef35123f7050370c726622c370c8685825bc",
+      "artifact_id": 14257865165,
+      "file_count": 5,
+      "inventory_sha256": "56606693157ea31fe1b271f2d075e9163e282643190bfbdccbd29fc7fa969b21",
+      "size": 107040
+    },
+    {
+      "archive_sha256": "58508beacef64d0ffe0bb32d3d9887c877b17da4f7aaa40ee6e737b91bcc052d",
+      "artifact_id": 14255454864,
+      "file_count": 5,
+      "inventory_sha256": "9a183d9d26fcef474afc43c0b57c420b5cff2b717905ddea976e5c11ec1e1ae9",
+      "size": 107207
+    }
+  ],
+  "helper_sha256": "e161f2ae2537c67747b70fbadb50591644b1964560286f6c96fad664a48a2fe1",
+  "native_payload_available": false,
+  "primary_wrapper_qualified": false,
+  "protocol": "symphony.distribution.primary-transport-replay.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "scope": "Safe ZIP byte/hash/extraction checks against the eight actual retained report archives; these contain no native payload and are not accepted primary carrier selections.",
+  "state": "passed"
+}

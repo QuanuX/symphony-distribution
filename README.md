@@ -112,6 +112,10 @@ the corrected and separately signed Mac wrappers, and the successful actual
 shell-installer check: 59 packages, 177 matching carrier files, safe refusal and
 named removal with caller-state preservation. The [legal handoff](docs/D10-LEGAL-REVIEW.md)
 records the release owner's reviewer assignment and exact materials for a later
-decision. Primary build outputs are preserved for [wrapper-only qualification](docs/D10-PRIMARY-REWRAP.md).
+decision. The [wrapper-only follow-up](docs/D10-PRIMARY-REWRAP.md) now retains
+native bytes and completed carriers before later gates, verifies exact artifact
+selections, and separates wrapper repair from the original build. The inspected
+older runs retained reports only; recovery producer runs must supply real
+capsules before primary wrapper-only execution can qualify them.
 Native PKG execution, full native maintenance, genuine version transitions and
 the broader Public Beta acceptance gate remain open.

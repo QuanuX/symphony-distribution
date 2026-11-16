@@ -63,11 +63,35 @@ were independently rechecked across all 42 tests. Workflow lint and the private
 source-policy scans passed. These checks are separate from actual installer
 execution and from hosted CI results.
 
-The primary platform runs started before the wrapper repair can still retain
-useful native-build outputs. Preserve those outputs for the bounded
-[wrapper-only follow-up](D10-PRIMARY-REWRAP.md); repeating their original jobs
-would use the old wrapper producer. No additional full-platform build was
-dispatched or awaited for this follow-up.
+## Primary wrapper-only follow-up
+
+The later completed-run inspection found all four replacement primary builds
+compiled successfully, then failed while collecting the old toolkit source.
+The private-marker defect is already repaired in the current branch. All eight
+D09/D06 artifacts were downloaded and matched to their recorded hashes and
+sizes, but contain reports only. The successful four-platform D06 run likewise
+retained no native payload bytes. The earlier expectation of reusable outputs
+was therefore not established.
+
+The [wrapper-only implementation](D10-PRIMARY-REWRAP.md) now verifies explicit
+run, artifact, source and carrier pins, rebuilds only wrappers, and exercises
+installation, safe refusals and named removal on a separate matching hosted
+runner. It preserves the original carrier bytes and distinguishes native-build
+source from wrapper-repair source. An isolated, identity-bound archive reader is
+prepared for the consumer; stock runner Python cannot inspect these archives.
+
+Native payloads are now retained immediately after compilation, and completed
+carriers before wrapper assembly. One recovery producer run per primary profile
+is necessary to obtain bytes that the old jobs did not preserve. These runs use
+the unchanged reviewed source/export pins; no core/client checks are rerun and
+no new CI result is awaited. Wrapper-only execution remains pending verification
+and selection of actual completed carrier capsules.
+
+The focused follow-up covers transport, retained-build validation, platform
+capsules and wrapper/consumer contracts. The exact local results are recorded in
+`evidence/d10-wrapper-implementation.json`. Actual old artifact transport and
+report-schema checks supplement these fixture tests; they do not create a
+primary-native or fresh-host acceptance result.
 
 ## Gate interpretation
 

@@ -7,6 +7,7 @@ publisher trust nor complete the independent D10 fresh-host acceptance matrix.
 import argparse
 import hashlib
 import importlib.util
+import io
 import json
 import os
 from pathlib import Path
@@ -15,11 +16,28 @@ import shutil
 import stat
 import subprocess
 import sys
+import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILES = ('macos15-arm64', 'ubuntu24.04-amd64', 'ubuntu24.04-arm64', 'ubuntu26.04-amd64')
 REPOSITORY = 'QuanuX/symphony-distribution'
 OWNED_OUTPUTS = {}
+CAPSULE_PROTOCOL = 'symphony.distribution.d09-primary-carrier-capsule.v1'
+CAPSULE_SOURCE = 'symphony.distribution.d09-carrier-toolkit-source.v1'
+CAPSULE_HELPERS = (
+    'qualification/d09_platform.py', 'installer_assembly/cohort.py',
+    'installer_assembly/carriers.py', 'installer_assembly/corresponding_source.py',
+    'installer_assembly/supplements.py', 'qualification/d06_delivery_record.py',
+    'qualification/d06_upstream_source.py', 'source-export/export_source.py',
+    'recipes/build_go_carriers.py', 'recipes/go_generate.py', 'recipes/stage_payload.py',
+    'lifecycle/go_delivery.py', 'owner-catalog/native_owners.py')
+CAPSULE_EVIDENCE = {
+    'build-result.json': 'build_result_sha256', 'round-result.json': 'round_result_sha256',
+    'round-2-result.json': 'round_2_result_sha256', 'delivery-record.json': 'delivery_record_sha256',
+    'sdk-closure.json': 'sdk_closure_sha256', 'source-manifest.json': 'source_manifest_sha256',
+    'qxctl-source-proof.json': 'qxctl_source_proof_sha256', 'input-cohort.json': 'input_cohort_sha256',
+    'mvp-dependencies.json': 'dependency_map_sha256', 'source-acceptance-plan.json': 'source_acceptance_plan_sha256',
+    'TOOLKIT-SOURCE.tar': 'toolkit_source_archive_sha256', 'TOOLKIT-SOURCE.json': 'toolkit_source_index_sha256'}
 
 
 def require(value, reason):
@@ -151,6 +169,214 @@ def acceptance_packet(repository, source_commit, profile, selected_cohort_digest
             'release_acceptance_complete': False, 'publication_authorized': False}
 
 
+def capsule_toolkit(evidence, policy, helpers):
+    """Retain committed producer source, without machine files or Git metadata."""
+    source = module('d09_capsule_source', 'installer_assembly/corresponding_source.py')
+    scanner = module('d09_capsule_scanner', 'source-export/export_source.py')
+    scanner.configure_policy(policy)
+    commit = source.git(ROOT, 'rev-parse', 'HEAD').decode().strip()
+    rows, identity = source.committed_files(ROOT, commit, scanner, toolkit=True)
+    contents = {name: raw for name, raw, mode in rows}
+    require(all(name in contents and hashlib.sha256(contents[name]).hexdigest() == expected
+                for name, expected in helpers.items()), 'Executing capsule helper is not committed')
+    files = source.write_tar(evidence / 'TOOLKIT-SOURCE.tar', rows)
+    index = {'protocol': CAPSULE_SOURCE, 'source': identity, 'files': files,
+             'archive_sha256': sha(evidence / 'TOOLKIT-SOURCE.tar'), 'executing_helpers': helpers,
+             'privacy_scan': 'pass', 'publication_authorized': False}
+    write(evidence / 'TOOLKIT-SOURCE.json', index)
+    return index
+
+
+def verify_capsule(root, expected_sha256):
+    """Verify retained primary bytes and original provenance, never rerun a build.
+
+    The caller independently selects result.json (and its hosted transport).
+    Original helper hashes are checked against retained Git source, not today's
+    helpers. This admits a later wrapper repair without rewriting build history.
+    """
+    root = safe(root); digest(expected_sha256)
+    carriers = module('d09_capsule_carriers', 'installer_assembly/carriers.py')
+    binding = module('d09_capsule_binding', 'installer_assembly/cohort.py')
+    # supplements uses the same established archive validator as its import.
+    sys.path.insert(0, str(ROOT / 'installer_assembly'))
+    supplements = module('d09_capsule_supplements', 'installer_assembly/supplements.py')
+    raw = carriers.bounded(safe(root / 'result.json'))[0]
+    require(hashlib.sha256(raw).hexdigest() == expected_sha256, 'Selected capsule result differs')
+    record = supplements.parse(raw)
+    require(record['protocol'] == CAPSULE_PROTOCOL and record['state'] == 'primary_carriers_audited' and
+            record['archive_count'] == 58 and record['client_included'] is False and
+            all(record[key] is False for key in ('wrappers_built', 'publication_authorized',
+                'publisher_trust_accepted', 'independent_fresh_host_acceptance', 'release_acceptance_complete')),
+            'Incomplete capsule or unselected acceptance claim')
+    require({p.name for p in root.iterdir()} == {'carriers', 'evidence', 'fresh-host-requirements.json', 'result.json'},
+            'Extra capsule root material')
+    evidence = safe(root / 'evidence')
+    require({p.name for p in evidence.iterdir()} == set(CAPSULE_EVIDENCE), 'Capsule evidence set differs')
+    blobs = {}
+    for name, field in CAPSULE_EVIDENCE.items():
+        blobs[name] = carriers.bounded(safe(evidence / name))[0]
+        require(hashlib.sha256(blobs[name]).hexdigest() == digest(record[field]), 'Retained capsule evidence differs')
+    documents = {name: supplements.parse(raw) for name, raw in blobs.items() if name.endswith('.json')}
+    build, round_record, delivery, sdk = (documents[name] for name in
+        ('build-result.json', 'round-result.json', 'delivery-record.json', 'sdk-closure.json'))
+    primary_build(build, record['profile'])
+    require(build['source_commit'] == record['source_commit'] and build['source_tree'] == record['source_tree'] and
+            build['source_input']['export_digest'] == record['source_export_digest'], 'Capsule source differs from build')
+    rounds = {row['directory']: row for row in build['rounds']}
+    second = documents['round-2-result.json']
+    require(rounds['round-2']['result_sha256'] == record['round_2_result_sha256'] and
+            second['state'] == 'built_and_sdk_checked' and second['publication_authorized'] is False and
+            second['native_count'] == 51 and len(second['go_commands']) == 6 and
+            second['payload_inventory'] == round_record['payload_inventory'] and
+            all(second[key]['status'] == 'passed' for key in ('sdk_audit', 'installed_owner_audit', 'loader_audit')),
+            'Second completed identical native round is absent')
+    candidate, proof = documents['input-cohort.json'], documents['qxctl-source-proof.json']
+    require(candidate['base_d06'] == {'aggregate_sha256': record['build_result_sha256'],
+                'round_sha256': record['round_result_sha256'], 'delivery_sha256': record['delivery_record_sha256']} and
+            candidate['qxctl_source_proof_sha256'] == record['qxctl_source_proof_sha256'] and
+            candidate['source_export_manifest_sha256'] == record['source_manifest_sha256'] and
+            candidate['dependency_map_sha256'] == record['dependency_map_sha256'], 'Capsule installer evidence differs')
+    binding.validate_record(candidate, build, round_record, delivery, proof, documents['source-manifest.json'],
+                            record['dependency_map_sha256'])
+    require(sdk['protocol'] == 'symphony.distribution.d06-sdk-closure.v1' and sdk['status'] == 'passed' and
+            sdk['source_commit'] == record['source_commit'] and sdk['source_tree'] == record['source_tree'] and
+            sdk['source_inventory_sha256'] == record['source_export_digest'] and
+            sdk['round'] == 'round-1' and sdk['cohort_result_sha256'] == record['build_result_sha256'] and
+            sdk['round_result_sha256'] == record['round_result_sha256'] and
+            all(sdk[key] is False for key in ('publication_authorized', 'release_acceptance_complete', 'fresh_host_accepted')),
+            'Capsule SDK closure differs')
+    index = documents['TOOLKIT-SOURCE.json']; source = index['source']
+    require(index['protocol'] == CAPSULE_SOURCE and index['privacy_scan'] == 'pass' and
+            index['publication_authorized'] is False and index['archive_sha256'] == record['toolkit_source_archive_sha256'] and
+            source['commit'] == record['original_toolkit_commit'] and source['tree'] == record['original_toolkit_tree'] and
+            re.fullmatch('[0-9a-f]{40}', source['commit']) and re.fullmatch('[0-9a-f]{40}', source['tree']) and
+            set(record['helper_sha256']) == set(CAPSULE_HELPERS) and index['executing_helpers'] == record['helper_sha256'],
+            'Capsule producer source identity or helper closure differs')
+    supplements.source_tree(blobs['TOOLKIT-SOURCE.tar'], source)
+    with tarfile.open(fileobj=io.BytesIO(blobs['TOOLKIT-SOURCE.tar']), mode='r:') as archive:
+        contents = {member.name: archive.extractfile(member).read() for member in archive}
+        files = [{'path': member.name, 'sha256': hashlib.sha256(contents[member.name]).hexdigest(),
+                  'size': member.size, 'mode': member.mode} for member in archive.getmembers()]
+    require(files == index['files'], 'Retained toolkit inventory differs')
+    expected_build = {Path(name).name: hashlib.sha256(data).hexdigest() for name, data in contents.items()
+        if name.startswith('build-cohort/') and len(Path(name).parts) == 2 and
+        Path(name).suffix in ('.py', '.cmake') and not Path(name).name.startswith('test_')}
+    require(expected_build and build['build_helpers'] == expected_build and
+            build['builder_sha256'] == expected_build['build.py'] and
+            build['plan_sha256'] == hashlib.sha256(contents['build-cohort/cohort.json']).hexdigest() and
+            set(build['imported_helpers']) == {'qualification/native_campaign.py', 'source-export/export_source.py'} and
+            set(sdk['extra_helpers_sha256']) == {'qualification/d06_sdk_closure.py', 'qualification/native_campaign.py'},
+            'Original build or SDK helper closure is incomplete')
+    hashes = dict(record['helper_sha256'])
+    for group in (build['imported_helpers'], sdk['extra_helpers_sha256'],
+                  {'qualification/d06_sdk_closure.py': sdk['harness_sha256'],
+                   'qualification/d06_delivery_record.py': delivery['tool_sha256'],
+                   'installer_assembly/cohort.py': candidate['helper_sha256'],
+                   'build-cohort/qxctl_identity.py': proof['helper_sha256']}):
+        for name, value in group.items():
+            require(name not in hashes or hashes[name] == value, 'Conflicting original helper identities')
+            hashes[name] = value
+    require(all(name in contents and hashlib.sha256(contents[name]).hexdigest() == digest(expected)
+                for name, expected in hashes.items()), 'Original helper bytes differ from retained toolkit')
+    toolkit_rows = delivery['source']['toolkit_files']
+    toolkit_modes = {row['path']: row['mode'] for row in files}
+    require(len(toolkit_rows) == len(contents) and len({row['path'] for row in toolkit_rows}) == len(contents) and
+            all(row['path'] in contents and hashlib.sha256(contents[row['path']]).hexdigest() == row['sha256'] and
+                row['mode'] == toolkit_modes[row['path']]
+                for row in toolkit_rows), 'Delivery toolkit snapshot differs from exact original source')
+    cohort = carriers.audit_cohort(safe(root / 'carriers'))
+    require(cohort['profile'] == record['profile'] and cohort['cohort_digest'] == record['cohort_digest'] and
+            len(cohort['archives']) == len(cohort['entries']) == 58 and
+            cohort['selected_evidence'] == {'input_cohort_sha256': record['input_cohort_sha256'],
+                'source_binding': candidate['source_binding'], 'base_d06': candidate['base_d06'],
+                'qxctl_source_proof_sha256': record['qxctl_source_proof_sha256']}, 'Carrier capsule binding differs')
+    expected_files = {'cohort.json'} | {'channel/' + cohort['conda_subdir'] + '/' + row['filename'] for row in cohort['archives']}
+    for entry in cohort['entries']:
+        expected_files.update(entry['recipe_path'] + '/' + name for name in
+            ('meta.yaml', 'stage_payload.py', 'payload/payload.tar', 'payload/unit.json', 'payload/carrier-manifest.json'))
+    expected_dirs = {parent.as_posix() for name in expected_files for parent in Path(name).parents if parent != Path('.')}
+    observed = inventory(root / 'carriers')
+    require(not any('link' in row for row in observed) and
+            {row['path'] for row in observed if 'sha256' in row} == expected_files and
+            {row['path'] for row in observed if 'directory' in row} == expected_dirs,
+            'Unselected carrier checkpoint material')
+    actual = {}
+    for entry in cohort['entries']:
+        unit, _ = carriers.validate_recipe(root / 'carriers', entry)
+        selected = set(unit['payload_paths'])
+        rows = carriers.rows_by_path(unit['files'])
+        require(selected <= rows.keys(), 'Carrier lacks selected native payload')
+        for name in selected:
+            require(name not in actual, 'Repeated capsule payload ownership'); actual[name] = rows[name]
+    require(actual == carriers.rows_by_path(candidate['payload_inventory']), 'Carrier payload differs from completed native build')
+    packet_raw = carriers.bounded(safe(root / 'fresh-host-requirements.json'))[0]
+    require(hashlib.sha256(packet_raw).hexdigest() == record['fresh_host_requirements_sha256'], 'Acceptance preparation changed')
+    packet = supplements.parse(packet_raw); plan = documents['source-acceptance-plan.json']
+    source_files = {row['path']: row for row in documents['source-manifest.json']['source_files']}
+    require(source_files['tests/launch-acceptance/plan.json']['export_sha256'] == record['source_acceptance_plan_sha256'] and
+            tuple(plan['required_profiles']) == PROFILES and len(set(plan['required_scenarios'])) == len(plan['required_scenarios']) == 9 and
+            packet['protocol'] == 'symphony.distribution.d09-fresh-host-preparation.v1' and
+            packet['source_commit'] == record['source_commit'] and packet['source_plan_sha256'] == record['source_acceptance_plan_sha256'] and
+            packet['selected_build_profile'] == record['profile'] and packet['selected_cohort_digest'] == record['cohort_digest'] and
+            packet['required_inputs'] == plan['required_inputs'] and packet['independent_reviewer'] == 'not_selected' and
+            packet['cells'] == [{'profile': p, 'scenario': s, 'state': 'pending', 'routes': {'cli': 'pending', 'standalone': 'pending'}}
+                                for p in PROFILES for s in plan['required_scenarios']] and
+            packet['publication_authorized'] is False and packet['release_acceptance_complete'] is False,
+            'Capsule changes pending independent acceptance scope')
+    require(sha(root / 'result.json') == expected_sha256, 'Capsule changed during verification')
+    return record
+
+
+def retain_capsule(args, out, aggregate, archives):
+    """Publish an audited carrier checkpoint before any constructor operation."""
+    target = safe(out / 'carrier-capsule'); pending = safe(out / '.carrier-capsule-preparing')
+    require(not target.exists() and not pending.exists(), 'Existing carrier checkpoint refused')
+    helpers = {name: sha(ROOT / name) for name in CAPSULE_HELPERS}
+    pending.mkdir(mode=0o700); evidence = pending / 'evidence'; evidence.mkdir(mode=0o700)
+    inputs = {
+        'build-result.json': args.build_root / 'result.json', 'round-result.json': args.build_root / 'round-1/result.json',
+        'round-2-result.json': args.build_root / 'round-2/result.json',
+        'delivery-record.json': args.delivery / 'delivery-record.json', 'sdk-closure.json': args.sdk_closure / 'result.json',
+        'source-manifest.json': args.export / 'SOURCE-EXPORT.json',
+        'qxctl-source-proof.json': args.build_root / 'round-1/qxctl-identity/result.json',
+        'input-cohort.json': out / 'input-cohort/cohort.json',
+        'mvp-dependencies.json': args.export / 'source/cmake/mvp-dependencies.json',
+        'source-acceptance-plan.json': args.export / 'source/tests/launch-acceptance/plan.json'}
+    carriers = module('d09_capsule_copy', 'installer_assembly/carriers.py')
+    for name, path in inputs.items():
+        raw = carriers.bounded(safe(path))[0]
+        with (evidence / name).open('xb') as stream: stream.write(raw)
+    before = inventory(out / 'carriers')
+    require(not any('link' in row for row in before), 'Linked carrier material refused')
+    shutil.copytree(out / 'carriers', pending / 'carriers', copy_function=shutil.copy2)
+    require(inventory(pending / 'carriers') == before, 'Carrier checkpoint copy differs')
+    source = capsule_toolkit(evidence, args.privacy_policy, helpers)
+    packet = acceptance_packet(args.export / 'source', aggregate['source_commit'], args.profile, archives['cohort_digest'])
+    write(pending / 'fresh-host-requirements.json', packet)
+    record = {'protocol': CAPSULE_PROTOCOL, 'state': 'primary_carriers_audited', 'profile': args.profile,
+        'source_commit': aggregate['source_commit'], 'source_tree': aggregate['source_tree'],
+        'source_export_digest': args.export_digest, 'cohort_digest': archives['cohort_digest'], 'archive_count': 58,
+        'original_toolkit_commit': source['source']['commit'], 'original_toolkit_tree': source['source']['tree'],
+        'helper_sha256': helpers, 'fresh_host_requirements_sha256': sha(pending / 'fresh-host-requirements.json'),
+        'client_included': False, 'wrappers_built': False, 'publication_authorized': False,
+        'publisher_trust_accepted': False, 'independent_fresh_host_acceptance': False, 'release_acceptance_complete': False,
+        **{field: sha(evidence / name) for name, field in CAPSULE_EVIDENCE.items()}}
+    require(record['source_manifest_sha256'] == args.manifest_sha256, 'Independently selected source manifest changed before retention')
+    write(pending / 'result.json', record)
+    scanner = module('d09_capsule_final_scan', 'source-export/export_source.py'); scanner.configure_policy(args.privacy_policy)
+    # Source TAR has the exact, separately reviewed scanner-fixture exceptions;
+    # all portable evidence and carrier metadata follow the strict policy.
+    for path in [pending / 'result.json', pending / 'fresh-host-requirements.json',
+                 *[evidence / name for name in CAPSULE_EVIDENCE if name.endswith('.json')]]:
+        scanner.scan(path.name, path.read_bytes())
+    verify_capsule(pending, sha(pending / 'result.json'))
+    require(all(sha(inputs[name]) == sha(evidence / name) for name in inputs) and
+            all(sha(ROOT / name) == expected for name, expected in helpers.items()) and
+            inventory(out / 'carriers') == before, 'Selected capsule inputs changed during retention')
+    pending.rename(target)
+    return record
+
+
 def package(args):
     """Use unchanged D06 and D08 validators; no fabricated cohort/owner records."""
     inputs = [args.build_root, args.delivery, args.export, args.repository, args.privacy_policy, args.sdk_closure, ROOT]
@@ -181,12 +407,12 @@ def package(args):
                                 profile=args.profile, privacy_policy=args.privacy_policy)
     archives = carriers.build_cohort(out / 'prepared', out / 'carriers', prepared['cohort_digest'])
     require(len(archives['archives']) == 58, 'Primary engineering cohort must contain exactly the baseline58 units')
+    retain_capsule(args, out, aggregate, archives)
     formats = ['pkg', 'sh'] if args.profile == 'macos15-arm64' else ['sh']
     wrapped = constructor.assemble(out / 'carriers', out / 'wrappers', interpreter=args.python,
         standalone=args.standalone, standalone_archive=args.standalone_archive, formats=formats,
         privacy_policy=args.privacy_policy)
-    packet = acceptance_packet(args.repository, aggregate['source_commit'], args.profile, archives['cohort_digest'])
-    write(out / 'fresh-host-requirements.json', packet)
+    shutil.copyfile(out / 'carrier-capsule/fresh-host-requirements.json', out / 'fresh-host-requirements.json')
     result = {'protocol': 'symphony.distribution.d09-primary-review.v1', 'state': 'primary_review_wrappers_audited',
         'profile': args.profile, 'source_commit': aggregate['source_commit'], 'source_tree': aggregate['source_tree'],
         'source_export_digest': proof['export_digest'], 'source_manifest_sha256': args.manifest_sha256,
@@ -194,6 +420,7 @@ def package(args):
         'sdk_closure_sha256': sha(args.sdk_closure / 'result.json'), 'cohort_digest': archives['cohort_digest'],
         'wrapper_result_sha256': sha(out / 'wrappers/result.json'), 'wrapper_count': len(wrapped['wrappers']),
         'archive_count': 58, 'helper_sha256': sha(__file__),
+        'carrier_capsule_result_sha256': sha(out / 'carrier-capsule/result.json'),
         'fresh_host_requirements_sha256': sha(out / 'fresh-host-requirements.json'),
         'client_included': False, 'client_qualification': 'requires_matching_primary_client',
         'publication_authorized': False, 'publisher_trust_accepted': False,

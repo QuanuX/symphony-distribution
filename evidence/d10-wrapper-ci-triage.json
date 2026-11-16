@@ -1,0 +1,156 @@
+{
+  "ci_rerun_issued": false,
+  "ci_waited": false,
+  "core_client": [
+    {
+      "head": "12543673b91d45ab39ac018d1ceb940cea685b67",
+      "non_success": [],
+      "pr": 200,
+      "repository": "QuanuX/Symphony",
+      "returned_checks": 59,
+      "successful": 59,
+      "total_checks": 59
+    },
+    {
+      "head": "261c5374b03ca61a0f79d7e717fdd843ef413777",
+      "non_success": [],
+      "pr": 201,
+      "repository": "QuanuX/Symphony",
+      "returned_checks": 59,
+      "successful": 59,
+      "total_checks": 59
+    },
+    {
+      "head": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+      "non_success": [],
+      "pr": 202,
+      "repository": "QuanuX/Symphony",
+      "returned_checks": 59,
+      "successful": 59,
+      "total_checks": 59
+    },
+    {
+      "head": "572627e939250763756167a9dc05d8cb37ab4e30",
+      "non_success": [],
+      "pr": 8,
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+      "returned_checks": 1,
+      "successful": 1,
+      "total_checks": 1
+    }
+  ],
+  "current_head_checks": [
+    {
+      "conclusion": "skipped",
+      "details_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928998576/job/133516240963",
+      "id": 133516240963,
+      "name": "S07 fixtures (${{ matrix.profile }})",
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "details_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928998576/job/133516240318",
+      "id": 133516240318,
+      "name": "contracts",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928998567/job/133516053639",
+      "id": 133516053639,
+      "name": "Source-bound dossier and export contracts",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928998576/job/133516053632",
+      "id": 133516053632,
+      "name": "scope",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "details_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928984179/job/133516003010",
+      "id": 133516003010,
+      "name": "Source-bound dossier and export contracts",
+      "status": "completed"
+    }
+  ],
+  "current_head_workflows": [
+    {
+      "conclusion": "success",
+      "event": "pull_request",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928998576",
+      "id": 43928998576,
+      "name": "Distribution preparation"
+    },
+    {
+      "conclusion": "success",
+      "event": "pull_request",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928998567",
+      "id": 43928998567,
+      "name": "S08 dossier and source delivery"
+    },
+    {
+      "conclusion": "success",
+      "event": "push",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43928984179",
+      "id": 43928984179,
+      "name": "S08 dossier and source delivery"
+    }
+  ],
+  "distribution_pr": 6,
+  "genuine_failure_found": false,
+  "head": "1e04b2f0bb54e3dc246c893bcf77cae383bc052d",
+  "latest_focused_runs": [
+    {
+      "compared_paths": [
+        "channel",
+        "qualification/d09_acceptance.py",
+        "qualification/test_d09_acceptance.py",
+        "qualification/d09_maintenance.py",
+        "qualification/test_d09_maintenance.py",
+        ".github/workflows/d09-review-gates.yml"
+      ],
+      "conclusion": "success",
+      "head_sha": "175ff9a6537d3306e990f9a2eac800e3f0b2f193",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43917626732",
+      "id": 43917626732,
+      "name": "D09 review channel and acceptance contracts",
+      "selected_code_unchanged_at_current_head": true
+    },
+    {
+      "compared_paths": [
+        "qualification/d10_mac.py",
+        "qualification/d10_mac_overlay.py",
+        "qualification/test_d10_mac.py",
+        "qualification/test_d10_mac_overlay.py",
+        ".github/workflows/d10-mac-gate.yml",
+        "installer_assembly"
+      ],
+      "conclusion": "success",
+      "head_sha": "afa7f9f127112564dc917152071bdf07da560fca",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43924869528",
+      "id": 43924869528,
+      "name": "D10 selected Mac gate contracts",
+      "selected_code_unchanged_at_current_head": true
+    },
+    {
+      "compared_paths": [
+        "installer_assembly",
+        ".github/workflows/installer-assembly.yml"
+      ],
+      "conclusion": "success",
+      "head_sha": "afa7f9f127112564dc917152071bdf07da560fca",
+      "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43924869588",
+      "id": 43924869588,
+      "name": "D08 unsigned installer assembly",
+      "selected_code_unchanged_at_current_head": true
+    }
+  ],
+  "main_mutated": false,
+  "observed_at": "2026-11-16T18:55:35.414025+00:00",
+  "primary_cohort_runs": "separately_assigned_not_read_here",
+  "protocol": "symphony.distribution.d10-wrapper-only-nonprimary-ci-triage.v1",
+  "source_changed": false
+}

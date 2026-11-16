@@ -1,0 +1,190 @@
+name: D10 retained primary wrapper-only qualification
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - '.github/workflows/d10-primary-rewrap.yml'
+      - 'qualification/primary_artifacts.py'
+      - 'qualification/primary_rewrap.py'
+      - 'qualification/test_primary_artifacts.py'
+      - 'qualification/test_primary_rewrap.py'
+      - 'qualification/d09_platform*'
+      - 'qualification/d10_mac*'
+      - 'qualification/host_platform.py'
+      - 'installer_assembly/**'
+      - 'source-export/**'
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Committed evidence/primary-selections/*.json with independently verified artifact pins
+        type: string
+        required: true
+      selection_sha256:
+        description: Exact selected JSON file SHA256 (64 lowercase hex)
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: d10-rewrap-${{ github.ref }}-${{ inputs.selection || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      runner: ${{ steps.selection.outputs.runner }}
+      profile: ${{ steps.selection.outputs.profile }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check only artifact transport and wrapper reuse contracts
+        run: python3 -B -m unittest qualification.test_primary_artifacts qualification.test_primary_rewrap -v
+      - name: Admit exact committed artifact selection
+        if: github.event_name == 'workflow_dispatch'
+        id: selection
+        env:
+          SELECTION: ${{ inputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, re, subprocess, sys
+          from qualification.primary_artifacts import validate_selection
+          sys.path.insert(0, 'qualification')
+          from d09_platform_tools import TARGETS
+          name = os.environ['SELECTION']
+          assert re.fullmatch(r'evidence/primary-selections/[a-z0-9][a-z0-9._-]*\.json', name), 'Select a committed primary selection record'
+          tracked = subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
+          assert pathlib.Path(name).read_bytes() == tracked, 'Selected file differs from workflow commit'
+          selected = validate_selection(pathlib.Path(name), os.environ['SELECTION_SHA256'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('profile=' + selected['profile'] + '\n')
+              output.write('runner=' + TARGETS[selected['profile']][0] + '\n')
+          PYCODE
+  rewrap:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ needs.contracts.outputs.runner }}
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.upload.outputs.artifact-id }}
+      artifact_digest: ${{ steps.upload.outputs.artifact-digest }}
+      result_sha256: ${{ steps.record.outputs.result_sha256 }}
+    env:
+      PROFILE: ${{ needs.contracts.outputs.profile }}
+      SELECTION: ${{ inputs.selection }}
+      SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Retrieve only the selected completed carrier capsule
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B -m qualification.primary_artifacts \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --output "$RUNNER_TEMP/d10-input" --gh "$(command -v gh)"
+      - name: Prepare isolated native packaging tools
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d10-tools"
+      - name: Create private policy and rebuild only wrappers
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, subprocess
+          from qualification.d09_platform import write_private_policy
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          policy = write_private_policy(root / 'd10-source-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY'))
+          subprocess.run([str(root / 'd10-tools/publisher/bin/python'), '-B', 'qualification/primary_rewrap.py', 'rewrap',
+              '--selection', os.environ['SELECTION'], '--selection-sha256', os.environ['SELECTION_SHA256'],
+              '--artifact', str(root / 'd10-input/capsule'), '--transport-proof', str(root / 'd10-input/transport-proof.json'),
+              '--output', str(root / 'd10-rewrap'), '--python', str(root / 'd10-tools/publisher/bin/python'),
+              '--standalone', str(root / 'd10-tools/publisher/standalone_conda/conda.exe'),
+              '--standalone-archive', str(root / 'd10-tools/downloads/standalone.conda'),
+              '--privacy-policy', str(policy), '--toolkit-commit', os.environ['GITHUB_SHA']], check=True)
+          PYCODE
+      - name: Bind completed wrapper result for separate consumer
+        id: record
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, os, pathlib
+          path = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd10-rewrap/artifact/result.json'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('result_sha256=' + hashlib.sha256(path.read_bytes()).hexdigest() + '\n')
+          PYCODE
+      - name: Retain only verified portable wrapper inputs
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-rewrapped-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d10-rewrap/artifact/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Retain bounded preparation diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-rewrap-evidence-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d10-input/transport-proof.json
+            ${{ runner.temp }}/d10-rewrap/INCOMPLETE.json
+            ${{ runner.temp }}/d10-tools/result.json
+            ${{ runner.temp }}/d10-tools/failure.json
+            ${{ runner.temp }}/d10-tools/publisher.explicit.txt
+          if-no-files-found: warn
+          retention-days: 14
+  fresh-user:
+    needs: [contracts, rewrap]
+    runs-on: ${{ needs.contracts.outputs.runner }}
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Retrieve exact completed wrapper output without ambient user credentials
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.rewrap.outputs.artifact_id }}
+          ARTIFACT_DIGEST: ${{ needs.rewrap.outputs.artifact_digest }}
+          PROFILE: ${{ needs.contracts.outputs.profile }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, shutil
+          from qualification.primary_artifacts import fetch_generated
+          fetch_generated(int(os.environ['ARTIFACT_ID']), os.environ['ARTIFACT_DIGEST'], os.environ['PROFILE'],
+              pathlib.Path(os.environ['RUNNER_TEMP']) / 'd10-consumer-input', pathlib.Path(shutil.which('gh')))
+          PYCODE
+      - name: Prepare isolated archive inspection dependencies
+        env:
+          PROFILE: ${{ needs.contracts.outputs.profile }}
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d10-consumer-tools"
+      - name: Qualify private shell installation refusals and named removal
+        env:
+          RESULT_SHA256: ${{ needs.rewrap.outputs.result_sha256 }}
+        run: |
+          "$RUNNER_TEMP/d10-consumer-tools/publisher/bin/python" -B qualification/primary_rewrap.py fresh-user \
+            --artifact "$RUNNER_TEMP/d10-consumer-input/artifact" --result-sha256 "$RESULT_SHA256" \
+            --inspection-tools "$RUNNER_TEMP/d10-consumer-tools" \
+            --output "$RUNNER_TEMP/d10-consumer" --allow-ephemeral-install
+      - name: Retain bounded qualification evidence only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-rewrap-consumer-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d10-consumer/result.json
+            ${{ runner.temp }}/d10-consumer/INCOMPLETE.json
+            ${{ runner.temp }}/d10-consumer-input/transport-proof.json
+            ${{ runner.temp }}/d10-consumer-tools/result.json
+            ${{ runner.temp }}/d10-consumer-tools/failure.json
+            ${{ runner.temp }}/d10-consumer-tools/publisher.explicit.txt
+          if-no-files-found: warn
+          retention-days: 14

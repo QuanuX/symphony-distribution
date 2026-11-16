@@ -1,13 +1,16 @@
 import copy
 import contextlib
+import hashlib
 import io
 import json
 import os
 from pathlib import Path
 import re
 import subprocess
+import shutil
 import tempfile
 import textwrap
+import tarfile
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
@@ -265,6 +268,235 @@ class PlatformTests(unittest.TestCase):
         self.assertFalse(result['independent_fresh_host_acceptance'])
         self.assertFalse(result['native_runtime_owner_invoked'])
         self.assertEqual(gate.read(args.output / 'result.json'), result)
+
+
+class CapsuleTests(unittest.TestCase):
+    """Use the existing real D06/cohort fixture; mock only the Conda codec."""
+    def setUp(self):
+        self.fixture = gate.module('capsule_fixture', 'installer_assembly/test_cohort.py').InstallerCohort()
+        self.fixture.setUp(); self.addCleanup(self.fixture.tearDown)
+        f = self.fixture; self.root = f.root
+        self.real_module = gate.module
+        self.c = gate.module('capsule_test_carriers', 'installer_assembly/carriers.py')
+        self.source = gate.module('capsule_test_source', 'installer_assembly/corresponding_source.py')
+        self.profile = 'macos15-arm64'
+        self.contents = {name: ('fixture source ' + name).encode() for name in
+            set(gate.CAPSULE_HELPERS) | {'build-cohort/build.py', 'build-cohort/qxctl_identity.py',
+                'build-cohort/cohort.json', 'qualification/native_campaign.py', 'qualification/d06_sdk_closure.py'}}
+        self.helpers = {name: self.c.sha(self.contents[name]) for name in gate.CAPSULE_HELPERS}
+        plan = {'required_profiles': list(gate.PROFILES), 'required_scenarios': ['scenario-' + str(i) for i in range(9)],
+                'required_inputs': ['independent_review']}
+        path = f.source / 'tests/launch-acceptance/plan.json'; path.parent.mkdir(parents=True)
+        self.put(path, plan)
+        f.manifest['source_files'].append({'path': 'tests/launch-acceptance/plan.json', 'mode': '100644',
+            'source_sha256': gate.sha(path), 'export_sha256': gate.sha(path),
+            'source_size': path.stat().st_size, 'export_size': path.stat().st_size})
+        f.manifest['source_files'].sort(key=lambda r: r['path'])
+        export_digest = self.c.sha(json.dumps([{'path': r['path'], 'mode': r['mode'], 'sha256': r['export_sha256']}
+            for r in f.manifest['source_files']], sort_keys=True, separators=(',', ':')).encode())
+        f.manifest['derived_export_digest'] = export_digest
+        f.aggregate['source_input']['export_digest'] = export_digest
+        f.aggregate['host'].update(scope='native_profile_build', requested_profile=self.profile, architecture='arm64')
+        f.aggregate['repeated_payload_bytes_equal'] = True
+        f.aggregate['build_helpers'] = {Path(name).name: self.c.sha(raw) for name, raw in self.contents.items()
+                                       if name.startswith('build-cohort/') and name.endswith('.py')}
+        f.aggregate['builder_sha256'] = f.aggregate['build_helpers']['build.py']
+        f.aggregate['plan_sha256'] = self.c.sha(self.contents['build-cohort/cohort.json'])
+        f.aggregate['imported_helpers'] = {name: self.c.sha(self.contents[name]) for name in
+                                          ('qualification/native_campaign.py', 'source-export/export_source.py')}
+        f.aggregate['rounds'].append({**f.aggregate['rounds'][0], 'directory': 'round-2'})
+        f.proof['helper_sha256'] = self.c.sha(self.contents['build-cohort/qxctl_identity.py'])
+        f.proof['cohort_source']['export_digest'] = export_digest
+        for field in ('build_info', 'artifact_identity', 'compiled_input_equivalence'): f.proof[field]['goarch'] = 'arm64'
+        f.delivery['source']['derived_export_digest'] = export_digest
+        f.delivery['source']['toolkit_files'] = [{'path': name, 'sha256': self.c.sha(raw), 'mode': 0o644}
+                                                for name, raw in sorted(self.contents.items())]
+        f.delivery['tool_sha256'] = self.c.sha(self.contents['qualification/d06_delivery_record.py'])
+        self.put(f.export / 'SOURCE-EXPORT.json', f.manifest); self.put(f.proof_root / 'result.json', f.proof)
+        self.put(f.base / 'round-2/result.json', f.round); self.put(f.base / 'result.json', f.aggregate)
+        f.delivery['build_result_sha256'] = gate.sha(f.base / 'result.json'); self.put(f.delivery_path, f.delivery)
+        f.kwargs.update(expected_base_result_sha256=gate.sha(f.base / 'result.json'),
+                        expected_delivery_sha256=gate.sha(f.delivery_path), expected_qxctl_proof_sha256=gate.sha(f.proof_root / 'result.json'))
+        self.candidate = f.prepare()
+        self.sdk = {'protocol': 'symphony.distribution.d06-sdk-closure.v1', 'status': 'passed',
+            'source_commit': f.commit, 'source_tree': f.tree, 'round': 'round-1',
+            'source_inventory_sha256': export_digest,
+            'cohort_result_sha256': gate.sha(f.base / 'result.json'), 'round_result_sha256': gate.sha(f.base / 'round-1/result.json'),
+            'harness_sha256': self.c.sha(self.contents['qualification/d06_sdk_closure.py']),
+            'extra_helpers_sha256': {name: self.c.sha(self.contents[name]) for name in
+                ('qualification/d06_sdk_closure.py', 'qualification/native_campaign.py')},
+            'publication_authorized': False, 'release_acceptance_complete': False, 'fresh_host_accepted': False}
+        self.candidate['helper_sha256'] = self.helpers['installer_assembly/cohort.py']
+        self.capsule = self.root / 'capsule'; evidence = self.capsule / 'evidence'; evidence.mkdir(parents=True)
+        (self.capsule / 'carriers').mkdir()
+        self.documents = {'build-result.json': f.aggregate, 'round-result.json': f.round, 'round-2-result.json': f.round,
+            'delivery-record.json': f.delivery, 'sdk-closure.json': self.sdk, 'source-manifest.json': f.manifest,
+            'qxctl-source-proof.json': f.proof, 'input-cohort.json': self.candidate,
+            'mvp-dependencies.json': json.loads((f.source / 'cmake/mvp-dependencies.json').read_text()),
+            'source-acceptance-plan.json': plan}
+        rows = [(name, raw, 0o644) for name, raw in sorted(self.contents.items())]
+        files = self.source.write_tar(evidence / 'TOOLKIT-SOURCE.tar', rows)
+        # Git itself supplies the independent fixture tree identity.
+        git_root = self.root / 'toolkit'; git_root.mkdir()
+        for name, raw in self.contents.items():
+            p = git_root / name; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(raw)
+        for command in (['init', '--quiet'], ['add', '.']):
+            subprocess.run(['/usr/bin/git', '-C', str(git_root), *command], check=True, capture_output=True)
+        tree = subprocess.check_output(['/usr/bin/git', '-C', str(git_root), 'write-tree'], text=True).strip()
+        self.documents['TOOLKIT-SOURCE.json'] = {'protocol': gate.CAPSULE_SOURCE,
+            'source': {'commit': 'e' * 40, 'tree': tree, 'file_count': len(rows)}, 'files': files,
+            'archive_sha256': gate.sha(evidence / 'TOOLKIT-SOURCE.tar'), 'executing_helpers': self.helpers,
+            'privacy_scan': 'pass', 'publication_authorized': False}
+        self.cohort = {'profile': self.profile, 'cohort_digest': 'sha256:' + 'b' * 64, 'conda_subdir': 'osx-arm64',
+                      'archives': [{'filename': 'fixture-' + str(i) + '.conda'} for i in range(58)],
+                      'entries': [{'index': i, 'recipe_path': 'recipes/fixture-' + str(i)} for i in range(58)]}
+        carrier_root = self.capsule / 'carriers'; (carrier_root / 'cohort.json').write_bytes(b'fixture codec')
+        for i in range(58):
+            names = ['channel/osx-arm64/fixture-' + str(i) + '.conda'] + ['recipes/fixture-' + str(i) + '/' + name
+                for name in ('meta.yaml', 'stage_payload.py', 'payload/payload.tar', 'payload/unit.json', 'payload/carrier-manifest.json')]
+            for name in names:
+                p = carrier_root / name; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(b'fixture codec')
+        packet = gate.acceptance_packet(f.source, f.commit, self.profile, self.cohort['cohort_digest'])
+        self.put(self.capsule / 'fresh-host-requirements.json', packet)
+        self.record = {'protocol': gate.CAPSULE_PROTOCOL, 'state': 'primary_carriers_audited', 'profile': self.profile,
+            'source_commit': f.commit, 'source_tree': f.tree, 'source_export_digest': export_digest,
+            'archive_count': 58, 'cohort_digest': self.cohort['cohort_digest'],
+            'original_toolkit_commit': 'e' * 40, 'original_toolkit_tree': tree, 'helper_sha256': self.helpers,
+            'fresh_host_requirements_sha256': gate.sha(self.capsule / 'fresh-host-requirements.json'),
+            **{key: False for key in ('client_included', 'wrappers_built', 'publication_authorized',
+                'publisher_trust_accepted', 'independent_fresh_host_acceptance', 'release_acceptance_complete')}}
+        self.reseal()
+
+    def put(self, path, value):
+        path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(value, sort_keys=True, indent=2) + '\n')
+
+    def reseal(self):
+        for name, value in self.documents.items(): self.put(self.capsule / 'evidence' / name, value)
+        shutil.copyfile(self.fixture.source / 'cmake/mvp-dependencies.json', self.capsule / 'evidence/mvp-dependencies.json')
+        for name, field in gate.CAPSULE_EVIDENCE.items(): self.record[field] = gate.sha(self.capsule / 'evidence' / name)
+        self.cohort['selected_evidence'] = {'input_cohort_sha256': self.record['input_cohort_sha256'],
+            'source_binding': self.candidate['source_binding'], 'base_d06': self.candidate['base_d06'],
+            'qxctl_source_proof_sha256': self.record['qxctl_source_proof_sha256']}
+        self.put(self.capsule / 'result.json', self.record)
+        return gate.sha(self.capsule / 'result.json')
+
+    def verify(self, expected=None):
+        with patch.object(gate, 'module', side_effect=self.load):
+            return gate.verify_capsule(self.capsule, expected or gate.sha(self.capsule / 'result.json'))
+
+    def load(self, name, relative):
+        value = self.real_module(name, relative)
+        if relative == 'installer_assembly/carriers.py':
+            value.audit_cohort = lambda p: self.cohort
+            value.validate_recipe = lambda p, entry: ({'payload_paths': [r['path'] for r in self.candidate['payload_inventory']]
+                if entry['index'] == 0 else [], 'files': self.candidate['payload_inventory'] if entry['index'] == 0 else []}, {})
+        return value
+
+    def test_complete_retained_evidence_passes_without_current_helper_equality_or_wrapper_claim(self):
+        result = self.verify()
+        self.assertEqual(result, self.record); self.assertFalse(result['wrappers_built'])
+        self.assertNotEqual(result['helper_sha256']['qualification/d09_platform.py'], gate.sha(gate.__file__))
+
+    def test_independent_result_digest_extra_evidence_and_links_refused(self):
+        with self.assertRaisesRegex(ValueError, 'Selected capsule'): self.verify('f' * 64)
+        extra = self.capsule / 'evidence/extra'; extra.write_bytes(b'unselected')
+        with self.assertRaisesRegex(ValueError, 'evidence set'): self.verify()
+        extra.unlink(); selected = self.capsule / 'evidence/sdk-closure.json'
+        saved = self.root / 'sdk'; selected.rename(saved); selected.symlink_to(saved)
+        with self.assertRaisesRegex(ValueError, 'Linked path'): self.verify()
+
+    def test_wrapper_approval_and_carrier_rebinding_refused(self):
+        for name in ('wrappers_built', 'publication_authorized', 'independent_fresh_host_acceptance'):
+            self.record[name] = True; self.reseal()
+            with self.assertRaisesRegex(ValueError, 'acceptance claim'): self.verify()
+            self.record[name] = False
+        self.reseal(); self.cohort['selected_evidence']['input_cohort_sha256'] = 'f' * 64
+        with self.assertRaisesRegex(ValueError, 'Carrier capsule binding'): self.verify()
+
+    def test_source_tree_and_partial_producer_helpers_refused(self):
+        self.record['original_toolkit_tree'] = 'f' * 40; self.reseal()
+        with self.assertRaisesRegex(ValueError, 'source identity'): self.verify()
+        self.record['original_toolkit_tree'] = self.documents['TOOLKIT-SOURCE.json']['source']['tree']
+        self.record['helper_sha256'] = {}; self.documents['TOOLKIT-SOURCE.json']['executing_helpers'] = {}; self.reseal()
+        with self.assertRaisesRegex(ValueError, 'helper closure'): self.verify()
+
+    def test_original_sdk_helper_identity_refused_even_when_evidence_rehashed(self):
+        self.sdk['harness_sha256'] = 'f' * 64; self.reseal()
+        with self.assertRaisesRegex(ValueError, 'Conflicting original helper'): self.verify()
+
+    def test_evidence_file_mutation_and_acceptance_promotion_refused(self):
+        path = self.capsule / 'evidence/sdk-closure.json'; path.write_bytes(b'{}')
+        with self.assertRaisesRegex(ValueError, 'evidence differs'): self.verify()
+        self.reseal(); path = self.capsule / 'fresh-host-requirements.json'; packet = json.loads(path.read_text())
+        packet['cells'][0]['state'] = 'passed'; self.put(path, packet)
+        self.record['fresh_host_requirements_sha256'] = gate.sha(path); self.reseal()
+        with self.assertRaisesRegex(ValueError, 'pending independent'): self.verify()
+
+    def test_sdk_source_inventory_partial_helpers_and_unselected_carrier_files_refused(self):
+        self.sdk['source_inventory_sha256'] = 'f' * 64; self.reseal()
+        with self.assertRaisesRegex(ValueError, 'SDK closure'): self.verify()
+        self.sdk['source_inventory_sha256'] = self.record['source_export_digest']
+        saved = self.sdk['extra_helpers_sha256']; self.sdk['extra_helpers_sha256'] = {}; self.reseal()
+        with self.assertRaisesRegex(ValueError, 'helper closure is incomplete'): self.verify()
+        self.sdk['extra_helpers_sha256'] = saved; self.reseal()
+        (self.capsule / 'carriers/private-extra').write_bytes(b'unselected')
+        with self.assertRaisesRegex(ValueError, 'Unselected carrier checkpoint'): self.verify()
+
+    def retention_args(self, output):
+        f = self.fixture
+        self.put(f.base / 'round-1/qxctl-identity/result.json', f.proof)
+        self.put(self.root / 'sdk/result.json', self.sdk)
+        return SimpleNamespace(build_root=f.base, delivery=f.delivery_path.parent, sdk_closure=self.root / 'sdk',
+            export=f.export, repository=f.source, privacy_policy=self.root / 'policy',
+            export_digest=f.manifest['derived_export_digest'], manifest_sha256=gate.sha(f.export / 'SOURCE-EXPORT.json'),
+            profile=self.profile, output=output, python=Path('/selected/python'),
+            standalone=Path('/selected/standalone'), standalone_archive=Path('/selected/standalone.conda'))
+
+    def test_retention_is_independent_copy_atomic_and_existing_checkpoint_refused(self):
+        out = self.root / 'package'; out.mkdir(); args = self.retention_args(out)
+        shutil.copytree(self.capsule / 'carriers', out / 'carriers')
+        self.put(out / 'input-cohort/cohort.json', self.candidate)
+        real_root = gate.ROOT
+        def load(name, relative):
+            if relative == 'source-export/export_source.py':
+                return SimpleNamespace(configure_policy=lambda p: None, scan=lambda n, raw: None)
+            with patch.object(gate, 'ROOT', real_root): return self.load(name, relative)
+        def toolkit(evidence, policy, helpers):
+            self.assertEqual(helpers, self.helpers)
+            for name in ('TOOLKIT-SOURCE.tar', 'TOOLKIT-SOURCE.json'):
+                shutil.copyfile(self.capsule / 'evidence' / name, evidence / name)
+            return self.documents['TOOLKIT-SOURCE.json']
+        with patch.object(gate, 'ROOT', self.root / 'toolkit'), patch.object(gate, 'module', side_effect=load), \
+             patch.object(gate, 'capsule_toolkit', side_effect=toolkit):
+            result = gate.retain_capsule(args, out, self.fixture.aggregate, self.cohort)
+            self.assertFalse((out / '.carrier-capsule-preparing').exists())
+            self.assertEqual(gate.read(out / 'carrier-capsule/result.json'), result)
+            original = out / 'carriers/cohort.json'; copied = out / 'carrier-capsule/carriers/cohort.json'
+            self.assertNotEqual(original.stat().st_ino, copied.stat().st_ino)
+            original.write_bytes(b'publisher later failed or changed')
+            self.assertEqual(copied.read_bytes(), b'fixture codec')
+            with self.assertRaisesRegex(ValueError, 'Existing carrier checkpoint'):
+                gate.retain_capsule(args, out, self.fixture.aggregate, self.cohort)
+
+    def test_constructor_failure_keeps_completed_capsule_and_no_wrapper_success_result(self):
+        args = self.retention_args(self.root / 'package-fails'); events = []
+        def retain(args, out, aggregate, archives):
+            events.append('retain'); (out / 'carrier-capsule').mkdir()
+            gate.write(out / 'carrier-capsule/result.json', {'state': 'primary_carriers_audited'})
+        def assemble(*a, **k):
+            events.append('constructor')
+            self.assertTrue((args.output / 'carrier-capsule/result.json').is_file())
+            raise ValueError('fixture constructor failure')
+        adapters = {
+            'installer_assembly/cohort.py': SimpleNamespace(prepare_cohort=lambda *a, **k:
+                self.put(args.output / 'input-cohort/cohort.json', self.candidate)),
+            'installer_assembly/carriers.py': SimpleNamespace(prepare=lambda *a, **k: self.cohort,
+                build_cohort=lambda *a: self.cohort),
+            'installer_assembly/construct.py': SimpleNamespace(assemble=assemble)}
+        with patch.object(gate, 'check_source', return_value={'verified': True, 'export_digest': args.export_digest}), \
+             patch.object(gate, 'module', side_effect=lambda n, p: adapters[p]), patch.object(gate, 'retain_capsule', side_effect=retain):
+            with self.assertRaisesRegex(ValueError, 'constructor failure'): gate.package(args)
+        self.assertEqual(events, ['retain', 'constructor']); self.assertFalse((args.output / 'result.json').exists())
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@ name: D09 primary review and disposable-user qualification
 on:
   push:
     branches: ['codex/**']
-    paths: ['qualification/d09_platform*', 'qualification/test_d09_platform.py', '.github/workflows/d09-platform.yml']
+    paths: ['qualification/d09_platform*', 'qualification/test_d09_platform.py', 'qualification/d10_build_retention.py', 'qualification/test_d10_build_retention.py', '.github/workflows/d09-platform.yml']
   workflow_dispatch:
     inputs:
       profile:
@@ -39,7 +39,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Check only primary preparation and refusal contracts
-        run: python3 -B -m unittest discover -s qualification -p 'test_d09_platform.py' -v
+        run: |
+          python3 -B -m unittest discover -s qualification -p 'test_d09_platform.py' -v
+          python3 -B -m unittest discover -s qualification -p 'test_d10_build_retention.py' -v
       - name: Admit independently selected source and platform
         if: github.event_name == 'workflow_dispatch'
         id: target
@@ -195,6 +197,25 @@ jobs:
             --go "$(command -v go)" --gomodcache "$GOMODCACHE" \
             --external-prefix "$RUNNER_TEMP/d06-external/prefix" \
             --export "$RUNNER_TEMP/d09-source" --privacy-policy "$RUNNER_TEMP/d09-source-policy.json" --repeat --prune-builds "${extra[@]}"
+      - name: Retain verified native bytes before delivery collection
+        run: |
+          python3 -B qualification/d10_build_retention.py retain \
+            --cohort "$RUNNER_TEMP/d06-cohort" --export "$RUNNER_TEMP/d09-source" \
+            --repository "$GITHUB_WORKSPACE/work/core" \
+            --external-report "$RUNNER_TEMP/d06-external/external-build.json" \
+            --privacy-policy "$RUNNER_TEMP/d09-source-policy.json" \
+            --output "$RUNNER_TEMP/d10-native-retained" \
+            --producer-run-id "$GITHUB_RUN_ID" --producer-run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --producer-commit "$GITHUB_SHA"
+      - name: Upload completed native recovery capsule before later gates
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-native-recovery-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d10-native-retained/capsule.json
+            ${{ runner.temp }}/d10-native-retained/native-cohort.tar.gz
+          if-no-files-found: error
+          retention-days: 14
       - name: Record final package and public dependency closure
         shell: bash
         run: |
@@ -231,6 +252,24 @@ jobs:
             --python "$RUNNER_TEMP/d09-tools/publisher/bin/python" \
             --standalone "$RUNNER_TEMP/d09-tools/publisher/standalone_conda/conda.exe" \
             --standalone-archive "$RUNNER_TEMP/d09-tools/downloads/standalone.conda"
+      - name: Locate completed carrier capsule after packaging attempt
+        if: always()
+        id: carrier_capsule
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib
+          result = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd09-primary/carrier-capsule/result.json'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('ready=' + ('true' if result.is_file() else 'false') + '\n')
+          PYCODE
+      - name: Retain completed pre-wrapper primary carrier capsule
+        if: ${{ always() && steps.carrier_capsule.outputs.ready == 'true' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-carrier-capsule-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d09-primary/carrier-capsule/
+          if-no-files-found: error
+          retention-days: 14
       - name: Bind the exact review artifact for the separate consumer
         id: record
         run: |
