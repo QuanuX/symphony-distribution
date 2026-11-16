@@ -41,8 +41,9 @@ evidence and helper identities. Internal curl link chains are resolved only
 within their selected payload namespace; cycles, missing targets and escapes
 are refused. This is engineering recovery material, not an installer or release.
 
-The next necessary action is one recovery producer run for each primary profile
-using the same independently reviewed core/export pins. The lost payloads cannot
+One recovery producer run was dispatched for each primary profile at
+`e3544e729b0013df505ef2e2ad8f9963a58e7e5d`, using the same independently reviewed
+core/export pins. The lost payloads cannot
 be recovered from reports. These producers retain both checkpoints before later
 failures can discard them; the existing fresh-user option remains disabled.
 After actual capsule IDs, digests and result pins are verified, a separately
@@ -56,6 +57,20 @@ records the unchanged passing core, client and distribution checks.
 against the actual four primary report inventories, while explicitly recording
 that their payload bytes are absent. `evidence/d10-wrapper-transport-replay.json`
 records successful bounded extraction of all eight original ZIPs.
+
+## Recovery dispatches
+
+The exact dispatch record is `evidence/d10-primary-recovery-dispatches.json`.
+Only each dispatch identity and source revision were checked; no new CI result
+was awaited. The complete 247-file implementation source passed collection and
+privacy checks before dispatch (`evidence/d10-wrapper-toolkit-source-seal.json`).
+
+| Profile | Recovery producer run |
+| --- | --- |
+| macos15-arm64 | [43939021560](https://github.com/QuanuX/symphony-distribution/actions/runs/43939021560) |
+| ubuntu24.04-amd64 | [43939059852](https://github.com/QuanuX/symphony-distribution/actions/runs/43939059852) |
+| ubuntu24.04-arm64 | [43939100597](https://github.com/QuanuX/symphony-distribution/actions/runs/43939100597) |
+| ubuntu26.04-amd64 | [43939137887](https://github.com/QuanuX/symphony-distribution/actions/runs/43939137887) |
 
 ## Inputs required before a bounded follow-up
 

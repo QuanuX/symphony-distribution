@@ -82,13 +82,15 @@ prepared for the consumer; stock runner Python cannot inspect these archives.
 
 Native payloads are now retained immediately after compilation, and completed
 carriers before wrapper assembly. One recovery producer run per primary profile
-is necessary to obtain bytes that the old jobs did not preserve. These runs use
+was dispatched to obtain bytes that the old jobs did not preserve. The exact
+run links are in `evidence/d10-primary-recovery-dispatches.json`. These runs use
 the unchanged reviewed source/export pins; no core/client checks are rerun and
 no new CI result is awaited. Wrapper-only execution remains pending verification
 and selection of actual completed carrier capsules.
 
-The focused follow-up covers transport, retained-build validation, platform
-capsules and wrapper/consumer contracts. The exact local results are recorded in
+All 81 focused tests passed across transport, retained-build validation,
+platform capsules and wrapper/consumer contracts. Workflow lint and the entire
+247-file implementation source collection/privacy scan also passed. The exact local results are recorded in
 `evidence/d10-wrapper-implementation.json`. Actual old artifact transport and
 report-schema checks supplement these fixture tests; they do not create a
 primary-native or fresh-host acceptance result.
