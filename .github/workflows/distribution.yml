@@ -152,7 +152,19 @@ jobs:
         if: needs.scope.outputs.native == 'true'
         env:
           PROFILE: ${{ matrix.profile }}
+          TMPDIR: ${{ runner.temp }}/s07-native-fixture-tmp
         run: |
+          # Native custody verifies every ancestor. Linux's default /tmp is
+          # world-writable, so fixture roots must use the owned runner tree.
+          mkdir -m 700 "$TMPDIR"
+          python3 - <<'PY'
+          import os, pathlib, stat
+          temporary = pathlib.Path(os.environ['TMPDIR']).resolve(strict=True)
+          for path in (temporary, *temporary.parents):
+              mode = path.stat()
+              assert stat.S_ISDIR(mode.st_mode) and mode.st_uid in (0, os.geteuid()) and not mode.st_mode & 0o022, 'Native fixture temporary ancestry is not trusted-owner controlled'
+          assert stat.S_IMODE(temporary.stat().st_mode) == 0o700
+          PY
           python3 qualification/native_campaign.py --source "$GITHUB_WORKSPACE/work/core" \
             --profile "$PROFILE" --output "$RUNNER_TEMP/s07-evidence/native" \
             --gomodcache "$RUNNER_TEMP/s07-gomodcache" --gocache "$RUNNER_TEMP/s07-gocache"

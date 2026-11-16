@@ -1,0 +1,127 @@
+{
+  "core_source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "core_source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "diagnosis": {
+    "artifact_id": 14206578405,
+    "artifact_sha256": "0664c1d80390f64f4958c48ff7f00cebdce092857a13d4eb18d94ad3d8211686",
+    "artifact_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/artifacts/14206578405",
+    "cause": "Linux Go fixtures used the default world-writable temporary ancestor because the native campaign did not receive TMPDIR. The core owner correctly rejects every untrusted ancestor.",
+    "completed_log_pattern_same_on_all_linux_profiles": true,
+    "core_guards_preserved": true,
+    "exact_failure_events_verified_profile": "ubuntu24.04-amd64",
+    "failed_subtests": [
+      "TestNativeOwnersSharedRootDispatch/accordare-stav-producer",
+      "TestNativeOwnersSharedRootDispatch/secure-identity-access-governance",
+      "TestNativeOwnersSharedRootDispatch/stav-append-authority"
+    ],
+    "failed_suite": "scoped-native-dispatch",
+    "failed_top_level_tests": [
+      "TestNativeControllerIndependentCustody",
+      "TestNativeOutcomeRejectsSharedEvidenceInodes",
+      "TestNativeOwnersSharedRootDispatch",
+      "TestNativeRecoveryRejectsReplacedRootLock",
+      "TestOwnershipNewRootEnforcesClaimsAndTwoProfileRetirement",
+      "TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption"
+    ],
+    "observed_error": "installed directory is not trusted-owner controlled"
+  },
+  "distribution_commit": "8d9474e89b4974ecbf139ca7e95c60772e7127de",
+  "evidence_limit": "One snapshot of completed S07 checks and their retained logs. The macOS success is hosted E1 fixtures, not fresh-host, actual-manager lifecycle or delivered-byte acceptance. Linux Conda steps did not run. No ongoing run was awaited or polled.",
+  "observed_at_utc": "2026-11-16T08:58:36Z",
+  "other_jobs": [
+    {
+      "conclusion": "success",
+      "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160668981",
+      "name": "contracts"
+    },
+    {
+      "conclusion": "success",
+      "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160625494",
+      "name": "scope"
+    }
+  ],
+  "profiles": [
+    {
+      "conclusion": "success",
+      "conda_step_conclusion": "success",
+      "final_host_acceptance": false,
+      "job_id": 133160669115,
+      "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669115",
+      "native_step_conclusion": "success",
+      "profile": "macos15-arm64"
+    },
+    {
+      "conclusion": "failure",
+      "conda_step_conclusion": "skipped_after_native_failure",
+      "final_host_acceptance": false,
+      "job_id": 133160669096,
+      "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669096",
+      "native_step_conclusion": "failure",
+      "profile": "ubuntu24.04-arm64"
+    },
+    {
+      "conclusion": "failure",
+      "conda_step_conclusion": "skipped_after_native_failure",
+      "final_host_acceptance": false,
+      "job_id": 133160669048,
+      "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669048",
+      "native_step_conclusion": "failure",
+      "profile": "ubuntu24.04-amd64"
+    },
+    {
+      "conclusion": "failure",
+      "conda_step_conclusion": "skipped_after_native_failure",
+      "final_host_acceptance": false,
+      "job_id": 133160669022,
+      "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669022",
+      "native_step_conclusion": "failure",
+      "profile": "ubuntu26.04-amd64"
+    }
+  ],
+  "protocol": "symphony.distribution.s07-hosted-status.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "repair": {
+    "change": "Create a private native fixture temporary directory beneath the trusted RUNNER_TEMP path and supply it as TMPDIR; retain core ancestor checks.",
+    "core_source_changed": false,
+    "hosted_rerun_status": "pending_not_observed",
+    "local_validation": {
+      "affected_top_level_tests_passed": 6,
+      "logs": [
+        {
+          "name": "unsafe-temp-refusal.log",
+          "sha256": "4e0725df25a7f02a7fcf5c2e7ef10913bbfdeb6396940c40a187f1a9cf108b92"
+        },
+        {
+          "name": "private-temp-focused.jsonl",
+          "sha256": "63734e078c32ba28c2218a0f87560ea3f674760b92b1138f20b81f31c26ffa09"
+        }
+      ],
+      "native_campaign_full_suite_rerun": false,
+      "negative_control": "unsafe temporary ancestor refused by unchanged core guard",
+      "profile": "local-macos-amd64-fixture",
+      "race_detector": true,
+      "skips": 0,
+      "status": "passed",
+      "subtests_passed": 3
+    },
+    "scope": "distribution workflow only",
+    "workflow_path": ".github/workflows/distribution.yml",
+    "workflow_sha256": "9b7155ac7abab16d83914a5b6c1f995a609722363e09f01e35bd637dfafa5eb9",
+    "workflow_validation": "actionlint passed with documented outdated ubuntu-26.04 label catalog exception; explicit private0700 directory and full trusted-ancestor preflight"
+  },
+  "runs": [
+    {
+      "conclusion": "failure",
+      "event": "push",
+      "head_sha": "8d9474e89b4974ecbf139ca7e95c60772e7127de",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826173555"
+    },
+    {
+      "conclusion": "failure",
+      "event": "pull_request",
+      "head_sha": "8d9474e89b4974ecbf139ca7e95c60772e7127de",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073"
+    }
+  ]
+}
