@@ -1,0 +1,24 @@
+{
+  "protocol": "symphony.distribution.native-loader-audit.v1",
+  "status": "passed",
+  "scope": "static final-payload loader declarations; not fresh-host dynamic loading",
+  "native_binaries": [
+    {
+      "path": "bin/symphony-mcp",
+      "sha256": "32991de798b32755f037ea1ab5bc2be01e3bc9147fd40cdc023d24a23016c045",
+      "format": "Darwin",
+      "rpaths": [],
+      "dependencies": [
+        {
+          "dependency": "/usr/lib/libSystem.B.dylib",
+          "resolution": "platform-system"
+        },
+        {
+          "dependency": "/usr/lib/libc++.1.dylib",
+          "resolution": "platform-system"
+        }
+      ]
+    }
+  ],
+  "fresh_host_acceptance": false
+}

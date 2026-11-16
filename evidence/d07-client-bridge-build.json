@@ -1,0 +1,80 @@
+{
+  "protocol": "symphony.distribution.client-bridge-build.v1",
+  "status": "passed",
+  "native_source_base_commit": "3fa4c666c36d947f40b68471f13aa5d1cff3ba28",
+  "compiler": "AppleClang 21.0.0",
+  "cmake": "4.4.3",
+  "bridge_sha256": "32991de798b32755f037ea1ab5bc2be01e3bc9147fd40cdc023d24a23016c045",
+  "bridge_size": 549296,
+  "two_independent_source_build_home_paths": true,
+  "repeated_final_bytes_equal": true,
+  "finalization_before_package": true,
+  "private_policy_and_source_path_scan": "passed",
+  "publisher_signing": false,
+  "publication_authorized": false,
+  "source_compilation_files": {
+    "src/main.cpp": "1152fa2e3a62a4d0b8ed2c56d2050672dd66cd5758e61119ff641848a042e3d6",
+    "src/transport.cpp": "d475ed9d3ed2e07de098edc4fdb3187ac9818dc588970bb8ab21ebc01c22a246",
+    "include/symphony/sha256.hpp": "a0588304e35105b0715bb138a28b8e6cdd0e398fcabd93b3f2a0d95d271fe733",
+    "include/symphony/transport.hpp": "af5835c5a4dd65d0ef35c05a57b5bf9847134b80439d19dbd22a6588942d9bb9",
+    "third_party/NOTICE.md": "b66d1fb4ddff251065836921c072289efbf0c632a46e9b846319a7ef6064a700",
+    "third_party/nlohmann/LICENSE.MIT": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+    "third_party/nlohmann/json.hpp": "aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63"
+  },
+  "finalizer_sha256": "310d4f543c8ec5993056cf83b4849d3b5c083ff22cb2c25d8256a3ff3a66d777",
+  "tools": {
+    "cmake": {
+      "sha256": "34abf6b1ed0e438fb8378d314a5eb120df760076a2335e7308a46de2e2a09cb2"
+    },
+    "cxx": {
+      "sha256": "5b1ddb7e9c11b87a034fc88b212e8ac243cfe2b4db696d767aa44c79595fc09a"
+    }
+  },
+  "logs": {
+    "final-test-configure.log": "e5d4db90b7bb47ef6ecc20fc81bfc157345ba3333abfe65bb3d55e0750bb2ec2",
+    "configure.log": "e44d33d5c959afc71d48a65549abcdb4f314efb2aacaa5c621bdaecddcc667d3",
+    "repeat-configure.log": "d6d2d13efc9129362b8f990d577bcfae76f6ac3d00f95780c2a716de3a9a213d",
+    "finalize-repeat.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ctest-distribution-compatibility.log": "37fc03622714faf992ed8ec165c819ce3b17fb12ef3144b19b223e01173f3190",
+    "ctest-transport-local-sockets.log": "357b5bef69009f47c3c3069c07b3a7731dc5f257d1093cf8dd681e24f47934e2",
+    "actual-codex.log": "feaacac8604f5bd8013d61c2c6f5a17f52f30315b91789302c49581daa5fcb36",
+    "repeat-build.log": "f7f6da5802ef5f2be57d072c995815ce3d4c05ca78b89fa5ca09110dad705550",
+    "ctest.log": "1abe8187b2a9a556b48b234493e78f0458dfaf95789d9e9911dac5a62189c0e7",
+    "finalize-first.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.log": "5ab53d798000db5c80d68131dcc41ff5215c70e484a8345d145ee12740c6c3f5"
+  },
+  "initial_configure_cmake_sha256": "4bb32ef69a0ae063a101c790d736a1377b8a3e8939471f90233f24513b36ddec",
+  "build_recipe": {
+    "source": "exact exported base Git source; public catalog/metadata overlays do not change compiled source",
+    "build_type": "Release",
+    "cxx_standard": "C++26 draft checked by CMake",
+    "flags": [
+      "-ffile-prefix-map=$SOURCE=/symphony-client-source",
+      "-fdebug-prefix-map=$WORK=/symphony-client-build"
+    ],
+    "cmake_options": {
+      "CMAKE_INSTALL_RPATH": "",
+      "CMAKE_BUILD_WITH_INSTALL_RPATH": "ON",
+      "CMAKE_BUILD_WITH_INSTALL_NAME_DIR": "ON",
+      "CMAKE_INSTALL_NAME_DIR": "@rpath"
+    },
+    "environment": {
+      "ZERO_AR_DATE": "1",
+      "SOURCE_DATE_EPOCH": "0"
+    },
+    "finalization": "existing distribution finalize_native.py, owned bin/symphony-mcp, stripped with local ad hoc signature before inventory"
+  },
+  "focused_tests": {
+    "original_ctest_groups": 8,
+    "original_ctest_groups_passed": 8,
+    "transport_initial_permission_failure_retained": true,
+    "transport_permitted_rerun_passed": true,
+    "catalog_cases": 7,
+    "mcpb_cases": 11,
+    "actual_codex": "pending",
+    "distribution_compatibility_cases": 12,
+    "final_committed_ctest_registration": "passed",
+    "total_ctest_groups_passed": 9
+  },
+  "final_client_commit": "71b2021aeefb704b9c3e63797d04a0cc021757a9"
+}
