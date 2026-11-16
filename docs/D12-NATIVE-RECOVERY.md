@@ -13,6 +13,10 @@ failed step. No duplicate job was requested and no CI completion was awaited.
 The [targeted snapshot](../evidence/d12-targeted-ci-snapshot.json) preserves
 that observation rather than asserting a later result.
 
+At the final bounded follow-up, both amd64 D06 cohorts had passed and Ubuntu24
+ARM remained in progress with no failed step. The follow-up and four newly
+dispatched recovery runs are in the [dispatch record](../evidence/d12-wrapper-dispatches.json).
+
 All four primary producers at toolkit commit
 `e3544e729b0013df505ef2e2ad8f9963a58e7e5d` completed their two native build rounds,
 native retention, delivery collection and supplemental SDK checks. Packaging
@@ -59,6 +63,11 @@ selection; they cannot silently fall back to native compilation. Recollection
 retains the existing exact OS-release requirement and current/original helper
 identity checks. A changed runner image or changed selected helper causes a
 refusal requiring investigation.
+
+All 42 [focused tests](../evidence/d12-implementation.json), workflow lint and
+independent review passed. The exact 284-file implementation toolkit also passed
+the [source/privacy seal](../evidence/d12-toolkit-source-seal.json). The four
+manual runs use that implementation commit; completion was not awaited.
 
 ## Remaining boundaries
 
