@@ -3,8 +3,10 @@ import importlib.util
 import io
 from pathlib import Path
 import tempfile
+import sys
+from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 spec = importlib.util.spec_from_file_location('beta_downloads', Path(__file__).with_name('beta_downloads.py'))
 d = importlib.util.module_from_spec(spec); spec.loader.exec_module(d)
@@ -76,6 +78,16 @@ class Tests(unittest.TestCase):
         with self.assertRaises(ValueError): d.streamed_digest(io.BytesIO(b'longer'),3)
     def test_redirect_refused(self):
         with self.assertRaises(ValueError): d.NoRedirect().redirect_request(None,None,302,'',{},'https://other')
+    def test_public_readback_identifies_application_without_account_credentials(self):
+        response=io.BytesIO(b'exact-release');response.status=200;response.geturl=lambda:self.row['url']
+        opener=Mock();opener.open.return_value=response
+        with patch.dict(sys.modules,{'botocore.httpsession':SimpleNamespace(get_cert_path=lambda _:None)}), \
+             patch.object(d.urllib.request,'build_opener',return_value=opener):
+            d.public_readback(self.row)
+        request=opener.open.call_args.args[0]
+        self.assertEqual(request.get_header('User-agent'),d.USER_AGENT)
+        self.assertEqual(request.get_header('Cache-control'),'no-cache')
+        self.assertIsNone(request.get_header('Authorization'));self.assertIsNone(request.get_header('Cookie'))
 
 class AdmissionTests(unittest.TestCase):
     def test_replaced_manifest_index_and_signature_refused(self):

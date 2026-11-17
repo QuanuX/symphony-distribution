@@ -26,5 +26,15 @@
       "workflow_lint_passed": true
     }
   ],
-  "selected_pkg_sha256": "21b28a2ffaf793ab04f74713726b7698934cfaab3c926a4078931f86aed0cdf2"
+  "selected_pkg_sha256": "21b28a2ffaf793ab04f74713726b7698934cfaab3c926a4078931f86aed0cdf2",
+  "verified_follow_up": {
+    "conclusion": "success",
+    "current_user_home_qualified": true,
+    "native_install_and_removal_step_seconds": 31,
+    "result_sha256": "810bbe4a8bfefcdbc143eae21e480a88d5797948f82b7e6acda179c8138cef57",
+    "run_attempt": 1,
+    "run_id": 43985331279,
+    "same_selected_pkg_bytes": true,
+    "workflow_commit": "4dfd4c723daa8c502e051abc78eccc4e630ef22b"
+  }
 }

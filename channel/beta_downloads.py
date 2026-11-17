@@ -26,6 +26,7 @@ ACCOUNT = '82afd25f0c2dee226529c3177be8b950'
 PREFIX = 'symphony/0.2.0-beta.1/'
 ORIGIN = 'https://downloads.quanux.org/'
 PROTOCOL = 'symphony.distribution.beta-download-publication.v1'
+USER_AGENT = 'Symphony-Beta-Publisher/0.2.0-beta.1 (+https://github.com/QuanuX/symphony-distribution)'
 require = signing.require
 sha = signing.sha
 
@@ -124,7 +125,8 @@ def public_readback(row):
     context = ssl.create_default_context(cafile=get_cert_path(True))
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}),
         urllib.request.HTTPSHandler(context=context), NoRedirect())
-    with opener.open(urllib.request.Request(row['url'], headers={'Cache-Control': 'no-cache'}), timeout=180) as response:
+    with opener.open(urllib.request.Request(row['url'], headers={
+            'Cache-Control': 'no-cache', 'User-Agent': USER_AGENT}), timeout=180) as response:
         require(response.status == 200 and response.geturl() == row['url'], 'Public download response differs')
         require(streamed_digest(response, row['size']) == row['sha256'], 'Public download hash differs')
 
