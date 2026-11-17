@@ -1,0 +1,116 @@
+{
+  "protocol": "symphony.distribution.d06-hosted-cohort-repair.v1",
+  "status": "local_regressions_passed_hosted_confirmation_pending",
+  "failed_run": {
+    "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43858056305",
+    "head": "dff9b87699374e72a0d63381f2277df532eb2e1c",
+    "failures": [
+      {
+        "profile": "macos15-arm64",
+        "report_sha256": "51cf194bc5d5657de83370682bcbf09e03eded82e38cf5ca427c564891cba87d",
+        "failed_step": "knowledge-vector-engine-cpp-install",
+        "log_sha256": "dcd628f3d87e3edf7a08888d636764daedb176ed502eba593a43ace715707e7e",
+        "native_progress": null
+      },
+      {
+        "profile": "ubuntu24.04-amd64",
+        "report_sha256": "2651b23786e57a7bb74cadbf941e517e18dfa50100122cd255cc5f2c48e0019a",
+        "failed_step": "qxctl-go-closure",
+        "log_sha256": "53a2cd44ef2678b8bac56f5d3875244c22fbb3731f6f87cd9e377aaf39bd3a9c",
+        "native_progress": {
+          "completed": 51,
+          "expected": 51
+        }
+      },
+      {
+        "profile": "ubuntu24.04-arm64",
+        "report_sha256": "2651b23786e57a7bb74cadbf941e517e18dfa50100122cd255cc5f2c48e0019a",
+        "failed_step": "qxctl-go-closure",
+        "log_sha256": "53a2cd44ef2678b8bac56f5d3875244c22fbb3731f6f87cd9e377aaf39bd3a9c",
+        "native_progress": {
+          "completed": 51,
+          "expected": 51
+        }
+      },
+      {
+        "profile": "ubuntu26.04-amd64",
+        "report_sha256": "09783ea786f861004c7a3f5967869167e766a48e5fd9928d265c6f1a65782a5b",
+        "failed_step": "knowledge-vector-engine-cpp-install",
+        "log_sha256": "c4c6cfda7545b5e8b8094fa19414cfc0f65eab8a15b95c5bdead5f7545020f98",
+        "native_progress": null
+      }
+    ]
+  },
+  "changes": {
+    "go": "Fresh full frozen graph cache plus checksum verification and exact original-source offline closure preflight; actual builds remain offline.",
+    "darwin": "Pre-seal valid date/uid/gid fields canonicalized before strict symbol-padding validation; object bytes and offsets unchanged. Strict post-seal and copy-only checks unchanged.",
+    "linux_tls": "Exact recorded reachable OpenSSL roots and bounded zlib/zstd transitive closure; product allowance remains roots only. Original CI missing SONAME was not recorded; exact missing file identity is not claimed."
+  },
+  "validation": {
+    "focused": [
+      {
+        "suite": "build-cohort",
+        "exit_code": 0,
+        "log_sha256": "af967388498afbd0c793fdb8080a508dce1ac390b909a68d317f188ccc6bbd33",
+        "tests_passed": 84
+      },
+      {
+        "suite": "qualification",
+        "exit_code": 0,
+        "log_sha256": "6d35cf580cc3451491f3b0994d38c438fed0c33f95e8d2d6d7543062695678a3",
+        "tests_passed": 82
+      }
+    ],
+    "total_passed": 166,
+    "actual_macos_archive": "compiled, synthetic valid nonneutral member metadata injected, finalized, linked and executed; object bytes preserved",
+    "full_go_preparation": {
+      "report_sha256": "f61dedc3a90a1e4ae703d8af8ca61ebb21cbf9fb4fa15672fcf099c2950a10a9",
+      "module_count": 9,
+      "commands_passed": 28,
+      "source_manifests_unchanged": true
+    },
+    "go_before_after": {
+      "report_sha256": "b27ba5e0cdb705d43d672b24f5a4a6187532e710ed74bcd20071d3763b33425a",
+      "old_failure_reproduced": true,
+      "new_offline_closure_passed": true,
+      "public_network_used_in_reproduction": false
+    },
+    "workflow_lint": "passed with only the existing Ubuntu 26.04 label omitted from the old runner catalog",
+    "whitespace": "passed"
+  },
+  "changed_helper_inputs": [
+    {
+      "path": ".github/workflows/build-cohort.yml",
+      "sha256": "b6fe16b0ce00e449f7c57d549b33636c859e8f4e02d10ba615ac746e86315b13"
+    },
+    {
+      "path": "build-cohort/archive_padding.py",
+      "sha256": "8361d749588e7b16ab8a99ff7868580120f79352c2c672b485ae84078eb979de"
+    },
+    {
+      "path": "build-cohort/finalize_native.py",
+      "sha256": "310d4f543c8ec5993056cf83b4849d3b5c083ff22cb2c25d8256a3ff3a66d777"
+    },
+    {
+      "path": "build-cohort/external.py",
+      "sha256": "1ccbced7d4dde5148dd1faa72a63b90ce4b110a984ccff249cdbe699caf4c0e0"
+    },
+    {
+      "path": "build-cohort/loader_audit.py",
+      "sha256": "f30cb04e1f7ab1fd8ea7f6d5db3c61789da2bdb932999c1cb8baafbfe314414d"
+    },
+    {
+      "path": "qualification/d06_prepare_go.py",
+      "sha256": "d51a20ceb82cff96dd0e50eb03a3ad322697e57e0943135845620291f89e060b"
+    },
+    {
+      "path": "qualification/d06_failure_summary.py",
+      "sha256": "4c837f15ef7b21bbd8e5713d1598e17f1497b3b518e73fd07e490cbd8b67f622"
+    }
+  ],
+  "prior_candidates_modified": false,
+  "primary_platform_acceptance": false,
+  "main_changed": false,
+  "publication_authorized": false,
+  "release_acceptance_complete": false
+}

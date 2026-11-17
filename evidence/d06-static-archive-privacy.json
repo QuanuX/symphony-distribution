@@ -1,0 +1,27 @@
+{
+  "protocol": "symphony.distribution.d06-static-archive-privacy.v1",
+  "component_id": "knowledge-vector-engine-cpp",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "observations": [
+    {
+      "attempt": "interrupted",
+      "sha256": "2014962cbab324b830c0b5580eb63ffd03e13bf8eb73116aed46d4415851c326",
+      "members": 8,
+      "neutral_owner_and_timestamp_metadata": false
+    },
+    {
+      "attempt": "repaired",
+      "sha256": "52fd1f139c684b7ae0681311609bc570ec9758078aeec2b99febc9938de68656",
+      "members": 8,
+      "neutral_owner_and_timestamp_metadata": true
+    }
+  ],
+  "repair": [
+    "ZERO_AR_DATE=1",
+    "SOURCE_DATE_EPOCH=0",
+    "refuse nonneutral static archive header metadata after install and during final inventory"
+  ],
+  "interrupted_candidate_accepted": false,
+  "full_cohort_acceptance": false,
+  "publication_authorized": false
+}

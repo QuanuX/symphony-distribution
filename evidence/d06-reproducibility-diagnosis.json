@@ -1,0 +1,130 @@
+{
+  "protocol": "symphony.distribution.d06-reproducibility-diagnosis.v1",
+  "scope": "bounded supplemental macOS Intel diagnosis on two independently built static cohorts; repaired final-byte acceptance remains separate",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "host_observation": {
+    "os": "macos",
+    "os_release": "26.7.1",
+    "architecture": "amd64",
+    "primary_profile_qualified": false
+  },
+  "static_archives": {
+    "cause": "Apple BSD archive symbol tables retained nonzero unused string-tail alignment bytes despite zero member timestamps.",
+    "padding_normalizer": "build-cohort/archive_padding.py",
+    "normalizer_sha256": "5d6df3b1af09c4bb381f2452fc4ae25a16a62a67433029c5a25a23fe2952bb76",
+    "format_scope": "Darwin BSD32 little-endian __.SYMDEF and __.SYMDEF SORTED only; unknown, thin, GNU and malformed layouts refused",
+    "candidate_pair_checks": [
+      {
+        "artifact_name": "libsqpv-local-store.a",
+        "source_sha256": [
+          "de3715aa71cb62807a8d2dcf21fdd2124b0be282b6ee737c2e7156901790e81f",
+          "68176bb65f4e8cb65e2abcee4403c1165346262d30a69b566939f6d9177b33c3"
+        ],
+        "normalized_sha256": "85988b235ec7c3387b0fa335abb139036d8a997fa2df68bcb1cc98486929978c",
+        "padding_bytes": 4,
+        "object_member_count": 2,
+        "compiled_object_members_identical": true,
+        "referenced_symbol_semantics_identical": true,
+        "normalization_idempotent": true,
+        "candidate_inputs_unchanged": true
+      },
+      {
+        "artifact_name": "libsqav-capture.a",
+        "source_sha256": [
+          "a647c91785ad75142d0ec96d393b2d64121c2c5bcff5547ac952533a17fe1581",
+          "44b0cdedbf7d7d77e6a9785f22eac72d6d2fcd999f226213223de9150041d2d9"
+        ],
+        "normalized_sha256": "44b0cdedbf7d7d77e6a9785f22eac72d6d2fcd999f226213223de9150041d2d9",
+        "padding_bytes": 7,
+        "object_member_count": 1,
+        "compiled_object_members_identical": true,
+        "referenced_symbol_semantics_identical": true,
+        "normalization_idempotent": true,
+        "candidate_inputs_unchanged": true
+      }
+    ],
+    "complete_retained_archive_inspection": {
+      "accepted": 19,
+      "rejected": 0,
+      "nonzero_padding_artifacts": [
+        {
+          "path": "lib/symphony/sqav-capture-cpp/0.2.0-dev/libsqav-capture.a",
+          "source_sha256": "a647c91785ad75142d0ec96d393b2d64121c2c5bcff5547ac952533a17fe1581",
+          "normalized_sha256": "44b0cdedbf7d7d77e6a9785f22eac72d6d2fcd999f226213223de9150041d2d9",
+          "padding_size": 7,
+          "changed_byte_count": 7
+        },
+        {
+          "path": "lib/symphony/sqpv-local-store-cpp/0.2.0-dev/libsqpv-local-store.a",
+          "source_sha256": "de3715aa71cb62807a8d2dcf21fdd2124b0be282b6ee737c2e7156901790e81f",
+          "normalized_sha256": "85988b235ec7c3387b0fa335abb139036d8a997fa2df68bcb1cc98486929978c",
+          "padding_size": 4,
+          "changed_byte_count": 1
+        },
+        {
+          "path": "third-party/lib/libzstd.a",
+          "source_sha256": "dd10b6977710fb29dba10a111cb1e50c13d02bb9691c6ee5d644230776bc317b",
+          "normalized_sha256": "a1b00c72b0e7dae1da26ee8d1b37364fff7f3ceeaebe768b1721706ceecd9ede",
+          "padding_size": 2,
+          "changed_byte_count": 2
+        }
+      ]
+    },
+    "object_bytes_member_headers_offsets_and_referenced_strings_preserved": true,
+    "existing_index_ranlib_D_alone_repaired_difference": false
+  },
+  "native_link_identity": {
+    "affected_observed_artifacts": [
+      "libsymphony-sbv-sdk.dylib",
+      "symphony-sbv"
+    ],
+    "actual_binary_differences": "LC_UUID and dependent code-signature bytes only; all other bytes identical",
+    "cause": "Private build RPATH participates in the original Apple linker UUID; removing that RPATH during finalization leaves the earlier UUID.",
+    "actual_SBV_configure_check": {
+      "current_private_curl_rpath_present_in_both_links": true,
+      "stable_policy_removes_private_rpath_from_both_links": true
+    },
+    "controlled_same_object_checks": {
+      "changing_only_unused_archive_padding_changes_uuid": false,
+      "different_private_rpaths_then_removed_have_different_uuid": true,
+      "different_output_directories_without_rpath_are_byte_equal": true,
+      "different_output_directories_with_same_relative_rpath_are_byte_equal": true
+    },
+    "initial_link_policy": [
+      "CMAKE_INSTALL_RPATH_USE_LINK_PATH=OFF",
+      "CMAKE_INSTALL_RPATH=",
+      "CMAKE_BUILD_WITH_INSTALL_RPATH=ON",
+      "CMAKE_INSTALL_NAME_DIR=@rpath",
+      "CMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON"
+    ],
+    "manual_uuid_rewriting_used": false
+  },
+  "integration_review": {
+    "normalization_runs_after_module_install_ranlib_before_receipt_sealing": true,
+    "Darwin_only_archive_format_dispatch": true,
+    "external_payload_remains_separately_inventoried": true,
+    "shared_stable_link_policy_used_by_full_and_focused_repair_builds": true,
+    "native_archive_refusal_tests_passed": 11
+  },
+  "repair_boundary": {
+    "original_candidates_immutable": true,
+    "apply_only_in_new_private_stages_before_sealing": true,
+    "external_zstd_canonicalization_requires_new_external_inventory": true,
+    "whole_final_payload_comparison_and_focused_requalification_required": true
+  },
+  "retained_proof_digests": {
+    "strict-normalizer-validation/result.json": "f46d5f0d55d4306b81f6437d546b00e54fcbe9d90702f52fdd01cb3b695355e9",
+    "strict-normalizer-validation/all-archives.json": "51f6798ea96b60fa221430ed92598c9468ce15e1eb9418c4043d044904943e07",
+    "sbv-uuid-signature-proof.json": "7a4d927338ea9b19c6f95f5711d7199e2c742d8a950d472b3d0775e7f6ba9b39",
+    "sbv-link-configuration/proof.json": "4fcec057016676287e3e45c547f7383f71d2131df70beab93d65d1322e273845",
+    "toy-padding-causality-2/proof.json": "e82f506b951a127bc638d384fbe8050ee15819f8f91d93da3763065712153d0f",
+    "toy-padding-causality-2/rpath-uuid-proof.json": "6c853ecdcb47e210506d7006a9deb892369cc00ceb49d5e6128c8a75dc026001",
+    "toy-padding-causality-2/stable-link-rpath-proof.json": "ca9a18c22dcfd225feb4b9db15b46bf5cce1221b9b9125bb0d6c730c0eb2d5ad"
+  },
+  "whole_cohort_repaired_bytes_match": "not_asserted_by_this_diagnosis",
+  "fresh_host_accepted": false,
+  "release_acceptance_complete": false,
+  "publication_authorized": false,
+  "core_main_modified": false
+}

@@ -1,0 +1,47 @@
+{
+  "broader_core_suite_run": false,
+  "ci_results_waited_for": false,
+  "core_test_evidence": "d06-pr-ci-triage.json",
+  "groups": [
+    {
+      "command": "python3 -m unittest discover -s build-cohort -p 'test_*.py' -q",
+      "exit_code": 0,
+      "tests": 74
+    },
+    {
+      "command": "python3 -m unittest discover -s qualification -p 'test_d06_*.py' -q",
+      "exit_code": 0,
+      "tests": 71
+    }
+  ],
+  "native_macho_two_prefix_reproducibility_regression": "passed",
+  "protocol": "symphony.distribution.d06-focused-validation.v1",
+  "publication_authorized": false,
+  "qualification_recheck_scope": "After source-defined SSIAG and Cloudflare documentation-license recognition correction; native payload/build helpers unchanged",
+  "release_acceptance_complete": false,
+  "scope": "Observed local focused command results; no hosted CI outcome claimed",
+  "status": "passed",
+  "test_source_sha256": {
+    "build-cohort/test_archive_padding.py": "a9accdaccdf79c7e75858ea60f5eb47f906a219ed702f8f32c465d313ad9f6a2",
+    "build-cohort/test_build.py": "52905ce2ab49d53a0fec3cc03945130cef38bf12fba1268b0d6b28c215bd23bc",
+    "build-cohort/test_external.py": "12515d82530f879c1de0289a13015d2d10143822b203c3af014889961228258c",
+    "build-cohort/test_finalize_native.py": "fbecc1a394015a77c01c6bd78102075ca44b3ac29f517b72fd70ac1a348b3c67",
+    "build-cohort/test_link_reproducibility.py": "eff2022bdb2af70827c57acac09f2be0fabc8dca9012531d41d47a842cd69201",
+    "build-cohort/test_owner_audit.py": "20a01e55033cb5b8388c29dfd1192d9102c76d7951f9591c5289d51498ded01b",
+    "build-cohort/test_plan.py": "315842d07468db8965d8338b7b347f4abf7b8168e8c65ed6d00ba92167b3bf30",
+    "build-cohort/test_sdk_audit.py": "c96d16fb55b38e5a5658a2260723dced2182063b640ab89b100fb5ce6f6ecaf1",
+    "qualification/test_d06_delivery_record.py": "36298de27f0ac88204272ef227a52812e4f5cc14bc6a27232360e24682dd2d6c",
+    "qualification/test_d06_failure_summary.py": "91bfe8fe059a7db82327ff33bf6a6564c648ae10d36ad5debb2b6e575d6baa69",
+    "qualification/test_d06_repair_cohort.py": "4c93f5fd80124346c13c98913082d00f6dd2c99286e492fa4ab98822e568d971",
+    "qualification/test_d06_requalify_retained.py": "c577528042fe762dfe567fb6518bb53cea93c9044f9d28d2fa60338a4161de2a",
+    "qualification/test_d06_sdk_closure.py": "f5f5887ffcca1ce791881449e672a1b63000aafe375dca41b880162209afaa52",
+    "qualification/test_d06_upstream_source.py": "86022c344387d5b0fc5974763b6f3dbb537d83f332a21b680eacd69f92821c0d"
+  },
+  "total_focused_python_tests": 145,
+  "workflow_validation": {
+    "known_runner_label_exception": "ubuntu-26.04",
+    "result": "passed",
+    "tool": "actionlint",
+    "workflow": ".github/workflows/build-cohort.yml"
+  }
+}

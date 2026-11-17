@@ -54,7 +54,11 @@ user's own system, never copied from a publisher build environment.
 
 ## Capability and platform status
 
-| Scope | Current evidence | Final support status |
+The following table preserves the recorded S07 snapshot. Later D06 construction
+and requalification are recorded separately below; they do not replace these
+historical job outcomes or establish fresh-host support.
+
+| Scope | Recorded S07 evidence | Final support status |
 | --- | --- | --- |
 | macOS 15 ARM64 | Completed S07 native and Conda CI steps passed; E1 fixtures | Fresh-host and actual-manager acceptance incomplete |
 | Ubuntu 24.04 AMD64 | S07 native CI failed; Conda step skipped | Fresh-host and actual-manager acceptance incomplete |
@@ -141,3 +145,42 @@ precise native restart/delete crash boundaries, escaped process lifetimes,
 mid-operation native response loss, genuine distinct-release selection/rollback,
 unresolved audit recovery and unsupported raw/C++/shared-environment ownership.
 No source/documentation consistency check closes those gates.
+
+## D06 continuation
+
+The [D06 clean-cohort supplement](../docs/D06-CLEAN-COHORT.md) records the full
+native/SDK construction work on a separate distribution branch. Its source-bound
+selection and new evidence extend this dossier; they do not rewrite the S08
+observations or mark its acceptance cells complete.
+
+The first full local construction produced 51 native receipt units and six core
+Go commands. The retained payload has independent requalification for the 20
+selected SDK producers and six installed-owner fixtures. The
+[retained-stage report](../evidence/d06-retained-requalification.json) records
+those exact observations with acceptance still false. This is supplemental Intel
+macOS evidence; it does not qualify the four required native profiles or the
+eight optional native units and separately selected protected administrator.
+
+The second full construction and both bounded repairs completed. The
+[comparison](../evidence/d06-clean-cohort-qualification.json) proves identical
+final files, modes and links across all 1,250 payload entries. Each repair rebuilt
+eight native units and explicitly inherited 43 native units and six Go commands;
+original stages and evidence remain unchanged. The same prepared external input
+was reused, so this does not prove independent curl/zstd rebuild reproducibility.
+
+Candidate B also passed the [source SDK and removal campaign](../evidence/d06-sdk-closure.json):
+the shipped Go SDK roundtrip, five-core SNV API calls, and tamper refusal plus
+interrupted/resumed/repeated removal for all 51 native units in disposable copies.
+The full selected SDK and six installed-owner fixtures passed on both repaired
+stages. The [completed delivery record](../evidence/d06-delivery-record.json) retains
+131 notices and a 7,480-entry corresponding-source archive for the exact selected
+final bytes, with original and repair toolkit sources kept distinct. Publisher
+review remains pending.
+
+External-runtime carrier ownership, four-profile/fresh-host lifecycle journeys,
+genuine distinct-release upgrade/swap/rollback, publisher trust/signing,
+Anaconda upload/retrieval, Cloudflare installers and independent/backup acceptance
+remain open. Existing D05 live-removal, whole-profile and native ownership limits
+remain unchanged. See the [D06 evidence summary](../evidence/D06-RESULTS.md) for
+the retained attempts and subsequent exact results; no release approval is
+created by this documentation update.

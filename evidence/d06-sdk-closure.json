@@ -1,0 +1,4892 @@
+{
+  "cohort_result_sha256": "e2d5f0d2cebfc4b6554197aa67a39ce8f8c0d09ecf755a2e967c5ace658831c3",
+  "construction_provenance": {
+    "fresh_whole_cohort_build": false,
+    "inherited_go_count": 6,
+    "inherited_native_count": 43,
+    "native_unit_provenance": [
+      {
+        "component_id": "knowledge-session-coordinator",
+        "configure_log_sha256": "4fa458ce3b61bf7a6ebbb3f6833f85a9664dab9f1e606210b831222bfdb29e0c",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "knowledge-vector-engine-cpp",
+        "configure_log_sha256": "4355656f3645a8203fec4f2c919b96dea63945912f0353d9ce4dd15984870e62",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "maestro",
+        "configure_log_sha256": "153f1260db5a01ce1f4913c3f19b08ff647ce27695ee8487d4b8385e8f51fb7a",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "native-source-support-cpp",
+        "configure_log_sha256": "9eb9e219a4d01bd54b03a8d9d181539000ae4a8a5b2f112608527163bc8d818b",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sacv-engine",
+        "configure_log_sha256": "04b5435aeab23a17406866fe110bf7ab516656db47028f8c62e58124ca19a592",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sav-engine",
+        "configure_log_sha256": "ceba04590da18d4df34a1de632e03ce41b04f89aa387e87cd9c775646977bc51",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sbv-engine",
+        "configure_log_sha256": "f83354e52db2a4ac8d33a56dd96cc63ad161d52503047314b9647e9bf63c63e5",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "scev-cf-engine",
+        "configure_log_sha256": "85e79d88410b2d32a264fde7ace72fd3f9209635c446d1b67eb71339d5a50819",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "scev-engine",
+        "configure_log_sha256": "c3f8714b9d12e0faf58a7c898e770bcb9907dffe7fd7d665709f530a8725050b",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "schv-aws-engine",
+        "configure_log_sha256": "6adfd7cfde9d8c9fa86c217988a2a19194a1ece3c24d25770a05e80846dc3369",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "schv-azure-engine",
+        "configure_log_sha256": "023d288d8944599f82121f8e477b18ca6d0a54ae86afabe51ca928a15bcf59ec",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "schv-do-engine",
+        "configure_log_sha256": "55190e78a245ed3c95245802424b02e7fb509d806f492e9cd191d6dfd108132a",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "schv-engine",
+        "configure_log_sha256": "fc4f27aae18bd7479db7de1f81d5cc621fa1139d0cf810745eeaacd1b282e253",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "schv-gcp-engine",
+        "configure_log_sha256": "f42f786c6ee0fc62f9c06cbe4e860ef01bd4d4dc042bf6063ee360157a8da3f6",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sciv-engine",
+        "configure_log_sha256": "4b1ceb182c9985a46e98a700dbfe13beed71fe3d53ebce9034fa6fdb2dfdeaa6",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sclv-engine",
+        "configure_log_sha256": "1c21288f353de5b0ed4019af63adb389928c72bcd3cbb3b4812b1752dd7532a9",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "scnv-engine",
+        "configure_log_sha256": "a4873d1d59958e69001bf00616966bf2853d8c874e6f805ba42cb48705c9d915",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "scv-engine",
+        "configure_log_sha256": "3e2eb412e5f92a2117d4686f3ef65a3fa2502a4dd618e04038f47e65708d96cb",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sev-engine",
+        "configure_log_sha256": "4be9ceb70f284e7f597364f4ac99398811414e0062c01ae7dc7913c69a858447",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "shv-engine",
+        "configure_log_sha256": "1e83146050e483957b1164095fdda9e35ef842e549598a52dbf56bb5d019f18b",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "shv-graph-adapter",
+        "configure_log_sha256": "b6dad5b2e4aa6628cb5933b1e045008beef99b126fbc17f75d575766015c1667",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "shv-partition-engine",
+        "configure_log_sha256": "fbb6d239e9042984690960b66be22f7bbcfc646818122227cb9b741ca5677ec6",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "shv-profile-engine",
+        "configure_log_sha256": "07ca8b2c922da92f9ae78852235fa645cbd5d74f64613d02f06cfc4ec4979bf4",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "shv-publication-engine",
+        "configure_log_sha256": "213c5e711cb98f75d9d4a0ce4a783e27bb8da37894c1f047749e01d77e05b7fb",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "shv-source-engine",
+        "configure_log_sha256": "84ff242634693998223ba6e55b36dd7fc301594f952a78f5411e4b16bae448ce",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "skvi-engine",
+        "configure_log_sha256": "ab476d9a4ff1427f535a72ac90970adb8a316fd755e6bd6c40b1af9ac6c8c5cc",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sniv-engine",
+        "configure_log_sha256": "311d6df16511f196bb494131f366640f98d9dc92edd8183a99336940b7917213",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "snrv-engine",
+        "configure_log_sha256": "add9d111ce3f078692df2ca46b524b7b5f73e597138c321af3a0fbbd3b6c4ec6",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "snv-common-cpp",
+        "configure_log_sha256": "ba2f55acc00a645a81d945eab952c0f36f69793ef0d3423b6673372e066810f1",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "snv-engine",
+        "configure_log_sha256": "ddb8171fa2f1f12c65efa8e3b6bb9840194927cbb4dca43d814eb4f250d13a1a",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sodv-engine",
+        "configure_log_sha256": "9cc2af8f433c14881d47bfa406676295773dce287bf7fbe86997c68eb570539c",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sov-cloudflare-adapter",
+        "configure_log_sha256": "b1760d036a7d9a8e4136dc1ce17675f52a2308243778a9c0b9cf8145cf9b00b3",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqav-attempt-engine",
+        "configure_log_sha256": "29832b0baeb0087e1b28eb65d6453841ee395ed8cd321c5b17898ec80348cf38",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqav-capture-cpp",
+        "configure_log_sha256": "37b77ba5332b0592c92a545a11a4a12d568c25fa795fc408889c0bf55f8daa60",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqav-databento-dbn-cpp",
+        "configure_log_sha256": "c0d70cbeb2bbd550ea1d3bebcbe0471a98ee6ec7004984a250e9998c63670cc9",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqav-databento-reference-cpp",
+        "configure_log_sha256": "a57d7f3fbae1b325e4fede990e215d4e3bb826c29f1036330eeaa3b518b844dd",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqav-fred-cpp",
+        "configure_log_sha256": "02aec13f1f68b699682c6de16449131cb6016dc6d2b01eca31131e82b14697ae",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqav-request-engine",
+        "configure_log_sha256": "4eb2d6d741f16b8c535dbdb210ad7b20344f9e0249c1aa9665657a224f593f50",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqdv-checkpoint-engine",
+        "configure_log_sha256": "4efe9d2cedc5c2ab78cac2b2df140196cc8554de0c961f0fa6902adbfc4b2f1b",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqdv-delivery-cpp",
+        "configure_log_sha256": "dd67496e06b861920ac0023c74d89e9df0b5732e951c7b9e4e4536a2e3b9b3d4",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqfv-batch-cpp",
+        "configure_log_sha256": "350e543e5be5fa5df6a0488e80f720298d3087b3bcfdee802c5b1d619b3b7f86",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqfv-flow-engine",
+        "configure_log_sha256": "b0ca33c00aa6762c8f484332569b726ef31f5e39c7e534415921f23326664828",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqmv-metadata-cpp",
+        "configure_log_sha256": "dd7f726020eb251a3540c2d3c1f4a24955815f9c14ec3995b82a15b703f3b57a",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqmv-metadata-engine",
+        "configure_log_sha256": "14591ba6fddff26ebaaf9c1d98757ab5ec509c6b37497a62c68ed25f8d041256",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqpv-inspection-engine",
+        "configure_log_sha256": "cd51004215ee9b2cadfdff8d407214e6f82a726a6da6c479934596cc1fc945aa",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqpv-local-store-cpp",
+        "configure_log_sha256": "9a197f18ea65ebd8f5b8daed57e670231abbd47859d4fc5c66eb69c7cb056507",
+        "kind": "rebuilt_from_exact_origin_source"
+      },
+      {
+        "component_id": "sqtv-conversion-engine",
+        "configure_log_sha256": "b7d69027f640c1f4939ea19b276a860ec2ca6954414b99db11c84cdc86a5113c",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "sqtv-integer-conversion-cpp",
+        "configure_log_sha256": "715e9f491954924c7038765835c1a2181511693aaef1673f86fd05250ab03297",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "ssfv-engine",
+        "configure_log_sha256": "bb4ccac5f4da7c4387c7b518b5c80ebe786ffb19156d3d7c60f91c7451013d0e",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "ssiag-provider-private-store",
+        "configure_log_sha256": "090fb7e740117cab14d30510817d6a3e64cee730d55f611d8fc4b5ede910d2f3",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      },
+      {
+        "component_id": "symphony-validator",
+        "configure_log_sha256": "6100fc7a0c821987edcab06328bdbf7fa5bbeccfe2bad0a161837199f0baef41",
+        "kind": "inherited_native_receipt_and_bytes",
+        "original_log_sealed_by_round": true
+      }
+    ],
+    "repair_provenance": {
+      "external_repair_allowlist": [
+        "third-party/lib/libzstd.a"
+      ],
+      "inherited_go_count": 6,
+      "inherited_native_count": 43,
+      "kind": "completed_full_cohort",
+      "origin_build_result_sha256": "4bd14ec6d60dc00e602d35b5b4d1764f94c7e154315765b7a828d0e820c71458",
+      "origin_payload_inventory_sha256": "1ed33558e5b02550d84fb85ccd98110afa4cc5d2c801dd8c23467fd3e69b14d3",
+      "origin_tool_commit": "917402857b127e0f5baedaa7321799d79e4255a6",
+      "rebuild_ids": [
+        "sqav-capture-cpp",
+        "sqpv-local-store-cpp",
+        "sqav-databento-dbn-cpp",
+        "sqdv-delivery-cpp",
+        "sbv-engine",
+        "sqav-databento-reference-cpp",
+        "sqav-fred-cpp",
+        "sqav-request-engine"
+      ],
+      "round_result_sha256": "91b7d935cd288de1cfb3a6000f8bc885da56575b84d6fc6a9753b6a38b987992",
+      "source_inventory_sha256": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e"
+    },
+    "repaired_native_count": 8
+  },
+  "core_snv_api_smoke": {
+    "consumer_binary_sha256": "d795c1c1503a1a637ec7c75b650477bcb0ae8ccfcecae7ca52b74d793c4cf4cb",
+    "consumer_cmake_sha256": "89700f028ac2637e5c4c113df034db2d77f95376ccd91553ace4ef1cca873e53",
+    "consumer_cpp_sha256": "ca7053e71e1116365c7548898ba65975bf6f093fef2b6d352f88e2238f59d381",
+    "import_proof_sha256": "6604efb8c482b53dd1f6e0b294940c88a6e1e5cf252a3d1a8fee1cf969bef18e",
+    "operations_api_called": [
+      "sniv",
+      "snrv",
+      "sciv",
+      "scnv",
+      "snv"
+    ],
+    "optional_observer_selected": false,
+    "scope": "supplemental actual linked core SNV SDK API calls; distinct from original all-imports audit",
+    "sdk_producer_count": 5,
+    "sdk_producers": [
+      "sciv-engine",
+      "scnv-engine",
+      "sniv-engine",
+      "snrv-engine",
+      "snv-engine"
+    ],
+    "source_harness_sha256": {
+      "cmake/mvp-dependencies.json": "d3ab29a1bf8a5534c5a57ea0512ae2dcb74ba44045014107d96d41df4362b88a",
+      "tests/mvp-dependencies/common.cmake": "846a5107d8c9fa74ec3a802e93bbd607a8d8514bcd0c5f38519b0a5f70df3ac9",
+      "tests/mvp-dependencies/prove-imports.cmake": "f688d548853462b39aeedcad28ee1f09f3be58818a1493069e98cfdc1c20557c"
+    },
+    "status": "passed"
+  },
+  "disposable_native_removal": {
+    "detached_helpers_sha256": {
+      "knowledge-session-coordinator/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "knowledge-session-coordinator/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "knowledge-session-coordinator/symphony-receipt-v2-identity-share_symphony_receipts_knowledge_session_coordinator_0_1_0_dev_install_receipt_json.cmake": "f3d3911cd86b784e6b7e56632d78040de63eb90ffcc025c804cbe3ef9c122ac7",
+      "knowledge-session-coordinator/uninstall.cmake": "dad0b6bf934b6553c4c7ba86fe3810567516a25fcd1966761fb647fa1788dfa4",
+      "knowledge-vector-engine-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "knowledge-vector-engine-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "knowledge-vector-engine-cpp/symphony-receipt-v2-identity-share_symphony_receipts_knowledge_vector_engine_cpp_0_2_0_dev_install_receipt_json.cmake": "a63872b2fcf3641769b30537d71e3ee684c1f28d231b90041229ee1466dbcc76",
+      "knowledge-vector-engine-cpp/uninstall.cmake": "c85c40c029d9e54573014a64e577e43248e400a3e362980d02b34559436510cb",
+      "maestro/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "maestro/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "maestro/symphony-receipt-v2-identity-share_symphony_receipts_maestro_0_1_0_dev_install_receipt_json.cmake": "e0db75d9f042d2d5792cf5875c5150dd17bd842ceaadd794abbdc5701ad21ce5",
+      "maestro/uninstall.cmake": "a34a9192ee6fcb40260d51aabeb3286298d2fb32ee7c647ef9e4c207876472d6",
+      "native-source-support-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "native-source-support-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "native-source-support-cpp/symphony-receipt-v2-identity-share_symphony_receipts_native_source_support_cpp_0_1_0_dev_install_receipt_json.cmake": "fb585914de9fd05cbcd97bd8a5311342bd3c908fea3e23ee94e7ac0b27447d14",
+      "native-source-support-cpp/uninstall.cmake": "d60e9197b1287046b315ff4911a287a130c9f33d60ac2b553bf3a957500d2a61",
+      "sacv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sacv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sacv-engine/symphony-receipt-v2-identity-share_symphony_receipts_sacv_engine_0_1_0_dev_install_receipt_json.cmake": "ccd05a1432a357d5fd5a31a42aa7cd21820ab93e05de53be59acf0f7cc0747d5",
+      "sacv-engine/uninstall.cmake": "5fe2dbeaa568bb2c752e72d917de5480fece5f35dce3ff481c7bc6eb0e895028",
+      "sav-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sav-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sav-engine/symphony-receipt-v2-identity-share_symphony_receipts_sav_engine_0_1_0_dev_install_receipt_json.cmake": "04a94f528e5295604f4d683bfb530e377f011d49cb9c702cb610d49e3132350c",
+      "sav-engine/uninstall.cmake": "b389220b2cc1abc6e12fd6e837e5cbf706a516e33aa5825be2836858507796d3",
+      "sbv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sbv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sbv-engine/symphony-receipt-v2-identity-share_symphony_receipts_sbv_engine_0_33_0_dev_install_receipt_json.cmake": "e4350c309953c142c796a4e520e9d31d95748e2f959030279586977d00a9d001",
+      "sbv-engine/uninstall.cmake": "eeb2700a7c2e4e9563a010f9f25e73558414bb53d26d280fedc07f892509ee52",
+      "scev-cf-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "scev-cf-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "scev-cf-engine/symphony-receipt-v2-identity-share_symphony_receipts_scev_cf_engine_0_10_0_dev_install_receipt_json.cmake": "6887e37ef81667d1548d2ffb21b8a815d351c0e8d3d111adf5d8759b6cdbc396",
+      "scev-cf-engine/uninstall.cmake": "ce7a78b1630a5ce97932de7392b8b65514e671b0e120e2aa85a402754035287e",
+      "scev-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "scev-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "scev-engine/symphony-receipt-v2-identity-share_symphony_receipts_scev_engine_0_10_0_dev_install_receipt_json.cmake": "11edb28aa7100c639290d10e51bbb0ed940e8bdb06296614cf301273d5a09cc0",
+      "scev-engine/uninstall.cmake": "a9627a785b8e45c96c7f72148b5e59031b533835dad67f052ab6ddcf3012defa",
+      "schv-aws-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "schv-aws-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "schv-aws-engine/symphony-receipt-v2-identity-share_symphony_receipts_schv_aws_engine_0_10_0_dev_install_receipt_json.cmake": "9ce2460f99335679887423eb887624a7660dcc9e871df8a0195f83bbe4166c7a",
+      "schv-aws-engine/uninstall.cmake": "def46a6ad017bb7af8f79e289a602261ec427965dec6e2ae2923ee6aa40b7ca4",
+      "schv-azure-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "schv-azure-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "schv-azure-engine/symphony-receipt-v2-identity-share_symphony_receipts_schv_azure_engine_0_10_0_dev_install_receipt_json.cmake": "384cade247ec0613ac8147ded3eceabcfdc08033648a81d5973489616805a279",
+      "schv-azure-engine/uninstall.cmake": "04a126e4b8936b5a6e767fa38bc4615024822ba8465fd46b1383a39ce30753e3",
+      "schv-do-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "schv-do-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "schv-do-engine/symphony-receipt-v2-identity-share_symphony_receipts_schv_do_engine_0_10_0_dev_install_receipt_json.cmake": "9df9a43ee117c804d73779de1b5a61dab744c53cb7dc5ebe68c9e9c68d4c10fc",
+      "schv-do-engine/uninstall.cmake": "17acc60bcb4d9fedd838c22c0065d03a43e7a3dad3bcc9a24970d0587bc68434",
+      "schv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "schv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "schv-engine/symphony-receipt-v2-identity-share_symphony_receipts_schv_engine_0_10_0_dev_install_receipt_json.cmake": "b8e6831e2670c12d28795c11ae28b8096bcd647f1969c286c0a2a3b1ce0fd62b",
+      "schv-engine/uninstall.cmake": "9d6561e0ab4ecc755416242adcc2ac5cec35f073c40941f1851d492b9c13eec7",
+      "schv-gcp-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "schv-gcp-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "schv-gcp-engine/symphony-receipt-v2-identity-share_symphony_receipts_schv_gcp_engine_0_10_0_dev_install_receipt_json.cmake": "966e0721519c746df824066f577268cc507bd08b8446770d8aacb69bc4754fa3",
+      "schv-gcp-engine/uninstall.cmake": "8a48ed1d24a9dcfed6cd6d4d91e0a3c3ae996606e4a3c0ec64e783ce0f73564a",
+      "sciv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sciv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sciv-engine/symphony-receipt-v2-identity-share_symphony_receipts_sciv_engine_0_1_0_dev_install_receipt_json.cmake": "5705af31bc28e029c491a11498aea0206d352f2a6911e3760b578b8f6a0636a5",
+      "sciv-engine/uninstall.cmake": "b63746e123b7ebd937c4184f8f40da27e9d34384dd0911123689b07854f9e873",
+      "sclv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sclv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sclv-engine/symphony-receipt-v2-identity-share_symphony_receipts_sclv_engine_0_1_0_dev_install_receipt_json.cmake": "1469fb6d5db1cec095d49262e7374aafe77cfd6e8987c66f7f74dd5b0b527784",
+      "sclv-engine/uninstall.cmake": "3128cd4e7a46c6c350dd3ebacfedb455014f2e30745f1e091ec9397e29d7c558",
+      "scnv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "scnv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "scnv-engine/symphony-receipt-v2-identity-share_symphony_receipts_scnv_engine_0_1_0_dev_install_receipt_json.cmake": "fa4327911a6126451235cc05813a7bf441d028d94dfd39039f79e8a29e08bbc2",
+      "scnv-engine/uninstall.cmake": "98a56799fbf4a2aa6d34c99ba1d1cf0cbad3221399c1800e65e02758467e8c66",
+      "scv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "scv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "scv-engine/symphony-receipt-v2-identity-share_symphony_receipts_scv_engine_0_10_0_dev_install_receipt_json.cmake": "8e3b60371d6df9b42b7f44ea26ba7242d80fd54fe5f5693fa071d667dfbcc29f",
+      "scv-engine/uninstall.cmake": "33e8320f35a995a1e46c4421b59881c12745be6fd1d5fba85c57cf85e5f2e32d",
+      "sev-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sev-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sev-engine/symphony-receipt-v2-identity-share_symphony_receipts_sev_engine_0_1_0_dev_install_receipt_json.cmake": "d7e5a20629b28abf87bd98c0e03360a6cfe73cbc53fd607b0403bd61d1f3506b",
+      "sev-engine/uninstall.cmake": "fb97aa7f0d31acd3eff6f57f5f7a968d61034feb3ca2d7ad8bbb08ea6e49ffa0",
+      "shv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "shv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "shv-engine/symphony-receipt-v2-identity-share_symphony_receipts_shv_engine_0_4_0_dev_install_receipt_json.cmake": "0c7ce27ed8c358c065ca7c02a095945d82e55e0b2b8c3352ebb01b9308fe848d",
+      "shv-engine/uninstall.cmake": "b4afb0a841950163ccd29e35013e92712329f23de267cfb2f768d7fdebe6d9e2",
+      "shv-graph-adapter/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "shv-graph-adapter/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "shv-graph-adapter/symphony-receipt-v2-identity-share_symphony_receipts_shv_graph_adapter_0_2_0_dev_install_receipt_json.cmake": "98113fd606c1a0d53f310a69b2f216c45b8634c4927aaba42d4d5110e3f72e40",
+      "shv-graph-adapter/uninstall.cmake": "0b4f03a42df46424b20a3ee853c0ce93e0822cf61a586a4f525956f4e0d9ba3c",
+      "shv-partition-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "shv-partition-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "shv-partition-engine/symphony-receipt-v2-identity-share_symphony_receipts_shv_partition_engine_0_4_0_dev_install_receipt_json.cmake": "c7487353936aa48ed6584904a34a4511743a8a1b4f0c5afff2f9a8a04746f1c4",
+      "shv-partition-engine/uninstall.cmake": "01b1514b987dc91ceb0b6a1a0cc0eaa797796c12be532ffc67fee4103b688b7b",
+      "shv-profile-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "shv-profile-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "shv-profile-engine/symphony-receipt-v2-identity-share_symphony_receipts_shv_profile_engine_0_3_0_dev_install_receipt_json.cmake": "29ef56c729a34a9ab6d53bb9803121d291c85cc84c354db89406ce0980cea04a",
+      "shv-profile-engine/uninstall.cmake": "d92c665842c5b3c33b19ca2d341cd4dfefd0fd4f48866e247ddca8805d5e5931",
+      "shv-publication-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "shv-publication-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "shv-publication-engine/symphony-receipt-v2-identity-share_symphony_receipts_shv_publication_engine_0_4_0_dev_install_receipt_json.cmake": "ff0aed2271c9606c31d8c39dcda028e2919472aa2a24ebe9b9845fd7bb505464",
+      "shv-publication-engine/uninstall.cmake": "97bc9a75e52b9dc10d7c773dae92ae6076ac77c16661a58fba24bcd6bf5a2eef",
+      "shv-source-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "shv-source-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "shv-source-engine/symphony-receipt-v2-identity-share_symphony_receipts_shv_source_engine_0_2_0_dev_install_receipt_json.cmake": "e726e7e46b273b75b8d02115c056e6daa0aa8bd6216ec2d152d9485d5d8fa9a4",
+      "shv-source-engine/uninstall.cmake": "9409da7fe7c54c62862d4dcc4bad47022de8b5f2e5571a0e3cf0fb54c061e4ab",
+      "skvi-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "skvi-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "skvi-engine/symphony-receipt-v2-identity-share_symphony_receipts_skvi_engine_0_2_0_dev_install_receipt_json.cmake": "af4a33cfa31c711cc90f8a9fad9554dcbd09c6a4f1d2dff2c0a9ed102a3a8b19",
+      "skvi-engine/uninstall.cmake": "5b08cf7bde30273edca5bcfd176697989de41ed80a55762f2f358f381cbcc31a",
+      "sniv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sniv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sniv-engine/symphony-receipt-v2-identity-share_symphony_receipts_sniv_engine_0_1_0_dev_install_receipt_json.cmake": "51f5234a7c52f71bafcd0ac4aed222a7016bb5f024367c0087b219977b8ec26f",
+      "sniv-engine/uninstall.cmake": "3138d166bae24ad80f3e0a041ea29bb362e24e8157b7306acee8c353ace4e65b",
+      "snrv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "snrv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "snrv-engine/symphony-receipt-v2-identity-share_symphony_receipts_snrv_engine_0_1_0_dev_install_receipt_json.cmake": "9f79acb50b5ce713bd674f74e8ca40a0020708b086adbc1fdbd27e1ab9b5a697",
+      "snrv-engine/uninstall.cmake": "859c73bd425d7dd9e093e573f68910c91212b3ff198c0974c693ffa49ff003a7",
+      "snv-common-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "snv-common-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "snv-common-cpp/symphony-receipt-v2-identity-share_symphony_receipts_snv_common_cpp_0_1_0_dev_install_receipt_json.cmake": "a82354cf36c7b31e10a6de0934a32ca185e8bccbdfb1dfdf74490c557b31bb1d",
+      "snv-common-cpp/uninstall.cmake": "726ee36d4224b70da08c9f0034eb2837a4678574c2225a1a236629914dcb586e",
+      "snv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "snv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "snv-engine/symphony-receipt-v2-identity-share_symphony_receipts_snv_engine_0_1_0_dev_install_receipt_json.cmake": "38b0b15bfc198467b9a37f6ebc213b0f02bf4d9a50b016b1c5ce71340bfe9af7",
+      "snv-engine/uninstall.cmake": "8bb43f362365c21987d2c195acfa0c41bce472fb1efc9840ebb399666b0cd8c7",
+      "sodv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sodv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sodv-engine/symphony-receipt-v2-identity-share_symphony_receipts_sodv_engine_0_1_0_dev_install_receipt_json.cmake": "6e5fd382c8d2c0fc43827612c01cef2ba3ef090904caa4b7484e9db384150aa9",
+      "sodv-engine/uninstall.cmake": "df28dcedab03170d67489babef844abb0af15bdc340d2474a596191cd4bc7577",
+      "sov-cloudflare-adapter/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sov-cloudflare-adapter/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sov-cloudflare-adapter/symphony-receipt-v2-identity-share_symphony_receipts_sov_cloudflare_adapter_0_1_0_dev_install_receipt_json.cmake": "87f80a6e08300f671f4c0f79700c8701744057df505294d6177354c1d60dc6e3",
+      "sov-cloudflare-adapter/uninstall.cmake": "9a8a7f90db33ece1e2517f06639fc06f0cae1593a2a0383a3bfd5a9fd83844f0",
+      "sqav-attempt-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqav-attempt-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqav-attempt-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqav_attempt_engine_0_1_0_dev_install_receipt_json.cmake": "cbe5013c822184443c4560bbd8d06b7ed3f017fbcf55a8f828e048663802aeb7",
+      "sqav-attempt-engine/uninstall.cmake": "b6b40cf94086d5fafba9ef6592720a6c579efb22bf0f71becdd045e08e061f41",
+      "sqav-capture-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqav-capture-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqav-capture-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqav_capture_cpp_0_2_0_dev_install_receipt_json.cmake": "1f9a74923c79dc8a595d9978d2b12617148845ec9e5c90ac6e05a26c543535a2",
+      "sqav-capture-cpp/uninstall.cmake": "f0de4ec7008177467559afe61ede323490f20c45053812689be81e1c228cc388",
+      "sqav-databento-dbn-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqav-databento-dbn-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqav-databento-dbn-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqav_databento_dbn_cpp_0_5_0_dev_install_receipt_json.cmake": "53e96759974fcc2bec79dfafb3d3499108bb8b5c67b5b405cac3ccd96911b4ed",
+      "sqav-databento-dbn-cpp/uninstall.cmake": "28cc57223476b6e1f1533346bc608d2d94cccb16a3a277566dab698a69c05427",
+      "sqav-databento-reference-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqav-databento-reference-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqav-databento-reference-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqav_databento_reference_cpp_0_1_0_dev_install_receipt_json.cmake": "e4068eb5bb42b7c63f4bd3bb9213ca7e3c219700e1a2c09659200186e9a78238",
+      "sqav-databento-reference-cpp/uninstall.cmake": "ce02203960e9f737c7a6b634460951d37f9f1a69e27d74aa0fe89789d3fd5ea6",
+      "sqav-fred-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqav-fred-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqav-fred-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqav_fred_cpp_0_1_0_dev_install_receipt_json.cmake": "3ac4517f22af4aa92c1632980f86373e0cfaf95ac18ee426f1aea2dd97e642a9",
+      "sqav-fred-cpp/uninstall.cmake": "5221fbac08b6b0bbc347a20fafe2a05c99759dc545484dfcc942b21068e225d3",
+      "sqav-request-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqav-request-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqav-request-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqav_request_engine_0_1_0_dev_install_receipt_json.cmake": "806dbc82d7ab26dcd7dc310239c5b8eb435175eb6bb162732122484fe022ac09",
+      "sqav-request-engine/uninstall.cmake": "6fcc846edb25cb04f6f531e278b3f1f096a5f716aba16523a26c3633c27ec420",
+      "sqdv-checkpoint-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqdv-checkpoint-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqdv-checkpoint-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqdv_checkpoint_engine_0_1_0_dev_install_receipt_json.cmake": "9f308722283e1214947934802d02334c50069ea24d605b5b3fd5bebd3e9a4668",
+      "sqdv-checkpoint-engine/uninstall.cmake": "2dd2209cf4747c677990ec703ddcc82120f6bb104e0f70adf2238b093a0303cc",
+      "sqdv-delivery-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqdv-delivery-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqdv-delivery-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqdv_delivery_cpp_0_3_0_dev_install_receipt_json.cmake": "187fe0a747bd99e47fced0a71db1091f7642e785ece71c3a0a7f14860ab26ce2",
+      "sqdv-delivery-cpp/uninstall.cmake": "c857529a5cbe99a3fd75d3eabea8d5a8083f4dfaf8c24e9aefeac8aef229e072",
+      "sqfv-batch-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqfv-batch-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqfv-batch-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqfv_batch_cpp_0_3_0_dev_install_receipt_json.cmake": "84e33021fc7730d4899c3268b017470c061fbd5d84da7f704fd78001b2828a4c",
+      "sqfv-batch-cpp/uninstall.cmake": "5a1630b2eb56ea9ee99dbe29487c3657384b2a1c5b4db4339fb3b841c6a9ce01",
+      "sqfv-flow-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqfv-flow-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqfv-flow-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqfv_flow_engine_0_1_0_dev_install_receipt_json.cmake": "56910a794eecf5c6db77588c1bd4610e09083a196adf66eabf138b7960bf4a87",
+      "sqfv-flow-engine/uninstall.cmake": "b9c6954ee89815382018d407f06a65dead9cb6d662abae33c66e9336e03ac01a",
+      "sqmv-metadata-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqmv-metadata-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqmv-metadata-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqmv_metadata_cpp_0_2_0_dev_install_receipt_json.cmake": "0676e208d3a956ad3f0c8d9bdec0e43dfdea0a2f74b6246c8dc27172459654b2",
+      "sqmv-metadata-cpp/uninstall.cmake": "720ff15c5c41158a10c6b9f7f9333af86b71885084bf55f551b53ce8f3f49e50",
+      "sqmv-metadata-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqmv-metadata-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqmv-metadata-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqmv_metadata_engine_0_1_0_dev_install_receipt_json.cmake": "dc1fc0685dbe9203e987a74f0162a50ab17dcca1f794df12ebb88da99351c029",
+      "sqmv-metadata-engine/uninstall.cmake": "f2f44f45c2382fa3dc595faa50fe756a09a0c46b1d0c4f3503b819531907bd14",
+      "sqpv-inspection-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqpv-inspection-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqpv-inspection-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqpv_inspection_engine_0_1_0_dev_install_receipt_json.cmake": "2cdad28cca314d3c09cbe86c54032838f057088fa375f6b0fe5a1bdfcc224ff4",
+      "sqpv-inspection-engine/uninstall.cmake": "5983b81e15ba2affa87e91412ce315cd3b6bcd135cfb775215531bf1b858a3d3",
+      "sqpv-local-store-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqpv-local-store-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqpv-local-store-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqpv_local_store_cpp_0_2_0_dev_install_receipt_json.cmake": "658b835b4bc9c7e95d7fc7dd283f52255c186000f86ea6a73f7a3d8b2029e8fa",
+      "sqpv-local-store-cpp/uninstall.cmake": "2c6f4d06404836a7f4092d0635153b19196fa0b5ad77047857dd1a19a22d1b83",
+      "sqtv-conversion-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqtv-conversion-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqtv-conversion-engine/symphony-receipt-v2-identity-share_symphony_receipts_sqtv_conversion_engine_0_1_0_dev_install_receipt_json.cmake": "c780f8b6fb1830f0ef902d4e535dda7cbdd52368e13dd2d1e122541855b0fb19",
+      "sqtv-conversion-engine/uninstall.cmake": "22ef2451dc66af19a4af26f34ece6a2479879d4e5925c13a13109917559b2538",
+      "sqtv-integer-conversion-cpp/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "sqtv-integer-conversion-cpp/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "sqtv-integer-conversion-cpp/symphony-receipt-v2-identity-share_symphony_receipts_sqtv_integer_conversion_cpp_0_2_0_dev_install_receipt_json.cmake": "a83f796061637c086d8604a1a28cb8b63054e99ca55a09bbc727a05d08ab67c1",
+      "sqtv-integer-conversion-cpp/uninstall.cmake": "97dd2ee334dc3067ce58b514049bfa67504918ade0ed4234256508dd8c141cbc",
+      "ssfv-engine/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "ssfv-engine/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "ssfv-engine/symphony-receipt-v2-identity-share_symphony_receipts_ssfv_engine_0_1_0_dev_install_receipt_json.cmake": "464a578c9b8b915a3a0bb57970710d32aaa4db1b8a9aae15f2eaf429eec94610",
+      "ssfv-engine/uninstall.cmake": "bc3ba40f2fdaff93ccd11682fdc682be504909f170ed4803db013402b45899f4",
+      "ssiag-provider-private-store/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "ssiag-provider-private-store/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "ssiag-provider-private-store/symphony-receipt-v2-identity-share_symphony_receipts_ssiag_provider_private_store_0_1_0_dev_install_receipt_json.cmake": "cc9e4dad44acf502e5bac6d096d0b5552a3ac29ac3aa4aee74b60f5432caa9c6",
+      "ssiag-provider-private-store/uninstall.cmake": "318b893e7ea8d32bda20f5e1177500b525f5f40ce0571046e09c54b8c5201ec8",
+      "symphony-validator/SymphonyReceiptV2Support.cmake": "b0d9e875215311dc6c4588664536c379527ea1541c8795e6aa3cc90c1e47413b",
+      "symphony-validator/SymphonyUninstallReceiptV2.cmake": "9233bb96822bc108898b7ecca45f97d27c131eea4fe696c9908830a65e0dee0d",
+      "symphony-validator/symphony-receipt-v2-identity-share_symphony_receipts_symphony_validator_0_2_0_dev_install_receipt_json.cmake": "943fb5a206eed4a7082dce81c034111e5b6627957b66cb94efc47ba739d13a7b",
+      "symphony-validator/uninstall.cmake": "b64c960c954de8d1dc7d1c0960603012cb8263c80e5e7ef85b532b60cd126d3a"
+    },
+    "external_and_Go_ownership_claimed": false,
+    "live_removal_claimed": false,
+    "native_units": 51,
+    "status": "passed",
+    "units": [
+      {
+        "component_id": "sov-cloudflare-adapter",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "ssiag-provider-private-store",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "symphony-validator",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "ssfv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqtv-conversion-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqtv-integer-conversion-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqpv-inspection-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqmv-metadata-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqfv-flow-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqdv-checkpoint-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqav-request-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqav-fred-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqav-databento-reference-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqav-attempt-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sodv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "snv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "snrv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sniv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "skvi-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "shv-source-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "shv-publication-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "shv-profile-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "shv-partition-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "shv-graph-adapter",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "shv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sev-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "scv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "scnv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sclv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sciv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "schv-gcp-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "schv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "schv-do-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "schv-azure-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "schv-aws-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "scev-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "scev-cf-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sbv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqdv-delivery-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqav-databento-dbn-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqpv-local-store-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqav-capture-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqmv-metadata-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sqfv-batch-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sav-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "sacv-engine",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "native-source-support-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "maestro",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "knowledge-session-coordinator",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "snv-common-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      },
+      {
+        "component_id": "knowledge-vector-engine-cpp",
+        "idempotent_retry": true,
+        "partial_admission_refused": true,
+        "refusals": [
+          "owned-byte-tamper",
+          "header-tamper",
+          "export-tamper",
+          "receipt-digest-tamper",
+          "resealed-identity-tamper"
+        ],
+        "resumed_removal": true,
+        "unrelated_bytes_preserved": true
+      }
+    ],
+    "unrelated_file_count_preserved": 40,
+    "unrelated_inventory_sha256": "d90876c2da0dbadd94b765e8738ef0622aa2f930be466a7fa94ef754ec71d567"
+  },
+  "extra_helpers_sha256": {
+    "qualification/d06_sdk_closure.py": "41115f9f7af1b4d60802f69b36c29445856c2719b812d321ac658ef20116a2b0",
+    "qualification/native_campaign.py": "92bf71ae50026d76476f77e25e90e76f8f6a8d36e51e0dda5947dff3c4a53bd2"
+  },
+  "fresh_host_accepted": false,
+  "full_original_L22_campaign_replayed": false,
+  "harness_sha256": "41115f9f7af1b4d60802f69b36c29445856c2719b812d321ac658ef20116a2b0",
+  "logs": [
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "core-snv-api-configure.log",
+      "sha256": "f9587e282fcfa11f24d996a430158ee9c9fb33f655178b5430aacaf463dd7751"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "core-snv-api-build.log",
+      "sha256": "e9715ed574f44058d8eec26a7896afe6d61aa9014ea461183493cf192d323696"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "core-snv-api-run.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-fixture-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-fixture-produce.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-fixture-census.log",
+      "sha256": "c9bcfd70b302228f871d25c09291dbc10e785a7c8e46cdf2ee34f70fbd656b65"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-sdk-public-closure.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-sdk-verify.log",
+      "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-sdk-build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "source-sdk-roundtrip.log",
+      "sha256": "088410797c26658a0af584a4d0301064b2f2766b6352f9f0c43c069d2e1d5abb"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-vector-engine-cpp-owner-configure.log",
+      "sha256": "37ad96519a1da5977cbb692baba3bf58e283874c24b4274dcce93f7181c6273e"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-vector-engine-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-common-cpp-owner-configure.log",
+      "sha256": "fded132e752cc6395f45cec56f17feb3b6bc2e0575f434d96319a03d483f57c2"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-common-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-session-coordinator-owner-configure.log",
+      "sha256": "3d616f1b4663d00296e9e360cc2ae016b3853ea832b415d4fe02228dc06c13c9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-session-coordinator-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "maestro-owner-configure.log",
+      "sha256": "af9c14e32a2ce7ab7c81e751c988e0661c562c47cbab3edc9e5021a6a06fa7e1"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "maestro-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "native-source-support-cpp-owner-configure.log",
+      "sha256": "79c3f2a97b5d1ba3f9eca5bfc16ece393869cf42c7d65f48516d51ad44ff4457"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "native-source-support-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sacv-engine-owner-configure.log",
+      "sha256": "c2f3f211568f3587bb3d195f151123e6ee05030ff010410021860337ee2f3719"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sacv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sav-engine-owner-configure.log",
+      "sha256": "45c349b7f5c69acd838e0d14f2f8a11190f91bac8997ad8d2f64268d5ee4e058"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sav-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-batch-cpp-owner-configure.log",
+      "sha256": "185dd3c8974004f6a0a084e4d3f0c51eee25cd08cdefc645221803f273025956"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-batch-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-cpp-owner-configure.log",
+      "sha256": "fb7afebf2719bb0b3145268ca9abd9709ee153d10c46e3cdd9ea02dd80491709"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-capture-cpp-owner-configure.log",
+      "sha256": "2f3aa58e51ee48ccab032bba019e1faed4b70c17750caf7293ae96d1e30f4561"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-capture-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-local-store-cpp-owner-configure.log",
+      "sha256": "72fc18d9ad0c5b8ff0fc444259b030ec97d46a9470bcd3b585790684a9bbea6f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-local-store-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-dbn-cpp-owner-configure.log",
+      "sha256": "f258058315b0d25116e802abf851e9383160bcb8a28c40fa3f3729e172467212"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-dbn-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-delivery-cpp-owner-configure.log",
+      "sha256": "67cb627cfcb9eaa9e852aa1400de915087a12fee97792029f4f6e4e22084e151"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-delivery-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sbv-engine-owner-configure.log",
+      "sha256": "9fbd2b1a896cd7b3569d8ccc1e054b025fb2a1b3a47ae3fcd8a65f53f960c1d2"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sbv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-cf-engine-owner-configure.log",
+      "sha256": "6748d92c38177f77622886dd8827d361a1b1cc5119297e7b0237ae60c01dde8f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-cf-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-engine-owner-configure.log",
+      "sha256": "ee77d6f460e0df378b0396b74424be1777abf52b21a41cb8fa6a216bfac2359f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-aws-engine-owner-configure.log",
+      "sha256": "f60e01ef30accf15375583b948067f61e4d3fad9420f7aa1eb3112a2bab00cfc"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-aws-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-azure-engine-owner-configure.log",
+      "sha256": "b7535274cdf43be9978b66e6e02afc712e86bc6d2eed1ac4ceeaf145b8202dc8"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-azure-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-do-engine-owner-configure.log",
+      "sha256": "850f05390f67253a7fa5eec0a1e970ec0a793cb3a82e963d680d016e1c3b7451"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-do-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-engine-owner-configure.log",
+      "sha256": "77eaf30f12c0b0bc660d0fd8d1f280f41504b95e85e55fa16ad1ad045170d35c"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-gcp-engine-owner-configure.log",
+      "sha256": "f5ed81cbaa1e7d22bd99b39b329f0d6a0439fcb344f708c066396fb38e228226"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-gcp-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sciv-engine-owner-configure.log",
+      "sha256": "2afecf7ce0b87cc20cfa26c6681dfdfa95704ae0aa4068aab6f77e0f049266bf"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sciv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sclv-engine-owner-configure.log",
+      "sha256": "ff355a684a7ab6e044fd3193681e002f2afa253561ba28248b4ee81fc4803799"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sclv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scnv-engine-owner-configure.log",
+      "sha256": "b15f35af1dd4748fa24c0ac12cb87ec52504102d4ca470375f6be32964ac1a63"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scnv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scv-engine-owner-configure.log",
+      "sha256": "5e1e6565d4bfa33cd0b4a96e7443b357bea1cc982dd58d8e6a4d6b301a94f648"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sev-engine-owner-configure.log",
+      "sha256": "d069c4efb1a8b45bd7f66ffccd73638459e3d3e1a668212f41638083f1fabcec"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sev-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-engine-owner-configure.log",
+      "sha256": "4750c064ea507a3c71204bfedfc528747619c80d8cd429818ead4b12d97e29e2"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-graph-adapter-owner-configure.log",
+      "sha256": "c15f563e8ee45aa5ec3c03cb0c95f6eeb4bc412db94754f4ec162eaea4d5d29f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-graph-adapter-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-partition-engine-owner-configure.log",
+      "sha256": "86feaa8093a418155a4c84f70aacf761fde7b82be5d4387d3b99ddca676e0e41"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-partition-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-profile-engine-owner-configure.log",
+      "sha256": "2b582b4d3de742ce084782c711901a8d06f2eaf9b02e65775ec3305b382af7bd"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-profile-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-publication-engine-owner-configure.log",
+      "sha256": "8580b5869f68eaaa6ece1a9e54fdebaafffc004404d892eee397b6648cc5685f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-publication-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-source-engine-owner-configure.log",
+      "sha256": "92b4caf88782790cf5bd50aaabf25995c460b9ea264d22047ba846bc4daf8392"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-source-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "skvi-engine-owner-configure.log",
+      "sha256": "87450b552a9696309e338dc14384f1a7cf3649a7c00b6bd5fea09a3b1add433a"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "skvi-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sniv-engine-owner-configure.log",
+      "sha256": "c5b368a88b33beb04a4f35584ff67bc9f6a07880230b5522b3055bf8b5573d17"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sniv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snrv-engine-owner-configure.log",
+      "sha256": "36177f7bf733dc5956a17e724252be437df200bd7311bac5868d83c2ccbce917"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snrv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-engine-owner-configure.log",
+      "sha256": "1b249888476e2b9f8be80c9997d84a9e10b25c74cd345d4baacc574af71dde4b"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sodv-engine-owner-configure.log",
+      "sha256": "a07e7c6ec933da4db833ec4b6f69f71db0e57b275863cf1fe639cfbf6363b82e"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sodv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-attempt-engine-owner-configure.log",
+      "sha256": "f181aba7e93525aded675322ab4692bfc8673de0093c5b1e6b3d55b7616687c6"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-attempt-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-reference-cpp-owner-configure.log",
+      "sha256": "b739cd2d3eb180f1e9f174636e2e18637fc15eb038b31acf709a8e6e95feaf54"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-reference-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-fred-cpp-owner-configure.log",
+      "sha256": "c998e855380f07b3ff8e95244efb4504eefbabb14a3e70855f1d920511c6deb9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-fred-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-request-engine-owner-configure.log",
+      "sha256": "38b258a0a66bdf7449b56c2c976fb81ca48253dfa13382f053473ba143a349fb"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-request-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-checkpoint-engine-owner-configure.log",
+      "sha256": "1875ca1df807f7c20648cbeb68a7008c0aa865283d9b470e6a4d44436a48d14d"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-checkpoint-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-flow-engine-owner-configure.log",
+      "sha256": "17c853b9ba3b92d70b62b0fda0e5874cd27007440d46c068989bbe243fab4bd6"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-flow-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-engine-owner-configure.log",
+      "sha256": "38812095078ff21f865ca189eb8f13acc79f967947b2775fee847bff9f9b365f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-inspection-engine-owner-configure.log",
+      "sha256": "840df95a684bf3280258f7bae094e71a937c11441ee31e04ee36705ea95c78f8"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-inspection-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-integer-conversion-cpp-owner-configure.log",
+      "sha256": "6968c3b0ebeffcda340463656d7befbc82606b878fb1dd5ffa269f11f2fb2a09"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-integer-conversion-cpp-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-conversion-engine-owner-configure.log",
+      "sha256": "12b848d3ba1fcf02c46e30464ea5708f18958e73e48560c264bddaf4848e844d"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-conversion-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssfv-engine-owner-configure.log",
+      "sha256": "16fdf38e8dd2dc3ff8db70ee90fb0bb3015f37ab27b8981b14f2d47894387839"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssfv-engine-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "symphony-validator-owner-configure.log",
+      "sha256": "cfe5b0e7b9f684eafecd65a74d17c5f36d87ef19e765c724674374b376424b70"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "symphony-validator-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssiag-provider-private-store-owner-configure.log",
+      "sha256": "0b0d350d5281f60508d86ed841e8d5fd6a48f13aa87755676f60acf10afec38f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssiag-provider-private-store-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sov-cloudflare-adapter-owner-configure.log",
+      "sha256": "c2d7a64417c5e5adc252537eb123b826ad8bbbafb8cc92707ea204acb10d6ca5"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sov-cloudflare-adapter-owner-inventory.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sov-cloudflare-adapter-owned-byte-tamper.log",
+      "sha256": "c1df9e88b0e2d7660d0c3b201d911eba4fa3487aa203bc2dec221c514ea8475b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sov-cloudflare-adapter-owned-byte-tamper-admission.log",
+      "sha256": "20a6f1424508e14ed5e92e89f509e5a9640923e611f1858351285378816679b0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sov-cloudflare-adapter-receipt-digest-tamper.log",
+      "sha256": "2624d65a52e6b996e89c5a1c4044586a2fb88acf118f85005b0c98ee8f431f65"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sov-cloudflare-adapter-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sov-cloudflare-adapter-resealed-identity-tamper.log",
+      "sha256": "1b34c5d478616534714d347f3d930ae10ee2cfe515f80056f95c6a9f7e987319"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sov-cloudflare-adapter-partial-removal-admission.log",
+      "sha256": "71c74ad556b9b6f891a0d8ead36e96bbb2fd06e3ed8b01888d582f2b23457bce"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sov-cloudflare-adapter-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sov-cloudflare-adapter-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-owned-byte-tamper.log",
+      "sha256": "3405afb791553716af04266b6da79f5e04063f1ec95a5acbe5a9c8ccba64a680"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-owned-byte-tamper-admission.log",
+      "sha256": "9e3109346337100881efbdc76944187f90e0c3d40a36a9ed45458992651b1c8f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-header-tamper.log",
+      "sha256": "3405afb791553716af04266b6da79f5e04063f1ec95a5acbe5a9c8ccba64a680"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-header-tamper-admission.log",
+      "sha256": "9e3109346337100881efbdc76944187f90e0c3d40a36a9ed45458992651b1c8f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-export-tamper.log",
+      "sha256": "05300a0ab432198e8ba751469cde0919d5beed17ef99e16288a488823d33071d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-export-tamper-admission.log",
+      "sha256": "d5a68a7dd289005996a2e848949001a068f895c6dd723352a011c3cd11819fea"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-receipt-digest-tamper.log",
+      "sha256": "1923320cbcf418bd523bed015b40501a379d9e2897538bb2b495daa52fed9be2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-resealed-identity-tamper.log",
+      "sha256": "e0739ca6687617ba8b2c92f26483b1e5a29683396811dec9a498f464698fa9fd"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssiag-provider-private-store-partial-removal-admission.log",
+      "sha256": "6102e6fe5fb2abad9c7b6c17665bb47ccb835d31d8289edc1b4c1a5e52074c18"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssiag-provider-private-store-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssiag-provider-private-store-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "symphony-validator-owned-byte-tamper.log",
+      "sha256": "ffd6fc0c47b06c2d0e516ffe75eb3ac541c05b20138772830dc5fd7176b845f0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "symphony-validator-owned-byte-tamper-admission.log",
+      "sha256": "170255ffd3eadfa69fc8fc795258a372e499381e7a3b526ee6f6c082c4b065ca"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "symphony-validator-receipt-digest-tamper.log",
+      "sha256": "b896ad4a210f4028d97b9f9e2e4f8a964c7a0378e994b9666fce337d7342cb6c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "symphony-validator-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "symphony-validator-resealed-identity-tamper.log",
+      "sha256": "74ad3706da32362daf065673997a07c13f160af03135b9d60bf81a1234ca2849"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "symphony-validator-partial-removal-admission.log",
+      "sha256": "aca54e9c2c4ca985bbf20abe11ccc13465d2206875179e46e8a22026658bb7f9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "symphony-validator-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "symphony-validator-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssfv-engine-owned-byte-tamper.log",
+      "sha256": "fa1d32d0d08a3f44292adc832dbcf67accb747aa68987e97418e13ab367d70db"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssfv-engine-owned-byte-tamper-admission.log",
+      "sha256": "b03073b37e4b9469c2bc8b5b56cc6a7bcf94910dc583fa460eaf7588e582306d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssfv-engine-receipt-digest-tamper.log",
+      "sha256": "c3a0e5ae460aed8c0a879af823af4347f4716f14c1acb40500f03ad540b083bf"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssfv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssfv-engine-resealed-identity-tamper.log",
+      "sha256": "b7daf98155c535f6c1e65df86f3e088f925fa39661400cf632b76b5a367f618f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "ssfv-engine-partial-removal-admission.log",
+      "sha256": "929f4ea02dc7d3d6e3e1ce4b38387418dcef5997a15f2c44915c538d95355fc6"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssfv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "ssfv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-conversion-engine-owned-byte-tamper.log",
+      "sha256": "fb3a9ea238dbf88ffa5eb05b969ab295156cff6779664e0f7d0a4dac592197d2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-conversion-engine-owned-byte-tamper-admission.log",
+      "sha256": "0bf203c8b0fdd2080a268b5434ee7d49abd0ac525d4cd23bfdcd57c144bc0278"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-conversion-engine-receipt-digest-tamper.log",
+      "sha256": "a7c9f6f583a05214e0f8e0dc4d7031c12dad1483f9b0db40c44e92e7d99f5ea5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-conversion-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-conversion-engine-resealed-identity-tamper.log",
+      "sha256": "4b52606f61898d25cce42d13220e02f469588925977ec796f91c3a1439c71aab"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-conversion-engine-partial-removal-admission.log",
+      "sha256": "6afa45baa9bc95ac17f51180634d5283ee1ddc90d7d15760a6577f03939a0be5"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-conversion-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-conversion-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-owned-byte-tamper.log",
+      "sha256": "bc507f6fc1756a4c038977ff98dd71abaf9fda1c5c1664dc270735f7f518317b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-owned-byte-tamper-admission.log",
+      "sha256": "a3c1fa2a76133cb224b0a3dcb68afab688c42ecb987c49ed3ffa0b96293f6e51"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-header-tamper.log",
+      "sha256": "bc507f6fc1756a4c038977ff98dd71abaf9fda1c5c1664dc270735f7f518317b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-header-tamper-admission.log",
+      "sha256": "a3c1fa2a76133cb224b0a3dcb68afab688c42ecb987c49ed3ffa0b96293f6e51"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-export-tamper.log",
+      "sha256": "8bb7ec2bac09cee59ebe3adb8b22ef3491a1219449bac72a635c44450e1f68d8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-export-tamper-admission.log",
+      "sha256": "804af35e2624a3f817487dcd4e9b33f0f4a293f0598e5f6ebfd6df08b30a8962"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-receipt-digest-tamper.log",
+      "sha256": "c7eb113bded59bab3b42cfd902404ebab9ddc9c2cb0299b438dc4e2b752fd3fb"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-resealed-identity-tamper.log",
+      "sha256": "5dff926695153ecfdc995c543aaa2e4d14364c91279a7505f30e86f4d2f710e8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqtv-integer-conversion-cpp-partial-removal-admission.log",
+      "sha256": "65adc9a0e2396895e35d078a84bd49958572ba47b3a4c70dbe52b87de5330683"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-integer-conversion-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqtv-integer-conversion-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-inspection-engine-owned-byte-tamper.log",
+      "sha256": "9d719e5d1a54a9e6a3cd8f4206d43dfdcb428de96ac5ef37c961778c271d84b7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-inspection-engine-owned-byte-tamper-admission.log",
+      "sha256": "c91fdea7c5eb8caf660c39fb286cff8da60675de532aaf72391f90cb0a7327d6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-inspection-engine-receipt-digest-tamper.log",
+      "sha256": "6a4b768d016188e5dba5dcfbe44ff338d495c4d1321f30594c4384541c2b4fd3"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-inspection-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-inspection-engine-resealed-identity-tamper.log",
+      "sha256": "8529c31940862d63b92e0fced104c7cdca17bac20a996d804aeac30752db69bb"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-inspection-engine-partial-removal-admission.log",
+      "sha256": "190300102f909b4c94c13ecd373f1f81b2e8dab94b95ae41a3b5e58f22ebb232"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-inspection-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-inspection-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-engine-owned-byte-tamper.log",
+      "sha256": "596a96abf4296e1fdbf7de6f6cb6380e362de607e36c8a44e9741d3078e17794"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-engine-owned-byte-tamper-admission.log",
+      "sha256": "fce678e80e489e530ff94006e51f2ecfa176dc3f6b02641aef5c62726ef386b4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-engine-receipt-digest-tamper.log",
+      "sha256": "8013406e30288ca1e59cd4ab842734f80cb9c88411ff3f096d53219ec0acee88"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-engine-resealed-identity-tamper.log",
+      "sha256": "51fe5aed3d2cbfc8e7b8bbfb835fce880b730bf8b1d20c0b3f97f4854dac80db"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-engine-partial-removal-admission.log",
+      "sha256": "6924394693e49ca33ae81bca131c8573916c0abe71049475d613628fcddda371"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-flow-engine-owned-byte-tamper.log",
+      "sha256": "478cfd3aecea895d771d8e9ae7ac0f7b61c6044b6c67cffb3721f33e2814e893"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-flow-engine-owned-byte-tamper-admission.log",
+      "sha256": "5da4aca18ae518396c93501490e0383fe38b700d3832ec7469faa06bb4bd51e4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-flow-engine-receipt-digest-tamper.log",
+      "sha256": "e9e00f59787f9295d612fdd6ead6aa14638cee5761c9985961517a7c3a71139d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-flow-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-flow-engine-resealed-identity-tamper.log",
+      "sha256": "4cf9a678fd7bd08e48924f77697ed1c02c8cf817159b1df1b95d954fef6638e4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-flow-engine-partial-removal-admission.log",
+      "sha256": "f59eca3710ebd62ca6b1b42313c76f7fc58c0394bd4f48b6f172f0e7227177ca"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-flow-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-flow-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-checkpoint-engine-owned-byte-tamper.log",
+      "sha256": "92a126d7eae2853dfa4874d5007e7b8fcc7ea80e7a474376b21527ab03f06c8c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-checkpoint-engine-owned-byte-tamper-admission.log",
+      "sha256": "b7edddedcc5af89a02a202670593363c66838866b0ddd7706a9df328110bc84d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-checkpoint-engine-receipt-digest-tamper.log",
+      "sha256": "d47f4e05f5868a0c1e729e47d340279b844a4399d89bea90937b1049bfb61af5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-checkpoint-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-checkpoint-engine-resealed-identity-tamper.log",
+      "sha256": "df618d84f47f14255dc5342530f746f3b3ba8e2dc047e340a1f853e66e122afa"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-checkpoint-engine-partial-removal-admission.log",
+      "sha256": "34811763c411d13e596052a4b286ba5f1be82e543fdeb1447f71530cabd6cea8"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-checkpoint-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-checkpoint-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-request-engine-owned-byte-tamper.log",
+      "sha256": "a964f18a6bfc59bf928f6252058cf6f6ac9d608d12dd8316ed0a2e750a2d4e95"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-request-engine-owned-byte-tamper-admission.log",
+      "sha256": "f8cf221d68867ae887c40e69c04615d9822ef8fa2df8cf3ef309023e88584df6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-request-engine-receipt-digest-tamper.log",
+      "sha256": "5b561eeefaf6bf5ff1e6e0432baea860f5f311ace50ceb778928b7f7d19623dc"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-request-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-request-engine-resealed-identity-tamper.log",
+      "sha256": "2857d1e95245e9174d8b380bc817e7555e70bf549553c44313f05d35c62ff2de"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-request-engine-partial-removal-admission.log",
+      "sha256": "763b5b7b6df007841c3d5aaf00e35dd9ec78b40a7402c00c412e631043976bc0"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-request-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-request-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-owned-byte-tamper.log",
+      "sha256": "c4213d834069740919bd0540eb36f3bc4bc60e52b09dcb9e09934cb6400e8a5d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-owned-byte-tamper-admission.log",
+      "sha256": "66b2d3b9bb4827a59d8f44fde605922329db34358617f15bb583a747fb1414e7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-header-tamper.log",
+      "sha256": "c4213d834069740919bd0540eb36f3bc4bc60e52b09dcb9e09934cb6400e8a5d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-header-tamper-admission.log",
+      "sha256": "66b2d3b9bb4827a59d8f44fde605922329db34358617f15bb583a747fb1414e7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-export-tamper.log",
+      "sha256": "065b0541e9b747155a590c9bfcd3e5adc78725e0bdf24be4f95832fc992f9fa4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-export-tamper-admission.log",
+      "sha256": "a026590dc23b00a6db3547a374af3068b450600564ce4f231f2657fbcde8b29f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-receipt-digest-tamper.log",
+      "sha256": "1561473a436982445a6e417a37f4a372190b032a58eb5b802deaa722304beea8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-resealed-identity-tamper.log",
+      "sha256": "0ad44b71cb75718dd38607a6bbf1631cce1507768b9abc97b5731cf2c7bb74c7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-fred-cpp-partial-removal-admission.log",
+      "sha256": "5987fa6e7bf7befb835245d4834af0e99ea30ce61b88b5e4480b42cfdb190aa6"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-fred-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-fred-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-owned-byte-tamper.log",
+      "sha256": "dbbaf14dd71ee6656a7e6c862fc8b88e7fbfaaa2584882aa951c5ebd0f2dd4a6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-owned-byte-tamper-admission.log",
+      "sha256": "1e8c2b75304596126f99ca6559a258d8f63d7c0f908b102f702fc8ec2c216444"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-header-tamper.log",
+      "sha256": "dbbaf14dd71ee6656a7e6c862fc8b88e7fbfaaa2584882aa951c5ebd0f2dd4a6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-header-tamper-admission.log",
+      "sha256": "1e8c2b75304596126f99ca6559a258d8f63d7c0f908b102f702fc8ec2c216444"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-export-tamper.log",
+      "sha256": "e1b828a58650d563a2565760463bf5f23652049082792cbd870f3e5130327243"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-export-tamper-admission.log",
+      "sha256": "9ad6947ab7fe23c23dcef08637115b85886309f900fde2d72f4dbdddb6b78be0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-receipt-digest-tamper.log",
+      "sha256": "962146cf4967f1f4479fe8e1500c989c2f6a61e1b37f56bee4393a15a5d65928"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-resealed-identity-tamper.log",
+      "sha256": "0e54859e77e7024776a0d4f887fb7e9b5d82172fd6bbcaca2d67226045578491"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-reference-cpp-partial-removal-admission.log",
+      "sha256": "8165356b16da17cd9a0c38f44690dadb63893315b099b04d4ad7e230219d6c49"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-reference-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-reference-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-attempt-engine-owned-byte-tamper.log",
+      "sha256": "19d8e43f3d240a164dc6f7d6f3621f8916cb57eda8d5e719dd48a09f6c0e7190"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-attempt-engine-owned-byte-tamper-admission.log",
+      "sha256": "a87acf76423cb3b665fbb46152b18b97421abb9c5279ec7115532f3eaa7505f5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-attempt-engine-receipt-digest-tamper.log",
+      "sha256": "674eb4e16d13103daa50f16b501771156b838818d5a8550d6fe6a60fc77e13e3"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-attempt-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-attempt-engine-resealed-identity-tamper.log",
+      "sha256": "16f898824c205f5c20d351167311e713db389b76422cb880fd1ace37f7d397f8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-attempt-engine-partial-removal-admission.log",
+      "sha256": "3d3ecfb26c20d06031c344576a12abbeebefb97af23324a08c084e8337af3361"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-attempt-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-attempt-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sodv-engine-owned-byte-tamper.log",
+      "sha256": "e1c7168f8fdec8a6b747aa12af1f5e86113533502641723b931a7a70f815e9a8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sodv-engine-owned-byte-tamper-admission.log",
+      "sha256": "71e47d291a14f6b34aeaa4e7e48d69de5e2b9558e28a5724b4cd833a572b116b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sodv-engine-receipt-digest-tamper.log",
+      "sha256": "bd73e4d85faf6c5d708660da4b1e3e5785beceabb6c0ac91c6fef34269d0409d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sodv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sodv-engine-resealed-identity-tamper.log",
+      "sha256": "47579802204daa412ea706c5fd94785a9698f6583b0ae9331d17be9f9ab13f07"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sodv-engine-partial-removal-admission.log",
+      "sha256": "1bc75dbf0dbbd9a311ad84413243a8578ba80e73ca2945d83867f57ee156221b"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sodv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sodv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-owned-byte-tamper.log",
+      "sha256": "7b0e92fa91789e478914ad849d4836a91bd55b0424af9861aff02a53c9bb5f95"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-owned-byte-tamper-admission.log",
+      "sha256": "e1c36e89218306ebe534c5daddd403f8ba70237dbd74010cadfea35617ab6263"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-header-tamper.log",
+      "sha256": "7b0e92fa91789e478914ad849d4836a91bd55b0424af9861aff02a53c9bb5f95"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-header-tamper-admission.log",
+      "sha256": "e1c36e89218306ebe534c5daddd403f8ba70237dbd74010cadfea35617ab6263"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-export-tamper.log",
+      "sha256": "6ddfff7d883a333884da30b5881dd7291a941b9a4b3663384afdfd60e5700f18"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-export-tamper-admission.log",
+      "sha256": "f5c781030c9fd58f037fcc845a505328285c3086448ac976c2e493e1dab5671f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-receipt-digest-tamper.log",
+      "sha256": "bb789e07d1e17a7ad177030812d68c744afebe76619cf1f36e75fa157336b173"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-resealed-identity-tamper.log",
+      "sha256": "f24a17e02ae4384767c6e49096c87fa5900e894d9de1a98a7c3610a05cfaa50f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-engine-partial-removal-admission.log",
+      "sha256": "b2a33798c92f9961d42006dba4f7f094345883660541868c24622a986d11f299"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-owned-byte-tamper.log",
+      "sha256": "dadb94afb80362d0d7969b58186a30acee3b1b6a00d9200e9189b812b1c5b10f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-owned-byte-tamper-admission.log",
+      "sha256": "4b7d77553772734f97c3c41e472942e999c8fe2fbc193d0b92e0c06301aec564"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-header-tamper.log",
+      "sha256": "dadb94afb80362d0d7969b58186a30acee3b1b6a00d9200e9189b812b1c5b10f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-header-tamper-admission.log",
+      "sha256": "4b7d77553772734f97c3c41e472942e999c8fe2fbc193d0b92e0c06301aec564"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-export-tamper.log",
+      "sha256": "472e43ac7457bcdeef0d1cdc99b46b90931165f2c8f1f20cbece70bca11dedea"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-export-tamper-admission.log",
+      "sha256": "fb832e9cb3fd2e77aa13a443528db99969b238184daa0e5134a27a883b9281cc"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-receipt-digest-tamper.log",
+      "sha256": "ffadce9193b7425c64fd29025cabfa70e225ddffc6a5904d8b85b7ce91b64112"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-resealed-identity-tamper.log",
+      "sha256": "84e7b24b1cae35d82b8526e323230d7fd667d9b9b3e2bfcb971f0f4a653a3bdf"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snrv-engine-partial-removal-admission.log",
+      "sha256": "1ff9abb840c2acf78524e7ba0b816148febc8d5d1100b359285dfd21bc2909d2"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snrv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snrv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-owned-byte-tamper.log",
+      "sha256": "6a55f01bd0bdf700425aaf344a0101cc43164cb8f68aa8be94134a0d526fb9b5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-owned-byte-tamper-admission.log",
+      "sha256": "133320376558ece5e77ad1eb31b8f4f0024938406b829908d17338767e65ef90"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-header-tamper.log",
+      "sha256": "6a55f01bd0bdf700425aaf344a0101cc43164cb8f68aa8be94134a0d526fb9b5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-header-tamper-admission.log",
+      "sha256": "133320376558ece5e77ad1eb31b8f4f0024938406b829908d17338767e65ef90"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-export-tamper.log",
+      "sha256": "5fff5aec5940da4bca0ef6e8d23e1e37947bf41e121bae8c71693ba4a2ff534f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-export-tamper-admission.log",
+      "sha256": "3f0d6eaf9439057f0c1e5fe79c6608248210178d5d56308c7a2c575ca9713244"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-receipt-digest-tamper.log",
+      "sha256": "5794a11e3db4f13f0bc5d987482deb64ba7c18a70abbb21dd8ec55bcf70897b3"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-resealed-identity-tamper.log",
+      "sha256": "77874e8b2049987cfe48107bf7d0744c05b2a3cec6b00bd84a1bafd254bcdfb2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sniv-engine-partial-removal-admission.log",
+      "sha256": "3af63bdbd09fd002c28999dcf27e7615683d9fa92412d358ad6006911b404ae9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sniv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sniv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "skvi-engine-owned-byte-tamper.log",
+      "sha256": "f4a8d159429cd3d410993e4470f6ca3cad845f67c51bd567caaadf3a2d4ade18"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "skvi-engine-owned-byte-tamper-admission.log",
+      "sha256": "a7c02f04d435a69bdd55d4c85ce0ff8504cd440ea2ef42eee069fbe946ba3743"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "skvi-engine-receipt-digest-tamper.log",
+      "sha256": "4b50baf936c916048735c7044ce0d4a302528ede5ac7fd06db3c517064a7f82e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "skvi-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "skvi-engine-resealed-identity-tamper.log",
+      "sha256": "7402204c6581e827ab4f196236fcd3ea7633383f5a7f667ab1a9ab92b466ce10"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "skvi-engine-partial-removal-admission.log",
+      "sha256": "8110f7b0ea2a7522fc8bc05aff49bed10462979deca0bc85d4136a7651781fe1"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "skvi-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "skvi-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-source-engine-owned-byte-tamper.log",
+      "sha256": "0a162e6d0858164e4f073eb7b9961dcf8f232475b386647e143e991896219df9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-source-engine-owned-byte-tamper-admission.log",
+      "sha256": "31f579d5d204d2865679e570a64207d0a6b6d5c8ecaab9d0c42ebdc6cac514b7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-source-engine-receipt-digest-tamper.log",
+      "sha256": "b3241fe284aacbf8f1b43dc67b3fea1990d388f2765fb3ed05c5d255e5c22995"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-source-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-source-engine-resealed-identity-tamper.log",
+      "sha256": "c175827c79aac07ee85464635ac6ef1affc87cee3574eb5e49a0978fd2deda6f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-source-engine-partial-removal-admission.log",
+      "sha256": "64f1fc2c3006a2e53e29e31ec4e8d035011ddda7d0cc263b586e8d3d35bee46d"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-source-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-source-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-publication-engine-owned-byte-tamper.log",
+      "sha256": "4a58b62272d15df9c8ed4a384335dad5bd6c62d0f957c628386c8e1bdfbbe098"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-publication-engine-owned-byte-tamper-admission.log",
+      "sha256": "4a712f21bb7fb8f6244293f0eff4fc062cdf29d6258864f4ec6f789887144e74"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-publication-engine-receipt-digest-tamper.log",
+      "sha256": "f436c24d1343a9e694bcde831eb86f6a600622efa382e26c65b6329c96040e38"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-publication-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-publication-engine-resealed-identity-tamper.log",
+      "sha256": "805df8d8276df86444d3001a008f24841f2944dfaf55d9b0c73d37295e60914e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-publication-engine-partial-removal-admission.log",
+      "sha256": "b7a834246c241b9e6e7f74685ac192f91d8f7fc2e983623179a4c5cbe95fed86"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-publication-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-publication-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-profile-engine-owned-byte-tamper.log",
+      "sha256": "fa386a254c5f1ec934860c73f57932e70d5f06878385af1d1f147f761cceefb9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-profile-engine-owned-byte-tamper-admission.log",
+      "sha256": "cc4264e27913e6592b28ea56482846ce4f752840f55bec4b720b23c846be4d1a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-profile-engine-receipt-digest-tamper.log",
+      "sha256": "9c2928a7f68ff4e2586d5760eac8655c83ab06de35e5bd76a674cb18eb04a33d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-profile-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-profile-engine-resealed-identity-tamper.log",
+      "sha256": "7045ddaf10c186b0c90beafd46cdee46da89c28d055e79c4585033399964eb41"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-profile-engine-partial-removal-admission.log",
+      "sha256": "3c1ead303ff953ab25f20c251a54866b8b5686746a2a31e09743b3de50d3b6ad"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-profile-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-profile-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-partition-engine-owned-byte-tamper.log",
+      "sha256": "ae3a4d0b05695891b98ff1b691318132329ec034539726b08a117d3a5cff6ff1"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-partition-engine-owned-byte-tamper-admission.log",
+      "sha256": "2dde7867e435a3fcacca44038197f0d2f4bb44e16d24795201fa0f1817d2faf0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-partition-engine-receipt-digest-tamper.log",
+      "sha256": "743a7e7263140fd60f9a7e8be84311e1f53b6ce45819f94bc50532622447481b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-partition-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-partition-engine-resealed-identity-tamper.log",
+      "sha256": "8fe4032048473be21995b702839bc0716a62a51a1024023228e5d9f9f1798fc5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-partition-engine-partial-removal-admission.log",
+      "sha256": "11d7ea8e33e9b06d8f37c13438ac1b5e00cb08f1a065a1d357916342ce3ad78b"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-partition-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-partition-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-owned-byte-tamper.log",
+      "sha256": "cc7069609c32cf350adf811ac4689ca9eb418b095c82f30d92427369ae11d893"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-owned-byte-tamper-admission.log",
+      "sha256": "26627c6aee2ede62a6f03dc182fcdfda2b7bcb1d13a08b3a3f5a985757d7a024"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-header-tamper.log",
+      "sha256": "cc7069609c32cf350adf811ac4689ca9eb418b095c82f30d92427369ae11d893"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-header-tamper-admission.log",
+      "sha256": "26627c6aee2ede62a6f03dc182fcdfda2b7bcb1d13a08b3a3f5a985757d7a024"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-export-tamper.log",
+      "sha256": "fe19901c3a7c8d6dbfa5c1a7ac4a0d73d7f6eba3d05ed1f2f2dac2c5be3b242f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-export-tamper-admission.log",
+      "sha256": "1fa37a8917e6994d93e571d5556be98a62e40ae975c31750f6e21a23e0b70801"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-receipt-digest-tamper.log",
+      "sha256": "6612e6b2d34493ba417da4e7f58499bf435a8da809c46102116a7fc3820ece69"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-resealed-identity-tamper.log",
+      "sha256": "22de8fd75ace7123c7397b60f5799cb414df97e053bc28529b9f6e35f22ebdf8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-graph-adapter-partial-removal-admission.log",
+      "sha256": "d567d88d2b91080fca9dae13796bf1bad813d71bd445a51026f0be82f6f04b27"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-graph-adapter-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-graph-adapter-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-engine-owned-byte-tamper.log",
+      "sha256": "c7fda24f6d94da85c56b4878abab30d8bdecc714dd4a0cddc7bfa1b829f97b63"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-engine-owned-byte-tamper-admission.log",
+      "sha256": "56a3d38436128cb3c1f16f41dcc9a7b10f3739ceffb451434c13b4a9655c7914"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-engine-receipt-digest-tamper.log",
+      "sha256": "fe493a669c02f0b75d7c2a51dcc39333dff8f14e379e09a146c9799abdb936be"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-engine-resealed-identity-tamper.log",
+      "sha256": "2788ae74dbb4edf086ed6d4268ee6001eca53ae5a47c92cc45b8a67734a95ecd"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "shv-engine-partial-removal-admission.log",
+      "sha256": "78f535c40a65d20ce1fc1cb5c67d97f8dd594f9bf2e66024413cfd6dc74f43f9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "shv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sev-engine-owned-byte-tamper.log",
+      "sha256": "c6b156805d4e24e66fce11dfe79ca118a5760e0bde2985c78b6c45a4711fedba"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sev-engine-owned-byte-tamper-admission.log",
+      "sha256": "462e10d7ef17c4be8ecf49e6cba8bce02e4b8718069a1c810c6c0eac510e7e91"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sev-engine-receipt-digest-tamper.log",
+      "sha256": "f5fc8edc04ae372d9d3524a23402d6a905f1c9708fa3feb5b094b1bd4dafea38"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sev-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sev-engine-resealed-identity-tamper.log",
+      "sha256": "bfa2a2eda0ab7c739cbc79b86e50904b1449aae47211f007947ec2fb4d682080"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sev-engine-partial-removal-admission.log",
+      "sha256": "240e8d054904f0cba17128d0d868bbfa6f1775bbaf632d176f16ec32ecb7c4ca"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sev-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sev-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scv-engine-owned-byte-tamper.log",
+      "sha256": "109fe35ee54baa10b95d692e7d28b34ccc116d6c1ac919a3816a25a331bb8eda"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scv-engine-owned-byte-tamper-admission.log",
+      "sha256": "90b0d4b622934f0e5fb14eec7f276ead2fb92e2c98f29eb26e8ec32196ada3b4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scv-engine-receipt-digest-tamper.log",
+      "sha256": "70e5fad2733634e353bbce2d6fd756018eecdd341323716e6170372fa8676375"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scv-engine-resealed-identity-tamper.log",
+      "sha256": "ad7673e42a93bab422979fb9eb7f03297194b6707051099dcaca4b72c98af08e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scv-engine-partial-removal-admission.log",
+      "sha256": "c703a4d5ffcc094b066beb07327a90dad5539b54a7b094b6fc85ec59da0af38f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-owned-byte-tamper.log",
+      "sha256": "b027ead086b93dd148ad6722086ded16572ac9c866f34285d9453acfbe2742a8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-owned-byte-tamper-admission.log",
+      "sha256": "c681bf6c34a26ab77414eb1fa590f569bbce90379fcf5d75a93079e3d61d80c7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-header-tamper.log",
+      "sha256": "b027ead086b93dd148ad6722086ded16572ac9c866f34285d9453acfbe2742a8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-header-tamper-admission.log",
+      "sha256": "c681bf6c34a26ab77414eb1fa590f569bbce90379fcf5d75a93079e3d61d80c7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-export-tamper.log",
+      "sha256": "76d4bcd1642f86352e45799e503c32aca95ff7674d04800efbe4f6462d2bffc6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-export-tamper-admission.log",
+      "sha256": "b8c4a3b71897fd50ba14fa11325a8eea5a193d57d1984de502be354cda3d284a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-receipt-digest-tamper.log",
+      "sha256": "dd040798dde0ae27c9a9b316b4e5244c74cbaabee047cf88a371993de87184f8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-resealed-identity-tamper.log",
+      "sha256": "4e1bc4c9746074537a245a2110461f55aeef02afae8725471afd28a322d50591"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scnv-engine-partial-removal-admission.log",
+      "sha256": "2099fe88234abe4050a95d8d8a71582916712ebd08daf1b023ce84498435dae9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scnv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scnv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sclv-engine-owned-byte-tamper.log",
+      "sha256": "b523ced890cebaa4b19ce8e872801f1dba6ec45263a98a8273a92e2fce43eb5e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sclv-engine-owned-byte-tamper-admission.log",
+      "sha256": "cf3a511bac79d2e68aa3fae3acc340af06a319604b4cf996b36dff2da692bd40"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sclv-engine-receipt-digest-tamper.log",
+      "sha256": "a589dcc4d214313624ec2a002be1d503a7965d4e138e8c057676d139a1e5ac44"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sclv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sclv-engine-resealed-identity-tamper.log",
+      "sha256": "852b3d161a86300c036c00a8db02535d5469647b331312be70b22b5879de7986"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sclv-engine-partial-removal-admission.log",
+      "sha256": "3e591b1cb3bb8ae97a79004117851ebdbeb8777b64ef4c6ba1d99befdd27ea38"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sclv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sclv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-owned-byte-tamper.log",
+      "sha256": "3f40f6e5aed5ef1fbebc067491a9cccce4a28631e7be75376166abd71b94089c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-owned-byte-tamper-admission.log",
+      "sha256": "9e8e270a639b9a3a491cb22a3f3f214cbc41cb347136909747d88ae5db431c25"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-header-tamper.log",
+      "sha256": "3f40f6e5aed5ef1fbebc067491a9cccce4a28631e7be75376166abd71b94089c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-header-tamper-admission.log",
+      "sha256": "9e8e270a639b9a3a491cb22a3f3f214cbc41cb347136909747d88ae5db431c25"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-export-tamper.log",
+      "sha256": "dcb1a3358b2f9c2517c34de7cdcd6ff2b05010946c09837c7c3eee242f943292"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-export-tamper-admission.log",
+      "sha256": "9153ee5404256116b363728f6289200e069dc43590b84ab1a5ef8a4da929551b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-receipt-digest-tamper.log",
+      "sha256": "45e679fcc03e960404d6e4a6aeafd2a4ff79cf04a114c60ca7f87094651e13ce"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-resealed-identity-tamper.log",
+      "sha256": "eed36351e1deca2695b0ca225cdb2924afd848818bac0fcc59ba58ecae41c874"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sciv-engine-partial-removal-admission.log",
+      "sha256": "95dca3828bdd63a541c53a8c9d2fc1726677286a4004c43f3d56d89297e8c57e"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sciv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sciv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-gcp-engine-owned-byte-tamper.log",
+      "sha256": "2b403d46eafa77579ba43f22e1304fb6e297ccdf7433c80fe364da9ab91855d4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-gcp-engine-owned-byte-tamper-admission.log",
+      "sha256": "8f766cee8ff3d6aa7177c47938c985ebe76c5a8f2ad8b1ca68510473d90b42cc"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-gcp-engine-receipt-digest-tamper.log",
+      "sha256": "ae8ab8edda3b91b627993e120115a8c2220b8932f9471bacca9132727a34418d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-gcp-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-gcp-engine-resealed-identity-tamper.log",
+      "sha256": "e791c79b9f41737a4339e20465ee297396840091392afb10259e54d38bf5e90f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-gcp-engine-partial-removal-admission.log",
+      "sha256": "0ed6826ac8a30144088be6b6a0b3b9635900274e6ad4c1d39ada1c3551090fe9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-gcp-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-gcp-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-engine-owned-byte-tamper.log",
+      "sha256": "727d6629bf11b131e47258a330b946a9242ba3ed3683c3fbabf5ed5668eb23af"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-engine-owned-byte-tamper-admission.log",
+      "sha256": "4e0a9aff9bcee44812ee4bf914929b873c041098c7a7f3309edf0cdf10b63ee4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-engine-receipt-digest-tamper.log",
+      "sha256": "2562dd5b4b48daa112f2d91a6162dfc326d5855ca17861804e0ac177f6acc2d4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-engine-resealed-identity-tamper.log",
+      "sha256": "dc776f7d49155c95eba2b39d71cf60f5485783cfbe718d6a42d566b2ff07f2a6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-engine-partial-removal-admission.log",
+      "sha256": "bb834d578f348a43e359f4e4d74969bfcc76616d954c56b440c37dfa6f31a13f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-do-engine-owned-byte-tamper.log",
+      "sha256": "b07e354085a09f0da08117033f93a89b36e1f19905fd11af6ac06496dff0fb44"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-do-engine-owned-byte-tamper-admission.log",
+      "sha256": "e361cf3aae9c0d8934edb5443084dadb5da69f2fbb7d37760c7c941e36e8e1c7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-do-engine-receipt-digest-tamper.log",
+      "sha256": "e057c7775e4f2765033331b8803730dc9d0f1ff300519447d271e04cf778cf2b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-do-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-do-engine-resealed-identity-tamper.log",
+      "sha256": "e3757805cee4130bed7cf8e074a023f8cb6f852a67b14835043673a025a2ed63"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-do-engine-partial-removal-admission.log",
+      "sha256": "7d5ded8506d089fafcc77f6ed78f999c616825110e6805c9533497db187389b0"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-do-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-do-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-azure-engine-owned-byte-tamper.log",
+      "sha256": "f5f44c5f936d789a939fe9e202dc93cc6ca11039e5c6a0764f161dbc7cadff70"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-azure-engine-owned-byte-tamper-admission.log",
+      "sha256": "0a2aa2abc90076b2081ed2887c270df43e1ee7f3ae9c14630e510077af35045e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-azure-engine-receipt-digest-tamper.log",
+      "sha256": "83d0d99c68bab174cc3b8b64506c4a2ab9f881c85c582ac9a124b40e38e2a758"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-azure-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-azure-engine-resealed-identity-tamper.log",
+      "sha256": "63066a5819198cadb1a77316e2aee345580bb306817cd2a0e34b3ce08d3d45fb"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-azure-engine-partial-removal-admission.log",
+      "sha256": "f58d39840cb1c8920f96f884c637ebcd09ced44c988c2de901b1bc3fd8cf37a5"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-azure-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-azure-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-aws-engine-owned-byte-tamper.log",
+      "sha256": "6e4a8250d1e16aab0d4a9331800a3918ffdcbf4fdc3c80a996f290e689ea56ec"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-aws-engine-owned-byte-tamper-admission.log",
+      "sha256": "41d18f42626b025052bb51f28b2d614aa690e405948eaad79c660a4a7d248461"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-aws-engine-receipt-digest-tamper.log",
+      "sha256": "3ba5b838e17104d4858862a3dbd7ac9eac2d3b39bc09ebcd78651e106b7244ca"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-aws-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-aws-engine-resealed-identity-tamper.log",
+      "sha256": "c8b9c9c33fbeb4a401f9f08f39507656e11c6fb3647a796bdea88aca0dff355c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "schv-aws-engine-partial-removal-admission.log",
+      "sha256": "8b02a804db5b0a119fe99a7bce7f654b8a0090c8898d3e7b32e33f85a3ba7dca"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-aws-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "schv-aws-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-engine-owned-byte-tamper.log",
+      "sha256": "d394605e0e5383ecf60ec67119ae2989eb6377b6dd30af8d4e8e27b13669917b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-engine-owned-byte-tamper-admission.log",
+      "sha256": "5ea315390d0bacec2ced13906c77391a76a39fe3ee8711387874db45f5a6b054"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-engine-receipt-digest-tamper.log",
+      "sha256": "87f560d1830e918da65e7f3aba60361c0d8448d79de2570f5d9a0706e145889a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-engine-resealed-identity-tamper.log",
+      "sha256": "10ff181f3761e19c1b097ff55ac52ff536b5ef16d8c0098dc755087f9649433f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-engine-partial-removal-admission.log",
+      "sha256": "031cbf593d062f660fc5cf5f179ddaa5e0dd88f24d8f2b61c1a062c6aec70f1b"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-cf-engine-owned-byte-tamper.log",
+      "sha256": "aea9c914f461ab2943f0accae9808888814608e5a542ecfdc043ae357174a4a1"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-cf-engine-owned-byte-tamper-admission.log",
+      "sha256": "46375617220be44909db2cbd20353fcdcb80c8ee63e65f6520850e9c17d7ddce"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-cf-engine-receipt-digest-tamper.log",
+      "sha256": "5a3ff34196f8f62cf282a05a81a611434bc5e7c5c46b9a99a623a6bd9cddbf28"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-cf-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-cf-engine-resealed-identity-tamper.log",
+      "sha256": "7027bcec365aa908b22f6ad39af5394b58d856470704e11b133c98beb30c23c9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "scev-cf-engine-partial-removal-admission.log",
+      "sha256": "f56a5ce93bbe169a5d95c3574c8e4a65a0bdfb0a4fee70e20d93061eaf46db3c"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-cf-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "scev-cf-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-owned-byte-tamper.log",
+      "sha256": "4864def44afc4ff53572ca764c02441467b5d6cb6fc6c354779eebb83c584ac9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-owned-byte-tamper-admission.log",
+      "sha256": "46a6bc4cfa3a9fc3785fbb4a308a600fb19c539bd708190beb104be89d2ae91d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-header-tamper.log",
+      "sha256": "4864def44afc4ff53572ca764c02441467b5d6cb6fc6c354779eebb83c584ac9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-header-tamper-admission.log",
+      "sha256": "46a6bc4cfa3a9fc3785fbb4a308a600fb19c539bd708190beb104be89d2ae91d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-export-tamper.log",
+      "sha256": "0d92e8d25a5f593abeeed9a621108a21257e7f06eb04bce51eaab7eb0b5dbfb5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-export-tamper-admission.log",
+      "sha256": "0f6d783dff386822c72e4d594e809dd28117ec346dc1cae1ab00e3c2411a9b2c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-receipt-digest-tamper.log",
+      "sha256": "72c2c2f103e551cc142321ad359acaf6f501515564f02f0a04ce8d60b7845e61"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-resealed-identity-tamper.log",
+      "sha256": "2ab401d2bf47c8b3eff1806c7ac57fe120113880836897e6f0e3931d4ec99c48"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sbv-engine-partial-removal-admission.log",
+      "sha256": "5563f8ae0165fffc3adc12932ad56c0b169417b5ebe8d3ad88912553a673aadf"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sbv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sbv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-owned-byte-tamper.log",
+      "sha256": "c8af957fea674cc1fc5ee0da5e7487bef9372ca400fd1d7e06fc0d3066a4b36f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-owned-byte-tamper-admission.log",
+      "sha256": "ac027427d09a67bb2e21d93ec6209f3142456b15a1a1f8bb8cef59da4b7366c0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-header-tamper.log",
+      "sha256": "c8af957fea674cc1fc5ee0da5e7487bef9372ca400fd1d7e06fc0d3066a4b36f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-header-tamper-admission.log",
+      "sha256": "ac027427d09a67bb2e21d93ec6209f3142456b15a1a1f8bb8cef59da4b7366c0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-export-tamper.log",
+      "sha256": "dd85022f78742782cf8c711301566c1c0043d76bc916964d42402c492d16d9ec"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-export-tamper-admission.log",
+      "sha256": "abbdfd7154c527b4b51e7475e5e97c81b03556f1df3bd4c98231de15af1575f2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-receipt-digest-tamper.log",
+      "sha256": "b774f03bc8970e370bc71bf98070ed7fc4e854fe66390401978de5e1619c1c7a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-resealed-identity-tamper.log",
+      "sha256": "804de382b2069b2a15a3f2e1ee88dd2359be14972b11c4d679b324fb1df8d0f1"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqdv-delivery-cpp-partial-removal-admission.log",
+      "sha256": "802de148dc0bd93a059e7f0886b34665e478917723c0525eb6e1321f0f7201b9"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-delivery-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqdv-delivery-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-owned-byte-tamper.log",
+      "sha256": "476234d591f3a3b06ac1f747507f9479f71aceba6fdf59350f2c919f25f0461d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-owned-byte-tamper-admission.log",
+      "sha256": "2762ce034928af9a7310cd0119733432868127cfbf9ba566e3e1b5a4e4f57cc1"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-header-tamper.log",
+      "sha256": "476234d591f3a3b06ac1f747507f9479f71aceba6fdf59350f2c919f25f0461d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-header-tamper-admission.log",
+      "sha256": "2762ce034928af9a7310cd0119733432868127cfbf9ba566e3e1b5a4e4f57cc1"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-export-tamper.log",
+      "sha256": "3429b50af37840f366fa9471090257f30b8642f2656d01ee8f4cfd46c0b711c9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-export-tamper-admission.log",
+      "sha256": "dd5b991060fbabf1f6191b641907d6ab33bce7292b6db0073e879ce7c32cc73d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-receipt-digest-tamper.log",
+      "sha256": "6165b4c8a634d79b0fd39a110ad14013ab3669f867bf58291aa00ac1cc57acb8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-resealed-identity-tamper.log",
+      "sha256": "0178f6ed6db7d926848c65bf258e2ec210df9bb012fd0a25f23ca5b891d3ad21"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-databento-dbn-cpp-partial-removal-admission.log",
+      "sha256": "56102c2120450ae6848f04bd39e126db5b16cc72a43c9b76f4d475ce3293fa7f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-dbn-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-databento-dbn-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-owned-byte-tamper.log",
+      "sha256": "0407c4b82654bd368723328188ac89aef76324daac898645e34ce165023d40cd"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-owned-byte-tamper-admission.log",
+      "sha256": "a1b0ea5982e575cf3bec1b2dd1a14185d12c7de771458d53280be4b51c1f54f6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-header-tamper.log",
+      "sha256": "0407c4b82654bd368723328188ac89aef76324daac898645e34ce165023d40cd"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-header-tamper-admission.log",
+      "sha256": "a1b0ea5982e575cf3bec1b2dd1a14185d12c7de771458d53280be4b51c1f54f6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-export-tamper.log",
+      "sha256": "d8f814792795f5ef9d1c4b1215b731865746372193de0ce7ba118d52e66f8d0b"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-export-tamper-admission.log",
+      "sha256": "99b61f546ebc69e8bcf5fd3d810da614080387b79f50791c59f4ed5cebb5e882"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-receipt-digest-tamper.log",
+      "sha256": "77eb787246daa176431931133b01a9673fa04e9f8f6e50b251748318be2d3ab4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-resealed-identity-tamper.log",
+      "sha256": "afdef80fc069637f0ee125d0b8deb96f4aacde3099015bb5b7bbbb56610217a6"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqpv-local-store-cpp-partial-removal-admission.log",
+      "sha256": "2b84ac1fe10aea7be7f0fd3175ae34c8d16c6b42fdfc10638b13b5ffd0c8145d"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-local-store-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqpv-local-store-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-owned-byte-tamper.log",
+      "sha256": "4c2a0cc14c1f7b6e1060af41e934d588008c433dd2725e6d0872acd60f1c11f7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-owned-byte-tamper-admission.log",
+      "sha256": "d78945beff50eeb6c3b4ca2ea46f34b708ff6cf736ff473e5688d12f9aca1d03"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-header-tamper.log",
+      "sha256": "4c2a0cc14c1f7b6e1060af41e934d588008c433dd2725e6d0872acd60f1c11f7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-header-tamper-admission.log",
+      "sha256": "d78945beff50eeb6c3b4ca2ea46f34b708ff6cf736ff473e5688d12f9aca1d03"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-export-tamper.log",
+      "sha256": "8d56bf8ca8a08df41b5973914cdaa73fcc2229f8ad0e5a82025680c2845c3672"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-export-tamper-admission.log",
+      "sha256": "920446e74df703efda7726239a859524c3281b3337a6f154e8c11e373dacd74f"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-receipt-digest-tamper.log",
+      "sha256": "d14eb9e325169b53f15db9eb547004d2409ef1edcc766fa14d3a65d483acb18c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-resealed-identity-tamper.log",
+      "sha256": "c5a97d00fd09e6a27eb41161fd1e27d90596ef4880b6537e50d540d8fdadd518"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqav-capture-cpp-partial-removal-admission.log",
+      "sha256": "3cf2e3f85234effac988bdc89e6aaca55cce5e6ae164232039b4689bc5fd1f64"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-capture-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqav-capture-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-owned-byte-tamper.log",
+      "sha256": "a795640d90e4e34dcdf3737254061ea643ea71d1066112cecbad9a713ea44ae5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-owned-byte-tamper-admission.log",
+      "sha256": "544fe2da609f42e81fca3c79ca87901ba46934b4599498648055e9f01abe6849"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-header-tamper.log",
+      "sha256": "a795640d90e4e34dcdf3737254061ea643ea71d1066112cecbad9a713ea44ae5"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-header-tamper-admission.log",
+      "sha256": "544fe2da609f42e81fca3c79ca87901ba46934b4599498648055e9f01abe6849"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-export-tamper.log",
+      "sha256": "ad896503355b02315d1841c50862c47aa7648ded1b6c46057153a6e4e303df30"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-export-tamper-admission.log",
+      "sha256": "54c7f86f0e716cf16ba15f0b295f0f79e9206ba2765666aef54c7b292cc88ba8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-receipt-digest-tamper.log",
+      "sha256": "f2a5417601af110e78dac8d580c98851c32463d2cef16f33bc44790ea063558a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-resealed-identity-tamper.log",
+      "sha256": "2d2d488f86d6e29e733e2da894016938c4a8e687283efc7f815212c1209ffe33"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqmv-metadata-cpp-partial-removal-admission.log",
+      "sha256": "3bcdfb546db3c6433ee05e5d2975f23fdbf776e2b8daabe71538a3d40b94a381"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqmv-metadata-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-owned-byte-tamper.log",
+      "sha256": "e7cc54498dda1bf464134ae2b14adb819f61d85881bf0c033b6238caf0f34c94"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-owned-byte-tamper-admission.log",
+      "sha256": "0de2439e397bda046bf1e1978139d84eea91afb52d827c52677ff8b4a3d5d6f2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-header-tamper.log",
+      "sha256": "e7cc54498dda1bf464134ae2b14adb819f61d85881bf0c033b6238caf0f34c94"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-header-tamper-admission.log",
+      "sha256": "0de2439e397bda046bf1e1978139d84eea91afb52d827c52677ff8b4a3d5d6f2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-export-tamper.log",
+      "sha256": "29e9a2fe88a0ec8ed6a473ae4dce3008d0b362e1958c653c6a6e9fd3149600a0"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-export-tamper-admission.log",
+      "sha256": "f3855d6e17cd7bdc4c7ad16335f3eacb9b9491e3f1cb184f510736cb49f36785"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-receipt-digest-tamper.log",
+      "sha256": "f540ce2fd64b7a178b8663687c76cfdb42724a8f94110d09ac15339c0507a67c"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-resealed-identity-tamper.log",
+      "sha256": "95107071ccde07ff1bddbf9c370686c3e60e8ded60d8b21ec175e5e40fbda0f2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sqfv-batch-cpp-partial-removal-admission.log",
+      "sha256": "ac484d30ea40b34ba80bde0018e20cd73894a77fc9ef569d26a3d141c7544f8f"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-batch-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sqfv-batch-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sav-engine-owned-byte-tamper.log",
+      "sha256": "ffc0ad4a7475946cafcdbc4b6047e679e67a0ccd12aa5d732675bc742c103268"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sav-engine-owned-byte-tamper-admission.log",
+      "sha256": "3379904e11a0c1eb4a543ce0339096e8bd4e8f39fbd9d47062ebb15dc55b8907"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sav-engine-receipt-digest-tamper.log",
+      "sha256": "240123d61d40d38bd7b9f32622f31cd6134de45662ce61c02335ecf0edffd268"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sav-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sav-engine-resealed-identity-tamper.log",
+      "sha256": "4fdb1523f428d7eb334249be70757695baf6f672b15922bced14f1c5b68e3f26"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sav-engine-partial-removal-admission.log",
+      "sha256": "14b47ff68302f3bfee57f1110782460f7f7d919af1c685c79ad32e06b9251e45"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sav-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sav-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sacv-engine-owned-byte-tamper.log",
+      "sha256": "12eca86f4669615c8954958a37a24fd210513c12ceda9138ff4134f6478df3ce"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sacv-engine-owned-byte-tamper-admission.log",
+      "sha256": "9a73a3e52b9bb168d9a71d63c58ca9f2a3a13bfa9d557c133d2ebc78b1a197fe"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sacv-engine-receipt-digest-tamper.log",
+      "sha256": "64435ea903648081d5a408047953e4361739edb203dc58b5e471a791620a4818"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sacv-engine-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sacv-engine-resealed-identity-tamper.log",
+      "sha256": "054a266e5262d7125130ca724f36c5d66c65a8ce4c2d2dc8ea6cf3e80e54fd99"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "sacv-engine-partial-removal-admission.log",
+      "sha256": "4b0624c3fb3a981f5662ebc14cfb8ac41fccc52730c51046bf6aa928a64532ea"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sacv-engine-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "sacv-engine-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-owned-byte-tamper.log",
+      "sha256": "fa53b7d1b5297ddaea5d2a9f28a29a47b299d70731065274a6b55e0ee348bbea"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-owned-byte-tamper-admission.log",
+      "sha256": "093912fa0f5127acebfa0ccfbcb4bb12540c52ba1bf1b0e5d18ecad5cedc1a44"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-header-tamper.log",
+      "sha256": "fa53b7d1b5297ddaea5d2a9f28a29a47b299d70731065274a6b55e0ee348bbea"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-header-tamper-admission.log",
+      "sha256": "093912fa0f5127acebfa0ccfbcb4bb12540c52ba1bf1b0e5d18ecad5cedc1a44"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-export-tamper.log",
+      "sha256": "f9ada9b7130ddf7d97d428ed9036f9507c05bf4aff93740971cc0c1b14a5de78"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-export-tamper-admission.log",
+      "sha256": "0766d2f44982ff5ae1361126132fb0dc90861bc677144eb48d740df4d25c1fc8"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-receipt-digest-tamper.log",
+      "sha256": "1c902a9aaf4e975123cc5ca405853eaac6b24434a553050023f855d34690b0f1"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-resealed-identity-tamper.log",
+      "sha256": "9269220723c69222fcc9ed18c7933d50c7d6283c2366679d8aa92be232d7eeae"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "native-source-support-cpp-partial-removal-admission.log",
+      "sha256": "2b5b0fe578459bde4494f70752e6c1d7f3489ccdb911a8dd9a9141c0ab77b754"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "native-source-support-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "native-source-support-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "maestro-owned-byte-tamper.log",
+      "sha256": "2f5eb54f6bc13aedb6d912272f435ffcd160044ba860a1a4ebb7398c549ea039"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "maestro-owned-byte-tamper-admission.log",
+      "sha256": "46794d3947f0224ddb27ecd395c184f5743acc4290503692f134ed61fe2920c7"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "maestro-receipt-digest-tamper.log",
+      "sha256": "6aa14a59c44f4149e919457f9d6624dd689ea1d1b1761f8b612212b9035fc6be"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "maestro-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "maestro-resealed-identity-tamper.log",
+      "sha256": "9d9bddf8a0294b3b24e78eeeb00662b5e30c3b21c93b6c0af6dbf6c93a011fb9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "maestro-partial-removal-admission.log",
+      "sha256": "fcb846df77b7fef1d27b7316f66f7b2d9a0d5f4e4ed4c68e5eb8767efb887192"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "maestro-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "maestro-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-session-coordinator-owned-byte-tamper.log",
+      "sha256": "2e5f29c164da2533a283344bcb09c72e9c46369084774f5f8cd198254d12367d"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-session-coordinator-owned-byte-tamper-admission.log",
+      "sha256": "c58a7c69fa9583ebb986bd0c8ab88aa632aef9d6067fef6325bc627ba127dad9"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-session-coordinator-receipt-digest-tamper.log",
+      "sha256": "90164f66958aaf6f4e941262f267ac03a578c69c3d5d8fbbbbe93fbb8282019a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-session-coordinator-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-session-coordinator-resealed-identity-tamper.log",
+      "sha256": "4b109195000cb83a580c576d7a5222380a0c9dc0509b1f3699f9ada2ecc338da"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-session-coordinator-partial-removal-admission.log",
+      "sha256": "10bdd47e42645df4a1a971e69f6a233b498cdae52c1c4655d9712929cc240473"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-session-coordinator-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-session-coordinator-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-owned-byte-tamper.log",
+      "sha256": "005a96145fb5563e18a6493450e5c0cf7ef080689d8e80f3ce428b5766c4b6aa"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-owned-byte-tamper-admission.log",
+      "sha256": "61d585f20dee3ac5f47d671bef38c730b5423a12b1d4b7836313cdb3c6e754d3"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-header-tamper.log",
+      "sha256": "005a96145fb5563e18a6493450e5c0cf7ef080689d8e80f3ce428b5766c4b6aa"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-header-tamper-admission.log",
+      "sha256": "61d585f20dee3ac5f47d671bef38c730b5423a12b1d4b7836313cdb3c6e754d3"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-export-tamper.log",
+      "sha256": "ab89a8313171e3ee3e2759befa96db180c6627ceefb9d533e2586c7939465e1a"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-export-tamper-admission.log",
+      "sha256": "272501813c0917689ad609dd550c52b548a821ae423fbc348ff639b02b77e2e4"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-receipt-digest-tamper.log",
+      "sha256": "6b53d499f48e236e192eb7de72cd29b97493b8d838166ae68ca5eade36879a2e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-resealed-identity-tamper.log",
+      "sha256": "7997dc73952a7e3f45820f1fc7e35140de5af37bb8d8d5e0395c1519b6d0b38e"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "snv-common-cpp-partial-removal-admission.log",
+      "sha256": "b469d5c43abf200471ecfed9cffdddcb579269a46b74d65fefac474a74d7ed56"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-common-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "snv-common-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-owned-byte-tamper.log",
+      "sha256": "b62615e005f91dde554ce1ceda56d5b0b71163dad3105918c177019b8cb25e93"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-owned-byte-tamper-admission.log",
+      "sha256": "a394a63d0a6c7c4ce232362a0d07a93f499304d76b6b9db8d8edd320790aa6f2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-header-tamper.log",
+      "sha256": "b62615e005f91dde554ce1ceda56d5b0b71163dad3105918c177019b8cb25e93"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-header-tamper-admission.log",
+      "sha256": "a394a63d0a6c7c4ce232362a0d07a93f499304d76b6b9db8d8edd320790aa6f2"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-export-tamper.log",
+      "sha256": "cacab758f5dd7d460fccc4e5dcc0904afb99d5f8b5bd54a4e9e958c5a536b818"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-export-tamper-admission.log",
+      "sha256": "be98cac97c4e0beda607a902c18170145e3239a7bc1db342c5d4d2757af78432"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-receipt-digest-tamper.log",
+      "sha256": "fbefc291338b6d8d090d4c6a6e0ea23d6d17e6dc48a3221a20292d355d07c6ed"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-receipt-digest-tamper-admission.log",
+      "sha256": "25ce37f8217c28799974314d0d7d3ada300e75e6f3e22202a63bc9246044a446"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-resealed-identity-tamper.log",
+      "sha256": "83e743464e662bec22f78f0b37ff09a2446ccc696d94da493a8b6f35ec2d40cc"
+    },
+    {
+      "exit_code": 1,
+      "expected": "refusal",
+      "name": "knowledge-vector-engine-cpp-partial-removal-admission.log",
+      "sha256": "d3ac20fcd191a71582f6768e923de8b21b6d5572f36c964c3f2b70771e684562"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-vector-engine-cpp-resume-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "expected": "success",
+      "name": "knowledge-vector-engine-cpp-repeat-removal.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "original_final_candidate_unchanged": true,
+  "original_payload_inventory_sha256": "94358133a377cf35a126cccaba9b6801dd01ea9be247b21aebb7a52b3a193cfd",
+  "protocol": "symphony.distribution.d06-sdk-closure.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "round": "round-1",
+  "round_result_sha256": "5774aac1a89810e5694a0cedb7ee3ff777d25ab112b2ae8d26c0d874c0036c70",
+  "scope": "existing source consumer and native removal assertions on final core51 cohort",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_consumer": {
+    "census_checks": [
+      "exact 15-record synthetic DBN source",
+      "native census receipt binds result",
+      "closed census contains exactly two signals",
+      "closed census identity and ordering",
+      "selection cap is explicitly partial",
+      "CLI export preserves complete native typed result",
+      "second pass cannot replace the closed census",
+      "retained census is self-contained after ancestor removal",
+      "bare signal array refused without output publication"
+    ],
+    "census_evidence_sha256": "891f6ee27fca1bc99d9ed9ea19a57b377f1879cc421abfa48b93f59bbb8dd050",
+    "consumer_binary_sha256": "493d9471340f03d018554ae9d0dbcb4fd99922c10494fb94880efcf63d8d62ca",
+    "copied_module_inventory_sha256": "50ed7368bfdec64eb1ac43ee0bbde8281449d0a79692bdb4305d67524efddbb3",
+    "full_L20_campaign_executed": false,
+    "native_evaluation_sha256": "0d93eb53338cf6247f8297b293e04b631b6fccc7c79b274c9e41551db76fe5cc",
+    "native_sha256": "b64ce924b7af7f8bec2c1f768efa1c8e28919fa5a70023be8d26893c5abefc74",
+    "qxctl_sha256": "49e74ba2d778c821b2c3f52ff3b889bef18db7cf6fc74cd5ef93d358c71b3ce6",
+    "roundtrip": {
+      "calibration": "not_verified",
+      "consumer_cancellation": "incomplete_and_reaped",
+      "external_trials": "2",
+      "provider_requests": "0",
+      "replay_rows": 15,
+      "resume_executed": "0",
+      "selected_proposal": "proposal-2",
+      "signals": 2,
+      "spend_usd": "0",
+      "status": "passed"
+    },
+    "roundtrip_report_sha256": "b352b44c926623df492e320559e3ff81c80341ac276123e21c92cd08befe2186",
+    "source_inputs": {
+      "generated_d06_test.go": "f272058a03f04453aab40e1d579a97f45ee23925cc47c546b04908e12d7d512b",
+      "modules/sqav-databento-dbn-cpp/tests/public_fixture.hpp": "9f4011316ed1f97055dc4eda90c1b4233f930630a1fb7a548828ed48b2a711aa",
+      "modules/sqav-databento-dbn-cpp/tests/third_party/LICENSE.Apache-2.0": "d3174ad63e721d4c9dccb8ad4320848992d314369bc46319720b5802c9153fe9",
+      "modules/sqav-databento-dbn-cpp/tests/third_party/README.md": "0413c2566f19b49749420023f5bed0da7808c8ccfdb9c57c14fcd27b21b3e5d5",
+      "tests/sbv-launch-boundary/fixture.cpp": "5919ed4ec6a9007024a49816c70b0f9d89c841a2f13ec0629f4bbf789258c3cb",
+      "tests/sbv-launch-boundary/main.go": "3b16820e4685f2d40353b1ccce6dc4417e7c85031731facf532ae7ee3365a2ce"
+    },
+    "status": "passed"
+  },
+  "source_inventory_sha256": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "status": "passed"
+}
