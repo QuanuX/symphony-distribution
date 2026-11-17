@@ -1,0 +1,1908 @@
+{
+  "completed_native_response_loss": [
+    {
+      "acceptance": [
+        "D05-S15",
+        "D05-S28"
+      ],
+      "artifacts": [
+        {
+          "path": "lost-response-accordare-stav-producer/build.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "lost-response-accordare-stav-producer/explicit-reconcile.log",
+          "sha256": "sha256:4128a1ec62f750823922bb3048c426cb64bb8ce597f60b08fc2652b2be49da74"
+        },
+        {
+          "path": "lost-response-accordare-stav-producer/install.log",
+          "sha256": "sha256:6b79662aa1326276012caf2071000b75b7eff7c737fa1d784c3c922cea025310"
+        },
+        {
+          "path": "lost-response-accordare-stav-producer/lost-response.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "automatic_retry": false,
+      "controller_digest": "sha256:8ee2ec80cb5384e912ce3683b786ebd4fff5b24e5530135ee775df6504436f6e",
+      "evidence_level": "E1",
+      "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged.",
+      "foreign_sentinel_unchanged": true,
+      "host_service_started": false,
+      "id": "accordare-stav-producer-completed-response-loss",
+      "kind": "real-owner-executable",
+      "mid_operation_loss_qualified": false,
+      "native_version": "0.1.0-dev",
+      "observation_preceded_reconciliation": true,
+      "observed_phase": "retired",
+      "owner": "accordare-stav-producer",
+      "receipt_digest": "sha256:87650ce8deb1157f957695bec2c23c8f10402f4d41a95c67d585ce530ad5f574",
+      "reconciliation_changed": false,
+      "response_deliberately_discarded": true,
+      "retirement_epoch_digest": "sha256:bf7700ff0c6986df68744580b23303a687e6f4be03030eb2a1112c0ddc58fbaf",
+      "retirement_state_unchanged": true,
+      "scope_id": "S07/E1/local-macos-amd64-fixture/accordare-stav-producer/completed-response-loss",
+      "status": "passed"
+    },
+    {
+      "acceptance": [
+        "D05-S15",
+        "D05-S28"
+      ],
+      "artifacts": [
+        {
+          "path": "lost-response-secure-identity-access-governance/build.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "lost-response-secure-identity-access-governance/explicit-reconcile.log",
+          "sha256": "sha256:32c6578c980c7ff76168e27566ead65581069d6ce651fee65a8d639ca793ec13"
+        },
+        {
+          "path": "lost-response-secure-identity-access-governance/install.log",
+          "sha256": "sha256:6e10d091c00acb7c4573ebcdf5ab15ce1e39b59f2795fcace6983ffaad714e77"
+        },
+        {
+          "path": "lost-response-secure-identity-access-governance/lost-response.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "automatic_retry": false,
+      "controller_digest": "sha256:72cf5d7ad8f1cd3bc02a09705936c136f45bc09da0faf1676ad7abbc2cfa91d1",
+      "evidence_level": "E1",
+      "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged.",
+      "foreign_sentinel_unchanged": true,
+      "host_service_started": false,
+      "id": "secure-identity-access-governance-completed-response-loss",
+      "kind": "real-owner-executable",
+      "mid_operation_loss_qualified": false,
+      "native_version": "0.1.0-dev",
+      "observation_preceded_reconciliation": true,
+      "observed_phase": "retired",
+      "owner": "secure-identity-access-governance",
+      "receipt_digest": "sha256:df936645cd0e4de41e6560bb7bebde448f595aa49008e998a91ac5639a604414",
+      "reconciliation_changed": false,
+      "response_deliberately_discarded": true,
+      "retirement_epoch_digest": "sha256:a4150aba94810d464836c10c8f563e7e5a98b333b038d90351ab22ed8fd49acb",
+      "retirement_state_unchanged": true,
+      "scope_id": "S07/E1/local-macos-amd64-fixture/secure-identity-access-governance/completed-response-loss",
+      "status": "passed"
+    },
+    {
+      "acceptance": [
+        "D05-S15",
+        "D05-S28"
+      ],
+      "artifacts": [
+        {
+          "path": "lost-response-stav-append-authority/build.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "lost-response-stav-append-authority/explicit-reconcile.log",
+          "sha256": "sha256:e6fd600c96c877edffdc772a225c5d915b2e0c749e4fae440fcd89c25c611c82"
+        },
+        {
+          "path": "lost-response-stav-append-authority/install.log",
+          "sha256": "sha256:59e0f2519c22630b48d592af90486bbef6a52ddcdfa8f42b6fa09bb6d92d4f3a"
+        },
+        {
+          "path": "lost-response-stav-append-authority/lost-response.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "automatic_retry": false,
+      "controller_digest": "sha256:7b0586523dec4d2e872f91c07fad59e77bcb147025120966339a21a30fbbe047",
+      "evidence_level": "E1",
+      "expected": "Discard completed native removal response; first observe exact retired epoch and owned-byte absence, preserve foreign bytes, then explicit same-identity reconciliation returns unchanged.",
+      "foreign_sentinel_unchanged": true,
+      "host_service_started": false,
+      "id": "stav-append-authority-completed-response-loss",
+      "kind": "real-owner-executable",
+      "mid_operation_loss_qualified": false,
+      "native_version": "0.2.1",
+      "observation_preceded_reconciliation": true,
+      "observed_phase": "retired",
+      "owner": "stav-append-authority",
+      "receipt_digest": "sha256:3fe854929ea1bdda22592f7a367d68e433b08355b674c1cc8af8151ca9ea8a0f",
+      "reconciliation_changed": false,
+      "response_deliberately_discarded": true,
+      "retirement_epoch_digest": "sha256:e2b4c2357d0dbfe4bd0f404244565c21672d349765adff2e05dcf47ef0c3506e",
+      "retirement_state_unchanged": true,
+      "scope_id": "S07/E1/local-macos-amd64-fixture/stav-append-authority/completed-response-loss",
+      "status": "passed"
+    }
+  ],
+  "core_source_changed": false,
+  "evidence_level": "E1",
+  "fresh_host_accepted": false,
+  "go_version": "go1.26.5",
+  "host": {
+    "architecture": "amd64",
+    "distribution": "macos",
+    "system": "darwin",
+    "version": "26.7.1",
+    "wsl": false
+  },
+  "live_removal_accepted": false,
+  "native_services_started": false,
+  "profile": "local-macos-amd64-fixture",
+  "publication_authorized": false,
+  "race_detector": true,
+  "release_acceptance_complete": false,
+  "remaining_gates": [
+    {
+      "acceptance": "D05-S11",
+      "reason": "Simultaneous guard race and closed-start fixtures do not inject restart at each reference-scan/stop-completion/first-delete boundary.",
+      "status": "incomplete"
+    },
+    {
+      "acceptance": "D05-S13 D05-S14",
+      "reason": "Actual manager, stale/reused process identity, inaccessible user domain and detached descendant lifetime require separate supported-host evidence.",
+      "status": "incomplete"
+    },
+    {
+      "acceptance": "D05-S15",
+      "reason": "Real controller crash is covered at held retirement intent; deletion interruptions are fixtures. Completed native response loss is covered by observe-before-reconcile; mid-operation response loss and every crash boundary remain unqualified.",
+      "status": "incomplete"
+    },
+    {
+      "acceptance": "D05-S18",
+      "reason": "Accordare unresolved pending audit work refuses safely; successful audit recovery after process death is not established.",
+      "status": "incomplete"
+    },
+    {
+      "acceptance": "D05-S27",
+      "reason": "Two distinct compatible native releases and explicit selection/rollback acceptance are not supplied by this campaign.",
+      "status": "incomplete"
+    },
+    {
+      "acceptance": "D05-S29",
+      "reason": "E1 source/child/owner fixtures only; actual installed-manager, user/system privileges, fresh-host, delivered-installers and independent operator E2 acceptance remain separate.",
+      "status": "incomplete"
+    }
+  ],
+  "runner_dependencies": [
+    {
+      "path": "qualification/host_platform.py",
+      "sha256": "sha256:ae51553f92e450b2f49e49abdd1cd584026fe9b37db11a12fdadd46329e960d4"
+    },
+    {
+      "path": "owner-catalog/native_owners.py",
+      "sha256": "sha256:6d45ed12309f050c742e57998b8954990fb3e66b9a8ea50a2b7f40d28c5f3eb5"
+    }
+  ],
+  "runner_sha256": "sha256:92bf71ae50026d76476f77e25e90e76f8f6a8d36e51e0dda5947dff3c4a53bd2",
+  "schema": "symphony.distribution.native-fault-qualification.v1",
+  "skip_count": 0,
+  "source_binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "status": "passed",
+  "subtest_count": 71,
+  "suites": [
+    {
+      "artifacts": [
+        {
+          "path": "secure-identity-access-governance-guards.jsonl",
+          "sha256": "sha256:9bb7b4d291273d9ed1083021fea612dcdecc8ddbbceffeefd53e4ee2f37db78d"
+        },
+        {
+          "path": "secure-identity-access-governance-guards.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S12",
+            "D05-S15"
+          ],
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 119,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "acceptance": [
+            "D05-S15"
+          ],
+          "expected": "Kill the disposable controller after lease-held barrier; admission stays closed and exact recovery retains retirement intent.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 170,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestControllerCrashPreservesClosedAdmission"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Replacing use.lock cannot bypass live use; payload remains.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 194,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestReplacedUseLockCannotBypassLiveConsumer"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Symlink, hardlink, changed state and replacement root refuse both use and reclamation.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 216,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestUnsafeGuardAndRootRefuse"
+        },
+        {
+          "acceptance": [
+            "D05-S17",
+            "D05-S19"
+          ],
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 262,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S11"
+          ],
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "oracle_kind": "concurrency",
+          "source": {
+            "line": 285,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "acceptance": [
+            "D05-S12"
+          ],
+          "expected": "Missing custody cannot silently adopt existing payload.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 308,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestFreshGuardCannotAdoptExistingBytes"
+        },
+        {
+          "acceptance": [
+            "D05-S12",
+            "D05-S15"
+          ],
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 319,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Publication refuses replacement parent and conflicting files without overwriting foreign bytes.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 72,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/publish_unix_test.go",
+            "sha256": "sha256:ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+          },
+          "test": "TestPublicationRefusesReplacementAndConflictingFile"
+        },
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S19"
+          ],
+          "expected": "Delegated retirement preserves use exclusion.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 159,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S17"
+          ],
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 199,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "acceptance": [
+            "D05-S16",
+            "D05-S19"
+          ],
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 233,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "acceptance": [
+            "D05-S19"
+          ],
+          "expected": "A real child validates inherited authority descriptors across exec.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 315,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegatedDescriptorsCrossExec"
+        },
+        {
+          "acceptance": [
+            "D05-S28"
+          ],
+          "expected": "A use lease in one prefix does not authorize or interfere with another prefix.",
+          "oracle_kind": "isolation",
+          "source": {
+            "line": 122,
+            "path": "modules/secure-identity-access-governance/internal/packageretirement/publish_unix_test.go",
+            "sha256": "sha256:ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+          },
+          "test": "TestDistinctPrefixesKeepIndependentUse"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestLiveChildClosesAdmissionUntilTerminalRelease|TestControllerCrashPreservesClosedAdmission|TestReplacedUseLockCannotBypassLiveConsumer|TestUnsafeGuardAndRootRefuse|TestSharedRootMarkersRefuseNativeMutation|TestConcurrentAdmissionAndRetirementHaveOneWinner|TestFreshGuardCannotAdoptExistingBytes|TestClosedAdmissionAllowsBoundedRecoveryButNotStarts|TestPublicationRefusesReplacementAndConflictingFile|TestDelegatedRetirementPreservesUseFence|TestDelegationRejectsForeignClaimsAndChangedRegistry|TestDelegationRejectsFalseCustody|TestDelegatedDescriptorsCrossExec|TestDistinctPrefixesKeepIndependentUse)$",
+        "./internal/packageretirement"
+      ],
+      "duration_seconds": 9.491,
+      "errors": [],
+      "exit_code": 0,
+      "id": "secure-identity-access-governance-guards",
+      "module": "modules/secure-identity-access-governance",
+      "owner": "secure-identity-access-governance",
+      "package": "./internal/packageretirement",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/secure-identity-access-governance-guards",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestDelegationRejectsFalseCustody/component",
+        "TestDelegationRejectsFalseCustody/nonce",
+        "TestDelegationRejectsFalseCustody/operation",
+        "TestDelegationRejectsFalseCustody/other_description",
+        "TestDelegationRejectsFalseCustody/registry_digest",
+        "TestDelegationRejectsFalseCustody/root_inode",
+        "TestDelegationRejectsFalseCustody/unlocked",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/changed_after_read",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/foreign_retained",
+        "TestPublicationRefusesReplacementAndConflictingFile/destination_created",
+        "TestPublicationRefusesReplacementAndConflictingFile/root_replaced",
+        "TestPublicationRefusesReplacementAndConflictingFile/wrong_bytes",
+        "TestSharedRootMarkersRefuseNativeMutation/.",
+        "TestSharedRootMarkersRefuseNativeMutation/1",
+        "TestUnsafeGuardAndRootRefuse/hardlink",
+        "TestUnsafeGuardAndRootRefuse/root",
+        "TestUnsafeGuardAndRootRefuse/state",
+        "TestUnsafeGuardAndRootRefuse/symlink"
+      ],
+      "test_outcomes": {
+        "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts": "pass",
+        "TestConcurrentAdmissionAndRetirementHaveOneWinner": "pass",
+        "TestControllerCrashPreservesClosedAdmission": "pass",
+        "TestDelegatedDescriptorsCrossExec": "pass",
+        "TestDelegatedRetirementPreservesUseFence": "pass",
+        "TestDelegationRejectsFalseCustody": "pass",
+        "TestDelegationRejectsFalseCustody/component": "pass",
+        "TestDelegationRejectsFalseCustody/nonce": "pass",
+        "TestDelegationRejectsFalseCustody/operation": "pass",
+        "TestDelegationRejectsFalseCustody/other_description": "pass",
+        "TestDelegationRejectsFalseCustody/registry_digest": "pass",
+        "TestDelegationRejectsFalseCustody/root_inode": "pass",
+        "TestDelegationRejectsFalseCustody/unlocked": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/changed_after_read": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/foreign_retained": "pass",
+        "TestDistinctPrefixesKeepIndependentUse": "pass",
+        "TestFreshGuardCannotAdoptExistingBytes": "pass",
+        "TestLiveChildClosesAdmissionUntilTerminalRelease": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/destination_created": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/root_replaced": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/wrong_bytes": "pass",
+        "TestReplacedUseLockCannotBypassLiveConsumer": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation/.": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation/1": "pass",
+        "TestUnsafeGuardAndRootRefuse": "pass",
+        "TestUnsafeGuardAndRootRefuse/hardlink": "pass",
+        "TestUnsafeGuardAndRootRefuse/root": "pass",
+        "TestUnsafeGuardAndRootRefuse/state": "pass",
+        "TestUnsafeGuardAndRootRefuse/symlink": "pass"
+      },
+      "top_level_tests": [
+        "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts",
+        "TestConcurrentAdmissionAndRetirementHaveOneWinner",
+        "TestControllerCrashPreservesClosedAdmission",
+        "TestDelegatedDescriptorsCrossExec",
+        "TestDelegatedRetirementPreservesUseFence",
+        "TestDelegationRejectsFalseCustody",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry",
+        "TestDistinctPrefixesKeepIndependentUse",
+        "TestFreshGuardCannotAdoptExistingBytes",
+        "TestLiveChildClosesAdmissionUntilTerminalRelease",
+        "TestPublicationRefusesReplacementAndConflictingFile",
+        "TestReplacedUseLockCannotBypassLiveConsumer",
+        "TestSharedRootMarkersRefuseNativeMutation",
+        "TestUnsafeGuardAndRootRefuse"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "stav-append-authority-guards.jsonl",
+          "sha256": "sha256:6256ec0bdddcd6940fb7487e61bf89cbedc9d1ce2755370b3518b64aade10f58"
+        },
+        {
+          "path": "stav-append-authority-guards.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S12",
+            "D05-S15"
+          ],
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 119,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "acceptance": [
+            "D05-S15"
+          ],
+          "expected": "Kill the disposable controller after lease-held barrier; admission stays closed and exact recovery retains retirement intent.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 170,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestControllerCrashPreservesClosedAdmission"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Replacing use.lock cannot bypass live use; payload remains.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 194,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestReplacedUseLockCannotBypassLiveConsumer"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Symlink, hardlink, changed state and replacement root refuse both use and reclamation.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 216,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestUnsafeGuardAndRootRefuse"
+        },
+        {
+          "acceptance": [
+            "D05-S17",
+            "D05-S19"
+          ],
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 262,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S11"
+          ],
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "oracle_kind": "concurrency",
+          "source": {
+            "line": 285,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "acceptance": [
+            "D05-S12"
+          ],
+          "expected": "Missing custody cannot silently adopt existing payload.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 308,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestFreshGuardCannotAdoptExistingBytes"
+        },
+        {
+          "acceptance": [
+            "D05-S12",
+            "D05-S15"
+          ],
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 319,
+            "path": "modules/stav-append-authority/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Publication refuses replacement parent and conflicting files without overwriting foreign bytes.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 72,
+            "path": "modules/stav-append-authority/internal/packageretirement/publish_unix_test.go",
+            "sha256": "sha256:ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+          },
+          "test": "TestPublicationRefusesReplacementAndConflictingFile"
+        },
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S19"
+          ],
+          "expected": "Delegated retirement preserves use exclusion.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 159,
+            "path": "modules/stav-append-authority/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S17"
+          ],
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 199,
+            "path": "modules/stav-append-authority/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "acceptance": [
+            "D05-S16",
+            "D05-S19"
+          ],
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 233,
+            "path": "modules/stav-append-authority/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "acceptance": [
+            "D05-S19"
+          ],
+          "expected": "A real child validates inherited authority descriptors across exec.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 315,
+            "path": "modules/stav-append-authority/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegatedDescriptorsCrossExec"
+        },
+        {
+          "acceptance": [
+            "D05-S28"
+          ],
+          "expected": "A use lease in one prefix does not authorize or interfere with another prefix.",
+          "oracle_kind": "isolation",
+          "source": {
+            "line": 122,
+            "path": "modules/stav-append-authority/internal/packageretirement/publish_unix_test.go",
+            "sha256": "sha256:ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+          },
+          "test": "TestDistinctPrefixesKeepIndependentUse"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestLiveChildClosesAdmissionUntilTerminalRelease|TestControllerCrashPreservesClosedAdmission|TestReplacedUseLockCannotBypassLiveConsumer|TestUnsafeGuardAndRootRefuse|TestSharedRootMarkersRefuseNativeMutation|TestConcurrentAdmissionAndRetirementHaveOneWinner|TestFreshGuardCannotAdoptExistingBytes|TestClosedAdmissionAllowsBoundedRecoveryButNotStarts|TestPublicationRefusesReplacementAndConflictingFile|TestDelegatedRetirementPreservesUseFence|TestDelegationRejectsForeignClaimsAndChangedRegistry|TestDelegationRejectsFalseCustody|TestDelegatedDescriptorsCrossExec|TestDistinctPrefixesKeepIndependentUse)$",
+        "./internal/packageretirement"
+      ],
+      "duration_seconds": 8.223,
+      "errors": [],
+      "exit_code": 0,
+      "id": "stav-append-authority-guards",
+      "module": "modules/stav-append-authority",
+      "owner": "stav-append-authority",
+      "package": "./internal/packageretirement",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/stav-append-authority-guards",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestDelegationRejectsFalseCustody/component",
+        "TestDelegationRejectsFalseCustody/nonce",
+        "TestDelegationRejectsFalseCustody/operation",
+        "TestDelegationRejectsFalseCustody/other_description",
+        "TestDelegationRejectsFalseCustody/registry_digest",
+        "TestDelegationRejectsFalseCustody/root_inode",
+        "TestDelegationRejectsFalseCustody/unlocked",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/changed_after_read",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/foreign_retained",
+        "TestPublicationRefusesReplacementAndConflictingFile/destination_created",
+        "TestPublicationRefusesReplacementAndConflictingFile/root_replaced",
+        "TestPublicationRefusesReplacementAndConflictingFile/wrong_bytes",
+        "TestSharedRootMarkersRefuseNativeMutation/.",
+        "TestSharedRootMarkersRefuseNativeMutation/1",
+        "TestUnsafeGuardAndRootRefuse/hardlink",
+        "TestUnsafeGuardAndRootRefuse/root",
+        "TestUnsafeGuardAndRootRefuse/state",
+        "TestUnsafeGuardAndRootRefuse/symlink"
+      ],
+      "test_outcomes": {
+        "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts": "pass",
+        "TestConcurrentAdmissionAndRetirementHaveOneWinner": "pass",
+        "TestControllerCrashPreservesClosedAdmission": "pass",
+        "TestDelegatedDescriptorsCrossExec": "pass",
+        "TestDelegatedRetirementPreservesUseFence": "pass",
+        "TestDelegationRejectsFalseCustody": "pass",
+        "TestDelegationRejectsFalseCustody/component": "pass",
+        "TestDelegationRejectsFalseCustody/nonce": "pass",
+        "TestDelegationRejectsFalseCustody/operation": "pass",
+        "TestDelegationRejectsFalseCustody/other_description": "pass",
+        "TestDelegationRejectsFalseCustody/registry_digest": "pass",
+        "TestDelegationRejectsFalseCustody/root_inode": "pass",
+        "TestDelegationRejectsFalseCustody/unlocked": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/changed_after_read": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/foreign_retained": "pass",
+        "TestDistinctPrefixesKeepIndependentUse": "pass",
+        "TestFreshGuardCannotAdoptExistingBytes": "pass",
+        "TestLiveChildClosesAdmissionUntilTerminalRelease": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/destination_created": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/root_replaced": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/wrong_bytes": "pass",
+        "TestReplacedUseLockCannotBypassLiveConsumer": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation/.": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation/1": "pass",
+        "TestUnsafeGuardAndRootRefuse": "pass",
+        "TestUnsafeGuardAndRootRefuse/hardlink": "pass",
+        "TestUnsafeGuardAndRootRefuse/root": "pass",
+        "TestUnsafeGuardAndRootRefuse/state": "pass",
+        "TestUnsafeGuardAndRootRefuse/symlink": "pass"
+      },
+      "top_level_tests": [
+        "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts",
+        "TestConcurrentAdmissionAndRetirementHaveOneWinner",
+        "TestControllerCrashPreservesClosedAdmission",
+        "TestDelegatedDescriptorsCrossExec",
+        "TestDelegatedRetirementPreservesUseFence",
+        "TestDelegationRejectsFalseCustody",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry",
+        "TestDistinctPrefixesKeepIndependentUse",
+        "TestFreshGuardCannotAdoptExistingBytes",
+        "TestLiveChildClosesAdmissionUntilTerminalRelease",
+        "TestPublicationRefusesReplacementAndConflictingFile",
+        "TestReplacedUseLockCannotBypassLiveConsumer",
+        "TestSharedRootMarkersRefuseNativeMutation",
+        "TestUnsafeGuardAndRootRefuse"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "accordare-stav-producer-guards.jsonl",
+          "sha256": "sha256:f1c59363371fe8df8699f6ea5bf0698d3cd453f688125c958b537b586d03dffa"
+        },
+        {
+          "path": "accordare-stav-producer-guards.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S12",
+            "D05-S15"
+          ],
+          "expected": "A real child confirms its lease before retirement; busy refusal retains payload, late starts refuse, terminal release permits exact retirement and durable tombstone.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 119,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestLiveChildClosesAdmissionUntilTerminalRelease"
+        },
+        {
+          "acceptance": [
+            "D05-S15"
+          ],
+          "expected": "Kill the disposable controller after lease-held barrier; admission stays closed and exact recovery retains retirement intent.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 170,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestControllerCrashPreservesClosedAdmission"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Replacing use.lock cannot bypass live use; payload remains.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 194,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestReplacedUseLockCannotBypassLiveConsumer"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Symlink, hardlink, changed state and replacement root refuse both use and reclamation.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 216,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestUnsafeGuardAndRootRefuse"
+        },
+        {
+          "acceptance": [
+            "D05-S17",
+            "D05-S19"
+          ],
+          "expected": "Standalone native mutation refuses shared-root markers without changing open admission.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 262,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestSharedRootMarkersRefuseNativeMutation"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S11"
+          ],
+          "expected": "Twelve simultaneous admission/retirement pairs never obtain both conflicting leases; this is a shared-start barrier, not injection at each delete boundary.",
+          "oracle_kind": "concurrency",
+          "source": {
+            "line": 285,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestConcurrentAdmissionAndRetirementHaveOneWinner"
+        },
+        {
+          "acceptance": [
+            "D05-S12"
+          ],
+          "expected": "Missing custody cannot silently adopt existing payload.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 308,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestFreshGuardCannotAdoptExistingBytes"
+        },
+        {
+          "acceptance": [
+            "D05-S12",
+            "D05-S15"
+          ],
+          "expected": "Recovery use excludes reclamation and never reopens ordinary start admission.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 319,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/guard_unix_test.go",
+            "sha256": "sha256:125416956cd2068aa567c33b3d7754f4496d962db0d8426faa3726cfd62297ea"
+          },
+          "test": "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Publication refuses replacement parent and conflicting files without overwriting foreign bytes.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 72,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/publish_unix_test.go",
+            "sha256": "sha256:ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+          },
+          "test": "TestPublicationRefusesReplacementAndConflictingFile"
+        },
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S19"
+          ],
+          "expected": "Delegated retirement preserves use exclusion.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 159,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegatedRetirementPreservesUseFence"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S17"
+          ],
+          "expected": "Foreign retained claims and changed registry after proof read refuse delegation.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 199,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegationRejectsForeignClaimsAndChangedRegistry"
+        },
+        {
+          "acceptance": [
+            "D05-S16",
+            "D05-S19"
+          ],
+          "expected": "Unlocked or different lock description, wrong root/registry/component/nonce/operation refuses.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 233,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegationRejectsFalseCustody"
+        },
+        {
+          "acceptance": [
+            "D05-S19"
+          ],
+          "expected": "A real child validates inherited authority descriptors across exec.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 315,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/delegation_unix_test.go",
+            "sha256": "sha256:1752bcb94163cd57572f161d05036b470ee95b3626dc818fb2eedcd7b08778f4"
+          },
+          "test": "TestDelegatedDescriptorsCrossExec"
+        },
+        {
+          "acceptance": [
+            "D05-S28"
+          ],
+          "expected": "A use lease in one prefix does not authorize or interfere with another prefix.",
+          "oracle_kind": "isolation",
+          "source": {
+            "line": 122,
+            "path": "modules/accordare-stav-producer/internal/packageretirement/publish_unix_test.go",
+            "sha256": "sha256:ef0d66c2e70f37bdba33f68ff464fa878116669c96d1644457da01079cf72596"
+          },
+          "test": "TestDistinctPrefixesKeepIndependentUse"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestLiveChildClosesAdmissionUntilTerminalRelease|TestControllerCrashPreservesClosedAdmission|TestReplacedUseLockCannotBypassLiveConsumer|TestUnsafeGuardAndRootRefuse|TestSharedRootMarkersRefuseNativeMutation|TestConcurrentAdmissionAndRetirementHaveOneWinner|TestFreshGuardCannotAdoptExistingBytes|TestClosedAdmissionAllowsBoundedRecoveryButNotStarts|TestPublicationRefusesReplacementAndConflictingFile|TestDelegatedRetirementPreservesUseFence|TestDelegationRejectsForeignClaimsAndChangedRegistry|TestDelegationRejectsFalseCustody|TestDelegatedDescriptorsCrossExec|TestDistinctPrefixesKeepIndependentUse)$",
+        "./internal/packageretirement"
+      ],
+      "duration_seconds": 7.9,
+      "errors": [],
+      "exit_code": 0,
+      "id": "accordare-stav-producer-guards",
+      "module": "modules/accordare-stav-producer",
+      "owner": "accordare-stav-producer",
+      "package": "./internal/packageretirement",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/accordare-stav-producer-guards",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestDelegationRejectsFalseCustody/component",
+        "TestDelegationRejectsFalseCustody/nonce",
+        "TestDelegationRejectsFalseCustody/operation",
+        "TestDelegationRejectsFalseCustody/other_description",
+        "TestDelegationRejectsFalseCustody/registry_digest",
+        "TestDelegationRejectsFalseCustody/root_inode",
+        "TestDelegationRejectsFalseCustody/unlocked",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/changed_after_read",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/foreign_retained",
+        "TestPublicationRefusesReplacementAndConflictingFile/destination_created",
+        "TestPublicationRefusesReplacementAndConflictingFile/root_replaced",
+        "TestPublicationRefusesReplacementAndConflictingFile/wrong_bytes",
+        "TestSharedRootMarkersRefuseNativeMutation/.",
+        "TestSharedRootMarkersRefuseNativeMutation/1",
+        "TestUnsafeGuardAndRootRefuse/hardlink",
+        "TestUnsafeGuardAndRootRefuse/root",
+        "TestUnsafeGuardAndRootRefuse/state",
+        "TestUnsafeGuardAndRootRefuse/symlink"
+      ],
+      "test_outcomes": {
+        "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts": "pass",
+        "TestConcurrentAdmissionAndRetirementHaveOneWinner": "pass",
+        "TestControllerCrashPreservesClosedAdmission": "pass",
+        "TestDelegatedDescriptorsCrossExec": "pass",
+        "TestDelegatedRetirementPreservesUseFence": "pass",
+        "TestDelegationRejectsFalseCustody": "pass",
+        "TestDelegationRejectsFalseCustody/component": "pass",
+        "TestDelegationRejectsFalseCustody/nonce": "pass",
+        "TestDelegationRejectsFalseCustody/operation": "pass",
+        "TestDelegationRejectsFalseCustody/other_description": "pass",
+        "TestDelegationRejectsFalseCustody/registry_digest": "pass",
+        "TestDelegationRejectsFalseCustody/root_inode": "pass",
+        "TestDelegationRejectsFalseCustody/unlocked": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/changed_after_read": "pass",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry/foreign_retained": "pass",
+        "TestDistinctPrefixesKeepIndependentUse": "pass",
+        "TestFreshGuardCannotAdoptExistingBytes": "pass",
+        "TestLiveChildClosesAdmissionUntilTerminalRelease": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/destination_created": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/root_replaced": "pass",
+        "TestPublicationRefusesReplacementAndConflictingFile/wrong_bytes": "pass",
+        "TestReplacedUseLockCannotBypassLiveConsumer": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation/.": "pass",
+        "TestSharedRootMarkersRefuseNativeMutation/1": "pass",
+        "TestUnsafeGuardAndRootRefuse": "pass",
+        "TestUnsafeGuardAndRootRefuse/hardlink": "pass",
+        "TestUnsafeGuardAndRootRefuse/root": "pass",
+        "TestUnsafeGuardAndRootRefuse/state": "pass",
+        "TestUnsafeGuardAndRootRefuse/symlink": "pass"
+      },
+      "top_level_tests": [
+        "TestClosedAdmissionAllowsBoundedRecoveryButNotStarts",
+        "TestConcurrentAdmissionAndRetirementHaveOneWinner",
+        "TestControllerCrashPreservesClosedAdmission",
+        "TestDelegatedDescriptorsCrossExec",
+        "TestDelegatedRetirementPreservesUseFence",
+        "TestDelegationRejectsFalseCustody",
+        "TestDelegationRejectsForeignClaimsAndChangedRegistry",
+        "TestDistinctPrefixesKeepIndependentUse",
+        "TestFreshGuardCannotAdoptExistingBytes",
+        "TestLiveChildClosesAdmissionUntilTerminalRelease",
+        "TestPublicationRefusesReplacementAndConflictingFile",
+        "TestReplacedUseLockCannotBypassLiveConsumer",
+        "TestSharedRootMarkersRefuseNativeMutation",
+        "TestUnsafeGuardAndRootRefuse"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "ssiag-owner.jsonl",
+          "sha256": "sha256:dc95a17bd3761519ff523c979f2dad49cfcd50aeb69c1cb1bec544d0c8d3f703"
+        },
+        {
+          "path": "ssiag-owner.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S15"
+          ],
+          "expected": "Held use retains bytes; closed admission blocks new use; release permits exact retirement and idempotent replay.",
+          "oracle_kind": "native-owner-fixture",
+          "source": {
+            "line": 114,
+            "path": "modules/secure-identity-access-governance/internal/packageinstall/package_test.go",
+            "sha256": "sha256:b063a6fe54afe0f28567a7c35e93256940dab3b79fe812b6fde922d16a28a95e"
+          },
+          "test": "TestRetirementRetainsLivePackageAndRecoversExactAttempt"
+        },
+        {
+          "acceptance": [
+            "D05-S13",
+            "D05-S19"
+          ],
+          "expected": "A retained native descriptor prevents removal.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 86,
+            "path": "modules/secure-identity-access-governance/internal/packageinstall/package_test.go",
+            "sha256": "sha256:b063a6fe54afe0f28567a7c35e93256940dab3b79fe812b6fde922d16a28a95e"
+          },
+          "test": "TestUninstallRefusesSupervisorReference"
+        },
+        {
+          "acceptance": [
+            "D05-S12"
+          ],
+          "expected": "Missing guard refuses adoption/removal and preserves payload.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 148,
+            "path": "modules/secure-identity-access-governance/internal/packageinstall/package_test.go",
+            "sha256": "sha256:b063a6fe54afe0f28567a7c35e93256940dab3b79fe812b6fde922d16a28a95e"
+          },
+          "test": "TestMissingGuardRefusesLegacyAdoptionAndRemoval"
+        },
+        {
+          "acceptance": [
+            "D05-S12"
+          ],
+          "expected": "Uncontrolled source cannot create native custody.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 167,
+            "path": "modules/secure-identity-access-governance/internal/packageinstall/package_test.go",
+            "sha256": "sha256:b063a6fe54afe0f28567a7c35e93256940dab3b79fe812b6fde922d16a28a95e"
+          },
+          "test": "TestInstallRefusesUncontrolledSourceBytes"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Moved or changed published receipt never activates.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 181,
+            "path": "modules/secure-identity-access-governance/internal/packageinstall/package_test.go",
+            "sha256": "sha256:b063a6fe54afe0f28567a7c35e93256940dab3b79fe812b6fde922d16a28a95e"
+          },
+          "test": "TestActivationRequiresExactReceiptAtPublishedPath"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestRetirementRetainsLivePackageAndRecoversExactAttempt|TestUninstallRefusesSupervisorReference|TestMissingGuardRefusesLegacyAdoptionAndRemoval|TestInstallRefusesUncontrolledSourceBytes|TestActivationRequiresExactReceiptAtPublishedPath)$",
+        "./internal/packageinstall"
+      ],
+      "duration_seconds": 3.656,
+      "errors": [],
+      "exit_code": 0,
+      "id": "ssiag-owner",
+      "module": "modules/secure-identity-access-governance",
+      "owner": "secure-identity-access-governance",
+      "package": "./internal/packageinstall",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/ssiag-owner",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestActivationRequiresExactReceiptAtPublishedPath/change_bytes",
+        "TestActivationRequiresExactReceiptAtPublishedPath/move_parent"
+      ],
+      "test_outcomes": {
+        "TestActivationRequiresExactReceiptAtPublishedPath": "pass",
+        "TestActivationRequiresExactReceiptAtPublishedPath/change_bytes": "pass",
+        "TestActivationRequiresExactReceiptAtPublishedPath/move_parent": "pass",
+        "TestInstallRefusesUncontrolledSourceBytes": "pass",
+        "TestMissingGuardRefusesLegacyAdoptionAndRemoval": "pass",
+        "TestRetirementRetainsLivePackageAndRecoversExactAttempt": "pass",
+        "TestUninstallRefusesSupervisorReference": "pass"
+      },
+      "top_level_tests": [
+        "TestActivationRequiresExactReceiptAtPublishedPath",
+        "TestInstallRefusesUncontrolledSourceBytes",
+        "TestMissingGuardRefusesLegacyAdoptionAndRemoval",
+        "TestRetirementRetainsLivePackageAndRecoversExactAttempt",
+        "TestUninstallRefusesSupervisorReference"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "ssiag-supervision.jsonl",
+          "sha256": "sha256:bd8977aa9e0ae488ba4ddc8e989fa5b05c75823cb9feecdf3f33b2f523e87873"
+        },
+        {
+          "path": "ssiag-supervision.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S11",
+            "D05-S12",
+            "D05-S19"
+          ],
+          "expected": "Closed retirement admission blocks descriptor mutation and start before native manager invocation; descriptor cleanup remains possible.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 77,
+            "path": "modules/secure-identity-access-governance/internal/supervision/supervision_test.go",
+            "sha256": "sha256:f45e0393d95197751f5470c738a419568b86770bdc215d84505f534b3c65d449"
+          },
+          "test": "TestRetirementFencesSupervisorInstallAndStart"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestRetirementFencesSupervisorInstallAndStart)$",
+        "./internal/supervision"
+      ],
+      "duration_seconds": 2.748,
+      "errors": [],
+      "exit_code": 0,
+      "id": "ssiag-supervision",
+      "module": "modules/secure-identity-access-governance",
+      "owner": "secure-identity-access-governance",
+      "package": "./internal/supervision",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/ssiag-supervision",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [],
+      "test_outcomes": {
+        "TestRetirementFencesSupervisorInstallAndStart": "pass"
+      },
+      "top_level_tests": [
+        "TestRetirementFencesSupervisorInstallAndStart"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "stav-owner.jsonl",
+          "sha256": "sha256:a6c98a7cf59d0b45ba0d43c3e6be93866e9d5a5629bcdab30e539e35e324d636"
+        },
+        {
+          "path": "stav-owner.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S11",
+            "D05-S12"
+          ],
+          "expected": "Installed real child confirms use; removal retains payload/receipt and late enroll, descriptor, restart refuse; release allows retirement.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 59,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestManagedRetirementBlocksUseAndNewReferences"
+        },
+        {
+          "acceptance": [
+            "D05-S15",
+            "D05-S16",
+            "D05-S28"
+          ],
+          "expected": "Receipt-last interruption recovery preserves unrelated sentinel and exact retry is unchanged.",
+          "oracle_kind": "recovery-fixture",
+          "source": {
+            "line": 133,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestManagedRetirementRecoversAfterPayloadUnlink"
+        },
+        {
+          "acceptance": [
+            "D05-S13",
+            "D05-S19"
+          ],
+          "expected": "Orphan descriptor retains executable.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 169,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestRetirementRetainsOrphanedNativeDescriptor"
+        },
+        {
+          "acceptance": [
+            "D05-S28"
+          ],
+          "expected": "Native retirement after explicit unenrollment preserves user configuration and state.",
+          "oracle_kind": "native-owner-fixture",
+          "source": {
+            "line": 187,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestRetirementRecoveryPreservesUnenrolledData"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Missing/changed receipt refuses installed use.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 217,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestManagedAdmissionRefusesMissingOrChangedReceipt"
+        },
+        {
+          "acceptance": [
+            "D05-S11",
+            "D05-S12"
+          ],
+          "expected": "Exclusive maintenance excludes live use/start without reopening pending retirement.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 236,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestMaintenanceExcludesStartsWithoutReopeningRetirement"
+        },
+        {
+          "acceptance": [
+            "D05-S18"
+          ],
+          "expected": "A real installed child refuses to remove itself and leaves admission unchanged.",
+          "oracle_kind": "real-child",
+          "source": {
+            "line": 288,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestRetirementRetainsExecutingController"
+        },
+        {
+          "acceptance": [
+            "D05-S16",
+            "D05-S28"
+          ],
+          "expected": "Replaced payload/receipt path refuses activation and preserves administrator bytes.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 307,
+            "path": "modules/stav-append-authority/internal/lifecycle/retirement_test.go",
+            "sha256": "sha256:f4295d32782e0d8e3fc18e04b0514ab5fede7b641b77604821331bb3ea1be27b"
+          },
+          "test": "TestActivationRefusesReplacedPublicationPaths"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestManagedRetirementBlocksUseAndNewReferences|TestManagedRetirementRecoversAfterPayloadUnlink|TestRetirementRetainsOrphanedNativeDescriptor|TestRetirementRecoveryPreservesUnenrolledData|TestManagedAdmissionRefusesMissingOrChangedReceipt|TestMaintenanceExcludesStartsWithoutReopeningRetirement|TestRetirementRetainsExecutingController|TestActivationRefusesReplacedPublicationPaths)$",
+        "./internal/lifecycle"
+      ],
+      "duration_seconds": 9.231,
+      "errors": [],
+      "exit_code": 0,
+      "id": "stav-owner",
+      "module": "modules/stav-append-authority",
+      "owner": "stav-append-authority",
+      "package": "./internal/lifecycle",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/stav-owner",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestActivationRefusesReplacedPublicationPaths/payload",
+        "TestActivationRefusesReplacedPublicationPaths/receipt",
+        "TestManagedAdmissionRefusesMissingOrChangedReceipt/changed",
+        "TestManagedAdmissionRefusesMissingOrChangedReceipt/missing"
+      ],
+      "test_outcomes": {
+        "TestActivationRefusesReplacedPublicationPaths": "pass",
+        "TestActivationRefusesReplacedPublicationPaths/payload": "pass",
+        "TestActivationRefusesReplacedPublicationPaths/receipt": "pass",
+        "TestMaintenanceExcludesStartsWithoutReopeningRetirement": "pass",
+        "TestManagedAdmissionRefusesMissingOrChangedReceipt": "pass",
+        "TestManagedAdmissionRefusesMissingOrChangedReceipt/changed": "pass",
+        "TestManagedAdmissionRefusesMissingOrChangedReceipt/missing": "pass",
+        "TestManagedRetirementBlocksUseAndNewReferences": "pass",
+        "TestManagedRetirementRecoversAfterPayloadUnlink": "pass",
+        "TestRetirementRecoveryPreservesUnenrolledData": "pass",
+        "TestRetirementRetainsExecutingController": "pass",
+        "TestRetirementRetainsOrphanedNativeDescriptor": "pass"
+      },
+      "top_level_tests": [
+        "TestActivationRefusesReplacedPublicationPaths",
+        "TestMaintenanceExcludesStartsWithoutReopeningRetirement",
+        "TestManagedAdmissionRefusesMissingOrChangedReceipt",
+        "TestManagedRetirementBlocksUseAndNewReferences",
+        "TestManagedRetirementRecoversAfterPayloadUnlink",
+        "TestRetirementRecoveryPreservesUnenrolledData",
+        "TestRetirementRetainsExecutingController",
+        "TestRetirementRetainsOrphanedNativeDescriptor"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "stav-manager-unavailable.jsonl",
+          "sha256": "sha256:0780a0d90e42dfcd10779d4627dfe9d7ec169de0a98a4739cd1b0d94036932cc"
+        },
+        {
+          "path": "stav-manager-unavailable.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S13"
+          ],
+          "expected": "An isolated empty PATH yields manager_unavailable, never stopped.",
+          "oracle_kind": "manager-absence-fixture",
+          "source": {
+            "line": 95,
+            "path": "modules/stav-append-authority/internal/supervision/supervision_test.go",
+            "sha256": "sha256:7a22daf271f49bbeeb36cbe1d4db93077c25356dd441c6c8149017405ede857f"
+          },
+          "test": "TestObserveReportsManagerUnavailableOffline"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestObserveReportsManagerUnavailableOffline)$",
+        "./internal/supervision"
+      ],
+      "duration_seconds": 2.163,
+      "errors": [],
+      "exit_code": 0,
+      "id": "stav-manager-unavailable",
+      "module": "modules/stav-append-authority",
+      "owner": "stav-append-authority",
+      "package": "./internal/supervision",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/stav-manager-unavailable",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [],
+      "test_outcomes": {
+        "TestObserveReportsManagerUnavailableOffline": "pass"
+      },
+      "top_level_tests": [
+        "TestObserveReportsManagerUnavailableOffline"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "accordare-owner.jsonl",
+          "sha256": "sha256:f9f4e3f32c76bc74e1faf609901dd1f8fe47d6e59cff988c1476bfd702b05c70"
+        },
+        {
+          "path": "accordare-owner.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S10",
+            "D05-S15"
+          ],
+          "expected": "Held use retains receipt; retirement remains closed until release; exact recovery creates tombstone.",
+          "oracle_kind": "native-owner-fixture",
+          "source": {
+            "line": 114,
+            "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+            "sha256": "sha256:17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+          },
+          "test": "TestRetirementClosesAdmissionUntilExactRecovery"
+        },
+        {
+          "acceptance": [
+            "D05-S11",
+            "D05-S12"
+          ],
+          "expected": "Maintenance excludes use/start without retiring an open package.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 152,
+            "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+            "sha256": "sha256:17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+          },
+          "test": "TestMaintenanceFencesStartAndPreservesOpenAdmission"
+        },
+        {
+          "acceptance": [
+            "D05-S15",
+            "D05-S16"
+          ],
+          "expected": "Recovery after payload removal and after receipt removal finishes the exact attempt.",
+          "oracle_kind": "recovery-fixture",
+          "source": {
+            "line": 179,
+            "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+            "sha256": "sha256:17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+          },
+          "test": "TestRetirementRecoversReceiptLastInterruption"
+        },
+        {
+          "acceptance": [
+            "D05-S18",
+            "D05-S19"
+          ],
+          "expected": "Pending intents and outbox retain payload; unresolved audit work cannot be removed.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 211,
+            "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+            "sha256": "sha256:17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+          },
+          "test": "TestOrphanPendingStateBlocksReclamation"
+        },
+        {
+          "acceptance": [
+            "D05-S12"
+          ],
+          "expected": "Legacy/foreign bytes cannot acquire managed custody.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 238,
+            "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+            "sha256": "sha256:17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+          },
+          "test": "TestLegacyAndForeignSourcesCannotAcquireCustody"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Fresh/existing activation refuses altered payload-parent and receipt.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 29,
+            "path": "modules/accordare-stav-producer/internal/packageinstall/retirement_test.go",
+            "sha256": "sha256:17bb9f02348ed37c0de64861cdefa2846d26fedba33f158c57ab23c6eb2ba76a"
+          },
+          "test": "TestActivationRechecksBothFinalFiles"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestRetirementClosesAdmissionUntilExactRecovery|TestMaintenanceFencesStartAndPreservesOpenAdmission|TestRetirementRecoversReceiptLastInterruption|TestOrphanPendingStateBlocksReclamation|TestLegacyAndForeignSourcesCannotAcquireCustody|TestActivationRechecksBothFinalFiles)$",
+        "./internal/packageinstall"
+      ],
+      "duration_seconds": 5.347,
+      "errors": [],
+      "exit_code": 0,
+      "id": "accordare-owner",
+      "module": "modules/accordare-stav-producer",
+      "owner": "accordare-stav-producer",
+      "package": "./internal/packageinstall",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/accordare-owner",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestActivationRechecksBothFinalFiles/existing-binary-parent",
+        "TestActivationRechecksBothFinalFiles/existing-receipt",
+        "TestActivationRechecksBothFinalFiles/fresh-binary-parent",
+        "TestActivationRechecksBothFinalFiles/fresh-receipt",
+        "TestOrphanPendingStateBlocksReclamation/intents-v1",
+        "TestOrphanPendingStateBlocksReclamation/outbox-v1",
+        "TestRetirementRecoversReceiptLastInterruption/binary-removed",
+        "TestRetirementRecoversReceiptLastInterruption/receipt-removed"
+      ],
+      "test_outcomes": {
+        "TestActivationRechecksBothFinalFiles": "pass",
+        "TestActivationRechecksBothFinalFiles/existing-binary-parent": "pass",
+        "TestActivationRechecksBothFinalFiles/existing-receipt": "pass",
+        "TestActivationRechecksBothFinalFiles/fresh-binary-parent": "pass",
+        "TestActivationRechecksBothFinalFiles/fresh-receipt": "pass",
+        "TestLegacyAndForeignSourcesCannotAcquireCustody": "pass",
+        "TestMaintenanceFencesStartAndPreservesOpenAdmission": "pass",
+        "TestOrphanPendingStateBlocksReclamation": "pass",
+        "TestOrphanPendingStateBlocksReclamation/intents-v1": "pass",
+        "TestOrphanPendingStateBlocksReclamation/outbox-v1": "pass",
+        "TestRetirementClosesAdmissionUntilExactRecovery": "pass",
+        "TestRetirementRecoversReceiptLastInterruption": "pass",
+        "TestRetirementRecoversReceiptLastInterruption/binary-removed": "pass",
+        "TestRetirementRecoversReceiptLastInterruption/receipt-removed": "pass"
+      },
+      "top_level_tests": [
+        "TestActivationRechecksBothFinalFiles",
+        "TestLegacyAndForeignSourcesCannotAcquireCustody",
+        "TestMaintenanceFencesStartAndPreservesOpenAdmission",
+        "TestOrphanPendingStateBlocksReclamation",
+        "TestRetirementClosesAdmissionUntilExactRecovery",
+        "TestRetirementRecoversReceiptLastInterruption"
+      ]
+    },
+    {
+      "artifacts": [
+        {
+          "path": "scoped-native-dispatch.jsonl",
+          "sha256": "sha256:ca31f86f95d14260cdbaf1f14898f388cd535d9d4987cb24d88954c9a0a77e43"
+        },
+        {
+          "path": "scoped-native-dispatch.stderr.log",
+          "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "cases": [
+        {
+          "acceptance": [
+            "D05-S16",
+            "D05-S18",
+            "D05-S26"
+          ],
+          "expected": "Retained exact controller has independent inode; changed carrier, symlink, hardlink refuse.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 18,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+            "sha256": "sha256:d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+          },
+          "test": "TestNativeControllerIndependentCustody"
+        },
+        {
+          "acceptance": [
+            "D05-S17",
+            "D05-S19",
+            "D05-S28"
+          ],
+          "expected": "Real executables of all three native owners install/remove in disposable shared roots; inherited parent lock persists; foreign claim and real caller descriptor retain bytes; sentinels and other claims survive.",
+          "oracle_kind": "real-owner-executables",
+          "source": {
+            "line": 90,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+            "sha256": "sha256:d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+          },
+          "test": "TestNativeOwnersSharedRootDispatch"
+        },
+        {
+          "acceptance": [
+            "D05-S19"
+          ],
+          "expected": "Only exact native routes and closed owner arguments are accepted.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 8,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_test.go",
+            "sha256": "sha256:4bd8a995a0c74339328c9b40aef3c4158f789011d292409012aa202fc6745844"
+          },
+          "test": "TestNativeOwnerBindingsAndClosedArguments"
+        },
+        {
+          "acceptance": [
+            "D05-S19"
+          ],
+          "expected": "Owner output is bounded.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 282,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+            "sha256": "sha256:d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+          },
+          "test": "TestNativeOwnerOutputIsBounded"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Recovery refuses replacement root lock.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 291,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+            "sha256": "sha256:d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+          },
+          "test": "TestNativeRecoveryRejectsReplacedRootLock"
+        },
+        {
+          "acceptance": [
+            "D05-S16"
+          ],
+          "expected": "Shared evidence inodes cannot prove completed native removal.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 310,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+            "sha256": "sha256:d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+          },
+          "test": "TestNativeOutcomeRejectsSharedEvidenceInodes"
+        },
+        {
+          "acceptance": [
+            "D05-S18"
+          ],
+          "expected": "Native recovery source/controller inside approved roots refuses.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 327,
+            "path": "tools/qxctl/internal/knowledgelifecycle/native_owner_unix_test.go",
+            "sha256": "sha256:d3a578e7c5866a904d6c0807f56c7902f1e7345b9117b5ce255eb3c3f7f201c9"
+          },
+          "test": "TestNativeSourcesMustSurviveScopedRemoval"
+        },
+        {
+          "acceptance": [
+            "D05-S09"
+          ],
+          "expected": "A channel confirms executor entry; competing executor refuses busy without callback; release admits next executor.",
+          "oracle_kind": "concurrency",
+          "source": {
+            "line": 142,
+            "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_test.go",
+            "sha256": "sha256:73dad59ef4feab45449239b1f56f292a59fe7d3c33d5c16a7c898c625f69c747"
+          },
+          "test": "TestExecutionLeaseSerializesWholeExternalExecution"
+        },
+        {
+          "acceptance": [
+            "D05-S09",
+            "D05-S17"
+          ],
+          "expected": "Scoped reconciliation preserves unrelated claims and refuses unknown adoption/fence repair.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 165,
+            "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_test.go",
+            "sha256": "sha256:73dad59ef4feab45449239b1f56f292a59fe7d3c33d5c16a7c898c625f69c747"
+          },
+          "test": "TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption"
+        },
+        {
+          "acceptance": [
+            "D05-S17"
+          ],
+          "expected": "One retained foreign claim blocks reclamation until complete release.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 10,
+            "path": "tools/qxctl/internal/knowledgelifecycle/ownership_test.go",
+            "sha256": "sha256:2f6b4bf964d58d3e6b8e0f3a5a248e4645602ec2a62fdbf6b17a4029f7ca44a4"
+          },
+          "test": "TestOwnershipNewRootEnforcesClaimsAndTwoProfileRetirement"
+        },
+        {
+          "acceptance": [
+            "D05-S09"
+          ],
+          "expected": "Unauthorized scoped action refuses before binding.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 225,
+            "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_test.go",
+            "sha256": "sha256:73dad59ef4feab45449239b1f56f292a59fe7d3c33d5c16a7c898c625f69c747"
+          },
+          "test": "TestScopedExecutorRejectsUnauthorizedActionBeforeBinding"
+        },
+        {
+          "acceptance": [
+            "D05-S28"
+          ],
+          "expected": "Scoped action projection protects unrelated desired fields.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 269,
+            "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_test.go",
+            "sha256": "sha256:73dad59ef4feab45449239b1f56f292a59fe7d3c33d5c16a7c898c625f69c747"
+          },
+          "test": "TestScopedActionProjectionProtectsUnrelatedFields"
+        },
+        {
+          "acceptance": [
+            "D05-S07"
+          ],
+          "expected": "Effect completion leaves selection pending; it is not global convergence.",
+          "oracle_kind": "refusal",
+          "source": {
+            "line": 312,
+            "path": "tools/qxctl/internal/knowledgelifecycle/execution_scope_test.go",
+            "sha256": "sha256:73dad59ef4feab45449239b1f56f292a59fe7d3c33d5c16a7c898c625f69c747"
+          },
+          "test": "TestScopedEffectCompletionLeavesSelectionPending"
+        }
+      ],
+      "command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-race",
+        "-json",
+        "-count=1",
+        "-timeout=10m",
+        "-run",
+        "^(TestNativeControllerIndependentCustody|TestNativeOwnersSharedRootDispatch|TestNativeOwnerBindingsAndClosedArguments|TestNativeOwnerOutputIsBounded|TestNativeRecoveryRejectsReplacedRootLock|TestNativeOutcomeRejectsSharedEvidenceInodes|TestNativeSourcesMustSurviveScopedRemoval|TestExecutionLeaseSerializesWholeExternalExecution|TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption|TestOwnershipNewRootEnforcesClaimsAndTwoProfileRetirement|TestScopedExecutorRejectsUnauthorizedActionBeforeBinding|TestScopedActionProjectionProtectsUnrelatedFields|TestScopedEffectCompletionLeavesSelectionPending)$",
+        "./internal/knowledgelifecycle"
+      ],
+      "duration_seconds": 19.585,
+      "errors": [],
+      "exit_code": 0,
+      "id": "scoped-native-dispatch",
+      "module": "tools/qxctl",
+      "owner": "qxctl",
+      "package": "./internal/knowledgelifecycle",
+      "scope_id": "S07/E1/local-macos-amd64-fixture/scoped-native-dispatch",
+      "skipped_tests": [],
+      "status": "passed",
+      "subtests": [
+        "TestNativeOwnersSharedRootDispatch/accordare-stav-producer",
+        "TestNativeOwnersSharedRootDispatch/secure-identity-access-governance",
+        "TestNativeOwnersSharedRootDispatch/stav-append-authority"
+      ],
+      "test_outcomes": {
+        "TestExecutionLeaseSerializesWholeExternalExecution": "pass",
+        "TestNativeControllerIndependentCustody": "pass",
+        "TestNativeOutcomeRejectsSharedEvidenceInodes": "pass",
+        "TestNativeOwnerBindingsAndClosedArguments": "pass",
+        "TestNativeOwnerOutputIsBounded": "pass",
+        "TestNativeOwnersSharedRootDispatch": "pass",
+        "TestNativeOwnersSharedRootDispatch/accordare-stav-producer": "pass",
+        "TestNativeOwnersSharedRootDispatch/secure-identity-access-governance": "pass",
+        "TestNativeOwnersSharedRootDispatch/stav-append-authority": "pass",
+        "TestNativeRecoveryRejectsReplacedRootLock": "pass",
+        "TestNativeSourcesMustSurviveScopedRemoval": "pass",
+        "TestOwnershipNewRootEnforcesClaimsAndTwoProfileRetirement": "pass",
+        "TestScopedActionProjectionProtectsUnrelatedFields": "pass",
+        "TestScopedEffectCompletionLeavesSelectionPending": "pass",
+        "TestScopedExecutorRejectsUnauthorizedActionBeforeBinding": "pass",
+        "TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption": "pass"
+      },
+      "top_level_tests": [
+        "TestExecutionLeaseSerializesWholeExternalExecution",
+        "TestNativeControllerIndependentCustody",
+        "TestNativeOutcomeRejectsSharedEvidenceInodes",
+        "TestNativeOwnerBindingsAndClosedArguments",
+        "TestNativeOwnerOutputIsBounded",
+        "TestNativeOwnersSharedRootDispatch",
+        "TestNativeRecoveryRejectsReplacedRootLock",
+        "TestNativeSourcesMustSurviveScopedRemoval",
+        "TestOwnershipNewRootEnforcesClaimsAndTwoProfileRetirement",
+        "TestScopedActionProjectionProtectsUnrelatedFields",
+        "TestScopedEffectCompletionLeavesSelectionPending",
+        "TestScopedExecutorRejectsUnauthorizedActionBeforeBinding",
+        "TestScopedOwnershipPreservesOtherClaimsAndRefusesImplicitAdoption"
+      ]
+    }
+  ],
+  "top_level_test_count": 76
+}

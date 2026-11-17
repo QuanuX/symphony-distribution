@@ -1,0 +1,271 @@
+{
+  "authority": "creator_process_live_object",
+  "evidence_level": "E1_real_conda_inert_carriers",
+  "file_binding_unchanged": true,
+  "file_sha256": {
+    "lifecycle/conda_transaction.py": "c63e29f61fd98b882bc0614909c4d6e4bcd229a2a02e8a01b2f79f3a145c4440",
+    "lifecycle/test_conda_faults.py": "f412295c87eba1e7454b79006717796da97f0c31e5a4f87900af725322821a38",
+    "lifecycle/test_conda_transaction.py": "94709a10726a5305e68385af227ffb459d242a92a59ac32a87ff54bef333457b",
+    "qualification/conda_campaign.py": "6236323c4320841f49249d3f3a0637ad0d3c7d1762af3b1950eb31323b8fbd0d",
+    "qualification/host_platform.py": "ae51553f92e450b2f49e49abdd1cd584026fe9b37db11a12fdadd46329e960d4",
+    "source-binding.json": "81f4f36a003fae15cada6ebc9d8f2e482cda2e29f4d97cbd245c7a64993207a9"
+  },
+  "host_acceptance": "not_run",
+  "logs": {
+    "tests.log": "f0b2ddc6670192086ef79cb89c0e9b792f8a2bef54cf2e35382b8fe2a5d2c0ac",
+    "worker.log": "17a7db78c17595c20fa66614c08989c32fec5a4a3bde26f59bd498226fee7d2e"
+  },
+  "observed_host": {
+    "architecture": "amd64",
+    "distribution": "macos",
+    "system": "darwin",
+    "version": "26.7.1",
+    "wsl": false
+  },
+  "protocol": "symphony.distribution.conda-fault-campaign.v1",
+  "publisher_acceptance": "not_run",
+  "recovery": "Fault fixture sources and interrupted attempts remain under private-attempts; no reopen or replay is supported. Prior transaction fixtures are disposable. Raw logs and private attempts are not package payloads.",
+  "runtime_activation": false,
+  "scope": "new_private_attempts_only",
+  "source_binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "status": "passed",
+  "tests": {
+    "cases": [
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_archive_hook_and_escape_refused_before_extraction"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_cache_cleanup_lost_acknowledgement_never_retries"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_cache_cleanup_refuses_installed_package_and_external_cache"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_carrier_source_deletion_and_private_channel_tamper"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_execution_lost_outcome_retained_and_never_retried"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_existing_attempt_and_symlink_refused_without_touching_sentinel"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_foreign_destination_hook_preserved_but_never_executed"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_full_delta_cannot_authorize_runtime_dependency_or_prepared_metadata_change"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_missing_expected_unlink_and_foreign_collision_refused"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_prepared_extra_action_refused_before_execute"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_real_cache_cleanup_keeps_retained_copy_and_foreign_sentinels"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_real_install_update_swap_rollback_remove_preserves_sentinels"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_repodata_hash_tamper_refused_and_evidence_retained"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_transaction.Transactions.test_unreviewed_dependency_delta_refused_before_execution"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_changed_or_missing_installed_payload_refuses_rollback (damage='tamper')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_changed_or_missing_installed_payload_refuses_rollback (damage='missing')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_changed_or_missing_installed_payload_refuses_rollback (damage='hardlink')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_changed_or_missing_installed_payload_refuses_rollback (damage='symlink')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_changed_or_missing_installed_payload_refuses_rollback"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_competing_threads_reach_guard_without_poisoning_active_operation"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_custody_replacement_after_real_prepare_refuses_before_execution (target='prefix')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_custody_replacement_after_real_prepare_refuses_before_execution (target='owner.lock')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_custody_replacement_after_real_prepare_refuses_before_execution (target='channel')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_custody_replacement_after_real_prepare_refuses_before_execution (target='cache')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_custody_replacement_after_real_prepare_refuses_before_execution (target='evidence')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_custody_replacement_after_real_prepare_refuses_before_execution"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_damaged_retained_rollback_archive_never_changes_installed_replacement (damage='truncated')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_damaged_retained_rollback_archive_never_changes_installed_replacement (damage='missing')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_damaged_retained_rollback_archive_never_changes_installed_replacement"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_early_create_failure_retains_root_and_releases_only_its_lock (fault='lock')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_early_create_failure_retains_root_and_releases_only_its_lock (fault='directory')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_early_create_failure_retains_root_and_releases_only_its_lock (fault='manifest')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_early_create_failure_retains_root_and_releases_only_its_lock"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_foreign_metadata_claim_blocks_removal_without_touching_foreign_state"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_fork_inheritance_does_not_transfer_live_attempt_authority"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_independent_processes_racing_same_new_root_have_one_effect"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_intent_write_failure_poisoned_before_any_manager_effect"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_kill_after_execution_marker_before_effect_retains_uncertainty"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_kill_after_real_execution_before_ack_retains_uncertainty"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_kill_after_validation_before_execution_retains_unreopenable_attempt"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_kill_during_real_unlink_preserves_partial_state_without_replay"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_lock_hardlink_and_reused_descriptor_refuse_before_execution (fault='hardlink')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": true,
+        "test": "test_conda_faults.CondaFaults.test_lock_hardlink_and_reused_descriptor_refuse_before_execution (fault='descriptor')"
+      },
+      {
+        "outcome": "pass",
+        "subtest": false,
+        "test": "test_conda_faults.CondaFaults.test_lock_hardlink_and_reused_descriptor_refuse_before_execution"
+      }
+    ],
+    "errors": 0,
+    "expected_tests": 28,
+    "failures": 0,
+    "required_case_coverage": true,
+    "skipped": 0,
+    "status": "passed",
+    "tests_run": 28
+  },
+  "tools": {
+    "conda": "26.10.0",
+    "conda-build": "26.9.1",
+    "python": "3.12.16"
+  },
+  "worker_exit_code": 0
+}

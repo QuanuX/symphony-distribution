@@ -1,0 +1,42 @@
+{
+  "evidence_level": "E1_host_inventory_only",
+  "fresh_host_acceptance": "incomplete",
+  "host_activation_performed": false,
+  "observed_host": {
+    "architecture": "amd64",
+    "distribution": "macos",
+    "system": "darwin",
+    "version": "26.7.1",
+    "wsl": false
+  },
+  "physical_hardware_qualified": false,
+  "profile_matches": true,
+  "protocol": "symphony.distribution.platform-inventory.v1",
+  "publisher_acceptance": "not_run",
+  "requested_profile": "local-macos-amd64-fixture",
+  "service_manager": {
+    "acceptance": "not_run",
+    "activation_performed": false,
+    "availability": "observed",
+    "manager": "launchd",
+    "scopes": [
+      {
+        "exit_code": 0,
+        "scope": "user",
+        "state": "accessible"
+      },
+      {
+        "exit_code": 0,
+        "scope": "gui",
+        "state": "accessible"
+      },
+      {
+        "exit_code": 0,
+        "scope": "system",
+        "state": "accessible"
+      }
+    ]
+  },
+  "supplemental": true,
+  "system_provisioning_performed": false
+}
