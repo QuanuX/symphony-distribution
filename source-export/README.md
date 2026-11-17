@@ -1,5 +1,12 @@
 # Reviewed corresponding-source preparation
 
+The published **0.2.0-beta.1** supplies corresponding source as a separate Conda
+package and per-platform source archive. See the
+[installation guide](../docs/BETA-INSTALL.md) and
+[publication evidence](../evidence/d14-publication.json). This page documents the
+source-preparation tool and its earlier selected proof; release acceptance is
+established by the separately bound final artifact records.
+
 This S08 exporter updates the earlier D03 source preparation to the exact core
 commit/tree in `source-binding.json`. It reads original Git blobs, never copies
 developer build directories, caches, runtime state or Git history. It leaves
@@ -69,8 +76,9 @@ python3 source-export/check_go_source.py \
 This proof does not replace qxctl's original two-build identity recipe or stamp
 the original Git tree onto a transformed source archive. It does not qualify
 all C++/Swift/native roots, installed SDK consumers, other platforms or final
-downloaded bytes. Those D06/D10 gates and corresponding-source/notices review
-remain open. Source fixtures must never seed a recipient's runtime knowledge,
+downloaded bytes. Those checks require their separate D06/D10 and final release
+evidence; this earlier source-build proof does not establish them. Source fixtures
+must never seed a recipient's runtime knowledge,
 credentials, hardware identity or application profiles.
 
 Portable results: [source/export binding](../evidence/s08-source-export.json)

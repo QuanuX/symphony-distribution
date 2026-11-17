@@ -1,5 +1,12 @@
 # Exact package handoff preparation
 
+For the shipped **0.2.0-beta.1** carriers, start with
+[beta installation and maintenance](../docs/BETA-INSTALL.md) and
+[binary retention](../delivery/README.md). This lower-level handoff protocol
+remains available for its exact selected inputs; it must not be pointed at the
+three-file beta carriers. The current beta qualifies packaging revision 0→1→0
+and same-candidate recovery, not transitions between distinct native releases.
+
 For the supported carrier commands, ownership stages and explicit maintenance
 flows, start with the [delivery guide](../docs/DELIVERY.md). This document covers
 the lower-level proposal inputs. [Recovery guidance](../docs/RECOVERY.md) keeps

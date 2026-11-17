@@ -1,80 +1,85 @@
 # Symphony Public Beta distribution
 
-Symphony **0.2.0-beta.1** is available through QuanuX/beta on Anaconda and the
-[Cloudflare download service](https://downloads.quanux.org/symphony/0.2.0-beta.1/docs/BETA-INSTALL.md).
-Start with the [installation and verification guide](docs/BETA-INSTALL.md).
-The [publication record](evidence/d14-publication.json) binds all 240 published
-packages and 304 freshly verified download objects to the signed release.
+Symphony **0.2.0-beta.1** is published through **QuanuX/beta on Anaconda** and
+Cloudflare downloads. Start with the [release page and platform downloads](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1)
+and the [installation and verification guide](docs/BETA-INSTALL.md).
+The [publication record](evidence/d14-publication.json) binds 240 published
+packages and 304 verified download objects to the signed release.
 
-The four supported profiles are macOS 15 Apple Silicon, Ubuntu 24.04 AMD64,
-Ubuntu 24.04 ARM64, and Ubuntu 26.04 AMD64. Each has 59 independent default
-packages plus optional corresponding source. Native and SDK bytes come from the
-selected clean CI builds. User profiles and host state are created locally.
+## Install the published beta
 
-Supported beta qualification includes 88 Codex cases, 204 native owner receipts,
-728 packaging maintenance transactions, four shell/first-use campaigns, and the
-native Mac home installer. Publisher legal approval and acceptance are recorded
-in the [bound decision](evidence/d14-publisher-decision.json). The release uses a
-pinned, self-signed detached publisher signature; Apple Developer ID,
-notarization, and separate human-reviewer independence are not claimed. Packaging
-revision upgrade/rollback and same-candidate recovery are qualified; a transition
-between two different native releases remains outside this initial beta.
+| Supported profile | Standalone installers | Package selection |
+| --- | --- | --- |
+| macOS 15 Apple Silicon | `.pkg` and `.sh` | `macos15-arm64` |
+| Ubuntu 24.04 AMD64 | `.sh` | `ubuntu24.04-amd64` |
+| Ubuntu 24.04 ARM64 | `.sh` | `ubuntu24.04-arm64` |
+| Ubuntu 26.04 AMD64 | `.sh` | `ubuntu26.04-amd64` |
 
-The milestone sections below retain their historical preparation status. The
-publication record above is the current release result. Core main, client main,
-and this repository's default branch remain unchanged; the feature freeze stays
-in place.
+Each profile supplies 59 independently maintainable default packages and a
+separate optional corresponding-source package. SDK headers, libraries and
+exports stay with their module owners. Native and SDK bytes come from the
+selected clean CI builds; user profiles, credentials, hardware knowledge and
+workflow state are created on the recipient's system.
 
-## Preparation and historical milestones
+Verify the detached signature and exact platform package list before installing.
+The [installation guide](docs/BETA-INSTALL.md) covers both standalone and existing
+Conda routes, first-use retention, Codex setup, and per-module install, change,
+swap and removal. Select the exact operating-system profile; the two AMD64 Linux
+cohorts share a Conda subdirectory but are different qualified builds.
 
-This repository contains source-bound packaging and qualification tools for Symphony Public Beta. It is separate from [Symphony core](https://github.com/QuanuX/Symphony). It does not publish packages, choose an application module, start services, or change an existing installation automatically.
+Packages contain inert carrier files. Existing Symphony owners retain control
+of runtime files, credentials, process retirement and application selection;
+Maestro's selection is separate from package delivery. Independent retained
+copies outside Conda prefixes and caches survive carrier upgrade or removal.
+Installing packages does not activate services or select application modules.
 
-The reviewed core commit and source-file hashes are in `source-binding.json`. The current seven Go delivery routes are in `go-owner-catalog.json`. Clean build identities must match that exact source and the pinned Go 1.26.5 recipes. A passing local fixture is not publisher trust, fresh-host acceptance, or permission to upload.
+## Qualified scope and trust
 
-Conda owns inert carrier files. Existing Symphony and host owners retain control of runtime files, profiles, credentials, selection, and process retirement. Runtime and rollback files are independent copies outside Conda prefixes and caches. Carrier removal cannot remove them. Python and Conda are preparation tools; these Go carriers introduce no runtime Python dependency.
+Completed release qualification includes 88 actual Codex cases, 204 native
+owner receipts, 728 packaging maintenance transactions, four shell/first-use
+campaigns, and installation/removal of the exact native Mac home installer.
+The [publisher decision](evidence/d14-publisher-decision.json) records legal
+approval and acceptance; the [publication evidence](evidence/d14-publication.json)
+records the selected artifacts and public retrieval results.
 
-## S06 supported boundary
+This beta uses a pinned, self-signed detached publisher signature. Apple
+Developer ID, notarization, Gatekeeper acceptance and separate human-reviewer
+independence are not claimed. Packaging revision **0→1→0** upgrade/rollback,
+independent carrier changes and same-candidate recovery are qualified.
+Transitions between distinct native releases remain outside this initial beta.
+Unsupported ownership, uncertain effects and unexamined live consumers retain
+their existing refusal and recovery boundaries.
 
-| Journey | Implemented boundary |
+The feature freeze remains in force. Integration into `main` consolidates the
+reviewed release fixes and documentation; it does not add features or alter the
+published release. The tag and signed artifact identities are immutable. Later
+builds or documentation commits do not replace the selected release bytes.
+Website integration remains a later presentation step; the release page and
+Cloudflare downloads are available now.
+
+## Engineering and maintenance
+
+This repository is separate from [Symphony core](https://github.com/QuanuX/Symphony).
+The exact reviewed core commit and source-file hashes remain in
+[source-binding.json](source-binding.json); the seven Go delivery routes remain
+in [go-owner-catalog.json](go-owner-catalog.json). Builds must match these bindings
+and the pinned Go 1.26.5 recipes, even after their source branches merge to main.
+A passing fixture or a new build is not automatic publication authority.
+
+| Area | Guide |
 | --- | --- |
-| Install | Verified archives into a new private delivery prefix; explicit independent retention; the three recognized service owners may create a fresh stopped user installation. |
-| Upgrade | Exact package build replacement with the complete Conda LINK/UNLINK set checked; old runtime and recovery files remain independent. |
-| Swap | Explicit carrier replacement with unrelated packages preserved. Existing user-authorized application selection remains a separate owner operation. |
-| Remove | Exact carrier removal; runtime removal requires a separately reviewed native-owner scope. Unknown, raw, active, shared, or unsupported use is not erased. |
-| Rollback | Exact old archive restored from retained local input; fresh runtime restoration uses independently retained bytes through the existing owner. No automatic replay after an uncertain outcome. |
+| End-user installation and independent modules | [Beta installation](docs/BETA-INSTALL.md) |
+| Retained binaries and explicit first use | [Retention](delivery/README.md) |
+| Scoped native proposals and uncertain effects | [Lifecycle](lifecycle/README.md), [recovery](docs/RECOVERY.md) |
+| Clean native/SDK builds | [Build cohort](build-cohort/README.md) |
+| Source export and privacy | [Source preparation](source-export/README.md) |
+| Installer assembly and signing | [Installer tools](installer_assembly/README.md) |
+| Exact signed publication and retrieval | [Channel tools](channel/README.md) |
+| Fault, platform and SDK qualification | [Qualification](qualification/README.md) |
+| Preserved requirements and original acceptance mapping | [Dossier](dossier/README.md) |
 
-The Conda adapter accepts only prefixes it creates inside a fresh private attempt. It validates the complete solved transaction and the prepared actions, then executes that same transaction object. It does **not** claim exclusion against arbitrary concurrent Conda clients in existing environments. The adapter pins Conda 26.10.0 because it checks that implementation's transaction behavior. Conda's ordinary preview and a later install/remove invocation are not an atomic authorization boundary.
-
-After exact carrier removal, an empty owned prefix may request normal cleanup of its private Conda cache. Global caches and existing environments are outside that operation. Completed local checks and remaining gates are recorded in [the S06 qualification report](evidence/RESULTS.md).
-
-S07 adds process-bound attempt authority, concurrent-call exclusion, custody
-identity checks and focused crash/recovery evidence. The [S07 campaign guide](qualification/README.md)
-maps the fault cases to acceptance requirements and the four requested CI
-platforms. It explicitly separates source/owner fixtures from real-manager and
-fresh-host acceptance.
-
-The current [S08 dossier](dossier/README.md) binds the corrected core source,
-seven Go owners, retained beta requirements, rebuilt carriers and reviewed
-source export. Start with the [delivery guide](docs/DELIVERY.md) for supported
-preparation commands and the [recovery guide](docs/RECOVERY.md) for interrupted
-or uncertain operations. [S08 results](evidence/S08-RESULTS.md) distinguish
-reconstructed payloads from pending D06/D10 release acceptance.
-
-| Go delivery | Runtime owner |
-| --- | --- |
-| SSIAG | `symphony-ssiag package`; native user receipt and retirement fence |
-| STAV append authority | `symphony-stav-append-authority`; native user receipt and retirement fence |
-| Accordare STAV producer | `symphony-accordare-stav-producer`; native user receipt and retirement fence |
-| qxctl | Explicit executable/client selection; Linux host ownership remains separate |
-| SSH adapter | Exact endpoint and invocation; protected transport provisioning remains separate |
-| stdio adapter | Exact target configuration and invocation; outstanding jobs require their owner |
-| transport profile administrator | Inert carrier only; fixed protected-path provisioning remains separate |
-
-The broader historical owner inventory under `owner-catalog/catalog.json` is retained for compatibility and refusal checks. Its recorded source revision is historical; it does not qualify the remaining native/C++ units for safe live removal. No legacy build directories or machine-specific prototype inputs are included here.
-
-## Run focused qualification
-
-Use Python 3.11 or later for the standard-library contract tests. Select a clean checkout containing the exact bound core commit:
+For focused standard-library tests, use Python 3.11 or later and a clean checkout
+of the exact bound core commit:
 
 ```sh
 export SYMPHONY_SCOPE_TEST_SOURCE=/absolute/core-checkout
@@ -84,96 +89,30 @@ python3 -m unittest discover -s lifecycle -p 'test_go_delivery.py'
 python3 -m unittest discover -s lifecycle -p 'test_handoff.py'
 ```
 
-For real Conda archive and transaction qualification, use an isolated publisher environment with Python 3.12, Conda 26.10.0, and conda-build 26.9.1. Run the archive and transaction test modules with that environment's exact Python executable. No account login or upload token is needed. Preserve failed attempt directories for inspection; choose a new output directory only after resolving the recorded failure.
+Real Conda qualification uses an isolated publisher environment with Python
+3.12, Conda 26.10.0 and conda-build 26.9.1. Choose fresh output directories and
+preserve failed attempts for inspection. The adapter validates the complete
+LINK/UNLINK set and executes the same prepared transaction in its private attempt;
+it does not claim exclusion against unrelated clients of existing environments.
 
-Build all seven candidates with the existing core build recipes. qxctl requires the two-build reproducibility gate. Verify `tests/launch-acceptance/check-go-candidate-closure.sh` in core before packaging. Then:
+## Historical milestone records
 
-```sh
-python tests/conda_journeys.py prepare \
-  --go-root /absolute/go-candidate-build \
-  --qxctl-root /absolute/qxctl-reproducible-build \
-  --output /absolute/new-prepared \
-  --profile local-macos-amd64-fixture --fixture
-python tests/conda_journeys.py build \
-  --prepared /absolute/new-prepared --output /absolute/new-archives
-python tests/conda_journeys.py run \
-  --archives /absolute/new-archives --output /absolute/new-journey
-```
+These records preserve the evidence and unresolved inputs observed at each
+milestone. Their historical pending gates do not override the current
+[publication result](evidence/d14-publication.json), and completed release
+qualification does not expand their narrower fixture claims.
 
-This local harness explicitly uses the supplemental Intel macOS fixture profile. Its two packaging builds retain the same real native versions. It cannot satisfy two-native-release acceptance or physical beta-platform qualification. It does not change global PATH, client configuration, supervisors, Anaconda channels, Cloudflare storage, or production trust.
-
-## Distribution and remaining gates
-
-Conda review packages are staged under the QuanuX organization on Anaconda's
-dedicated review label. macOS `.pkg` and Linux `.sh` downloads remain intended
-for Cloudflare storage and the website. Publication requires explicit selection;
-repository checks do not promote review artifacts to a beta release.
-
-Remaining release gates include genuine two-version compatibility where available; real supported-host journeys; complete native/C++ and raw-consumer retirement coverage; external/shared ownership and pending-work recovery; final clean CI builds; publisher signing and trust; license/redistribution review; and approved publication. Installation preparation must never promote a refused or untested cell into acceptance.
-
-Conda behavior references: [create](https://docs.conda.io/projects/conda/en/stable/commands/create.html), [remove](https://docs.conda.io/projects/conda/en/stable/commands/remove.html), and [package metadata](https://docs.conda.io/projects/conda-build/en/stable/resources/define-metadata.html). Pinned local source inspection and executable tests provide the transaction evidence; documentation alone does not establish safe runtime removal.
-
-## D07 client gate
-
-The [D07 client handoff](docs/D07-CLIENT-GATE.md) and [source-bound results](evidence/D07-RESULTS.md) record clean client packaging, all existing adapters maintained and 22 passing actual Codex cases on the exact retained D06 candidate. The separate distribution verifier preserves the unavailable embedded-source-stamp gate; final-platform, channel, trust and fresh-host acceptance remain open. Neither main branch is changed.
-
-## D08 source identity and review installers
-
-The [D08 handoff](docs/D08-INSTALLER-ASSEMBLY.md) and [retained results](evidence/D08-RESULTS.md) close qxctl's embedded-source identity defect and bind the refreshed client to the repaired bytes. The review delivery has 59 independent default carriers, a separate optional source package, and same-cohort supplemental Intel macOS PKG/SH wrappers. Source and native ownership remain explicit; self-signed review integrity does not establish Apple trust or release acceptance. See the results for focused tests, exact artifact proofs and remaining release gates.
-
-## D09 review delivery and release gates
-
-The [D09 status](docs/D09-STATUS.md) records 60 immutable review packages staged
-under QuanuX and freshly retrieved without account credentials. The corresponding
-source is available before binary carriers. The [channel tools](channel/README.md)
-keep public review staging separate from beta approval, and the
-[independent review packet](docs/D09-ACCEPTANCE.md) preserves exact source,
-notice, trust and integration boundaries. Four primary-profile workflows have
-been dispatched without waiting for results; [native maintenance](docs/D09-NATIVE-MAINTENANCE.md)
-and real cross-version transitions retain their separate safety gates.
-
-## D10 selected Mac qualification
-
-The [D10 status](docs/D10-STATUS.md) records the primary-workflow setup repair,
-the corrected and separately signed Mac wrappers, and the successful actual
-shell-installer check: 59 packages, 177 matching carrier files, safe refusal and
-named removal with caller-state preservation. The [legal handoff](docs/D10-LEGAL-REVIEW.md)
-records the release owner's reviewer assignment and exact materials for a later
-decision. The [wrapper-only follow-up](docs/D10-PRIMARY-REWRAP.md) now retains
-native bytes and completed carriers before later gates, verifies exact artifact
-selections, and separates wrapper repair from the original build. The inspected
-older runs retained reports only; recovery producer runs must supply real
-capsules before primary wrapper-only execution can qualify them.
-Native PKG execution, full native maintenance, genuine version transitions and
-the broader Public Beta acceptance gate remain open.
-
-## D11 primary artifact admission and remaining gates
-
-The [artifact admission helper](docs/D11-ARTIFACT-SELECTION.md) validates a
-completed carrier ZIP, explicit source and artifact pins, and saved transport
-metadata before producing a wrapper-only selection. Hosted execution rechecks
-GitHub metadata and the selected bytes. Unfinished runs and report-only archives
-cannot become installer inputs.
-
-The [primary maintenance helper](qualification/d11_native_maintenance.md) prepares
-the existing 51-owner refusal, removal and same-candidate recovery campaign for
-a selected primary capsule in a new disposable prefix. It does not grant live
-retirement, native installation, distinct-version rollback or release acceptance.
-The [D11 status](docs/D11-STATUS.md) separates prepared checks from actual runs.
-
-The [remaining-gate handoff](docs/D11-REMAINING-GATES.md) and
-[human review template](evidence/templates/d11-human-review.json) bind review
-materials and identify the required client/fresh-host, native installer, version
-transition, integration, recognized trust and independent review evidence.
-Historical passing artifacts, source identities and unfilled decisions remain
-explicit; feature work and changes to main remain frozen.
-
-The [retained native recovery increment](docs/D12-NATIVE-RECOVERY.md) fixes the
-fresh-build carrier handoff and prepares wrapper qualification from verified
-primary artifacts, preserving original native/SDK provenance without a new
-native build. Its engineering status does not close the release-decision gate.
-
-The [primary host/client increment](docs/D13-FRESH-HOST-CLIENT.md) repairs the
-bootstrap archive lookup and starts separate disposable native-owner and Codex
-qualification from exact retained platform artifacts. Main remains unchanged;
-dispatches and focused checks are distinct from final acceptance.
+| Milestone | Retained record |
+| --- | --- |
+| S06 guarded Conda journeys | [Results](evidence/RESULTS.md), [preparation commands](docs/DELIVERY.md) |
+| S07 fault and concurrency fixtures | [Campaign and acceptance mapping](qualification/README.md) |
+| S08 dossier and source delivery | [Results](evidence/S08-RESULTS.md), [dossier](dossier/README.md) |
+| D06 clean native and SDK cohort | [Results](evidence/D06-RESULTS.md), [build guide](docs/D06-CLEAN-COHORT.md) |
+| D07 client packaging | [Results](evidence/D07-RESULTS.md), [handoff](docs/D07-CLIENT-GATE.md) |
+| D08 embedded-source repair and review installers | [Results](evidence/D08-RESULTS.md), [handoff](docs/D08-INSTALLER-ASSEMBLY.md) |
+| D09 review delivery | [Status](docs/D09-STATUS.md), [acceptance packet](docs/D09-ACCEPTANCE.md) |
+| D10 wrapper qualification | [Status](docs/D10-STATUS.md), [wrapper provenance](docs/D10-PRIMARY-REWRAP.md) |
+| D11 artifact admission | [Status](docs/D11-STATUS.md), [selection rules](docs/D11-ARTIFACT-SELECTION.md) |
+| D12 retained native recovery | [Handoff](docs/D12-NATIVE-RECOVERY.md) |
+| D13 fresh-host/client qualification | [Handoff](docs/D13-FRESH-HOST-CLIENT.md) |
+| D14 beta assembly and publication | [Hosted qualification](evidence/d14-beta-hosted-qualification.json), [publication](evidence/d14-publication.json) |
