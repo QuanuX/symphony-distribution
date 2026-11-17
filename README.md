@@ -1,4 +1,31 @@
-# Symphony distribution preparation
+# Symphony Public Beta distribution
+
+Symphony **0.2.0-beta.1** is available through QuanuX/beta on Anaconda and the
+[Cloudflare download service](https://downloads.quanux.org/symphony/0.2.0-beta.1/docs/BETA-INSTALL.md).
+Start with the [installation and verification guide](docs/BETA-INSTALL.md).
+The [publication record](evidence/d14-publication.json) binds all 240 published
+packages and 304 freshly verified download objects to the signed release.
+
+The four supported profiles are macOS 15 Apple Silicon, Ubuntu 24.04 AMD64,
+Ubuntu 24.04 ARM64, and Ubuntu 26.04 AMD64. Each has 59 independent default
+packages plus optional corresponding source. Native and SDK bytes come from the
+selected clean CI builds. User profiles and host state are created locally.
+
+Supported beta qualification includes 88 Codex cases, 204 native owner receipts,
+728 packaging maintenance transactions, four shell/first-use campaigns, and the
+native Mac home installer. Publisher legal approval and acceptance are recorded
+in the [bound decision](evidence/d14-publisher-decision.json). The release uses a
+pinned, self-signed detached publisher signature; Apple Developer ID,
+notarization, and separate human-reviewer independence are not claimed. Packaging
+revision upgrade/rollback and same-candidate recovery are qualified; a transition
+between two different native releases remains outside this initial beta.
+
+The milestone sections below retain their historical preparation status. The
+publication record above is the current release result. Core main, client main,
+and this repository's default branch remain unchanged; the feature freeze stays
+in place.
+
+## Preparation and historical milestones
 
 This repository contains source-bound packaging and qualification tools for Symphony Public Beta. It is separate from [Symphony core](https://github.com/QuanuX/Symphony). It does not publish packages, choose an application module, start services, or change an existing installation automatically.
 
@@ -77,7 +104,10 @@ This local harness explicitly uses the supplemental Intel macOS fixture profile.
 
 ## Distribution and remaining gates
 
-Conda packages are intended for the QuanuX organization on Anaconda. macOS `.pkg` and Linux `.sh` downloads are intended for Cloudflare storage and the website. Neither destination is activated by this repository.
+Conda review packages are staged under the QuanuX organization on Anaconda's
+dedicated review label. macOS `.pkg` and Linux `.sh` downloads remain intended
+for Cloudflare storage and the website. Publication requires explicit selection;
+repository checks do not promote review artifacts to a beta release.
 
 Remaining release gates include genuine two-version compatibility where available; real supported-host journeys; complete native/C++ and raw-consumer retirement coverage; external/shared ownership and pending-work recovery; final clean CI builds; publisher signing and trust; license/redistribution review; and approved publication. Installation preparation must never promote a refused or untested cell into acceptance.
 
@@ -90,3 +120,60 @@ The [D07 client handoff](docs/D07-CLIENT-GATE.md) and [source-bound results](evi
 ## D08 source identity and review installers
 
 The [D08 handoff](docs/D08-INSTALLER-ASSEMBLY.md) and [retained results](evidence/D08-RESULTS.md) close qxctl's embedded-source identity defect and bind the refreshed client to the repaired bytes. The review delivery has 59 independent default carriers, a separate optional source package, and same-cohort supplemental Intel macOS PKG/SH wrappers. Source and native ownership remain explicit; self-signed review integrity does not establish Apple trust or release acceptance. See the results for focused tests, exact artifact proofs and remaining release gates.
+
+## D09 review delivery and release gates
+
+The [D09 status](docs/D09-STATUS.md) records 60 immutable review packages staged
+under QuanuX and freshly retrieved without account credentials. The corresponding
+source is available before binary carriers. The [channel tools](channel/README.md)
+keep public review staging separate from beta approval, and the
+[independent review packet](docs/D09-ACCEPTANCE.md) preserves exact source,
+notice, trust and integration boundaries. Four primary-profile workflows have
+been dispatched without waiting for results; [native maintenance](docs/D09-NATIVE-MAINTENANCE.md)
+and real cross-version transitions retain their separate safety gates.
+
+## D10 selected Mac qualification
+
+The [D10 status](docs/D10-STATUS.md) records the primary-workflow setup repair,
+the corrected and separately signed Mac wrappers, and the successful actual
+shell-installer check: 59 packages, 177 matching carrier files, safe refusal and
+named removal with caller-state preservation. The [legal handoff](docs/D10-LEGAL-REVIEW.md)
+records the release owner's reviewer assignment and exact materials for a later
+decision. The [wrapper-only follow-up](docs/D10-PRIMARY-REWRAP.md) now retains
+native bytes and completed carriers before later gates, verifies exact artifact
+selections, and separates wrapper repair from the original build. The inspected
+older runs retained reports only; recovery producer runs must supply real
+capsules before primary wrapper-only execution can qualify them.
+Native PKG execution, full native maintenance, genuine version transitions and
+the broader Public Beta acceptance gate remain open.
+
+## D11 primary artifact admission and remaining gates
+
+The [artifact admission helper](docs/D11-ARTIFACT-SELECTION.md) validates a
+completed carrier ZIP, explicit source and artifact pins, and saved transport
+metadata before producing a wrapper-only selection. Hosted execution rechecks
+GitHub metadata and the selected bytes. Unfinished runs and report-only archives
+cannot become installer inputs.
+
+The [primary maintenance helper](qualification/d11_native_maintenance.md) prepares
+the existing 51-owner refusal, removal and same-candidate recovery campaign for
+a selected primary capsule in a new disposable prefix. It does not grant live
+retirement, native installation, distinct-version rollback or release acceptance.
+The [D11 status](docs/D11-STATUS.md) separates prepared checks from actual runs.
+
+The [remaining-gate handoff](docs/D11-REMAINING-GATES.md) and
+[human review template](evidence/templates/d11-human-review.json) bind review
+materials and identify the required client/fresh-host, native installer, version
+transition, integration, recognized trust and independent review evidence.
+Historical passing artifacts, source identities and unfilled decisions remain
+explicit; feature work and changes to main remain frozen.
+
+The [retained native recovery increment](docs/D12-NATIVE-RECOVERY.md) fixes the
+fresh-build carrier handoff and prepares wrapper qualification from verified
+primary artifacts, preserving original native/SDK provenance without a new
+native build. Its engineering status does not close the release-decision gate.
+
+The [primary host/client increment](docs/D13-FRESH-HOST-CLIENT.md) repairs the
+bootstrap archive lookup and starts separate disposable native-owner and Codex
+qualification from exact retained platform artifacts. Main remains unchanged;
+dispatches and focused checks are distinct from final acceptance.

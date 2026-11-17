@@ -1,0 +1,146 @@
+name: D14 native Apple beta installer qualification
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - '.github/workflows/d14-native-pkg.yml'
+      - 'qualification/d14_pkg.py'
+      - 'qualification/test_d14_pkg.py'
+      - 'installer_assembly/beta_signing.py'
+      - 'installer_assembly/test_beta_signing.py'
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Committed evidence/beta-selections/*.json selecting one completed macOS beta assembly
+        type: string
+        required: true
+      selection_sha256:
+        description: Independently selected JSON SHA256
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: d14-native-pkg-${{ github.ref }}-${{ inputs.selection || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check native installer safety boundaries
+        run: |
+          python3 -B -m unittest qualification.test_d14_pkg -v
+          python3 -B -m unittest discover -s installer_assembly -p test_beta_signing.py -v
+      - name: Check committed macOS beta selection
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          SELECTION: ${{ inputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, re, subprocess
+          from qualification.beta_artifacts import validate_selection
+          name = os.environ['SELECTION']
+          assert re.fullmatch(r'evidence/beta-selections/[a-z0-9][a-z0-9._-]*\.json', name)
+          assert pathlib.Path(name).read_bytes() == subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
+          selected = validate_selection(pathlib.Path(name), os.environ['SELECTION_SHA256'])
+          assert selected['profile'] == 'macos15-arm64' and set(selected['artifacts']) == {'beta'}
+          PYCODE
+  native-pkg:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: macos-15
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      actions: read
+    env:
+      SELECTION: ${{ inputs.selection }}
+      SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve exact completed beta assembly
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B qualification/beta_artifacts.py fetch --selection "$SELECTION" \
+            --selection-sha256 "$SELECTION_SHA256" --output "$RUNNER_TEMP/d14-pkg-input" --gh "$(command -v gh)"
+      - name: Prepare isolated inspection tools
+        run: python3 -B qualification/d09_platform_tools.py --profile macos15-arm64 --output "$RUNNER_TEMP/d14-pkg-tools"
+      - name: Admit exact beta assembly and installer pins
+        id: admission
+        run: |
+          "$RUNNER_TEMP/d14-pkg-tools/publisher/bin/python" -B - <<'PYCODE'
+          import json, os, pathlib
+          from qualification import beta_artifacts as transport
+          from qualification import d14_pkg as gate
+          from installer_assembly.beta import admit_candidate
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          proof = transport.admit(root / 'd14-pkg-input', pathlib.Path(os.environ['SELECTION']), os.environ['SELECTION_SHA256'])
+          selected = proof['selection']['artifacts']['beta']
+          artifact = root / 'd14-pkg-input/artifacts/beta'
+          result, cohort, _ = admit_candidate(artifact, selected['result_sha256'])
+          audit = gate.c.document(artifact / 'wrappers/result.json')
+          rows = [r for r in audit['wrappers'] if r['format'] == 'pkg']
+          assert len(rows) == 1
+          row = gate.select_pkg(cohort, audit, rows[0]['sha256'])
+          pins = {'cohort_sha256': result['cohort_sha256'], 'wrapper_result_sha256': result['wrappers_result_sha256'], 'pkg_sha256': row['sha256']}
+          assert gate.signing.digest(artifact / 'carriers/cohort.json') == pins['cohort_sha256']
+          assert gate.signing.digest(artifact / 'wrappers/result.json') == pins['wrapper_result_sha256']
+          public = root / 'd14-pkg-public'; public.mkdir(mode=0o755)
+          public.joinpath('admission.json').write_text(json.dumps({'selection_sha256': os.environ['SELECTION_SHA256'],
+            'beta_result_sha256': selected['result_sha256'], 'publisher_decision_sha256': result['publisher_decision_sha256'],
+            'profile': result['profile'], 'pins': pins}, sort_keys=True, indent=2) + '\n')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              for key, value in pins.items(): output.write(key + '=' + value + '\n')
+          PYCODE
+      - name: Qualify native PKG in disposable runner home
+        env:
+          COHORT_SHA256: ${{ steps.admission.outputs.cohort_sha256 }}
+          WRAPPER_RESULT_SHA256: ${{ steps.admission.outputs.wrapper_result_sha256 }}
+          PKG_SHA256: ${{ steps.admission.outputs.pkg_sha256 }}
+        run: |
+          /usr/bin/env -i PATH=/usr/bin:/bin:/usr/sbin:/sbin HOME="$HOME" USER="$USER" LOGNAME="$LOGNAME" \
+            GITHUB_ACTIONS="$GITHUB_ACTIONS" GITHUB_REPOSITORY="$GITHUB_REPOSITORY" \
+            GITHUB_RUN_ID="$GITHUB_RUN_ID" GITHUB_RUN_ATTEMPT="$GITHUB_RUN_ATTEMPT" \
+            GITHUB_SHA="$GITHUB_SHA" GITHUB_JOB="$GITHUB_JOB" RUNNER_ENVIRONMENT="$RUNNER_ENVIRONMENT" \
+            RUNNER_TEMP="$RUNNER_TEMP" \
+            "$RUNNER_TEMP/d14-pkg-tools/publisher/bin/python" -I -B "$GITHUB_WORKSPACE/qualification/d14_pkg.py" \
+            --cohort-root "$RUNNER_TEMP/d14-pkg-input/artifacts/beta/carriers" --cohort-sha256 "$COHORT_SHA256" \
+            --wrapper-root "$RUNNER_TEMP/d14-pkg-input/artifacts/beta/wrappers" --wrapper-result-sha256 "$WRAPPER_RESULT_SHA256" \
+            --pkg-sha256 "$PKG_SHA256" --inspection-tools "$RUNNER_TEMP/d14-pkg-tools" \
+            --output "$RUNNER_TEMP/d14-pkg" --allow-ephemeral-install
+      - name: Recheck selected beta artifact custody
+        run: |
+          python3 -B qualification/beta_artifacts.py admit --selection "$SELECTION" \
+            --selection-sha256 "$SELECTION_SHA256" --output "$RUNNER_TEMP/d14-pkg-input"
+      - name: Copy bounded qualification results and diagnostics
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/d14-pkg-public"
+          for name in result.json INCOMPLETE.json diagnostics.json progress.jsonl; do
+            if /bin/test -f "$RUNNER_TEMP/d14-pkg/$name" && ! /bin/test -L "$RUNNER_TEMP/d14-pkg/$name"; then
+              /usr/bin/install -m 644 "$RUNNER_TEMP/d14-pkg/$name" "$RUNNER_TEMP/d14-pkg-public/$name"
+            fi
+          done
+      - name: Retain native installer qualification evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d14-native-pkg-macos15-arm64-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d14-pkg-public/
+            ${{ runner.temp }}/d14-pkg-input/transport-proof.json
+            ${{ runner.temp }}/d14-pkg-tools/result.json
+            ${{ runner.temp }}/d14-pkg-tools/failure.json
+          if-no-files-found: warn
+          retention-days: 14

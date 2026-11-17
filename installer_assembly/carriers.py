@@ -134,6 +134,27 @@ def file_row(name, data, mode=0o644):
     return {'path': name, 'sha256': sha(data), 'size': len(data), 'mode': mode}
 
 
+def native_provenance(component, delivery):
+    """Preserve repair lineage or bind a fresh unit to its recorded whole build."""
+    if 'build_provenance' in component:
+        # Repaired/inherited candidates already carry exact per-unit lineage.
+        return component['build_provenance']
+    # The original collector deliberately emits no per-unit repair record for
+    # a fresh whole-cohort build. Missing provenance is not a generic fallback.
+    require(delivery.get('fresh_whole_cohort_build') is True and
+            'repair_provenance' in delivery and delivery['repair_provenance'] is None and
+            delivery.get('native_unit_provenance') == [],
+            'Missing native provenance is not a recorded fresh whole-cohort build')
+    source = delivery['source_binding']
+    require(set(source) == {'commit', 'tree'} and
+            all(isinstance(value, str) and re.fullmatch('[0-9a-f]{40}', value) for value in source.values()),
+            'Fresh native source binding differs')
+    return {'kind': 'fresh_whole_cohort_build', 'component_id': component['component_id'],
+            'source_binding': dict(source),
+            'build_result_sha256': digest(delivery['build_result_sha256']),
+            'round_result_sha256': digest(delivery['round_result_sha256'])}
+
+
 def native_units(prefix, delivery, inventory, dependency_map):
     components = delivery['native_components']
     require(len(components) == 51 and len({x['component_id'] for x in components}) == 51, 'Native cohort is incomplete')
@@ -169,7 +190,7 @@ def native_units(prefix, delivery, inventory, dependency_map):
         units.append({'unit_id': uid, 'kind': 'native_receipt_unit', 'component_id': cid, 'native_version': version,
                       'payload_paths': sorted(names), 'dependency_units': sorted(deps),
                       'external_dependency_units': ['external:curl-zstd'] if component['external_dependency_refs'] else [],
-                      'sdk_exports': mapping['exported_packages'], 'provenance': component['build_provenance'],
+                      'sdk_exports': mapping['exported_packages'], 'provenance': native_provenance(component, delivery),
                       'native_receipt_sha256': sha(receipt_raw), 'receipt_digest': seal})
     return units, assigned
 

@@ -1,0 +1,154 @@
+name: D13 retained native owner maintenance qualification
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - '.github/workflows/d13-native-maintenance.yml'
+      - 'qualification/native_maintenance.py'
+      - 'qualification/test_native_maintenance.py'
+      - 'qualification/native_artifacts.py'
+      - 'qualification/native_rewrap.py'
+      - 'qualification/d09_maintenance.py'
+      - 'qualification/d11_native_maintenance.py'
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Committed evidence/native-selections/*.json for one verified native recovery capsule
+        type: string
+        required: true
+      selection_sha256:
+        description: Independently selected JSON SHA256 (64 lowercase hex)
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: d13-native-${{ github.ref }}-${{ inputs.selection || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      target: ${{ steps.selection.outputs.target }}
+      source: ${{ steps.selection.outputs.source }}
+      profile: ${{ steps.selection.outputs.profile }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check only selected artifact and disposable owner contracts
+        run: |
+          python3 -B -m unittest qualification.test_native_maintenance qualification.test_d09_maintenance qualification.test_d11_native_maintenance -v
+      - name: Admit exact committed artifact and frozen source selection
+        if: github.event_name == 'workflow_dispatch'
+        id: selection
+        env:
+          SELECTION: ${{ inputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import json, os, pathlib, re, subprocess, sys
+          from qualification.native_artifacts import validate_selection
+          sys.path.insert(0, 'qualification')
+          from d09_platform_tools import TARGETS
+          name = os.environ['SELECTION']
+          assert re.fullmatch(r'evidence/native-selections/[a-z0-9][a-z0-9._-]*\.json', name), 'Committed primary selection required'
+          raw = subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
+          assert pathlib.Path(name).read_bytes() == raw, 'Selected file differs from workflow source'
+          selected = validate_selection(pathlib.Path(name), os.environ['SELECTION_SHA256'])
+          frozen = json.loads(pathlib.Path('source-binding.json').read_bytes())
+          assert all(selected['pins'][key] == frozen[key] for key in ('source_commit', 'source_tree')), 'Frozen source differs'
+          profile = selected['profile']
+          compiler = '18' if profile.startswith('ubuntu24') else '21'
+          target = {'runner': TARGETS[profile][0],
+                    'cc': '/usr/bin/clang' if profile.startswith('macos') else 'clang-' + compiler,
+                    'cxx': '/usr/bin/clang++' if profile.startswith('macos') else 'clang++-' + compiler}
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('profile=' + profile + '\n')
+              output.write('source=' + selected['pins']['source_commit'] + '\n')
+              output.write('target=' + json.dumps(target) + '\n')
+          PYCODE
+  disposable-maintenance:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ fromJSON(needs.contracts.outputs.target).runner }}
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PROFILE: ${{ needs.contracts.outputs.profile }}
+      SELECTION: ${{ inputs.selection }}
+      SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+      CC: ${{ fromJSON(needs.contracts.outputs.target).cc }}
+      CXX: ${{ fromJSON(needs.contracts.outputs.target).cxx }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ needs.contracts.outputs.source }}
+          path: work/core
+          persist-credentials: false
+      - name: Retrieve selected native bytes and original SDK evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B -m qualification.native_artifacts fetch \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --output "$RUNNER_TEMP/d13-input" --gh "$(command -v gh)"
+      - name: Prepare isolated archive inspection dependencies
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d13-tools"
+      - name: Select the mapped Apple toolchain
+        if: runner.os == 'macOS'
+        run: echo 'DEVELOPER_DIR=/Applications/Xcode_26.3.app/Contents/Developer' >> "$GITHUB_ENV"
+      - name: Prepare only existing owner configuration tools on the disposable Linux runner
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get -o Acquire::Retries=3 update
+          sudo apt-get -o Acquire::Retries=3 install --no-install-recommends -y "$CC" libssl-dev pkg-config
+      - name: Create selected private source policy
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib
+          from qualification.d09_platform import write_private_policy
+          write_private_policy(pathlib.Path(os.environ['RUNNER_TEMP']) / 'd13-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY'))
+          PYCODE
+      - name: Qualify existing owners only in a new disposable prefix
+        shell: bash
+        run: |
+          set -euo pipefail
+          extra=()
+          if [ -n "${DEVELOPER_DIR:-}" ]; then
+            extra+=(--developer-dir "$DEVELOPER_DIR")
+          fi
+          "$RUNNER_TEMP/d13-tools/publisher/bin/python" -B qualification/native_maintenance.py \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --artifact "$RUNNER_TEMP/d13-input" --transport-proof "$RUNNER_TEMP/d13-input/transport-proof.json" \
+            --source "$GITHUB_WORKSPACE/work/core" --inspection-tools "$RUNNER_TEMP/d13-tools" \
+            --privacy-policy "$RUNNER_TEMP/d13-policy.json" \
+            --cmake "$(command -v cmake)" --cc "$(command -v "$CC")" --cxx "$(command -v "$CXX")" \
+            --output "$RUNNER_TEMP/d13-maintenance" --allow-ephemeral-maintenance "${extra[@]}"
+      - name: Retain bounded maintenance and tool evidence only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d13-native-maintenance-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d13-maintenance/result.json
+            ${{ runner.temp }}/d13-maintenance/INCOMPLETE.json
+            ${{ runner.temp }}/d13-maintenance/maintenance-register.json
+            ${{ runner.temp }}/d13-maintenance/verified-native/restore-result.json
+            ${{ runner.temp }}/d13-input/transport-proof.json
+            ${{ runner.temp }}/d13-tools/result.json
+            ${{ runner.temp }}/d13-tools/failure.json
+            ${{ runner.temp }}/d13-tools/publisher.explicit.txt
+          if-no-files-found: warn
+          retention-days: 14

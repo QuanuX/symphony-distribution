@@ -1,0 +1,15 @@
+{
+  "protocol": "symphony.distribution.d09-publisher-preflight.v1",
+  "organization": "QuanuX",
+  "upload_attempted": false,
+  "beta_release_authorized": false,
+  "authenticated": true,
+  "organization_membership": true,
+  "packages": {
+    "anaconda-client": "1.16.0",
+    "anaconda-cli-base": "0.9.1",
+    "requests": "2.34.2",
+    "conda-package-handling": "2.6.0"
+  },
+  "executable_sha256": "314fdaa9dc807be8b22cb40f5dd0ce60ec1bf54f0ee6f1cc1ff5c250b18fb10c"
+}

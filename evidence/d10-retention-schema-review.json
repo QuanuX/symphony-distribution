@@ -1,0 +1,76 @@
+{
+  "profiles": [
+    {
+      "actual_archived_payload_bytes_available": false,
+      "curl_selected_link_chain_count": 2,
+      "d09_artifact_id": 14255141817,
+      "original_qxctl_source_proof_validation": "passed",
+      "payload_count": 1250,
+      "payload_modes": {
+        "0o644": 1197,
+        "0o755": 51
+      },
+      "profile": "macos15-arm64",
+      "qxctl_compiled_inputs": 291,
+      "qxctl_recipe_binary_path": "recipe/first/bin/qxctl",
+      "selected_link_chain_validation": "passed",
+      "separate_d06_all51_configure_names_and_exit_statuses_match": true,
+      "separate_d06_round_report_artifact_id": 14252414871
+    },
+    {
+      "actual_archived_payload_bytes_available": false,
+      "curl_selected_link_chain_count": 2,
+      "d09_artifact_id": 14254878827,
+      "original_qxctl_source_proof_validation": "passed",
+      "payload_count": 1250,
+      "payload_modes": {
+        "0o644": 1199,
+        "0o755": 49
+      },
+      "profile": "ubuntu24.04-amd64",
+      "qxctl_compiled_inputs": 291,
+      "qxctl_recipe_binary_path": "recipe/first/bin/qxctl",
+      "selected_link_chain_validation": "passed",
+      "separate_d06_all51_configure_names_and_exit_statuses_match": true,
+      "separate_d06_round_report_artifact_id": 14253320586
+    },
+    {
+      "actual_archived_payload_bytes_available": false,
+      "curl_selected_link_chain_count": 2,
+      "d09_artifact_id": 14257865165,
+      "original_qxctl_source_proof_validation": "passed",
+      "payload_count": 1250,
+      "payload_modes": {
+        "0o644": 1199,
+        "0o755": 49
+      },
+      "profile": "ubuntu24.04-arm64",
+      "qxctl_compiled_inputs": 291,
+      "qxctl_recipe_binary_path": "recipe/first/bin/qxctl",
+      "selected_link_chain_validation": "passed",
+      "separate_d06_all51_configure_names_and_exit_statuses_match": true,
+      "separate_d06_round_report_artifact_id": 14255095274
+    },
+    {
+      "actual_archived_payload_bytes_available": false,
+      "curl_selected_link_chain_count": 2,
+      "d09_artifact_id": 14255454864,
+      "original_qxctl_source_proof_validation": "passed",
+      "payload_count": 1250,
+      "payload_modes": {
+        "0o644": 1199,
+        "0o755": 49
+      },
+      "profile": "ubuntu26.04-amd64",
+      "qxctl_compiled_inputs": 291,
+      "qxctl_recipe_binary_path": "recipe/first/bin/qxctl",
+      "selected_link_chain_validation": "passed",
+      "separate_d06_all51_configure_names_and_exit_statuses_match": true,
+      "separate_d06_round_report_artifact_id": 14253585540
+    }
+  ],
+  "protocol": "symphony.distribution.primary-retention-schema-review.v1",
+  "publication_authorized": false,
+  "scope": "Actual D09 aggregate/delivery records and separate D06 round reports only; no missing native bytes recreated or accepted",
+  "state": "report_shapes_and_link_closure_checked"
+}

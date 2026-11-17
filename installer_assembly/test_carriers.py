@@ -66,6 +66,60 @@ class CarrierTests(unittest.TestCase):
         external = next(u for u in units if u['kind'] == 'external_inert_runtime_and_sdk')
         self.assertIsNone(external['native_runtime_owner'])
 
+    def fresh_delivery(self):
+        # This is the collector's observed fresh-build schema: repair metadata
+        # is explicitly empty, not a missing per-unit receipt or source proof.
+        for component in self.delivery['native_components']:
+            del component['build_provenance']
+        self.delivery.update(fresh_whole_cohort_build=True, repair_provenance=None,
+            native_unit_provenance=[], source_binding={'commit': 'b' * 40, 'tree': 'c' * 40},
+            build_result_sha256='d' * 64, round_result_sha256='e' * 64)
+
+    def test_fresh51_cohort_preserves_exact_build_round_and_source_pins(self):
+        self.fresh_delivery(); original = copy.deepcopy(self.delivery)
+        units, assigned, inventory = self.partition()
+        self.assertEqual(len(units), 58)
+        self.assertEqual(set(assigned), set(inventory))
+        native = [u for u in units if u['kind'] == 'native_receipt_unit']
+        self.assertEqual(len(native), 51)
+        for unit in native:
+            self.assertEqual(unit['provenance'], {
+                'kind': 'fresh_whole_cohort_build', 'component_id': unit['component_id'],
+                'source_binding': original['source_binding'],
+                'build_result_sha256': original['build_result_sha256'],
+                'round_result_sha256': original['round_result_sha256']})
+        self.assertEqual(self.delivery, original, 'Original delivery evidence must remain unchanged')
+
+    def test_existing_repaired_and_inherited_provenance_remains_exact(self):
+        for kind in ('rebuilt_from_exact_origin_source', 'inherited_native_receipt_and_bytes'):
+            with self.subTest(kind=kind):
+                proof = {'kind': kind, 'component_id': 'unit-0', 'configure_log_sha256': 'a' * 64,
+                         'original_log_sealed_by_round': False}
+                self.delivery['native_components'][0]['build_provenance'] = proof
+                units, _, _ = self.partition()
+                self.assertEqual(units[0]['provenance'], proof)
+
+    def test_missing_provenance_cannot_relabel_unknown_or_inherited_build(self):
+        self.fresh_delivery()
+        for key, bad in [('fresh_whole_cohort_build', False), ('fresh_whole_cohort_build', None),
+                         ('repair_provenance', {'origin': 'recorded repair'}),
+                         ('native_unit_provenance', [{'kind': 'inherited_native_receipt_and_bytes'}])]:
+            with self.subTest(key=key, bad=bad):
+                original = self.delivery[key]; self.delivery[key] = bad
+                with self.assertRaisesRegex(ValueError, 'not a recorded fresh'): self.partition()
+                self.delivery[key] = original
+        del self.delivery['repair_provenance']
+        with self.assertRaisesRegex(ValueError, 'not a recorded fresh'): self.partition()
+
+    def test_fresh_provenance_requires_valid_recorded_source_build_and_round(self):
+        self.fresh_delivery()
+        for key, bad in [('source_binding', {'commit': 'x' * 40, 'tree': 'c' * 40}),
+                         ('build_result_sha256', 'missing'), ('round_result_sha256', 'f' * 63)]:
+            with self.subTest(key=key):
+                original = self.delivery[key]; self.delivery[key] = bad
+                with self.assertRaises(ValueError): self.partition()
+                self.delivery[key] = original
+
     def test_qxctl_exact_source_override_is_retained_and_required(self):
         units, _, _ = self.partition()
         qxctl = next(u for u in units if u['unit_id'] == 'go:qxctl')

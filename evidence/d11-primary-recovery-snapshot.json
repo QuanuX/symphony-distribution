@@ -1,0 +1,232 @@
+{
+  "protocol": "symphony.distribution.primary-run-snapshot.v1",
+  "observed_at": "2026-11-16 19:30:51 UTC",
+  "repository": "QuanuX/symphony-distribution",
+  "source": "GitHub connector: one metadata, jobs and artifacts request per selected run",
+  "scope": "Read-only snapshot; no polling, retries, downloads, dispatch or artifact validation",
+  "runs": [
+    {
+      "id": 43939021560,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "status": "queued",
+      "conclusion": null,
+      "run_attempt": 1,
+      "created_at": "2026-11-16T19:24:33Z",
+      "updated_at": "2026-11-16T19:24:53Z",
+      "jobs": [
+        {
+          "id": 133551225352,
+          "name": "contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "failed_steps": [],
+          "running_steps": [],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Check only primary preparation and refusal contracts",
+            "Admit independently selected source and platform",
+            "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Complete job"
+          ]
+        },
+        {
+          "id": 133551412965,
+          "name": "native",
+          "status": "queued",
+          "conclusion": null,
+          "failed_steps": [],
+          "running_steps": [],
+          "completed_steps": []
+        }
+      ],
+      "artifacts": []
+    },
+    {
+      "id": 43939059852,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_attempt": 1,
+      "created_at": "2026-11-16T19:24:47Z",
+      "updated_at": "2026-11-16T19:25:09Z",
+      "jobs": [
+        {
+          "id": 133551359698,
+          "name": "contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "failed_steps": [],
+          "running_steps": [],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Check only primary preparation and refusal contracts",
+            "Admit independently selected source and platform",
+            "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Complete job"
+          ]
+        },
+        {
+          "id": 133551547411,
+          "name": "native",
+          "status": "in_progress",
+          "conclusion": null,
+          "failed_steps": [],
+          "running_steps": [
+            {
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 14
+            }
+          ],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+            "Select private dependency caches",
+            "Install the selected Linux compiler and payload inspection tools",
+            "Reproduce only the independently selected reviewed source export",
+            "Prepare private versioned publisher tools",
+            "Record additional qualification helper provenance",
+            "Verify source and prepare public Go dependencies",
+            "Download exact dependency source archives",
+            "Prepare exact external libraries with explicit TLS selection"
+          ]
+        }
+      ],
+      "artifacts": []
+    },
+    {
+      "id": 43939100597,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_attempt": 1,
+      "created_at": "2026-11-16T19:25:01Z",
+      "updated_at": "2026-11-16T19:25:18Z",
+      "jobs": [
+        {
+          "id": 133551503202,
+          "name": "contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "failed_steps": [],
+          "running_steps": [],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Check only primary preparation and refusal contracts",
+            "Admit independently selected source and platform",
+            "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Complete job"
+          ]
+        },
+        {
+          "id": 133551616378,
+          "name": "native",
+          "status": "in_progress",
+          "conclusion": null,
+          "failed_steps": [],
+          "running_steps": [
+            {
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 14
+            }
+          ],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+            "Select private dependency caches",
+            "Install the selected Linux compiler and payload inspection tools",
+            "Reproduce only the independently selected reviewed source export",
+            "Prepare private versioned publisher tools",
+            "Record additional qualification helper provenance",
+            "Verify source and prepare public Go dependencies",
+            "Download exact dependency source archives",
+            "Prepare exact external libraries with explicit TLS selection"
+          ]
+        }
+      ],
+      "artifacts": []
+    },
+    {
+      "id": 43939137887,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "status": "in_progress",
+      "conclusion": null,
+      "run_attempt": 1,
+      "created_at": "2026-11-16T19:25:13Z",
+      "updated_at": "2026-11-16T19:25:38Z",
+      "jobs": [
+        {
+          "id": 133551629669,
+          "name": "contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "failed_steps": [],
+          "running_steps": [],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Check only primary preparation and refusal contracts",
+            "Admit independently selected source and platform",
+            "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Complete job"
+          ]
+        },
+        {
+          "id": 133551844294,
+          "name": "native",
+          "status": "in_progress",
+          "conclusion": null,
+          "failed_steps": [],
+          "running_steps": [
+            {
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 14
+            }
+          ],
+          "completed_steps": [
+            "Set up job",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+            "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+            "Select private dependency caches",
+            "Install the selected Linux compiler and payload inspection tools",
+            "Reproduce only the independently selected reviewed source export",
+            "Prepare private versioned publisher tools",
+            "Record additional qualification helper provenance",
+            "Verify source and prepare public Go dependencies",
+            "Download exact dependency source archives",
+            "Prepare exact external libraries with explicit TLS selection"
+          ]
+        }
+      ],
+      "artifacts": []
+    }
+  ],
+  "selection": {
+    "state": "pending_native_producers",
+    "selected_capsules": [],
+    "artifact_count_observed": 0,
+    "artifact_bytes_verified": false,
+    "failed_steps_observed": 0,
+    "wrapper_qualification_started": false
+  },
+  "limitations": [
+    "Workflow runs were unfinished at this snapshot; statuses may change afterward.",
+    "No artifact identity or digest is available until an artifact is uploaded.",
+    "No active or queued job is treated as a successful completed native build."
+  ],
+  "publication_authorized": false,
+  "release_acceptance_complete": false
+}

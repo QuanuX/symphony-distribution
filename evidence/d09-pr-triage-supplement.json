@@ -1,0 +1,17 @@
+{
+  "protocol": "symphony.distribution.pr-snapshot-triage-supplement.v1",
+  "snapshot_sha256": "ed01c445c65dcceca93a2b7f2e5eb8685705f3e2454ec3bd97316ca07368209c",
+  "source": "Root task's separate GitHub job triage and authorized selective retry; original snapshot preserved",
+  "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+  "pull_request": 8,
+  "head_sha": "572627e939250763756167a9dc05d8cb37ab4e30",
+  "workflow_run_id": 43876130505,
+  "triage": "Selected job was cancelled before runner acquisition, runner_id 0 and no executed steps",
+  "selective_retry_requested_job_id": 133329535447,
+  "retry_completion_observed": false,
+  "code_change_inferred": false,
+  "checks_all_passed": false,
+  "integration_authorized": false,
+  "main_changed": false,
+  "publication_authorized": false
+}

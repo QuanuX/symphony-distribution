@@ -1,0 +1,58 @@
+[
+  {
+    "configuration_file_count": 292,
+    "dependency_map_proof": {
+      "configuration_projection_sha256": "18ea54d8261f9b25ea4e8c4850ced7b412b3aa1c876ce45a044e4a4bb199d0a4",
+      "configuration_projection_unchanged": true,
+      "omitted_dossier_input_count": 2,
+      "original_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+      "reviewed_sha256": "d3ab29a1bf8a5534c5a57ea0512ae2dcb74ba44045014107d96d41df4362b88a",
+      "source_input_rebinding_count": 6
+    },
+    "native_owner_count": 51,
+    "profile": "macos15-arm64",
+    "source_preflight": "passed"
+  },
+  {
+    "configuration_file_count": 292,
+    "dependency_map_proof": {
+      "configuration_projection_sha256": "18ea54d8261f9b25ea4e8c4850ced7b412b3aa1c876ce45a044e4a4bb199d0a4",
+      "configuration_projection_unchanged": true,
+      "omitted_dossier_input_count": 2,
+      "original_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+      "reviewed_sha256": "d3ab29a1bf8a5534c5a57ea0512ae2dcb74ba44045014107d96d41df4362b88a",
+      "source_input_rebinding_count": 6
+    },
+    "native_owner_count": 51,
+    "profile": "ubuntu24.04-amd64",
+    "source_preflight": "passed"
+  },
+  {
+    "configuration_file_count": 292,
+    "dependency_map_proof": {
+      "configuration_projection_sha256": "18ea54d8261f9b25ea4e8c4850ced7b412b3aa1c876ce45a044e4a4bb199d0a4",
+      "configuration_projection_unchanged": true,
+      "omitted_dossier_input_count": 2,
+      "original_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+      "reviewed_sha256": "d3ab29a1bf8a5534c5a57ea0512ae2dcb74ba44045014107d96d41df4362b88a",
+      "source_input_rebinding_count": 6
+    },
+    "native_owner_count": 51,
+    "profile": "ubuntu24.04-arm64",
+    "source_preflight": "passed"
+  },
+  {
+    "configuration_file_count": 292,
+    "dependency_map_proof": {
+      "configuration_projection_sha256": "18ea54d8261f9b25ea4e8c4850ced7b412b3aa1c876ce45a044e4a4bb199d0a4",
+      "configuration_projection_unchanged": true,
+      "omitted_dossier_input_count": 2,
+      "original_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+      "reviewed_sha256": "d3ab29a1bf8a5534c5a57ea0512ae2dcb74ba44045014107d96d41df4362b88a",
+      "source_input_rebinding_count": 6
+    },
+    "native_owner_count": 51,
+    "profile": "ubuntu26.04-amd64",
+    "source_preflight": "passed"
+  }
+]

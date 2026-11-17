@@ -1,0 +1,35 @@
+{
+  "artifact": {
+    "id": 14265835410,
+    "name": "d10-native-recovery-macos15-arm64-1",
+    "sha256": "8231d4ff33e8450a05556598c9a20852e886ddc07f4b278ec968c01a72f0cc06",
+    "size": 93186527
+  },
+  "evidence_artifact": {
+    "id": 14266070407,
+    "name": "d09-evidence-macos15-arm64-1",
+    "sha256": "d71c61791c02c47bf152c74d7a5201915caa2bd24c73137eb6ffdedf6d2249cf",
+    "size": 233310
+  },
+  "pins": {
+    "aggregate_sha256": "44dede4cee30bc5bfb188bff07d3451e17e2c9d56d15b5bff8a7718ba6821e73",
+    "capsule_sha256": "f215d1c212dd7aba58800064f4c64483c707584ed4a07f42b22e60b642960cbb",
+    "delivery_record_sha256": "dc4b64a0e387220d8308c6d357b86565d8139f3f66506beb30cce7e117f0b31c",
+    "native_archive_sha256": "d098ea65ff723980f224f8378049de868535b22c275b8614b8ec4962469e157b",
+    "payload_inventory_sha256": "9ceaad6cb3f1365f096121dfe31baa63ae650abb219b1b689b5560aed8129a04",
+    "retention_helper_sha256": "f2df0f1a6107c890db3efd423f31fa2752210cd33ad21e9ca2e7ff0a7980a56a",
+    "round1_result_sha256": "fa2404ab0fbfc8f9d5264078be7b0dae0b8d273f3844ba18afbac45b862d4b63",
+    "round2_result_sha256": "e10faa9dc72c49ed0b8fc5afbdc9864b49ae997990c9072dfb42c4b1d0f818fa",
+    "sdk_closure_sha256": "8bfdb962a6f425b8e44f6a2c67b5a22263f9e5d4b9e790b149594cc25625dd21",
+    "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "source_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+    "source_manifest_sha256": "1a9781155c14182f46171dd29ce3c1f8970daea7c7f5c2e90e2ed50486264563",
+    "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+  },
+  "profile": "macos15-arm64",
+  "protocol": "symphony.distribution.native-recovery-selection.v1",
+  "repository": "QuanuX/symphony-distribution",
+  "run_attempt": "1",
+  "run_id": "43939021560",
+  "workflow_commit": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d"
+}

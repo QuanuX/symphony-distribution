@@ -1,0 +1,39 @@
+{
+  "actual_selected_archive_regression": "passed; executable and notice bytes unchanged",
+  "checkpoint_workflow": {
+    "invalid_checkpoint": "refused before upload",
+    "missing_checkpoint": "skipped",
+    "syntax": "passed",
+    "verified_checkpoint_retained": "requires full existing carrier capsule audit"
+  },
+  "ci_completion_awaited": false,
+  "date": "2026-11-16",
+  "files": [
+    {
+      "path": "installer_assembly/construct.py",
+      "sha256": "e6b61645c1d58ea42745e6cca4e809f3b65d24add25445a12b2727202256f017"
+    },
+    {
+      "path": "installer_assembly/test_construct.py",
+      "sha256": "795601d26ec18da28edac17353ce48ad92cd05352569e1ab1b94561c4c6803e7"
+    },
+    {
+      "path": ".github/workflows/d12-native-rewrap.yml",
+      "sha256": "83b57bd979c5cc6b9c4afe3f7210da9d96cc9cf96e8d329f33363116b356d930"
+    }
+  ],
+  "focused_tests": {
+    "count": 33,
+    "result": "passed",
+    "runtime": "selected publisher Python with real Conda archive codecs"
+  },
+  "independent_review": "passed",
+  "main_mutated": false,
+  "native_rebuild_required": false,
+  "original_sdk_replay_required": false,
+  "privacy_scan": "passed",
+  "problem": "Pinned standalone Conda component lookup used the generic storage filename instead of the selected package identity.",
+  "protocol": "symphony.distribution.d13-bootstrap-repair.v1",
+  "publication_authorized": false,
+  "workflow_lint": "passed"
+}

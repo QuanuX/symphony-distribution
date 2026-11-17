@@ -1,5 +1,11 @@
 # D08 review installer assembly
 
+Current follow-up: the original shell wrapper failed actual extraction. The
+separately signed D10 repair preserves the original carrier packages and binds
+new wrapper bytes and source. Use [the D10 status](D10-STATUS.md) for current
+qualification and artifact selection; the original D08 wrapper remains retained
+as historical evidence.
+
 D08 repairs the qxctl source stamp and prepares modular, inactive review delivery.
 Core remains at `5fd6cee1bae477048bf0045b691ee8bdf334e216`; no product feature,
 command, adapter contract or main branch is changed. The client increment is

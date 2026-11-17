@@ -28,7 +28,14 @@ metapackage, so removing an independently selected carrier does not create a
 dependency rule that restores it later. Constructors do not configure shell
 startup, activate Conda, register environments, create shortcuts, or run custom
 pre/post-install hooks. Package extraction uses the pinned bootstrap's offline
-link operation. External Conda plugins and error reporting are disabled.
+link operation. Error reporting and external Conda plugins remain disabled by
+default. The pinned standalone's embedded constructor extraction command requires
+a command-local plugin override: assembly first verifies that all Python search
+paths and distribution metadata remain inside the frozen bundle and a caller
+plugin fixture is ignored. Only the four shell extraction calls and one native
+PKG preparation call receive that override, with user Python paths disabled and
+Conda configuration restricted to `/dev/null`. Install/removal calls retain plugin
+denial. Original signed wrappers are immutable; this repair produces new wrappers.
 Existing or dangling-link destinations are refused, including the shell
 installer's force/update options. The installer does not change ownership of
 an existing user's `.conda` directory or `.condarc` file. Explicit maintenance

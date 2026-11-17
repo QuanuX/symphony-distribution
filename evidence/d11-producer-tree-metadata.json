@@ -1,0 +1,37 @@
+{
+  "scope": "Original one-shot GitHub connector responses; no additional CI request",
+  "runs": [
+    {
+      "run_id": 43939021560,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_id": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_tree_id": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "id_matches_head": true,
+      "tree_is_40_hex": true
+    },
+    {
+      "run_id": 43939059852,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_id": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_tree_id": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "id_matches_head": true,
+      "tree_is_40_hex": true
+    },
+    {
+      "run_id": 43939100597,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_id": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_tree_id": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "id_matches_head": true,
+      "tree_is_40_hex": true
+    },
+    {
+      "run_id": 43939137887,
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_id": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_commit_tree_id": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "id_matches_head": true,
+      "tree_is_40_hex": true
+    }
+  ]
+}

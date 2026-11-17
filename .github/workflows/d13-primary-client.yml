@@ -1,0 +1,169 @@
+name: D13 exact primary client qualification
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - '.github/workflows/d13-primary-client.yml'
+      - 'qualification/primary_client.py'
+      - 'qualification/test_primary_client.py'
+      - 'qualification/primary-client-tools.json'
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Committed evidence/native-selections/*.json for the exact primary qxctl cohort
+        type: string
+        required: true
+      selection_sha256:
+        description: Independently selected selection JSON SHA256
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: d13-primary-client-${{ github.ref }}-${{ inputs.selection || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      source: ${{ steps.selection.outputs.source }}
+      runner: ${{ steps.selection.outputs.runner }}
+      profile: ${{ steps.selection.outputs.profile }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check only primary-client packaging and provenance boundaries
+        run: python3 -B -m unittest qualification.test_primary_client -v
+      - name: Admit committed primary native selection
+        if: github.event_name == 'workflow_dispatch'
+        id: selection
+        env:
+          SELECTION: ${{ inputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, re, subprocess
+          from qualification.native_artifacts import validate_selection
+          runners = {'macos15-arm64': 'macos-15', 'ubuntu24.04-amd64': 'ubuntu-24.04',
+              'ubuntu24.04-arm64': 'ubuntu-24.04-arm', 'ubuntu26.04-amd64': 'ubuntu-26.04'}
+          name = os.environ['SELECTION']
+          assert re.fullmatch(r'evidence/native-selections/[a-z0-9][a-z0-9._-]*\.json', name)
+          path = pathlib.Path(name)
+          assert path.read_bytes() == subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
+          selected = validate_selection(path, os.environ['SELECTION_SHA256'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('source=' + selected['pins']['source_commit'] + '\n')
+              output.write('profile=' + selected['profile'] + '\n')
+              output.write('runner=' + runners[selected['profile']] + '\n')
+          PYCODE
+  client:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ needs.contracts.outputs.runner }}
+    timeout-minutes: 70
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PROFILE: ${{ needs.contracts.outputs.profile }}
+      SELECTION: ${{ inputs.selection }}
+      SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ needs.contracts.outputs.source }}
+          path: work/core
+          persist-credentials: false
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/symphony-codex-ipc-mcp-and-skills
+          ref: '572627e939250763756167a9dc05d8cb37ab4e30'
+          path: work/client
+          persist-credentials: false
+      - name: Prepare isolated build tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv "$RUNNER_TEMP/d13-tools"
+          "$RUNNER_TEMP/d13-tools/bin/pip" install --only-binary=:all: cmake==3.31.6
+      - name: Select native Linux compiler and Crypto development files
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          compiler=18
+          if [ "$PROFILE" = ubuntu26.04-amd64 ]; then compiler=21; fi
+          sudo apt-get update
+          sudo apt-get install -y "clang-$compiler" libssl-dev make binutils
+          echo "CXX=$(command -v clang++-$compiler)" >> "$GITHUB_ENV"
+      - name: Select native Apple toolchain
+        if: runner.os == 'macOS'
+        run: |
+          echo 'CXX=/usr/bin/clang++' >> "$GITHUB_ENV"
+          echo 'DEVELOPER_DIR=/Applications/Xcode_26.3.app/Contents/Developer' >> "$GITHUB_ENV"
+      - name: Retrieve selected completed native and SDK artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B -m qualification.native_artifacts fetch \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --output "$RUNNER_TEMP/d13-input" --gh "$(command -v gh)"
+      - name: Restore and revalidate original qxctl and native source proof
+        id: restore
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, os, pathlib, subprocess
+          from qualification.d09_platform import write_private_policy
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          policy = write_private_policy(root / 'd13-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY'))
+          subprocess.run([str(root / 'd13-tools/bin/python'), '-B', 'qualification/native_rewrap.py', 'restore',
+              '--selection', os.environ['SELECTION'], '--selection-sha256', os.environ['SELECTION_SHA256'],
+              '--artifact', str(root / 'd13-input'), '--transport-proof', str(root / 'd13-input/transport-proof.json'),
+              '--repository', str(pathlib.Path('work/core').resolve()), '--privacy-policy', str(policy),
+              '--output', str(root / 'd13-restored')], check=True)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('result_sha256=' + hashlib.sha256((root / 'd13-restored/restore-result.json').read_bytes()).hexdigest() + '\n')
+          PYCODE
+      - name: Build exact client, preserve adapters and qualify actual Codex
+        env:
+          RESTORE_RESULT_SHA256: ${{ steps.restore.outputs.result_sha256 }}
+        run: |
+          "$RUNNER_TEMP/d13-tools/bin/python" -B - <<'PYCODE'
+          import os, pathlib, subprocess, sys
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          command = [sys.executable, '-B', 'qualification/primary_client.py',
+              '--restored', str(root / 'd13-restored'), '--restore-result-sha256', os.environ['RESTORE_RESULT_SHA256'],
+              '--repository', str(pathlib.Path('work/core').resolve()), '--client-repository', str(pathlib.Path('work/client').resolve()),
+              '--privacy-policy', str(root / 'd13-policy.json'), '--output', str(root / 'd13-client'),
+              '--compiler', os.environ['CXX'], '--cmake', str(root / 'd13-tools/bin/cmake'), '--ctest', str(root / 'd13-tools/bin/ctest')]
+          if os.environ.get('DEVELOPER_DIR'):
+              command += ['--developer-dir', os.environ['DEVELOPER_DIR']]
+          subprocess.run(command, check=True)
+          PYCODE
+      - name: Retain only completed derived package and portable evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d13-primary-client-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d13-client/artifact/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Retain bounded failure and source-custody records
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d13-primary-client-status-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d13-input/transport-proof.json
+            ${{ runner.temp }}/d13-restored/restore-result.json
+            ${{ runner.temp }}/d13-client/INCOMPLETE.json
+          if-no-files-found: warn
+          retention-days: 14

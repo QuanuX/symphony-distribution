@@ -1,0 +1,24 @@
+{
+  "account_credentials_used": false,
+  "apple_developer_id": false,
+  "downloaded_from_public_origin": true,
+  "notarized": false,
+  "publisher_signature": "verified",
+  "release": "0.2.0-beta.1",
+  "system_trust_changed": false,
+  "verified_downloads": [
+    "release-index.json",
+    "verify_beta.py",
+    "docs/BETA-INSTALL.md",
+    "installers/macos15-arm64/Symphony-0.2.0-beta.1-MacOSX-arm64.pkg",
+    "installers/macos15-arm64/Symphony-0.2.0-beta.1-MacOSX-arm64.sh",
+    "installers/ubuntu24.04-amd64/Symphony-0.2.0-beta.1-Linux-x86_64.sh",
+    "installers/ubuntu24.04-arm64/Symphony-0.2.0-beta.1-Linux-aarch64.sh",
+    "installers/ubuntu26.04-amd64/Symphony-0.2.0-beta.1-Linux-x86_64.sh",
+    "setup/macos15-arm64/default-explicit.txt",
+    "setup/ubuntu24.04-amd64/default-explicit.txt",
+    "setup/ubuntu24.04-arm64/default-explicit.txt",
+    "setup/ubuntu26.04-amd64/default-explicit.txt"
+  ],
+  "verifier_independently_pinned": true
+}

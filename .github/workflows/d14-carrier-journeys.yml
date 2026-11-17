@@ -1,0 +1,122 @@
+name: D14 independent carrier upgrade swap and rollback
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - '.github/workflows/d14-carrier-journeys.yml'
+      - 'qualification/d14_carrier_journeys.py'
+      - 'qualification/test_d14_carrier_journeys.py'
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Committed evidence/beta-selections/*.json for completed primary artifacts
+        type: string
+        required: true
+      selection_sha256:
+        description: Independently selected JSON SHA256
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: d14-carrier-${{ github.ref }}-${{ inputs.selection || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      profile: ${{ steps.selection.outputs.profile }}
+      runner: ${{ steps.selection.outputs.runner }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check only packaging transition contracts
+        run: python3 -B -m unittest qualification.test_d14_carrier_journeys -v
+      - name: Admit exact committed completed-artifact selection
+        if: github.event_name == 'workflow_dispatch'
+        id: selection
+        env:
+          SELECTION: ${{ inputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, re, subprocess
+          from qualification.beta_artifacts import validate_selection
+          name = os.environ['SELECTION']
+          assert re.fullmatch(r'evidence/beta-selections/[a-z0-9][a-z0-9._-]*\.json', name)
+          assert pathlib.Path(name).read_bytes() == subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
+          selected = validate_selection(pathlib.Path(name), os.environ['SELECTION_SHA256'])
+          assert 'package' in selected['artifacts']
+          runners = {'macos15-arm64': 'macos-15', 'ubuntu24.04-amd64': 'ubuntu-24.04',
+              'ubuntu24.04-arm64': 'ubuntu-24.04-arm', 'ubuntu26.04-amd64': 'ubuntu-26.04'}
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('profile=' + selected['profile'] + '\n')
+              output.write('runner=' + runners[selected['profile']] + '\n')
+          PYCODE
+  journeys:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ needs.contracts.outputs.runner }}
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PROFILE: ${{ needs.contracts.outputs.profile }}
+      SELECTION: ${{ inputs.selection }}
+      SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve exact successful primary delivery
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B qualification/beta_artifacts.py fetch \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --output "$RUNNER_TEMP/d14-input" --gh "$(command -v gh)"
+      - name: Prepare isolated pinned package tools
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d14-tools"
+      - name: Create private output privacy policy
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib
+          from qualification.d09_platform import write_private_policy
+          write_private_policy(pathlib.Path(os.environ['RUNNER_TEMP']) / 'd14-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY'))
+          PYCODE
+      - name: Qualify independent packaging upgrades swaps rollback and removal
+        run: |
+          "$RUNNER_TEMP/d14-tools/publisher/bin/python" -B qualification/d14_carrier_journeys.py primary \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --artifact "$RUNNER_TEMP/d14-input" --inspection-tools "$RUNNER_TEMP/d14-tools" \
+            --privacy-policy "$RUNNER_TEMP/d14-policy.json" --output "$RUNNER_TEMP/d14-journeys" \
+            --allow-ephemeral-maintenance
+      - name: Retain completed revision and portable results
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d14-carrier-journeys-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d14-journeys/result.json
+            ${{ runner.temp }}/d14-journeys/revision-one/
+            ${{ runner.temp }}/d14-journeys/journey/result.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Retain bounded failure and transport evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d14-carrier-status-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d14-journeys/failure.json
+            ${{ runner.temp }}/d14-input/transport-proof.json
+            ${{ runner.temp }}/d14-tools/result.json
+            ${{ runner.temp }}/d14-tools/failure.json
+            ${{ runner.temp }}/d14-tools/publisher.explicit.txt
+          if-no-files-found: warn
+          retention-days: 14

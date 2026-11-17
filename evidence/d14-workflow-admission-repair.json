@@ -1,0 +1,48 @@
+{
+  "failure": "workflow selection step could not resolve sibling module d09_platform",
+  "profiles": [
+    {
+      "outputs": {
+        "client": "572627e939250763756167a9dc05d8cb37ab4e30",
+        "core": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "decision_sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943",
+        "profile": "macos15-arm64",
+        "runner": "macos-15"
+      },
+      "profile": "macos15-arm64"
+    },
+    {
+      "outputs": {
+        "client": "572627e939250763756167a9dc05d8cb37ab4e30",
+        "core": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "decision_sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943",
+        "profile": "ubuntu24.04-amd64",
+        "runner": "ubuntu-24.04"
+      },
+      "profile": "ubuntu24.04-amd64"
+    },
+    {
+      "outputs": {
+        "client": "572627e939250763756167a9dc05d8cb37ab4e30",
+        "core": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "decision_sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943",
+        "profile": "ubuntu24.04-arm64",
+        "runner": "ubuntu-24.04-arm"
+      },
+      "profile": "ubuntu24.04-arm64"
+    },
+    {
+      "outputs": {
+        "client": "572627e939250763756167a9dc05d8cb37ab4e30",
+        "core": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "decision_sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943",
+        "profile": "ubuntu26.04-amd64",
+        "runner": "ubuntu-26.04"
+      },
+      "profile": "ubuntu26.04-amd64"
+    }
+  ],
+  "repair": "select the existing qualification import root before reading target table",
+  "source": "actual workflow step executed locally for all four committed selections",
+  "workflow_sha256": "5fd2e7a61146911042e61fe8e0b93c44fad36ce78189de60a4e23441cffd2e95"
+}

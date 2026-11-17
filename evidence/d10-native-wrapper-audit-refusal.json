@@ -1,0 +1,15 @@
+{
+  "assembly_toolkit_commit": "c564b66e336242281f30342c95cc5793af8545cc",
+  "assembly_toolkit_tree": "fae3d55cfa59053b97e00bd99c2c57ecb27feca1",
+  "classification": "native_script_caller_configuration_isolation_differs",
+  "incomplete_record_sha256": "53a2c2ae280e168a3cc1e7aa9ec27050939e00e981123362dd6c5068d21e7632",
+  "new_installer_executed": false,
+  "new_overlay_signed": false,
+  "original_carrier_cohort_digest": "sha256:0b5ad60ceaafeb13b7e7edf0a1908cb2c04774d29823ced6b017216c40fdea70",
+  "original_signed_delivery_modified": false,
+  "protocol": "symphony.distribution.d10-wrapper-assembly-refusal.v1",
+  "public_channel_mutated": false,
+  "publication_authorized": false,
+  "source_archive_sha256": "0804c23fb54385d2648b65ca357bf040c434a42cf185b07caca01bb98a4121bf",
+  "state": "refused_native_pkg_configuration_audit_before_signing"
+}

@@ -1,0 +1,56 @@
+{
+  "bootstrap_metadata_sha256": "ba308ea83481c7784311e9fd88f45d7da7ee18d43755f682a7c89b522bb83f16",
+  "documents": {
+    "client_packet": {
+      "path": "d08-client-final-packet.json",
+      "sha256": "1099009a128a09e82abb996ff8d4caf55abd64757e28738d11ac6f79bac59786"
+    },
+    "core_delivery": {
+      "path": "d06-delivery-record.json",
+      "sha256": "2e333162354798063a2407437c3ea3a8d43e9d7c265e5d4b0bb10fa21832f7b3"
+    },
+    "corresponding_source": {
+      "path": "d08-corresponding-source.json",
+      "sha256": "64e01afa80dd1b0f575faec5d11d5d80999eafcaa28ae30a94d91707e226f5d6"
+    },
+    "pr_snapshot": {
+      "path": "d09-pr-stack-snapshot.json",
+      "sha256": "ed01c445c65dcceca93a2b7f2e5eb8685705f3e2454ec3bd97316ca07368209c"
+    },
+    "qxctl_source": {
+      "path": "d08-qxctl-original-source.json",
+      "sha256": "a311cce068c736f34b0922357e1763c7a02645288125b28ed64b200a4e707a2a"
+    },
+    "review_manifest": {
+      "path": "d08-review-manifest.json",
+      "sha256": "7a6b055dc7478b23c5183941163145ce747619c9f3ee53b5fe968f4aa6a44da8"
+    },
+    "wrapper_audit": {
+      "path": "d08-wrapper-audit.json",
+      "sha256": "99491df00d9f43f46a0b8db86ded0ffb47352a069e6b401fd6333f0731ab09f7"
+    }
+  },
+  "protocol": "symphony.distribution.d09-review-selection.v1",
+  "selected_pr_heads": {
+    "client": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "distribution_toolkit": "1b76f2a51860a5ebd719c1bdcba6ab277e84cfe4"
+  },
+  "sources": {
+    "client": {
+      "commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+      "tree": "83a5aad51f809358b72d2cb9f96833b8977b57a0"
+    },
+    "core": {
+      "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+      "repository": "QuanuX/Symphony",
+      "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+    },
+    "distribution_toolkit": {
+      "commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+      "repository": "QuanuX/symphony-distribution",
+      "tree": "836c2b73e9f4554b4100882051e4f110eb147fb3"
+    }
+  }
+}

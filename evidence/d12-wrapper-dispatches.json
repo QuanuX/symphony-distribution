@@ -1,0 +1,72 @@
+{
+  "branch": "codex/d09-review-channel-gates",
+  "ci_completion_awaited": false,
+  "date": "2026-11-16",
+  "distribution_default_mutated": false,
+  "feature_freeze_preserved": true,
+  "main_mutated": false,
+  "matching_primary_client_included": false,
+  "native_rebuild_requested": false,
+  "preserved_remote_refs": {
+    "QuanuX/Symphony:main": "976b23290857be613005eea5cdc130d0f457b8c3",
+    "QuanuX/symphony-codex-ipc-mcp-and-skills:main": "874402db2163bc44ba8fe2247c00b30ba439adf8",
+    "QuanuX/symphony-distribution:codex/s06-conda-journeys": "aa86cb90443822134c2800c3eea20837b600291b"
+  },
+  "protocol": "symphony.distribution.d12-native-wrapper-dispatch.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "repository": "QuanuX/symphony-distribution",
+  "runs": [
+    {
+      "event": "workflow_dispatch",
+      "profile": "macos15-arm64",
+      "run_id": 43951749057,
+      "selection": "evidence/native-selections/macos15-arm64-20261116.json",
+      "selection_sha256": "f91a4605b438b61fe63ebfdc3fddd4b4d5f064b9f5562440736c5216a1450fe6",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951749057",
+      "workflow_commit_verified": true
+    },
+    {
+      "event": "workflow_dispatch",
+      "profile": "ubuntu24.04-amd64",
+      "run_id": 43951786672,
+      "selection": "evidence/native-selections/ubuntu24.04-amd64-20261116.json",
+      "selection_sha256": "a6875e5cfad591eb1d961695799d62a95c65b3bc048f1eeda1ec9ffc02e3259b",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951786672",
+      "workflow_commit_verified": true
+    },
+    {
+      "event": "workflow_dispatch",
+      "profile": "ubuntu24.04-arm64",
+      "run_id": 43951815598,
+      "selection": "evidence/native-selections/ubuntu24.04-arm64-20261116.json",
+      "selection_sha256": "0468a606f0172c4aab9f2372526591e04918d8e0bbce81f501e97a17acd39c9a",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951815598",
+      "workflow_commit_verified": true
+    },
+    {
+      "event": "workflow_dispatch",
+      "profile": "ubuntu26.04-amd64",
+      "run_id": 43951845155,
+      "selection": "evidence/native-selections/ubuntu26.04-amd64-20261116.json",
+      "selection_sha256": "26db2cdbe1152a0474c457f13094fbfd1a9a40c38bd01cbc25c4b21060d678ce",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43951845155",
+      "workflow_commit_verified": true
+    }
+  ],
+  "s06_targeted_contracts": "success",
+  "sdk_campaign_replay_requested": false,
+  "state": "dispatched_without_waiting_for_results",
+  "targeted_d06_followup": {
+    "contracts": "success",
+    "failed_steps_observed": [],
+    "head": "7422b6fc59479da43cbd7d2694f4767643246f5f",
+    "run_id": 43945383060,
+    "scope": "One bounded status refresh during active implementation; no CI wait",
+    "ubuntu24.04-amd64": "success",
+    "ubuntu24.04-arm64": "in_progress",
+    "ubuntu26.04-amd64": "success"
+  },
+  "workflow": ".github/workflows/d12-native-rewrap.yml",
+  "workflow_commit": "074b02755422fcfc2a6db3b929be529c33090252"
+}

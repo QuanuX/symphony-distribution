@@ -1,0 +1,2086 @@
+{
+  "evidence": {
+    "client_packet": {
+      "path": "d08-client-final-packet.json",
+      "sha256": "1099009a128a09e82abb996ff8d4caf55abd64757e28738d11ac6f79bac59786",
+      "size": 2996
+    },
+    "core_delivery": {
+      "path": "d06-delivery-record.json",
+      "sha256": "2e333162354798063a2407437c3ea3a8d43e9d7c265e5d4b0bb10fa21832f7b3",
+      "size": 1022120
+    },
+    "corresponding_source": {
+      "path": "d08-corresponding-source.json",
+      "sha256": "64e01afa80dd1b0f575faec5d11d5d80999eafcaa28ae30a94d91707e226f5d6",
+      "size": 3616
+    },
+    "pr_snapshot": {
+      "path": "d09-pr-stack-snapshot.json",
+      "sha256": "ed01c445c65dcceca93a2b7f2e5eb8685705f3e2454ec3bd97316ca07368209c",
+      "size": 23856
+    },
+    "qxctl_source": {
+      "path": "d08-qxctl-original-source.json",
+      "sha256": "a311cce068c736f34b0922357e1763c7a02645288125b28ed64b200a4e707a2a",
+      "size": 68196
+    },
+    "review_manifest": {
+      "path": "d08-review-manifest.json",
+      "sha256": "7a6b055dc7478b23c5183941163145ce747619c9f3ee53b5fe968f4aa6a44da8",
+      "size": 13168
+    },
+    "wrapper_audit": {
+      "path": "d08-wrapper-audit.json",
+      "sha256": "99491df00d9f43f46a0b8db86ded0ffb47352a069e6b401fd6333f0731ab09f7",
+      "size": 58621
+    }
+  },
+  "human_approval_authenticated": false,
+  "integration": {
+    "dependency_edges": [
+      {
+        "after": 200,
+        "before": 199,
+        "repository": "QuanuX/Symphony"
+      },
+      {
+        "after": 201,
+        "before": 200,
+        "repository": "QuanuX/Symphony"
+      },
+      {
+        "after": 202,
+        "before": 201,
+        "repository": "QuanuX/Symphony"
+      },
+      {
+        "after": 7,
+        "before": 6,
+        "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills"
+      },
+      {
+        "after": 8,
+        "before": 7,
+        "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills"
+      },
+      {
+        "after": 2,
+        "before": 1,
+        "repository": "QuanuX/symphony-distribution"
+      },
+      {
+        "after": 3,
+        "before": 2,
+        "repository": "QuanuX/symphony-distribution"
+      },
+      {
+        "after": 4,
+        "before": 3,
+        "repository": "QuanuX/symphony-distribution"
+      },
+      {
+        "after": 5,
+        "before": 4,
+        "repository": "QuanuX/symphony-distribution"
+      }
+    ],
+    "integration_authorized": false,
+    "merged": false,
+    "observed_pending_checks": [
+      {
+        "gate": "exact_base_ancestry_not_verified",
+        "pr": 199,
+        "repository": "QuanuX/Symphony"
+      },
+      {
+        "gate": "exact_base_ancestry_not_verified",
+        "pr": 6,
+        "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills"
+      },
+      {
+        "conclusion": "failure",
+        "gate": "observed_workflow_not_successful",
+        "pr": 8,
+        "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+        "run_id": 43876130505,
+        "status": "completed"
+      },
+      {
+        "conclusion": "failure",
+        "gate": "observed_workflow_not_successful",
+        "pr": 1,
+        "repository": "QuanuX/symphony-distribution",
+        "run_id": 43826233073,
+        "status": "completed"
+      }
+    ],
+    "remaining": [
+      "Refresh exact refs and complete required checks immediately before an authorized decision.",
+      "Select the final integration strategy without rewriting retained candidate identities.",
+      "Rebuild/rebind changed source identities and rerun affected gates after integration."
+    ],
+    "required_check_coverage_verified": false,
+    "selected_pr_heads": {
+      "client": "572627e939250763756167a9dc05d8cb37ab4e30",
+      "core": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+      "distribution_toolkit": "1b76f2a51860a5ebd719c1bdcba6ab277e84cfe4"
+    },
+    "snapshot_observed_at": "2026-11-16 16:55:22 UTC"
+  },
+  "integration_authorized": false,
+  "legal_approval": false,
+  "main_changed": false,
+  "packet_digest": "sha256:c35055c8be5573c7b65f1659e8f1e0ccdc44bb2f63956e81af32d971129f663d",
+  "pending_delivery_gates": [
+    "approved exact-byte staging/retrieval",
+    "primary-platform and fresh-host acceptance",
+    "native lifecycle safety and distinct-release rollback",
+    "provider/fault/backup/support drills",
+    "independent publisher trust and applicable Apple signing/notarization"
+  ],
+  "protocol": "symphony.distribution.d09-acceptance-preparation.v1",
+  "publication_authorized": false,
+  "redistribution": {
+    "bootstrap_component_count": 115,
+    "bootstrap_components": [
+      {
+        "component": "_python_abi3_support",
+        "notice_text_sha256": [
+          "0cf2e684551adc3ab366fa08eb78c211ddd309cd560ccf9d459bdf3290396b12"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "altgraph",
+        "notice_text_sha256": [
+          "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "annotated-types",
+        "notice_text_sha256": [
+          "fe1049884b1a0d9342901e88e07f32925d24b3121d9972b6a6805fb9824b095d"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "anyio",
+        "notice_text_sha256": [
+          "5361ac9dc58f2ef5fd2e9b09c68297c17f04950909bbc8023bdb82eacf22c2b0"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "archspec",
+        "notice_text_sha256": [
+          "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "9001ad99a662075a0e5a6a9a539fc75040d8063c3f7251d6839ca40b5234054e"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT OR Apache-2.0"
+      },
+      {
+        "component": "backports.zstd",
+        "notice_text_sha256": [
+          "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Python-2.0"
+      },
+      {
+        "component": "boltons",
+        "notice_text_sha256": [
+          "617273daf4b7b4fbc0e3068bca7df3e3dbc29b4c5641e185917c775cf1795111"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "brotli-python",
+        "notice_text_sha256": [
+          "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "bzip2",
+        "notice_text_sha256": [
+          "c6dbbf828498be844a89eaa3b84adbab3199e342eb5cb2ed2f0d4ba7ec0f38a3"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "bzip2-1.0.6"
+      },
+      {
+        "component": "c-ares",
+        "notice_text_sha256": [
+          "460f5e768fda3752ca2169a95df062578a10fb126bfd65f3b9b1a1bed2f84807"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "ca-certificates",
+        "notice_text_sha256": [
+          "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "ISC"
+      },
+      {
+        "component": "cached-property",
+        "notice_text_sha256": [
+          "ba4756c8039b25b66e3c456cc5bf635aa528cf459b97ee1499d06684ccd89b9a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "cached_property",
+        "notice_text_sha256": [
+          "ba4756c8039b25b66e3c456cc5bf635aa528cf459b97ee1499d06684ccd89b9a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "certifi",
+        "notice_text_sha256": [
+          "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "ISC"
+      },
+      {
+        "component": "charset-normalizer",
+        "notice_text_sha256": [
+          "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+          "0cb3efcfd8f7a02a337e98dc3de4b0b57424d7208a332b26e7deb8cb94c13922"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "colorama",
+        "notice_text_sha256": [
+          "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda",
+        "notice_text_sha256": [
+          "1f3695b738093cb6f69a321004d9993d8f9b6704ffde2a23ca0bc559706f240a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-index",
+        "notice_text_sha256": [
+          "f597f664ffcbadaf09ad744560fa81b18d3cd57eac04db929bf62967bc22c6e6"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-libmamba-solver",
+        "notice_text_sha256": [
+          "b3973794ccbf1601c348aee5b4bfe0345c3bcd21dc0dc80a38441b99405febb0"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-lockfiles",
+        "notice_text_sha256": [
+          "795145c6bdaa43d81998105f89ab06662fa956d519e24e080e662160ac21e3f8"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-package-handling",
+        "notice_text_sha256": [
+          "b7fece5b9cad61c6a6842ed67766c138068bead39a295ba94749bcb3322b5e75"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-package-streaming",
+        "notice_text_sha256": [
+          "58f39270ef88f5aa09817a24fc379b35937e3d986d075df18b55aa5348aaad66"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-pypi",
+        "notice_text_sha256": [
+          "2f650dc1498a5f17e2ff0ddbe4a9a3f66871b9bf8a9a2f61dd6033919f3828ea"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "conda-rattler-solver",
+        "notice_text_sha256": [
+          "b673f14dc8f11f10511e9d6ee43cfb46b52559746ea20a57beafc5274bd0ccbd"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "conda-self",
+        "notice_text_sha256": [
+          "9ab79864eedb957db85d30254c47b9748886d061e3d82303e8b6d75a9c1bee25"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "cpp-expected",
+        "notice_text_sha256": [
+          "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "CC0-1.0"
+      },
+      {
+        "component": "cpython",
+        "notice_text_sha256": [
+          "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Python-2.0"
+      },
+      {
+        "component": "distro",
+        "notice_text_sha256": [
+          "cb5e8e7e5f4a3988e1063c142c60dc2df75605f4c46515e776e3aca6df976e14"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "fmt",
+        "notice_text_sha256": [
+          "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "frozendict",
+        "notice_text_sha256": [
+          "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "LGPL-3.0-only"
+      },
+      {
+        "component": "h11",
+        "notice_text_sha256": [
+          "37db5bb85926db28a427a25867f10b1232003aea1be69ccb851138adb8e6f361"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "h2",
+        "notice_text_sha256": [
+          "7a65a5af0cbabf1c16251c7c6b2b7cb46d16a7222e79975b9b61fcd66a2e3f28"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "hpack",
+        "notice_text_sha256": [
+          "763a9342a04df62046c9dc748a5287934eb0a5331c6863b3ca0aee20e18cb4ed"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "httpcore",
+        "notice_text_sha256": [
+          "fdcb59154c74cbaba16a11242f7740bea9f23d6feb5547917d8c5f94a80392a5"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "httpx",
+        "notice_text_sha256": [
+          "4ec59d544f12b5f539a3a716fd321ac58ccd8030b465221f2c880200cdf28d8d"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "hyperframe",
+        "notice_text_sha256": [
+          "763a9342a04df62046c9dc748a5287934eb0a5331c6863b3ca0aee20e18cb4ed"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "icu",
+        "notice_text_sha256": [
+          "e55522d81edc687a341a4411e0776e54ca654e90147f354a90458aaced4116af"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "idna",
+        "notice_text_sha256": [
+          "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "importlib-metadata",
+        "notice_text_sha256": [
+          "e2f7bb0557e7a381499f15baa7c1d776d83d6616599179d71d3109b8e39f7b25"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "jinja2",
+        "notice_text_sha256": [
+          "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "krb5",
+        "notice_text_sha256": [
+          "35a540e57bd0c22f1a5c8262dac9f80b1b440ce249db8d2d02604c800149b52e"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libarchive",
+        "notice_text_sha256": [
+          "30e556b3959e3985d66efefec5eaac51d4995053caa1d3cffe6eb916f146f229"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-2-Clause"
+      },
+      {
+        "component": "libcurl",
+        "notice_text_sha256": [
+          "82f2f4427d6545ee5aaac4f0b80428da6cc8ba41c2cf5da3a03680ec327b9681"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "curl"
+      },
+      {
+        "component": "libcxx",
+        "notice_text_sha256": [
+          "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0 WITH LLVM-exception"
+      },
+      {
+        "component": "libedit",
+        "notice_text_sha256": [
+          "9da6c9c74987a36c84302982799d17d2f748ba1c1c0c471425716173c1d07649"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-2-Clause"
+      },
+      {
+        "component": "libev",
+        "notice_text_sha256": [
+          "c4dd1a5bc38b041a320b93c5d6c08f5c41a63f2ce718ee16cfcb757fad448199"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-2-Clause OR GPL-2.0-or-later"
+      },
+      {
+        "component": "libexpat",
+        "notice_text_sha256": [
+          "31b15de82aa19a845156169a17a5488bf597e561b2c318d159ed583139b25e87"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libffi",
+        "notice_text_sha256": [
+          "17b64dc60f3b6897a60f971e288b973f655c2edcdf08b25f3c3dd5549857881c"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libiconv",
+        "notice_text_sha256": [
+          "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "LGPL-2.1-only"
+      },
+      {
+        "component": "liblzma",
+        "notice_text_sha256": [
+          "616a3ad264ce29b8f1cb97e53037b139d406899ca8d1f799651e17bfa09830b8",
+          "0b01625d853911cd0e2e088dcfb743261034a091bb379246cb25a14cc4c74bf1"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "0BSD"
+      },
+      {
+        "component": "libmamba",
+        "notice_text_sha256": [
+          "41fd98a468e39d319911bd94f4e65d6ad6a7ea66559dd5aa4112f138ff9b629a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "libmamba-spdlog",
+        "notice_text_sha256": [
+          "41fd98a468e39d319911bd94f4e65d6ad6a7ea66559dd5aa4112f138ff9b629a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "libmambapy",
+        "notice_text_sha256": [
+          "41fd98a468e39d319911bd94f4e65d6ad6a7ea66559dd5aa4112f138ff9b629a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "libmpdec",
+        "notice_text_sha256": [
+          "2713324211652ce4a60e6e21e54f9dc3004299e591b0933a352f1a89c5fb53c2"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-2-Clause"
+      },
+      {
+        "component": "libmsgpack-c",
+        "notice_text_sha256": [
+          "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSL-1.0"
+      },
+      {
+        "component": "libnghttp2",
+        "notice_text_sha256": [
+          "6b94f3abc1aabd0c72a7c7d92a77f79dda7c8a0cb3df839a97890b4116a2de2a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libpsl",
+        "notice_text_sha256": [
+          "e7c9f0d8498d28a360a7e8293ea70fd7bd952955b636938322c13d60a03b5a45"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libpython",
+        "notice_text_sha256": [
+          "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Python-2.0"
+      },
+      {
+        "component": "libsolv",
+        "notice_text_sha256": [
+          "57f15acfb29fbef7749779e096a5885c60b716633e34484a21bb717554c0198f"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "libsqlite",
+        "notice_text_sha256": [],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "blessing"
+      },
+      {
+        "component": "libssh2",
+        "notice_text_sha256": [
+          "f7f9633cf9ff2f1333f3d7ce46973a8716a4d2a2815ad56f30d437d5fea7bafe"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "libxml2",
+        "notice_text_sha256": [
+          "5d4873884a890122a4b9b20ad56ac6f7da1d796a5bfcf04a427970ac96217626"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libxml2-16",
+        "notice_text_sha256": [
+          "5d4873884a890122a4b9b20ad56ac6f7da1d796a5bfcf04a427970ac96217626"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "libzlib",
+        "notice_text_sha256": [
+          "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Zlib"
+      },
+      {
+        "component": "lz4-c",
+        "notice_text_sha256": [
+          "8b58c446121a109ccf32edc094bba3010a3d85e4ee3702950db55e4d3e87736c"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-2-Clause"
+      },
+      {
+        "component": "lzo",
+        "notice_text_sha256": [
+          "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "GPL-2.0-or-later"
+      },
+      {
+        "component": "macholib",
+        "notice_text_sha256": [
+          "47082ab2bc0184123ec9f10fdf80c70723ee68f07d44382e17615c2a6ba70b09"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "macosx_deployment_target_osx-64",
+        "notice_text_sha256": [
+          "969e2a6cbef7b22892db2c15bcc6521399e6f153bfa942a4ff4052508b11da9d"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "markupsafe",
+        "notice_text_sha256": [
+          "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "menuinst",
+        "notice_text_sha256": [
+          "911b693bb34494db6bd2c24f591674633fe99b8bc1442bc3fcf5121a0a82fae5",
+          "e89eed1074d3a943198ba139b80844f5b445b860bba74a8aeadc0610566164ea"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause AND MIT"
+      },
+      {
+        "component": "msgpack-python",
+        "notice_text_sha256": [
+          "492dedba85da5872f78e6091bcd1fea474d660d35acb4dee964b8aab3f007427"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "ncurses",
+        "notice_text_sha256": [
+          "708999f95527e1ffa670c6fce288c6c600cb477dd04afcc1171422b3dd4ee226"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "X11 AND BSD-3-Clause"
+      },
+      {
+        "component": "nlohmann_json-abi",
+        "notice_text_sha256": [
+          "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "openssl",
+        "notice_text_sha256": [
+          "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "packaging",
+        "notice_text_sha256": [
+          "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "platformdirs",
+        "notice_text_sha256": [
+          "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "pluggy",
+        "notice_text_sha256": [
+          "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "py-rattler",
+        "notice_text_sha256": [
+          "679d42a76b82a6dc20ffd9048ab45fb2e5557a526113aaedc7419e12f3cfab38",
+          "758d7c2a4af781926695c51ec4c98551d9acac2a24c985c78b6f792331380213"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "pybind11-abi",
+        "notice_text_sha256": [
+          "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "pycosat",
+        "notice_text_sha256": [
+          "233d9a3b1d9e0d8afb120ee76b98e65c55ede04162fe37c2e803a3d38968021e",
+          "15e5190c9b81bfb32603f7c6a90a536a1bd6eda66beb447e3d436d527decea1d"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "pydantic",
+        "notice_text_sha256": [
+          "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "pydantic-core",
+        "notice_text_sha256": [
+          "2afdd30d54b4d62b6f488a6bcc1546e84ec5061f13f4209c03d012348783795a",
+          "2f65b3be5932bc6245c2498a2626975f4738630c63e1cbc7d0b79931fc925053"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "pyinstaller",
+        "notice_text_sha256": [
+          "dcf75fdb959db1e3b41c0f8505069d2ece781b5ec6b3d0a4d30975cfc6580245"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "GPL-2.0-or-later WITH Bootloader-exception"
+      },
+      {
+        "component": "pyinstaller-hooks-contrib",
+        "notice_text_sha256": [
+          "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0 OR GPL-2.0-or-later"
+      },
+      {
+        "component": "pyproject_hooks",
+        "notice_text_sha256": [
+          "1b22b049b5267d6dfc23a67bf4a84d8ec04b9fdfb1a51d360e42b4342c8b4154"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "pysocks",
+        "notice_text_sha256": [
+          "7027e214e014eb78b7adcc1ceda5aca713a79fc4f6a0c52c9da5b3e707e6ffe9"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "python",
+        "notice_text_sha256": [
+          "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Python-2.0"
+      },
+      {
+        "component": "python-build",
+        "notice_text_sha256": [
+          "aaf9a29ca5907971ccf07de025375db34539a8d5eeebce20b46099805722106f"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "python-gil",
+        "notice_text_sha256": [
+          "b0e25a78cffb43f4d92de8b61ccfa1f1f98ecbc22330b54b5251e7b6ba010231"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Python-2.0"
+      },
+      {
+        "component": "python-installer",
+        "notice_text_sha256": [
+          "37b8b9f2569892fa54406383d431169dbb2115980d78b7efba6eeae5664c484f"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "python_abi",
+        "notice_text_sha256": [
+          "44ef42d743263ebacf7f3d175a940c62959d75af9afd05ef016861e9b4bf2859"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      },
+      {
+        "component": "readline",
+        "notice_text_sha256": [
+          "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "GPL-3.0-only"
+      },
+      {
+        "component": "reproc",
+        "notice_text_sha256": [
+          "8f91afbe266bebac2cf1b220e0e67ace4cb9a97d2b21940abef20eb6691cfa91"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "reproc-cpp",
+        "notice_text_sha256": [
+          "8f91afbe266bebac2cf1b220e0e67ace4cb9a97d2b21940abef20eb6691cfa91"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "requests",
+        "notice_text_sha256": [
+          "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "ruamel.yaml",
+        "notice_text_sha256": [
+          "3e7632bb0dc1150f15f8161f5eec48dec8a99aaa1dfc9e8f63c02931e0fba7f8"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "ruamel.yaml.clib",
+        "notice_text_sha256": [
+          "f8ad7efe71dde909f2d694f7dc69470d3dbe07c001c0b30c6bd9951e472077fa"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "setuptools",
+        "notice_text_sha256": [
+          "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "simdjson",
+        "notice_text_sha256": [
+          "5fa8894e890bd77958f93b165433e0fb0dffa5bc982bfb147e4748e95bad24e5"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "sniffio",
+        "notice_text_sha256": [
+          "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "Apache-2.0"
+      },
+      {
+        "component": "spdlog",
+        "notice_text_sha256": [
+          "d678c20826e1392578508e1c78649a1e3c31bda05ef4388d967dbd654461b140"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "tk",
+        "notice_text_sha256": [
+          "c0a69a2bfd757361ec7e6143973b103c90409316b49e9c88db26ad6388e79f16"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "TCL"
+      },
+      {
+        "component": "tomli",
+        "notice_text_sha256": [
+          "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "tomli-w",
+        "notice_text_sha256": [
+          "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "tqdm",
+        "notice_text_sha256": [
+          "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MPL-2.0 and MIT"
+      },
+      {
+        "component": "truststore",
+        "notice_text_sha256": [
+          "33be7b7e8fa4fd19b1760e1a8ed8a668bdab852c91b692dd41424bcb725a9fca"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "typing-extensions",
+        "notice_text_sha256": [
+          "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "PSF-2.0"
+      },
+      {
+        "component": "typing-inspection",
+        "notice_text_sha256": [
+          "804b59b25f2c31bd278f9202a19ae49a3945aa2664387e2d0a128c7cacc61ec3"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "typing_extensions",
+        "notice_text_sha256": [
+          "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "PSF-2.0"
+      },
+      {
+        "component": "tzdata",
+        "notice_text_sha256": [
+          "0613408568889f5739e5ae252b722a2659c02002839ad970a63dc5e9174b27cf"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "LicenseRef-Public-Domain"
+      },
+      {
+        "component": "unearth",
+        "notice_text_sha256": [
+          "f41fb5f1a24c28cdf0217aefc7b18fb9ad3500f5988d7f232c7eaa21b9bf595f"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "urllib3",
+        "notice_text_sha256": [
+          "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "yaml-cpp",
+        "notice_text_sha256": [
+          "aa6fcc27be034e41e21dd832f9175bfe694a48491d9e14ff0fa278e19ad14f1b"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "zipp",
+        "notice_text_sha256": [
+          "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "MIT"
+      },
+      {
+        "component": "zstd",
+        "notice_text_sha256": [
+          "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8"
+        ],
+        "redistribution_review": "pending",
+        "upstream_declared_license": "BSD-3-Clause"
+      }
+    ],
+    "bootstrap_metadata_sha256": "ba308ea83481c7784311e9fd88f45d7da7ee18d43755f682a7c89b522bb83f16",
+    "bootstrap_notices": [
+      {
+        "path": "3rd-party-licenses.json",
+        "sha256": "8a73a34191835d2a26b98384286ad72eb944a1e0726f3a3cdeebac21995d72db",
+        "size": 7407876
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "88db90e3936fc5854cde803363c7fbcdc290dfe4d14274130eb6fea76f48d6bb",
+        "size": 1539
+      }
+    ],
+    "bootstrap_package": {
+      "build": "h3190db2_0",
+      "sha256": "3abef5f6afbae509f67746b61a5f047a8b1127b51da0ddb5cb543163b77b6c59",
+      "url": "https://conda.anaconda.org/conda-forge/osx-64/conda-standalone-26.9.4.post1-h3190db2_0.conda",
+      "version": "26.9.4.post1"
+    },
+    "core_notice_count": 131,
+    "core_notices": [
+      {
+        "component": "native:knowledge-vector-engine-cpp",
+        "path": "notices/installed/share/licenses/symphony-knowledge-vector-engine/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:knowledge-vector-engine-cpp",
+        "path": "notices/installed/share/licenses/symphony-knowledge-vector-engine/0.2.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:snv-common-cpp",
+        "path": "notices/installed/share/licenses/symphony-snv-common-cpp/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:snv-common-cpp",
+        "path": "notices/installed/share/licenses/symphony-snv-common-cpp/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:knowledge-session-coordinator",
+        "path": "notices/installed/share/licenses/symphony-knowledge-session/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:knowledge-session-coordinator",
+        "path": "notices/installed/share/licenses/symphony-knowledge-session/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:maestro",
+        "path": "notices/installed/share/licenses/symphony-maestro/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:maestro",
+        "path": "notices/installed/share/licenses/symphony-maestro/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:native-source-support-cpp",
+        "path": "notices/installed/share/licenses/symphony-native-source-support-cpp/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:native-source-support-cpp",
+        "path": "notices/installed/share/licenses/symphony-native-source-support-cpp/0.1.0-dev/curl-COPYING",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+        "size": 1088
+      },
+      {
+        "component": "native:sacv-engine",
+        "path": "notices/installed/share/licenses/symphony-sacv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sacv-engine",
+        "path": "notices/installed/share/licenses/symphony-sacv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sav-engine",
+        "path": "notices/installed/share/licenses/symphony-sav-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sav-engine",
+        "path": "notices/installed/share/licenses/symphony-sav-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqfv-batch-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqfv-batch-cpp/0.3.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqmv-metadata-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqmv-metadata-cpp/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-capture-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqav-capture-cpp/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqpv-local-store-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqpv-local-store-cpp/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-databento-dbn-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqav-databento-dbn-cpp/0.5.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-databento-dbn-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqav-databento-dbn-cpp/0.5.0-dev/curl-COPYING",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+        "size": 1088
+      },
+      {
+        "component": "native:sqdv-delivery-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqdv-delivery-cpp/0.3.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sbv-engine",
+        "path": "notices/installed/share/licenses/symphony-sbv-engine/0.33.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sbv-engine",
+        "path": "notices/installed/share/licenses/symphony-sbv-engine/0.33.0-dev/LICENSE-nlohmann-MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:scev-cf-engine",
+        "path": "notices/installed/share/licenses/symphony-scev-cf-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:scev-cf-engine",
+        "path": "notices/installed/share/licenses/symphony-scev-cf-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:scev-engine",
+        "path": "notices/installed/share/licenses/symphony-scev-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:scev-engine",
+        "path": "notices/installed/share/licenses/symphony-scev-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:schv-aws-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-aws-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:schv-aws-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-aws-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:schv-azure-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-azure-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:schv-azure-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-azure-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:schv-do-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-do-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:schv-do-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-do-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:schv-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:schv-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:schv-gcp-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-gcp-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:schv-gcp-engine",
+        "path": "notices/installed/share/licenses/symphony-schv-gcp-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sciv-engine",
+        "path": "notices/installed/share/licenses/symphony-sciv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sciv-engine",
+        "path": "notices/installed/share/licenses/symphony-sciv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sclv-engine",
+        "path": "notices/installed/share/licenses/symphony-sclv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sclv-engine",
+        "path": "notices/installed/share/licenses/symphony-sclv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:scnv-engine",
+        "path": "notices/installed/share/licenses/symphony-scnv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:scnv-engine",
+        "path": "notices/installed/share/licenses/symphony-scnv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:scv-engine",
+        "path": "notices/installed/share/licenses/symphony-scv-engine/0.10.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:scv-engine",
+        "path": "notices/installed/share/licenses/symphony-scv-engine/0.10.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sev-engine",
+        "path": "notices/installed/share/licenses/symphony-sev-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sev-engine",
+        "path": "notices/installed/share/licenses/symphony-sev-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:shv-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-engine/0.4.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:shv-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-engine/0.4.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:shv-graph-adapter",
+        "path": "notices/installed/share/licenses/symphony-shv-graph-adapter/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:shv-graph-adapter",
+        "path": "notices/installed/share/licenses/symphony-shv-graph-adapter/0.2.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:shv-partition-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-partition-engine/0.4.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:shv-partition-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-partition-engine/0.4.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:shv-profile-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-profile-engine/0.3.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:shv-profile-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-profile-engine/0.3.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:shv-publication-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-publication-engine/0.4.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:shv-publication-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-publication-engine/0.4.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:shv-source-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-source-engine/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:shv-source-engine",
+        "path": "notices/installed/share/licenses/symphony-shv-source-engine/0.2.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:skvi-engine",
+        "path": "notices/installed/share/licenses/symphony-skvi-engine/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:skvi-engine",
+        "path": "notices/installed/share/licenses/symphony-skvi-engine/0.2.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sniv-engine",
+        "path": "notices/installed/share/licenses/symphony-sniv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sniv-engine",
+        "path": "notices/installed/share/licenses/symphony-sniv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:snrv-engine",
+        "path": "notices/installed/share/licenses/symphony-snrv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:snrv-engine",
+        "path": "notices/installed/share/licenses/symphony-snrv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:snv-engine",
+        "path": "notices/installed/share/licenses/symphony-snv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:snv-engine",
+        "path": "notices/installed/share/licenses/symphony-snv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sodv-engine",
+        "path": "notices/installed/share/licenses/symphony-sodv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sodv-engine",
+        "path": "notices/installed/share/licenses/symphony-sodv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqav-attempt-engine",
+        "path": "notices/installed/share/licenses/symphony-sqav-attempt-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-attempt-engine",
+        "path": "notices/installed/share/licenses/symphony-sqav-attempt-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqav-databento-reference-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqav-databento-reference-cpp/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-databento-reference-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqav-databento-reference-cpp/0.1.0-dev/zstd-LICENSE",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+        "size": 1549
+      },
+      {
+        "component": "native:sqav-fred-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqav-fred-cpp/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-request-engine",
+        "path": "notices/installed/share/licenses/symphony-sqav-request-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqav-request-engine",
+        "path": "notices/installed/share/licenses/symphony-sqav-request-engine/0.1.0-dev/curl-COPYING",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+        "size": 1088
+      },
+      {
+        "component": "native:sqav-request-engine",
+        "path": "notices/installed/share/licenses/symphony-sqav-request-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqav-request-engine",
+        "path": "notices/installed/share/licenses/symphony-sqav-request-engine/0.1.0-dev/zstd-LICENSE",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+        "size": 1549
+      },
+      {
+        "component": "native:sqdv-checkpoint-engine",
+        "path": "notices/installed/share/licenses/symphony-sqdv-checkpoint-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqdv-checkpoint-engine",
+        "path": "notices/installed/share/licenses/symphony-sqdv-checkpoint-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqfv-flow-engine",
+        "path": "notices/installed/share/licenses/symphony-sqfv-flow-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqfv-flow-engine",
+        "path": "notices/installed/share/licenses/symphony-sqfv-flow-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqmv-metadata-engine",
+        "path": "notices/installed/share/licenses/symphony-sqmv-metadata-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqmv-metadata-engine",
+        "path": "notices/installed/share/licenses/symphony-sqmv-metadata-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqpv-inspection-engine",
+        "path": "notices/installed/share/licenses/symphony-sqpv-inspection-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqpv-inspection-engine",
+        "path": "notices/installed/share/licenses/symphony-sqpv-inspection-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sqtv-integer-conversion-cpp",
+        "path": "notices/installed/share/licenses/symphony-sqtv-integer-conversion-cpp/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqtv-conversion-engine",
+        "path": "notices/installed/share/licenses/symphony-sqtv-conversion-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sqtv-conversion-engine",
+        "path": "notices/installed/share/licenses/symphony-sqtv-conversion-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:ssfv-engine",
+        "path": "notices/installed/share/licenses/symphony-ssfv-engine/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:ssfv-engine",
+        "path": "notices/installed/share/licenses/symphony-ssfv-engine/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:symphony-validator",
+        "path": "notices/installed/share/licenses/symphony-validator/0.2.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:symphony-validator",
+        "path": "notices/installed/share/licenses/symphony-validator/0.2.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:ssiag-provider-private-store",
+        "path": "notices/installed/share/doc/symphony/ssiag-provider-private-store/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:ssiag-provider-private-store",
+        "path": "notices/installed/share/doc/symphony/ssiag-provider-private-store/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "native:sov-cloudflare-adapter",
+        "path": "notices/installed/share/doc/symphony/sov-cloudflare-adapter/0.1.0-dev/LICENSE-AGPL-3.0",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "native:sov-cloudflare-adapter",
+        "path": "notices/installed/share/doc/symphony/sov-cloudflare-adapter/0.1.0-dev/nlohmann-json-LICENSE.MIT",
+        "scope": "verified final native receipt-owned notice",
+        "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+        "size": 1075
+      },
+      {
+        "component": "Symphony",
+        "path": "notices/symphony/LICENSE",
+        "scope": "exact built-source main license; publisher approval pending",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "github.com/QuanuX/Symphony/libraries/stav-protocol-go@v0.2.0",
+        "path": "notices/go/44240966b9417053ac6e021c81be2c74c278954f5d4807911e02ce90b547d308/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "github.com/QuanuX/Symphony/modules/stav-append-authority@v0.2.1",
+        "path": "notices/go/e2f27797fa4b91797e7873ac3ca8a55ab1dc0612435c40f1581a3664c5da4d27/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "golang.org/x/sys@v0.47.0",
+        "path": "notices/go/dc957412cc909276320f70037599d72891e1f71a764e36c332bace8e873c07d2/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "golang.org/x/sys@v0.47.0",
+        "path": "notices/go/dc957412cc909276320f70037599d72891e1f71a764e36c332bace8e873c07d2/PATENTS",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "github.com/QuanuX/Symphony/modules/accordare-stav-producer@v0.1.0-dev.0.20261116054240-71bbb60d870a",
+        "path": "notices/go/c2a1581d1483f039de340acb79bc68f302d803bf4695e1b4b44deab3b853f1e9/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "github.com/QuanuX/Symphony/tools/sov-ssh-adapter@v0.1.0-dev",
+        "path": "notices/go/6476e32fc58efc41a3c7f869e9a2ef44fa8cb928f1bae3d34398a9ac531c6a7f/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "size": 34523
+      },
+      {
+        "component": "github.com/fsnotify/fsnotify@v1.9.0",
+        "path": "notices/go/378f777c98af074fd0b9c573fc8ee5415ac1e51d9a0849e498eb5a803e8d9573/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "2dfbe6d2b5eb18b55148f3805d88648a09e0d17e38428123259afb08c8996e37",
+        "size": 1531
+      },
+      {
+        "component": "github.com/go-viper/mapstructure/v2@v2.4.0",
+        "path": "notices/go/c6160f87e31f41d2b9d2da9d01600bab0e2215c7ffb2db994623013c61b356b9/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "22adc4abdece712a737573672f082fd61ac2b21df878efb87ffcff4354a07f26",
+        "size": 1085
+      },
+      {
+        "component": "github.com/pelletier/go-toml/v2@v2.2.4",
+        "path": "notices/go/abbc54aafed847672469d5a33f67d6a0d6785e3b8f389ddcddd993b4fe93bf85/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "26844e4b53c5adec04e557fd7dfef281cc0205a7d355626b1c68b778b99e9e7b",
+        "size": 1101
+      },
+      {
+        "component": "github.com/sagikazarmark/locafero@v0.11.0",
+        "path": "notices/go/d33f7d137654096795f86f49a93b02ba473a47404463cfb5a35d999e3441cd70/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "c4129f2c2a5eb20e4ac7b2535dab899fde485865106a15189726e2db68ff3483",
+        "size": 1089
+      },
+      {
+        "component": "github.com/sourcegraph/conc@v0.3.1-0.20240121214520-5f936abd7ae8",
+        "path": "notices/go/fa41f14e1ca504bce150abde86915cc87daefeec96572d931c17e61cdc048ab2/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "e3dfc7ac698a5b64eefc720531595b9d6e3f6c5da7f741ef15e453709e173ee2",
+        "size": 1068
+      },
+      {
+        "component": "github.com/spf13/afero@v1.15.0",
+        "path": "notices/go/b8e14e146067cd3030d80448d93cb27722527df1b5edb0ec68b47f04fa851710/LICENSE.txt",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283",
+        "size": 10140
+      },
+      {
+        "component": "github.com/spf13/cast@v1.10.0",
+        "path": "notices/go/c079ef874966a9ecfbf8f9e2c134683e0acdaf50964accce9e075e1f93f5ef66/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "feb6d17a0e7a64e5ab0f7e2b0e0ee3e69c1a6396626fd554dc0cddaa06851b44",
+        "size": 1079
+      },
+      {
+        "component": "github.com/spf13/cobra@v1.10.2",
+        "path": "notices/go/11bbffcd17fd6421bfa2669267e3442b6aeb78ede83ffd7caf2ebe57f6b0b29b/LICENSE.txt",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "5e3400b93bbb099e83e52bab885e7441750673c21f97988ca3f1240639b63283",
+        "size": 10140
+      },
+      {
+        "component": "github.com/spf13/pflag@v1.0.10",
+        "path": "notices/go/80d3641cd70fc7138cc072e7d656690d751f5d566f18d340b3ba5bf6a84fa970/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "b8514c577c1c4b46cee454d5a882b15fa411e72c5bd7f801f241591789fce61a",
+        "size": 1531
+      },
+      {
+        "component": "github.com/spf13/viper@v1.21.0",
+        "path": "notices/go/9754aa14e216747a185008696b53c9bb4513df02b67c03ac4315af975004eb53/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "feb6d17a0e7a64e5ab0f7e2b0e0ee3e69c1a6396626fd554dc0cddaa06851b44",
+        "size": 1079
+      },
+      {
+        "component": "github.com/subosito/gotenv@v1.6.0",
+        "path": "notices/go/3070e3cf1bf459f299f7ae447ecdd25fd96624979ffd440906a10cfa90b78c58/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "1fd29c692f599736d92f7c02b7826836c0d2ccc838689b21822f4ce0253c39df",
+        "size": 1082
+      },
+      {
+        "component": "go.yaml.in/yaml/v3@v3.0.4",
+        "path": "notices/go/522b844ed0b418e887fc25846f2ecc43c8d26cbeafa18eac57fa8257d3a57a10/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "d18f6323b71b0b768bb5e9616e36da390fbd39369a81807cca352de4e4e6aa0b",
+        "size": 2151
+      },
+      {
+        "component": "go.yaml.in/yaml/v3@v3.0.4",
+        "path": "notices/go/522b844ed0b418e887fc25846f2ecc43c8d26cbeafa18eac57fa8257d3a57a10/NOTICE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "f6c2dd3a67b576eafb89b80200b8b1627230bf3821a0c14cb99a22ac19107d00",
+        "size": 560
+      },
+      {
+        "component": "golang.org/x/text@v0.28.0",
+        "path": "notices/go/f52ac08a370891d8cfd4130ce5100a0a193787db0d8fe5233e033f6b1d2ab5d3/LICENSE",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "golang.org/x/text@v0.28.0",
+        "path": "notices/go/f52ac08a370891d8cfd4130ce5100a0a193787db0d8fe5233e033f6b1d2ab5d3/PATENTS",
+        "scope": "exact verified module legal files; applicability to linked packages needs review",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/LICENSE",
+        "scope": "matching Go runtime/toolchain legal material",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/PATENTS",
+        "scope": "matching Go runtime/toolchain legal material",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/crypto/LICENSE",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/crypto/PATENTS",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/net/LICENSE",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/net/PATENTS",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/sys/LICENSE",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/sys/PATENTS",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/text/LICENSE",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad",
+        "size": 1453
+      },
+      {
+        "component": "go1.26.5",
+        "path": "notices/go-toolchain/vendor/golang.org/x/text/PATENTS",
+        "scope": "standard library vendor legal material superset; not all linked",
+        "sha256": "96f408bfae65bf137fc2525d3ecb030271c50c1e90799f87abf8846d8dd505cc",
+        "size": 1303
+      },
+      {
+        "component": "curl",
+        "path": "notices/external/curl/LICENSE",
+        "scope": "exact selected upstream notice",
+        "sha256": "adb1fc06547fd136244179809f7b7c2d2ae6c4534f160aa513af9b6a12866a32",
+        "size": 1088
+      },
+      {
+        "component": "zstd",
+        "path": "notices/external/zstd/LICENSE",
+        "scope": "exact selected upstream notice",
+        "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+        "size": 1549
+      }
+    ],
+    "license_applicability_or_compliance_approved": false,
+    "notice_bytes_verified": true,
+    "pending_reviews": [
+      "Exact bootstrap component source/build/offer and license-exception closure.",
+      "Core, Go, SDK, client, toolkit, upstream and OS/TLS redistribution applicability.",
+      "Corresponding-source availability, directions and retention at the actual delivery route.",
+      "Preserved legal attribution, optional/vendor exclusion rights and complete notice delivery."
+    ]
+  },
+  "release_acceptance_complete": false,
+  "reviewed_artifact_count": 76,
+  "reviewed_artifact_inventory_sha256": "abc1315a5f92b95642f47ea526440bcec8fcfe3481fa912e26f93f40df8759f9",
+  "roles": [
+    {
+      "reviewer": null,
+      "role": "source_integration_owner",
+      "status": "unassigned_pending"
+    },
+    {
+      "reviewer": null,
+      "role": "redistribution_reviewer",
+      "status": "unassigned_pending"
+    },
+    {
+      "reviewer": null,
+      "role": "independent_payload_reviewer",
+      "status": "unassigned_pending"
+    },
+    {
+      "reviewer": null,
+      "role": "independent_trust_reviewer",
+      "status": "unassigned_pending"
+    },
+    {
+      "reviewer": null,
+      "role": "independent_acceptance_reviewer",
+      "status": "unassigned_pending"
+    },
+    {
+      "reviewer": null,
+      "role": "backup_reviewer",
+      "status": "unassigned_pending"
+    },
+    {
+      "reviewer": null,
+      "role": "release_approver",
+      "status": "unassigned_pending"
+    }
+  ],
+  "selection_sha256": "356153d7aab7d81aa97c57e50fcafc445bc08f9b88d9eb27ac3ff2cbca42a8da",
+  "source_binding": {
+    "core_full_export_kind": "reviewed_derived_source",
+    "derived_core_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+    "original_full_tree_reconstruction": false,
+    "qxctl_source_kind": "original_git_component_with_equal_compiled_inputs",
+    "sources": {
+      "client": {
+        "commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+        "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+        "tree": "83a5aad51f809358b72d2cb9f96833b8977b57a0"
+      },
+      "core": {
+        "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "repository": "QuanuX/Symphony",
+        "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+      },
+      "distribution_toolkit": {
+        "commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+        "repository": "QuanuX/symphony-distribution",
+        "tree": "836c2b73e9f4554b4100882051e4f110eb147fb3"
+      }
+    }
+  },
+  "state": "prepared_independent_decisions_pending"
+}

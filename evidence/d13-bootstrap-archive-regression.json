@@ -1,0 +1,34 @@
+{
+  "executable_sha256": "fd7c7e8355d2e015ded0b63848614ea09dea94fe63776a1bc23634ec83a069be",
+  "fixed_original_and_renamed_results_equal": true,
+  "helper_sha256": "e6b61645c1d58ea42745e6cca4e809f3b65d24add25445a12b2727202256f017",
+  "notices": [
+    {
+      "name": "3rd-party-licenses.json",
+      "sha256": "8a73a34191835d2a26b98384286ad72eb944a1e0726f3a3cdeebac21995d72db",
+      "size": 7407876
+    },
+    {
+      "name": "LICENSE",
+      "sha256": "88db90e3936fc5854cde803363c7fbcdc290dfe4d14274130eb6fea76f48d6bb",
+      "size": 1539
+    }
+  ],
+  "original_library_lookup": "failed_pkg_standalone_as_expected",
+  "package_identity": {
+    "build": "h3190db2_0",
+    "sha256": "3abef5f6afbae509f67746b61a5f047a8b1127b51da0ddb5cb543163b77b6c59",
+    "version": "26.9.4.post1"
+  },
+  "primary_platform_acceptance": false,
+  "profile": "local-macos-amd64-fixture",
+  "protocol": "symphony.distribution.bootstrap-component-regression.v1",
+  "publication_authorized": false,
+  "scope": "archive inspection only; no bootstrap or installer executed",
+  "selected_archive_unchanged": true,
+  "selected_executable_unchanged": true,
+  "state": "passed",
+  "storage_name": "standalone.conda",
+  "streaming_library_sha256": "ddab9b2df325b8e08f4a0c32b85cbf0267f19296bb1c8f1282e3c5ae796654db",
+  "tests_sha256": "795601d26ec18da28edac17353ce48ad92cd05352569e1ab1b94561c4c6803e7"
+}

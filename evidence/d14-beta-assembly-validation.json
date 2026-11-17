@@ -1,0 +1,75 @@
+{
+  "actionlint": "passed",
+  "final_beta_wrapper_execution_observed": false,
+  "final_source_bundle_generated": false,
+  "focused_tests": {
+    "beta": 18,
+    "bootstrap": 14,
+    "constructor": 33,
+    "shell_orchestration": 19,
+    "skipped": 0
+  },
+  "four_actual_client_native_bindings": [
+    {
+      "actual_codex_cases": 22,
+      "profile": "macos15-arm64",
+      "source_files": 101,
+      "zip_members": 94
+    },
+    {
+      "actual_codex_cases": 22,
+      "joined59_digest": "sha256:0f3e922c4c220ed526b59304eb70e1a83acdb1ba2f15de5aa6fbdee85dea1028",
+      "profile": "ubuntu24.04-amd64",
+      "source_files": 101,
+      "zip_members": 94
+    },
+    {
+      "actual_codex_cases": 22,
+      "profile": "ubuntu24.04-arm64",
+      "source_files": 101,
+      "zip_members": 94
+    },
+    {
+      "actual_codex_cases": 22,
+      "profile": "ubuntu26.04-amd64",
+      "source_files": 101,
+      "zip_members": 94
+    }
+  ],
+  "helper_sha256": {
+    ".github/workflows/d14-beta-assembly.yml": "edab3110b6689ad39598d8c9afcd8b36b1a72fb78f15fe6468784fba3d00d2ba",
+    "installer_assembly/beta.py": "17631c74f8a0683851d03d4b958bd667eb0b3ac2170f2732376d24dd9e2b108b",
+    "installer_assembly/construct.py": "8270026f8ec32211f3162054293290fbe9680cf147f0dc12b802d6edcb78ca79",
+    "installer_assembly/test_beta.py": "5425dea150abff88b9af50cc87d80e7f4ef57b328ef64869a4552250376eca4a",
+    "qualification/primary_rewrap.py": "da975c971ae78ccd5d74c73b45f676c859e90df18ea51f7463d7144830d2043e",
+    "qualification/test_primary_rewrap.py": "002f3fc3137cd79622799ab2cb8e241b02159290f9c939c28702134fa3e4c12f"
+  },
+  "installed_and_cli_retention_qualification_workflow_prepared": true,
+  "no_native_or_client_recompile": true,
+  "opaque_revision_preflight": {
+    "all_final_build_numbers": [
+      1
+    ],
+    "carrier_count": 59,
+    "initial_cohort_digest": "sha256:0f3e922c4c220ed526b59304eb70e1a83acdb1ba2f15de5aa6fbdee85dea1028",
+    "profile": "ubuntu24.04-amd64",
+    "revised_cohort_digest": "sha256:369a354e6fb63eee5933d4e64655b87cf6aa185701a7d5f228922a34ab3ac187",
+    "scope": "opaque archive assembly preflight only; no native execution or user installation",
+    "unchanged_payloads_and_receipts": true
+  },
+  "preflight_archive_scope": "Earlier private packaging-only preflight; final source-bound candidate is produced separately by the committed hosted workflow",
+  "privacy_scan": "passed",
+  "private_default_deny_profile_and_codex_fragment_workflow_prepared": true,
+  "protocol": "symphony.distribution.beta-assembly-validation.v1",
+  "retention_actual_data_only_preflight": {
+    "carrier_count": 59,
+    "native_binaries_executed": false,
+    "owner_route_units": 5,
+    "result_sha256": "7686945ab1ddc29f6a8f109138868fee2282642d4f11b23629665ab6b0e73fba",
+    "retained_file_count": 1447,
+    "state": "all59_candidates_and_both_owner_retention_routes_passed"
+  },
+  "retention_helper_sha256": "d329c7b69c4ff94a95f704b621fc91b7f3501e3bf48a66c372abea93f6875828",
+  "source_only_recollection_workflow_prepared": true,
+  "state": "focused_contracts_and_actual_input_preflight_passed"
+}

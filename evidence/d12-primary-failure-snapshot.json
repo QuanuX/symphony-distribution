@@ -1,0 +1,395 @@
+{
+  "completed_carrier_candidates": 0,
+  "main_mutated": false,
+  "native_payload_bytes_downloaded": false,
+  "native_recovery_candidates": 4,
+  "observation": "one current metadata/jobs/artifact snapshot; no polling",
+  "protocol": "symphony.distribution.primary-recovery-inventory.v1",
+  "publication_authorized": false,
+  "repository": "QuanuX/symphony-distribution",
+  "runs": [
+    {
+      "artifacts": [
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14266070407/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:12:25Z",
+          "id": 14266070407,
+          "name": "d09-evidence-macos15-arm64-1",
+          "sha256": "d71c61791c02c47bf152c74d7a5201915caa2bd24c73137eb6ffdedf6d2249cf",
+          "size": 233310,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14266070407"
+        },
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14265835410/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:08:47Z",
+          "id": 14265835410,
+          "name": "d10-native-recovery-macos15-arm64-1",
+          "sha256": "8231d4ff33e8450a05556598c9a20852e886ddc07f4b278ec968c01a72f0cc06",
+          "size": 93186527,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14265835410"
+        }
+      ],
+      "carrier_capsule_available": false,
+      "conclusion": "failure",
+      "failure": {
+        "error": "KeyError: 'build_provenance'",
+        "file": "installer_assembly/carriers.py",
+        "line": 172,
+        "step": "Assemble independently installable baseline carriers and matching wrappers"
+      },
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_tree": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "native_capsule_bytes_verified": false,
+      "native_job_id": 133551412965,
+      "profile": "macos15-arm64",
+      "run_attempt": 1,
+      "run_id": 43939021560,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Download exact dependency source archives",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Prepare exact external libraries with explicit TLS selection",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build two clean cohorts and qualify final installed SDKs",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Retain verified native bytes before delivery collection",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Upload completed native recovery capsule before later gates",
+          "number": 16
+        },
+        {
+          "conclusion": "success",
+          "name": "Record final package and public dependency closure",
+          "number": 17
+        },
+        {
+          "conclusion": "success",
+          "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "number": 18
+        },
+        {
+          "conclusion": "failure",
+          "name": "Assemble independently installable baseline carriers and matching wrappers",
+          "number": 19
+        },
+        {
+          "conclusion": "success",
+          "name": "Locate completed carrier capsule after packaging attempt",
+          "number": 20
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Retain completed pre-wrapper primary carrier capsule",
+          "number": 21
+        }
+      ],
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939021560",
+      "wrapper_selection_admissible": false
+    },
+    {
+      "artifacts": [
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264074885/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:15:28Z",
+          "id": 14264074885,
+          "name": "d09-evidence-ubuntu24.04-amd64-1",
+          "sha256": "4d293b64e7bef3c8630118e9a284f18ecfbabc2667912f89613412b12f077e18",
+          "size": 233706,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264074885"
+        },
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14263759488/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:11:39Z",
+          "id": 14263759488,
+          "name": "d10-native-recovery-ubuntu24.04-amd64-1",
+          "sha256": "c2175e83e7d7c45cdfb805428845c30406fc9136467d470b7ead1d949c37f8f2",
+          "size": 97025861,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14263759488"
+        }
+      ],
+      "carrier_capsule_available": false,
+      "conclusion": "failure",
+      "failure": {
+        "error": "KeyError: 'build_provenance'",
+        "file": "installer_assembly/carriers.py",
+        "line": 172,
+        "step": "Assemble independently installable baseline carriers and matching wrappers"
+      },
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_tree": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "native_capsule_bytes_verified": false,
+      "native_job_id": 133551547411,
+      "profile": "ubuntu24.04-amd64",
+      "run_attempt": 1,
+      "run_id": 43939059852,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Download exact dependency source archives",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Prepare exact external libraries with explicit TLS selection",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build two clean cohorts and qualify final installed SDKs",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Retain verified native bytes before delivery collection",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Upload completed native recovery capsule before later gates",
+          "number": 16
+        },
+        {
+          "conclusion": "success",
+          "name": "Record final package and public dependency closure",
+          "number": 17
+        },
+        {
+          "conclusion": "success",
+          "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "number": 18
+        },
+        {
+          "conclusion": "failure",
+          "name": "Assemble independently installable baseline carriers and matching wrappers",
+          "number": 19
+        },
+        {
+          "conclusion": "success",
+          "name": "Locate completed carrier capsule after packaging attempt",
+          "number": 20
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Retain completed pre-wrapper primary carrier capsule",
+          "number": 21
+        }
+      ],
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939059852",
+      "wrapper_selection_admissible": false
+    },
+    {
+      "artifacts": [
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264619408/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:13:45Z",
+          "id": 14264619408,
+          "name": "d09-evidence-ubuntu24.04-arm64-1",
+          "sha256": "4f52cc374dd654da00f1262833a37b3267f1dee73c9ebb07db2ff36993a02544",
+          "size": 233704,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264619408"
+        },
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264094222/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:10:36Z",
+          "id": 14264094222,
+          "name": "d10-native-recovery-ubuntu24.04-arm64-1",
+          "sha256": "fd9aa1579aacff6bde29c8b824fde06d8d732e31af8d680c61e9f37b5ff21f1e",
+          "size": 90957845,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264094222"
+        }
+      ],
+      "carrier_capsule_available": false,
+      "conclusion": "failure",
+      "failure": {
+        "error": "KeyError: 'build_provenance'",
+        "file": "installer_assembly/carriers.py",
+        "line": 172,
+        "step": "Assemble independently installable baseline carriers and matching wrappers"
+      },
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_tree": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "native_capsule_bytes_verified": false,
+      "native_job_id": 133551616378,
+      "profile": "ubuntu24.04-arm64",
+      "run_attempt": 1,
+      "run_id": 43939100597,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Download exact dependency source archives",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Prepare exact external libraries with explicit TLS selection",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build two clean cohorts and qualify final installed SDKs",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Retain verified native bytes before delivery collection",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Upload completed native recovery capsule before later gates",
+          "number": 16
+        },
+        {
+          "conclusion": "success",
+          "name": "Record final package and public dependency closure",
+          "number": 17
+        },
+        {
+          "conclusion": "success",
+          "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "number": 18
+        },
+        {
+          "conclusion": "failure",
+          "name": "Assemble independently installable baseline carriers and matching wrappers",
+          "number": 19
+        },
+        {
+          "conclusion": "success",
+          "name": "Locate completed carrier capsule after packaging attempt",
+          "number": 20
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Retain completed pre-wrapper primary carrier capsule",
+          "number": 21
+        }
+      ],
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939100597",
+      "wrapper_selection_admissible": false
+    },
+    {
+      "artifacts": [
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14265650195/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:04:55Z",
+          "id": 14265650195,
+          "name": "d10-native-recovery-ubuntu26.04-amd64-1",
+          "sha256": "0acf4b2d51b60b13500b9e41f3cb749506161181fc85d496c6760eb21e9404e0",
+          "size": 97184081,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14265650195"
+        },
+        {
+          "archive_download_url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264438706/zip",
+          "expired": false,
+          "expires_at": "2026-11-30T20:07:49Z",
+          "id": 14264438706,
+          "name": "d09-evidence-ubuntu26.04-amd64-1",
+          "sha256": "6d3e33da158a8ea74b37c41283477b5140df011b7c858cdf509ad1b0dce0040b",
+          "size": 233886,
+          "url": "https://api.github.com/repos/QuanuX/symphony-distribution/actions/artifacts/14264438706"
+        }
+      ],
+      "carrier_capsule_available": false,
+      "conclusion": "failure",
+      "failure": {
+        "error": "KeyError: 'build_provenance'",
+        "file": "installer_assembly/carriers.py",
+        "line": 172,
+        "step": "Assemble independently installable baseline carriers and matching wrappers"
+      },
+      "head_sha": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+      "head_tree": "420ab9cf7fb8db439b72470531f03f5cf0a8411d",
+      "native_capsule_bytes_verified": false,
+      "native_job_id": 133551844294,
+      "profile": "ubuntu26.04-amd64",
+      "run_attempt": 1,
+      "run_id": 43939137887,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Download exact dependency source archives",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Prepare exact external libraries with explicit TLS selection",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build two clean cohorts and qualify final installed SDKs",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Retain verified native bytes before delivery collection",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Upload completed native recovery capsule before later gates",
+          "number": 16
+        },
+        {
+          "conclusion": "success",
+          "name": "Record final package and public dependency closure",
+          "number": 17
+        },
+        {
+          "conclusion": "success",
+          "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "number": 18
+        },
+        {
+          "conclusion": "failure",
+          "name": "Assemble independently installable baseline carriers and matching wrappers",
+          "number": 19
+        },
+        {
+          "conclusion": "success",
+          "name": "Locate completed carrier capsule after packaging attempt",
+          "number": 20
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Retain completed pre-wrapper primary carrier capsule",
+          "number": 21
+        }
+      ],
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939137887",
+      "wrapper_selection_admissible": false
+    }
+  ],
+  "source": {
+    "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+    "manifest_sha256": "1a9781155c14182f46171dd29ce3c1f8970daea7c7f5c2e90e2ed50486264563",
+    "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+  },
+  "wrapper_qualification_ready": false
+}

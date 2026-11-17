@@ -109,6 +109,14 @@ int main() {
 '''
 
 
+def selected_tool(tool):
+    # Compiler dispatch depends on argv[0]: resolving clang++ to clang silently
+    # drops the C++ runtime from the final link on Linux.
+    path = Path(os.path.abspath(shutil.which(str(tool)) or str(tool)))
+    require(path.is_file() and os.access(path, os.X_OK), 'Selected tool must be executable')
+    return str(path)
+
+
 def run_audit(source, prefix, work, cmake='cmake', cxx='c++', components=None,
               external_prefix=None, timeout=300, developer_dir=None):
     source, prefix, work = (Path(p).resolve() for p in (source, prefix, work))
@@ -137,7 +145,7 @@ def run_audit(source, prefix, work, cmake='cmake', cxx='c++', components=None,
     def save():
         evidence_path.write_text(json.dumps(evidence, indent=2) + '\n')
     save()
-    cmake, cxx = (str(Path(shutil.which(str(tool)) or str(tool)).resolve()) for tool in (cmake, cxx))
+    cmake, cxx = (selected_tool(tool) for tool in (cmake, cxx))
     require(Path(cmake).is_file() and Path(cxx).is_file(), 'Explicit selected compiler and CMake must exist')
     env = {'PATH': os.pathsep.join(dict.fromkeys([str(Path(cmake).parent), str(Path(cxx).parent),
                                                 '/usr/bin', '/bin', '/usr/sbin', '/sbin']))}

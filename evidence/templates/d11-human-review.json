@@ -1,0 +1,411 @@
+{
+  "acceptance_mapping": {
+    "core_scenario_cells": 36,
+    "paper_criteria": 58,
+    "scope_reduction_approved": false,
+    "supplemental_requirements": 31
+  },
+  "authenticated_human_record": false,
+  "date": "2026-11-16",
+  "executable_gate": false,
+  "fresh_host_workorder": {
+    "actual_final_byte_campaign_records": null,
+    "baseline_and_removal_oracles": null,
+    "capsule_selection_sha256": null,
+    "final_wrapper_manifest": null,
+    "fresh_host_operator": null,
+    "independent_reviewer": null,
+    "matching_client_commit_and_artifact": null,
+    "native_installation_qualified": false,
+    "native_pkg_disposable_host_and_authorized_privileges": null,
+    "observed_qxctl_and_codex_identities": null,
+    "primary_client_qualified": false,
+    "selected_profile": null,
+    "state": "primary_outputs_client_and_hosts_pending"
+  },
+  "handoff_document": {
+    "path": "docs/D11-REMAINING-GATES.md",
+    "sha256": "80ac447655f5eec4f33f80295644a4fa05b7c3738f40af86e35f8a6708e09207",
+    "size": 16068
+  },
+  "human_decisions": [
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "existing_user_assignment",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": "human",
+      "reviewer_role_alias": "publisher-release-owner",
+      "role": "redistribution_reviewer",
+      "scope": [
+        "package_only_anaconda_delivery"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "existing_user_assignment",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": "human",
+      "reviewer_role_alias": "publisher-release-owner",
+      "role": "redistribution_reviewer",
+      "scope": [
+        "repaired_local_standalone_wrappers_including_bootstrap"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "unassigned",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": null,
+      "reviewer_role_alias": null,
+      "role": "independent_payload_reviewer",
+      "scope": [
+        "retained_source_artifacts_privacy_and_byte_closure"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "unassigned",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": null,
+      "reviewer_role_alias": null,
+      "role": "independent_trust_reviewer",
+      "scope": [
+        "review_certificate_custody_and_independent_publisher_authentication"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "unassigned",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": null,
+      "reviewer_role_alias": null,
+      "role": "independent_acceptance_reviewer",
+      "scope": [
+        "actual_final_artifact_campaign_and_limitation_review"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "unassigned",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": null,
+      "reviewer_role_alias": null,
+      "role": "backup_reviewer",
+      "scope": [
+        "supported_state_owners_restore_and_rollback_campaign"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "unassigned",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": null,
+      "reviewer_role_alias": null,
+      "role": "source_integration_owner",
+      "scope": [
+        "proposed_exact_resulting_source_graph"
+      ]
+    },
+    {
+      "accepted_by_release_owner": false,
+      "assignment": "existing_release_authority",
+      "conditions": null,
+      "decision": null,
+      "decision_date": null,
+      "independence_attested": null,
+      "original_review_record_sha256": null,
+      "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+      "reviewer_identity_authenticated": false,
+      "reviewer_kind": "human",
+      "reviewer_role_alias": "publisher-release-owner",
+      "role": "release_approver",
+      "scope": [
+        "exact_final_release_set_and_limitations"
+      ]
+    }
+  ],
+  "instructions": [
+    "Copy this template to a new private record; preserve the historical packets and this template.",
+    "Verify every selected evidence digest and the exact source/artifact scope before review.",
+    "Do not enter generated model text as a human decision or infer approval from a role assignment.",
+    "A human decision must identify its actual scope, date, conditions and retained original record digest.",
+    "Later primary, integrated-source or recognized-signed candidates require a new exact subject and review; they are excluded here.",
+    "Keep credentials, private keys, private host paths and account secrets outside review records.",
+    "This template is not the d09_acceptance human-review wire format; its nulls intentionally mean incomplete."
+  ],
+  "integration": {
+    "affected_rebuild_and_requalification_closure": null,
+    "client_main_divergence_resolution": null,
+    "historical_distribution_pr3_fix_propagation_strategy": null,
+    "main_changed": false,
+    "proposed_client_commit_and_tree": null,
+    "proposed_core_commit_and_tree": null,
+    "proposed_toolkit_commit_and_tree": null,
+    "snapshot_path": "evidence/d11-integration-snapshot.json",
+    "snapshot_sha256": "c547409a799c54823da4036e10a215d786c2a88733784d5c085dfc7e1ad1e0d6",
+    "source_merge_authorized": false,
+    "state": "exact_proposed_integration_not_selected"
+  },
+  "primary_selection": {
+    "fresh_host_acceptance_completed": false,
+    "matching_client_candidate_and_actual_client_evidence": null,
+    "per_profile_required": [
+      "run_id",
+      "run_attempt",
+      "workflow_commit",
+      "artifact_id",
+      "artifact_name",
+      "artifact_api_sha256",
+      "artifact_size",
+      "capsule_result_sha256",
+      "source_commit",
+      "source_tree",
+      "source_export_digest",
+      "source_manifest_sha256",
+      "build_result_sha256",
+      "round_result_sha256",
+      "sdk_closure_sha256",
+      "delivery_record_sha256",
+      "cohort_digest",
+      "fresh_host_requirements_sha256"
+    ],
+    "profiles": [
+      "macos15-arm64",
+      "ubuntu24.04-amd64",
+      "ubuntu24.04-arm64",
+      "ubuntu26.04-amd64"
+    ],
+    "selected_capsules": [],
+    "state": "awaiting_completed_verified_capsules",
+    "wrapper_only_execution_completed": false
+  },
+  "protocol": "symphony.distribution.d11-human-review-template.v1",
+  "recognized_apple_trust": {
+    "custody_owner": null,
+    "developer_id_application_public_fingerprint": null,
+    "developer_id_installer_public_fingerprint": null,
+    "final_signed_artifact_manifest": null,
+    "independent_publisher_authentication": null,
+    "native_pkg_installation_qualified": false,
+    "notarization_established": false,
+    "notary_submission_result_and_log_digest": null,
+    "opaque_private_credential_store_reference": null,
+    "per_target_entitlement_review": null,
+    "recognized_apple_signing_established": false,
+    "signing_and_notary_tool_identity": null,
+    "state": "identity_and_custody_inputs_pending",
+    "team_identifier": null,
+    "ticket_and_final_download_assessment": null
+  },
+  "recovery_workorder": {
+    "authorized_effects_and_expiry": null,
+    "backup_operator": null,
+    "disposable_restore_target": null,
+    "independent_backup_reviewer": null,
+    "live_operation_or_restore_executed": false,
+    "measured_recovery_evidence": null,
+    "predeclared_oracles_and_stop_conditions": null,
+    "quiescence_or_consistency_contract": null,
+    "rollback_authority_role": "publisher-release-owner",
+    "rpo_seconds": null,
+    "rto_seconds": null,
+    "same_candidate_copy_is_two_version_rollback": false,
+    "security_or_incident_owner": null,
+    "state": "inputs_pending",
+    "state_owner_inventory": null,
+    "two_distinct_qualified_versions": {
+      "after": null,
+      "before": null
+    },
+    "uncertain_effect_reconciliation": null,
+    "withdrawal_and_support_drill": null
+  },
+  "redistribution_open_items": {
+    "bootstrap_source_build_offer_and_exception_decision": null,
+    "conditions_for_later_primary_outputs": null,
+    "corresponding_source_access_and_retention_decision": null,
+    "native_go_external_notice_count": 131,
+    "package_only_stage_includes_bootstrap": false,
+    "reviewed_delivery_routes": null,
+    "standalone_bootstrap_declared_components": 115
+  },
+  "release": {
+    "client_companion_result": null,
+    "cloudflare_upload_authorized": false,
+    "final_candidate_manifest": null,
+    "independent_reviews_authenticated": false,
+    "legal_approval": false,
+    "limitation_register": null,
+    "live_activation_authorized": false,
+    "original_companion_checker_result": null,
+    "original_core_checker_result": null,
+    "publication_promotion_authorized": false,
+    "release_acceptance_complete": false,
+    "state": "pending_exact_final_evidence_and_human_decisions"
+  },
+  "review_subject": {
+    "carrier_cohort_digest": "sha256:0b5ad60ceaafeb13b7e7edf0a1908cb2c04774d29823ced6b017216c40fdea70",
+    "evidence": [
+      {
+        "path": "evidence/d09-review-selection.json",
+        "sha256": "65d67024caa379a677e2783661568ed0af9a781037ae166462475f684651cbc5",
+        "size": 2113
+      },
+      {
+        "path": "evidence/d09-acceptance-packet.json",
+        "sha256": "4148f706cf38a68bc4f479b78b41c389d9a98319104c0ac75705f092da950fa8",
+        "size": 84307
+      },
+      {
+        "path": "evidence/d10-reviewer-assignment.json",
+        "sha256": "03499e27d686482cbe7868e81557320dbada4ea79bda17f5889ebc7ac80bf4f1",
+        "size": 1584
+      },
+      {
+        "path": "evidence/d09-anaconda-stage-plan.json",
+        "sha256": "2c3d864378c0ce396fb851f031b830251c9122d3202224a770f84edd823ce8b3",
+        "size": 33107
+      },
+      {
+        "path": "evidence/d09-anaconda-staging.json",
+        "sha256": "d381ef2bc0f5feb45dabe5cd31ba665464f8cff977359fa062f4bdac5db4c5d2",
+        "size": 5058
+      },
+      {
+        "path": "evidence/d09-anaconda-fresh-retrieval.json",
+        "sha256": "5d266942df8606a9ca994c7c2eba3a024c4a6816e05d03ca655ce1b47471a433",
+        "size": 33327
+      },
+      {
+        "path": "evidence/d09-public-conda-install.json",
+        "sha256": "ed382a37a70d6f211f573e5a94b8ff50237b0730c6206e4edcfa2201435b0c85",
+        "size": 24628
+      },
+      {
+        "path": "evidence/d08-corresponding-source.json",
+        "sha256": "64e01afa80dd1b0f575faec5d11d5d80999eafcaa28ae30a94d91707e226f5d6",
+        "size": 3616
+      },
+      {
+        "path": "evidence/d10-repaired-wrapper-overlay.json",
+        "sha256": "b39e429d908611a83776c8ba3e33191ea162e787ce1c7f923ce214f5b0fdd60d",
+        "size": 2868
+      },
+      {
+        "path": "evidence/d10-repaired-wrapper-manifest.json",
+        "sha256": "97152020349962e044f4e89971da3cecd7deba89babee1be001b3c7aeda9c8b7",
+        "size": 1199
+      },
+      {
+        "path": "evidence/d10-selected-mac-shell.json",
+        "sha256": "d1dbdb26a4fcd6e9d8fd0dec64a9d5d35fd2b94a05ec771dc4c0a73d1eef332e",
+        "size": 42244
+      },
+      {
+        "path": "evidence/d10-original-gates.json",
+        "sha256": "428e3ceff793c7dd5a30f590e65a529a0eeaa13f4d9ba6ddee0930dcf78af6bb",
+        "size": 10273
+      },
+      {
+        "path": "evidence/d10-primary-recovery-dispatches.json",
+        "sha256": "1645a2044795f8b2bc462a32d4d8fca11a6a04b73c7e295cc719c4e77df04875",
+        "size": 2050
+      },
+      {
+        "path": "evidence/d11-integration-snapshot.json",
+        "sha256": "c547409a799c54823da4036e10a215d786c2a88733784d5c085dfc7e1ad1e0d6",
+        "size": 102574
+      },
+      {
+        "path": "evidence/d11-primary-recovery-snapshot.json",
+        "sha256": "58f99878417146881bf492598d40fa072702e9d257f194ddb6e2720243d5282d",
+        "size": 8585
+      }
+    ],
+    "future_integrated_source_included": false,
+    "future_primary_outputs_included": false,
+    "original_packet_digest": "sha256:c35055c8be5573c7b65f1659e8f1e0ccdc44bb2f63956e81af32d971129f663d",
+    "original_review_manifest_sha256": "7a6b055dc7478b23c5183941163145ce747619c9f3ee53b5fe968f4aa6a44da8",
+    "protocol": "symphony.distribution.d11-retained-review-subject.v1",
+    "recognized_publisher_signed_outputs_included": false,
+    "repaired_wrapper_manifest_sha256": "97152020349962e044f4e89971da3cecd7deba89babee1be001b3c7aeda9c8b7",
+    "review_certificate_sha256": "db271ed442ac9dc51e309ad4b9e67f9a94f75c7c4ab4ae4c4bef65d436fea272",
+    "scope": [
+      "retained_package_only_60_carriers",
+      "repaired_local_intel_mac_59_carrier_wrappers"
+    ],
+    "source_binding": {
+      "core_full_export_kind": "reviewed_derived_source",
+      "derived_core_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+      "original_full_tree_reconstruction": false,
+      "qxctl_source_kind": "original_git_component_with_equal_compiled_inputs",
+      "sources": {
+        "client": {
+          "commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+          "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+          "tree": "83a5aad51f809358b72d2cb9f96833b8977b57a0"
+        },
+        "core": {
+          "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+          "repository": "QuanuX/Symphony",
+          "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+        },
+        "distribution_toolkit": {
+          "commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+          "repository": "QuanuX/symphony-distribution",
+          "tree": "836c2b73e9f4554b4100882051e4f110eb147fb3"
+        }
+      }
+    },
+    "wrapper_repair_source": {
+      "commit": "afa7f9f127112564dc917152071bdf07da560fca",
+      "file_count": 231,
+      "tree": "051ad30fc9769899792478962c3abb7d3d521c02"
+    }
+  },
+  "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+  "state": "preparation_only_all_decisions_pending",
+  "template": true
+}

@@ -1,0 +1,32 @@
+{
+  "protocol": "symphony.distribution.d10-fixed-platform-dispatch.v1",
+  "branch": "codex/d09-review-channel-gates",
+  "commit": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+  "dispatches": [
+    {
+      "profile": "macos15-arm64",
+      "dispatch_accepted": true,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919872052",
+      "error": ""
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "dispatch_accepted": true,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919876976",
+      "error": ""
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "dispatch_accepted": true,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919882342",
+      "error": ""
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "dispatch_accepted": true,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919888963",
+      "error": ""
+    }
+  ],
+  "new_results_waited_for": false
+}

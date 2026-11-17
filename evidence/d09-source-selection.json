@@ -1,0 +1,10 @@
+{
+  "protocol": "symphony.distribution.d09-source-selection.v1",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+  "manifest_sha256": "1a9781155c14182f46171dd29ce3c1f8970daea7c7f5c2e90e2ed50486264563",
+  "local_reproduction_verified": true,
+  "private_policy_published": false,
+  "primary_profile_acceptance": false
+}

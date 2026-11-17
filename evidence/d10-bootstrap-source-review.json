@@ -1,0 +1,54 @@
+{
+  "findings": [
+    "Standalone manually loads conda_constructor.plugin before invoking Conda main.",
+    "Conda no_plugins disables registered module names not prefixed with conda.plugins.; this includes the required constructor plugin.",
+    "Pinned Conda26.9.4 lacks the later enable-plugins selective interface.",
+    "Classic solver is builtin and remains available with no_plugins enabled.",
+    "Standalone restrict-search-paths patch controls CondaRC lookup only; it does not prove frozen Python plugin isolation.",
+    "Original wrapper clears inherited CONDARC, leaves constructor extraction calls unrestricted, and passes --no-rc to install."
+  ],
+  "original_signed_artifacts_changed": false,
+  "protocol": "symphony.distribution.d10-bootstrap-source-review.v1",
+  "publication_authorized": false,
+  "remaining_runtime_proof": [
+    "Verify frozen Python sys.path and distribution metadata cannot discover caller-supplied plugin locations.",
+    "Verify narrow constructor-only plugin override and RC restriction on actual pinned binary.",
+    "Bind and qualify newly generated wrapper bytes separately from original signed wrapper."
+  ],
+  "reviewed_files": {
+    "conda_classic_solver": {
+      "path": "conda-26.9.4/conda/plugins/solvers.py",
+      "sha256": "959f7d98bbe8834a17d12dafb354a07c5f6621e442213ad5c6c7baaabf629597"
+    },
+    "conda_cli": {
+      "path": "conda-26.9.4/conda/cli/main.py",
+      "sha256": "bd20d43f6b25067b58ef289a86da747869bf5a90088a7878d706d42eacb86245"
+    },
+    "conda_plugin_manager": {
+      "path": "conda-26.9.4/conda/plugins/manager.py",
+      "sha256": "b937e71785ff9305c868fe664e0cb84e4384a32750458cc2011306635d009372"
+    },
+    "standalone_entry_point": {
+      "path": "conda-standalone-26.9.4.post1/src/entry_point.py",
+      "sha256": "9ca410fdb5d5cfb37fa893bd7b6d25fe24353001ecc3aee404e223d2522c0fc3"
+    },
+    "standalone_plugin": {
+      "path": "conda-standalone-26.9.4.post1/src/conda_constructor/plugin.py",
+      "sha256": "a91bc7067a5f24b9999ccb980303fd39e52f45f757079ff049b5709a758b3fca"
+    }
+  },
+  "runtime_installation_accepted": false,
+  "scope": "read-only exact recipe-pinned upstream source; no runtime approval",
+  "sources": [
+    {
+      "project": "conda/conda-standalone",
+      "sha256": "723306aabf14c7592d25cce887e943349f14786563fc6e5cf643622b45bb1685",
+      "version": "26.9.4.post1"
+    },
+    {
+      "project": "conda/conda",
+      "sha256": "0b084bdaac353c6b1ce8aa6be860d9348eca2b6ba26a3741d615fd704641a1fd",
+      "version": "26.9.4"
+    }
+  ]
+}
