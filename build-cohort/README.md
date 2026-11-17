@@ -1,5 +1,11 @@
 # D06 clean native and SDK cohort
 
+For the published **0.2.0-beta.1** artifacts, use the
+[installation guide](../docs/BETA-INSTALL.md) and
+[release evidence](../evidence/d14-publication.json). This page describes the
+build-stage contracts. The selected four-profile native/SDK outputs feed the
+completed beta qualification; a later repeat build does not replace those bytes.
+
 `cohort.json` derives the frozen selection from six exact core source documents.
 Every required profile contains the same 51 complete native receipt units and
 six core Go commands in the recorded dependency order. Eight optional native
@@ -31,7 +37,8 @@ existing MVP qualification harness uses absolute private-prefix loader paths and
 cannot substitute for this final stage. Loader edits, stripping and any selected
 Apple signing occur before immutable receipts. Native-owned final bytes are
 receipt-covered; external libraries have a separate exact inventory, and their
-final distribution carrier ownership remains an open delivery gate. Development build paths, user stores and source-tree build
+final distribution carrier ownership is established by the separately audited
+release carriers. Development build paths, user stores and source-tree build
 artifacts are excluded from distribution inputs.
 
 The workflow selects the four recorded native profiles and toolchains, downloads

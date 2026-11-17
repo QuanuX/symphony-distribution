@@ -1,4 +1,25 @@
-# D09 immutable review staging
+# Signed beta publication and review staging
+
+**0.2.0-beta.1 is published** to QuanuX/beta on Anaconda and
+[Cloudflare downloads](https://downloads.quanux.org/symphony/0.2.0-beta.1/docs/BETA-INSTALL.md).
+The [publication record](../evidence/d14-publication.json) verifies 240 packages
+and 304 download objects, including corresponding source. The
+[installation guide](../docs/BETA-INSTALL.md) supplies the exact platform lists
+and publisher verification pins.
+
+`release_bundle.py` admits the explicitly selected completed qualification and
+publisher decision. `beta_publish.py` and `beta_downloads.py` require the exact
+signed plans and explicit publication flags; they preserve immutable remote
+identities and stop on uncertain writes. `verify_beta.py` checks selected public
+downloads against the pinned certificate, key and signed manifest. Publication
+is not an automatic consequence of a branch merge or passing CI.
+
+The self-signed detached publisher signature does not assert Apple Developer ID,
+notarization or separate human-reviewer independence. The completed publication
+record supplies the accepted initial-beta scope; historical D09 review labels
+remain distinct from that release.
+
+## D09 review-stage contracts
 
 `staging.py prepare` verifies the independently selected review certificate pin,
 detached signature and every signed D08 artifact before deriving the exact 59
@@ -28,9 +49,10 @@ Changing only labels does not change the signed artifact identity.
 The supplemental Intel macOS D08 delivery is a review candidate, not a primary
 macOS ARM or Linux result. Conda linking/removal manipulates inert carrier files;
 runtime installation, selection, live retirement and rollback remain with the
-native owner. The `.pkg` and `.sh` wrappers are outside Anaconda staging and remain
-selected for the later Cloudflare/website step. Their bootstrap notices/source
-review is a separate open gate.
+native owner. The `.pkg` and `.sh` wrappers are outside this historical Anaconda
+review-stage operation. The later beta release publishes
+its selected wrappers through Cloudflare with source/notices evidence; website
+integration remains a separate presentation step.
 
 A staging success does not establish public beta approval, Apple Developer ID,
 notarization, independent publisher authentication, a trusted key distribution
