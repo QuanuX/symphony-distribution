@@ -1,12 +1,12 @@
 {
   "protocol": "symphony.distribution.d06-build-cohort.v1",
-  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
-  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
-  "source_binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
+  "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+  "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+  "source_binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e",
   "source_inputs": [
     {
       "path": "cmake/mvp-dependencies.json",
-      "sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65"
+      "sha256": "efa2f07918514573c0a76d5aa4fa0f5a972267eb4623d9755dd8a110fafb4d01"
     },
     {
       "path": "cmake/mvp-release-identities.json",
@@ -14461,7 +14461,7 @@
         },
         {
           "module": "github.com/QuanuX/Symphony/modules/accordare-stav-producer",
-          "version": "v0.1.0-dev.0.20261116054240-71bbb60d870a",
+          "version": "v0.1.0-dev.0.20261117050342-2c435a52ff7a",
           "indirect": false,
           "internal": true,
           "evidence": "tools/qxctl/go.mod:7"
@@ -14608,15 +14608,15 @@
         },
         {
           "Path": "github.com/QuanuX/Symphony/modules/accordare-stav-producer",
-          "Version": "v0.1.0-dev.0.20261116054240-71bbb60d870a",
+          "Version": "v0.1.0-dev.0.20261117050342-2c435a52ff7a",
           "GoVersion": "1.26.5",
-          "Sum": "h1:NWYhZIkqW9h+sSEOqI6jS9AeSNO/QYV5VPoXRmxps6A=",
+          "Sum": "h1:6xdR8V+WatHG8dkNU1Ar8rHSf5Ty0Yf2t0lxq3Ai4cs=",
           "GoModSum": "h1:922EvrCQ21+/WziKvvrJhoEdff7K4MLECsrcZ8RXSK4=",
           "Origin": {
             "VCS": "git",
             "URL": "https://github.com/QuanuX/Symphony",
             "Subdir": "modules/accordare-stav-producer",
-            "Hash": "71bbb60d870ab1da205b1b82d62adec38dca9a68"
+            "Hash": "2c435a52ff7a35c5d03d845c76b6bfeec00ea3c5"
           }
         },
         {

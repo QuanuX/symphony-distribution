@@ -65,8 +65,10 @@ def load(path):
     return json.loads(path.read_text())
 
 
-def build(source, rebuild_report=None, source_export_report=None, hosted_status_report=None):
+def build(source, rebuild_report=None, source_export_report=None, hosted_status_report=None, *, fresh_candidate=False):
     binding = load(ROOT / 'source-binding.json')
+    if fresh_candidate and any((rebuild_report, source_export_report, hosted_status_report)):
+        raise ValueError('Fresh candidate preparation cannot reuse qualification reports')
     def git(*args):
         return subprocess.check_output(['git', '--no-replace-objects', '-C', str(source), *args], timeout=30)
     if git('rev-parse', 'HEAD').decode().strip() != binding['source_commit'] or git('rev-parse', 'HEAD^{tree}').decode().strip() != binding['source_tree']:
@@ -145,7 +147,7 @@ def build(source, rebuild_report=None, source_export_report=None, hosted_status_
         roles.append({'id': row['id'], 'assignment_state': row['assignment_state'],
                       'assignment_reference': 'tests/public-beta/owners.json#' + row['id'],
                       'responsibility': row['responsibility'], 'new_assignment_made': False})
-    return {
+    result = {
         'protocol': 'symphony.distribution.s08-dossier.v1', 'prepared_on': '2026-11-16',
         'state': 'source_bound_distribution_supplement_release_incomplete',
         'core_source': {k: binding[k] for k in ('source_commit', 'source_tree', 'binding_digest')},
@@ -196,16 +198,29 @@ def build(source, rebuild_report=None, source_export_report=None, hosted_status_
         'd05_safety_acceptance': acceptance,
         'completion_boundary': 'S08 documentation/candidate preparation does not close S07 E2, D06 clean CI cohort, D10 final-download or W12 release gates.'}
 
+    if fresh_candidate:
+        historical = ROOT / 'dossier/history/s08-beta1.json'
+        prior = load(historical)
+        result.update(state='fresh_candidate_qualification_pending', prepared_on='2026-11-17',
+            evidence_scope={'current_candidate_qualified': False,
+                'historical_dossier': {'path': 'dossier/history/s08-beta1.json', 'sha256': sha(historical.read_bytes())},
+                'historical_core_source': prior['core_source']},
+            completion_boundary='Fresh source binding only. Historical E1 and beta1 evidence do not qualify these new bytes; rebuild, installed-client, maintenance and final-delivery qualification remain pending.')
+        for row in result['d05_safety_acceptance']:
+            row['engineering_evidence'] = 'historical_only_not_current_candidate_qualification'
+    return result
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, required=True)
+    parser.add_argument('--fresh-candidate', action='store_true')
     parser.add_argument('--rebuild-report', type=Path)
     parser.add_argument('--source-export-report', type=Path)
     parser.add_argument('--hosted-status-report', type=Path)
     parser.add_argument('--output', type=Path, default=ROOT / 'dossier/s08-dossier.json')
     args = parser.parse_args()
-    args.output.write_text(json.dumps(build(args.source, args.rebuild_report, args.source_export_report, args.hosted_status_report), indent=2, sort_keys=True) + '\n')
+    args.output.write_text(json.dumps(build(args.source, args.rebuild_report, args.source_export_report, args.hosted_status_report, fresh_candidate=args.fresh_candidate), indent=2, sort_keys=True) + '\n')
 
 
 if __name__ == '__main__':

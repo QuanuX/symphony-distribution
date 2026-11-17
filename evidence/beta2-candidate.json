@@ -1,0 +1,55 @@
+{
+  "protocol": "symphony.distribution.beta-candidate-authorization.v1",
+  "date": "2026-11-17",
+  "release_class": "beta-review-candidate",
+  "release_version": "0.2.0-beta.2",
+  "candidate_assembly_authorized": true,
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "source": "explicit rebuild and qualification request in the active task",
+  "statement": "Check the latest core CI and fix any failures, then rebuild and qualify a new beta candidate containing the three maintenance fixes. Keep the feature freeze, run focused tests, and push without waiting for CI.",
+  "source_binding": {
+    "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30"
+  },
+  "preserved_constraints": {
+    "feature_freeze": true,
+    "main_unchanged": true,
+    "no_automatic_runtime_or_provider_activation": true,
+    "no_private_publisher_state_in_distribution": true
+  },
+  "trust": {
+    "mode": "unsigned-review",
+    "apple_developer_id": false,
+    "notarization": false,
+    "os_trust_store_change_authorized": false
+  },
+  "profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "maintenance_fixes": [
+    {
+      "commit": "38fef5f9aca5570718f04312e6ca54e20316beef",
+      "change": "Order a pending dependency replacement before installing its new dependent."
+    },
+    {
+      "commit": "68be0744d8d90a45e6ed207835493439b7fb118c",
+      "change": "Accept a verified completed scoped-close retry without rewriting durable state."
+    },
+    {
+      "commit": "4cb33681a279dac86adcfdfb95ce1e6403bcaa4d",
+      "change": "Allow installed SSIAG and Accordare owners to reinstall under exclusive target custody."
+    }
+  ],
+  "qualification_state": "pending_new_candidate_builds",
+  "published_beta1_unchanged": true,
+  "limits": [
+    "Historical beta.1 qualification is not qualification of these new bytes.",
+    "Fresh candidate prefixes only until a distinct-source native transition has been qualified.",
+    "Existing module versions and ownership refusals remain unchanged.",
+    "No signing, publication, Apple trust, independent human review or successful future job is inferred."
+  ]
+}

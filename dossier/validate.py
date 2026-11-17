@@ -9,6 +9,7 @@ from pathlib import Path, PurePosixPath
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
+HISTORICAL_DOSSIER_SHA256 = '9a915829a314095d5b7b3bcf500059eed1848bbdbe20e544cd7c42200b9be94a'
 PROFILES = {'macos15-arm64', 'ubuntu24.04-amd64', 'ubuntu24.04-arm64', 'ubuntu26.04-amd64'}
 UNITS = {'secure-identity-access-governance', 'stav-append-authority', 'accordare-stav-producer',
          'qxctl', 'sov-ssh-adapter', 'sov-stdio-adapter', 'sov-transport-profile-admin'}
@@ -56,6 +57,34 @@ def validate_document(data, root=ROOT, source=None, require_rebuild=False, requi
     require(data['feature_freeze'] == {'in_force': True, 'new_features_authorized': False, 'core_changed_by_S08': False},
             'feature freeze or core isolation changed')
     binding = read(root / 'source-binding.json')
+    pending = data.get('state') == 'fresh_candidate_qualification_pending'
+    evidence_binding = binding
+    if pending:
+        historical = path_under(root, 'dossier/history/s08-beta1.json')
+        require(sha(historical.read_bytes()) == HISTORICAL_DOSSIER_SHA256, 'historical dossier evidence changed')
+        prior = read(historical)
+        require(data.get('evidence_scope') == {'current_candidate_qualified': False,
+            'historical_dossier': {'path': 'dossier/history/s08-beta1.json', 'sha256': HISTORICAL_DOSSIER_SHA256},
+            'historical_core_source': prior['core_source']}, 'historical evidence scope differs')
+        evidence_binding = prior['core_source']
+        for record in prior['distribution_inputs']:
+            if record['path'] not in ('source-binding.json', 'go-owner-catalog.json'):
+                require(sha(path_under(root, record['path']).read_bytes()) == record['sha256'],
+                        'historical qualification evidence changed')
+        for field in ('candidate_rebuild_report', 'source_export_report', 'hosted_status_report'):
+            record = prior[field]
+            require(sha(path_under(root, record['path']).read_bytes()) == record['sha256'],
+                    'historical report changed')
+        require(evidence_binding != {k: binding[k] for k in ('source_commit', 'source_tree', 'binding_digest')},
+                'fresh candidate source must differ from historical evidence')
+        require(all(data.get(field) is None for field in
+            ('candidate_rebuild_report', 'source_export_report', 'hosted_status_report')),
+            'pending candidate cannot promote historical qualification reports')
+        require(all(row.get('engineering_evidence') == 'historical_only_not_current_candidate_qualification'
+                    for row in data['d05_safety_acceptance']), 'historical tests promoted to current candidate qualification')
+    else:
+        require(data.get('state') == 'source_bound_distribution_supplement_release_incomplete' and
+                'evidence_scope' not in data, 'unrecognized dossier qualification state')
     require(data['core_source'] == {k: binding[k] for k in ('source_commit', 'source_tree', 'binding_digest')}, 'core binding differs')
     require(len(data['source_documents']) == len(CORE_DOCUMENTS) and {r['path'] for r in data['source_documents']} == CORE_DOCUMENTS,
             'required core dossier/map reference removed or duplicated')
@@ -117,8 +146,8 @@ def validate_document(data, root=ROOT, source=None, require_rebuild=False, requi
     native = read(root / 'evidence/s07-native-local-qualification.json')
     conda = read(root / 'evidence/s07-conda-local-qualification.json')
     for report in (native, conda):
-        require(report['source_commit'] == binding['source_commit'] and report['source_tree'] == binding['source_tree'] and
-                report['source_binding_digest'] == binding['binding_digest'] and report['status'] == 'passed', 'S07 source or result differs')
+        require(report['source_commit'] == evidence_binding['source_commit'] and report['source_tree'] == evidence_binding['source_tree'] and
+                report['source_binding_digest'] == evidence_binding['binding_digest'] and report['status'] == 'passed', 'S07 source or result differs')
     require(native['evidence_level'] == 'E1' and not native['fresh_host_accepted'] and not native['live_removal_accepted'] and
             native['skip_count'] == 0 and conda['tests']['skipped'] == 0 and conda['host_acceptance'] == 'not_run', 'S07 evidence boundary differs')
     accepted = data['d05_safety_acceptance']
@@ -275,7 +304,8 @@ def validate_document(data, root=ROOT, source=None, require_rebuild=False, requi
             expected = next(r for r in owner_roles if r['id'] == row['id'])
             require(row['assignment_state'] == expected['assignment_state'] and row['responsibility'] == expected['responsibility'],
                     'role assignment or responsibility invented')
-    return {'protocol': 'symphony.distribution.s08-dossier-validation.v1', 'status': 'bindings_consistent',
+    return {'protocol': 'symphony.distribution.s08-dossier-validation.v1', 'status': 'fresh_candidate_qualification_pending' if pending else 'bindings_consistent',
+            'current_candidate_qualified': False,
             'core_source_checked': source is not None, 'candidate_rebuild_bound': rebuild is not None,
             'source_export_bound': source_export is not None,
             'hosted_status_bound': hosted_status is not None,
@@ -288,12 +318,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, required=True)
     parser.add_argument('--dossier', type=Path, default=ROOT / 'dossier/s08-dossier.json')
+    parser.add_argument('--candidate-preparation', action='store_true', help='Validate preparation only; requires explicit pending state')
     parser.add_argument('--require-rebuild', action='store_true')
     parser.add_argument('--require-source-export', action='store_true')
     parser.add_argument('--require-hosted-status', action='store_true')
     args = parser.parse_args()
     try:
-        print(json.dumps(validate_document(read(args.dossier), source=args.source, require_rebuild=args.require_rebuild,
+        data = read(args.dossier)
+        if args.candidate_preparation:
+            require(data.get('state') == 'fresh_candidate_qualification_pending', 'explicit pending candidate state required')
+        print(json.dumps(validate_document(data, source=args.source, require_rebuild=args.require_rebuild,
                                           require_source_export=args.require_source_export,
                                           require_hosted_status=args.require_hosted_status), sort_keys=True))
     except (ValueError, KeyError, OSError, subprocess.SubprocessError) as error:

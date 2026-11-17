@@ -105,6 +105,8 @@ source hashes. This permits explicit review of retained older controllers withou
 accepting arbitrary historical catalogs. It adds no publisher trust or runtime
 acceptance claim.
 
+The active beta.2 source binding has changed owner/dispatcher implementations. This historical pairing is not accepted by the new controller; beta.1 or older retained owners refuse until separately qualified. Fresh beta.2 owners must match the new exact source catalog.
+
 The actual ad7ed0e and 5fd6cee builds have identical executable hashes for all three
 native owners:
 

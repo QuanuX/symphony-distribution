@@ -1,0 +1,45 @@
+{
+  "protocol": "symphony.distribution.beta-candidate-local-validation.v1",
+  "release_version": "0.2.0-beta.2",
+  "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+  "scope": "focused local source and packaging contracts; primary hosted candidate qualification pending",
+  "checks": [
+    {
+      "group": "source bindings, cohort, Go routes, historical-source refusal, dossier and export contracts",
+      "passed_tests": 150
+    },
+    {
+      "group": "beta assembly authority, constructor, beta artifact and native PKG contracts",
+      "passed_tests": 86
+    },
+    {
+      "group": "native artifact transport, restore, primary client and native maintenance contracts",
+      "passed_tests": 60
+    },
+    {
+      "group": "primary build preparation and refusal contracts",
+      "passed_tests": 30
+    },
+    {
+      "group": "native recovery retention contracts",
+      "passed_tests": 24
+    },
+    {
+      "group": "workflow actionlint",
+      "result": "passed; known official ubuntu-26.04 label omitted from older validator inventory only"
+    }
+  ],
+  "source_checks": [
+    "all three maintenance repair commits are ancestors of selected core",
+    "all seven source-bound Go owner routes",
+    "51 native units and six default Go commands per primary profile",
+    "5,377 exported files verified against original Git blobs and selected privacy transformations"
+  ],
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "new_primary_artifacts_qualified": false,
+  "known_limits": [
+    "Local tests are not fresh-host or final-byte qualification.",
+    "Historical beta.1 results have not been promoted to beta.2."
+  ]
+}

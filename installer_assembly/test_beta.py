@@ -29,6 +29,76 @@ class BetaTests(unittest.TestCase):
         value = json.loads((b.ROOT / 'evidence/d14-publisher-decision.json').read_bytes())
         return self.put(self.root / 'decision.json', value), value
 
+    def review_decision(self):
+        value = {'protocol': 'symphony.distribution.beta-candidate-authorization.v1',
+            'release_class': 'beta-review-candidate', 'release_version': '0.2.0-beta.2',
+            'candidate_assembly_authorized': True, 'publication_authorized': False,
+            'release_acceptance_complete': False,
+            'source_binding': {'core_commit': 'a' * 40, 'client_commit': b.client_gate.CLIENT['commit']},
+            'profiles': ['macos15-arm64', 'ubuntu24.04-amd64', 'ubuntu24.04-arm64', 'ubuntu26.04-amd64'],
+            'trust': {'mode': 'unsigned-review', 'apple_developer_id': False,
+                'notarization': False, 'os_trust_store_change_authorized': False},
+            'preserved_constraints': {key: True for key in ('feature_freeze', 'main_unchanged',
+                'no_automatic_runtime_or_provider_activation', 'no_private_publisher_state_in_distribution')}}
+        return self.put(self.root / 'publisher-decision.json', value), value
+
+    def test_review_candidate_requires_no_publication_or_legal_approval(self):
+        path, _ = self.review_decision()
+        auth = b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
+        scope = b.construct.beta_delivery_scope(auth)
+        self.assertFalse(scope['publication_authorized'])
+        self.assertEqual(scope['trust_status'], 'unsigned_review_candidate')
+        config = b.construct.configuration(cohort(), self.root, ['pkg', 'sh'], beta=auth)
+        plain = b.construct.configuration(cohort(), self.root, ['pkg', 'sh'])
+        self.assertEqual(config['version'], '0.2.0-beta.2')
+        self.assertEqual(config['name'], 'SymphonyReview')
+        self.assertEqual(config['default_prefix'], '${HOME}/symphony-beta2-review')
+        self.assertEqual(config['channels_remap'][0]['dest'], b.construct.REVIEW_CHANNEL)
+        self.assertIn('not approved for public distribution', config['readme_text'])
+        self.assertIn('unsigned and not notarized', config['readme_text'])
+        self.assertIn({'symphony-retain.py': 'share/symphony/installer/symphony-retain.py'}, config['extra_files'])
+        for key in ('initialize_conda', 'initialize_by_default', 'register_envs', 'menu_packages',
+                    'write_condarc', 'keep_pkgs', 'script_env_variables', 'pkg_domains', 'specs'):
+            self.assertEqual(config[key], plain[key])
+
+    def test_review_candidate_cannot_invent_publication_acceptance_or_trust(self):
+        path, value = self.review_decision()
+        changes = [{'publication_authorized': True}, {'candidate_assembly_authorized': False},
+            {'release_acceptance_complete': True}, {'release_class': 'public-beta'},
+            {'release_version': '0.2.0-beta.1'}, {'release_version': '0.2.0-beta.3'},
+            {'legal_approval': True}, {'publisher_acceptance': True}, {'legal_approval': 'true'},
+            {'profiles': value['profiles'] + ['local-macos-amd64-fixture']},
+            {'source_binding': value['source_binding'] | {'core_commit': 'main'}},
+            {'trust': value['trust'] | {'mode': 'publisher-pinned-self-signed-detached-manifest'}},
+            {'trust': value['trust'] | {'apple_developer_id': True}}]
+        for change in changes:
+            with self.subTest(change=change):
+                self.put(path, value | change)
+                with self.assertRaises(ValueError):
+                    b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
+
+    def test_review_result_cannot_be_promoted_or_relabelled(self):
+        path, _ = self.review_decision()
+        result = {'protocol': b.PROTOCOL, 'profile': 'macos15-arm64',
+            'publisher_decision_sha256': b.gate.sha(path), 'release_version': '0.2.0-beta.2',
+            'state': 'beta_review_candidate_wrappers_and_shell_qualified',
+            'carrier_count': 59, 'original_core_archives_unchanged': True,
+            'native_payloads_and_receipts_changed': False, 'final_packaging_revision': 1,
+            'native_or_client_recompiled': False, 'runtime_activated': False,
+            'publication_authorized': False, 'release_acceptance_complete': False}
+        b.admit_delivery_authority(self.root, result)
+        for change in ({'publication_authorized': True}, {'state': 'beta_wrappers_and_shell_qualified'},
+                       {'release_version': '0.2.0-beta.1'}, {'release_acceptance_complete': True},
+                       {'native_or_client_recompiled': True}):
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                b.admit_delivery_authority(self.root, result | change)
+
+    def test_beta1_publication_decision_cannot_authorize_beta2(self):
+        path, value = self.decision()
+        self.put(path, value | {'release_version': '0.2.0-beta.2'})
+        with self.assertRaises(ValueError):
+            b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
+
     def test_explicit_authorization_changes_only_delivery_presentation(self):
         path, decision = self.decision()
         auth = b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
@@ -182,6 +252,16 @@ class BetaTests(unittest.TestCase):
         for forbidden in ('build-cohort/build.py','cmake --build','primary_client.py qualify','go build'):
             self.assertNotIn(forbidden,text)
         self.assertNotIn('PRIVATE_SOURCE_POLICY:',text[text.index('- name: Retain completed'):])
+
+    def test_beta_workflow_selects_committed_authority_without_publishing(self):
+        text = (b.ROOT / '.github/workflows/d14-beta-assembly.yml').read_text()
+        self.assertIn('default: evidence/d14-publisher-decision.json', text)
+        self.assertIn('evidence/beta2-candidate.json', text)
+        self.assertIn("os.environ['GITHUB_SHA'] + ':' + authority", text)
+        self.assertIn("(accepted['protocol'], accepted['release_version']) == expected[authority]", text)
+        self.assertIn('--publisher-decision "$GITHUB_WORKSPACE/$AUTHORIZATION"', text)
+        for forbidden in ('anaconda upload', 'wrangler r2', 'gh release create', 'beta_signing.py sign'):
+            self.assertNotIn(forbidden, text)
 
     def test_portable_envelope_matches_retrieval_without_changing_archive(self):
         path=self.put(self.root/'envelope/channel/payload.tar',b'unchanged native archive'); path.chmod(0o600)

@@ -15,7 +15,7 @@
   "runtime_owner_invoked": false,
   "schema_count": 11,
   "source": {
-    "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "commit": "bae2e817120467561ae051c1b08cf61be3436bac",
     "files": [
       {
         "path": "knowledge/schemas/v1/lifecycle-profile.schema.json",
@@ -71,10 +71,10 @@
       },
       {
         "path": "modules/knowledge-session-coordinator/src/lifecycle_journal.cpp",
-        "sha256": "bdc732b36dd2e6289583f4d0231f3914144bb99c46abc4b1352dd81081cbc8d6"
+        "sha256": "eb3e36c75698a652a84d2d5be10ffcf3630f08eb1bb784bdef1000f3a7dbbbd6"
       }
     ],
-    "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+    "tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4"
   },
   "status": "immutable_candidate_source_verified"
 }

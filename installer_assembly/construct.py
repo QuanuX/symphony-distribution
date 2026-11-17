@@ -118,22 +118,44 @@ def archive_records(cohort):
 
 
 def beta_authorization(path, expected_sha256, profile):
-    """Bind an explicit publisher decision without inventing technical results."""
+    """Bind published beta authority or review-only assembly, never promote either."""
     path = safe_absolute(path)
     require(re.fullmatch('[0-9a-f]{64}', expected_sha256 or '') and
             file_sha(path) == expected_sha256, 'Exact publisher decision digest required')
     decision = json.loads(path.read_bytes())
-    require(decision['protocol'] == 'symphony.distribution.beta-publisher-decision.v1' and
-            decision['release_class'] == 'public-beta' and decision['release_version'] == '0.2.0-beta.1' and
-            profile in decision['profiles'] and all(decision[key] is True for key in
-                ('publication_authorized', 'legal_approval', 'publisher_acceptance')) and
+    published = decision['protocol'] == 'symphony.distribution.beta-publisher-decision.v1'
+    review = decision['protocol'] == 'symphony.distribution.beta-candidate-authorization.v1'
+    require((published or review) and profile in decision['profiles'] and
             decision['release_acceptance_complete'] is False and
-            decision['trust']['mode'] == 'publisher-pinned-self-signed-detached-manifest' and
             all(decision['trust'][key] is False for key in ('apple_developer_id', 'notarization', 'os_trust_store_change_authorized')) and
             all(decision['preserved_constraints'][key] is True for key in
                 ('feature_freeze', 'main_unchanged', 'no_automatic_runtime_or_provider_activation', 'no_private_publisher_state_in_distribution')),
             'Publisher beta scope or trust boundary differs')
+    if published:
+        require(decision['release_class'] == 'public-beta' and decision['release_version'] == '0.2.0-beta.1' and
+                all(decision[key] is True for key in ('publication_authorized', 'legal_approval', 'publisher_acceptance')) and
+                decision['trust']['mode'] == 'publisher-pinned-self-signed-detached-manifest',
+                'Publisher beta scope or trust boundary differs')
+    else:
+        require(decision['release_class'] == 'beta-review-candidate' and decision['release_version'] == '0.2.0-beta.2' and
+                decision['candidate_assembly_authorized'] is True and decision['publication_authorized'] is False and
+                decision['trust']['mode'] == 'unsigned-review' and
+                set(decision['profiles']) == set(PROFILES) - {'local-macos-amd64-fixture'} and
+                len(decision['profiles']) == 4 and
+                set(decision['source_binding']) == {'core_commit', 'client_commit'} and
+                all(re.fullmatch('[0-9a-f]{40}', value or '') for value in decision['source_binding'].values()) and
+                all(key not in decision or decision[key] is False for key in ('legal_approval', 'publisher_acceptance')),
+                'Review candidate cannot grant publication, acceptance or publisher trust')
     return {'decision': decision, 'sha256': expected_sha256}
+
+
+def beta_delivery_scope(authorization):
+    decision = authorization['decision']
+    published = decision['publication_authorized']
+    return {'release_version': decision['release_version'], 'publication_authorized': published,
+        'assembly_state': 'beta_wrappers_and_shell_qualified' if published else 'beta_review_candidate_wrappers_and_shell_qualified',
+        'wrapper_state': 'beta_wrappers_audited' if published else 'beta_review_candidate_wrappers_audited',
+        'trust_status': 'native_wrapper_unsigned_detached_manifest_separate' if published else 'unsigned_review_candidate'}
 
 
 def configuration(cohort, channel, formats, *, beta=None):
@@ -163,10 +185,11 @@ def configuration(cohort, channel, formats, *, beta=None):
                             {'MAINTENANCE.txt': 'share/symphony/installer/MAINTENANCE.txt'},
                             {'BOOTSTRAP.json': 'share/symphony/installer/BOOTSTRAP.json'}]}
     if beta is not None:
-        result.update(name='Symphony', version=beta['decision']['release_version'],
+        scope = beta_delivery_scope(beta)
+        result.update(name='Symphony', version=scope['release_version'],
             channels_remap=[{'src': Path(channel).resolve().as_uri(), 'dest': 'https://conda.anaconda.org/QuanuX/label/beta'}],
             reverse_domain_identifier='org.quanux.symphony.beta', default_prefix='${HOME}/symphony',
-            welcome_text='Symphony Public Beta ' + beta['decision']['release_version'],
+            welcome_text='Symphony Public Beta ' + scope['release_version'],
             conclusion_text='Symphony package carriers are installed. This installer does not start Symphony services. '
                             'Use the published setup instructions to select and configure your modules.',
             readme_text='Symphony Public Beta installs immutable, independently maintainable package carriers. '
@@ -174,6 +197,18 @@ def configuration(cohort, channel, formats, *, beta=None):
                         'Verify the detached integrity manifest against the published publisher key pin. '
                         'Python 3.11 or later is required for explicit first-run retention using the included symphony-retain.py helper. '
                         'The macOS installer is unsigned and not notarized; a self-signed integrity manifest does not establish Apple trust.')
+        if not scope['publication_authorized']:
+            result.update(name='SymphonyReview',
+                channels_remap=[{'src': Path(channel).resolve().as_uri(), 'dest': REVIEW_CHANNEL}],
+                reverse_domain_identifier='org.quanux.symphony.beta2.review', default_prefix='${HOME}/symphony-beta2-review',
+                welcome_text='Symphony beta review candidate ' + scope['release_version'],
+                conclusion_text='Symphony review carriers are installed. No services have started. '
+                                'This candidate is unsigned and is not approved for public distribution.',
+                readme_text='Symphony beta review candidate installs immutable, independently maintainable package carriers. '
+                            'It does not enroll, configure credentials, start services, or change application selections. '
+                            'This candidate is unsigned and not approved for public distribution. '
+                            'Python 3.11 or later is required for explicit first-run retention using the included symphony-retain.py helper. '
+                            'The macOS installer is unsigned and not notarized. Qualification results and publisher approval remain separate.')
         result['extra_files'] += [
             {'BOOTSTRAP-INDEX.json': 'share/symphony/installer/BOOTSTRAP-INDEX.json'},
             {'symphony-retain.py': 'share/symphony/installer/symphony-retain.py'}]
@@ -522,9 +557,10 @@ def assemble(cohort_root, output, *, interpreter, standalone, standalone_archive
             retention_index = canonical(retention.prepare_index(cohort_root, cohort)) + b'\n'
             (work / 'config/BOOTSTRAP-INDEX.json').write_bytes(retention_index)
             shutil.copyfile(HERE.parent / 'delivery/bootstrap.py', work / 'config/symphony-retain.py')
-            public_cohort.update(protocol='symphony.distribution.beta-installer.v1', publication_authorized=True,
+            scope = beta_delivery_scope(beta)
+            public_cohort.update(protocol='symphony.distribution.beta-installer.v1', publication_authorized=scope['publication_authorized'],
                 release_version=beta['decision']['release_version'], publisher_decision_sha256=beta['sha256'],
-                trust_status='native_wrapper_unsigned_detached_manifest_separate', apple_developer_id=False, notarization=False,
+                trust_status=scope['trust_status'], apple_developer_id=False, notarization=False,
                 retention_index_sha256=sha(retention_index), retention_helper_sha256=file_sha(HERE.parent / 'delivery/bootstrap.py'),
                 retention_python_requirement='3.11 or later')
         (work / 'config/COHORT.json').write_bytes(canonical(public_cohort))
@@ -533,7 +569,7 @@ def assemble(cohort_root, output, *, interpreter, standalone, standalone_archive
                                                             'notices': {n: sha(b) for n, b in bootstrap_notices.items()},
                                                             'role': 'installer_bootstrap_and_explicit_carrier_maintenance'}))
         (work / 'config/MAINTENANCE.txt').write_text(
-            ('Symphony Public Beta contains immutable, independently maintainable package carriers.\n' if beta else
+            ('Symphony Public Beta contains immutable, independently maintainable package carriers.\n' if beta and beta['decision']['publication_authorized'] else
              'This unsigned review contains immutable Symphony package carriers.\n') +
             'No Symphony service, credential setup, enrollment, or application selection has run.\n'
             'Conda removes carriers only; runtime removal belongs to the existing native owner.\n'
@@ -590,7 +626,8 @@ def assemble(cohort_root, output, *, interpreter, standalone, standalone_archive
         if beta:
             require(beta_authorization(beta_decision, beta_decision_sha256, cohort['profile']) == beta,
                     'Publisher decision changed during assembly')
-            report.update(state='beta_wrappers_audited', release_blockers=['final installer qualification and detached integrity manifest'],
+            report.update(state=scope['wrapper_state'], release_blockers=['final installer qualification and detached integrity manifest'] +
+                ([] if scope['publication_authorized'] else ['candidate publication approval']),
                 known_limits=['native macOS package unsigned and not notarized', 'no automatic native runtime installation or activation'])
         (output / 'result.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
         return report

@@ -22,6 +22,14 @@ on:
         description: Exact selection JSON SHA256
         type: string
         required: true
+      authorization:
+        description: Exact committed published-beta decision or beta2 review authorization
+        type: choice
+        options:
+          - evidence/d14-publisher-decision.json
+          - evidence/beta2-candidate.json
+        default: evidence/d14-publisher-decision.json
+        required: true
 permissions:
   contents: read
 concurrency:
@@ -37,6 +45,7 @@ jobs:
       core: ${{ steps.selected.outputs.core }}
       client: ${{ steps.selected.outputs.client }}
       decision_sha256: ${{ steps.selected.outputs.decision_sha256 }}
+      authorization: ${{ steps.selected.outputs.authorization }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
@@ -53,6 +62,7 @@ jobs:
         env:
           SELECTION: ${{ inputs.selection }}
           SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+          AUTHORIZATION: ${{ inputs.authorization }}
         run: |
           python3 - <<'PYCODE'
           import hashlib, os, pathlib, re, subprocess, sys
@@ -66,15 +76,21 @@ jobs:
           assert pathlib.Path(name).read_bytes() == subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
           selected = validate_selection(pathlib.Path(name), os.environ['SELECTION_SHA256'])
           assert set(selected['artifacts']) == {'package', 'client'}
-          decision = pathlib.Path('evidence/d14-publisher-decision.json').resolve()
+          authority = os.environ['AUTHORIZATION']
+          expected = {'evidence/d14-publisher-decision.json': ('symphony.distribution.beta-publisher-decision.v1', '0.2.0-beta.1'),
+                      'evidence/beta2-candidate.json': ('symphony.distribution.beta-candidate-authorization.v1', '0.2.0-beta.2')}
+          assert authority in expected, 'Unselected assembly authority path'
+          decision = pathlib.Path(authority).resolve()
           raw = decision.read_bytes()
-          assert raw == subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':evidence/d14-publisher-decision.json'])
+          assert raw == subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + authority])
           digest = hashlib.sha256(raw).hexdigest()
           accepted = beta_authorization(decision, digest, selected['profile'])['decision']
+          assert (accepted['protocol'], accepted['release_version']) == expected[authority], 'Assembly authority path or scope differs'
           with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
               out.write('profile=' + selected['profile'] + '\nrunner=' + TARGETS[selected['profile']][0] + '\n')
               out.write('core=' + accepted['source_binding']['core_commit'] + '\nclient=' + accepted['source_binding']['client_commit'] + '\n')
               out.write('decision_sha256=' + digest + '\n')
+              out.write('authorization=' + authority + '\n')
           PYCODE
   assemble:
     if: github.event_name == 'workflow_dispatch'
@@ -89,6 +105,7 @@ jobs:
       SELECTION: ${{ inputs.selection }}
       SELECTION_SHA256: ${{ inputs.selection_sha256 }}
       DECISION_SHA256: ${{ needs.contracts.outputs.decision_sha256 }}
+      AUTHORIZATION: ${{ needs.contracts.outputs.authorization }}
       GOWORK: 'off'
       GOENV: 'off'
       GOTOOLCHAIN: local
@@ -171,7 +188,7 @@ jobs:
         run: |
           "$RUNNER_TEMP/d14-tools/publisher/bin/python" -B installer_assembly/beta.py \
             --artifact "$RUNNER_TEMP/d14-input" --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
-            --publisher-decision "$GITHUB_WORKSPACE/evidence/d14-publisher-decision.json" --publisher-decision-sha256 "$DECISION_SHA256" \
+            --publisher-decision "$GITHUB_WORKSPACE/$AUTHORIZATION" --publisher-decision-sha256 "$DECISION_SHA256" \
             --repository "$GITHUB_WORKSPACE/work/core" --client-repository "$GITHUB_WORKSPACE/work/client" \
             --delivery "$RUNNER_TEMP/d14-delivery" --privacy-policy "$RUNNER_TEMP/d14-policy.json" \
             --output "$RUNNER_TEMP/d14-beta" --toolkit-commit "$GITHUB_SHA" \

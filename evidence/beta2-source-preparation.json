@@ -1,0 +1,44 @@
+{
+  "protocol": "symphony.distribution.beta-candidate-source-preparation.v1",
+  "release_version": "0.2.0-beta.2",
+  "state": "verified_source_export_candidate_builds_pending",
+  "core_source": {
+    "commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+    "tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+    "source_binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e"
+  },
+  "source_export": {
+    "derived_export_digest": "c6d8f1d2ee9aa4231a5a79858c24ef0dba27cac0ff93ca0a6c6c836fd02c6147",
+    "manifest_sha256": "dfd781c54c6147560ce2bdc4ef91a8743b5c02ab86e469a2662382ef78702b13",
+    "archive_sha256": "308e4a330fa9d705e82bba3e906713334be5263405b47fee0b92dd8d6a49f5eb",
+    "exported_file_count": 5377,
+    "excluded_file_count": 57,
+    "transformed_file_count": 27,
+    "original_git_blobs_and_transformations_verified": true,
+    "privacy_scan": {
+      "known_private_markers": "passed",
+      "complete_private_keys": "passed",
+      "credential_shaped_access_keys": "passed",
+      "scope": "Tracked source text/bytes only; independent review and final binary/archive privacy qualification remain required."
+    }
+  },
+  "candidate_authorization_sha256": "a307c4dd931708c535a5ee81a34a215e1de7bc62c03072f000fbdea3a7297295",
+  "maintenance_fix_ancestry_verified": [
+    "38fef5f9aca5570718f04312e6ca54e20316beef",
+    "68be0744d8d90a45e6ed207835493439b7fb118c",
+    "4cb33681a279dac86adcfdfb95ce1e6403bcaa4d"
+  ],
+  "required_primary_workflow": ".github/workflows/d09-platform.yml",
+  "profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "fresh_user_requested": true,
+  "candidate_native_builds_qualified": false,
+  "candidate_client_qualified": false,
+  "candidate_installer_qualified": false,
+  "release_acceptance_complete": false,
+  "publication_authorized": false
+}

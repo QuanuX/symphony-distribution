@@ -41,7 +41,6 @@ jobs:
           python3 -m unittest discover -s source-export -p test_export_source.py -v
           python3 -m unittest discover -s source-export -p test_check_go_source.py -v
           python3 -m unittest discover -s dossier -p test_validate.py -v
-      - name: Validate exact source, candidate and delivery evidence
+      - name: Validate fresh candidate preparation without claiming qualification
         run: |
-          python3 dossier/validate.py --source work/core \
-            --require-rebuild --require-source-export --require-hosted-status
+          python3 dossier/validate.py --source work/core --candidate-preparation

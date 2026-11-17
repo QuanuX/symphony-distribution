@@ -128,6 +128,15 @@ cohort, or accept another physical platform.
 
 ## Validate or refresh
 
+For the fresh beta.2 candidate, the active dossier explicitly reports
+`fresh_candidate_qualification_pending`. The original S08 dossier is preserved in
+`history/s08-beta1.json`; its E1 results remain historical. Validate preparation
+with `python3 dossier/validate.py --source /absolute/reviewed-core --candidate-preparation`.
+The strict `--require-rebuild`, `--require-source-export`, and
+`--require-hosted-status` gates still refuse missing current-candidate evidence.
+Refresh this pending snapshot with `dossier/refresh.py --fresh-candidate`; do not
+supply beta.1 reports as new candidate qualification.
+
 Use the exact clean bound core checkout. The validation command checks source
 maps, owner identities, required coverage, evidence hashes and both candidate
 reports. It returns a consistency result; it cannot grant release acceptance.
