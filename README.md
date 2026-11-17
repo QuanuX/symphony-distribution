@@ -1,4 +1,31 @@
-# Symphony distribution preparation
+# Symphony Public Beta distribution
+
+Symphony **0.2.0-beta.1** is available through QuanuX/beta on Anaconda and the
+[Cloudflare download service](https://downloads.quanux.org/symphony/0.2.0-beta.1/docs/BETA-INSTALL.md).
+Start with the [installation and verification guide](docs/BETA-INSTALL.md).
+The [publication record](evidence/d14-publication.json) binds all 240 published
+packages and 304 freshly verified download objects to the signed release.
+
+The four supported profiles are macOS 15 Apple Silicon, Ubuntu 24.04 AMD64,
+Ubuntu 24.04 ARM64, and Ubuntu 26.04 AMD64. Each has 59 independent default
+packages plus optional corresponding source. Native and SDK bytes come from the
+selected clean CI builds. User profiles and host state are created locally.
+
+Supported beta qualification includes 88 Codex cases, 204 native owner receipts,
+728 packaging maintenance transactions, four shell/first-use campaigns, and the
+native Mac home installer. Publisher legal approval and acceptance are recorded
+in the [bound decision](evidence/d14-publisher-decision.json). The release uses a
+pinned, self-signed detached publisher signature; Apple Developer ID,
+notarization, and separate human-reviewer independence are not claimed. Packaging
+revision upgrade/rollback and same-candidate recovery are qualified; a transition
+between two different native releases remains outside this initial beta.
+
+The milestone sections below retain their historical preparation status. The
+publication record above is the current release result. Core main, client main,
+and this repository's default branch remain unchanged; the feature freeze stays
+in place.
+
+## Preparation and historical milestones
 
 This repository contains source-bound packaging and qualification tools for Symphony Public Beta. It is separate from [Symphony core](https://github.com/QuanuX/Symphony). It does not publish packages, choose an application module, start services, or change an existing installation automatically.
 
