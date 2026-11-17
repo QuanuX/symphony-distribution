@@ -1,7 +1,7 @@
 name: D10 retained primary wrapper-only qualification
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d10-primary-rewrap.yml'
       - 'qualification/primary_artifacts.py'

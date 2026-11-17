@@ -1,7 +1,7 @@
 name: D14 independent carrier upgrade swap and rollback
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d14-carrier-journeys.yml'
       - 'qualification/d14_carrier_journeys.py'

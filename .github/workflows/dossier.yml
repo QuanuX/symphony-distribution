@@ -1,7 +1,7 @@
 name: S08 dossier and source delivery
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths: ['.github/workflows/dossier.yml', 'README.md', 'docs/**', 'dossier/**', 'source-export/**', 'evidence/**', 'source-binding.json', 'go-owner-catalog.json', 'lifecycle/README.md']
   pull_request:
     paths: ['.github/workflows/dossier.yml', 'README.md', 'docs/**', 'dossier/**', 'source-export/**', 'evidence/**', 'source-binding.json', 'go-owner-catalog.json', 'lifecycle/README.md']

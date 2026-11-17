@@ -1,15 +1,23 @@
 # S08 Public Beta distribution dossier
 
-This is the current distribution supplement to Symphony's preserved W01–W12
+The current **0.2.0-beta.1** release is published. See the
+[installation guide](../docs/BETA-INSTALL.md),
+[publisher decision](../evidence/d14-publisher-decision.json) and
+[publication evidence](../evidence/d14-publication.json) for its accepted scope,
+exact artifacts and public retrieval results. The feature freeze remains.
+
+This page preserves the S08 distribution supplement to Symphony's W01–W12
 dossier. It binds core source `5fd6cee1bae477048bf0045b691ee8bdf334e216`, the seven
-Go delivery owners and the S06/S07 engineering evidence. It keeps the feature
-freeze in force and leaves release acceptance incomplete. Core remains unchanged.
+Go delivery owners and the S06/S07 engineering evidence. Its preparation-only
+acceptance fields and outstanding gates are historical snapshots. They are not
+rewritten as if these earlier fixtures performed the later release campaigns.
 
 The original `tests/public-beta/dossier.json` still describes its historical
 W01/W06 baseline `887e074780e1d0633bd6e6f57c3d4e07ca3925fc`. Its preparation-only
 authorization fields are historical; later explicit user instructions authorized
-W01–W13 and distribution preparation. This supplement records current distribution
-choices without altering earlier source records or inventing a release decision.
+W01–W13 and distribution preparation, followed by explicit beta publication
+approval. This supplement preserves the choices at its recorded revision;
+the later publisher decision and release result remain separate evidence.
 
 [s08-dossier.json](s08-dossier.json) is the machine-readable record. It retains
 all 26 historical capability groups, 36 core acceptance cells, 58 paper criteria,
@@ -17,13 +25,14 @@ all 26 historical capability groups, 36 core acceptance cells, 58 paper criteria
 capabilities are not silently waived, expanded or requalified. The dossier binds
 the original core documents and maps by SHA-256 at the exact selected source.
 
-## Distribution choices and contents
+## S08 distribution choices and contents
 
-Standard delivery is clean CI-built binaries; the current local candidates are
-supplemental engineering evidence. Conda carriers will use the QuanuX organization
-on Anaconda. macOS `.pkg` and Linux `.sh` downloads will use Cloudflare storage and
-the website in a later step. No channel upload or downloadable release is accepted
-by this dossier. Optional reviewed source/SDK material remains a separate delivery.
+Standard delivery uses clean CI-built binaries; the S08 local candidates were
+supplemental engineering evidence. The published beta now supplies QuanuX/beta
+Conda packages and Cloudflare `.pkg`/`.sh` downloads, with website integration
+reserved for a later step. This earlier dossier alone did not authorize a channel
+upload or release. Optional source remains separately installable; SDK exports
+stay with their native module owners.
 
 Modules retain independent versions and may be installed, upgraded, swapped and
 removed independently within their owners' contracts. Packaging does not become
@@ -52,13 +61,13 @@ and [source/payload review](../docs/SOURCE-AND-PAYLOAD.md). User profiles, hardw
 identity, credentials, journals and workflow state must be generated on each
 user's own system, never copied from a publisher build environment.
 
-## Capability and platform status
+## Historical capability and platform snapshot
 
 The following table preserves the recorded S07 snapshot. Later D06 construction
 and requalification are recorded separately below; they do not replace these
 historical job outcomes or establish fresh-host support.
 
-| Scope | Recorded S07 evidence | Final support status |
+| Scope | Recorded S07 evidence | Status recorded at S07 |
 | --- | --- | --- |
 | macOS 15 ARM64 | Completed S07 native and Conda CI steps passed; E1 fixtures | Fresh-host and actual-manager acceptance incomplete |
 | Ubuntu 24.04 AMD64 | S07 native CI failed; Conda step skipped | Fresh-host and actual-manager acceptance incomplete |
@@ -67,7 +76,7 @@ historical job outcomes or establish fresh-host support.
 | Intel macOS supplemental | S06 package journeys; S07 real Conda and native owner/child fixtures | E1 only; does not substitute for the four core profiles |
 | Other retained capability groups | Exact historical core source inventory retained | Not requalified by this packaging increment |
 
-No profile is marked release-supported. Missing manager/host observations are
+This S07 snapshot did not mark a profile release-supported. Missing manager/host observations are
 incomplete, and manager accessibility is not lifecycle acceptance. Cloudflare's
 separate admitted vendor closure and provider-specific/physical hardware limits
 remain in their existing source contracts; a generic architecture or source build
@@ -82,7 +91,7 @@ refused it. The correction supplies a private fixture directory through
 skips are not passes. The successful macOS job does not establish installed
 manager, final-download or independent acceptance.
 
-## Owners, trust and acceptance
+## Owners, trust and acceptance recorded at S08
 
 Role assignments are referenced from the exact core `owners.json`; no person is
 newly assigned or notified. Existing release/rollback ownership remains visible
@@ -140,13 +149,13 @@ python3 dossier/refresh.py --source /absolute/reviewed-core \
   --hosted-status-report evidence/s07-hosted-status-20261116.json
 ```
 
-The remaining safety gates are actual manager/privilege/fresh-host behavior,
+The S08 snapshot's remaining safety gates were actual manager/privilege/fresh-host behavior,
 precise native restart/delete crash boundaries, escaped process lifetimes,
 mid-operation native response loss, genuine distinct-release selection/rollback,
 unresolved audit recovery and unsupported raw/C++/shared-environment ownership.
 No source/documentation consistency check closes those gates.
 
-## D06 continuation
+## Historical D06 continuation
 
 The [D06 clean-cohort supplement](../docs/D06-CLEAN-COHORT.md) records the full
 native/SDK construction work on a separate distribution branch. Its source-bound
@@ -185,6 +194,6 @@ remain unchanged. See the [D06 evidence summary](../evidence/D06-RESULTS.md) for
 the retained attempts and subsequent exact results; no release approval is
 created by this documentation update.
 
-## D07 client distribution supplement
+## Historical D07 client distribution supplement
 
 [D07 results](../evidence/D07-RESULTS.md) bind the unchanged reviewed D06 candidate to client commit `71b2021aeefb704b9c3e63797d04a0cc021757a9`, a clean repeated bridge/package and 22 passing deterministic Codex cases. This contributes exact-byte evidence to C02.4 and MCP-CHANNELS while preserving all other acceptance cells. The historical W13 embedded-stamp gate remains unpassed; the separate external-provenance verifier grants no publisher, fresh-host or release approval. See the [D07 handoff](../docs/D07-CLIENT-GATE.md) for required final-platform and delivery work.

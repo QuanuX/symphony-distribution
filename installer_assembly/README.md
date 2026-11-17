@@ -1,10 +1,25 @@
-# D08 unsigned installer review
+# Installer assembly and beta signing
+
+The published **0.2.0-beta.1** installers are listed on the
+[release page](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1).
+Use the [verification and installation guide](../docs/BETA-INSTALL.md) for the
+pinned publisher signature and exact platform choice. Four shell installation
+campaigns and the exact Mac PKG installation/removal passed; the
+[publication record](../evidence/d14-publication.json) binds those results.
+
+`beta.py` assembles approved beta inputs and `beta_signing.py` produces and checks
+the detached signature. This is publisher-pinned self-signing, with no Apple
+Developer ID or notarization claim. The D08 construction contracts below remain
+valid preparation boundaries; their unsigned output alone is not release approval.
+
+## D08 construction contracts
 
 This directory assembles reviewed independent package carriers into standalone
 installers. It does not install a Symphony runtime, select an application module,
 start a service, enroll an identity, grant authority, write credentials, or
-publish an artifact. Production signatures, notarization and acceptance remain
-separate required gates.
+publish an artifact. Publisher approval and release signing are separate from
+this construction step. Apple signing/notarization remain outside the initial
+beta's accepted trust scope.
 
 `cohort.py` admits the reviewed D06 payload and the independently reproduced
 original-source qxctl identity. The original D06 payload remains unchanged.

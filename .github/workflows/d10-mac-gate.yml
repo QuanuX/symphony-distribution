@@ -1,7 +1,7 @@
 name: D10 selected Mac gate contracts
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d10-mac-gate.yml'
       - 'qualification/d10_mac.py'

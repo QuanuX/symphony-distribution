@@ -1,7 +1,7 @@
 name: Distribution preparation
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths: ['.github/workflows/distribution.yml', 'source-binding.json', 'go-owner-catalog.json', 'owner-catalog/**', 'lifecycle/**', 'recipes/**', 'tests/**', 'qualification/**']
   pull_request:
     paths: ['.github/workflows/distribution.yml', 'source-binding.json', 'go-owner-catalog.json', 'owner-catalog/**', 'lifecycle/**', 'recipes/**', 'tests/**', 'qualification/**']

@@ -1,7 +1,7 @@
 name: D08 unsigned installer assembly
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths: ['installer_assembly/**', '.github/workflows/installer-assembly.yml']
   workflow_dispatch:
     inputs:

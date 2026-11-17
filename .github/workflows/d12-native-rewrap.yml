@@ -1,7 +1,7 @@
 name: D12 retained native packaging and wrapper qualification
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d12-native-rewrap.yml'
       - 'qualification/native_artifacts.py'

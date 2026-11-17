@@ -1,5 +1,10 @@
 # Retaining the supplied binaries
 
+For **0.2.0-beta.1** download verification, platform selection and installation,
+start with the [beta guide](../docs/BETA-INSTALL.md) and
+[release page](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1).
+The retention commands below apply to that release's verified setup inputs.
+
 The standard installer links immutable carriers. It does not start Symphony,
 choose modules, register client profiles or install native services. Python 3.11
 or newer is required for this explicit setup step; a compiler, source checkout

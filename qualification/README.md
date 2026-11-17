@@ -1,5 +1,13 @@
 # S07 fault, concurrency and platform qualification
 
+Current initial-beta results are recorded in the
+[publication evidence](../evidence/d14-publication.json) and
+[hosted qualification record](../evidence/d14-beta-hosted-qualification.json).
+The S07/D06 methods and tables below retain their engineering-stage scope;
+historical unobserved cells are not current release status. The beta qualifies
+packaging revision changes and same-candidate recovery, with distinct-native-version
+transitions and unsupported live ownership remaining outside its accepted scope.
+
 This campaign qualifies bounded distribution and existing native-owner behavior
 against `source-binding.json`. It preserves the Public Beta feature freeze. It
 does not modify core, select a module in Maestro, start a host service, authorize
@@ -56,7 +64,7 @@ observe exact durable retirement and owned-byte absence, then explicitly
 reconcile the same completed identity. This does not authorize replay of an
 uncertain or still-running operation. No host service is activated.
 
-## Acceptance mapping and limits
+## Historical S07 acceptance mapping and limits
 
 All results below are **E1** engineering fixtures. A refusal passes its refusal
 oracle; it does not demonstrate successful live removal. Exact native selectors
@@ -156,5 +164,6 @@ fixture members and unchanged attribution overlaps during corresponding-source
 scanning. Archive bytes stay unchanged and exceptions are included in the source
 index. Installed payloads and publisher-created files receive no such exception.
 
-See [D06 results](../evidence/D06-RESULTS.md) for completed local evidence and
-remaining platform, ownership, signing, delivery and independent acceptance gates.
+See [D06 results](../evidence/D06-RESULTS.md) for the historical local evidence
+and gates outstanding at that stage. The selected final artifacts and accepted
+initial-beta scope are recorded in the [publication record](../evidence/d14-publication.json).
