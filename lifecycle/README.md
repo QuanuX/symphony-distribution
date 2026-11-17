@@ -1,5 +1,10 @@
 # Exact package handoff preparation
 
+For the supported carrier commands, ownership stages and explicit maintenance
+flows, start with the [delivery guide](../docs/DELIVERY.md). This document covers
+the lower-level proposal inputs. [Recovery guidance](../docs/RECOVERY.md) keeps
+retained or uncertain outcomes separate from completed effects.
+
 `handoff.py` writes a private proposal and never runs qxctl, a native package owner,
 a selector, or a service. The complete caller-selected profile, observation,
 native boot journal and plan, apply status, expected prior-state digests, receipt,
@@ -60,8 +65,8 @@ file, compatibility waiver, or new owner policy.
 `--native-owner` and `--native-owner-manifest-digest` select the target controller
 (or the exact retiring controller for removal). V2 also requires
 `--native-owner-custody` and `--native-owner-custody-digest`. Create independent
-controller-only custody with `go_delivery.py materialize` without
-`--install-native`; its `custody.json` and `retained-carrier` must validate under
+controller-only custody with `python3 lifecycle/go_delivery.py retain`;
+its `custody.json` and `retained-carrier` must validate under
 the selected catalog. A bare Conda carrier, or a custody record coupled to a
 possibly retired installation, is insufficient. The selected executable must be
 the exact retained executable named by that record.
@@ -79,6 +84,11 @@ its host-local retirement guard. Sole installed controllers, raw command owners,
 system removal, live or unknown state, multiple installed candidates, unfulfilled
 native prerequisites, changed receipts, in-place replacement, and unsupported
 source versions refuse before proposal output.
+
+`install-native` is a separate `go_delivery.py` subcommand for fresh stopped
+user-scope materialization. There is no CLI `materialize` subcommand or
+`--install-native` flag. A v2 scoped handoff needs the controller-only `retain`
+route, rather than custody coupled to a disposable runtime installation.
 
 The only retained source pairing is S05 `ad7ed0e0857a1d8cc9d0fa3617579bbf5fc46b70`
 with current controller `5fd6cee1bae477048bf0045b691ee8bdf334e216`. Its binding and

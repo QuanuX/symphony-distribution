@@ -1,0 +1,138 @@
+{
+  "all_source_roots_build_tested": false,
+  "archive": {
+    "filename": "symphony-source.tar",
+    "sha256": "cc1b576f1bba12edb6c877fb30d446fae03331568fc57a12848fe62b95cc526a",
+    "size": 48353280
+  },
+  "archive_is_original_git_tree": false,
+  "counts": {
+    "excluded_files": 57,
+    "exported_files": 5372,
+    "transformed_files": 27
+  },
+  "derived_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+  "evidence_level": "E1_selected_source_preparation",
+  "final_host_acceptance": false,
+  "focused_export_tests": {
+    "passed": 29,
+    "skipped": 0
+  },
+  "focused_source_build_custody_tests": {
+    "passed": 4,
+    "skipped": 0
+  },
+  "independent_review_findings": {
+    "forged_manifest_acceptance": "fixed_and_tested",
+    "hidden_tar_trailer": "fixed_and_tested",
+    "ordinary_and_wrapped_legal_attribution": "refused_and_tested",
+    "preflight_output_custody": "fixed_and_tested"
+  },
+  "manifest_protocol": "symphony.public-source-export.v2",
+  "manifest_sha256": "1a9781155c14182f46171dd29ce3c1f8970daea7c7f5c2e90e2ed50486264563",
+  "original_blob_verification": "all_original_git_blobs_and_export_transformations_verified",
+  "privacy_policy_bundled": false,
+  "privacy_policy_digest": "d339123b990d9de1eaa1fd439e33e4ae0b15e6abc57882fd8afa49dd0224a837",
+  "privacy_scope": "Known private markers and credential-shaped values; full-stream archive metadata, source and binary path checks. Independent final payload/source/rights review remains required.",
+  "protocol": "symphony.distribution.s08-source-export.v1",
+  "publication_authorized": false,
+  "publisher_trust_accepted": false,
+  "real_origin_negative_checks": [
+    {
+      "case": "forged original hash",
+      "outcome": "refused-as-required"
+    },
+    {
+      "case": "forged original blob",
+      "outcome": "refused-as-required"
+    },
+    {
+      "case": "invented transformation",
+      "outcome": "refused-as-required"
+    },
+    {
+      "case": "unreviewed exclusion",
+      "outcome": "refused-as-required"
+    },
+    {
+      "case": "dropped original file",
+      "outcome": "refused-as-required"
+    },
+    {
+      "case": "changed derived map record",
+      "outcome": "refused-as-required"
+    }
+  ],
+  "release_acceptance_complete": false,
+  "remaining_gates": [
+    "complete D06 native/C++/Swift cohort and installed SDK consumers",
+    "all supported target and D10 fresh-host final-download journeys",
+    "independent source/notice/redistribution review",
+    "publisher signatures, platform trust and approved publication"
+  ],
+  "repeat_archive_identical": true,
+  "selected_source_build": {
+    "all_source_roots_build_tested": false,
+    "candidate_bytes_equal": true,
+    "commands_built": 6,
+    "fresh_build_cache": true,
+    "path": "evidence/s08-derived-go-source-build.json",
+    "qxctl_rebuilt": false,
+    "sha256": "1b939fd50fa0947c994c02321562d27138e7156267875f1f563fb03b68884fc4",
+    "status": "passed"
+  },
+  "source_binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "source_map": {
+    "export_sha256": "d3ab29a1bf8a5534c5a57ea0512ae2dcb74ba44045014107d96d41df4362b88a",
+    "omitted_private_publisher_inputs": [
+      {
+        "path": "tests/public-beta/validate.go",
+        "reason": "private publisher dossier/test artifact omitted from derived public source",
+        "sha256": "a1268b7cedadee606ccce4eb0c90442e4b425e62ad1a26b412b2ab022f0e09fc"
+      },
+      {
+        "path": "tests/public-beta/validate_test.go",
+        "reason": "private publisher dossier/test artifact omitted from derived public source",
+        "sha256": "d0c7d9ca7842ad2518f698b53a0c5477b0fe5c023d12d7a53a5779c34f3106e4"
+      }
+    ],
+    "original_sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65",
+    "path": "cmake/mvp-dependencies.json",
+    "rebindings": [
+      {
+        "export_sha256": "98edf34f95ad324946fc42b4118fdccf7ef310ccfdc7580336d425d683efdb5e",
+        "original_sha256": "bc2677906c30e657c21d553164367e8ebb7dd8ac9b4eeb14e3e71081c3f291c0",
+        "path": "modules/shv-engine/tests/fixtures/interface-history.v1.json"
+      },
+      {
+        "export_sha256": "59e4561c49bb31f6aa1516a6c0e9fc8178b7090214274e8a26ccfba2eb4d9289",
+        "original_sha256": "5af7d5e604d2daa10a735fa2fbf54960bd7ffd103cb18c7ad375075f7f3ae161",
+        "path": "modules/shv-graph-adapter/tests/fixtures/interface-history.v1.json"
+      },
+      {
+        "export_sha256": "0578bc6399483f8189e122c0f616a28e0dd8c4c910eef0f4566a1668ea23b405",
+        "original_sha256": "0517bcd16487261ca26e8ee420fb759f4f315e10b8c7c954c5b6b28ca68a9166",
+        "path": "modules/shv-graph-duckdb-connector/tests/fixtures/interface-history.v1.json"
+      },
+      {
+        "export_sha256": "29b7c3b3685b1e7fbd3d2d6f45fa9b23d904ef6da66fe6829f78c6af57781ced",
+        "original_sha256": "c7e888f40a9c6d91ad074d80231123e423a9179bfbc4f99adc96da36700a9b7d",
+        "path": "modules/shv-partition-engine/tests/fixtures/interface-history.v1.json"
+      },
+      {
+        "export_sha256": "e3a1ce8679f167504631c44fc29aa46cb411e25579233662f0c282ff410497ce",
+        "original_sha256": "db4dff51eadaa6bb91c845221d18145151a9066e7e04c92eacf0577622559393",
+        "path": "modules/shv-pdf-adapter/tests/fixtures/interface-history.v1.json"
+      },
+      {
+        "export_sha256": "2ff108522dd279ed7ec6bed2917ea221c8691d45252a0248717f1bda869dee18",
+        "original_sha256": "bb21928dbd76d6e9ad87b225cc15531de8845c7a4a6bb63c501ea81a3fc062b4",
+        "path": "tools/qxctl/internal/knowledgeengine/testdata/shv-store/native-results.json"
+      }
+    ]
+  },
+  "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+  "status": "verified",
+  "tool_sha256": "a7f8efe7dbd9b3e56a32a0d4da9567316c75529fe62cc8f3bb4649e07994f2aa"
+}

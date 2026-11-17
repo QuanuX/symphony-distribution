@@ -1,0 +1,47 @@
+name: S08 dossier and source delivery
+on:
+  push:
+    branches: ['codex/**']
+    paths: ['.github/workflows/dossier.yml', 'README.md', 'docs/**', 'dossier/**', 'source-export/**', 'evidence/**', 'source-binding.json', 'go-owner-catalog.json', 'lifecycle/README.md']
+  pull_request:
+    paths: ['.github/workflows/dossier.yml', 'README.md', 'docs/**', 'dossier/**', 'source-export/**', 'evidence/**', 'source-binding.json', 'go-owner-catalog.json', 'lifecycle/README.md']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dossier-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  dossier:
+    name: Source-bound dossier and export contracts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Read exact reviewed core source
+        id: source
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          source = json.load(open('source-binding.json'))['source_commit']
+          assert re.fullmatch('[0-9a-f]{40}', source)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('commit=' + source + '\n')
+          PY
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ steps.source.outputs.commit }}
+          path: work/core
+          persist-credentials: false
+      - name: Check source export and dossier refusal boundaries
+        run: |
+          python3 -m unittest discover -s source-export -p test_export_source.py -v
+          python3 -m unittest discover -s source-export -p test_check_go_source.py -v
+          python3 -m unittest discover -s dossier -p test_validate.py -v
+      - name: Validate exact source, candidate and delivery evidence
+        run: |
+          python3 dossier/validate.py --source work/core \
+            --require-rebuild --require-source-export --require-hosted-status
