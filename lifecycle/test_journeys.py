@@ -19,6 +19,14 @@ TARGET = b'#!/bin/sh\nexit 81\n'
 PRIOR = b'#!/bin/sh\nexit 82\n'
 
 
+def historical_controller():
+    path = Path(__file__).parent / 'qualified-sources' / (q.CURRENT_COMMIT + '.json')
+    raw = path.read_bytes()
+    q.require(q.owners.sha(raw) == '81f4f36a003fae15cada6ebc9d8f2e482cda2e29f4d97cbd245c7a64993207a9',
+              'Historical controller snapshot differs')
+    return q.owners.strict_json(raw)
+
+
 def rebind(values):
     profile, observation, boot = values[:3]
     base.seal_profile(profile)
@@ -175,11 +183,12 @@ class JourneyTests(unittest.TestCase):
                 h.make_scope(*changed, self.registry, prior_receipt=prior)
 
     def test_only_code_owned_retained_source_pair_is_accepted(self):
-        current = q.owners.reviewed_binding()
+        current = historical_controller()
         prior = q.retained_binding(current)
         catalog = q.owners.catalog(prior)
         source = {'commit': current['source_commit'], 'tree': current['source_tree']}
-        self.assertEqual(q.resolve(catalog, catalog['catalog_digest'], source), prior)
+        with patch.object(q.owners, 'reviewed_binding', return_value=current):
+            self.assertEqual(q.resolve(catalog, catalog['catalog_digest'], source), prior)
         for mutation in ('unknown_source', 'owner_contract', 'new_controller', 'runtime_bytes'):
             changed = copy.deepcopy(catalog)
             controller = copy.deepcopy(source)
@@ -197,8 +206,23 @@ class JourneyTests(unittest.TestCase):
             with self.subTest(mutation=mutation), patch.object(q.owners, 'reviewed_binding', return_value=current_copy), self.assertRaises(ValueError):
                 q.resolve(changed, changed['catalog_digest'], controller)
 
-    def test_known_source_record_changes_and_cross_component_observations_refuse(self):
+    def test_new_candidate_cannot_inherit_historical_controller_qualification(self):
         current = q.owners.reviewed_binding()
+        self.assertNotEqual(current['source_commit'], q.CURRENT_COMMIT)
+        with self.assertRaisesRegex(ValueError, 'has not been qualified'):
+            q.retained_binding(current)
+        prior = q.retained_binding(historical_controller())
+        catalog = q.owners.catalog(prior)
+        with self.assertRaisesRegex(ValueError, 'has not been qualified'):
+            q.resolve(catalog, catalog['catalog_digest'])
+        beta1_catalog = q.owners.catalog(historical_controller())
+        with self.assertRaisesRegex(ValueError, 'Unqualified retained owner source'):
+            q.resolve(beta1_catalog, beta1_catalog['catalog_digest'])
+        active = q.owners.catalog(current)
+        self.assertEqual(q.resolve(active, active['catalog_digest']), current)
+
+    def test_known_source_record_changes_and_cross_component_observations_refuse(self):
+        current = historical_controller()
         with patch.object(q.Path, 'read_bytes', return_value=b'changed'), self.assertRaisesRegex(ValueError, 'evidence changed'):
             q.retained_binding(current)
         values, prior = fixture('remove')
@@ -336,7 +360,8 @@ class JourneyCLITests(unittest.TestCase):
     def test_qualified_old_controller_is_verified_against_its_own_source_catalog(self):
         # Synthetic executable remains inert; this exercises compatibility policy,
         # not the authenticity or execution of a real historical owner binary.
-        prior = q.retained_binding(self.real_binding)
+        historical = historical_controller()
+        prior = q.retained_binding(historical)
         self.files.binding = prior
         self.files.catalog = q.owners.catalog(prior)
         self.files.digest = self.files.catalog['catalog_digest']
@@ -344,8 +369,8 @@ class JourneyCLITests(unittest.TestCase):
             carrier, manifest, unit = self.files.carrier(COMPONENT, binary=TARGET)
         retained = self.files.retain(carrier, manifest, output='retained-prior')
         values, _ = fixture('remove')
-        source = {'commit': self.real_binding['source_commit'], 'tree': self.real_binding['source_tree']}
-        with patch.object(q.owners, 'reviewed_binding', return_value=self.real_binding):
+        source = {'commit': historical['source_commit'], 'tree': historical['source_tree']}
+        with patch.object(q.owners, 'reviewed_binding', return_value=historical):
             owner = h.validate_owner(self.files.catalog, self.files.digest, values[5], values[4])
             argv, evidence = h.native_owner_arguments([COMPONENT + '=' + retained['retained_executable']],
                 owner, values[5], values[4], values[0], source, catalog=self.files.catalog,

@@ -7,6 +7,8 @@ owners = go_delivery.owners
 require = owners.require
 PRIOR_COMMIT = 'ad7ed0e0857a1d8cc9d0fa3617579bbf5fc46b70'
 PRIOR_TREE = 'f0bb667817514515d33b86679c72431947260f39'
+# Historical controller for this one qualified pairing; never advance these
+# constants merely because source-binding.json selects a newer candidate.
 CURRENT_COMMIT = '5fd6cee1bae477048bf0045b691ee8bdf334e216'
 CURRENT_TREE = '327edd0f22860e84d30fe745f5a2b0e602f4af88'
 PRIOR_FILE_SHA256 = '0698b5818b10e11667ac3c7f1be8da55a8b8b89a3fc3b19cc30fb44de1de3329'

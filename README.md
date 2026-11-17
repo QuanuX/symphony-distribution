@@ -68,14 +68,17 @@ Accordare reinstall maintenance, use the exact retained owner binary outside the
 installation; self-reinstall from the installed binary may report a busy package.
 Existing ownership and active-use checks still apply.
 
-A newly bound, rebuilt and qualified candidate is required before these source
-repairs can be advertised as present in downloadable packages. The current
-source bindings, release tag, signatures and public artifacts remain unchanged.
+The **0.2.0-beta.2 review candidate** now selects the repaired core plus its
+matching public Accordare dependency. Its [candidate authorization](evidence/beta2-candidate.json)
+permits clean builds and qualification; the new bytes are not yet a published or
+qualified release. Follow the [candidate handoff](docs/BETA2-CANDIDATE.md) for
+the exact source and remaining checks. The beta.1 release tag, signatures,
+public artifacts and historical qualification records remain unchanged.
 
 ## Engineering and maintenance
 
 This repository is separate from [Symphony core](https://github.com/QuanuX/Symphony).
-The exact reviewed core commit and source-file hashes remain in
+The active candidate's exact core commit and source-file hashes remain in
 [source-binding.json](source-binding.json); the seven Go delivery routes remain
 in [go-owner-catalog.json](go-owner-catalog.json). Builds must match these bindings
 and the pinned Go 1.26.5 recipes, even after their source branches merge to main.

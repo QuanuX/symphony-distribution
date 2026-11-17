@@ -1,0 +1,81 @@
+{
+  "protocol": "symphony.distribution.beta-candidate-local-validation.v1",
+  "release_version": "0.2.0-beta.2",
+  "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+  "scope": "focused local source and packaging contracts; primary hosted candidate qualification pending",
+  "checks": [
+    {
+      "group": "source bindings, cohort, Go routes, historical-source refusal, dossier and export contracts",
+      "passed_tests": 150
+    },
+    {
+      "group": "beta assembly authority, constructor, beta artifact and native PKG contracts",
+      "passed_tests": 86
+    },
+    {
+      "group": "native artifact transport, restore, primary client and native maintenance contracts",
+      "passed_tests": 60
+    },
+    {
+      "group": "primary build preparation and refusal contracts",
+      "passed_tests": 30
+    },
+    {
+      "group": "native recovery retention contracts",
+      "passed_tests": 24
+    },
+    {
+      "group": "workflow actionlint",
+      "result": "passed; known official ubuntu-26.04 label omitted from older validator inventory only"
+    }
+  ],
+  "source_checks": [
+    "all three maintenance repair commits are ancestors of selected core",
+    "all seven source-bound Go owner routes",
+    "51 native units and six default Go commands per primary profile",
+    "5,377 exported files verified against original Git blobs and selected privacy transformations"
+  ],
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "new_primary_artifacts_qualified": false,
+  "known_limits": [
+    "Local tests are not fresh-host or final-byte qualification.",
+    "Historical beta.1 results have not been promoted to beta.2."
+  ],
+  "core_checks": {
+    "scope": "supplemental local darwin/amd64 source regression, not a primary candidate artifact",
+    "native_ctest": [
+      "knowledge-lifecycle-planner-tests",
+      "knowledge-scoped-fixture-output"
+    ],
+    "installed_owner_reinstall": {
+      "owners": [
+        "secure-identity-access-governance",
+        "accordare-stav-producer"
+      ],
+      "go_packages_passed": 4,
+      "race_detector": true,
+      "cases": [
+        "unchanged installed source",
+        "live-use refusal",
+        "retiring refusal",
+        "missing-custody refusal",
+        "cross-prefix source custody"
+      ]
+    },
+    "completed_scoped_close_replay": {
+      "passed": true,
+      "negative_subcases_passed": 14,
+      "race_detector": true,
+      "native_fixture_sha256": "5ec2d46b268e378d499c074465b2c0e2f76fceeca984568c81d09cbf8146507a",
+      "source": "exact selected commit exported with git archive; avoids workspace file-read stall"
+    },
+    "go_candidate_closure": {
+      "passed": true,
+      "command_count": 7,
+      "evidence_sha256": "f62b740f02c91a4e7efd7ff3e3ee5bc90ec6729ba4b9048ed11a40df27a08ded",
+      "qxctl_two_isolated_builds_equal": true,
+      "qxctl_sha256": "2ea1d5e27d22bbe2350eb0da01811b1a388d54fabf23671df2cf4b51ed30d93e"
+    }
+  }
+}

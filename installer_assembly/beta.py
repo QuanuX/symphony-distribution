@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Assemble an explicitly approved beta from unchanged qualified native/client bytes.
+"""Assemble a beta or review candidate from unchanged qualified native/client bytes.
 
 No native or bridge compilation occurs here. Original review records retain
-their scope; a separate publisher decision authorizes the exact beta delivery.
+their scope; exact assembly authority never implies unobserved qualification
+or promotion of a review candidate into a published beta.
 """
 from __future__ import annotations
 import argparse
@@ -150,7 +151,7 @@ def validate_client(client_root, base, base_root, original, client_source, *, pr
     return report, derivation, inventory, files
 
 
-def add_client(base_root, client_root, output, original, client_source, privacy):
+def add_client(base_root, client_root, output, original, client_source, privacy, *, version=VERSION):
     base = c.audit_cohort(base_root)
     c.require(len(base['entries']) == len(base['archives']) == 58 and not any(e['kind'] == 'client_bridge_bundle' for e in base['entries']),
               'Exactly the unchanged58 core carriers are required')
@@ -160,7 +161,7 @@ def add_client(base_root, client_root, output, original, client_source, privacy)
     provenance = {'kind': 'qualified_primary_client_with_explicit_derived_catalog', 'source': report['sources']['plugin'],
         'source_kind': 'original_git_plus_three_recorded_catalog_derivations', 'profile': report['profile'],
         'upstream_client_version': supplements.parse(files['.claude-plugin/plugin.json'][0])['version'],
-        'beta_delivery_version': VERSION, 'qualification_sha256': gate.sha(client_root / 'result.json'),
+        'beta_delivery_version': version, 'qualification_sha256': gate.sha(client_root / 'result.json'),
         'derivation_sha256': gate.sha(client_root / 'derivation.json'), 'package_inventory_sha256': gate.sha(client_root / 'package-inventory.json'),
         'bindings': report['bindings'], 'private_profiles_or_transcripts_included': False}
     unit = {'unit_id': 'client:client', 'kind': 'client_bridge_bundle', 'component_id': 'client', 'native_version': '0.2.0',
@@ -186,7 +187,7 @@ def add_client(base_root, client_root, output, original, client_source, privacy)
     return result
 
 
-def source_bundle(args, package_root, client_root, output, client_report, privacy):
+def source_bundle(args, package_root, client_root, output, client_report, privacy, *, version=VERSION):
     """Compose existing verified source plus explicitly separated generated data."""
     output.mkdir(mode=0o700)
     proof_path = package_root / 'carrier-capsule/evidence/qxctl-source-proof.json'
@@ -211,7 +212,7 @@ def source_bundle(args, package_root, client_root, output, client_report, privac
     client_zip = zip_files(client_root / 'symphony-client.zip')
     generated = [(name, client_zip[name][0], client_zip[name][1]) for name in sorted(client_gate.DERIVED)]
     source_builder.write_tar(output / 'client-derived-catalog.tar', generated)
-    scope = {'protocol': SOURCE, 'release_version': VERSION, 'core_source_kind': 'verified_reviewed_derived_export',
+    scope = {'protocol': SOURCE, 'release_version': version, 'core_source_kind': 'verified_reviewed_derived_export',
         'client_source_kind': 'exact_original_git_export_plus_separate_generated_catalog', 'client_origin': client_gate.CLIENT,
         'client_derived_paths': sorted(client_gate.DERIVED), 'client_qualification_sha256': gate.sha(client_root / 'result.json'),
         'qualified_client_toolkit': client_report['executing_toolkit'], 'assembly_toolkit_commit': args.toolkit_commit,
@@ -227,7 +228,7 @@ def source_bundle(args, package_root, client_root, output, client_report, privac
         ('source/qualified-client-toolkit.tar', (output / 'qualified-client-toolkit.tar').read_bytes(), 0o644),
         ('source/inherited-wrapper-toolkit.tar', (package_root / 'wrapper-source/WRAPPER-TOOLKIT-SOURCE.tar').read_bytes(), 0o644),
         ('source/inherited-wrapper-toolkit-index.json', (package_root / 'wrapper-source/WRAPPER-TOOLKIT-SOURCE.json').read_bytes(), 0o644)]
-    path = output / 'symphony-0.2.0-beta.1-source.tar'
+    path = output / ('symphony-' + version + '-source.tar')
     rows = source_builder.write_tar(path, items)
     record = {**scope, 'archive': {'filename': path.name, 'sha256': gate.sha(path), 'size': path.stat().st_size}, 'files': rows}
     write(output / 'source-index.json', record)
@@ -243,14 +244,15 @@ def source_bundle(args, package_root, client_root, output, client_report, privac
     return record
 
 
-def optional_source(base, source_root, output):
+def optional_source(base, source_root, output, *, version=VERSION):
     record = c.document(source_root / 'source-index.json'); path = source_root / record['archive']['filename']
-    c.require(gate.sha(path) == record['archive']['sha256'] and path.stat().st_size == record['archive']['size'], 'Optional source archive differs')
+    c.require(record['release_version'] == version and gate.sha(path) == record['archive']['sha256'] and
+        path.stat().st_size == record['archive']['size'], 'Optional source archive or version differs')
     output.mkdir(mode=0o700)
     unit = {'unit_id': 'source:corresponding-source', 'kind': 'optional_corresponding_source',
         'component_id': 'corresponding-source', 'native_version': '0.2.0', 'payload_paths': [],
         'dependency_units': [], 'external_dependency_units': [], 'sdk_exports': [], 'optional_install': True,
-        'provenance': {'kind': SOURCE, 'beta_delivery_version': VERSION, 'source_index_sha256': gate.sha(source_root / 'source-index.json'),
+        'provenance': {'kind': SOURCE, 'beta_delivery_version': version, 'source_index_sha256': gate.sha(source_root / 'source-index.json'),
             'client_origin': record['client_origin'], 'core_source_kind': record['core_source_kind'],
             'client_source_kind': record['client_source_kind'], 'default_installer_inclusion': False}}
     blobs = {'corresponding-source.tar': path.read_bytes(), 'source-index.json': (source_root / 'source-index.json').read_bytes()}
@@ -343,19 +345,25 @@ def qualify_retention(prefix, env, output, wrapper, interpreter, client_report, 
         'external_cli_inventory_sha256': c.sha(c.canonical(external)) if external is not None else None}, retained, before
 
 
+def admit_delivery_authority(root, result):
+    decision = construct.beta_authorization(root / 'publisher-decision.json', result['publisher_decision_sha256'], result['profile'])
+    scope = construct.beta_delivery_scope(decision)
+    c.require(result['protocol'] == PROTOCOL and result['state'] == scope['assembly_state'] and
+        result['release_version'] == scope['release_version'] and result['carrier_count'] == 59 and result['original_core_archives_unchanged'] is True and
+        result['native_payloads_and_receipts_changed'] is False and result['final_packaging_revision'] == 1 and
+        result['native_or_client_recompiled'] is False and result['runtime_activated'] is False and
+        result['publication_authorized'] is scope['publication_authorized'] and result['release_acceptance_complete'] is False,
+        'Beta qualification or publication scope differs')
+    return decision, scope
+
+
 def admit_candidate(root, expected_result_sha256):
     root = c.safe_root(root)
     c.require(gate.sha(root / 'result.json') == c.digest(expected_result_sha256), 'Selected beta result differs')
     result = c.document(root / 'result.json')
-    c.require(result['protocol'] == PROTOCOL and result['state'] == 'beta_wrappers_and_shell_qualified' and
-        result['release_version'] == VERSION and result['carrier_count'] == 59 and result['original_core_archives_unchanged'] is True and
-        result['native_payloads_and_receipts_changed'] is False and result['final_packaging_revision'] == 1 and
-        result['native_or_client_recompiled'] is False and result['runtime_activated'] is False and
-        result['publication_authorized'] is True and result['release_acceptance_complete'] is False,
-        'Beta qualification or publication scope differs')
+    decision, scope = admit_delivery_authority(root, result)
     observed = [row for row in artifact_inventory(root) if row['path'] != 'result.json']
     c.require(observed == result['artifact_inventory'], 'Final beta artifact bytes or modes changed')
-    decision = construct.beta_authorization(root / 'publisher-decision.json', result['publisher_decision_sha256'], result['profile'])
     cohort = c.audit_cohort(root / 'carriers')
     c.require(len(cohort['entries']) == len(cohort['archives']) == 59 and cohort['cohort_digest'] == result['cohort_digest'] and
         gate.sha(root / 'carriers/cohort.json') == result['cohort_sha256'], 'Final beta carrier identity differs')
@@ -369,6 +377,8 @@ def admit_candidate(root, expected_result_sha256):
               'Original client Git selection differs')
     original_files = source_files(c.bounded(root / 'provenance/client-original-source.tar')[0], origin)
     original = c.document(root / 'provenance/package-result.json')
+    c.require(decision['decision']['source_binding'] == {'core_commit': original['lineage']['source_commit'],
+        'client_commit': client_gate.CLIENT['commit']}, 'Assembly authority belongs to different source')
     client, derivation, inventory, files = validate_client(root / 'provenance/client', base, root / 'provenance/initial-carriers', original,
         original_files, proof_path=root / 'provenance/qxctl-source-proof.json')
     c.require(client['sources'] == result['client_sources'] and client['bindings'] == result['client_bindings'] and
@@ -382,13 +392,14 @@ def admit_candidate(root, expected_result_sha256):
     with tarfile.open(root / 'carriers' / entry['recipe_path'] / 'payload/payload.tar', mode='r:') as archive:
         c.require({row.name: archive.extractfile(row).read() for row in archive} == blobs, 'Client carrier differs from qualified package')
     c.require(unit['provenance']['bindings'] == client['bindings'] and unit['provenance']['source'] == client_gate.CLIENT and
-        unit['provenance']['beta_delivery_version'] == VERSION and unit['dependency_units'] == ['go:qxctl'],
+        unit['provenance']['beta_delivery_version'] == scope['release_version'] and unit['dependency_units'] == ['go:qxctl'],
         'Client carrier source/owner provenance differs')
     wrapper = c.document(root / 'wrappers/result.json')
     c.require(gate.sha(root / 'wrappers/result.json') == result['wrappers_result_sha256'] and
-        wrapper['protocol'] == 'symphony.distribution.beta-installer.v1' and wrapper['state'] == 'beta_wrappers_audited' and
+        wrapper['protocol'] == 'symphony.distribution.beta-installer.v1' and wrapper['state'] == scope['wrapper_state'] and
         wrapper['profile'] == result['profile'] and wrapper['cohort_digest'] == cohort['cohort_digest'] and
-        wrapper['archives'] == construct.archive_records(cohort) and wrapper['publication_authorized'] is True and
+        wrapper['archives'] == construct.archive_records(cohort) and wrapper['publication_authorized'] is scope['publication_authorized'] and
+        wrapper['release_version'] == scope['release_version'] and wrapper['trust_status'] == scope['trust_status'] and
         wrapper['publisher_decision_sha256'] == decision['sha256'] and wrapper['runtime_activated'] is False,
         'Final wrapper approval or carrier binding differs')
     retention_helper = construct.load_module('beta_retention_index_verify', ROOT / 'delivery/bootstrap.py')
@@ -415,7 +426,7 @@ def admit_candidate(root, expected_result_sha256):
         optional['base_carrier_cohort_digest'] == cohort['cohort_digest'] and
         gate.sha(root / 'source/source-index.json') == result['source_index_sha256'], 'Optional source binding differs')
     source = c.document(root / 'source/source-index.json')
-    c.require(source['protocol'] == SOURCE and source['client_origin'] == client_gate.CLIENT and
+    c.require(source['protocol'] == SOURCE and source['release_version'] == scope['release_version'] and source['client_origin'] == client_gate.CLIENT and
         source['native_or_client_recompiled'] is False and source['publisher_decision_sha256'] == decision['sha256'] and
         gate.sha(root / 'source' / c.relative(source['archive']['filename'])) == source['archive']['sha256'], 'Optional source bytes or scope differ')
     c.audit_tar(root / 'source' / source['archive']['filename'], source['files'])
@@ -449,6 +460,7 @@ def assemble(args):
     client_report = c.document(client_root / 'result.json')
     c.require(client_report['executing_toolkit']['commit'] == selected['artifacts']['client']['workflow_commit'], 'Client qualification toolkit differs from hosted source')
     decision = construct.beta_authorization(args.publisher_decision, args.publisher_decision_sha256, selected['profile'])
+    scope = construct.beta_delivery_scope(decision)
     c.require(decision['decision']['source_binding'] == {'core_commit': original['lineage']['source_commit'],
         'client_commit': client_gate.CLIENT['commit']}, 'Publisher decision source selection differs')
     imported = helpers(); toolkit = client_gate.toolkit_identity(imported)
@@ -471,13 +483,15 @@ def assemble(args):
     reuse.copy_tree(client_root, provenance / 'client')
     write(artifact / 'publisher-decision.json', c.bounded(args.publisher_decision)[0])
     joined_root = provenance / 'initial-carriers'
-    joined = add_client(package_root / 'carrier-capsule/carriers', client_root, joined_root, original, originals, privacy)
+    joined = add_client(package_root / 'carrier-capsule/carriers', client_root, joined_root, original, originals, privacy,
+        version=scope['release_version'])
     prepared = journeys.prepare_revision(joined_root, out / 'revision-prepared', joined['cohort_digest'])
     cohort = c.build_cohort(out / 'revision-prepared', artifact / 'carriers', prepared['cohort_digest'])
     journeys.qualify(joined_root, artifact / 'carriers', out / 'carrier-journeys', joined['cohort_digest'], cohort['cohort_digest'], allow_ephemeral=True)
     write(provenance / 'carrier-journeys.json', c.bounded(out / 'carrier-journeys/result.json')[0])
-    source = source_bundle(args, package_root, client_root, artifact / 'source', client_report, privacy)
-    optional = optional_source(cohort, artifact / 'source', artifact / 'source/carrier')
+    source = source_bundle(args, package_root, client_root, artifact / 'source', client_report, privacy,
+        version=scope['release_version'])
+    optional = optional_source(cohort, artifact / 'source', artifact / 'source/carrier', version=scope['release_version'])
     formats = ['pkg', 'sh'] if selected['profile'] == 'macos15-arm64' else ['sh']
     wrapped_work = out / 'wrapper-build'
     wrapper = construct.assemble(artifact / 'carriers', wrapped_work, interpreter=args.python, standalone=args.standalone,
@@ -513,7 +527,7 @@ def assemble(args):
         helpers() == imported and client_gate.toolkit_identity(imported) == toolkit and
         c.audit_cohort(artifact / 'carriers') == cohort, 'Original artifacts, final carriers or executing source changed')
     portable_modes(artifact)
-    result = {'protocol': PROTOCOL, 'state': 'beta_wrappers_and_shell_qualified', 'release_version': VERSION,
+    result = {'protocol': PROTOCOL, 'state': scope['assembly_state'], 'release_version': scope['release_version'],
         'profile': selected['profile'], 'publisher_decision_sha256': args.publisher_decision_sha256,
         'selection_sha256': args.selection_sha256, 'input_artifacts': selected['artifacts'], 'original_native_lineage': original['lineage'],
         'client_sources': client_report['sources'], 'client_bindings': client_report['bindings'], 'cohort_digest': cohort['cohort_digest'],
@@ -529,7 +543,7 @@ def assemble(args):
         'retention_qualification': retention_result,
         'host': host, 'executing_toolkit': toolkit, 'executing_helpers': imported,
         'runtime_activated': False, 'native_pkg_executed': False, 'publisher_integrity_signature_created': False,
-        'apple_developer_id': False, 'notarization': False, 'publication_authorized': True, 'release_acceptance_complete': False,
+        'apple_developer_id': False, 'notarization': False, 'publication_authorized': scope['publication_authorized'], 'release_acceptance_complete': False,
         'artifact_inventory': artifact_inventory(artifact)}
     privacy.scan('beta-result.json', signing.canonical(result)); write(artifact / 'result.json', result)
     admit_candidate(artifact, gate.sha(artifact / 'result.json'))

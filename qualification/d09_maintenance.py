@@ -25,8 +25,10 @@ import carriers as carrier
 from qualification.d06_sdk_closure import Runner, file_snapshot, compare_inventory, owned_paths
 
 PROTOCOL = 'symphony.distribution.d09-native-maintenance.v1'
-COMMIT = '5fd6cee1bae477048bf0045b691ee8bdf334e216'
-TREE = '327edd0f22860e84d30fe745f5a2b0e602f4af88'
+_owners_spec = importlib.util.spec_from_file_location('d09_source_owners', ROOT / 'owner-catalog/native_owners.py')
+_owners = importlib.util.module_from_spec(_owners_spec); _owners_spec.loader.exec_module(_owners)
+_BINDING = _owners.reviewed_binding()
+COMMIT, TREE = _BINDING['source_commit'], _BINDING['source_tree']
 MARKERS = ('.symphony-lifecycle-ownership-v1.json',
            'share/symphony/receipts/symphony-root-ownership/1/install-receipt.json')
 COMMON_SOURCE = ('cmake/SymphonyInstallReceiptV2.cmake', 'cmake/SymphonyInstallReceiptV2.cmake.in',

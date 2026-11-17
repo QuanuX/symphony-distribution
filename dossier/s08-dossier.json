@@ -1,9 +1,5 @@
 {
-  "candidate_rebuild_report": {
-    "interpretation": "Exact candidate reconstruction evidence; not final-download, signature, live-owner or release acceptance.",
-    "path": "evidence/s08-candidate-rebuild.json",
-    "sha256": "bd80434a8887dd8278a3f647a72a31585d8bdfeed5f3884a89cd7fd34f30640c"
-  },
+  "candidate_rebuild_report": null,
   "capability_baseline": [
     {
       "component_roots": [
@@ -339,15 +335,15 @@
       "title": "hotpath-runtime proposal"
     }
   ],
-  "completion_boundary": "S08 documentation/candidate preparation does not close S07 E2, D06 clean CI cohort, D10 final-download or W12 release gates.",
+  "completion_boundary": "Fresh source binding only. Historical E1 and beta1 evidence do not qualify these new bytes; rebuild, installed-client, maintenance and final-delivery qualification remain pending.",
   "core_source": {
-    "binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
-    "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
-    "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+    "binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e",
+    "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+    "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4"
   },
   "d05_safety_acceptance": [
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S01",
@@ -357,7 +353,7 @@
       "requirement": "Go and native readers produce identical canonical scope digests; reject extra/duplicate fields, wildcard roots, missing identities, unsupported versions and mismatched profile/source evidence before a mutable attempt."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S02",
@@ -367,7 +363,7 @@
       "requirement": "A direct native prepare request outside the approved effects is refused even if Python/CLI validation is bypassed. Staged exact bytes cannot bypass scope or dependency blockers."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S03",
@@ -377,7 +373,7 @@
       "requirement": "Scope A while B has independently ready install/select/deactivate/undock/uninstall actions. B's files, selection and ownership claims remain unchanged through each A replan."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S04",
@@ -387,7 +383,7 @@
       "requirement": "A's next valid action changes ID after verified progress: exact authorized effect is allowed; changed target receipt/root/receptor/kind or extra uninstall receipt is refused."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S05",
@@ -397,7 +393,7 @@
       "requirement": "A requires action B: full-plan prerequisite remains visible and blocks A; B is not automatically authorized. Explicit new review is required to include its effect. PR #199 retained-dependency regression remains effective."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S06",
@@ -407,7 +403,7 @@
       "requirement": "Ownership reconciliation preserves out-of-scope and other-profile claims; no hidden stale-claim pruning, root adoption or partial-inventory substitution. Unknown shared-root evidence blocks mutation."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -424,7 +420,7 @@
       "requirement": "Scope finishes with unrelated divergence: terminal scoped result is true, global convergence is false, full applied-state evidence is unchanged. Next scope is a new exact linked operation."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S08",
@@ -434,7 +430,7 @@
       "requirement": "Old writer/recovery client, missing critical scope extension, changed scope on retry, incompatible replacement coordinator and scope downgrade all refuse. Legacy unscoped journals retain their explicit full-profile semantics."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -504,7 +500,7 @@
       "requirement": "Two executors race for the same prepared action; profile/root/claim changes race prepare and execute. Exactly one authorized effect occurs, or both refuse safely; no lock deadlock or implicit replay."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -569,7 +565,7 @@
       "requirement": "A real disposable process holds old payload use. Inactive/undocked metadata does not permit reclamation; every owned byte remains until the covered owner releases use."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -622,7 +618,7 @@
       "requirement": "Deterministically inject start/restart at reference scan, stop completion and first delete. Closed admission prevents a new covered user; removal holds exclusion through final owned-byte verification/deletion."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -729,7 +725,7 @@
       "requirement": "All supported launch paths, including direct serve and supervisor recovery, share the fence. Older or uncontrolled launchers cannot be silently adopted as managed users."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -758,7 +754,7 @@
       "requirement": "Stale/reused PID, wrong process generation/executable, changed endpoint/descriptor, missing manager and inaccessible other-user domain yield unknown/refused, not stopped."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S14",
@@ -768,7 +764,7 @@
       "requirement": "Controlled child detaches or escapes the promised lifetime domain. Report unsupported/uncertain and retain bytes rather than inferring quiescence from the original process group."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -877,7 +873,7 @@
       "requirement": "Kill the controller before stop, after stop and after deletion; drop an accepted owner response. Durable retirement remains closed and recovery reconciles the same attempt before any further effect."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -1019,7 +1015,7 @@
       "requirement": "Partial deletion, damaged rollback artifact, changed receipt/file, symlink/hardlink/root replacement and foreign ownership refuse unsafe continuation. Recovery preserves sentinels and other versions."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -1084,7 +1080,7 @@
       "requirement": "Two profiles or TOPS retain the same receipt. Releasing one claim does not allow deletion; complete claimed-domain release and real use release are separately required."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -1119,7 +1115,7 @@
       "requirement": "Request removal of the executing controller, sole recovery reader or required audit/authorization substrate. Refuse absent an exact existing out-of-place/native maintenance route; never auto-select deferred audit or purge."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -1244,7 +1240,7 @@
       "requirement": "Invoke a service package's removal through the generic receipt executor. It refuses unsupported dispatch or delegates to the exact native owner; retained references and pending work cannot be bypassed."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S20",
@@ -1254,7 +1250,7 @@
       "requirement": "All seven Go units map to exact supported owners. Component/owner/compiled-version substitution, forged argv and unknown critical owner metadata refuse before execution."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S21",
@@ -1264,7 +1260,7 @@
       "requirement": "Install SSIAG, STAV and Accordare through their actual installers in fresh isolated prefixes; independently verify owner-generated receipt, final executable bytes and native refusal behavior. No enrollment/start is inferred from package install."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S22",
@@ -1274,7 +1270,7 @@
       "requirement": "Different packaging builds of one native version coexist in distinct prefixes; a different byte set cannot overwrite the same immutable path. Old exact owner can recover/uninstall only its bound installation."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S23",
@@ -1284,7 +1280,7 @@
       "requirement": "qxctl/SSH/stdio raw-delivery custody never masquerades as a native receipt. Changing future launch selection leaves existing sessions unchanged; uncertain use keeps old bytes retained."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S24",
@@ -1294,7 +1290,7 @@
       "requirement": "Failed next-qxctl identity/protocol probe leaves old selection intact. Successful explicit selection retains old recovery binary; configured Linux host slots/fallbacks remain under their real host owner."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S25",
@@ -1304,7 +1300,7 @@
       "requirement": "Nonroot Conda install cannot provision/elevate the optional administrator. Pending attempts bind old exact binary; reviewed admin replacement preserves profile/history/audit and required recovery bytes."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -1326,7 +1322,7 @@
       "requirement": "Conda update/remove/cache cleanup affects carriers only; no shared inode or duplicate ownership with runtime/rollback files. Previewed and actual transaction stay within reviewed package effects or stop."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S27",
@@ -1336,7 +1332,7 @@
       "requirement": "Install \u2192 stage upgrade \u2192 explicit compatible selection \u2192 rollback \u2192 qualified retirement using exact independent module versions. Incompatible target leaves selection unchanged. Removing one component never reinstalls it through a cohort marker."
     },
     {
-      "engineering_evidence": "bounded_E1_recorded",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [
         {
           "evidence": "evidence/s07-native-local-qualification.json",
@@ -1415,7 +1411,7 @@
       "requirement": "Every transition preserves user knowledge, credentials, TOPS config, journals, unrelated packages and deliberately placed foreign sentinels. Same package installed for a fresh user generates no publisher-system identity."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S29",
@@ -1425,7 +1421,7 @@
       "requirement": "Run applicable installed-owner/service-manager lanes on all four core profiles and selected supplements, including user/system privilege and race cases. Missing host or manager is incomplete, not a pass."
     },
     {
-      "engineering_evidence": "source_or_prior_increment_not_requalified_by_S07",
+      "engineering_evidence": "historical_only_not_current_candidate_qualification",
       "evidence_refs": [],
       "final_acceptance": "incomplete",
       "id": "D05-S30",
@@ -1451,11 +1447,11 @@
   "distribution_inputs": [
     {
       "path": "source-binding.json",
-      "sha256": "81f4f36a003fae15cada6ebc9d8f2e482cda2e29f4d97cbd245c7a64993207a9"
+      "sha256": "959fb84e2af3a04bc6c3bd1ded69bad1afb67e6a7ff034ff27a89dd0822a7488"
     },
     {
       "path": "go-owner-catalog.json",
-      "sha256": "ee0487c4dce69c7b0e34a02282316abcddab41c648d43a667be9156ce7fdee04"
+      "sha256": "40cc8bb6c1753c364107547700435928312e7acb620e90dee63265618037002a"
     },
     {
       "path": "evidence/s06-local-qualification.json",
@@ -1482,6 +1478,18 @@
       "sha256": "83b8e3c4e1030f6d4fda7ca8ae36191aa40a53bf4525972a50bdfe23ed63b833"
     }
   ],
+  "evidence_scope": {
+    "current_candidate_qualified": false,
+    "historical_core_source": {
+      "binding_digest": "sha256:2264bfb7e6a96ed96e4adb64d612ea6e1d3f7be0d357d97d84180b8f5ab611b0",
+      "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+      "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+    },
+    "historical_dossier": {
+      "path": "dossier/history/s08-beta1.json",
+      "sha256": "9a915829a314095d5b7b3bcf500059eed1848bbdbe20e544cd7c42200b9be94a"
+    }
+  },
   "feature_freeze": {
     "core_changed_by_S08": false,
     "in_force": true,
@@ -1495,7 +1503,7 @@
       "component_id": "accordare-stav-producer",
       "conda_name": "symphony-accordare-stav-producer-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:2b8fd7ba46e0aab7dc53b9c28202e1ab0312a606a4a27f2f4adf1718e0fd3b67",
+      "definition_digest": "sha256:4425cd88f8acf60b74b2de1acd530de2e7f58e3dc20ac24499ab9f5c842c8581",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "accordare.package-owner.v1",
@@ -1522,7 +1530,7 @@
       "component_id": "qxctl",
       "conda_name": "symphony-qxctl-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:2ca8bd0ff7c2d85c7e8952bd1dc725845741e0a50991a71725ad662210a21b3b",
+      "definition_digest": "sha256:9173a7af0379aace09e43c8074ea87bee288bbed54bbb162bce2a51d6aaa46c4",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "qxctl.executable-and-host-owner.v1",
@@ -1549,7 +1557,7 @@
       "component_id": "secure-identity-access-governance",
       "conda_name": "symphony-secure-identity-access-governance-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:7fac3dfeba3672c88bee3d350415da448e545834f860b3b0368a465c0130a6da",
+      "definition_digest": "sha256:7674a5540daf28b8ab10fe69421ce719168c88f73bbc5b66ba60635318c45aa2",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "ssiag.package-owner.v1",
@@ -1576,7 +1584,7 @@
       "component_id": "sov-ssh-adapter",
       "conda_name": "symphony-sov-ssh-adapter-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:e82ce46321f269e69b25c04b372e49e0a0a70f0b0674287ae116f2f10654e417",
+      "definition_digest": "sha256:a16aba668b418a2985e83332224b94431066eadf94a7333b64fdbc268a08a2c4",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "sov-ssh.exact-invocation-owner.v1",
@@ -1603,7 +1611,7 @@
       "component_id": "sov-stdio-adapter",
       "conda_name": "symphony-sov-stdio-adapter-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:333756062ada7c9054a2aa62d1f6949ae8e14e1966ed77e4bf5bed216c160a30",
+      "definition_digest": "sha256:8c786bc7f1c0aa6f5868f88ed0a756802c7be931b842b406a0efe4e2d0231c2d",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "sov-stdio.exact-invocation-owner.v1",
@@ -1630,7 +1638,7 @@
       "component_id": "sov-transport-profile-admin",
       "conda_name": "symphony-sov-transport-profile-admin-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:d36182885d4299933b3a0b46e6d90640f4a21287ecb96fd7e01bf7703788106e",
+      "definition_digest": "sha256:7c171dbd3aa78b3cddcae6b0bd9cd4a270d5dbdbd1e03113d99c86b3440eb801",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "sov-admin.protected-host-provisioning.v1",
@@ -1657,7 +1665,7 @@
       "component_id": "stav-append-authority",
       "conda_name": "symphony-stav-append-authority-payload",
       "conda_version": "0.2.1",
-      "definition_digest": "sha256:9c4acc609ad1f563e3477ae7e163e79016e33f36526cd67d937889600c4f074c",
+      "definition_digest": "sha256:52e356012ef89fae18cc944f6046d35fcef91294fba977c7e64c41a311f1cff0",
       "live_raw_cleanup_supported": false,
       "native_version": "0.2.1",
       "owner_contract": "stav.package-owner.v1",
@@ -1684,11 +1692,7 @@
     "interpretation": "Historical W01/W06 preparation. Later explicit user continuation and distribution decisions govern this supplement; original approval/acceptance fields are not rewritten.",
     "path": "tests/public-beta/dossier.json"
   },
-  "hosted_status_report": {
-    "interpretation": "Observed completed S07 CI at the recorded historical head; no later run, final-host or release acceptance inferred.",
-    "path": "evidence/s07-hosted-status-20261116.json",
-    "sha256": "724da726915ec6b3e768b6135d18138e2e43445f6481e6d218d74d9098d7d3a0"
-  },
+  "hosted_status_report": null,
   "package_boundary": {
     "conda_owns": "four_inert_carrier_files_only",
     "forbidden_payloads": [
@@ -1708,15 +1712,7 @@
   "platforms": [
     {
       "fresh_host_acceptance": "incomplete",
-      "hosted_evidence_in_this_dossier": {
-        "conclusion": "success",
-        "conda_step_conclusion": "success",
-        "final_host_acceptance": false,
-        "job_id": 133160669115,
-        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669115",
-        "native_step_conclusion": "success",
-        "profile": "macos15-arm64"
-      },
+      "hosted_evidence_in_this_dossier": "not_collected",
       "id": "macos15-arm64",
       "installed_manager_acceptance": "incomplete",
       "purpose": "requested_core_CI_and_final_acceptance_target",
@@ -1724,15 +1720,7 @@
     },
     {
       "fresh_host_acceptance": "incomplete",
-      "hosted_evidence_in_this_dossier": {
-        "conclusion": "failure",
-        "conda_step_conclusion": "skipped_after_native_failure",
-        "final_host_acceptance": false,
-        "job_id": 133160669048,
-        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669048",
-        "native_step_conclusion": "failure",
-        "profile": "ubuntu24.04-amd64"
-      },
+      "hosted_evidence_in_this_dossier": "not_collected",
       "id": "ubuntu24.04-amd64",
       "installed_manager_acceptance": "incomplete",
       "purpose": "requested_core_CI_and_final_acceptance_target",
@@ -1740,15 +1728,7 @@
     },
     {
       "fresh_host_acceptance": "incomplete",
-      "hosted_evidence_in_this_dossier": {
-        "conclusion": "failure",
-        "conda_step_conclusion": "skipped_after_native_failure",
-        "final_host_acceptance": false,
-        "job_id": 133160669096,
-        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669096",
-        "native_step_conclusion": "failure",
-        "profile": "ubuntu24.04-arm64"
-      },
+      "hosted_evidence_in_this_dossier": "not_collected",
       "id": "ubuntu24.04-arm64",
       "installed_manager_acceptance": "incomplete",
       "purpose": "requested_core_CI_and_final_acceptance_target",
@@ -1756,22 +1736,14 @@
     },
     {
       "fresh_host_acceptance": "incomplete",
-      "hosted_evidence_in_this_dossier": {
-        "conclusion": "failure",
-        "conda_step_conclusion": "skipped_after_native_failure",
-        "final_host_acceptance": false,
-        "job_id": 133160669022,
-        "job_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43826233073/job/133160669022",
-        "native_step_conclusion": "failure",
-        "profile": "ubuntu26.04-amd64"
-      },
+      "hosted_evidence_in_this_dossier": "not_collected",
       "id": "ubuntu26.04-amd64",
       "installed_manager_acceptance": "incomplete",
       "purpose": "requested_core_CI_and_final_acceptance_target",
       "release_supported": false
     }
   ],
-  "prepared_on": "2026-11-16",
+  "prepared_on": "2026-11-17",
   "protocol": "symphony.distribution.s08-dossier.v1",
   "publication_authorized": false,
   "release_acceptance_complete": false,
@@ -2074,7 +2046,7 @@
     },
     {
       "path": "cmake/mvp-dependencies.json",
-      "sha256": "b9cc5749a48d709a47eb8a489036bcf318d2009faf5c14069506a05993b39a65"
+      "sha256": "efa2f07918514573c0a76d5aa4fa0f5a972267eb4623d9755dd8a110fafb4d01"
     },
     {
       "path": "cmake/mvp-release-identities.json",
@@ -2086,15 +2058,11 @@
     },
     {
       "path": "cmake/mvp-go-owner-closure.json",
-      "sha256": "3be692d3a8e3a2b2a03cc87956f2ca35cba605c4782cf28e7a9afc8d9b70f9e7"
+      "sha256": "8b4ee336fe9de518093806a168c7f4ff74d994960c21da3375ea9468b1095bfa"
     }
   ],
-  "source_export_report": {
-    "interpretation": "Reviewed derived source export with original-blob verification and explicit map rebindings; no all-root build, publisher-trust or release acceptance.",
-    "path": "evidence/s08-source-export.json",
-    "sha256": "b1edc80206b66b1ae636e2ecea04fb05e6dc2516ca660c6394e9d567996c1ce6"
-  },
-  "state": "source_bound_distribution_supplement_release_incomplete",
+  "source_export_report": null,
+  "state": "fresh_candidate_qualification_pending",
   "supplemental_platform": {
     "conda_evidence_level": "E1_real_conda_inert_carriers",
     "final_host_acceptance": "incomplete",
