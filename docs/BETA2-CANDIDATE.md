@@ -16,6 +16,10 @@ The [source preparation record](../evidence/beta2-source-preparation.json)
 binds the reviewed export and manifest digests to that source and verifies that
 all three repair commits are ancestors. It records source preparation only;
 primary build and qualification results must come from the new hosted runs.
+The [dispatch record](../evidence/beta2-dispatches.json) links all four requested
+primary runs; their recorded state is pending, not passed. The
+[local validation record](../evidence/beta2-local-validation.json) covers 350
+focused preparation and refusal checks.
 
 ## Review authority
 
