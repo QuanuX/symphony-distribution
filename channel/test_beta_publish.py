@@ -202,6 +202,21 @@ class BetaPublishTests(unittest.TestCase):
             value = api.packages[row['name']]
             self.assertEqual(value['custom'], {'preserve': ['all', 'values']}); self.assertEqual(value['summary'], p.SUMMARY)
         self.assertFalse(any(call[0] in ('upload', 'label') for call in api.calls))
+    def test_release_creation_resets_metadata_then_catalog_restores_selected_values(self):
+        api=API()
+        for row in self.rows:
+            api.packages[row['name']]={'public':True,'summary':'prior','home':'https://example.org','custom':{'keep':1}}
+        original=api.add_release
+        def create(owner,name,version,requirements,announce,attrs):
+            original(owner,name,version,requirements,announce,attrs)
+            api.packages[name]={'public':True,'summary':'','home':'','description':attrs['description']}
+        api.add_release=create
+        self.execute(api,catalog_only=True)
+        for value in api.packages.values():
+            self.assertEqual(value['summary'],p.SUMMARY);self.assertEqual(value['home'],'https://example.org')
+            self.assertEqual(value['custom'],{'keep':1});self.assertIn('Corresponding source:',value['description'])
+        self.execute(api,output='after-catalog',require_catalog=True)
+        self.assertEqual(len(self.downloads),3)
     def test_missing_post_upload_metadata_never_succeeds(self):
         api = API()
         def upload(*args, **kw): api.calls.append(('upload',))

@@ -160,21 +160,27 @@ def ensure_catalog(api, plan, row, attempt, *, require_existing):
         package = api.package('QuanuX', row['name'])
     c.require(package.get('public') is True, 'Existing package is not public')
     attrs = public_attrs(package)
-    if attrs.get('summary') != SUMMARY:
-        c.require(not require_existing, 'Serial package metadata preparation required')
-        updated = {**attrs, 'summary': SUMMARY}
-        attempt.mutate('update_summary_preserving_attributes', row, lambda: api.update_package('QuanuX', row['name'], updated))
-        after = api.package('QuanuX', row['name'])
-        c.require(after.get('public') is True and public_attrs(after) == updated, 'Package attributes were not preserved')
+    desired = {**attrs, 'summary': SUMMARY}
     try: api.release('QuanuX', row['name'], row['version'])
     except NotFound:
         c.require(not require_existing, 'Serial release preparation required before parallel publication')
         sources = '; '.join(f"{profile}: {location}" for profile, location in sorted(plan['corresponding_source_urls'].items()))
+        description = ('Symphony public beta modular payload. Corresponding source: ' + sources +
+            '. Install the optional source carrier separately and unpack its payload.tar under share/symphony/carriers. '
+            'Read the source index and scope records inside. Application activation remains explicit.')
+        desired['description'] = description
         attempt.mutate('create_release', row, lambda: api.add_release('QuanuX', row['name'], row['version'], {}, '',
-            {'description': 'Symphony public beta modular payload. Corresponding source: ' + sources +
-                '. Install the optional source carrier separately and unpack its payload.tar under share/symphony/carriers. '
-                'Read the source index and scope records inside. Application activation remains explicit.'}))
+            {'description': description}))
         api.release('QuanuX', row['name'], row['version'])
+    # Creating a release may reset package-level attributes on the live service.
+    # Restore the selected metadata only after that operation, then read it back.
+    current = api.package('QuanuX', row['name'])
+    c.require(current.get('public') is True, 'Existing package is not public')
+    if public_attrs(current) != desired:
+        c.require(not require_existing, 'Serial package metadata preparation required')
+        attempt.mutate('update_summary_preserving_attributes', row, lambda: api.update_package('QuanuX', row['name'], desired))
+        after = api.package('QuanuX', row['name'])
+        c.require(after.get('public') is True and public_attrs(after) == desired, 'Package attributes were not preserved')
 
 
 def execute(plan, release_root, signature_root, cert_pin, public_key_pin, openssl, output, api,
