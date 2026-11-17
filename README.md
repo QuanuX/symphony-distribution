@@ -82,3 +82,7 @@ Conda packages are intended for the QuanuX organization on Anaconda. macOS `.pkg
 Remaining release gates include genuine two-version compatibility where available; real supported-host journeys; complete native/C++ and raw-consumer retirement coverage; external/shared ownership and pending-work recovery; final clean CI builds; publisher signing and trust; license/redistribution review; and approved publication. Installation preparation must never promote a refused or untested cell into acceptance.
 
 Conda behavior references: [create](https://docs.conda.io/projects/conda/en/stable/commands/create.html), [remove](https://docs.conda.io/projects/conda/en/stable/commands/remove.html), and [package metadata](https://docs.conda.io/projects/conda-build/en/stable/resources/define-metadata.html). Pinned local source inspection and executable tests provide the transaction evidence; documentation alone does not establish safe runtime removal.
+
+## D07 client gate
+
+The [D07 client handoff](docs/D07-CLIENT-GATE.md) and [source-bound results](evidence/D07-RESULTS.md) record clean client packaging, all existing adapters maintained and 22 passing actual Codex cases on the exact retained D06 candidate. The separate distribution verifier preserves the unavailable embedded-source-stamp gate; final-platform, channel, trust and fresh-host acceptance remain open. Neither main branch is changed.

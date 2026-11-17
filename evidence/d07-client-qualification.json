@@ -1,0 +1,232 @@
+{
+  "protocol": "symphony.distribution.d07-qualification.v1",
+  "state": "local_engineering_review_ready_release_gates_open",
+  "observed_at": "2026-11-16T12:39:54Z",
+  "sources": {
+    "core": {
+      "repository": "QuanuX/Symphony",
+      "commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+      "tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+    },
+    "plugin": {
+      "repository": "QuanuX/symphony-codex-ipc-mcp-and-skills",
+      "commit": "71b2021aeefb704b9c3e63797d04a0cc021757a9",
+      "tree": "ab66cea0a1f046c53de91abc75a58c8e419cae78"
+    }
+  },
+  "bindings": {
+    "qxctl_sha256": "sha256:49e74ba2d778c821b2c3f52ff3b889bef18db7cf6fc74cd5ef93d358c71b3ce6",
+    "bridge_sha256": "sha256:32991de798b32755f037ea1ab5bc2be01e3bc9147fd40cdc023d24a23016c045",
+    "catalog_sha256": "sha256:19bc16bb5817ef30f99a07b3fcd1c62acf412c73c6a7c270fc777204896c0c11",
+    "package_sha256": "sha256:31c188906a0d74fb12bbb1e7bb429e3adf60f03500cd1577dca6147607c4696e",
+    "expected_registry_digest": "sha256:941e55e70ab9e66a3cc53da31d0e114101f609ceb0a908e1c153ce116af4bb8d",
+    "observed_registry_digest": "sha256:20e098266f2491dc26617588070c13965dba88534a3ce4a077c9381b1c8a4eb0"
+  },
+  "client": {
+    "version": "codex-cli 0.169.0-alpha.11.1",
+    "executable_sha256": "sha256:5113cd67726f6d81438756dab849056527e0289d7c36fd211787afcb59b30b02",
+    "os": "macOS-26.7.1-x86_64-i386-64bit-Mach-O",
+    "mode": "deterministic app-server; no model or GUI qualification"
+  },
+  "actual_client": {
+    "cases_passed": 22,
+    "modes": [
+      {
+        "mode": "stdio",
+        "cases": [
+          {
+            "id": "catalog_census",
+            "status": "passed"
+          },
+          {
+            "id": "native_read",
+            "status": "passed"
+          },
+          {
+            "id": "default_deny",
+            "status": "passed"
+          },
+          {
+            "id": "prepare_no_effect",
+            "status": "passed"
+          },
+          {
+            "id": "apply_inspect",
+            "status": "passed"
+          },
+          {
+            "id": "consumed_preview",
+            "status": "passed"
+          },
+          {
+            "id": "native_failure",
+            "status": "passed"
+          },
+          {
+            "id": "changed_input",
+            "status": "passed"
+          },
+          {
+            "id": "restart_preview_refused",
+            "status": "passed"
+          },
+          {
+            "id": "lost_response_recovery",
+            "status": "passed"
+          },
+          {
+            "id": "cleanup",
+            "status": "passed"
+          }
+        ],
+        "report_sha256": "sha256:1cb4a1c0b6f3d1a71b8f60fc084ca96420c74e2b6b606d2cd4d7829b02a91ea2",
+        "assertions_sha256": "sha256:f29b6916db33254448799efb51946ebd6b7c240ee99b39c4f08ad4682692a521"
+      },
+      {
+        "mode": "same_user_ipc",
+        "cases": [
+          {
+            "id": "catalog_census",
+            "status": "passed"
+          },
+          {
+            "id": "native_read",
+            "status": "passed"
+          },
+          {
+            "id": "default_deny",
+            "status": "passed"
+          },
+          {
+            "id": "prepare_no_effect",
+            "status": "passed"
+          },
+          {
+            "id": "apply_inspect",
+            "status": "passed"
+          },
+          {
+            "id": "consumed_preview",
+            "status": "passed"
+          },
+          {
+            "id": "native_failure",
+            "status": "passed"
+          },
+          {
+            "id": "changed_input",
+            "status": "passed"
+          },
+          {
+            "id": "restart_preview_refused",
+            "status": "passed"
+          },
+          {
+            "id": "lost_response_recovery",
+            "status": "passed"
+          },
+          {
+            "id": "cleanup",
+            "status": "passed"
+          }
+        ],
+        "report_sha256": "sha256:c5d81cb74c4dd037867c739680ccc52da7c88f59ef544cef22eae2751ad94ed3",
+        "assertions_sha256": "sha256:f29b6916db33254448799efb51946ebd6b7c240ee99b39c4f08ad4682692a521"
+      }
+    ],
+    "scope": "deterministic app-server against exact extracted package; disposable native-owner state; no model or GUI qualification",
+    "owner_configuration_removed": true,
+    "sentinels_preserved": true
+  },
+  "validation": {
+    "ctest_groups_passed": 9,
+    "new_distribution_verifier_cases": 12,
+    "legacy_verifier_cases": 13,
+    "catalog_cases": 7,
+    "mcpb_cases": 11,
+    "qualification_report_cases": 2,
+    "count_scope": "Python case counts overlap their CTest groups; do not add them as independent totals",
+    "transport_local_permission_retry_passed": true,
+    "repeated_clean_bridge_bytes_equal": true,
+    "repeated_zip_bytes_equal": true,
+    "private_policy_and_source_path_scan": "passed",
+    "payload_entries_verified": 1250,
+    "derived_source_files_verified": 5372
+  },
+  "compatibility": {
+    "status": "engineering_review_ready",
+    "report_sha256": "sha256:255e5d5249f8ca17a90c93094608e0eb8bdc1f6c63183a20884733d74457f5c7",
+    "requirements_sha256": "sha256:9f77640a2928d6f9ef8003711d2d783e833ceec00a4453276280ecc296cdd2c5",
+    "observations_sha256": "sha256:2328105bc7309d6d58192b9bc1a367b4cd66639af8f14594a9ea800aa54e4aa0",
+    "verifier_sha256": "sha256:642e4379e59ab4c24b2376847524055ee0ba2f96d72f3b1c5b8099c9b271ffac",
+    "legacy_w13_source_stamp_gate": "unavailable_not_passed",
+    "publisher_authentication": "not_established"
+  },
+  "distribution_toolkit": {
+    "commit": "10330095aec4c9e6e99c0e2aace8fc243a9ae2c2",
+    "scope": "bridge finalization; D06 owner retains original construction/repair toolkits",
+    "finalization_helpers": [
+      {
+        "path": "build-cohort/finalize_native.py",
+        "sha256": "sha256:310d4f543c8ec5993056cf83b4849d3b5c083ff22cb2c25d8256a3ff3a66d777"
+      },
+      {
+        "path": "build-cohort/loader_audit.py",
+        "sha256": "sha256:f30cb04e1f7ab1fd8ea7f6d5db3c61789da2bdb932999c1cb8baafbfe314414d"
+      },
+      {
+        "path": "build-cohort/archive_padding.py",
+        "sha256": "sha256:8361d749588e7b16ab8a99ff7868580120f79352c2c672b485ae84078eb979de"
+      }
+    ]
+  },
+  "public_evidence": [
+    {
+      "path": "evidence/d07-client-final-packet.json",
+      "sha256": "sha256:966803fd789dec1bfd3afed699574988f1393893689df10224f0077e46d4a721"
+    },
+    {
+      "path": "evidence/d07-client-bridge-build.json",
+      "sha256": "sha256:fa84142644f7433146763326bf8aa446c6ebab7c2d8dc4fdbb8180d9fc5923f5"
+    },
+    {
+      "path": "evidence/d07-client-loader-audit.json",
+      "sha256": "sha256:8e27792b95cc1bdc1184302b5435785d03028d322f1789a638f5ef8e7e81e3c2"
+    },
+    {
+      "path": "evidence/d07-client-package-build.json",
+      "sha256": "sha256:72fa4e4c2cb5afc3bcca2cfc0a6ac1e529bbaf5f399581ab15a85a89232d33ba"
+    },
+    {
+      "path": "evidence/d07-client-source-export.json",
+      "sha256": "sha256:be39e9d8f9c4a972f62c6b9b759fd52142bd25491e747d6b8f77cff1adb6325f"
+    },
+    {
+      "path": "evidence/d07-client-package-inventory.json",
+      "sha256": "sha256:ea6ccc5fcf67a1386a29f233aba5e3678621a47dccbe02ec1eb130c147744ee8"
+    },
+    {
+      "path": "evidence/d07-client-source-inventory.json",
+      "sha256": "sha256:02eab98ab6cdd65a42c795af008c1c8c1f4fd4a092a6fb9ccdc41fd0abb9f1d0"
+    }
+  ],
+  "remaining_gates": [
+    "Legacy W13 embedded source stamp remains unavailable and unpassed; settle honest reviewed-derived-source stamp for final cohort",
+    "Separate client PR integration decision; both mains unchanged",
+    "Four primary platform final candidate and client packet qualification",
+    "Final Anaconda carriers and Cloudflare installers, signing/trust, retrieval and fresh-host lifecycle/client acceptance",
+    "External runtime carrier ownership and remaining D05 live-removal/shared-root/response-loss boundaries",
+    "Distinct-release upgrade, swap and rollback journeys",
+    "Publisher legal review and independent/backup acceptance"
+  ],
+  "acceptance_mapping": [
+    "C02.4",
+    "MCP-CHANNELS",
+    "D07"
+  ],
+  "main_changed": false,
+  "packages_published": false,
+  "fresh_host_accepted": false,
+  "release_acceptance_complete": false,
+  "publication_authorized": false
+}

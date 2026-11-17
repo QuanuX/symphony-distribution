@@ -184,3 +184,7 @@ remain open. Existing D05 live-removal, whole-profile and native ownership limit
 remain unchanged. See the [D06 evidence summary](../evidence/D06-RESULTS.md) for
 the retained attempts and subsequent exact results; no release approval is
 created by this documentation update.
+
+## D07 client distribution supplement
+
+[D07 results](../evidence/D07-RESULTS.md) bind the unchanged reviewed D06 candidate to client commit `71b2021aeefb704b9c3e63797d04a0cc021757a9`, a clean repeated bridge/package and 22 passing deterministic Codex cases. This contributes exact-byte evidence to C02.4 and MCP-CHANNELS while preserving all other acceptance cells. The historical W13 embedded-stamp gate remains unpassed; the separate external-provenance verifier grants no publisher, fresh-host or release approval. See the [D07 handoff](../docs/D07-CLIENT-GATE.md) for required final-platform and delivery work.
