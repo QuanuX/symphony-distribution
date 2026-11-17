@@ -36,6 +36,14 @@ runtime implementations. These selected artifacts retain their actual
 `bae2e817` source identity; a later documentation commit is not substituted into
 their build provenance.
 
+The [follow-up dispatch record](../evidence/beta2-qualification-dispatches.json)
+links twelve new runs: packaging/wrapper, actual client, and native maintenance
+qualification for each profile. They consume the verified selections above;
+the passing native builds were not restarted. Their results are pending.
+Final D14 assembly requires successful package and client outputs with actual
+artifact IDs and hashes; the macOS native installer gate follows its completed
+assembly. No future artifact selection is inferred.
+
 ## Review authority
 
 `evidence/beta2-candidate.json` authorizes assembly and qualification of
