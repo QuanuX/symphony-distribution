@@ -57,6 +57,21 @@ builds or documentation commits do not replace the selected release bytes.
 Website integration remains a later presentation step; the release page and
 Cloudflare downloads are available now.
 
+## Published beta maintenance notes
+
+The beta.1 downloads retain their original qualified bytes and do not include
+three later [core lifecycle repairs](https://github.com/QuanuX/Symphony#published-beta-maintenance-notes).
+Complete a dependency's replacement before introducing a new dependent. If a
+completed scoped apply reports a validation error on retry, inspect durable
+status and preserve the journal instead of repeating effects. For SSIAG or
+Accordare reinstall maintenance, use the exact retained owner binary outside the
+installation; self-reinstall from the installed binary may report a busy package.
+Existing ownership and active-use checks still apply.
+
+A newly bound, rebuilt and qualified candidate is required before these source
+repairs can be advertised as present in downloadable packages. The current
+source bindings, release tag, signatures and public artifacts remain unchanged.
+
 ## Engineering and maintenance
 
 This repository is separate from [Symphony core](https://github.com/QuanuX/Symphony).

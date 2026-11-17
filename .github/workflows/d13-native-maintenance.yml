@@ -1,7 +1,7 @@
 name: D13 retained native owner maintenance qualification
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d13-native-maintenance.yml'
       - 'qualification/native_maintenance.py'

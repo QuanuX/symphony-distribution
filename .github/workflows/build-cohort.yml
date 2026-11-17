@@ -1,7 +1,7 @@
 name: D06 clean native and SDK cohort
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths: ['.github/workflows/build-cohort.yml', 'build-cohort/**', 'source-binding.json', 'qualification/native_campaign.py', 'qualification/d06_*.py', 'qualification/test_d06_*.py', 'source-export/**', 'owner-catalog/native_owners.py']
   workflow_dispatch:
     inputs:

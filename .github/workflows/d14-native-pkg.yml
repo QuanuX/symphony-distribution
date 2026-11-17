@@ -1,7 +1,7 @@
 name: D14 native Apple beta installer qualification
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d14-native-pkg.yml'
       - 'qualification/d14_pkg.py'

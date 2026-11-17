@@ -1,7 +1,7 @@
 name: D14 approved beta assembly from qualified bytes
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d14-beta-assembly.yml'
       - 'installer_assembly/beta.py'

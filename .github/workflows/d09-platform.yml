@@ -1,7 +1,7 @@
 name: D09 primary review and disposable-user qualification
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths: ['qualification/d09_platform*', 'qualification/test_d09_platform.py', 'qualification/d10_build_retention.py', 'qualification/test_d10_build_retention.py', '.github/workflows/d09-platform.yml']
   workflow_dispatch:
     inputs:

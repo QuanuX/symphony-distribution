@@ -1,7 +1,7 @@
 name: D09 review channel and acceptance contracts
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths: ['channel/**', 'qualification/d09_acceptance.py', 'qualification/test_d09_acceptance.py', 'qualification/d09_maintenance.py', 'qualification/test_d09_maintenance.py', '.github/workflows/d09-review-gates.yml']
   workflow_dispatch:
 permissions:

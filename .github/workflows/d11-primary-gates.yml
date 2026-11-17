@@ -1,7 +1,7 @@
 name: D11 selected primary artifact and maintenance gates
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d11-primary-gates.yml'
       - 'qualification/primary_selection.py'

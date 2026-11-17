@@ -1,7 +1,7 @@
 name: D13 exact primary client qualification
 on:
   push:
-    branches: ['codex/**']
+    branches: ['main', 'codex/**']
     paths:
       - '.github/workflows/d13-primary-client.yml'
       - 'qualification/primary_client.py'
