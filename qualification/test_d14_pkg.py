@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from qualification import d14_pkg as m
 
@@ -88,15 +88,58 @@ class NativePkgContracts(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'host refused'):
                 m.qualify(SimpleNamespace(allow_ephemeral_install=True, output=self.root / 'out'))
             audit.assert_not_called()
-        with patch.object(m.reuse, 'custody'), patch.object(m.os, 'geteuid', return_value=501), patch.object(m.c, 'audit_cohort') as audit:
-            with self.assertRaisesRegex(ValueError, 'root account'):
+        with patch.object(m.reuse, 'custody'), patch.object(m.os, 'getuid', return_value=0), patch.object(m.os, 'geteuid', return_value=0), patch.object(m.c, 'audit_cohort') as audit:
+            with self.assertRaisesRegex(ValueError, 'unelevated'):
                 m.qualify(SimpleNamespace(allow_ephemeral_install=True, output=self.root / 'out'))
             audit.assert_not_called()
 
-    def test_root_prefix_never_accepts_a_nonroot_identity(self):
-        with patch.object(m.os, 'geteuid', return_value=501), patch.object(m.pwd, 'getpwuid') as account:
-            with self.assertRaisesRegex(ValueError, 'root account'): m.root_prefix('symphonybeta')
-            account.assert_not_called()
+    def test_current_account_rejects_root_and_mismatched_effective_uid(self):
+        for uid, effective in ((0,0),(501,0),(501,502)):
+            with self.subTest(uid=uid,effective=effective), patch.object(m.os,'getuid',return_value=uid), patch.object(m.os,'geteuid',return_value=effective), patch.object(m.pwd,'getpwuid') as account:
+                with self.assertRaisesRegex(ValueError,'unelevated'):m.current_account()
+                account.assert_not_called()
+
+    def test_current_account_requires_owned_exact_runner_home(self):
+        account=SimpleNamespace(pw_name='runner',pw_dir='/Users/runner')
+        home=Mock();home.stat.return_value=SimpleNamespace(st_uid=501)
+        with patch.object(m.os,'getuid',return_value=501), patch.object(m.os,'geteuid',return_value=501), patch.object(m.pwd,'getpwuid',return_value=account), patch.dict(os.environ,{'HOME':'/Users/runner'}), patch.object(m.c,'safe_root',return_value=home) as safe:
+            self.assertEqual(m.current_account(),(home,'runner'));safe.assert_called_once_with(Path('/Users/runner'))
+            with patch.dict(os.environ,{'HOME':'/other'}):
+                with self.assertRaisesRegex(ValueError,'HOME'):m.current_account()
+            home.stat.return_value=SimpleNamespace(st_uid=502)
+            with self.assertRaisesRegex(ValueError,'owned'):m.current_account()
+            account.pw_name='another-account'
+            with self.assertRaisesRegex(ValueError,'runner account'):m.current_account()
+
+    def test_current_home_prefix_is_new_and_confined(self):
+        with patch.object(m,'current_account',return_value=(self.root,'runner')):
+            self.assertEqual(m.current_home_prefix('symphonybeta'),(self.root,self.root/'symphonybeta'))
+            with self.assertRaisesRegex(ValueError,'Unsafe'):m.current_home_prefix('../escape')
+            (self.root/'symphonybeta').mkdir()
+            with self.assertRaisesRegex(ValueError,'existing'):m.current_home_prefix('symphonybeta')
+            (self.root/'alias').symlink_to(self.root/'missing')
+            with self.assertRaisesRegex(ValueError,'existing'):m.current_home_prefix('alias')
+
+    def test_timeout_diagnostics_keep_error_and_remove_credentials_and_paths(self):
+        out=m.gate.fresh(self.root/'attempt',())
+        m.progress(out,'native_pkg_install')
+        (out/'native-install.log').write_text('PackageKit error 42: permission denied at /Users/runner/symphony\nAuthorization: Bearer example-private-token\ninstaller:%75.0\n')
+        m.retain_failure(out,m.subprocess.TimeoutExpired(['unpublished command'],1200))
+        data=json.loads((out/'diagnostics.json').read_bytes());raw=json.dumps(data)
+        self.assertTrue(data['command_timeout_observed']);self.assertTrue(data['installer_command_attempted'])
+        self.assertEqual(data['phase'],'native_pkg_install')
+        self.assertIn('error 42',raw);self.assertNotIn('example-private-token',raw);self.assertNotIn('/Users/runner',raw)
+        self.assertFalse(data['logs']['native-install.log']['raw_text_retained_publicly'])
+        record=json.loads((out/'INCOMPLETE.json').read_bytes())
+        self.assertEqual(record['diagnostics_sha256'],m.signing.digest(out/'diagnostics.json'))
+        self.assertFalse((out/'result.json').exists())
+
+    def test_diagnostics_refuse_linked_log_and_bound_tail(self):
+        source=self.root/'log';source.write_text('line\n'*10000+'error 73: refused\n')
+        report=m.sanitized_log_tail(source)
+        self.assertLessEqual(len(report['tail']),40);self.assertIn('error 73',report['tail'][-1])
+        alias=self.root/'alias';alias.symlink_to(source)
+        self.assertEqual(m.sanitized_log_tail(alias)['state'],'unavailable_or_changed')
 
     def test_caller_snapshot_detects_changes_and_refuses_links(self):
         expected = m.caller_files(self.root)
@@ -145,7 +188,7 @@ class NativePkgContracts(unittest.TestCase):
         tools=self.root/'tools';tools.mkdir();out=self.root/'attempt'
         args=SimpleNamespace(allow_ephemeral_install=True,output=out,cohort_root=source,wrapper_root=wrappers,
             inspection_tools=tools,cohort_sha256='0'*64,wrapper_result_sha256='0'*64,pkg_sha256='0'*64)
-        with patch.object(m.reuse,'custody',return_value={}),patch.object(m.os,'geteuid',return_value=0),             patch.object(m.c,'audit_cohort') as audit,patch.object(m,'exercise') as exercise:
+        with patch.object(m.reuse,'custody',return_value={}),patch.object(m,'current_account',return_value=(self.root,'runner')),             patch.object(m.c,'audit_cohort') as audit,patch.object(m,'exercise') as exercise:
             with self.assertRaisesRegex(ValueError,'evidence selection'):m.qualify(args)
             audit.assert_not_called();exercise.assert_not_called()
         record=json.loads((out/'INCOMPLETE.json').read_bytes())

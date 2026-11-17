@@ -52,7 +52,7 @@ bash "$SELECTED_INSTALLER_PATH" -b -p "$SYMPHONY_PREFIX"
 
 The Mac `.pkg` is the native Apple installer format and selects the current
 user's home installation domain. The release gate exercises native installation/removal
-in a disposable hosted Mac root account; interactive GUI and Gatekeeper
+in a disposable hosted Mac user account; interactive GUI and Gatekeeper
 acceptance are separate from the detached signature. The release dossier records
 the actual result for the exact downloadable bytes.
 

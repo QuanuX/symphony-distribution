@@ -79,6 +79,8 @@ def native_pkg(record, beta, cohort, wrapper, selected):
         record['linked_file_count'] == 177 and record['pkg_sha256'] == pkg['sha256'] and
         record['cohort_digest'] == cohort['cohort_digest'] and record['cohort_sha256'] == beta['cohort_sha256'] and
         record['wrapper_result_sha256'] == beta['wrappers_result_sha256'] and
+        record.get('account_context') == {'current_user_home': True, 'real_and_effective_uid_match': True,
+            'root_execution': False} and
         all(record[key] is True for key in ('native_pkg_executed', 'all_named_carriers_removed',
             'caller_configuration_preserved', 'user_and_outside_sentinels_preserved', 'wrapper_support_files_preserved', 'original_inputs_unchanged')) and
         all(record[key] is False for key in ('system_trust_changed', 'gatekeeper_bypassed', 'apple_developer_id', 'notarized')),

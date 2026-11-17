@@ -79,6 +79,7 @@ class BundleTests(unittest.TestCase):
         record={'protocol':'symphony.distribution.native-pkg-qualification.v1','state':'native_pkg_install_and_named_carrier_removal_passed',
             'profile':'macos15-arm64','carrier_count':59,'linked_file_count':177,'pkg_sha256':pkg['sha256'],'cohort_digest':cohort['cohort_digest'],
             'cohort_sha256':beta['cohort_sha256'],'wrapper_result_sha256':beta['wrappers_result_sha256'],'executing_toolkit':{'commit':'a'*40},
+            'account_context':{'current_user_home':True,'real_and_effective_uid_match':True,'root_execution':False},
             **{k:True for k in ('native_pkg_executed','all_named_carriers_removed','caller_configuration_preserved','user_and_outside_sentinels_preserved','wrapper_support_files_preserved','original_inputs_unchanged')},
             **{k:False for k in ('system_trust_changed','gatekeeper_bypassed','apple_developer_id','notarized')}}
         folder=self.root/'pkg/artifacts/native_pkg'; self.request['native_pkg']=self.selected('macos15-arm64','native_pkg',folder,record,'d14-pkg-public/result.json')
@@ -139,6 +140,10 @@ class BundleTests(unittest.TestCase):
         package.write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError,'input changed'): self.assemble()
         self.assertFalse((self.root/'release/release-index.json').exists())
+    def test_elevated_native_pkg_context_does_not_qualify_current_user_route(self):
+        self.transports['macos15-arm64','native_pkg'][1]['account_context']['root_execution']=True
+        with self.assertRaisesRegex(ValueError,'PKG qualification'): self.assemble()
+        self.assertFalse((self.root/'release').exists())
     def test_missing_profile_and_unselected_request_refuse(self):
         self.request['profiles'].pop('ubuntu26.04-amd64'); self.save_request()
         with self.assertRaisesRegex(ValueError,'four-profile'): self.assemble()

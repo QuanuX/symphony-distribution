@@ -101,13 +101,13 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               for key, value in pins.items(): output.write(key + '=' + value + '\n')
           PYCODE
-      - name: Qualify native PKG only in disposable VM root home
+      - name: Qualify native PKG in disposable runner home
         env:
           COHORT_SHA256: ${{ steps.admission.outputs.cohort_sha256 }}
           WRAPPER_RESULT_SHA256: ${{ steps.admission.outputs.wrapper_result_sha256 }}
           PKG_SHA256: ${{ steps.admission.outputs.pkg_sha256 }}
         run: |
-          sudo -n /usr/bin/env -i PATH=/usr/bin:/bin:/usr/sbin:/sbin \
+          /usr/bin/env -i PATH=/usr/bin:/bin:/usr/sbin:/sbin HOME="$HOME" USER="$USER" LOGNAME="$LOGNAME" \
             GITHUB_ACTIONS="$GITHUB_ACTIONS" GITHUB_REPOSITORY="$GITHUB_REPOSITORY" \
             GITHUB_RUN_ID="$GITHUB_RUN_ID" GITHUB_RUN_ATTEMPT="$GITHUB_RUN_ATTEMPT" \
             GITHUB_SHA="$GITHUB_SHA" GITHUB_JOB="$GITHUB_JOB" RUNNER_ENVIRONMENT="$RUNNER_ENVIRONMENT" \
@@ -121,15 +121,15 @@ jobs:
         run: |
           python3 -B qualification/beta_artifacts.py admit --selection "$SELECTION" \
             --selection-sha256 "$SELECTION_SHA256" --output "$RUNNER_TEMP/d14-pkg-input"
-      - name: Copy bounded root-owned result only
+      - name: Copy bounded qualification results and diagnostics
         if: always()
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/d14-pkg-public"
-          for name in result.json INCOMPLETE.json; do
-            if sudo -n /bin/test -f "$RUNNER_TEMP/d14-pkg/$name"; then
-              sudo -n /usr/bin/install -m 644 "$RUNNER_TEMP/d14-pkg/$name" "$RUNNER_TEMP/d14-pkg-public/$name"
+          for name in result.json INCOMPLETE.json diagnostics.json progress.jsonl; do
+            if /bin/test -f "$RUNNER_TEMP/d14-pkg/$name" && ! /bin/test -L "$RUNNER_TEMP/d14-pkg/$name"; then
+              /usr/bin/install -m 644 "$RUNNER_TEMP/d14-pkg/$name" "$RUNNER_TEMP/d14-pkg-public/$name"
             fi
           done
       - name: Retain native installer qualification evidence
