@@ -70,6 +70,49 @@ class PrimaryClientTests(unittest.TestCase):
         for name, raw in generated.items(): (derived / name).write_bytes(raw)
         return original, derived, {'source': p.CLIENT, 'files': files, 'git_archive_sha256': '2' * 64}, generated
 
+    def catalog_source(self, profile='ubuntu24.04-amd64'):
+        source = self.root / profile / 'source'
+        qxctl = self.file(profile + '/qxctl', b'qualified native executable', 0o755)
+        version = {'source_state': 'stamped', 'source_commit': 'c'*40, 'source_tree': 'd'*40,
+            'goos': 'darwin' if profile == 'macos15-arm64' else 'linux',
+            'goarch': 'arm64' if profile.endswith('arm64') else 'amd64', 'executable_sha256': p.sha(qxctl)}
+        proof = {'build_info': version, 'binary_sha256': p.sha(qxctl),
+            'original_source': {'commit': version['source_commit'], 'tree': version['source_tree']},
+            'compiled_input_equivalence': {'inputs': ['source']}, 'cohort_source': {'export_digest': 'e'*64}, 'isolated_builds': 2}
+        catalog = {'tools': [{'name': 'unchanged_tool'}], 'source_registry_digest': 'old'}
+        metadata = {'core': {'repository': 'QuanuX/Symphony', 'commit': 'a'*40, 'tree': 'b'*40},
+            'qxctl_build': {'executable_sha256': 'f'*64}, 'client_dependency': {},
+            'observed_registry_digest': 'old', 'catalog_sha256': 'old', 'original_git_source_binding': {'kind': 'retained'}}
+        commands = [{'id': 'unchanged-command'}]
+        for name, value in {'tools.json': catalog, 'beta-source.json': metadata,
+                            'beta-expected-registry.json': {'commands': commands}, 'stamped-owner-delta.json': {}}.items():
+            self.file(profile + '/source/catalog/' + name, p.canonical(value))
+        observed = {'commands': commands, 'registry_digest': 'new', 'executable_digest': 'sha256:' + p.sha(qxctl)}
+        return source, qxctl, proof, version, observed, catalog, metadata
+
+    def test_derived_core_binding_follows_verified_primary_qxctl_on_every_profile(self):
+        for profile in p.gate.PROFILES:
+            with self.subTest(profile=profile):
+                source, qxctl, proof, version, observed, catalog, original = self.catalog_source(profile)
+                def generate(argv, *unused):
+                    Path(argv[-1]).write_bytes(p.canonical(catalog | {'source_registry_digest': 'new'}))
+                with patch.object(p, 'read_json_command', side_effect=[version, observed]), patch.object(p, 'command', side_effect=generate):
+                    _, _, _, generated = p.derive_catalog(source, source.parent / 'derived', qxctl, proof, profile, {}, source.parent)
+                metadata = json.loads(generated['catalog/beta-source.json'])
+                self.assertEqual(metadata['core'], original['core'] | {'commit': version['source_commit'], 'tree': version['source_tree']})
+                self.assertEqual(metadata['client_dependency'], p.CLIENT)
+                self.assertEqual(metadata['qxctl_build'], proof['build_info'])
+                self.assertEqual(set(generated), p.DERIVED)
+                self.assertEqual(p.gate.read(source / 'catalog/beta-source.json'), original)
+
+    def test_derived_core_binding_refuses_inconsistent_original_source_proof(self):
+        source, qxctl, proof, version, observed, _, _ = self.catalog_source()
+        proof['original_source']['commit'] = 'f'*40
+        with patch.object(p, 'read_json_command', side_effect=[version, observed]), patch.object(p, 'command') as run:
+            with self.assertRaisesRegex(ValueError, 'qxctl identity'):
+                p.derive_catalog(source, source.parent / 'derived', qxctl, proof, 'ubuntu24.04-amd64', {}, source.parent)
+        run.assert_not_called()
+
     def test_all_primary_assets_have_verified_explicit_release_pins(self):
         assets = set()
         for profile in p.gate.PROFILES:

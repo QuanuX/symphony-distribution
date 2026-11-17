@@ -205,6 +205,7 @@ def derive_catalog(source, derived, qxctl, proof, expected_profile, env, work):
     expected = gate.read(source / 'catalog/beta-expected-registry.json')
     goos, goarch = ('darwin', 'arm64') if expected_profile == 'macos15-arm64' else ('linux', 'arm64' if expected_profile.endswith('arm64') else 'amd64')
     need(version == proof['build_info'] and version['source_state'] == 'stamped' and version['goos'] == goos and version['goarch'] == goarch and
+         all(version['source_' + key] == proof['original_source'][key] for key in ('commit', 'tree')) and
          version['executable_sha256'] == sha(qxctl) == proof['binary_sha256'], 'Selected primary qxctl identity differs')
     need(expected['commands'] == observed['commands'] and observed['executable_digest'] == 'sha256:' + sha(qxctl),
          'Primary native registry differs from frozen client contracts')
@@ -215,7 +216,8 @@ def derive_catalog(source, derived, qxctl, proof, expected_profile, env, work):
          {k: v for k, v in old_catalog.items() if k != 'source_registry_digest'},
          'Primary catalog command/help/descriptor contract changed')
     metadata = dict(old_metadata)
-    metadata.update(qxctl_build=version, client_dependency=CLIENT,
+    metadata.update(core={**old_metadata['core'], 'commit': version['source_commit'], 'tree': version['source_tree']},
+                    qxctl_build=version, client_dependency=CLIENT,
                     observed_registry_digest=observed['registry_digest'], catalog_sha256='sha256:' + sha(generated))
     metadata['original_git_source_binding'] = {**old_metadata['original_git_source_binding'],
         'proof_sha256': 'sha256:' + hashlib.sha256(canonical(proof)).hexdigest(),
