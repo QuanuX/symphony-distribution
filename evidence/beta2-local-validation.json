@@ -41,5 +41,41 @@
   "known_limits": [
     "Local tests are not fresh-host or final-byte qualification.",
     "Historical beta.1 results have not been promoted to beta.2."
-  ]
+  ],
+  "core_checks": {
+    "scope": "supplemental local darwin/amd64 source regression, not a primary candidate artifact",
+    "native_ctest": [
+      "knowledge-lifecycle-planner-tests",
+      "knowledge-scoped-fixture-output"
+    ],
+    "installed_owner_reinstall": {
+      "owners": [
+        "secure-identity-access-governance",
+        "accordare-stav-producer"
+      ],
+      "go_packages_passed": 4,
+      "race_detector": true,
+      "cases": [
+        "unchanged installed source",
+        "live-use refusal",
+        "retiring refusal",
+        "missing-custody refusal",
+        "cross-prefix source custody"
+      ]
+    },
+    "completed_scoped_close_replay": {
+      "passed": true,
+      "negative_subcases_passed": 14,
+      "race_detector": true,
+      "native_fixture_sha256": "5ec2d46b268e378d499c074465b2c0e2f76fceeca984568c81d09cbf8146507a",
+      "source": "exact selected commit exported with git archive; avoids workspace file-read stall"
+    },
+    "go_candidate_closure": {
+      "passed": true,
+      "command_count": 7,
+      "evidence_sha256": "f62b740f02c91a4e7efd7ff3e3ee5bc90ec6729ba4b9048ed11a40df27a08ded",
+      "qxctl_two_isolated_builds_equal": true,
+      "qxctl_sha256": "2ea1d5e27d22bbe2350eb0da01811b1a388d54fabf23671df2cf4b51ed30d93e"
+    }
+  }
 }
