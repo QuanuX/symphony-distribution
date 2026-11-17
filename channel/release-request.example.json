@@ -1,0 +1,75 @@
+{
+  "protocol": "symphony.distribution.beta-release-request.v1",
+  "release": "0.2.0-beta.1",
+  "profiles": {
+    "macos15-arm64": {
+      "beta": {
+        "root": "/selected/macos15-arm64/beta-transport",
+        "selection": "/selected/macos15-arm64/beta-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "maintenance": {
+        "root": "/selected/macos15-arm64/maintenance-transport",
+        "selection": "/selected/macos15-arm64/maintenance-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "ubuntu24.04-amd64": {
+      "beta": {
+        "root": "/selected/ubuntu24.04-amd64/beta-transport",
+        "selection": "/selected/ubuntu24.04-amd64/beta-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "maintenance": {
+        "root": "/selected/ubuntu24.04-amd64/maintenance-transport",
+        "selection": "/selected/ubuntu24.04-amd64/maintenance-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "ubuntu24.04-arm64": {
+      "beta": {
+        "root": "/selected/ubuntu24.04-arm64/beta-transport",
+        "selection": "/selected/ubuntu24.04-arm64/beta-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "maintenance": {
+        "root": "/selected/ubuntu24.04-arm64/maintenance-transport",
+        "selection": "/selected/ubuntu24.04-arm64/maintenance-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    "ubuntu26.04-amd64": {
+      "beta": {
+        "root": "/selected/ubuntu26.04-amd64/beta-transport",
+        "selection": "/selected/ubuntu26.04-amd64/beta-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "maintenance": {
+        "root": "/selected/ubuntu26.04-amd64/maintenance-transport",
+        "selection": "/selected/ubuntu26.04-amd64/maintenance-selection.json",
+        "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  },
+  "native_pkg": {
+    "root": "/selected/macos15-arm64/native_pkg-transport",
+    "selection": "/selected/macos15-arm64/native_pkg-selection.json",
+    "selection_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "publisher_decision": {
+    "path": "/selected/publisher-decision.json",
+    "sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943"
+  },
+  "public_certificate": {
+    "path": "/selected/beta-cert.pem",
+    "sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91"
+  },
+  "privacy_policy": "/private/source-privacy-policy.json",
+  "additional_documents": [
+    {
+      "source": "/selected/BETA-INSTALL.md",
+      "path": "docs/BETA-INSTALL.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}

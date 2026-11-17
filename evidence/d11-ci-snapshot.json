@@ -1,0 +1,95 @@
+{
+  "protocol": "symphony.distribution.d11-ci-observation.v1",
+  "observation_date": "2026-11-16",
+  "snapshots": [
+    {
+      "scope": "current_documentation_head",
+      "runs": [
+        {
+          "id": 43939332064,
+          "name": "S08 dossier and source delivery",
+          "event": "pull_request",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3ec48a24d37872af153a97af8dcbc4d125ecdc2",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939332064"
+        },
+        {
+          "id": 43939331811,
+          "name": "Distribution preparation",
+          "event": "pull_request",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3ec48a24d37872af153a97af8dcbc4d125ecdc2",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939331811"
+        },
+        {
+          "id": 43939318471,
+          "name": "S08 dossier and source delivery",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3ec48a24d37872af153a97af8dcbc4d125ecdc2",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939318471"
+        }
+      ]
+    },
+    {
+      "scope": "implementation_push_contracts",
+      "runs": [
+        {
+          "id": 43938975699,
+          "name": "D10 selected Mac gate contracts",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43938975699"
+        },
+        {
+          "id": 43938975483,
+          "name": "Distribution preparation",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43938975483"
+        },
+        {
+          "id": 43938975748,
+          "name": "D10 retained primary wrapper-only qualification",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43938975748"
+        },
+        {
+          "id": 43938975429,
+          "name": "S08 dossier and source delivery",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43938975429"
+        },
+        {
+          "id": 43938975589,
+          "name": "D09 primary review and disposable-user qualification",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "head": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d",
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43938975589"
+        }
+      ]
+    }
+  ],
+  "ci_waited": false,
+  "existing_runs_retried": false,
+  "new_primary_runs_dispatched": false,
+  "primary_builds": "Separate one-snapshot recovery report; unfinished producers had no artifacts or failing steps at observation.",
+  "scope": "Existing completed branch checks only; no passing result transferred to new D11 source.",
+  "main_mutated": false,
+  "publication_authorized": false
+}

@@ -1,0 +1,30 @@
+{
+  "exact_evidence_bindings": 15,
+  "existing_legal_assignment_preserved": true,
+  "files": [
+    {
+      "path": "docs/D11-REMAINING-GATES.md",
+      "sha256": "80ac447655f5eec4f33f80295644a4fa05b7c3738f40af86e35f8a6708e09207"
+    },
+    {
+      "path": "evidence/templates/d11-human-review.json",
+      "sha256": "d5e66571153a3e200b2086e3fe09c336487ccbf193eea55a69b6f459c8e8fca2"
+    },
+    {
+      "path": "docs/D10-LEGAL-REVIEW.md",
+      "sha256": "39cf6c91930322626bef6db46af6fd372990ad5006b11bd5826c44c6e4df0192"
+    }
+  ],
+  "human_approval_authenticated": false,
+  "human_decisions_pending": 8,
+  "local_link_check": "passed",
+  "new_code_or_runtime_tests_required": false,
+  "primary_campaign_executed": false,
+  "private_policy_scan": "passed",
+  "protocol": "symphony.distribution.d11-handoff-validation.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "review_subject_digest": "sha256:26102d7b73b6be8a0e2a6f10df6b641deb390daf7fe2a8891f87379f10540c23",
+  "source_binding_and_acceptance_mapping_unchanged": true,
+  "state": "documentation_and_template_validation_passed"
+}

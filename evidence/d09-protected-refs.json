@@ -1,0 +1,10 @@
+{
+  "protocol": "symphony.distribution.d09-protected-refs.v1",
+  "verification": "read-only GitHub refs after review staging",
+  "feature_freeze": true,
+  "core_main": "976b23290857be613005eea5cdc130d0f457b8c3",
+  "client_main": "874402db2163bc44ba8fe2247c00b30ba439adf8",
+  "source_pull_requests_merged": false,
+  "cloudflare_uploads": false,
+  "ci_results_waited_for": false
+}

@@ -1,0 +1,278 @@
+name: D12 retained native packaging and wrapper qualification
+on:
+  push:
+    branches: ['codex/**']
+    paths:
+      - '.github/workflows/d12-native-rewrap.yml'
+      - 'qualification/native_artifacts.py'
+      - 'qualification/test_native_artifacts.py'
+      - 'qualification/native_rewrap.py'
+      - 'qualification/test_native_rewrap.py'
+      - 'installer_assembly/carriers.py'
+      - 'installer_assembly/test_carriers.py'
+  workflow_dispatch:
+    inputs:
+      selection:
+        description: Committed evidence/native-selections/*.json for verified primary native and SDK artifacts
+        type: string
+        required: true
+      selection_sha256:
+        description: Independently selected JSON SHA256 (64 lowercase hex)
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: d12-native-rewrap-${{ github.ref }}-${{ inputs.selection || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      source: ${{ steps.selection.outputs.source }}
+      profile: ${{ steps.selection.outputs.profile }}
+      runner: ${{ steps.selection.outputs.runner }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check only native recovery and carrier handoff contracts
+        run: |
+          python3 -B -m unittest qualification.test_native_artifacts qualification.test_native_rewrap -v
+          python3 -B -m unittest discover -s installer_assembly -p 'test_carriers.py' -v
+      - name: Admit exact committed native recovery selection
+        if: github.event_name == 'workflow_dispatch'
+        id: selection
+        env:
+          SELECTION: ${{ inputs.selection }}
+          SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import json, os, pathlib, re, subprocess, sys
+          from qualification.native_artifacts import validate_selection
+          sys.path.insert(0, 'qualification')
+          from d09_platform_tools import TARGETS
+          name = os.environ['SELECTION']
+          assert re.fullmatch(r'evidence/native-selections/[a-z0-9][a-z0-9._-]*\.json', name), 'Committed native selection required'
+          raw = subprocess.check_output(['git', 'show', os.environ['GITHUB_SHA'] + ':' + name])
+          assert pathlib.Path(name).read_bytes() == raw, 'Selected file differs from workflow source'
+          selected = validate_selection(pathlib.Path(name), os.environ['SELECTION_SHA256'])
+          frozen = json.loads(pathlib.Path('source-binding.json').read_bytes())
+          assert all(selected['pins'][key] == frozen[key] for key in ('source_commit', 'source_tree')), 'Frozen source differs'
+          profile = selected['profile']
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('source=' + selected['pins']['source_commit'] + '\n')
+              output.write('profile=' + profile + '\n')
+              output.write('runner=' + TARGETS[profile][0] + '\n')
+          PYCODE
+  rewrap:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ needs.contracts.outputs.runner }}
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.upload.outputs.artifact-id }}
+      artifact_digest: ${{ steps.upload.outputs.artifact-digest }}
+      result_sha256: ${{ steps.package.outputs.result_sha256 }}
+    env:
+      PROFILE: ${{ needs.contracts.outputs.profile }}
+      SELECTION: ${{ inputs.selection }}
+      SELECTION_SHA256: ${{ inputs.selection_sha256 }}
+      GOWORK: 'off'
+      GOENV: 'off'
+      GOTOOLCHAIN: local
+      GOTELEMETRY: 'off'
+      GOPROXY: https://proxy.golang.org
+      GOSUMDB: sum.golang.org
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ needs.contracts.outputs.source }}
+          path: work/core
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.5'
+          cache: false
+      - name: Select isolated public dependency caches
+        run: |
+          echo "GOMODCACHE=$RUNNER_TEMP/d12-gomodcache" >> "$GITHUB_ENV"
+          echo "GOCACHE=$RUNNER_TEMP/d12-go-cache" >> "$GITHUB_ENV"
+      - name: Retrieve exact original native and SDK artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B -m qualification.native_artifacts fetch \
+            --selection "$SELECTION" --selection-sha256 "$SELECTION_SHA256" \
+            --output "$RUNNER_TEMP/d12-input" --gh "$(command -v gh)"
+      - name: Prepare isolated packaging and archive inspection tools
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d12-tools"
+      - name: Restore verified native bytes and original successful SDK evidence
+        id: restore
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, os, pathlib, subprocess
+          from qualification.d09_platform import write_private_policy
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          policy = write_private_policy(root / 'd12-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY'))
+          subprocess.run([str(root / 'd12-tools/publisher/bin/python'), '-B', 'qualification/native_rewrap.py', 'restore',
+              '--selection', os.environ['SELECTION'], '--selection-sha256', os.environ['SELECTION_SHA256'],
+              '--artifact', str(root / 'd12-input'), '--transport-proof', str(root / 'd12-input/transport-proof.json'),
+              '--repository', str(pathlib.Path('work/core').resolve()), '--privacy-policy', str(policy),
+              '--output', str(root / 'd12-restored')], check=True)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('result_sha256=' + hashlib.sha256((root / 'd12-restored/restore-result.json').read_bytes()).hexdigest() + '\n')
+          PYCODE
+      - name: Verify frozen source and prepare exact public Go dependencies
+        run: |
+          test "$(go env GOVERSION)" = go1.26.5
+          python3 -B build-cohort/plan.py verify --core work/core
+          python3 -B qualification/d06_prepare_go.py --source "$GITHUB_WORKSPACE/work/core" \
+            --work "$RUNNER_TEMP/d12-go-preparation" --go "$(command -v go)" --gomodcache "$GOMODCACHE"
+      - name: Retrieve pinned external sources for delivery notices
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/d12-archives"
+          curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
+            https://curl.se/download/curl-8.7.1.tar.xz --output "$RUNNER_TEMP/d12-archives/curl-8.7.1.tar.xz"
+          curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
+            https://github.com/meta/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz --output "$RUNNER_TEMP/d12-archives/zstd-1.5.7.tar.gz"
+      - name: Recollect notices and source closure without rebuilding native payloads
+        run: |
+          python3 -B qualification/d06_delivery_record.py \
+            --build-root "$RUNNER_TEMP/d12-restored/restored/cohort" --repository "$GITHUB_WORKSPACE/work/core" \
+            --go "$(command -v go)" --gomodcache "$GOMODCACHE" \
+            --external-sources "$RUNNER_TEMP/d12-archives" \
+            --external-build-report "$RUNNER_TEMP/d12-restored/restored/external/external-build.json" \
+            --export "$RUNNER_TEMP/d12-restored/restored/export" --privacy-policy "$RUNNER_TEMP/d12-policy.json" \
+            --output "$RUNNER_TEMP/d12-delivery"
+      - name: Assemble repaired carriers and wrappers from unchanged native bytes
+        id: package
+        env:
+          RESTORE_RESULT_SHA256: ${{ steps.restore.outputs.result_sha256 }}
+        run: |
+          "$RUNNER_TEMP/d12-tools/publisher/bin/python" -B qualification/native_rewrap.py package \
+            --restored "$RUNNER_TEMP/d12-restored" --restore-result-sha256 "$RESTORE_RESULT_SHA256" \
+            --repository "$GITHUB_WORKSPACE/work/core" --delivery "$RUNNER_TEMP/d12-delivery" \
+            --output "$RUNNER_TEMP/d12-package" --privacy-policy "$RUNNER_TEMP/d12-policy.json" \
+            --python "$RUNNER_TEMP/d12-tools/publisher/bin/python" \
+            --standalone "$RUNNER_TEMP/d12-tools/publisher/standalone_conda/conda.exe" \
+            --standalone-archive "$RUNNER_TEMP/d12-tools/downloads/standalone.conda" --toolkit-commit "$GITHUB_SHA"
+          python3 - <<'PYCODE'
+          import hashlib, os, pathlib
+          path = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd12-package/artifact/result.json'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('result_sha256=' + hashlib.sha256(path.read_bytes()).hexdigest() + '\n')
+          PYCODE
+      - name: Verify completed carrier checkpoint after packaging attempt
+        if: always()
+        id: carrier_checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f "$RUNNER_TEMP/d12-package/work/carrier-capsule/result.json" ]; then
+            "$RUNNER_TEMP/d12-tools/publisher/bin/python" -B - <<'PYCODE'
+          import hashlib, os, pathlib
+          from qualification.d09_platform import verify_capsule
+          root = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd12-package/work/carrier-capsule'
+          digest = hashlib.sha256((root / 'result.json').read_bytes()).hexdigest()
+          verify_capsule(root, digest)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('ready=true\nresult_sha256=' + digest + '\n')
+          PYCODE
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Retain verified carriers even if wrapper construction failed
+        if: ${{ always() && steps.carrier_checkpoint.outputs.ready == 'true' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d13-recovered-carrier-capsule-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d12-package/work/carrier-capsule/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Retain exact verified wrapper inputs for separate consumer
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-rewrapped-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d12-package/artifact/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Retain bounded recovery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d12-native-rewrap-evidence-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d12-input/transport-proof.json
+            ${{ runner.temp }}/d12-restored/restore-result.json
+            ${{ runner.temp }}/d12-restored/INCOMPLETE.json
+            ${{ runner.temp }}/d12-package/INCOMPLETE.json
+            ${{ runner.temp }}/d12-delivery/delivery-record.json
+            ${{ runner.temp }}/d12-tools/result.json
+            ${{ runner.temp }}/d12-tools/failure.json
+          if-no-files-found: warn
+          retention-days: 14
+  fresh-user:
+    needs: [contracts, rewrap]
+    runs-on: ${{ needs.contracts.outputs.runner }}
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Retrieve this run's exact completed wrapper output
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.rewrap.outputs.artifact_id }}
+          ARTIFACT_DIGEST: ${{ needs.rewrap.outputs.artifact_digest }}
+          PROFILE: ${{ needs.contracts.outputs.profile }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, shutil
+          from qualification.primary_artifacts import fetch_generated
+          fetch_generated(int(os.environ['ARTIFACT_ID']), os.environ['ARTIFACT_DIGEST'], os.environ['PROFILE'],
+              pathlib.Path(os.environ['RUNNER_TEMP']) / 'd12-consumer-input', pathlib.Path(shutil.which('gh')))
+          PYCODE
+      - name: Prepare isolated archive inspection tools
+        env:
+          PROFILE: ${{ needs.contracts.outputs.profile }}
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d12-consumer-tools"
+      - name: Qualify private shell installation and named carrier removal
+        env:
+          RESULT_SHA256: ${{ needs.rewrap.outputs.result_sha256 }}
+        run: |
+          "$RUNNER_TEMP/d12-consumer-tools/publisher/bin/python" -B qualification/native_rewrap.py fresh-user \
+            --artifact "$RUNNER_TEMP/d12-consumer-input/artifact" --result-sha256 "$RESULT_SHA256" \
+            --inspection-tools "$RUNNER_TEMP/d12-consumer-tools" \
+            --output "$RUNNER_TEMP/d12-consumer" --allow-ephemeral-install
+      - name: Retain bounded consumer evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d12-native-rewrap-consumer-${{ needs.contracts.outputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d12-consumer/result.json
+            ${{ runner.temp }}/d12-consumer/INCOMPLETE.json
+            ${{ runner.temp }}/d12-consumer-input/transport-proof.json
+            ${{ runner.temp }}/d12-consumer-tools/result.json
+            ${{ runner.temp }}/d12-consumer-tools/failure.json
+          if-no-files-found: warn
+          retention-days: 14

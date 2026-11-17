@@ -1,0 +1,91 @@
+{
+  "conda_version": "26.10.0",
+  "constructor_archive": {
+    "sha256": "f2d9a2556263838508ddb0116cbe42f4c34d31f4f8a8fb45719c7df7969a307d",
+    "url": "https://conda.anaconda.org/conda-forge/noarch/constructor-3.17.3-pyh3ac964a_1.conda"
+  },
+  "constructor_source_sha256": {
+    "__init__.py": "c9764152459a290acd8dcbbbb766532cb8032dd61ab733220a5d49c525a98a54",
+    "__main__.py": "dc4c4b2f46879925d91ca030ae13f185ef27d16e314350374cd333c29b5277da",
+    "_schema.py": "a7cf5cc8368f7d59cb593e1ff30ccef6899cbfee45a47d5d547e470a9db926d0",
+    "_types.py": "abe3a7d48c3d4683ec6bb9922d9326713f34b4e5dfc95966f483044d5bad12e6",
+    "_version.py": "41bc3b47c7b3a9b6ff858c65bb405bc55fc44e3260fcf49e198828b47e7612b0",
+    "briefcase.py": "18765365577fb011b63f0d14bcafcb2c8d5390ace61e68d8047fcba13de139d2",
+    "briefcase/pre_uninstall.bat": "5354009c5f01f8dd651ec58fc1a682c57e1a6fc4b8befeb5962effe48c686a75",
+    "briefcase/run_installation.bat": "f416ddf83a95528d6e5d57e38f9c9718b3e0cc93d9ec152160a67de7fba50618",
+    "build_outputs.py": "440ae5eaf840a36735104ccd62df0b6ea978b6f2bb23fd7d042c2ba4086dc4c6",
+    "conda_interface.py": "7f35638b506e8c1108566df993fb427711b4428fb09c740cd7f672f7b7516be1",
+    "construct.py": "2a9c2e3b4f372c52ae54fc8ed2e58c9280c2db754987858980c707947592fb2d",
+    "data/construct.schema.json": "b8e6ea0162b393a0440ef80e24c9518bc0aaac13051bb5b130d399c2bb75081a",
+    "docker_build.py": "d881aa7be51fccd224713cab924085955e1a022279b473bd838754ed098f736f",
+    "exceptions.py": "e132c6648e6fbbf75da808ad190bc83c67fcb0b2c4b05203a941b1aa41e51fd4",
+    "fcp.py": "1848171207dfa8ab64c22147a521abdd561e7fc5f51597b4f867887a6a542afa",
+    "header.sh": "686e0ba80556bed27a8e08fe70bb33de00c0f84ef82db462d59f1b3ce297b685",
+    "imaging.py": "60bb548f009f0fbe7fd093b74e67f6cd8fb466101b1dda6781c059beb4f350d0",
+    "jinja.py": "758cae61beb22c7e570eb02a88bcc04cc49283ab409102b93b380add6685791f",
+    "main.py": "3abfc02084f7248d6405c27382ff9289beb6a428a8732227b4d559d2b18365ce",
+    "nsis/OptionsDialog.nsh": "4f3ac3873fe1e76c4dc22538242073956af3eb3298ad0273022acee82cdf1421",
+    "nsis/StandaloneUninstallerOptions.nsh": "f3b33a905a612cb97e811e6cb942556ad9867dc792b907f7cd72bc42ab09d0bc",
+    "nsis/UAC.nsh": "8be8be8842816f24f75bbbd1188e1bbfd6bd249decb9470a95939e24046e9499",
+    "nsis/Utils.nsh": "38ccc669adb4fb218c9c385f2a99e7d3cf51acc72263fa45a1eef5ef3e15004b",
+    "nsis/_nsis.py": "5563766990f33669e127f9c634e2b771a5f5acf463d8dec521bf26042d6dc32a",
+    "nsis/_system_path.py": "a98f8ddb1456bb1431f9fc3474cf2157452470835c3ccaed6e3bd271193dd78e",
+    "nsis/main.nsi.tmpl": "489f636fe00d943aea2214367f44ec73d9fcbbcc926533058769ef4ddf00ac5c",
+    "nsis/placeholder_license.txt": "048852df0478d93df8fca6f0d90e49c9b696132e943fc8506f6ab50108831822",
+    "osx/MacInstaller.png": "4085ea3e0855f8ff7375c810d5870fb4e2dc4b925a2316535cf5e366132a8f3e",
+    "osx/acloud.rtf": "778db2cce3a6bf6b38bbb84d03edd907e7e5a6ae6598623244b69ab6adbdc379",
+    "osx/check_shortcuts.sh": "e3b21dbbea31694e261d72603d66967e5cef68a26c5f2e68dda90184bbd8bce6",
+    "osx/checks_before_install.sh": "b249330b491cceb4a7ed35d76fce43fc4de64ed4402052a7dcf111b3dd175b84",
+    "osx/clean_cache.sh": "74ae0b537859c9934cce18affbc3d0dc20504cb59e36ad5a2b12099e7dee9f6b",
+    "osx/prepare_installation.sh": "5c6374b510b0d5b41b056ea99ffc03e288b5f9dbd6ab5e9cc16567531856d4ff",
+    "osx/readme_header.rtf": "f079ee09164596ae0cdd1715f6be66102375ae4d9ccee827a62121b8443dca35",
+    "osx/run_conda_init.sh": "8cf85b54c820f82d8f4e8ffd167b739db048fe5f9127947cbf14db29c789a042",
+    "osx/run_installation.sh": "64ed58a7c81cc16125b91af5750c9cefde5c93895ed83cc11ca412e18ce01962",
+    "osx/run_user_script.sh": "8d292a87e0e272e76a779958a03ac75db5c2d68ba879a0a0bfd109bd727fc109",
+    "osxpkg.py": "b522f4d4c737a4d6dcc6a13041b10184e50d8fc6cdf77b52b4c665aec08f9fad",
+    "preconda.py": "30f4968b5b464557136612c918f3d7e14da7620f9927b3b54573d31cb0720b4a",
+    "shar.py": "76a951a26ec6fcb09be23b8253198b32774790170028d48c31402bb54c56e3c0",
+    "signing.py": "57efd6df72d16ee370c132ced9f858181b38031240a9a0c5d4df453d5efabc7b",
+    "ttf/COPYRIGHT.txt": "f09cb6e97c51c8aace71732cd72a8d3574e2ce68b340e48e8e1a2cfbefd5c6b7",
+    "ttf/Vera.ttf": "c4c45690b345435b2cba52ecabe275f05e49b389b39fe68ad03afbb551288d3d",
+    "utils.py": "9c1ad214255d5e564cdf8245eb096dbc8c6fee1147bd750fb2fc23d1cf082dcb",
+    "winexe.py": "cc3c6fb29a99176f39294c856120879e8f1388e703720b4a657d45e91b6d3bfc"
+  },
+  "constructor_version": "3.17.3",
+  "private_tooling_restoration": {
+    "osx_64_python312_wheel": {
+      "sha256": "67c8d44ad89fa7eb88de5d6ef6199b1e03dd24974f85a67639fc8badb801fe79",
+      "url": "https://files.pythonhosted.org/packages/7a/b8/58d79332229482eb0d27c82973850808c19d37e5bdc14443d3417bd373f5/pillow-13.0.0-cp312-cp312-macosx_10_13_x86_64.whl"
+    },
+    "pillow_version": "13.0.0"
+  },
+  "protocol": "symphony.distribution.constructor-tools.v1",
+  "publication_authorized": false,
+  "standalone": {
+    "linux-64": {
+      "build": "h643be8f_0",
+      "sha256": "16ca154943dee985b84294c20baa81bce1e935eb0896be51e2d15ea5a45ac66b",
+      "url": "https://conda.anaconda.org/conda-forge/linux-64/conda-standalone-26.9.4.post1-h643be8f_0.conda",
+      "version": "26.9.4.post1"
+    },
+    "linux-aarch64": {
+      "build": "hb5cd7dd_0",
+      "sha256": "22801e92ca39c4e853658c37d86408965b09a0c307c57ca6eb2fedd280f5e6be",
+      "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/conda-standalone-26.9.4.post1-hb5cd7dd_0.conda",
+      "version": "26.9.4.post1"
+    },
+    "osx-64": {
+      "build": "h3190db2_0",
+      "sha256": "3abef5f6afbae509f67746b61a5f047a8b1127b51da0ddb5cb543163b77b6c59",
+      "url": "https://conda.anaconda.org/conda-forge/osx-64/conda-standalone-26.9.4.post1-h3190db2_0.conda",
+      "version": "26.9.4.post1"
+    },
+    "osx-arm64": {
+      "build": "h61bdcc0_0",
+      "sha256": "5872edc06a4923d1fea8761248e57214b02a77b9784f3f6edfe6d6ed0b228bfd",
+      "url": "https://conda.anaconda.org/conda-forge/osx-arm64/conda-standalone-26.9.4.post1-h61bdcc0_0.conda",
+      "version": "26.9.4.post1"
+    }
+  },
+  "standalone_pin_source": "https://api.anaconda.org/package/conda-forge/conda-standalone"
+}

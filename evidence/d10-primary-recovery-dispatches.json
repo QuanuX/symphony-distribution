@@ -1,0 +1,50 @@
+{
+  "branch": "codex/d09-review-channel-gates",
+  "ci_results_awaited": false,
+  "date": "2026-11-16",
+  "feature_freeze_preserved": true,
+  "inputs": {
+    "export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+    "fresh_user": false,
+    "manifest_sha256": "1a9781155c14182f46171dd29ce3c1f8970daea7c7f5c2e90e2ed50486264563"
+  },
+  "main_mutated": false,
+  "primary_payload_selection_pending": true,
+  "primary_wrapper_only_dispatched": false,
+  "protocol": "symphony.distribution.primary-payload-recovery-dispatch.v1",
+  "publication_authorized": false,
+  "reason": "All eight old archives retained reports only; required primary payload and carrier bytes are unavailable. These producers retain verified native bytes before delivery collection and completed carriers before wrapper assembly.",
+  "release_acceptance_complete": false,
+  "repository": "QuanuX/symphony-distribution",
+  "runs": [
+    {
+      "dispatched_commit_verified": true,
+      "profile": "macos15-arm64",
+      "run_id": 43939021560,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939021560"
+    },
+    {
+      "dispatched_commit_verified": true,
+      "profile": "ubuntu24.04-amd64",
+      "run_id": 43939059852,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939059852"
+    },
+    {
+      "dispatched_commit_verified": true,
+      "profile": "ubuntu24.04-arm64",
+      "run_id": 43939100597,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939100597"
+    },
+    {
+      "dispatched_commit_verified": true,
+      "profile": "ubuntu26.04-amd64",
+      "run_id": 43939137887,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43939137887"
+    }
+  ],
+  "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "state": "dispatched_without_waiting_for_results",
+  "unaffected_core_client_checks_rerun": false,
+  "workflow": ".github/workflows/d09-platform.yml",
+  "workflow_commit": "e3544e729b0013df505ef2e2ad8f9963a58e7e5d"
+}

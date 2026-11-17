@@ -1,0 +1,32 @@
+{
+  "archive_sha256": "215b46b7f3d796870cd93e0462b69e0485796820edef6b3c874a76468740cb7f",
+  "files": 284,
+  "privacy_and_helper_verification": "passed",
+  "protocol": "symphony.distribution.d12-toolkit-seal.v1",
+  "source": {
+    "commit": "074b02755422fcfc2a6db3b929be529c33090252",
+    "file_count": 284,
+    "scanner_exceptions": [
+      {
+        "archived_source_bytes_changed": false,
+        "path": "source-export/export_source.py",
+        "role": "synthetic rejection token in scanner and regression fixtures",
+        "scope": "exact file hash and reviewed synthetic scanner inputs only; actual publisher, private-key and other credential rules unchanged",
+        "sha256": "a7f8efe7dbd9b3e56a32a0d4da9567316c75529fe62cc8f3bb4649e07994f2aa",
+        "synthetic_marker_count": 3
+      },
+      {
+        "archived_source_bytes_changed": false,
+        "path": "source-export/test_export_source.py",
+        "role": "synthetic rejection token in scanner and regression fixtures",
+        "scope": "exact file hash and reviewed synthetic scanner inputs only; actual publisher, private-key and other credential rules unchanged",
+        "sha256": "3599eaa90a943c75833dc744430e3e3dddbf6897e4f6c509de1a375404ee5ddf",
+        "synthetic_credential_fixture_count": 1,
+        "synthetic_credential_fixture_role": "test_credential_shaped_access_key_refused regression input",
+        "synthetic_credential_fixture_sha256": "457643f44d19aed85fd756aa50cc0cd6b57376d4e8f5a72f9f85972a522002a3",
+        "synthetic_marker_count": 5
+      }
+    ],
+    "tree": "4dbb306bc67cb187adcab19d348eeb6da1cbe277"
+  }
+}

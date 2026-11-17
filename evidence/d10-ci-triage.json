@@ -1,0 +1,93 @@
+{
+  "protocol": "symphony.distribution.d10-ci-triage.v1",
+  "scope": "Existing runs checked once; replacement run outcomes not awaited",
+  "latest_pr_head": "ed53ca2e35",
+  "current_pr_checks": [
+    {
+      "id": 43918421989,
+      "name": "S08 dossier and source delivery",
+      "head_sha": "ed53ca2e359e8c80bbd1cd534a127348ae3484b9",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 43918421635,
+      "name": "Distribution preparation",
+      "head_sha": "ed53ca2e359e8c80bbd1cd534a127348ae3484b9",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "primary_runs": [
+    {
+      "id": 43915723610,
+      "profile": "ubuntu24.04-amd64",
+      "outcome": "failure",
+      "cause": "Path.open does not accept opener; failed before source export/build"
+    },
+    {
+      "id": 43915729491,
+      "profile": "ubuntu24.04-arm64",
+      "outcome": "failure",
+      "cause": "Path.open does not accept opener; failed before source export/build"
+    },
+    {
+      "id": 43915735379,
+      "profile": "ubuntu26.04-amd64",
+      "outcome": "failure",
+      "cause": "Path.open does not accept opener; failed before source export/build"
+    },
+    {
+      "id": 43915717269,
+      "profile": "macos15-arm64",
+      "outcome": "runner_acquisition_cancellation",
+      "runner_id": 0,
+      "executed_steps": 0
+    }
+  ],
+  "fix": "exclusive no-follow os.open plus fdopen, exact0600; actual workflow Python block covered by regression",
+  "focused_platform_tests_passed": 21,
+  "workflow_lint": "passed with existing Ubuntu26 runner-label catalog exception",
+  "existing_d06_run": {
+    "id": 43913439537,
+    "jobs": [
+      {
+        "id": 133461172432,
+        "name": "Cohort selection and refusal contracts",
+        "status": "completed",
+        "conclusion": "success",
+        "runner_id": 1000005150
+      },
+      {
+        "id": 133461420876,
+        "name": "Clean cohort (ubuntu24.04-amd64)",
+        "status": "completed",
+        "conclusion": "success",
+        "runner_id": 1000005159
+      },
+      {
+        "id": 133461420916,
+        "name": "Clean cohort (ubuntu26.04-amd64)",
+        "status": "completed",
+        "conclusion": "success",
+        "runner_id": 1000005158
+      },
+      {
+        "id": 133461420960,
+        "name": "Clean cohort (macos15-arm64)",
+        "status": "in_progress",
+        "conclusion": null,
+        "runner_id": 1000005165
+      },
+      {
+        "id": 133461421589,
+        "name": "Clean cohort (ubuntu24.04-arm64)",
+        "status": "in_progress",
+        "conclusion": null,
+        "runner_id": 1000005160
+      }
+    ]
+  },
+  "main_changed": false,
+  "new_ci_results_waited_for": false
+}

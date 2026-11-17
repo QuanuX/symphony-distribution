@@ -1,0 +1,40 @@
+{
+  "archive_preflight": {
+    "audited_carriers": 58,
+    "primary_host_qualification": false,
+    "revised_cohort_sha256": "2378f29aedc8b0e1fee23721106cc0d2456561d17b070aedd1e1adb9de98e3f8",
+    "runtime_native_executables_invoked": false
+  },
+  "distinct_native_releases_qualified": false,
+  "files": {
+    ".github/workflows/d14-carrier-journeys.yml": "71e1a7ea5db961a8708f08370d50bb67f0702cbbb4c75992442a6cbf368ea35f",
+    "docs/D14-CARRIER-MAINTENANCE.md": "434aebac291fe8c41873be793e4e675824edb04f164bdc867bc83d50ed849229",
+    "qualification/d14_carrier_journeys.py": "5e396beeaebb2feb18134b3fa966d73305a0a1f95c355b9add03165dcb85237b",
+    "qualification/test_d14_carrier_journeys.py": "464f9ea8f479195c2942664019775510c4cf90b1aad09caa3c3014cf3acc518b"
+  },
+  "focused_tests": 7,
+  "focused_tests_passed": true,
+  "git_diff_check": "pass",
+  "main_modified": false,
+  "native_payload_changed": false,
+  "prior_launcher_failure": {
+    "evidence_sha256": "59639b955133d149c5a31b7d2e428e5f833a3b780c55671c23b2caeb9b609a36",
+    "execution_started": false,
+    "failed_attempt_reused": false,
+    "installed_metadata_count": 0,
+    "kind": "multiprocessing_stdin_entrypoint",
+    "user_state_preserved": true
+  },
+  "private_policy_scan": "pass",
+  "protocol": "symphony.distribution.d14-carrier-focused-validation.v1",
+  "publication_authorized": false,
+  "services_or_providers_started": false,
+  "state": "focused_contracts_and_actual_archive_preflight_passed",
+  "supplemental_journey": {
+    "full_campaign_accepted": false,
+    "observed_completed_transactions_at_least": 12,
+    "source_workflow_changed_during_run": true,
+    "state": "running"
+  },
+  "workflow_actionlint": "pass"
+}

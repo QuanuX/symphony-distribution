@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "package": {
+      "artifact": {
+        "id": 14271344214,
+        "name": "d10-rewrapped-ubuntu26.04-amd64-1",
+        "sha256": "e864c919178421a5635e4bbef4760d7774fac495a54ebf9603f29f8ba55ff7c1",
+        "size": 327217122
+      },
+      "result_sha256": "9fee099f44094dc6a20612de038a2528e92be256281987a72461fe89cf4aed89",
+      "run_attempt": 1,
+      "run_id": 43957800532,
+      "workflow_commit": "f853fcff027bf559a6c366b8f444b122c7711696",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml"
+    }
+  },
+  "profile": "ubuntu26.04-amd64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}

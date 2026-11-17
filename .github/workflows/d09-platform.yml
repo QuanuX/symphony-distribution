@@ -1,0 +1,367 @@
+name: D09 primary review and disposable-user qualification
+on:
+  push:
+    branches: ['codex/**']
+    paths: ['qualification/d09_platform*', 'qualification/test_d09_platform.py', 'qualification/d10_build_retention.py', 'qualification/test_d10_build_retention.py', '.github/workflows/d09-platform.yml']
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: One exact primary platform; local Intel is excluded
+        type: choice
+        options: [macos15-arm64, ubuntu24.04-amd64, ubuntu24.04-arm64, ubuntu26.04-amd64]
+        required: true
+      export_digest:
+        description: Previously reviewed derived source digest (64 lowercase hex)
+        type: string
+        required: true
+      manifest_sha256:
+        description: Independently selected SOURCE-EXPORT.json SHA256
+        type: string
+        required: true
+      fresh_user:
+        description: Execute inert CLI and shell installers on a separate disposable hosted runner
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: d09-primary-${{ github.ref }}-${{ inputs.profile || 'contracts' }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      source: ${{ steps.target.outputs.source }}
+      target: ${{ steps.target.outputs.target }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check only primary preparation and refusal contracts
+        run: |
+          python3 -B -m unittest discover -s qualification -p 'test_d09_platform.py' -v
+          python3 -B -m unittest discover -s qualification -p 'test_d10_build_retention.py' -v
+      - name: Admit independently selected source and platform
+        if: github.event_name == 'workflow_dispatch'
+        id: target
+        env:
+          PROFILE: ${{ inputs.profile }}
+          EXPORT_DIGEST: ${{ inputs.export_digest }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import json, os, re, sys
+          sys.path.insert(0, 'qualification')
+          import d09_platform as gate
+          from d09_platform_tools import TARGETS
+          gate.digest(os.environ['EXPORT_DIGEST']); gate.digest(os.environ['MANIFEST_SHA256'])
+          profile = os.environ['PROFILE']
+          runner = TARGETS[profile][0]
+          compiler = '18' if profile.startswith('ubuntu24') else '21'
+          target = {'runner': runner, 'cc': '/usr/bin/clang' if profile.startswith('macos') else 'clang-' + compiler,
+                    'cxx': '/usr/bin/clang++' if profile.startswith('macos') else 'clang++-' + compiler}
+          source = json.load(open('source-binding.json'))['source_commit']
+          assert re.fullmatch('[0-9a-f]{40}', source)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('source=' + source + '\n')
+              output.write('target=' + json.dumps(target) + '\n')
+          PYCODE
+  native:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ fromJSON(needs.contracts.outputs.target).runner }}
+    timeout-minutes: 300
+    outputs:
+      result_sha256: ${{ steps.record.outputs.result_sha256 }}
+      artifact: ${{ steps.record.outputs.artifact }}
+    env:
+      GOWORK: 'off'
+      GOENV: 'off'
+      GOTOOLCHAIN: local
+      GOTELEMETRY: 'off'
+      GOPROXY: https://proxy.golang.org
+      GOSUMDB: sum.golang.org
+      PROFILE: ${{ inputs.profile }}
+      CC: ${{ fromJSON(needs.contracts.outputs.target).cc }}
+      CXX: ${{ fromJSON(needs.contracts.outputs.target).cxx }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          repository: QuanuX/Symphony
+          ref: ${{ needs.contracts.outputs.source }}
+          path: work/core
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.5'
+          cache: false
+      - name: Select private dependency caches
+        shell: bash
+        run: |
+          echo "GOMODCACHE=$RUNNER_TEMP/d06-gomodcache" >> "$GITHUB_ENV"
+          echo "GOCACHE=$RUNNER_TEMP/d06-prefetch-cache" >> "$GITHUB_ENV"
+      - name: Select the mapped Apple toolchain
+        if: runner.os == 'macOS'
+        run: echo 'DEVELOPER_DIR=/Applications/Xcode_26.3.app/Contents/Developer' >> "$GITHUB_ENV"
+      - name: Install the selected Linux compiler and payload inspection tools
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=3 update
+          sudo apt-get -o Acquire::Retries=3 install --no-install-recommends -y "$CC" patchelf libssl-dev pkg-config
+      - name: Reproduce only the independently selected reviewed source export
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+          EXPECTED_EXPORT: ${{ inputs.export_digest }}
+          EXPECTED_MANIFEST: ${{ inputs.manifest_sha256 }}
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib, subprocess, sys
+          sys.path.insert(0, 'qualification')
+          from d09_platform import write_private_policy
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          policy = write_private_policy(root / 'd09-source-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY', ''))
+          subprocess.run([sys.executable, '-B', 'qualification/d09_platform.py', 'source',
+              '--repository', str(pathlib.Path('work/core').resolve()), '--policy', str(policy),
+              '--output', str(root / 'd09-source'), '--export-digest', os.environ['EXPECTED_EXPORT'],
+              '--manifest-sha256', os.environ['EXPECTED_MANIFEST']], check=True)
+          PYCODE
+      - name: Prepare private versioned publisher tools
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d09-tools"
+      - name: Record additional qualification helper provenance
+        run: python3 qualification/d06_failure_summary.py --record-baseline "$RUNNER_TEMP/d06-helper-baseline.json"
+      - name: Verify source and prepare public Go dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 build-cohort/plan.py verify --core work/core
+          test "$(go env GOVERSION)" = go1.26.5
+          command -v "$CC"
+          command -v "$CXX"
+          python3 qualification/d06_prepare_go.py --source "$GITHUB_WORKSPACE/work/core" \
+            --work "$RUNNER_TEMP/d06-go-preparation" --go "$(command -v go)" --gomodcache "$GOMODCACHE"
+      - name: Download exact dependency source archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/d06-archives"
+          curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
+            https://curl.se/download/curl-8.7.1.tar.xz \
+            --output "$RUNNER_TEMP/d06-archives/curl-8.7.1.tar.xz"
+          curl --fail --location --retry 3 --connect-timeout 30 --max-time 300 \
+            https://github.com/meta/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz \
+            --output "$RUNNER_TEMP/d06-archives/zstd-1.5.7.tar.gz"
+      - name: Prepare exact external libraries with explicit TLS selection
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, pathlib, platform, re, shutil, subprocess, sys
+          temporary = pathlib.Path(os.environ['RUNNER_TEMP'])
+          cc, cxx = shutil.which(os.environ['CC']), shutil.which(os.environ['CXX'])
+          assert cc and cxx
+          command = [sys.executable, 'build-cohort/external.py',
+              '--source', str(pathlib.Path('work/core').resolve()),
+              '--work', str(temporary / 'd06-external'),
+              '--curl-archive', str(temporary / 'd06-archives/curl-8.7.1.tar.xz'),
+              '--zstd-archive', str(temporary / 'd06-archives/zstd-1.5.7.tar.gz'),
+              '--cmake', shutil.which('cmake'), '--cc', cc, '--cxx', cxx]
+          if os.environ.get('DEVELOPER_DIR'):
+              command += ['--developer-dir', os.environ['DEVELOPER_DIR']]
+          if platform.system() == 'Linux':
+              header = pathlib.Path('/usr/include/openssl/opensslv.h').read_text()
+              version = re.search(r'^\s*#\s*define\s+OPENSSL_VERSION_STR\s+"([^"]+)"', header, re.M)
+              assert version, 'Exact installed OpenSSL header version is required'
+              command += ['--openssl-version', version.group(1), '--openssl-include-dir', '/usr/include']
+              for name, flag in [('ssl', '--openssl-ssl-library'), ('crypto', '--openssl-crypto-library')]:
+                  library = pathlib.Path(subprocess.check_output([cc, '-print-file-name=lib' + name + '.so'], text=True).strip()).resolve(strict=True)
+                  command += [flag, str(library)]
+          subprocess.run(command, check=True)
+          PY
+      - name: Build two clean cohorts and qualify final installed SDKs
+        shell: bash
+        run: |
+          set -euo pipefail
+          extra=()
+          if [ -n "${DEVELOPER_DIR:-}" ]; then
+            extra+=(--developer-dir "$DEVELOPER_DIR")
+          fi
+          python3 build-cohort/build.py --repository "$GITHUB_WORKSPACE/work/core" \
+            --output "$RUNNER_TEMP/d06-cohort" --profile "$PROFILE" \
+            --cmake "$(command -v cmake)" --cc "$(command -v "$CC")" --cxx "$(command -v "$CXX")" \
+            --go "$(command -v go)" --gomodcache "$GOMODCACHE" \
+            --external-prefix "$RUNNER_TEMP/d06-external/prefix" \
+            --export "$RUNNER_TEMP/d09-source" --privacy-policy "$RUNNER_TEMP/d09-source-policy.json" --repeat --prune-builds "${extra[@]}"
+      - name: Retain verified native bytes before delivery collection
+        run: |
+          python3 -B qualification/d10_build_retention.py retain \
+            --cohort "$RUNNER_TEMP/d06-cohort" --export "$RUNNER_TEMP/d09-source" \
+            --repository "$GITHUB_WORKSPACE/work/core" \
+            --external-report "$RUNNER_TEMP/d06-external/external-build.json" \
+            --privacy-policy "$RUNNER_TEMP/d09-source-policy.json" \
+            --output "$RUNNER_TEMP/d10-native-retained" \
+            --producer-run-id "$GITHUB_RUN_ID" --producer-run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --producer-commit "$GITHUB_SHA"
+      - name: Upload completed native recovery capsule before later gates
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-native-recovery-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d10-native-retained/capsule.json
+            ${{ runner.temp }}/d10-native-retained/native-cohort.tar.gz
+          if-no-files-found: error
+          retention-days: 14
+      - name: Record final package and public dependency closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qualification/d06_delivery_record.py --build-root "$RUNNER_TEMP/d06-cohort" \
+            --repository "$GITHUB_WORKSPACE/work/core" --go "$(command -v go)" \
+            --gomodcache "$GOMODCACHE" --external-sources "$RUNNER_TEMP/d06-archives" \
+            --external-build-report "$RUNNER_TEMP/d06-external/external-build.json" \
+            --export "$RUNNER_TEMP/d09-source" --privacy-policy "$RUNNER_TEMP/d09-source-policy.json" \
+            --output "$RUNNER_TEMP/d06-delivery"
+      - name: Qualify core SNV APIs, copied Go SDK and disposable removal
+        shell: bash
+        run: |
+          set -euo pipefail
+          extra=()
+          if [ -n "${DEVELOPER_DIR:-}" ]; then
+            extra+=(--developer-dir "$DEVELOPER_DIR")
+          fi
+          python3 qualification/d06_sdk_closure.py --repository "$GITHUB_WORKSPACE/work/core" \
+            --cohort-output "$RUNNER_TEMP/d06-cohort" --output "$RUNNER_TEMP/d06-sdk-closure" \
+            --cmake "$(command -v cmake)" --cc "$(command -v "$CC")" --cxx "$(command -v "$CXX")" \
+            --go "$(command -v go)" --gomodcache "$GOMODCACHE" "${extra[@]}"
+      - name: Assemble independently installable baseline carriers and matching wrappers
+        env:
+          EXPECTED_EXPORT: ${{ inputs.export_digest }}
+          EXPECTED_MANIFEST: ${{ inputs.manifest_sha256 }}
+        run: |
+          "$RUNNER_TEMP/d09-tools/publisher/bin/python" -B qualification/d09_platform.py package \
+            --repository "$GITHUB_WORKSPACE/work/core" --build-root "$RUNNER_TEMP/d06-cohort" \
+            --delivery "$RUNNER_TEMP/d06-delivery" --sdk-closure "$RUNNER_TEMP/d06-sdk-closure" \
+            --export "$RUNNER_TEMP/d09-source" --privacy-policy "$RUNNER_TEMP/d09-source-policy.json" \
+            --export-digest "$EXPECTED_EXPORT" --manifest-sha256 "$EXPECTED_MANIFEST" \
+            --profile "$PROFILE" --output "$RUNNER_TEMP/d09-primary" \
+            --python "$RUNNER_TEMP/d09-tools/publisher/bin/python" \
+            --standalone "$RUNNER_TEMP/d09-tools/publisher/standalone_conda/conda.exe" \
+            --standalone-archive "$RUNNER_TEMP/d09-tools/downloads/standalone.conda"
+      - name: Locate completed carrier capsule after packaging attempt
+        if: always()
+        id: carrier_capsule
+        run: |
+          python3 - <<'PYCODE'
+          import os, pathlib
+          result = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd09-primary/carrier-capsule/result.json'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('ready=' + ('true' if result.is_file() else 'false') + '\n')
+          PYCODE
+      - name: Retain completed pre-wrapper primary carrier capsule
+        if: ${{ always() && steps.carrier_capsule.outputs.ready == 'true' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d10-carrier-capsule-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/d09-primary/carrier-capsule/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Bind the exact review artifact for the separate consumer
+        id: record
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, os, pathlib, shutil
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          source = root / 'd09-primary'
+          target = root / 'd09-selected-artifact'
+          target.mkdir(mode=0o700)
+          shutil.copytree(source / 'carriers', target / 'carriers')
+          (target / 'wrappers').mkdir()
+          for path in (source / 'wrappers').iterdir():
+              if path.is_file() and (path.name == 'result.json' or path.suffix in ('.pkg', '.sh')):
+                  shutil.copyfile(path, target / 'wrappers' / path.name)
+          shutil.copyfile(source / 'result.json', target / 'result.json')
+          shutil.copyfile(source / 'fresh-host-requirements.json', target / 'fresh-host-requirements.json')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('result_sha256=' + hashlib.sha256((source / 'result.json').read_bytes()).hexdigest() + '\n')
+              output.write('artifact=d09-primary-' + os.environ['PROFILE'] + '-' + os.environ['GITHUB_RUN_ATTEMPT'] + '\n')
+          PYCODE
+      - name: Retain exact unsigned review inputs for the isolated consumer
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ${{ steps.record.outputs.artifact }}
+          path: ${{ runner.temp }}/d09-selected-artifact/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Summarize incomplete native gates without private logs
+        if: always()
+        run: |
+          python3 qualification/d06_failure_summary.py \
+            --cohort "$RUNNER_TEMP/d06-cohort" --external "$RUNNER_TEMP/d06-external" \
+            --workspace "$GITHUB_WORKSPACE" --runner-temp "$RUNNER_TEMP" \
+            --helper-baseline "$RUNNER_TEMP/d06-helper-baseline.json" \
+            --output "$RUNNER_TEMP/d09-native-failure-summary.json"
+      - name: Retain bounded engineering evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d09-evidence-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d09-native-failure-summary.json
+            ${{ runner.temp }}/d06-cohort/result.json
+            ${{ runner.temp }}/d06-sdk-closure/result.json
+            ${{ runner.temp }}/d06-delivery/delivery-record.json
+            ${{ runner.temp }}/d09-tools/publisher.explicit.txt
+            ${{ runner.temp }}/d09-tools/result.json
+            ${{ runner.temp }}/d09-tools/failure.json
+            ${{ runner.temp }}/d09-primary/failure.json
+            ${{ runner.temp }}/d09-source/failure.json
+          if-no-files-found: warn
+          retention-days: 14
+  fresh-user:
+    if: github.event_name == 'workflow_dispatch' && inputs.fresh_user
+    needs: [contracts, native]
+    runs-on: ${{ fromJSON(needs.contracts.outputs.target).runner }}
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Retrieve only this run's exact selected primary artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SELECTED_ARTIFACT: ${{ needs.native.outputs.artifact }}
+        run: gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SELECTED_ARTIFACT" --dir "$RUNNER_TEMP/d09-input"
+      - name: Prepare isolated inspection and Conda CLI tools
+        env:
+          PROFILE: ${{ inputs.profile }}
+        run: python3 -B qualification/d09_platform_tools.py --profile "$PROFILE" --output "$RUNNER_TEMP/d09-tools"
+      - name: Qualify inert CLI and standalone installation on this disposable runner
+        env:
+          PROFILE: ${{ inputs.profile }}
+          SELECTED_SHA256: ${{ needs.native.outputs.result_sha256 }}
+        run: |
+          "$RUNNER_TEMP/d09-tools/publisher/bin/python" -B qualification/d09_platform.py fresh-user \
+            --artifact "$RUNNER_TEMP/d09-input" --result-sha256 "$SELECTED_SHA256" \
+            --profile "$PROFILE" --output "$RUNNER_TEMP/d09-fresh-user" \
+            --python "$RUNNER_TEMP/d09-tools/publisher/bin/python" --allow-ephemeral-install
+      - name: Retain bounded fresh-user evidence, never temporary user state
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d09-fresh-user-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d09-fresh-user/result.json
+            ${{ runner.temp }}/d09-fresh-user/failure.json
+            ${{ runner.temp }}/d09-fresh-user/cli/result.json
+            ${{ runner.temp }}/d09-tools/publisher.explicit.txt
+            ${{ runner.temp }}/d09-tools/failure.json
+          if-no-files-found: warn
+          retention-days: 14

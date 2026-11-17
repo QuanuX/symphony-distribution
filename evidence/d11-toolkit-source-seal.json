@@ -1,0 +1,37 @@
+{
+  "archive_sha256": "bef82dc791087147790bb7c87848f3209dde53efec670cde53023e98440ef9da",
+  "archive_size": 6912000,
+  "file_count": 267,
+  "policy_digest": "d339123b990d9de1eaa1fd439e33e4ae0b15e6abc57882fd8afa49dd0224a837",
+  "protocol": "symphony.distribution.d11-toolkit-source-seal.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "scope": "Exact D11 implementation commit complete source collection and privacy scan; original synthetic scanner exceptions remain unchanged and hash-bound.",
+  "source": {
+    "commit": "f14e8e83d8fac5b11e8ca7ea0bf29193d0438f99",
+    "file_count": 267,
+    "scanner_exceptions": [
+      {
+        "archived_source_bytes_changed": false,
+        "path": "source-export/export_source.py",
+        "role": "synthetic rejection token in scanner and regression fixtures",
+        "scope": "exact file hash and reviewed synthetic scanner inputs only; actual publisher, private-key and other credential rules unchanged",
+        "sha256": "a7f8efe7dbd9b3e56a32a0d4da9567316c75529fe62cc8f3bb4649e07994f2aa",
+        "synthetic_marker_count": 3
+      },
+      {
+        "archived_source_bytes_changed": false,
+        "path": "source-export/test_export_source.py",
+        "role": "synthetic rejection token in scanner and regression fixtures",
+        "scope": "exact file hash and reviewed synthetic scanner inputs only; actual publisher, private-key and other credential rules unchanged",
+        "sha256": "3599eaa90a943c75833dc744430e3e3dddbf6897e4f6c509de1a375404ee5ddf",
+        "synthetic_credential_fixture_count": 1,
+        "synthetic_credential_fixture_role": "test_credential_shaped_access_key_refused regression input",
+        "synthetic_credential_fixture_sha256": "457643f44d19aed85fd756aa50cc0cd6b57376d4e8f5a72f9f85972a522002a3",
+        "synthetic_marker_count": 5
+      }
+    ],
+    "tree": "3d2202d00b4e3359973111fea035a6f47601f2ce"
+  },
+  "state": "passed"
+}

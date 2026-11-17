@@ -1,0 +1,38 @@
+{
+  "protocol": "symphony.distribution.d10-focused-validation.v1",
+  "state": "focused_contract_tests_passed_before_reassembly",
+  "tests": [
+    {
+      "suite": "platform",
+      "count": 21
+    },
+    {
+      "suite": "constructor",
+      "count": 24
+    },
+    {
+      "suite": "pkg_finalizer",
+      "count": 15
+    },
+    {
+      "suite": "selected_mac_and_overlay",
+      "count": 17
+    }
+  ],
+  "total": 77,
+  "independent_review": "Constructor and Mac/overlay reviewed separately; 41 matching tests independently rerun without material findings.",
+  "workflow_lint": "passed",
+  "workflow_lint_exception": "Only known ubuntu-26.04 runner-label enumeration excluded.",
+  "private_source_policy_scan": "passed_for_all_increment_files",
+  "source_helpers_sha256": {
+    "installer_assembly/construct.py": "855994d09f42b0d44397c8d227820b7239e7541838b1504da81ae459731e782f",
+    "installer_assembly/constructor_runner.py": "b3e4048af9d16a6603d417b5a1f7c9dec966422b8b613f0a542ec1e416f9f679",
+    "installer_assembly/pkg_finalize.py": "1b44368b541a4d7826b407a2cd88b58155c6131913351f45d427070811c81fed",
+    "qualification/d09_platform.py": "228444ebe533528aff1de63827388549ad015d7485f62afd46466bce75c4e1a0",
+    "qualification/d10_mac.py": "94bca61f0f407b36ed739475503923dc5a9f2cd1d5abf705cc18dd289a8c1f21",
+    "qualification/d10_mac_overlay.py": "a93afcaf0de537e879c2f6c10533fc61e71b9c9c5effabf4e0c79d8bdba33f90"
+  },
+  "actual_repaired_wrapper_execution_assessed": false,
+  "primary_ci_results_awaited": false,
+  "release_acceptance_complete": false
+}

@@ -1,0 +1,45 @@
+{
+  "protocol": "symphony.distribution.primary-client-tools.v1",
+  "repository": "openai/codex",
+  "version": "0.169.0",
+  "release_tag": "rust-v0.169.0",
+  "release_id": 443990865,
+  "source_commit": "d32063f96c2dff1dc96af839b3952abb6acfeda4",
+  "metadata_url": "https://api.github.com/repos/openai/codex/releases/tags/rust-v0.169.0",
+  "release_url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
+  "qualification_scope": "deterministic app-server only; no model turn, login or publisher approval",
+  "profiles": {
+    "macos15-arm64": {
+      "asset_id": 742912577,
+      "filename": "codex-aarch64-apple-darwin.tar.gz",
+      "size": 113553246,
+      "sha256": "7f4c49c80bae1d0b4e347acfcdf11faa3475d87ae5e65a5eb1261d3c358145ee",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-aarch64-apple-darwin.tar.gz",
+      "member": "codex-aarch64-apple-darwin"
+    },
+    "ubuntu24.04-amd64": {
+      "asset_id": 742918560,
+      "filename": "codex-x86_64-unknown-linux-musl.tar.gz",
+      "size": 117805733,
+      "sha256": "9af4d751fce183faedea629437d5252dbf458eeb04130cf4f97be844621ea985",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-x86_64-unknown-linux-musl.tar.gz",
+      "member": "codex-x86_64-unknown-linux-musl"
+    },
+    "ubuntu24.04-arm64": {
+      "asset_id": 742914628,
+      "filename": "codex-aarch64-unknown-linux-musl.tar.gz",
+      "size": 119987185,
+      "sha256": "97b97d87eea075c5cb7709c7f6156a451622a7667953ecda40e0276637196f3f",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-aarch64-unknown-linux-musl.tar.gz",
+      "member": "codex-aarch64-unknown-linux-musl"
+    },
+    "ubuntu26.04-amd64": {
+      "asset_id": 742918560,
+      "filename": "codex-x86_64-unknown-linux-musl.tar.gz",
+      "size": 117805733,
+      "sha256": "9af4d751fce183faedea629437d5252dbf458eeb04130cf4f97be844621ea985",
+      "url": "https://github.com/openai/codex/releases/download/rust-v0.169.0/codex-x86_64-unknown-linux-musl.tar.gz",
+      "member": "codex-x86_64-unknown-linux-musl"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "actual_transport_smoke": {
+    "selection_sha256": "43fd39b17a29250342857878511aa183312354af912fe227aa897ec7933fd52b",
+    "state": "successful_completed_consumer_artifact_admitted",
+    "transport_proof_sha256": "852d95dc0231916b3ef24082027991230942a04092aff2e7b147650ce2bc0943"
+  },
+  "files": {
+    "qualification/beta_artifacts.py": "5ba9c86e48078b08e2912c8143c3175848ec0dd0298505b2473581d053477062",
+    "qualification/test_beta_artifacts.py": "6b42fbcafb0ccdc9f3222f2ad68ac3ee8370b06c34848c50ca2bbc59c7edbdfa"
+  },
+  "focused_result": "passed",
+  "focused_tests": 8,
+  "independent_review": "passed",
+  "protocol": "symphony.distribution.beta-transport-validation.v1",
+  "publication_authorized_by_test": false
+}

@@ -1,0 +1,62 @@
+{
+  "carrier_repair_commit": "2ff53056ca12e331586fb926bcf7f2cef85e2530",
+  "ci_completion_awaited": false,
+  "distribution_default_mutated": false,
+  "feature_freeze_preserved": true,
+  "files": [
+    {
+      "path": ".github/workflows/d12-native-rewrap.yml",
+      "sha256": "9e09b89cbe53c69be9e7cffb56bd1ef0645d86df83f19c0378173a7a6b2e22f6"
+    },
+    {
+      "path": "qualification/native_artifacts.py",
+      "sha256": "48d56b87a34b130de10d0ff71ceddae6665019c9110379a7922f1f479d017faf"
+    },
+    {
+      "path": "qualification/native_rewrap.py",
+      "sha256": "924a5a0c0cfd9e84ce51d47715148b27f08e681f9f410d23dc96aa573bf17077"
+    },
+    {
+      "path": "qualification/test_native_artifacts.py",
+      "sha256": "b52dfd63a6e029d17a6b19a244f3ac1e2a6d2b444ec0093b12053f82fc1a5855"
+    },
+    {
+      "path": "qualification/test_native_rewrap.py",
+      "sha256": "cf36f7e4c7adf14b5b7fa5dbc0d1de823f5414a1ec779b9fe12f186e4f46ac04"
+    },
+    {
+      "path": "installer_assembly/carriers.py",
+      "sha256": "3ed4dd53d4dca97c46ffcccf1b0f0fc3a573f687fe9bc0b2cdda3ab4d4943b5c"
+    },
+    {
+      "path": "installer_assembly/test_carriers.py",
+      "sha256": "4621366b0e2dffff905e60d01805c566426797b2f2d9d8de81451f0b6ccc2374"
+    }
+  ],
+  "focused_tests": {
+    "carrier": 17,
+    "combined_transport_and_adapter": {
+      "result": "passed",
+      "tests": 25
+    },
+    "native_rewrap": 12,
+    "native_transport": 13,
+    "result": "passed",
+    "total": 42
+  },
+  "hosted_packaging_or_consumer_pass_claimed": false,
+  "independent_code_and_integration_review": "passed",
+  "main_mutated": false,
+  "merge_performed": false,
+  "observation_date": "2026-11-16",
+  "original_native_builds_reexecuted": false,
+  "original_sdk_campaign_reexecuted": false,
+  "private_marker_scan": "passed",
+  "protocol": "symphony.distribution.d12-native-resumption-implementation.v1",
+  "publication_authorized": false,
+  "source_pins": {
+    "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88"
+  },
+  "workflow_lint": "passed"
+}

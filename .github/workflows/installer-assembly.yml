@@ -1,0 +1,155 @@
+name: D08 unsigned installer assembly
+on:
+  push:
+    branches: ['codex/**']
+    paths: ['installer_assembly/**', '.github/workflows/installer-assembly.yml']
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Native profile of the already audited carrier artifact
+        required: true
+        type: choice
+        options: [macos15-arm64, ubuntu24.04-amd64, ubuntu24.04-arm64, ubuntu26.04-amd64]
+      carrier_run_id:
+        description: This repository's run containing the reviewed carrier artifact
+        required: true
+        type: string
+      carrier_artifact:
+        description: Exact artifact name; must contain the complete audited carrier root
+        required: true
+        type: string
+      cohort_digest:
+        description: Independently selected 64-character carrier cohort digest
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: d08-installer-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      target: ${{ steps.target.outputs.target }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Test only installer and carrier contracts
+        run: python3 -B -m unittest discover -s installer_assembly -p 'test_*.py' -v
+      - name: Admit explicit native assembly inputs
+        if: github.event_name == 'workflow_dispatch'
+        id: target
+        env:
+          PROFILE: ${{ inputs.profile }}
+          RUN_ID: ${{ inputs.carrier_run_id }}
+          ARTIFACT: ${{ inputs.carrier_artifact }}
+          DIGEST: ${{ inputs.cohort_digest }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          assert re.fullmatch('[1-9][0-9]{0,19}', os.environ['RUN_ID'])
+          assert re.fullmatch('[A-Za-z0-9][A-Za-z0-9_.-]{0,199}', os.environ['ARTIFACT'])
+          assert re.fullmatch('[0-9a-f]{64}', os.environ['DIGEST'])
+          targets = {
+            'macos15-arm64': ['macos-15', 'osx-arm64', 'MacOSX-arm64', 'fb567612b76f4ef46de326f04425dbe381b6afc6a66c545f5043255a5ef34258'],
+            'ubuntu24.04-amd64': ['ubuntu-24.04', 'linux-64', 'Linux-x86_64', 'bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf'],
+            'ubuntu24.04-arm64': ['ubuntu-24.04-arm', 'linux-aarch64', 'Linux-aarch64', '1adf18b530e4ffb00886ce6d5bd2eb1fa6311d2f14709b13bd154d8cd98d94c8'],
+            'ubuntu26.04-amd64': ['ubuntu-26.04', 'linux-64', 'Linux-x86_64', 'bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf'],
+          }
+          runner, subdir, asset, digest = targets[os.environ['PROFILE']]
+          target = dict(runner=runner, subdir=subdir, asset='Miniforge3-26.9.4-2-' + asset + '.sh', sha256=digest)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+            output.write('target=' + json.dumps(target, separators=(',', ':')) + '\n')
+          PY
+  wrappers:
+    if: github.event_name == 'workflow_dispatch'
+    needs: contracts
+    runs-on: ${{ fromJSON(needs.contracts.outputs.target).runner }}
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Download only the explicitly selected audited carrier artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.carrier_run_id }}
+          ARTIFACT: ${{ inputs.carrier_artifact }}
+        run: gh run download "$RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$ARTIFACT" --dir "$RUNNER_TEMP/d08-carriers"
+      - name: Prepare private native publisher tools
+        shell: bash
+        env:
+          TARGET: ${{ needs.contracts.outputs.target }}
+        run: |
+          set -euo pipefail
+          mkdir -m 700 "$RUNNER_TEMP/d08-tool-home" "$RUNNER_TEMP/d08-tools-input"
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess, hashlib
+          target = json.loads(os.environ['TARGET'])
+          output = pathlib.Path(os.environ['RUNNER_TEMP']) / 'd08-tools-input/miniforge.sh'
+          url = 'https://github.com/conda-forge/miniforge/releases/download/26.9.4-2/' + target['asset']
+          subprocess.run(['curl', '--fail', '--location', '--retry', '2', url, '--output', str(output)], check=True)
+          assert hashlib.sha256(output.read_bytes()).hexdigest() == target['sha256']
+          PY
+          publisher_home="$RUNNER_TEMP/d08-tool-home"
+          publisher_condarc="$publisher_home/condarc"
+          printf 'channels: []\nreport_errors: false\nanaconda_upload: false\nauto_activate_base: false\n' > "$publisher_condarc"
+          env HOME="$publisher_home" CONDARC="$publisher_condarc" \
+            bash "$RUNNER_TEMP/d08-tools-input/miniforge.sh" -b -p "$RUNNER_TEMP/d08-tool-bootstrap"
+          env HOME="$publisher_home" CONDARC="$publisher_condarc" \
+            "$RUNNER_TEMP/d08-tool-bootstrap/bin/conda" create --yes --override-channels --channel conda-forge \
+            --prefix "$RUNNER_TEMP/d08-publisher" python=3.12.16 conda=26.10.0 conda-build=26.9.1 \
+            conda-package-handling=2.6.0 constructor=3.17.3 pillow=13.0.0 conda-standalone=26.9.4.post1
+          env HOME="$publisher_home" CONDARC="$publisher_condarc" \
+            "$RUNNER_TEMP/d08-tool-bootstrap/bin/conda" list --prefix "$RUNNER_TEMP/d08-publisher" --explicit --sha256 \
+            > "$RUNNER_TEMP/d08-tools-input/publisher.explicit.txt"
+      - name: Verify target tool archive and selected cohort
+        shell: bash
+        env:
+          TARGET: ${{ needs.contracts.outputs.target }}
+          EXPECTED_PROFILE: ${{ inputs.profile }}
+          EXPECTED_DIGEST: ${{ inputs.cohort_digest }}
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/d08-publisher/bin/python" -B - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, sys
+          sys.path.insert(0, 'installer_assembly')
+          import carriers
+          root = pathlib.Path(os.environ['RUNNER_TEMP'])
+          cohort = carriers.audit_cohort(root / 'd08-carriers')
+          assert cohort['cohort_digest'] == 'sha256:' + os.environ['EXPECTED_DIGEST']
+          assert cohort['profile'] == os.environ['EXPECTED_PROFILE']
+          target = json.loads(os.environ['TARGET'])
+          pin = json.load(open('installer_assembly/tool-lock.json'))['standalone'][target['subdir']]
+          archive = root / 'd08-tools-input/standalone.conda'
+          subprocess.run(['curl', '--fail', '--location', '--retry', '2', pin['url'], '--output', str(archive)], check=True)
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == pin['sha256']
+          PY
+      - name: Assemble and inspect exact same-cohort unsigned wrappers
+        shell: bash
+        run: |
+          set -euo pipefail
+          formats=(--format sh)
+          if [[ "$RUNNER_OS" == macOS ]]; then formats+=(--format pkg); fi
+          "$RUNNER_TEMP/d08-publisher/bin/python" -B installer_assembly/construct.py \
+            --cohort "$RUNNER_TEMP/d08-carriers" --output "$RUNNER_TEMP/d08-wrappers" \
+            --python "$RUNNER_TEMP/d08-publisher/bin/python" \
+            --standalone "$RUNNER_TEMP/d08-publisher/standalone_conda/conda.exe" \
+            --standalone-archive "$RUNNER_TEMP/d08-tools-input/standalone.conda" "${formats[@]}"
+      - name: Retain unsigned review evidence only
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: d08-unsigned-${{ inputs.profile }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/d08-wrappers/result.json
+            ${{ runner.temp }}/d08-wrappers/*.pkg
+            ${{ runner.temp }}/d08-wrappers/*.sh
+            ${{ runner.temp }}/d08-tools-input/publisher.explicit.txt
+          if-no-files-found: error
+          retention-days: 14

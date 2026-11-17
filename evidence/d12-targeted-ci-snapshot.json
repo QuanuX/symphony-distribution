@@ -1,0 +1,531 @@
+{
+  "protocol": "symphony.distribution.targeted-ci-observation.v1",
+  "observed_at": "2026-11-16T20:18:42Z",
+  "repository": "QuanuX/symphony-distribution",
+  "scope": "one requested snapshot of two targeted run attempts; no polling or new CI wait",
+  "runs": [
+    {
+      "run_id": 43945383060,
+      "jobs": [
+        {
+          "id": 133573541286,
+          "name": "Cohort selection and refusal contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Select the exact reviewed source",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Verify cohort source and focused refusal tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        },
+        {
+          "id": 133573952393,
+          "name": "Clean cohort (ubuntu26.04-amd64)",
+          "status": "in_progress",
+          "conclusion": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Select private dependency caches",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Select the mapped Apple toolchain",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6
+            },
+            {
+              "name": "Install the selected Linux compiler and payload inspection tools",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Record additional qualification helper provenance",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Verify source and prepare public Go dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Download exact dependency source archives",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Prepare exact external libraries with explicit TLS selection",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 12
+            },
+            {
+              "name": "Record final package and public dependency closure",
+              "status": "pending",
+              "conclusion": null,
+              "number": 13
+            },
+            {
+              "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+              "status": "pending",
+              "conclusion": null,
+              "number": 14
+            },
+            {
+              "name": "Summarize incomplete gates without exporting private logs",
+              "status": "pending",
+              "conclusion": null,
+              "number": 15
+            },
+            {
+              "name": "Retain bounded public evidence",
+              "status": "pending",
+              "conclusion": null,
+              "number": 16
+            },
+            {
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "pending",
+              "conclusion": null,
+              "number": 30
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "pending",
+              "conclusion": null,
+              "number": 31
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "pending",
+              "conclusion": null,
+              "number": 32
+            }
+          ]
+        },
+        {
+          "id": 133573952488,
+          "name": "Clean cohort (ubuntu24.04-amd64)",
+          "status": "in_progress",
+          "conclusion": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Select private dependency caches",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Select the mapped Apple toolchain",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6
+            },
+            {
+              "name": "Install the selected Linux compiler and payload inspection tools",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Record additional qualification helper provenance",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Verify source and prepare public Go dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Download exact dependency source archives",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Prepare exact external libraries with explicit TLS selection",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 12
+            },
+            {
+              "name": "Record final package and public dependency closure",
+              "status": "pending",
+              "conclusion": null,
+              "number": 13
+            },
+            {
+              "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+              "status": "pending",
+              "conclusion": null,
+              "number": 14
+            },
+            {
+              "name": "Summarize incomplete gates without exporting private logs",
+              "status": "pending",
+              "conclusion": null,
+              "number": 15
+            },
+            {
+              "name": "Retain bounded public evidence",
+              "status": "pending",
+              "conclusion": null,
+              "number": 16
+            },
+            {
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "pending",
+              "conclusion": null,
+              "number": 30
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "pending",
+              "conclusion": null,
+              "number": 31
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "pending",
+              "conclusion": null,
+              "number": 32
+            }
+          ]
+        },
+        {
+          "id": 133573952631,
+          "name": "Clean cohort (ubuntu24.04-arm64)",
+          "status": "in_progress",
+          "conclusion": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Select private dependency caches",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Select the mapped Apple toolchain",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6
+            },
+            {
+              "name": "Install the selected Linux compiler and payload inspection tools",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Record additional qualification helper provenance",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Verify source and prepare public Go dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Download exact dependency source archives",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Prepare exact external libraries with explicit TLS selection",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Build two clean cohorts and qualify final installed SDKs",
+              "status": "in_progress",
+              "conclusion": null,
+              "number": 12
+            },
+            {
+              "name": "Record final package and public dependency closure",
+              "status": "pending",
+              "conclusion": null,
+              "number": 13
+            },
+            {
+              "name": "Qualify core SNV APIs, copied Go SDK and disposable removal",
+              "status": "pending",
+              "conclusion": null,
+              "number": 14
+            },
+            {
+              "name": "Summarize incomplete gates without exporting private logs",
+              "status": "pending",
+              "conclusion": null,
+              "number": 15
+            },
+            {
+              "name": "Retain bounded public evidence",
+              "status": "pending",
+              "conclusion": null,
+              "number": 16
+            },
+            {
+              "name": "Post Run actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16",
+              "status": "pending",
+              "conclusion": null,
+              "number": 30
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "pending",
+              "conclusion": null,
+              "number": 31
+            },
+            {
+              "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+              "status": "pending",
+              "conclusion": null,
+              "number": 32
+            }
+          ]
+        }
+      ],
+      "run": {
+        "conclusion": null,
+        "event": "workflow_dispatch",
+        "head_sha": "7422b6fc59479da43cbd7d2694f4767643246f5f",
+        "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43945383060",
+        "id": 43945383060,
+        "path": ".github/workflows/build-cohort.yml",
+        "run_attempt": 1,
+        "status": "in_progress"
+      }
+    },
+    {
+      "run_id": 43945410578,
+      "jobs": [
+        {
+          "id": 133573636443,
+          "name": "contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Read exact Symphony source binding",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Verify source binding and preparation contracts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            }
+          ]
+        },
+        {
+          "id": 133573638868,
+          "name": "conda-transactions",
+          "status": "completed",
+          "conclusion": "skipped",
+          "steps": null
+        }
+      ],
+      "run": {
+        "conclusion": "success",
+        "event": "workflow_dispatch",
+        "head_sha": "3677c186c619181e418882ce14f4b77bc8c0bd86",
+        "html_url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43945410578",
+        "id": 43945410578,
+        "path": ".github/workflows/distribution.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    }
+  ],
+  "failed_jobs_observed": [],
+  "failing_logs_requested": false,
+  "repair_needed_at_snapshot": false,
+  "source_edits": [],
+  "tests_rerun": false,
+  "default_branch_mutated": false,
+  "core_main_mutated": false,
+  "d09_checkout_mutated": false
+}

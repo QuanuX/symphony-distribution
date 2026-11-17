@@ -1,0 +1,40 @@
+{
+  "candidate_bytes_changed": false,
+  "core_main_changed": false,
+  "feature_freeze_preserved": true,
+  "original_beta_run": 43968975978,
+  "protocol": "symphony.distribution.native-pkg-ci-repairs.v1",
+  "publication_performed": false,
+  "repairs": [
+    {
+      "change": "Create byte-and-mode-verified private input copies owned by the executing account; preserve and recheck originals.",
+      "commit": "86aecb00e8c3693088af0d1f6e7f99f82345f32c",
+      "focused_tests_passed": 17,
+      "observed": "Strict archive reader refused runner-owned files when invoked as root before installer execution.",
+      "run_attempt": 2,
+      "run_id": 43971573415
+    },
+    {
+      "change": "Exercise current-home domain as the disposable hosted normal user and retain bounded sanitized installer diagnostics.",
+      "focused_native_gate_tests_passed": 21,
+      "observed": "Exact Apple installer invocation timed out after 1200 seconds in root current-home context; no detailed installer log was retained.",
+      "reference": "https://developer.apple.com/library/archive/documentation/DeveloperTools/Reference/DistributionDefinitionRef/Chapters/Distribution_XML_Ref.html",
+      "release_bundle_tests_passed": 12,
+      "root_cause_proven": false,
+      "run_attempt": 1,
+      "run_id": 43975547915,
+      "workflow_lint_passed": true
+    }
+  ],
+  "selected_pkg_sha256": "21b28a2ffaf793ab04f74713726b7698934cfaab3c926a4078931f86aed0cdf2",
+  "verified_follow_up": {
+    "conclusion": "success",
+    "current_user_home_qualified": true,
+    "native_install_and_removal_step_seconds": 31,
+    "result_sha256": "810bbe4a8bfefcdbc143eae21e480a88d5797948f82b7e6acda179c8138cef57",
+    "run_attempt": 1,
+    "run_id": 43985331279,
+    "same_selected_pkg_bytes": true,
+    "workflow_commit": "4dfd4c723daa8c502e051abc78eccc4e630ef22b"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "apple_developer_id": false,
+  "blockers": [
+    "final PR integration/source selection",
+    "four primary clean native platform cohorts and installers",
+    "fresh unique-user host installation and full native maintenance safety",
+    "real two-release upgrade/swap/rollback/recovery journeys",
+    "Apple Developer ID and notarization",
+    "independent publisher trust and acceptance",
+    "redistribution review including bootstrap dependencies",
+    "approved Anaconda and Cloudflare retrieval"
+  ],
+  "client_cases_passed": 22,
+  "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+  "core_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+  "default_carrier_cohort_digest": "sha256:0b5ad60ceaafeb13b7e7edf0a1908cb2c04774d29823ced6b017216c40fdea70",
+  "default_carrier_count": 59,
+  "implementation_commit": "f4a1467ee119a54e8941d3e13b3afe09861e39cf",
+  "independent_release_acceptance": false,
+  "independent_wrapper_review_sha256": "d1b4aaa9d6c975e3fcb421f71994bd202afc56e68f4f76e8b25800e6706c4810",
+  "installer_executed": false,
+  "main_changed": false,
+  "notarized": false,
+  "optional_source_carrier_count": 1,
+  "original_legacy_source_stamp_gate": "passed",
+  "profile": "local-macos-amd64-fixture",
+  "protocol": "symphony.distribution.d08-review-delivery.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "runtime_activated": false,
+  "signing_scope": "detached self-signed review manifest; native PKG remains unsigned",
+  "source_archive_sha256": "7726898b5d249aad0530f1e369c55229409af9fcc915d569ec4f0ad2cf21926a",
+  "state": "local_review_artifacts_prepared",
+  "wrapper_formats": [
+    "macos-pkg",
+    "macos-sh"
+  ],
+  "wrapper_report_sha256": "99491df00d9f43f46a0b8db86ded0ffb47352a069e6b401fd6333f0731ab09f7"
+}

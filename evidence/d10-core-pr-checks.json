@@ -1,0 +1,1262 @@
+[
+  {
+    "check_runs": [
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009/job/133199365838",
+        "id": 133199365838,
+        "name": "Analyze actions (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009/job/133199345914",
+        "id": 133199345914,
+        "name": "Analyze go (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009/job/133199283874",
+        "id": 133199283874,
+        "name": "Analyze go (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009/job/133199283832",
+        "id": 133199283832,
+        "name": "Analyze swift (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009/job/133199282569",
+        "id": 133199282569,
+        "name": "Analyze c-cpp (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213009/job/133199281647",
+        "id": 133199281647,
+        "name": "Analyze c-cpp (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/runs/133135874031",
+        "id": 133135874031,
+        "name": "CodeQL",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213426/job/133135014655",
+        "id": 133135014655,
+        "name": "Package lifecycle (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213426/job/133135014645",
+        "id": 133135014645,
+        "name": "Package lifecycle (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213426/job/133135014574",
+        "id": 133135014574,
+        "name": "Package lifecycle (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213426/job/133135014289",
+        "id": 133135014289,
+        "name": "Package lifecycle (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213144/job/133135013763",
+        "id": 133135013763,
+        "name": "Installed DuckDB (ubuntu24.04-arm64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213144/job/133135013633",
+        "id": 133135013633,
+        "name": "Installed DuckDB (ubuntu24.04-amd64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213144/job/133135013615",
+        "id": 133135013615,
+        "name": "Installed DuckDB (ubuntu26.04-amd64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818213144/job/133135013313",
+        "id": 133135013313,
+        "name": "Installed DuckDB (macos15-arm64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013072",
+        "id": 133135013072,
+        "name": "Installed SDKs (knowledge, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013071",
+        "id": 133135013071,
+        "name": "Installed SDKs (quantitative, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013068",
+        "id": 133135013068,
+        "name": "Installed SDKs (cloud, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013058",
+        "id": 133135013058,
+        "name": "Installed SDKs (cloud, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013053",
+        "id": 133135013053,
+        "name": "Installed SDKs (cloud, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013011",
+        "id": 133135013011,
+        "name": "Installed SDKs (knowledge, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135013009",
+        "id": 133135013009,
+        "name": "Installed SDKs (quantitative, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012985",
+        "id": 133135012985,
+        "name": "Installed SDKs (knowledge, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012956",
+        "id": 133135012956,
+        "name": "Installed SDKs (quantitative, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012910",
+        "id": 133135012910,
+        "name": "Installed SDKs (cloud, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012873",
+        "id": 133135012873,
+        "name": "Installed SDKs (quantitative, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995/job/133135012750",
+        "id": 133135012750,
+        "name": "Go module race suites (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012743",
+        "id": 133135012743,
+        "name": "Installed SDKs (knowledge, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012742",
+        "id": 133135012742,
+        "name": "Standalone Go graph and build (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995/job/133135012687",
+        "id": 133135012687,
+        "name": "Go module race suites (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995/job/133135012669",
+        "id": 133135012669,
+        "name": "Go module race suites (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995/job/133135012659",
+        "id": 133135012659,
+        "name": "Apple provider contract tests (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995/job/133135012641",
+        "id": 133135012641,
+        "name": "Go module race suites (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212981/job/133135012545",
+        "id": 133135012545,
+        "name": "Installed SQV inspection (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212936/job/133135012540",
+        "id": 133135012540,
+        "name": "Profile administration (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212981/job/133135012534",
+        "id": 133135012534,
+        "name": "Installed SQV inspection (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212936/job/133135012532",
+        "id": 133135012532,
+        "name": "Profile administration (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212941/job/133135012505",
+        "id": 133135012505,
+        "name": "Standalone qxctl (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212945/job/133135012454",
+        "id": 133135012454,
+        "name": "Ownership (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212945/job/133135012444",
+        "id": 133135012444,
+        "name": "Ownership (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212941/job/133135012426",
+        "id": 133135012426,
+        "name": "Standalone qxctl (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212945/job/133135012423",
+        "id": 133135012423,
+        "name": "Ownership (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212941/job/133135012420",
+        "id": 133135012420,
+        "name": "Standalone qxctl (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212941/job/133135012416",
+        "id": 133135012416,
+        "name": "Standalone qxctl (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212981/job/133135012399",
+        "id": 133135012399,
+        "name": "Installed SQV inspection (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212936/job/133135012393",
+        "id": 133135012393,
+        "name": "Profile administration (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212989/job/133135012387",
+        "id": 133135012387,
+        "name": "Standalone Go graph and build (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212945/job/133135012369",
+        "id": 133135012369,
+        "name": "Ownership (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212995/job/133135012340",
+        "id": 133135012340,
+        "name": "Beta scope and incomplete-review preparation",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212866/job/133135012226",
+        "id": 133135012226,
+        "name": "Native local profile (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212936/job/133135012183",
+        "id": 133135012183,
+        "name": "Profile administration (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212866/job/133135012166",
+        "id": 133135012166,
+        "name": "Native local profile (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212941/job/133135012148",
+        "id": 133135012148,
+        "name": "Standalone qxctl (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212981/job/133135012137",
+        "id": 133135012137,
+        "name": "Installed SQV inspection (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212945/job/133135012126",
+        "id": 133135012126,
+        "name": "Ownership (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212842/job/133135012045",
+        "id": 133135012045,
+        "name": "Native local profile (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212842/job/133135011981",
+        "id": 133135011981,
+        "name": "Native local profile (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212866/job/133135011954",
+        "id": 133135011954,
+        "name": "Native local profile (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818212842/job/133135011689",
+        "id": 133135011689,
+        "name": "Native local profile (macos-15-intel)",
+        "status": "completed"
+      }
+    ],
+    "head": "12543673b91d45ab39ac018d1ceb940cea685b67",
+    "pr": 200,
+    "total_count": 59
+  },
+  {
+    "check_runs": [
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/runs/133137596963",
+        "id": 133137596963,
+        "name": "CodeQL",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553808",
+        "id": 133135553808,
+        "name": "Installed SDKs (cloud, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553781",
+        "id": 133135553781,
+        "name": "Installed SDKs (knowledge, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553758",
+        "id": 133135553758,
+        "name": "Installed SDKs (quantitative, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553755",
+        "id": 133135553755,
+        "name": "Installed SDKs (knowledge, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553680",
+        "id": 133135553680,
+        "name": "Installed SDKs (knowledge, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553649",
+        "id": 133135553649,
+        "name": "Installed SDKs (cloud, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553627",
+        "id": 133135553627,
+        "name": "Installed SDKs (quantitative, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553622",
+        "id": 133135553622,
+        "name": "Installed SDKs (cloud, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553611",
+        "id": 133135553611,
+        "name": "Installed SDKs (cloud, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553587",
+        "id": 133135553587,
+        "name": "Installed SDKs (quantitative, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553569",
+        "id": 133135553569,
+        "name": "Installed SDKs (knowledge, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553511",
+        "id": 133135553511,
+        "name": "Standalone Go graph and build (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553506",
+        "id": 133135553506,
+        "name": "Installed SDKs (quantitative, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388543/job/133135553196",
+        "id": 133135553196,
+        "name": "Standalone Go graph and build (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388293/job/133135552916",
+        "id": 133135552916,
+        "name": "Ownership (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388363/job/133135552904",
+        "id": 133135552904,
+        "name": "Installed SQV inspection (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388363/job/133135552830",
+        "id": 133135552830,
+        "name": "Installed SQV inspection (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388363/job/133135552822",
+        "id": 133135552822,
+        "name": "Installed SQV inspection (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388391/job/133135552790",
+        "id": 133135552790,
+        "name": "Profile administration (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388329/job/133135552757",
+        "id": 133135552757,
+        "name": "Installed DuckDB (ubuntu26.04-amd64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388391/job/133135552753",
+        "id": 133135552753,
+        "name": "Profile administration (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388313/job/133135552744",
+        "id": 133135552744,
+        "name": "Native local profile (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388293/job/133135552740",
+        "id": 133135552740,
+        "name": "Ownership (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388391/job/133135552714",
+        "id": 133135552714,
+        "name": "Profile administration (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388329/job/133135552711",
+        "id": 133135552711,
+        "name": "Installed DuckDB (ubuntu24.04-arm64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388293/job/133135552700",
+        "id": 133135552700,
+        "name": "Ownership (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316/job/133135552687",
+        "id": 133135552687,
+        "name": "Analyze actions (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388391/job/133135552626",
+        "id": 133135552626,
+        "name": "Profile administration (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388293/job/133135552583",
+        "id": 133135552583,
+        "name": "Ownership (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388329/job/133135552547",
+        "id": 133135552547,
+        "name": "Installed DuckDB (ubuntu24.04-amd64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388298/job/133135552521",
+        "id": 133135552521,
+        "name": "Native local profile (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388363/job/133135552518",
+        "id": 133135552518,
+        "name": "Installed SQV inspection (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316/job/133135552470",
+        "id": 133135552470,
+        "name": "Analyze go (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316/job/133135552466",
+        "id": 133135552466,
+        "name": "Analyze c-cpp (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388321/job/133135552465",
+        "id": 133135552465,
+        "name": "Standalone qxctl (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388321/job/133135552449",
+        "id": 133135552449,
+        "name": "Standalone qxctl (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388321/job/133135552429",
+        "id": 133135552429,
+        "name": "Standalone qxctl (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388293/job/133135552428",
+        "id": 133135552428,
+        "name": "Ownership (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388313/job/133135552424",
+        "id": 133135552424,
+        "name": "Native local profile (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388298/job/133135552416",
+        "id": 133135552416,
+        "name": "Native local profile (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316/job/133135552409",
+        "id": 133135552409,
+        "name": "Analyze c-cpp (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388313/job/133135552408",
+        "id": 133135552408,
+        "name": "Native local profile (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388329/job/133135552364",
+        "id": 133135552364,
+        "name": "Installed DuckDB (macos15-arm64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388348/job/133135552342",
+        "id": 133135552342,
+        "name": "Package lifecycle (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333/job/133135552332",
+        "id": 133135552332,
+        "name": "Go module race suites (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316/job/133135552325",
+        "id": 133135552325,
+        "name": "Analyze go (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333/job/133135552309",
+        "id": 133135552309,
+        "name": "Beta scope and incomplete-review preparation",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388348/job/133135552298",
+        "id": 133135552298,
+        "name": "Package lifecycle (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333/job/133135552289",
+        "id": 133135552289,
+        "name": "Go module race suites (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333/job/133135552283",
+        "id": 133135552283,
+        "name": "Go module race suites (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388321/job/133135552280",
+        "id": 133135552280,
+        "name": "Standalone qxctl (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388348/job/133135552234",
+        "id": 133135552234,
+        "name": "Package lifecycle (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333/job/133135552213",
+        "id": 133135552213,
+        "name": "Go module race suites (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388298/job/133135552172",
+        "id": 133135552172,
+        "name": "Native local profile (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388321/job/133135552141",
+        "id": 133135552141,
+        "name": "Standalone qxctl (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388333/job/133135552077",
+        "id": 133135552077,
+        "name": "Apple provider contract tests (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388348/job/133135552069",
+        "id": 133135552069,
+        "name": "Package lifecycle (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818388316/job/133135551956",
+        "id": 133135551956,
+        "name": "Analyze swift (macos-15-intel)",
+        "status": "completed"
+      }
+    ],
+    "head": "261c5374b03ca61a0f79d7e717fdd843ef413777",
+    "pr": 201,
+    "total_count": 59
+  },
+  {
+    "check_runs": [
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462966/job/133199436610",
+        "id": 133199436610,
+        "name": "Ownership (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462966/job/133199361182",
+        "id": 133199361182,
+        "name": "Ownership (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462966/job/133199360335",
+        "id": 133199360335,
+        "name": "Ownership (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462966/job/133199359679",
+        "id": 133199359679,
+        "name": "Ownership (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462966/job/133199358142",
+        "id": 133199358142,
+        "name": "Ownership (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/runs/133140538408",
+        "id": 133140538408,
+        "name": "CodeQL",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463138/job/133135784500",
+        "id": 133135784500,
+        "name": "Standalone qxctl (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463138/job/133135784364",
+        "id": 133135784364,
+        "name": "Standalone qxctl (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135784259",
+        "id": 133135784259,
+        "name": "Installed SDKs (knowledge, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973/job/133135784185",
+        "id": 133135784185,
+        "name": "Analyze go (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463138/job/133135784179",
+        "id": 133135784179,
+        "name": "Standalone qxctl (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973/job/133135784165",
+        "id": 133135784165,
+        "name": "Analyze swift (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135784143",
+        "id": 133135784143,
+        "name": "Installed SDKs (quantitative, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973/job/133135784142",
+        "id": 133135784142,
+        "name": "Analyze c-cpp (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463164/job/133135784107",
+        "id": 133135784107,
+        "name": "Package lifecycle (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973/job/133135784092",
+        "id": 133135784092,
+        "name": "Analyze go (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463138/job/133135784082",
+        "id": 133135784082,
+        "name": "Standalone qxctl (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973/job/133135784080",
+        "id": 133135784080,
+        "name": "Analyze actions (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462971/job/133135784054",
+        "id": 133135784054,
+        "name": "Native local profile (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463164/job/133135784011",
+        "id": 133135784011,
+        "name": "Package lifecycle (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155/job/133135783965",
+        "id": 133135783965,
+        "name": "Go module race suites (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155/job/133135783960",
+        "id": 133135783960,
+        "name": "Go module race suites (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463164/job/133135783955",
+        "id": 133135783955,
+        "name": "Package lifecycle (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155/job/133135783950",
+        "id": 133135783950,
+        "name": "Apple provider contract tests (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155/job/133135783914",
+        "id": 133135783914,
+        "name": "Go module race suites (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783891",
+        "id": 133135783891,
+        "name": "Installed SDKs (quantitative, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155/job/133135783886",
+        "id": 133135783886,
+        "name": "Go module race suites (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783851",
+        "id": 133135783851,
+        "name": "Installed SDKs (quantitative, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462973/job/133135783825",
+        "id": 133135783825,
+        "name": "Analyze c-cpp (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463146/job/133135783808",
+        "id": 133135783808,
+        "name": "Native local profile (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783805",
+        "id": 133135783805,
+        "name": "Installed SDKs (knowledge, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463138/job/133135783766",
+        "id": 133135783766,
+        "name": "Standalone qxctl (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463146/job/133135783761",
+        "id": 133135783761,
+        "name": "Native local profile (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783754",
+        "id": 133135783754,
+        "name": "Installed SDKs (cloud, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463155/job/133135783668",
+        "id": 133135783668,
+        "name": "Beta scope and incomplete-review preparation",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783654",
+        "id": 133135783654,
+        "name": "Installed SDKs (knowledge, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463024/job/133135783641",
+        "id": 133135783641,
+        "name": "Installed DuckDB (ubuntu26.04-amd64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783640",
+        "id": 133135783640,
+        "name": "Installed SDKs (cloud, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783626",
+        "id": 133135783626,
+        "name": "Installed SDKs (cloud, ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463024/job/133135783616",
+        "id": 133135783616,
+        "name": "Installed DuckDB (ubuntu24.04-amd64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783591",
+        "id": 133135783591,
+        "name": "Installed SDKs (cloud, ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783581",
+        "id": 133135783581,
+        "name": "Installed SDKs (knowledge, macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783568",
+        "id": 133135783568,
+        "name": "Standalone Go graph and build (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463164/job/133135783565",
+        "id": 133135783565,
+        "name": "Package lifecycle (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783544",
+        "id": 133135783544,
+        "name": "Installed SDKs (quantitative, ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463024/job/133135783537",
+        "id": 133135783537,
+        "name": "Installed DuckDB (macos15-arm64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463102/job/133135783527",
+        "id": 133135783527,
+        "name": "Installed SQV inspection (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463102/job/133135783436",
+        "id": 133135783436,
+        "name": "Installed SQV inspection (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463102/job/133135783360",
+        "id": 133135783360,
+        "name": "Installed SQV inspection (ubuntu-26.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463146/job/133135783353",
+        "id": 133135783353,
+        "name": "Native local profile (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463024/job/133135783351",
+        "id": 133135783351,
+        "name": "Installed DuckDB (ubuntu24.04-arm64)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462997/job/133135783247",
+        "id": 133135783247,
+        "name": "Profile administration (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463130/job/133135783216",
+        "id": 133135783216,
+        "name": "Standalone Go graph and build (macos-15)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462997/job/133135783147",
+        "id": 133135783147,
+        "name": "Profile administration (ubuntu-24.04-arm)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462997/job/133135783131",
+        "id": 133135783131,
+        "name": "Profile administration (macos-15-intel)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818463102/job/133135783057",
+        "id": 133135783057,
+        "name": "Installed SQV inspection (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462971/job/133135783050",
+        "id": 133135783050,
+        "name": "Native local profile (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462997/job/133135782853",
+        "id": 133135782853,
+        "name": "Profile administration (ubuntu-24.04)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "details_url": "https://github.com/QuanuX/Symphony/actions/runs/43818462971/job/133135782727",
+        "id": 133135782727,
+        "name": "Native local profile (ubuntu-24.04-arm)",
+        "status": "completed"
+      }
+    ],
+    "head": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+    "pr": 202,
+    "total_count": 59
+  }
+]

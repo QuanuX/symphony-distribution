@@ -1,0 +1,779 @@
+{
+  "all_artifact_api_sha256_and_sizes_verified": true,
+  "artifact_count": 8,
+  "artifacts": [
+    {
+      "api_digest": "sha256:8d4b2525a89062d2842fe23e344a28dbb974a4e9e527c822cbe9924fb6b93b0f",
+      "api_metadata_sha256": "ef7141cc616fb102b086417758ab3d0ed1ef2c1e40e7491428c9b8b9ed67e8ab",
+      "archive_sha256": "8d4b2525a89062d2842fe23e344a28dbb974a4e9e527c822cbe9924fb6b93b0f",
+      "artifact_id": 14255095274,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "b0ac46adec460fa3e5d245ef9d278c5f28ce34e0e56a4a2576f072b2b9577ae8",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_kind": "exact_committed_source_archive",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "inventory_complete_publisher_review_pending",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "b0ac46adec460fa3e5d245ef9d278c5f28ce34e0e56a4a2576f072b2b9577ae8",
+          "size": 2962
+        },
+        {
+          "path": "d06-cohort/round-1/result.json",
+          "sha256": "d0657f92df4e1345b842cd031bd12a4ede8e372b6dbe01c1f3029ac32a357ba6",
+          "size": 379424
+        },
+        {
+          "path": "d06-cohort/round-1/owner-audit/result.json",
+          "sha256": "a3db1fd96c9b519554e5d82944893673d37dbe147e3e1dfa85564592f8203e24",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-1/sdk-audit/sdk-audit.json",
+          "sha256": "3e28da3e21e3e70e3714f4f1812651335b6accd58df1c0e3f4cae43ddb60d4bb",
+          "size": 12150
+        },
+        {
+          "path": "d06-cohort/round-2/owner-audit/result.json",
+          "sha256": "d407645e2bc28fce23263b9defbd498d83a7f696171bacdfb61081021f638c39",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-2/result.json",
+          "sha256": "a876b2e64862726035569d5cd3e4c3b30f7a15fc10797de49f4d731603ad9e58",
+          "size": 379424
+        },
+        {
+          "path": "d06-cohort/round-2/sdk-audit/sdk-audit.json",
+          "sha256": "008dea6d461bd481ce02dfe72ab8a01024691857f68c8703f8ace9d9aa6a85db",
+          "size": 12150
+        },
+        {
+          "path": "d06-external/prefix/share/symphony/dependency-evidence/curl-zstd.json",
+          "sha256": "a7f46b838dad2a3dae7d6d7c1bda766837feb441f26f6bd8f2874c5dd030efc2",
+          "size": 4411
+        },
+        {
+          "path": "d06-sdk-closure/result.json",
+          "sha256": "a3d1360a9aa61e42a6af844f26a4716eaf7430ae9bfd080898d9e02fc63840d2",
+          "size": 176913
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "0de309ef264c8471a16f4c678d9be7b1d66be581d8bb8d1e68379750a19b14a8",
+          "size": 658575
+        },
+        {
+          "path": "d06-failure-summary.json",
+          "sha256": "023bfa5ff835e6cf73829be51f2422926c5d1420af8fb732949775e72f065e24",
+          "size": 1948
+        },
+        {
+          "path": "d06-go-preparation/result.json",
+          "sha256": "0fc9437b975af77b9af512c76fef4c4cfcebfe1a003780a9a826a06676c8e2b7",
+          "size": 26276
+        }
+      ],
+      "head_sha": "72b25452f25f14b9c71bde2c3985095800c5fcc3",
+      "name": "d06-cohort-ubuntu24.04-arm64",
+      "native_payload_available": false,
+      "profile": "ubuntu24.04-arm64",
+      "public_source_eligible": false,
+      "retained_inventory_reports_equal": true,
+      "retained_report_hash_links_verified": true,
+      "round_report_files_retained": true,
+      "run_id": 43913439537,
+      "size": 267049,
+      "supplemental_sdk_executed": true,
+      "supplemental_sdk_report_status": "passed",
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:78eefa5986ba7bd545017a32da2c7482870e2f89a4bf7ccc77c2b87f7e7d66bf",
+      "api_metadata_sha256": "ef7141cc616fb102b086417758ab3d0ed1ef2c1e40e7491428c9b8b9ed67e8ab",
+      "archive_sha256": "78eefa5986ba7bd545017a32da2c7482870e2f89a4bf7ccc77c2b87f7e7d66bf",
+      "artifact_id": 14253585540,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "51d6c55216e626e0bd6e4eefb1a96ebdb4be2a56dbb735e416798a641064cf6d",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_kind": "exact_committed_source_archive",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "inventory_complete_publisher_review_pending",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d06-cohort/round-1/owner-audit/result.json",
+          "sha256": "e3f79d9b3b9bb867dd7584916fec6be74c8bfd3dc0953f8498e65861469847bb",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-1/result.json",
+          "sha256": "9890620f302735971c31e33af7a2b415d10d70d5dd1872858f9ce26f531f6abc",
+          "size": 379784
+        },
+        {
+          "path": "d06-cohort/round-1/sdk-audit/sdk-audit.json",
+          "sha256": "1605cad73f945b2dcf48b999de08e1415280b7c2a9e83766bd3d83fe303ca311",
+          "size": 12150
+        },
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "51d6c55216e626e0bd6e4eefb1a96ebdb4be2a56dbb735e416798a641064cf6d",
+          "size": 2960
+        },
+        {
+          "path": "d06-cohort/round-2/owner-audit/result.json",
+          "sha256": "e7f3ee711070800c3a38fb7eb4a6727791e443e2732f0bd26be108dfc95833e7",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-2/result.json",
+          "sha256": "de5261db7c20deca8f76249a94989d6c9d30937e3caccd84f7c566dfbfc0aefe",
+          "size": 379784
+        },
+        {
+          "path": "d06-cohort/round-2/sdk-audit/sdk-audit.json",
+          "sha256": "648390aca67cd59b7e80a8f2e05a09d17ee51e6ec46f112d5b4cb03429880511",
+          "size": 12150
+        },
+        {
+          "path": "d06-external/prefix/share/symphony/dependency-evidence/curl-zstd.json",
+          "sha256": "339c43f913dc53b729a31bc2af01707dfdca28e2a49a65c04469a898d83b9074",
+          "size": 5161
+        },
+        {
+          "path": "d06-sdk-closure/result.json",
+          "sha256": "045cc01b90b9cf47eef091b1019afa430926394d0b64091a4f9d6b11004888bb",
+          "size": 176913
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "ca6df8bf64ceafa754a88addba01cc4f01529fdbc5ea8fea5ba7ab642465d42f",
+          "size": 659418
+        },
+        {
+          "path": "d06-failure-summary.json",
+          "sha256": "023bfa5ff835e6cf73829be51f2422926c5d1420af8fb732949775e72f065e24",
+          "size": 1948
+        },
+        {
+          "path": "d06-go-preparation/result.json",
+          "sha256": "11a8b85ed4e5c0342ff4916849d462f88d71f9838f04a11be1df3551c8134b3a",
+          "size": 26276
+        }
+      ],
+      "head_sha": "72b25452f25f14b9c71bde2c3985095800c5fcc3",
+      "name": "d06-cohort-ubuntu26.04-amd64",
+      "native_payload_available": false,
+      "profile": "ubuntu26.04-amd64",
+      "public_source_eligible": false,
+      "retained_inventory_reports_equal": true,
+      "retained_report_hash_links_verified": true,
+      "round_report_files_retained": true,
+      "run_id": 43913439537,
+      "size": 267324,
+      "supplemental_sdk_executed": true,
+      "supplemental_sdk_report_status": "passed",
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:4724b03ac0019ffaf6c78941f2fbc7676023261c0469f4775eb7c1837f070aed",
+      "api_metadata_sha256": "ef7141cc616fb102b086417758ab3d0ed1ef2c1e40e7491428c9b8b9ed67e8ab",
+      "archive_sha256": "4724b03ac0019ffaf6c78941f2fbc7676023261c0469f4775eb7c1837f070aed",
+      "artifact_id": 14253320586,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "99128c62908a05d37227f02f9d4bf6f118f2807974e68fd8c1ea0cb15a5235ad",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_kind": "exact_committed_source_archive",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "inventory_complete_publisher_review_pending",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "99128c62908a05d37227f02f9d4bf6f118f2807974e68fd8c1ea0cb15a5235ad",
+          "size": 2960
+        },
+        {
+          "path": "d06-cohort/round-1/owner-audit/result.json",
+          "sha256": "9d008af9b2c8eb22698f98e5ae5b94ab2340da184640082c8bb8bd6dff651eba",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-1/sdk-audit/sdk-audit.json",
+          "sha256": "3dde17fd9c894c2281fb9a4ae86c8a404b8892f2fb82eeaeedf68a0dd229a6d4",
+          "size": 12150
+        },
+        {
+          "path": "d06-cohort/round-1/result.json",
+          "sha256": "25998f5557f825236d1c83bdfb1bc5267c3cdb5089a83230f34a06261ed2afdc",
+          "size": 379783
+        },
+        {
+          "path": "d06-cohort/round-2/owner-audit/result.json",
+          "sha256": "ea79fe29556338bc49055020897585e79d27d560ab203815507819c1c160617e",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-2/result.json",
+          "sha256": "069270d1bf517a4798d6d9312f36fbcea7644e35309315e5660c5e3206037d94",
+          "size": 379783
+        },
+        {
+          "path": "d06-cohort/round-2/sdk-audit/sdk-audit.json",
+          "sha256": "b04c83d289b28e6967309e53259969ce8c0c21045d4a11b60aec737202ddf398",
+          "size": 12150
+        },
+        {
+          "path": "d06-external/prefix/share/symphony/dependency-evidence/curl-zstd.json",
+          "sha256": "66408de5b24c00d96c06746d66e06d5232025a9218d6b34d01ea1d4011ac7da5",
+          "size": 4331
+        },
+        {
+          "path": "d06-sdk-closure/result.json",
+          "sha256": "123c06dd616a96031d1681619517f8ea6189a14efeb2fb53d14b881fbee45d7b",
+          "size": 176913
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "f6cad0a6a4ad2c74f148cc312e566ae0ba162796a3b77a8b334e985d702aeba5",
+          "size": 658475
+        },
+        {
+          "path": "d06-failure-summary.json",
+          "sha256": "023bfa5ff835e6cf73829be51f2422926c5d1420af8fb732949775e72f065e24",
+          "size": 1948
+        },
+        {
+          "path": "d06-go-preparation/result.json",
+          "sha256": "11a8b85ed4e5c0342ff4916849d462f88d71f9838f04a11be1df3551c8134b3a",
+          "size": 26276
+        }
+      ],
+      "head_sha": "72b25452f25f14b9c71bde2c3985095800c5fcc3",
+      "name": "d06-cohort-ubuntu24.04-amd64",
+      "native_payload_available": false,
+      "profile": "ubuntu24.04-amd64",
+      "public_source_eligible": false,
+      "retained_inventory_reports_equal": true,
+      "retained_report_hash_links_verified": true,
+      "round_report_files_retained": true,
+      "run_id": 43913439537,
+      "size": 267149,
+      "supplemental_sdk_executed": true,
+      "supplemental_sdk_report_status": "passed",
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:b865d1fa33f1427539e20fafdc2d84d1b40a816eddea9c497007e400183649c2",
+      "api_metadata_sha256": "ef7141cc616fb102b086417758ab3d0ed1ef2c1e40e7491428c9b8b9ed67e8ab",
+      "archive_sha256": "b865d1fa33f1427539e20fafdc2d84d1b40a816eddea9c497007e400183649c2",
+      "artifact_id": 14252414871,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "3ec83c9ae2efa73fdca0605b29412c52fb3a7710d41f440cb0874ee651838640",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_kind": "exact_committed_source_archive",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "inventory_complete_publisher_review_pending",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "3ec83c9ae2efa73fdca0605b29412c52fb3a7710d41f440cb0874ee651838640",
+          "size": 2949
+        },
+        {
+          "path": "d06-cohort/round-1/owner-audit/result.json",
+          "sha256": "cfbcdcf0a2db6c7f04b35e2dae5500dc76df8da754b4d661c1cf0cdd51a91dd3",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-1/result.json",
+          "sha256": "e3d50f78ce81e870b3115cf2c5ddb0b4f6c21858c3644342aabd869bb927d713",
+          "size": 374344
+        },
+        {
+          "path": "d06-cohort/round-1/sdk-audit/sdk-audit.json",
+          "sha256": "12640f961c7bc2f250921b6f821304d389767fb36c45d5872b08b384e3d20358",
+          "size": 12150
+        },
+        {
+          "path": "d06-cohort/round-2/owner-audit/result.json",
+          "sha256": "7dceb5a09a78e89b9b2efee23bf2b949168bf2ed24706160789f582a7501095b",
+          "size": 5032
+        },
+        {
+          "path": "d06-cohort/round-2/result.json",
+          "sha256": "c7e0bd05af5d00ffb0d27c6f94c0c809771ba03ba4c83443ca0f40498f1e8405",
+          "size": 374344
+        },
+        {
+          "path": "d06-cohort/round-2/sdk-audit/sdk-audit.json",
+          "sha256": "d0dd0b058c69125f18b7b23bc3b5ed9c6869cacbdd399c8774c9e36c4d0be829",
+          "size": 12150
+        },
+        {
+          "path": "d06-external/prefix/share/symphony/dependency-evidence/curl-zstd.json",
+          "sha256": "0154cd5a0bde2a9ef9f9243cf7c752ae6442f9b3b10abdf08c35027f05890401",
+          "size": 2481
+        },
+        {
+          "path": "d06-sdk-closure/result.json",
+          "sha256": "229bec84c2084f7a3cf5764efbb5fb350872987172599e1f6453484161c301ec",
+          "size": 176913
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "fbc289dab96fb70ebb0633435d15bf919897f059f0e8e6df3aa703c6db201398",
+          "size": 657189
+        },
+        {
+          "path": "d06-failure-summary.json",
+          "sha256": "023bfa5ff835e6cf73829be51f2422926c5d1420af8fb732949775e72f065e24",
+          "size": 1948
+        },
+        {
+          "path": "d06-go-preparation/result.json",
+          "sha256": "b65077886479b19b450574eb67e422e38559c26454cf65d71570d063d9dddb18",
+          "size": 26276
+        }
+      ],
+      "head_sha": "72b25452f25f14b9c71bde2c3985095800c5fcc3",
+      "name": "d06-cohort-macos15-arm64",
+      "native_payload_available": false,
+      "profile": "macos15-arm64",
+      "public_source_eligible": false,
+      "retained_inventory_reports_equal": true,
+      "retained_report_hash_links_verified": true,
+      "round_report_files_retained": true,
+      "run_id": 43913439537,
+      "size": 265610,
+      "supplemental_sdk_executed": true,
+      "supplemental_sdk_report_status": "passed",
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:ee1935ffe242e34f9d334a34e4614802cd5d7c04cab7330d99c0db6e0f7124b9",
+      "api_metadata_sha256": "db91d300e1e88691e8f381f0f7f6bd96ae6d64fa1685c3b25020d536bdaa1bac",
+      "archive_sha256": "ee1935ffe242e34f9d334a34e4614802cd5d7c04cab7330d99c0db6e0f7124b9",
+      "artifact_id": 14255141817,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "6d7a7c90699f39301a653129ccfb90eb8b2d4f550454ea1e66ea91c5038522fc",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+        "source_kind": "verified_reviewed_derived_export",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "failed",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d09-native-failure-summary.json",
+          "sha256": "6969242f7d2928b18a25942802f380cbc33388b50bae9ce9116b717bfc10a65b",
+          "size": 3049
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "9a3710efd126af0055da0211ee583be61a156a14c5e50e95b72a4106ee7abd53",
+          "size": 668219
+        },
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "6d7a7c90699f39301a653129ccfb90eb8b2d4f550454ea1e66ea91c5038522fc",
+          "size": 3154
+        },
+        {
+          "path": "d09-tools/publisher.explicit.txt",
+          "sha256": "a5230838983c7bd606ab6de480a86712d8917c59714dc21e873828a376777258",
+          "size": 23386
+        },
+        {
+          "path": "d09-tools/result.json",
+          "sha256": "7e9dbde80c49269e498fe73ac64fb5ba325ac45a451d830ce7f4689f0d4046de",
+          "size": 568
+        }
+      ],
+      "head_sha": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "name": "d09-evidence-macos15-arm64-1",
+      "native_payload_available": false,
+      "profile": "macos15-arm64",
+      "round_report_files_retained": false,
+      "run_id": 43919872052,
+      "size": 106633,
+      "supplemental_sdk_executed": false,
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:24bec3ff5ad335d30a1b16d484dba119cdb7dbc588c9dfa34df0e30d7a51147b",
+      "api_metadata_sha256": "60800a293242fe0f6ec23339c48941a35d759ef50761492944fe39486ff4ee0b",
+      "archive_sha256": "24bec3ff5ad335d30a1b16d484dba119cdb7dbc588c9dfa34df0e30d7a51147b",
+      "artifact_id": 14254878827,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "629e7820d2d8a3e9670ba6d37e273890ce3e58e49436838a5128495cb21fd01e",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+        "source_kind": "verified_reviewed_derived_export",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "failed",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d09-native-failure-summary.json",
+          "sha256": "607b958d879b183b39850c90d4e7d2de04d6ba35684476ea0a9cdcd798ec7440",
+          "size": 3046
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "8bf0c886bec9f65a4de18eea72c0c3afd881d36394ff587a6a839650b8bcde9b",
+          "size": 669505
+        },
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "629e7820d2d8a3e9670ba6d37e273890ce3e58e49436838a5128495cb21fd01e",
+          "size": 3165
+        },
+        {
+          "path": "d09-tools/publisher.explicit.txt",
+          "sha256": "741ae86b88d972903c86b766262f488b14eb4e17d88935c0d25580dbc0878eaf",
+          "size": 22955
+        },
+        {
+          "path": "d09-tools/result.json",
+          "sha256": "bb773d4365a9cde4bd309da4353e3ff0cc6c9dd20f3e7970bd8ef2af98704260",
+          "size": 572
+        }
+      ],
+      "head_sha": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "name": "d09-evidence-ubuntu24.04-amd64-1",
+      "native_payload_available": false,
+      "profile": "ubuntu24.04-amd64",
+      "round_report_files_retained": false,
+      "run_id": 43919876976,
+      "size": 107069,
+      "supplemental_sdk_executed": false,
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:1d717a802b637b453ec198ea6177ef35123f7050370c726622c370c8685825bc",
+      "api_metadata_sha256": "0badf3d3f3d028fe62b4b514680708d64536154a97c8162b6c8507356840e203",
+      "archive_sha256": "1d717a802b637b453ec198ea6177ef35123f7050370c726622c370c8685825bc",
+      "artifact_id": 14257865165,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "aaf5ab9d57bdd642ec694aabcef0681050594485f8e03644d3ac220806173094",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+        "source_kind": "verified_reviewed_derived_export",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "failed",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d09-native-failure-summary.json",
+          "sha256": "508d93398caac7f8630c7eed2f189dc1dd00f2c21365b88ced6b86b8ebebe4b2",
+          "size": 3048
+        },
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "aaf5ab9d57bdd642ec694aabcef0681050594485f8e03644d3ac220806173094",
+          "size": 3167
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "9fafab6429755c29e8b098a8fdf08480d117cd7b1077cc2435cb0ea34b32088e",
+          "size": 669605
+        },
+        {
+          "path": "d09-tools/publisher.explicit.txt",
+          "sha256": "324bf612c15173c732d6e918d8f3c1b8cd0356784e256afafac14fd6dfd26d8b",
+          "size": 23385
+        },
+        {
+          "path": "d09-tools/result.json",
+          "sha256": "3f32bc00709e52c37f7b270b0b8f078f2b53535a73c0ef2b50976ffff6e12848",
+          "size": 572
+        }
+      ],
+      "head_sha": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "name": "d09-evidence-ubuntu24.04-arm64-1",
+      "native_payload_available": false,
+      "profile": "ubuntu24.04-arm64",
+      "round_report_files_retained": false,
+      "run_id": 43919882342,
+      "size": 107040,
+      "supplemental_sdk_executed": false,
+      "wrapper_available": false
+    },
+    {
+      "api_digest": "sha256:58508beacef64d0ffe0bb32d3d9887c877b17da4f7aaa40ee6e737b91bcc052d",
+      "api_metadata_sha256": "2ee1754e5b36abe42dfea2e1255b03455ebae678767a1b5ce97fdd1dcbfccc8b",
+      "archive_sha256": "58508beacef64d0ffe0bb32d3d9887c877b17da4f7aaa40ee6e737b91bcc052d",
+      "artifact_id": 14255454864,
+      "build_report": {
+        "actual_payload_bytes_reverified": false,
+        "go_commands_per_round": [
+          6,
+          6
+        ],
+        "native_units_per_round": [
+          51,
+          51
+        ],
+        "repeated_payload_equality_reported": true,
+        "sha256": "aea6e2cdf374dcd4111ec906daaf99c4b002b93d0bdd9308a88f8824d5c30e9e",
+        "source_commit": "5fd6cee1bae477048bf0045b691ee8bdf334e216",
+        "source_export_digest": "78beb6d668fe31b59ff990f291c48c608fc37514f856f22b6dee83c57ae2044e",
+        "source_kind": "verified_reviewed_derived_export",
+        "source_tree": "327edd0f22860e84d30fe745f5a2b0e602f4af88",
+        "state": "built_and_sdk_checked",
+        "two_rounds_recorded": true
+      },
+      "delivery_report_state": "failed",
+      "digest_verified": true,
+      "expired": false,
+      "files": [
+        {
+          "path": "d09-native-failure-summary.json",
+          "sha256": "607b958d879b183b39850c90d4e7d2de04d6ba35684476ea0a9cdcd798ec7440",
+          "size": 3046
+        },
+        {
+          "path": "d06-cohort/result.json",
+          "sha256": "aea6e2cdf374dcd4111ec906daaf99c4b002b93d0bdd9308a88f8824d5c30e9e",
+          "size": 3167
+        },
+        {
+          "path": "d06-delivery/delivery-record.json",
+          "sha256": "f451a0efddb6eeb8102a89e07f9edb8e08659ec5b6580c886e3fb5a7508e2c2d",
+          "size": 670450
+        },
+        {
+          "path": "d09-tools/publisher.explicit.txt",
+          "sha256": "741ae86b88d972903c86b766262f488b14eb4e17d88935c0d25580dbc0878eaf",
+          "size": 22955
+        },
+        {
+          "path": "d09-tools/result.json",
+          "sha256": "4fd5cb709fe42485c4e435f1125df415d5253d02a2ba5b3dd1bdf0b56968b895",
+          "size": 572
+        }
+      ],
+      "head_sha": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "name": "d09-evidence-ubuntu26.04-amd64-1",
+      "native_payload_available": false,
+      "profile": "ubuntu26.04-amd64",
+      "round_report_files_retained": false,
+      "run_id": 43919888963,
+      "size": 107207,
+      "supplemental_sdk_executed": false,
+      "wrapper_available": false
+    }
+  ],
+  "current_toolkit_privacy_failure_resolved": true,
+  "fallback_run": {
+    "all_four_primary_jobs_passed": true,
+    "conclusion": "success",
+    "run_id": 43913439537,
+    "source_head": "72b25452f25f14b9c71bde2c3985095800c5fcc3",
+    "source_scope": "raw_commit_ci_qualification_only_not_public_source_eligible",
+    "status": "completed",
+    "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43913439537"
+  },
+  "independent_fresh_host_acceptance": false,
+  "observation_date": "2026-11-16",
+  "primary_runs": [
+    {
+      "carriers": "skipped",
+      "conclusion": "failure",
+      "diagnosis": "private marker in docs/D09-ACCEPTANCE.md at the exact old toolkit revision",
+      "failed_step": "Record final package and public dependency closure",
+      "fresh_user": "skipped",
+      "native_build_step": "success",
+      "raw_log_sha256": "ee397df71f21895df34bc85f4f70ed244747af172717e800ccd60a5390b4cc8a",
+      "run_id": 43919872052,
+      "source_head": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "status": "completed",
+      "supplemental_sdk": "skipped",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919872052",
+      "wrappers": "skipped"
+    },
+    {
+      "carriers": "skipped",
+      "conclusion": "failure",
+      "diagnosis": "private marker in docs/D09-ACCEPTANCE.md at the exact old toolkit revision",
+      "failed_step": "Record final package and public dependency closure",
+      "fresh_user": "skipped",
+      "native_build_step": "success",
+      "raw_log_sha256": "6e154226056c018e56433dda34da72e6d8ef83fa4808174b4be7f0519a17ffaf",
+      "run_id": 43919876976,
+      "source_head": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "status": "completed",
+      "supplemental_sdk": "skipped",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919876976",
+      "wrappers": "skipped"
+    },
+    {
+      "carriers": "skipped",
+      "conclusion": "failure",
+      "diagnosis": "private marker in docs/D09-ACCEPTANCE.md at the exact old toolkit revision",
+      "failed_step": "Record final package and public dependency closure",
+      "fresh_user": "skipped",
+      "native_build_step": "success",
+      "raw_log_sha256": "8f80b7c3d3caf4a3cccff1d2ba11ea7a475f59e603e9c42f90ce80d5e0932158",
+      "run_id": 43919882342,
+      "source_head": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "status": "completed",
+      "supplemental_sdk": "skipped",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919882342",
+      "wrappers": "skipped"
+    },
+    {
+      "carriers": "skipped",
+      "conclusion": "failure",
+      "diagnosis": "private marker in docs/D09-ACCEPTANCE.md at the exact old toolkit revision",
+      "failed_step": "Record final package and public dependency closure",
+      "fresh_user": "skipped",
+      "native_build_step": "success",
+      "raw_log_sha256": "b765ebf2e3d56e0d609f4cbab0de7da802b3d2632acd465095c341e269a0f36d",
+      "run_id": 43919888963,
+      "source_head": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "status": "completed",
+      "supplemental_sdk": "skipped",
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/43919888963",
+      "wrappers": "skipped"
+    }
+  ],
+  "protocol": "symphony.distribution.primary-build-artifact-selection.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "repository": "QuanuX/symphony-distribution",
+  "safe_extraction": {
+    "links_special_files_traversal_duplicates_encryption_refused": true,
+    "member_sizes_and_crc_verified": true,
+    "regular_members_sha256_recorded": true
+  },
+  "scope": "One completed-run snapshot and exact downloaded report-artifact verification; no build, retry, dispatch or CI wait.",
+  "selection": {
+    "next_required": "Retain a verified native capsule immediately after the next completed build, and a verified carrier capsule before wrapper assembly; consumer reruns can then avoid native rebuilds.",
+    "ready_carrier_inputs": [],
+    "ready_native_payload_inputs": [],
+    "ready_wrapper_inputs": [],
+    "reason": "All eight uploaded artifacts contain reports only. Report hashes and successful build steps cannot substitute for missing artifact bytes.",
+    "state": "blocked_missing_actual_primary_payload_bytes"
+  },
+  "toolkit_privacy_snapshot": [
+    {
+      "commit": "f7ec266c7b5c4d18a431fa5d01927cf82668369e",
+      "privacy_failures": [
+        {
+          "category": "private marker in docs/D09-ACCEPTANCE.md",
+          "path": "docs/D09-ACCEPTANCE.md"
+        }
+      ],
+      "tracked_files": 208
+    },
+    {
+      "commit": "1e04b2f0bb54e3dc246c893bcf77cae383bc052d",
+      "privacy_failures": [],
+      "tracked_files": 235
+    }
+  ]
+}

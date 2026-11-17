@@ -1,0 +1,114 @@
+{
+  "actual_primary_capsule_selected": false,
+  "actual_primary_wrapper_only_execution": false,
+  "base_toolkit_commit": "1e04b2f0bb54e3dc246c893bcf77cae383bc052d",
+  "changed_files_privacy_scan": "passed",
+  "core_client_worktrees_clean": true,
+  "date": "2026-11-16",
+  "feature_freeze_preserved": true,
+  "focused_suites": [
+    {
+      "state": "passed",
+      "suite": "test_d09_platform.py",
+      "tests": 30
+    },
+    {
+      "state": "passed",
+      "suite": "test_d10_build_retention.py",
+      "tests": 24
+    },
+    {
+      "state": "passed",
+      "suite": "test_primary_artifacts.py",
+      "tests": 10
+    },
+    {
+      "state": "passed",
+      "suite": "test_primary_rewrap.py",
+      "tests": 17
+    }
+  ],
+  "focused_test_count": 81,
+  "historical_artifact_zip_replays": 8,
+  "independent_fresh_host_acceptance": false,
+  "next_action": "Recover missing payloads in four exact-source producers without waiting for CI; verify and select actual retained carriers before wrapper-only dispatch.",
+  "protected_main_mutated": false,
+  "protected_main_refs": {
+    "QuanuX/Symphony": "976b23290857be613005eea5cdc130d0f457b8c3",
+    "QuanuX/symphony-codex-ipc-mcp-and-skills": "874402db2163bc44ba8fe2247c00b30ba439adf8"
+  },
+  "protocol": "symphony.distribution.primary-wrapper-implementation.v1",
+  "publication_authorized": false,
+  "real_primary_report_schema_reviews": 4,
+  "release_acceptance_complete": false,
+  "scope": "Retained native/carrier recovery and wrapper-only engineering contracts; no added Symphony feature, source integration, runtime activation or release promotion.",
+  "source_files": [
+    {
+      "path": ".github/workflows/d09-platform.yml",
+      "sha256": "c64866e634be8e8576f92810bce15215fa8f06cbfeca28e6c211a1bdb05129ac"
+    },
+    {
+      "path": ".github/workflows/d10-primary-rewrap.yml",
+      "sha256": "4bb05d73787a6f76ff7f514a259000d2e13a83dacdb9919a1a33ce1116197334"
+    },
+    {
+      "path": "qualification/d09_platform.py",
+      "sha256": "7b80c308e1ef95ac23febf6e2c78a92b9b301b2e7bb134795c165d0a13c69eec"
+    },
+    {
+      "path": "qualification/d10_build_retention.py",
+      "sha256": "f2df0f1a6107c890db3efd423f31fa2752210cd33ad21e9ca2e7ff0a7980a56a"
+    },
+    {
+      "path": "qualification/primary_artifacts.py",
+      "sha256": "e161f2ae2537c67747b70fbadb50591644b1964560286f6c96fad664a48a2fe1"
+    },
+    {
+      "path": "qualification/primary_rewrap.py",
+      "sha256": "d44fadf41fbeefa3b9209aa0de5948002a33313b519cb2692dfc2f7974f46eb6"
+    },
+    {
+      "path": "qualification/test_d09_platform.py",
+      "sha256": "54df48949f81015466c2299505c6b37846eb40bc3449d914f71d97eb866f7fe4"
+    },
+    {
+      "path": "qualification/test_d10_build_retention.py",
+      "sha256": "2d84ce3ab9a7c8535c1c38d3053f26dadae5650bb066cab7cdd374f9bb7dde84"
+    },
+    {
+      "path": "qualification/test_primary_artifacts.py",
+      "sha256": "2211f0f4207425ed570848005cdc7e6166f68232c19f95472251ac21f324228a"
+    },
+    {
+      "path": "qualification/test_primary_rewrap.py",
+      "sha256": "9142c416ee832f1943746c48b378dce47c934cc2fd0601e91bbc9891c1b7b371"
+    }
+  ],
+  "state": "focused_contracts_passed_primary_payload_selection_pending",
+  "supporting_evidence": [
+    {
+      "path": "evidence/d10-primary-wrapper-input-selection.json",
+      "sha256": "418ff2d95540259c4ff8dab6a1a1169040989de58c5ed519b3b7e6fd89407d0b"
+    },
+    {
+      "path": "evidence/d10-retention-schema-review.json",
+      "sha256": "0f18ddaa9642bee1ec487eb948ab305457d352e902aee5f0e18f88111de0f723"
+    },
+    {
+      "path": "evidence/d10-wrapper-ci-triage.json",
+      "sha256": "74017913325b6e159db2676f67189b0f9a38f2e462c30005e3d0e3164242da84"
+    },
+    {
+      "path": "evidence/d10-wrapper-transport-replay.json",
+      "sha256": "44caf4fb94f600dcc10028599e4b0b9188feb70534e382f956b34897782582c2"
+    }
+  ],
+  "workflow_lint": {
+    "existing_runner_label_enumeration_exception": "ubuntu-26.04",
+    "state": "passed",
+    "workflows": [
+      ".github/workflows/d09-platform.yml",
+      ".github/workflows/d10-primary-rewrap.yml"
+    ]
+  }
+}

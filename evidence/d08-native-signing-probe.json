@@ -1,0 +1,10 @@
+{
+  "protocol": "symphony.distribution.native-review-signature-probe.v1",
+  "productsign_returncode": 1,
+  "signed_file_created": false,
+  "system_trust_granted": false,
+  "installer_executed": false,
+  "default_keychain_unchanged": true,
+  "search_list_unchanged": true,
+  "error": "productsign: error: Could not find appropriate signing identity for \u201cQuanuX Symphony Review Installer\u201d in keychain at \u201c<private-custody>/review-signing.keychain-db\u201d. An installer signing identity (not an application signing identity) is required for signing flat-style products.\n"
+}

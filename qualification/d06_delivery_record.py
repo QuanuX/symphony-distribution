@@ -97,6 +97,90 @@ def regular(root, value):
     return path
 
 
+def go_build_provenance(component, recorded, build, lineage, round_root, source, binary, manifest=None):
+    """Keep old cohorts intact; validate the explicit original-Git qxctl lane."""
+    selected = recorded.get('qxctl_source_proof')
+    repaired = lineage['repair_provenance']
+    if selected is None:
+        require(not (component == 'qxctl' and not repaired and 'qxctl_identity.py' in build['build_helpers']),
+                'New qxctl identity build lacks its selected source proof')
+        return {'kind': 'inherited_exact_origin_bytes', 'origin_tool_commit': repaired['origin_tool_commit'],
+                'origin_payload_inventory_sha256': repaired['origin_payload_inventory_sha256']} if repaired else {
+                    'kind': 'built_in_selected_full_cohort_round'}
+    require(component == 'qxctl' and not repaired,
+            'qxctl source proof is valid only for its explicitly built full-cohort row; inherited proof needs separate custody')
+    require(set(selected) == {'path', 'sha256', 'protocol', 'source_kind'} and
+            selected['path'] == 'qxctl-identity/result.json' and
+            selected['protocol'] == 'symphony.distribution.qxctl-original-source.v1' and
+            selected['source_kind'] == 'original_git_recipe_with_equal_cohort_compiled_inputs', 'Unselected qxctl proof reference')
+    path = regular(round_root, selected['path']); require(sha(path) == selected['sha256'], 'qxctl source proof digest differs')
+    proof = read_json(path)
+    require(proof['protocol'] == selected['protocol'] and proof['state'] == 'reproducible_stamped_original_git_source' and
+            proof['component_id'] == component and proof['isolated_builds'] == 2 and
+            proof['publication_authorized'] is False and proof['release_acceptance_complete'] is False and
+            proof['helper_sha256'] == build['build_helpers']['qxctl_identity.py'], 'qxctl source proof state/helper differs')
+    require(proof['network_policy'] == 'local_file_proxy_only_no_network_or_VCS_fallback' and
+            proof['binary'] == 'recipe/first/bin/qxctl' and
+            proof['binary_sha256'] == recorded['sha256'] == sha(binary), 'qxctl final bytes/network policy differ')
+    original, info = proof['original_source'], proof['build_info']
+    require(original['commit'] == build['source_commit'] and original['tree'] == build['source_tree'] and
+            info['protocol'] == 'symphony.qxctl.build-info.v1' and info['source_state'] == 'stamped' and
+            info['source_commit'] == original['commit'] and info['source_tree'] == original['tree'] and
+            info['source_date_epoch'] == original['source_date_epoch'] and info['component_id'] == 'qxctl' and
+            info['version'] == recorded['version'] and info['executable_sha256'] == proof['binary_sha256'] and
+            info['go_version'] == 'go1.26.5' and info['goarch'] == build['host']['architecture'] and
+            info['goos'] == {'macos': 'darwin', 'linux': 'linux'}[build['host']['os']], 'qxctl original/runtime source binding differs')
+    require(proof['recipe']['id'] == info['build_recipe'] == 'symphony.qxctl.reproducible-build.v1' and
+            proof['recipe']['modified'] is False and
+            proof['recipe']['sha256'] == sha(regular(source, 'tools/qxctl/tests/reproducible_build.cmake')),
+            'qxctl original build recipe differs')
+    artifact_path = regular(round_root, 'qxctl-identity/recipe/artifact-identity.json')
+    artifact = read_json(artifact_path)
+    require(sha(artifact_path) == proof['artifact_identity_sha256'] and artifact == proof['artifact_identity'] and
+            artifact['protocol'] == 'symphony.artifact-build-identity.v1' and artifact['isolated_builds'] == 2 and
+            artifact['reproducibility'] == 'verified_on_recorded_profile' and artifact['publication_authorized'] is False,
+            'Retained qxctl repeated-build evidence differs')
+    for field in ('source_commit', 'source_tree', 'source_date_epoch', 'dependency_map_sha256', 'build_recipe',
+                  'go_version', 'goos', 'goarch', 'executable_sha256', 'component_id', 'version'):
+        require(artifact[field] == info[field], 'qxctl original recipe/runtime identity differs')
+    for name, field in (('go.mod', 'go_mod_sha256'), ('go.sum', 'go_sum_sha256')):
+        require(sha(regular(source, 'tools/qxctl/' + name)) == artifact[field], 'qxctl cohort module manifest differs')
+    for copy in ('first', 'second'):
+        require(sha(regular(round_root, 'qxctl-identity/recipe/' + copy + '/bin/qxctl')) == proof['binary_sha256'] and
+                read_json(regular(round_root, 'qxctl-identity/recipe/' + copy + '-build-info.json')) == info,
+                'qxctl retained isolated build bytes/identity differ')
+    closure = proof['compiled_input_equivalence']; inputs = closure['inputs']
+    require(inputs and len(inputs) == len({row['path'] for row in inputs}) and
+            digest(canonical(inputs)) == closure['inventory_sha256'] and closure['original_matches_cohort_source'] is True and
+            closure['method'] == 'native_go_list_deps_compiled_json_CGO0' and
+            closure['goos'] == info['goos'] and closure['goarch'] == info['goarch'], 'qxctl input equivalence proof differs')
+    for row in inputs:
+        require(row['path'].startswith('tools/qxctl/'), 'qxctl compiled input outside selected module')
+        for root in (source, round_root / 'qxctl-identity/recipe/first'):
+            compiled = regular(root, row['path'])
+            require(sha(compiled) == row['sha256'] and compiled.stat().st_size == row['size'] and
+                    compiled.stat().st_mode & 0o777 == row['mode'], 'qxctl original/cohort compiled bytes differ')
+    cohort_source = proof['cohort_source']
+    if manifest is not None:
+        require(cohort_source['kind'] == 'verified_reviewed_derived_export' and cohort_source['is_original_git_tree'] is False and
+                cohort_source['export_digest'] == manifest['derived_export_digest'] == build['source_input']['export_digest'] and
+                cohort_source['archive_sha256'] == build['source_input']['archive_sha256'], 'qxctl derived cohort source differs')
+        original_map = next(r for r in manifest['source_files'] if r['path'] == 'cmake/mvp-dependencies.json')['source_sha256']
+        require(proof['privacy']['publisher_policy_scanned'] is True and
+                proof['privacy']['policy_digest'] == manifest['privacy_policy_digest'], 'qxctl publisher privacy proof differs')
+    else:
+        require(build['source_input']['kind'] == cohort_source['kind'] == 'exact_committed_source_archive' and
+                cohort_source['commit'] == build['source_commit'] and cohort_source['tree'] == build['source_tree'],
+                'qxctl raw source may not be relabeled as reviewed export')
+        original_map = sha(regular(source, 'cmake/mvp-dependencies.json'))
+    require(info['dependency_map_sha256'] == original_map and proof['privacy']['private_build_paths_absent'] is True,
+            'qxctl original dependency map/privacy proof differs')
+    return {'kind': 'original_git_recipe_with_equal_cohort_compiled_inputs',
+            'proof_sha256': selected['sha256'], 'proof': proof,
+            'whole_cohort_source_is_original_git_tree': manifest is None,
+            'publication_authorized': False}
+
+
 def module_escape(value):
     require(value and '..' not in value and not value.startswith('/') and '\\' not in value,
             'Unsafe module identity')
@@ -490,6 +574,7 @@ def collect(build_root, repository, go, gomodcache, output, export=None, privacy
                      'matching_build_install_source_prepared': False, 'publisher_review': 'pending'}
     scanner = None
     source_entries = []
+    manifest = None
     if export:
         require(privacy_policy is not None, 'Reviewed export requires its private scan policy')
         spec = importlib.util.spec_from_file_location('d06_source_exporter', ROOT / 'source-export/export_source.py')
@@ -579,6 +664,8 @@ def collect(build_root, repository, go, gomodcache, output, export=None, privacy
                 retain(regular(prefix, name), 'installed/' + name, component['id'], 'verified final native receipt-owned notice')
         retain(regular(source, 'LICENSE'), 'symphony/LICENSE', 'Symphony', 'exact built-source main license; publisher approval pending')
         linked_source = {}
+        recorded_go = {row['component_id']: row for row in result['go_commands']}
+        require(len(recorded_go) == len(result['go_commands']), 'Duplicate completed Go command identity')
         for row in profile['go_commands']:
             cid = row['component_id']
             name = 'go/' + cid + '/bin/' + row['binary_name']
@@ -597,6 +684,7 @@ def collect(build_root, repository, go, gomodcache, output, export=None, privacy
                     require(tuple(fields[:2]) not in sums or sums[tuple(fields[:2])] == fields[2], 'Conflicting corresponding source go.sum')
                     sums[tuple(fields[:2])] = fields[2]
             linked = go_modules(info, graphs[row['source_root']], sums)
+            provenance = go_build_provenance(cid, recorded_go[cid], build, lineage, round_root, source, path, manifest)
             for module in linked:
                 verify_module_cache_sum(gomodcache, module)
                 cache_path = gomodcache / (module_escape(module['path']) + '@' + module_escape(module['version']))
@@ -624,10 +712,7 @@ def collect(build_root, repository, go, gomodcache, output, export=None, privacy
                 'settings': info.get('Settings', []), 'linked_modules': linked,
                 'resolved_graph_not_all_linked': graphs[row['source_root']]['resolved_graph'],
                 'source_root': row['source_root'], 'runtime_ownership_scope': 'staged Go payload; no runtime receipt inferred',
-                'build_provenance': {'kind': 'inherited_exact_origin_bytes',
-                    'origin_tool_commit': lineage['repair_provenance']['origin_tool_commit'],
-                    'origin_payload_inventory_sha256': lineage['repair_provenance']['origin_payload_inventory_sha256']}
-                    if lineage['repair_provenance'] else {'kind': 'built_in_selected_full_cohort_round'}})
+                'build_provenance': provenance})
             save()
         require(regular(goroot, 'VERSION').read_text().splitlines()[0] == 'go1.26.5', 'Go notice source version differs')
         for name in ('LICENSE', 'PATENTS'):

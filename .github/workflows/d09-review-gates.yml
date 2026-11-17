@@ -1,0 +1,22 @@
+name: D09 review channel and acceptance contracts
+on:
+  push:
+    branches: ['codex/**']
+    paths: ['channel/**', 'qualification/d09_acceptance.py', 'qualification/test_d09_acceptance.py', 'qualification/d09_maintenance.py', 'qualification/test_d09_maintenance.py', '.github/workflows/d09-review-gates.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check review staging refusal and credential-free retrieval contracts
+        run: python3 -B -m unittest discover -s channel -v
+      - name: Check exact acceptance and maintenance contracts
+        run: |
+          python3 -B -m unittest discover -s qualification -p 'test_d09_acceptance.py' -v
+          python3 -B -m unittest discover -s qualification -p 'test_d09_maintenance.py' -v

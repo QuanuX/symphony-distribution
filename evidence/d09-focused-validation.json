@@ -1,0 +1,63 @@
+{
+  "protocol": "symphony.distribution.d09-focused-validation.v1",
+  "focused_tests": [
+    {
+      "suite": "staging",
+      "passed": 14
+    },
+    {
+      "suite": "public_conda_install",
+      "passed": 9
+    },
+    {
+      "suite": "platform",
+      "passed": 18
+    },
+    {
+      "suite": "acceptance",
+      "passed": 12
+    },
+    {
+      "suite": "maintenance",
+      "passed": 12
+    },
+    {
+      "suite": "sdk_audit",
+      "passed": 9
+    },
+    {
+      "suite": "sdk_closure",
+      "passed": 16
+    }
+  ],
+  "total_focused_tests_passed": 90,
+  "workflow_lint": "passed; existing Ubuntu26 runner-label catalog exception only",
+  "public_evidence_private_policy_scan": "passed",
+  "anonymous_fresh_downloads": 60,
+  "public_conda_url_install_and_remove": {
+    "packages": 60,
+    "linked_files": 180,
+    "passed": true
+  },
+  "new_ci_results_waited_for": false,
+  "source_helpers": {
+    "channel/staging.py": "ecdb84fe0ab501bd014b848a2c4356ab97584aa983df39be7aae27b31201991c",
+    "channel/install_qualification.py": "3f74556bce305440333550f56788bbc49803afade8cf2a74cf4ff0975050afc2",
+    "qualification/d09_platform.py": "68ed46fdd0f81ba3f9632ba6878d11438b9fb9146f137f3937c92ed4a30bed09",
+    "qualification/d09_platform_tools.py": "503ceed8b1927b93896eaef9b21830dd533a7820644b084fcf0e5f4f7e49fac5",
+    "qualification/d09_acceptance.py": "b824de6eb7096f23fe14aa16d0d388efe6b8777d1a1709e2825a76685a137828",
+    "qualification/d09_maintenance.py": "ab156b5e6913d8f2900a88b647d5fe78bce8ce22937a422233eb00dd434003b7",
+    "build-cohort/sdk_audit.py": "33c30e4a21d1a442220e25c3eef4f48274aa9d15f88d3a8300b10f4bccec259a",
+    "qualification/d06_sdk_closure.py": "1939f4f0a6c4ec06834aca9e178133bc2b8446e5250e1c3acc6f30e9e2fb2f37"
+  },
+  "beta_release_authorized": false,
+  "delivered_native_maintenance": {
+    "owners": 51,
+    "commands": 612,
+    "retained_entries": 1250,
+    "passed": true,
+    "scope": "supplemental disposable-prefix refusal/removal and same-candidate harness recovery",
+    "live_retirement_qualified": false,
+    "distinct_version_upgrade_or_rollback_qualified": false
+  }
+}
