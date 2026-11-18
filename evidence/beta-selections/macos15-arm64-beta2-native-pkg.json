@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "native_pkg": {
+      "artifact": {
+        "id": 14399135065,
+        "name": "d14-native-pkg-macos15-arm64-1",
+        "sha256": "5d6c9e4e21c525f2c3fa680f268bc5a11d92ea15db212d954850119b515e18ff",
+        "size": 40709
+      },
+      "result_sha256": "4b60e8bbd988ccbf377d6ad145a3e6950d7943c2dee8dcd10a6a69c920416a9c",
+      "run_attempt": 1,
+      "run_id": 44238598183,
+      "workflow_commit": "205fd69e0973c8aaa2fbe1a5d4d95082cf1241f4",
+      "workflow_path": ".github/workflows/d14-native-pkg.yml"
+    }
+  },
+  "profile": "macos15-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}
