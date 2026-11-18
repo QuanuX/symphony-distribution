@@ -65,7 +65,8 @@ def prepare(release_root, signature_root, cert_pin, public_key_pin, openssl, pro
     c.require(c.sha(index_raw) == proof['release_index_sha256'], 'Signed release index changed')
     index = b.strict_json(index_raw)
     rows = index.get('conda_packages')
-    c.require(index['release'] == b.RELEASE and type(rows) is list and 1 <= len(rows) <= 512, 'Invalid beta package selection')
+    release = index['release']; policy = b.release_policy(release)
+    c.require(type(rows) is list and 1 <= len(rows) <= 512, 'Invalid beta package selection')
     signed = {row['path']: row for row in manifest['artifacts']}
     identities, paths, present_profiles = {}, set(), set()
     for row in rows:
@@ -96,12 +97,12 @@ def prepare(release_root, signature_root, cert_pin, public_key_pin, openssl, pro
         set(selected_profiles) <= present_profiles, 'Requested profiles differ from signed release')
     selected = sorted((dict(row, url=url(row)) for row in rows if row['profile'] in selected_profiles),
                       key=lambda row: (row['selection'] != 'optional-source', row['profile'], row['filename']))
-    label = 'beta-' + b.RELEASE + '-' + proof['release_index_sha256'][:12]
+    label = 'beta-' + release + '-' + proof['release_index_sha256'][:12]
     sources = {row['profile']: url(row, label) for row in selected if row['selection'] == 'optional-source'}
-    return s.seal({'protocol': PROTOCOL, 'release': b.RELEASE, 'organization': 'QuanuX', 'labels': ['beta', label],
+    return s.seal({'protocol': PROTOCOL, 'release': release, 'organization': 'QuanuX', 'labels': ['beta', label],
         'profiles': selected_profiles, 'packages': selected, 'corresponding_source_urls': sources,
         'certificate_sha256': cert_pin, 'public_key_sha256': public_key_pin,
-        'publisher_decision_sha256': b.DECISION, 'release_index_sha256': proof['release_index_sha256'],
+        'publisher_decision_sha256': policy['decision_sha256'], 'release_index_sha256': proof['release_index_sha256'],
         'signed_manifest_sha256': c.sha(manifest_raw), 'publisher_helper_sha256': fs.digest(Path(__file__)),
         'shared_remote_builds': len({remote_key(row) for row in selected}) != len(selected),
         'publication_authorized': True, 'overwrite_supported': False, 'automatic_retry': False,
@@ -238,8 +239,8 @@ def execute(plan, release_root, signature_root, cert_pin, public_key_pin, openss
         attempt.event({'state': 'stopped_reconcile_before_retry', 'error_class': type(exc).__name__, 'completed': len(completed)})
         raise ValueError('Publication stopped; reconcile journal and remote state before another mutation') from None
     result = {'protocol': PROTOCOL, 'state': 'catalog_prepared' if catalog_only else 'public_beta_packages_freshly_verified',
-        'release': b.RELEASE, 'plan_sha256': plan['plan_sha256'], 'release_index_sha256': plan['release_index_sha256'],
-        'signed_manifest_sha256': plan['signed_manifest_sha256'], 'publisher_decision_sha256': b.DECISION,
+        'release': plan['release'], 'plan_sha256': plan['plan_sha256'], 'release_index_sha256': plan['release_index_sha256'],
+        'signed_manifest_sha256': plan['signed_manifest_sha256'], 'publisher_decision_sha256': plan['publisher_decision_sha256'],
         'labels': plan['labels'], 'profiles': plan['profiles'], 'packages': completed,
         'publication_authorized': True, 'account_credentials_used_for_download': False,
         'automatic_retry': False, 'overwrite_performed': False, 'native_install_or_activation': False}

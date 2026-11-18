@@ -26,9 +26,14 @@ ACCOUNT = '82afd25f0c2dee226529c3177be8b950'
 PREFIX = 'symphony/0.2.0-beta.1/'
 ORIGIN = 'https://downloads.quanux.org/'
 PROTOCOL = 'symphony.distribution.beta-download-publication.v1'
-USER_AGENT = 'Symphony-Beta-Publisher/0.2.0-beta.1 (+https://github.com/QuanuX/symphony-distribution)'
+USER_AGENT = 'Symphony-Beta-Publisher/1 (+https://github.com/QuanuX/symphony-distribution)'
 require = signing.require
 sha = signing.sha
+
+
+def release_prefix(release):
+    signing.release_policy(release)
+    return 'symphony/' + release + '/'
 
 
 def prepare(root, signature, certificate, public_key, openssl):
@@ -43,6 +48,7 @@ def prepare(root, signature, certificate, public_key, openssl):
     index_raw = (root / signing.relative(manifest['release_index']['path'])).read_bytes()
     require(sha(index_raw) == verification['release_index_sha256'], 'Release index changed after verification')
     index = signing.strict_json(index_raw)
+    release = index['release']; prefix = release_prefix(release)
     selected = index.get('public_downloads')
     require(type(selected) is list and 0 < len(selected) <= 768, 'Exact public download selection required')
     signed = {r['path']: r for r in manifest['artifacts']}
@@ -50,16 +56,16 @@ def prepare(root, signature, certificate, public_key, openssl):
     for name in selected:
         signing.relative(name)
         require(name in signed and not name.endswith('.conda'), 'Downloads must be signed non-Conda artifacts')
-        rows.append({**signed[name], 'source': 'artifacts', 'key': PREFIX + name, 'url': ORIGIN + PREFIX + name})
+        rows.append({**signed[name], 'source': 'artifacts', 'key': prefix + name, 'url': ORIGIN + prefix + name})
     require(len(set(selected)) == len(selected), 'Duplicate download selection')
     for name in ('beta-manifest.json', 'beta-manifest.sig', 'beta-cert.pem'):
         path = signing.base.regular(signature / name)
         expected = {'beta-manifest.json': sha(raw), 'beta-manifest.sig': sha(signature_raw), 'beta-cert.pem': certificate}
         require(signing.base.digest(path) == expected[name], 'Verified signature-side bytes changed')
         rows.append({'path': name, 'size': path.stat().st_size, 'sha256': signing.base.digest(path),
-                     'source': 'signature', 'key': PREFIX + name, 'url': ORIGIN + PREFIX + name})
+                     'source': 'signature', 'key': prefix + name, 'url': ORIGIN + prefix + name})
     require(len({r['key'].casefold() for r in rows}) == len(rows), 'Colliding download keys')
-    return {'protocol': PROTOCOL, 'release': signing.RELEASE, 'bucket': BUCKET,
+    return {'protocol': PROTOCOL, 'release': release, 'bucket': BUCKET,
             'manifest_sha256': signing.base.digest(signature / 'beta-manifest.json'),
             'release_index_sha256': verification['release_index_sha256'], 'objects': rows,
             'overwrite_supported': False, 'automatic_mutation_retry': False}
@@ -134,7 +140,8 @@ def public_readback(row):
 def publish(plan, root, signature, certificate, public_key, openssl, output, api, readback=public_readback):
     require(prepare(root, signature, certificate, public_key, openssl) == plan, 'Exact current signed download plan required')
     root, signature = Path(root), Path(signature)
-    require(plan['protocol'] == PROTOCOL and plan['bucket'] == BUCKET and plan['release'] == signing.RELEASE and
+    prefix = release_prefix(plan['release'])
+    require(plan['protocol'] == PROTOCOL and plan['bucket'] == BUCKET and
             plan['overwrite_supported'] is False and plan['automatic_mutation_retry'] is False, 'Publication scope differs')
     output = signing.base.new_directory(output)
     parent = os.open(output.parent, os.O_RDONLY)
@@ -146,7 +153,7 @@ def publish(plan, root, signature, certificate, public_key, openssl, output, api
         source = root if row['source'] == 'artifacts' else signature
         path = signing.base.regular(source / signing.relative(row['path']))
         require((path.stat().st_size, signing.base.digest(path)) == (row['size'], row['sha256']), 'Selected local bytes changed')
-        require(row['key'] == PREFIX + row['path'] and row['url'] == ORIGIN + row['key'], 'Unselected destination')
+        require(row['key'] == prefix + row['path'] and row['url'] == ORIGIN + row['key'], 'Unselected destination')
         exists = remote(api, row)
         item = {'key': row['key'], 'sha256': row['sha256'], 'size': row['size'], 'url': row['url'], 'existing_identical': exists}
         if not exists:
@@ -171,7 +178,7 @@ def publish(plan, root, signature, certificate, public_key, openssl, output, api
         readback(row)
         journal(output / f'{number:03d}-verified.json', {**item, 'state': 'public_bytes_verified'})
         results.append(item)
-    result = {'protocol': PROTOCOL, 'release': signing.RELEASE, 'state': 'all_selected_public_downloads_verified',
+    result = {'protocol': PROTOCOL, 'release': plan['release'], 'state': 'all_selected_public_downloads_verified',
               'manifest_sha256': plan['manifest_sha256'], 'objects': results, 'overwrite_performed': False}
     journal(output / 'result.json', result)
     return result

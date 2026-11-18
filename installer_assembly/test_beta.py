@@ -99,6 +99,26 @@ class BetaTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
 
+    def test_exact_beta2_public_authority_does_not_promote_review_bytes(self):
+        raw = (b.ROOT / 'evidence/beta2-publisher-decision.json').read_bytes()
+        path = self.put(self.root / 'decision.json', raw)
+        auth = b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
+        scope = b.construct.beta_delivery_scope(auth)
+        self.assertTrue(scope['publication_authorized'])
+        self.assertEqual(scope['assembly_state'], 'beta_wrappers_and_shell_qualified')
+        config = b.construct.configuration(cohort(), self.root, ['pkg', 'sh'], beta=auth)
+        self.assertEqual((config['name'], config['version'], config['default_prefix']),
+                         ('Symphony', '0.2.0-beta.2', '${HOME}/symphony'))
+        self.assertIn('/QuanuX/label/beta', config['channels_remap'][0]['dest'])
+        self.assertIn('unsigned and not notarized', config['readme_text'])
+        value = json.loads(raw)
+        for changed in (value | {'publication_authorized': False},
+                        value | {'source_binding': value['source_binding'] | {'core_commit': 'a' * 40}},
+                        value | {'statement': 'different approval'}):
+            self.put(path, changed)
+            with self.assertRaises(ValueError):
+                b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
+
     def test_explicit_authorization_changes_only_delivery_presentation(self):
         path, decision = self.decision()
         auth = b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')

@@ -6,6 +6,8 @@ on:
       - '.github/workflows/d14-beta-assembly.yml'
       - 'installer_assembly/beta.py'
       - 'installer_assembly/test_beta.py'
+      - 'installer_assembly/beta_signing.py'
+      - 'evidence/beta2-publisher-decision.json'
       - 'installer_assembly/construct.py'
       - 'installer_assembly/test_construct.py'
       - 'qualification/primary_rewrap.py'
@@ -28,6 +30,7 @@ on:
         options:
           - evidence/d14-publisher-decision.json
           - evidence/beta2-candidate.json
+          - evidence/beta2-publisher-decision.json
         default: evidence/d14-publisher-decision.json
         required: true
 permissions:
@@ -78,6 +81,7 @@ jobs:
           assert set(selected['artifacts']) == {'package', 'client'}
           authority = os.environ['AUTHORIZATION']
           expected = {'evidence/d14-publisher-decision.json': ('symphony.distribution.beta-publisher-decision.v1', '0.2.0-beta.1'),
+                      'evidence/beta2-publisher-decision.json': ('symphony.distribution.beta-publisher-decision.v1', '0.2.0-beta.2'),
                       'evidence/beta2-candidate.json': ('symphony.distribution.beta-candidate-authorization.v1', '0.2.0-beta.2')}
           assert authority in expected, 'Unselected assembly authority path'
           decision = pathlib.Path(authority).resolve()

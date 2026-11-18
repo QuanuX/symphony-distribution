@@ -132,10 +132,16 @@ def beta_authorization(path, expected_sha256, profile):
                 ('feature_freeze', 'main_unchanged', 'no_automatic_runtime_or_provider_activation', 'no_private_publisher_state_in_distribution')),
             'Publisher beta scope or trust boundary differs')
     if published:
-        require(decision['release_class'] == 'public-beta' and decision['release_version'] == '0.2.0-beta.1' and
+        require(decision['release_class'] == 'public-beta' and decision['release_version'] in ('0.2.0-beta.1', '0.2.0-beta.2') and
                 all(decision[key] is True for key in ('publication_authorized', 'legal_approval', 'publisher_acceptance')) and
                 decision['trust']['mode'] == 'publisher-pinned-self-signed-detached-manifest',
                 'Publisher beta scope or trust boundary differs')
+        if decision['release_version'] == '0.2.0-beta.2':
+            policy = load_module('beta_publication_policy', HERE / 'beta_signing.py').release_policy(decision['release_version'])
+            require(expected_sha256 == policy['decision_sha256'] and
+                decision['source_binding'] == {'core_commit': policy['core_commit'], 'client_commit': policy['client_commit']} and
+                set(decision['profiles']) == set(PROFILES) - {'local-macos-amd64-fixture'} and len(decision['profiles']) == 4,
+                'Exact approved beta.2 publication decision and source required')
     else:
         require(decision['release_class'] == 'beta-review-candidate' and decision['release_version'] == '0.2.0-beta.2' and
                 decision['candidate_assembly_authorized'] is True and decision['publication_authorized'] is False and

@@ -21,6 +21,13 @@ base = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(base)
 PROTOCOL = 'symphony.distribution.public-beta-signature.v1'
 RELEASE = '0.2.0-beta.1'
 DECISION = 'd87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943'
+# Each immutable release retains its separately approved decision.
+RELEASE_POLICIES = {
+    RELEASE: {'decision_sha256': DECISION},
+    '0.2.0-beta.2': {'decision_sha256': '420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a',
+        'core_commit': 'bae2e817120467561ae051c1b08cf61be3436bac',
+        'client_commit': '572627e939250763756167a9dc05d8cb37ab4e30'},
+}
 SUBJECT = '/O=QuanuX/OU=Symphony Public Beta/CN=QuanuX Symphony Beta Distribution'
 RFC_SUBJECT = 'subject=CN=QuanuX Symphony Beta Distribution,OU=Symphony Public Beta,O=QuanuX'
 SCOPE = 'public beta artifact integrity; explicit certificate and public-key pins required'
@@ -30,6 +37,11 @@ FIELDS = {'protocol', 'release', 'scope', 'certificate_sha256', 'public_key_sha2
 
 def require(ok, message): base.require(ok, message)
 def sha(raw): return hashlib.sha256(raw).hexdigest()
+
+
+def release_policy(release):
+    require(type(release) is str and release in RELEASE_POLICIES, 'Release index version differs from approved policy')
+    return dict(RELEASE_POLICIES[release])
 
 
 def public_key_pin(openssl, certificate):
@@ -118,9 +130,10 @@ def verify_bindings(root, manifest):
         item = manifest[key]
         require(type(item) is dict and set(item) == {'path', 'sha256'}, 'Beta binding shape differs')
         require(binding(root, root / relative(item['path']), rows) == item, 'Beta binding differs')
-    require(manifest['publisher_decision']['sha256'] == DECISION, 'Unselected publisher decision')
+    policy = release_policy(manifest['release'])
+    require(manifest['publisher_decision']['sha256'] == policy['decision_sha256'], 'Unselected publisher decision')
     index = strict_json((root / manifest['release_index']['path']).read_bytes())
-    require(type(index) is dict and index.get('release') == RELEASE, 'Release index version differs')
+    require(type(index) is dict and index.get('release') == manifest['release'], 'Release index version differs')
 
 
 def sign(root, paths, release_index, decision, custody, expected, public_pin, output, openssl):
@@ -133,7 +146,9 @@ def sign(root, paths, release_index, decision, custody, expected, public_pin, ou
     password = base.regular(custody / 'password', private=True)
     cert = certificate(openssl, custody / 'beta-cert.pem', expected, public_pin)
     rows = artifact_rows(root, paths)
-    value = {'protocol': PROTOCOL, 'release': RELEASE, 'scope': SCOPE, 'certificate_sha256': expected,
+    release = strict_json(base.regular(release_index).read_bytes()).get('release')
+    release_policy(release)
+    value = {'protocol': PROTOCOL, 'release': release, 'scope': SCOPE, 'certificate_sha256': expected,
         'public_key_sha256': public_pin, 'publisher_decision': binding(root, decision, rows),
         'release_index': binding(root, release_index, rows), 'artifacts': rows,
         'apple_developer_id': False, 'notarized': False, 'gatekeeper_acceptance': False, 'system_trust_changed': False}
@@ -159,7 +174,7 @@ def verify(signature_root, root, expected, public_pin, openssl):
             'Unexpected beta manifest or RSA-3072 signature size')
     raw = path.read_bytes(); value = strict_json(raw)
     require(type(value) is dict and set(value) == FIELDS and raw == base.canonical(value) and
-        value['protocol'] == PROTOCOL and value['release'] == RELEASE and value['scope'] == SCOPE and
+        value['protocol'] == PROTOCOL and value['release'] in RELEASE_POLICIES and value['scope'] == SCOPE and
         value['certificate_sha256'] == expected and value['public_key_sha256'] == public_pin,
         'Beta manifest identity or canonical form differs')
     require(all(value[k] is False for k in ('apple_developer_id', 'notarized', 'gatekeeper_acceptance', 'system_trust_changed')),
@@ -174,9 +189,9 @@ def verify(signature_root, root, expected, public_pin, openssl):
     require(artifact_rows(root, [root / r['path'] for r in value['artifacts']]) == value['artifacts'],
             'Signed beta artifact bytes or exact selection differ')
     verify_bindings(root, value)
-    return {'protocol': PROTOCOL, 'state': 'public_beta_signature_and_artifacts_verified', 'release': RELEASE,
+    return {'protocol': PROTOCOL, 'state': 'public_beta_signature_and_artifacts_verified', 'release': value['release'],
         'artifact_count': len(value['artifacts']), 'certificate_sha256': expected, 'public_key_sha256': public_pin,
-        'publisher_decision_sha256': DECISION, 'release_index_sha256': value['release_index']['sha256'],
+        'publisher_decision_sha256': release_policy(value['release'])['decision_sha256'], 'release_index_sha256': value['release_index']['sha256'],
         'apple_developer_id': False, 'notarized': False, 'gatekeeper_acceptance': False, 'system_trust_changed': False}
 
 

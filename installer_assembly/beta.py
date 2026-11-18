@@ -41,7 +41,7 @@ def write(path, value):
 
 def helpers():
     return {**native.helpers(), **journeys.hashes(), **{name: gate.sha(ROOT / name) for name in
-        ('installer_assembly/beta.py', 'installer_assembly/corresponding_source.py',
+        ('installer_assembly/beta.py', 'installer_assembly/beta_signing.py', 'installer_assembly/corresponding_source.py',
          'delivery/bootstrap.py', '.github/workflows/d14-beta-assembly.yml',
          'qualification/beta_artifacts.py', 'qualification/primary_client.py', 'qualification/primary-client-tools.json')}}
 

@@ -20,6 +20,8 @@ CERTIFICATE_SHA256 = '03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43
 PUBLIC_KEY_SHA256 = '34621e652aef5649ba2eea9310a93a108cfc65466abc2c164d8fab0079715010'
 DECISION_SHA256 = 'd87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943'
 RELEASE = '0.2.0-beta.1'
+RELEASE_DECISIONS = {RELEASE: DECISION_SHA256,
+    '0.2.0-beta.2': '420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a'}
 
 
 def require(value, reason):
@@ -51,7 +53,8 @@ def run(openssl, args, data=None):
     return result.stdout
 
 
-def verify(signature_root, artifact_root, paths, openssl):
+def verify(signature_root, artifact_root, paths, openssl, expected_release=None):
+    require(expected_release is None or expected_release in RELEASE_DECISIONS, 'Unselected expected release')
     signatures, root = Path(signature_root), Path(artifact_root)
     cert = regular(signatures / 'beta-cert.pem', 65536)
     require(digest(cert) == CERTIFICATE_SHA256, 'Publisher certificate differs from the independently pinned identity')
@@ -73,9 +76,10 @@ def verify(signature_root, artifact_root, paths, openssl):
         return result
     value = json.loads(raw, object_pairs_hook=pairs, parse_constant=lambda _: require(False, 'Nonfinite manifest'))
     require(raw == (json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=True)+'\n').encode(), 'Noncanonical manifest')
-    require(value['protocol'] == 'symphony.distribution.public-beta-signature.v1' and value['release'] == RELEASE and
+    require(value['protocol'] == 'symphony.distribution.public-beta-signature.v1' and
+        value['release'] in RELEASE_DECISIONS and (expected_release is None or value['release'] == expected_release) and
         value['certificate_sha256'] == CERTIFICATE_SHA256 and value['public_key_sha256'] == PUBLIC_KEY_SHA256 and
-        value['publisher_decision']['sha256'] == DECISION_SHA256 and
+        value['publisher_decision']['sha256'] == RELEASE_DECISIONS[value['release']] and
         all(value[k] is False for k in ('apple_developer_id', 'notarized', 'gatekeeper_acceptance', 'system_trust_changed')),
         'Signed release or trust scope differs')
     require(type(value['artifacts']) is list and 0 < len(value['artifacts']) <= 1024, 'Invalid artifact selection')
@@ -91,7 +95,7 @@ def verify(signature_root, artifact_root, paths, openssl):
         relative(name); require(name in selected, 'Artifact is absent from signed release')
         row = selected[name]; path = regular(root / name, row['size'])
         require(path.stat().st_size == row['size'] and digest(path) == row['sha256'], 'Downloaded artifact differs: ' + name)
-    return {'release': RELEASE, 'verified_downloads': paths, 'publisher_signature': 'verified',
+    return {'release': value['release'], 'verified_downloads': paths, 'publisher_signature': 'verified',
             'apple_developer_id': False, 'notarized': False, 'system_trust_changed': False}
 
 
@@ -101,7 +105,8 @@ def main():
     parser.add_argument('--artifact-root', type=Path, default=Path('.'))
     parser.add_argument('--artifact', action='append', required=True, help='Signed relative path preserved under artifact-root')
     parser.add_argument('--openssl', default='openssl')
+    parser.add_argument('--release', choices=sorted(RELEASE_DECISIONS), help='Require the selected release; prevents accepting another approved beta')
     args = parser.parse_args()
-    print(json.dumps(verify(args.signature_root, args.artifact_root, args.artifact, args.openssl), sort_keys=True))
+    print(json.dumps(verify(args.signature_root, args.artifact_root, args.artifact, args.openssl, args.release), sort_keys=True))
 
 if __name__ == '__main__': main()
