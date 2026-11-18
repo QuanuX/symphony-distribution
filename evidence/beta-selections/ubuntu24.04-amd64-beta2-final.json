@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "beta": {
+      "artifact": {
+        "id": 14397638858,
+        "name": "d14-beta-assembly-ubuntu24.04-amd64-1",
+        "sha256": "a5d312bac77adf48be7c1cc6b9b2c149ba58e6cf867d073b5cf0fe3b6d009ac7",
+        "size": 423101602
+      },
+      "result_sha256": "2fc4c991bab0b76737b18149eddbc7b51638dbc13604017e792f90f0a724eaf1",
+      "run_attempt": 1,
+      "run_id": 44236535612,
+      "workflow_commit": "ab6b8b9012dbd9004bf9c56f7e57e537e0ccc5e5",
+      "workflow_path": ".github/workflows/d14-beta-assembly.yml"
+    }
+  },
+  "profile": "ubuntu24.04-amd64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}
