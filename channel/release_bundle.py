@@ -101,14 +101,15 @@ def assemble(request_path, request_sha256, output, openssl):
     request = signing.strict_json(request_raw)
     c.require(set(request) == {'protocol', 'release', 'profiles', 'native_pkg', 'publisher_decision',
         'public_certificate', 'privacy_policy', 'additional_documents'} and
-        request['protocol'] == REQUEST and request['release'] == signing.RELEASE and
+        request['protocol'] == REQUEST and request['release'] in signing.RELEASE_POLICIES and
         set(request['profiles']) == set(publisher.PROFILES), 'Complete four-profile release request required')
+    release = request['release']; release_policy = signing.release_policy(release); decision_pin = release_policy['decision_sha256']
     for key in ('publisher_decision', 'public_certificate'):
         c.require(set(request[key]) == {'path', 'sha256'}, 'Explicit release identity input required')
-    decision_raw = raw(request['publisher_decision']['path'], signing.DECISION)
-    c.require(request['publisher_decision']['sha256'] == signing.DECISION, 'Publisher decision differs')
+    decision_raw = raw(request['publisher_decision']['path'], decision_pin)
+    c.require(request['publisher_decision']['sha256'] == decision_pin, 'Publisher decision differs')
     decision = signing.strict_json(decision_raw)
-    c.require(decision['release_class'] == 'public-beta' and decision['release_version'] == signing.RELEASE and
+    c.require(decision['release_class'] == 'public-beta' and decision['release_version'] == release and
         set(decision['profiles']) == set(publisher.PROFILES) and
         all(decision[key] is True for key in ('legal_approval', 'publisher_acceptance', 'publication_authorized')) and
         decision['acceptance_basis']['publisher_direct_approval'] is True and
@@ -124,9 +125,16 @@ def assemble(request_path, request_sha256, output, openssl):
         c.require(set(inputs) == {'beta', 'maintenance'}, 'Complete profile input roles required')
         beta_root, beta, beta_selected = admit_transport(inputs['beta'], 'beta', profile)
         verified, cohort, _ = assembler.admit_candidate(beta_root, beta_selected['selection']['artifacts']['beta']['result_sha256'])
-        c.require(beta == verified and beta['publisher_decision_sha256'] == signing.DECISION, 'Final beta owner admission differs')
+        c.require(beta == verified and beta['publisher_decision_sha256'] == decision_pin, 'Final beta owner admission differs')
         maintenance_root, maintained, maintenance_selected = admit_transport(inputs['maintenance'], 'maintenance', profile)
         maintenance(maintained, beta, cohort, beta_root/'carriers', maintenance_selected)
+        if release == '0.2.0-beta.2':
+            c.require(beta.get('release_version') == release and beta['publication_authorized'] is True and
+                beta['original_native_lineage']['source_commit'] == release_policy['core_commit'] and
+                beta['client_sources']['core']['commit'] == release_policy['core_commit'] and
+                beta['client_sources']['plugin']['commit'] == release_policy['client_commit'] and
+                decision['source_binding'] == {'core_commit': release_policy['core_commit'], 'client_commit': release_policy['client_commit']},
+                'Final beta.2 source or publication authority differs')
         wrapper = doc(beta_root/'wrappers/result.json', beta['wrappers_result_sha256'])
         admitted[profile] = (beta_root, beta, cohort, wrapper, maintained, beta_selected, maintenance_selected)
     pkg_root, pkg_result, pkg_selected = admit_transport(request['native_pkg'], 'native_pkg', 'macos15-arm64')
@@ -216,14 +224,14 @@ def assemble(request_path, request_sha256, output, openssl):
     c.require(len(packages) == 240 and len(profiles) == 4, 'Incomplete final public package set')
     acceptance = {'scope': 'initial-public-beta', 'engineering_qualification_complete': True,
         'publisher_legal_approval': decision['legal_approval'], 'publisher_acceptance': decision['publisher_acceptance'],
-        'publisher_decision_sha256': signing.DECISION, 'separate_reviewer_independence_claimed': False,
+        'publisher_decision_sha256': decision_pin, 'separate_reviewer_independence_claimed': False,
         'historical_qualification_records_preserved': True, 'per_profile_supported_gates': gate_counts,
         'supported_gate_counts': {'profiles': len(profiles), 'native_pkg_install_and_removal_profiles': 1,
             **{key: sum(row[key] for row in gate_counts.values()) for key in next(iter(gate_counts.values()))}},
         'recognized_apple_trust_claimed': False, 'distinct_native_version_upgrade_qualified': False,
         'distinct_native_version_rollback_qualified': False}
-    index = {'protocol': PROTOCOL, 'release': signing.RELEASE, 'state': 'qualified_public_beta_bundle_prepared',
-        'publisher_decision_sha256': signing.DECISION, 'certificate_sha256': verifier.CERTIFICATE_SHA256,
+    index = {'protocol': PROTOCOL, 'release': release, 'state': 'qualified_public_beta_bundle_prepared',
+        'publisher_decision_sha256': decision_pin, 'certificate_sha256': verifier.CERTIFICATE_SHA256,
         'public_key_sha256': verifier.PUBLIC_KEY_SHA256, 'profiles': profiles, 'conda_packages': packages,
         'public_downloads': sorted([name for name in inventory if not name.endswith('.conda')] + ['release-index.json'],
             key=lambda name: (0 if name.startswith('source/') else 1 if name.startswith('installers/') else 2, name)),

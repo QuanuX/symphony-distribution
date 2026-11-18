@@ -1,0 +1,44 @@
+name: D14 release signing and publication contracts
+on:
+  push:
+    branches: ['main', 'codex/**']
+    paths:
+      - '.github/workflows/d14-release-contracts.yml'
+      - 'channel/beta*.py'
+      - 'channel/release_bundle.py'
+      - 'channel/verify_beta.py'
+      - 'channel/test_beta*.py'
+      - 'channel/test_release_bundle.py'
+      - 'channel/test_verify_beta.py'
+      - 'installer_assembly/beta_signing.py'
+      - 'evidence/beta2-publisher-decision.json'
+  pull_request:
+    paths:
+      - '.github/workflows/d14-release-contracts.yml'
+      - 'channel/beta*.py'
+      - 'channel/release_bundle.py'
+      - 'channel/verify_beta.py'
+      - 'channel/test_beta*.py'
+      - 'channel/test_release_bundle.py'
+      - 'channel/test_verify_beta.py'
+      - 'installer_assembly/beta_signing.py'
+      - 'evidence/beta2-publisher-decision.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: d14-release-contracts-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: false
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Test exact release policy, signatures, immutable publication and source closure
+        run: |
+          python3 -B -m unittest discover -s channel -p 'test_beta*.py' -v
+          python3 -B -m unittest discover -s channel -p test_release_bundle.py -v
+          python3 -B -m unittest discover -s channel -p test_verify_beta.py -v

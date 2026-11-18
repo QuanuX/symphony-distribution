@@ -1,0 +1,2137 @@
+{
+  "manifest_sha256": "c9abc50797aae650a1e77b9625f93663ab9bd5818643f58cc006f51e7cedd6d8",
+  "objects": [
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/macos15-arm64/source-index.json",
+      "sha256": "fcb6974ff1968134cf9d2acc7bf9f61c79c992b8d68eac64e26fb0fdd42b2709",
+      "size": 2712,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/macos15-arm64/source-index.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/macos15-arm64/symphony-0.2.0-beta.2-source.tar",
+      "sha256": "daff142fc898871be122a2a046f91ef58176015bf6c36501f42380df0bc1d5b4",
+      "size": 156323840,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/macos15-arm64/symphony-0.2.0-beta.2-source.tar"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/ubuntu24.04-amd64/source-index.json",
+      "sha256": "fee94535fd11df426a327615731818c9eabcb1e8a34f741a782f124bfa5fa4d7",
+      "size": 2712,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/ubuntu24.04-amd64/source-index.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/ubuntu24.04-amd64/symphony-0.2.0-beta.2-source.tar",
+      "sha256": "a3f6e23b782ce84d70fe8d929c46b32b63835d66c871cfced736e9bcf8fd11f1",
+      "size": 156323840,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/ubuntu24.04-amd64/symphony-0.2.0-beta.2-source.tar"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/ubuntu24.04-arm64/source-index.json",
+      "sha256": "69fa1213c301abbf5a790eb1459c074ac44fe5fd27939ebfc89b0782c50b9da0",
+      "size": 2712,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/ubuntu24.04-arm64/source-index.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/ubuntu24.04-arm64/symphony-0.2.0-beta.2-source.tar",
+      "sha256": "d0f6296cdc1e3361ba2c4f07373038ca8ee314efeac54f327d34a26b5b548087",
+      "size": 156323840,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/ubuntu24.04-arm64/symphony-0.2.0-beta.2-source.tar"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/ubuntu26.04-amd64/source-index.json",
+      "sha256": "9a75a1ab3f4bbd548037be69e35a22e2cea5d47cd4ff4f037cc8d93e7fef4f92",
+      "size": 2712,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/ubuntu26.04-amd64/source-index.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/source/ubuntu26.04-amd64/symphony-0.2.0-beta.2-source.tar",
+      "sha256": "ee8456d6f6522beb5bcc294f6342cef940f083b571de5c1fc8688f79f99e85d9",
+      "size": 156323840,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/source/ubuntu26.04-amd64/symphony-0.2.0-beta.2-source.tar"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.pkg",
+      "sha256": "74c3b22e9352f54b432a57f7791164a139ac0f4dab19135161a5560789ea5eed",
+      "size": 108597268,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.pkg"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.sh",
+      "sha256": "917ce36366ee84d98cb584cfec8c98f859412dcfc56088cf68a200362f78fad4",
+      "size": 108913918,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.sh"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/installers/ubuntu24.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh",
+      "sha256": "c337228e961dabaed45148004c91a7f3244f686222cdb84e718f11247a795e09",
+      "size": 116835986,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/ubuntu24.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/installers/ubuntu24.04-arm64/Symphony-0.2.0-beta.2-Linux-aarch64.sh",
+      "sha256": "a0f91fc16d40e05eb34b7f396efe1bc3154738292cf1ccc18b1e093686cde368",
+      "size": 112481149,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/ubuntu24.04-arm64/Symphony-0.2.0-beta.2-Linux-aarch64.sh"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/installers/ubuntu26.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh",
+      "sha256": "38468c64df15fd674c7936cfab54cc833a0dcc39f707e7a20fa20f9770983e9a",
+      "size": 116887186,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/ubuntu26.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/docs/BETA-INSTALL.md",
+      "sha256": "036a55543242bb48f38b10d59b3433e3ec24aec45dd3783e6c2a2d1b38067416",
+      "size": 8340,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/docs/BETA-INSTALL.md"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/docs/RETENTION.md",
+      "sha256": "73cc978d3405d85412697d4ea232f7994ec7d72452fd8c24cd0840389ab436b0",
+      "size": 5068,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/docs/RETENTION.md"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/macos15-arm64/beta-qualification.json",
+      "sha256": "a7193bbe210f557941dceeb46154eba3b734a65224105f9b85a2b75db46c4444",
+      "size": 194706,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/macos15-arm64/beta-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/macos15-arm64/carrier-journeys.json",
+      "sha256": "e7aafa36ff8eef171fc76ae5c317e2c2f6f953a395cd8ac9232970ecc67d0eaf",
+      "size": 101610,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/macos15-arm64/carrier-journeys.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/macos15-arm64/client-qualification.json",
+      "sha256": "ffadc2feb1ca79163af90fd9d37c0143125271a2514c5f6d32fce185d2aaa22e",
+      "size": 13661,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/macos15-arm64/client-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/macos15-arm64/hosted-selections.json",
+      "sha256": "9ce7452b229d2d8b3aab9083e5ec3cecf3068604ba51551e80a7040730f83094",
+      "size": 2095,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/macos15-arm64/hosted-selections.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/macos15-arm64/native-maintenance.json",
+      "sha256": "420cbae00c76b755dab887ed376c9929344207060751f5b15e38e6cc2cb434b0",
+      "size": 218580,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/macos15-arm64/native-maintenance.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/native-pkg-qualification.json",
+      "sha256": "4b60e8bbd988ccbf377d6ad145a3e6950d7943c2dee8dcd10a6a69c920416a9c",
+      "size": 7034,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/native-pkg-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/native-pkg-selection.json",
+      "sha256": "f2c3db779575aa3359a0a0c37b26449dc5f50776235c7ed3a20869788ceacb08",
+      "size": 1018,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/native-pkg-selection.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/beta-qualification.json",
+      "sha256": "2fc4c991bab0b76737b18149eddbc7b51638dbc13604017e792f90f0a724eaf1",
+      "size": 194425,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/beta-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/carrier-journeys.json",
+      "sha256": "cb02f1006928774bd6406aa5ef8491614eb9ac1189d39ffcfa8cfb0d9084902d",
+      "size": 101614,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/carrier-journeys.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/client-qualification.json",
+      "sha256": "ce2f792e64e002533d1cc5ca8be9be3d7d6df8c00493b4b7342bc8b2ffcbc7a3",
+      "size": 13588,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/client-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/hosted-selections.json",
+      "sha256": "c6fd124ed20ab40b74273db7344ce992d1c6824c1911b8975e8aa6d8d1a852a8",
+      "size": 2111,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/hosted-selections.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/native-maintenance.json",
+      "sha256": "9f2dcc13d340110d854c539700595e094b4861a97b77838eceae4c03822d27b5",
+      "size": 218591,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-amd64/native-maintenance.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/beta-qualification.json",
+      "sha256": "5f19afabaea572b710859b28e45ddf640c834d54379f47d34859701a80f2e5ad",
+      "size": 195034,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/beta-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/carrier-journeys.json",
+      "sha256": "4991a1ba6cd558562bd6795dd2d8a4c8bc319be6edcc3116cff34dbb82484fe5",
+      "size": 101615,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/carrier-journeys.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/client-qualification.json",
+      "sha256": "f2c76cdbc3a4524279d58435c7ce5e7aecad7e92fe74ab518e732f55b1621ee3",
+      "size": 13597,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/client-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/hosted-selections.json",
+      "sha256": "19651a7f970f197466eb4de76d4f0a07ae240107e0d9a822c2984dd4a47922d4",
+      "size": 2111,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/hosted-selections.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/native-maintenance.json",
+      "sha256": "53bbbda33fcc9f0c39c3b7e6ed78abee126587c47294798c6f1ef1e405d9a465",
+      "size": 218591,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu24.04-arm64/native-maintenance.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/beta-qualification.json",
+      "sha256": "1eaa37e112ae4eec01f71e3405ab37f46fb06f3ca5b5aca61f731706ff3072d6",
+      "size": 194429,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/beta-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/carrier-journeys.json",
+      "sha256": "babc1eac4a1b0f61bc0f5b1a6ca5751d3777233eac7b865efc1c39c8cb22ae2c",
+      "size": 101614,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/carrier-journeys.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/client-qualification.json",
+      "sha256": "91313f8efd2b40eec33072a03fd30375a0c473430f51037a1598830bdab2eb90",
+      "size": 13600,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/client-qualification.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/hosted-selections.json",
+      "sha256": "7b8195c03806a53b9bcf7f7cef84de9557bce1e00be3244afe68475c828b106f",
+      "size": 2111,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/hosted-selections.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/native-maintenance.json",
+      "sha256": "903adc183af4be4b9a3b756fdc5e42ac88257aefbbea1210392a5227f1232b23",
+      "size": 218591,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/evidence/ubuntu26.04-amd64/native-maintenance.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/identity/beta-cert.pem",
+      "sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+      "size": 1704,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/identity/beta-cert.pem"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/publisher-decision.json",
+      "sha256": "420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a",
+      "size": 3925,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/publisher-decision.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/release-index.json",
+      "sha256": "978551b467483a9fc0e583724aefadc962a6fde15617a885272c084bc2f42c0e",
+      "size": 242179,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/release-index.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/BOOTSTRAP-INDEX.json",
+      "sha256": "668df13e320b8535da2fab500dd924ed161566ef40d9d7b45ecaa0ab675e3331",
+      "size": 29928,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/BOOTSTRAP-INDEX.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/COHORT.json",
+      "sha256": "7c87586287b4200db0b477abaf48066a664aad9fcaac410dfe80d9afb10db70b",
+      "size": 30590,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/COHORT.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/default-explicit.txt",
+      "sha256": "85c7b0c3075a0c7a6640f19f06707edda35c7a0fea37d3ec76241cf7c2bc5c96",
+      "size": 12071,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/default-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/optional-source-explicit.txt",
+      "sha256": "b1493ace08e6fbb42c340a26aa15d777f824dcced7fdbca3dd57b2bea7fe3e4e",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/optional-source-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/symphony-retain.py",
+      "sha256": "d329c7b69c4ff94a95f704b621fc91b7f3501e3bf48a66c372abea93f6875828",
+      "size": 20563,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/symphony-retain.py"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-accordare-stav-producer-payload.txt",
+      "sha256": "1e082bd1596cb4329ad4ce7625ad7e02f81ef325d058933115bac097dd599213",
+      "size": 221,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-accordare-stav-producer-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-client-payload.txt",
+      "sha256": "3a7ac8af812c51ace57a779593723d1d3041a17960f543f7ebc33ffe9a13cf0e",
+      "size": 200,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-client-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-corresponding-source-payload.txt",
+      "sha256": "b1493ace08e6fbb42c340a26aa15d777f824dcced7fdbca3dd57b2bea7fe3e4e",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-corresponding-source-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-external-curl-zstd-payload.txt",
+      "sha256": "c6dc2ade4c7ea37f1bf741d2e89915a2ca8daf7c43931cb9210ce137efd8dadb",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-external-curl-zstd-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-knowledge-session-coordinator-payload.txt",
+      "sha256": "a6147fa2467e0337122321ba893ffe02b4c1bfa6cc65781b5849b63c12bd1ee9",
+      "size": 227,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-knowledge-session-coordinator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-knowledge-vector-engine-cpp-payload.txt",
+      "sha256": "64e8724ce0084df1f76212d5f3a26b657b47d860f4af33a1a81466f2f7162a96",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-knowledge-vector-engine-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-maestro-payload.txt",
+      "sha256": "bc94c99df65c09e85ecd3ea870a124bb5065eea02b76a05ed9460f44cbfa3553",
+      "size": 205,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-maestro-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-native-source-support-cpp-payload.txt",
+      "sha256": "19d858dae61e42f1a926e700672e537f827a649f182770bc1ae021aa03bdb7d0",
+      "size": 223,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-native-source-support-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-qxctl-payload.txt",
+      "sha256": "7b74063539358776e59b8542efa022d90e0866c2d041d3e1d6b167e8e80fd2ad",
+      "size": 203,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-qxctl-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sacv-engine-payload.txt",
+      "sha256": "0827a5ec36751fd52e02fe44bbf66290c5948a3065f713dfd5b56f93d3a2d1bf",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sacv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sav-engine-payload.txt",
+      "sha256": "b39dddc9690e01ae20728b6ae495531068f6ddd379c1fc6c81f3e705a38a6010",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sav-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sbv-engine-payload.txt",
+      "sha256": "ef6fa0f9b96c6137eb7e4497acdf615b4f7cb09e680fab872d7365ee7c15ce24",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sbv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scev-cf-engine-payload.txt",
+      "sha256": "49d9fd92753ccb4fd1f39ad4a992190d9b4f6138e2716114fe714eb9c8f6eaad",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scev-cf-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scev-engine-payload.txt",
+      "sha256": "66b91dcc598092556bd6b474589e3db7c5e9030210ce64c7af79d6142d4cfe0c",
+      "size": 210,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-aws-engine-payload.txt",
+      "sha256": "21299a3781777767473085c7e23640a3e4dd09c4a71dfdf76ce47cbd708c32fe",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-aws-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-azure-engine-payload.txt",
+      "sha256": "187c31878e150ec4672d7b84ec28d25166046104df4359136e6cf4c0d81ca145",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-azure-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-do-engine-payload.txt",
+      "sha256": "ba0d6e319aec926357bd7eb6e7aba9c48bdb6fea10142626b147963da4760ee6",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-do-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-engine-payload.txt",
+      "sha256": "8a0887e44d4ee9d294bb7926b24c3cf3a179ab2ac1dfb560679bff34aa190b53",
+      "size": 210,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-gcp-engine-payload.txt",
+      "sha256": "9a2d4e71b230c0a38d63e4835ccc7cef56c350bb1a3d49569a7fb1af32fb1f24",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-schv-gcp-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sciv-engine-payload.txt",
+      "sha256": "be5a1a4a004244db7b7c6cddc52a1eff0df9612be10ba09703de115fe57365d8",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sciv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sclv-engine-payload.txt",
+      "sha256": "0bfc153954b051d5622ded297a3055f746fb1b97c15c89111a19b58f1c001b55",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sclv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scnv-engine-payload.txt",
+      "sha256": "4b0f2904a378bf485651f54819e56dc75468ed108fb2befc5a3167ddda662f12",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scnv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scv-engine-payload.txt",
+      "sha256": "937be107c3d8f4db791b38a0acca0f15d9b7affd93ccafc8b0db810db26ba9f0",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-scv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-secure-identity-access-governance-payload.txt",
+      "sha256": "07a37fe9de4b59ed45b6912f696c59ba282585f4ac658c7979685204cf78124c",
+      "size": 231,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-secure-identity-access-governance-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sev-engine-payload.txt",
+      "sha256": "24144bb03d504c87e1d14fbb53547f32415412a57581250a64db4bf16f715cca",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-engine-payload.txt",
+      "sha256": "82369fad8d5576d998de1b90825fb8728cb0bf51c33663b4a09fc2a29c2a9621",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-graph-adapter-payload.txt",
+      "sha256": "a7dedaf2c22c06737c247f872e944880499ce5cc6a267c0601a6e1ea5dc452c4",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-graph-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-partition-engine-payload.txt",
+      "sha256": "7dd0aad924fb95597d67447df792d70a41f857d9770df55c7f46236745c17825",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-partition-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-profile-engine-payload.txt",
+      "sha256": "3cc049773bf67114c63cf95773f89431545205733ebc9225bf43cb84dbe47d27",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-profile-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-publication-engine-payload.txt",
+      "sha256": "d81314265acba1ef2199d28d38f13f852879b413f3aee6d683fa3ec5745b4c61",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-publication-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-source-engine-payload.txt",
+      "sha256": "efc23f462366687b29415cd31334a08c50fd0f84b004c2e938fdb1295e408ffc",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-shv-source-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-skvi-engine-payload.txt",
+      "sha256": "0b00e76071d33ed4a676f1c1eee57012bebbeeca53c2d542380433a8f823ecee",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-skvi-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sniv-engine-payload.txt",
+      "sha256": "4d1e55e7dc1364b54c3ae461b404cdd3da743abf0f89d5cd611a2fb42046a898",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sniv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-snrv-engine-payload.txt",
+      "sha256": "d12b0d9c0779ae349d723069b74a02e7cadeb57d1b05dca5529702af6db6c821",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-snrv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-snv-common-cpp-payload.txt",
+      "sha256": "be7b5b3c2a4e790ff9c6d2efec3d2bad6830852e9e73095ac33f7a246ebc7c25",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-snv-common-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-snv-engine-payload.txt",
+      "sha256": "6f447d7c3e5dce4699aeca09b92b689b28615be51664be8b13a4f7532f3024af",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-snv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sodv-engine-payload.txt",
+      "sha256": "51c73b1eff00321a120773d60f5d552c3eb24d71053ecfdf766caf763931de6f",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sodv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sov-cloudflare-adapter-payload.txt",
+      "sha256": "5c7c56a9d011c12a6c879243d72c730e4e850cbbdbd144352b160ad8b66ef06f",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sov-cloudflare-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sov-ssh-adapter-payload.txt",
+      "sha256": "486a49132d188e58668a494296bc2da07da69a81ac78d8d1d5b8a312cd45deb5",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sov-ssh-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sov-stdio-adapter-payload.txt",
+      "sha256": "b3baee776bc7e33213108d13d3d229e47fe51655796b68baa5a84eb081aa3c8f",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sov-stdio-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-attempt-engine-payload.txt",
+      "sha256": "ef2fd425ab55f5621d9e1ddfd0a1cc877fdbc6cb7ec962056fd6d9fdab0d9994",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-attempt-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-capture-cpp-payload.txt",
+      "sha256": "c4af9c02a5b44aec0a5c2beb66234bfff1f70eb9555a5e5c6a764b191df2879e",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-capture-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-databento-dbn-cpp-payload.txt",
+      "sha256": "c79c25026e1fc4e359cd2e53204d01719f15059beb04c36a9c5bb61e7b5b8195",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-databento-dbn-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-databento-reference-cpp-payload.txt",
+      "sha256": "ea5a35ec72ca4437609db0a6d3970aead438c506c958754449b8b2150be793ca",
+      "size": 226,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-databento-reference-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-fred-cpp-payload.txt",
+      "sha256": "19daf0658cdf10d9fbfb98f8dba305fadcd89e234642884529c828e8a2e115ed",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-fred-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-request-engine-payload.txt",
+      "sha256": "5fbb0b7d5ff9f7a60a5e9d75a01a96d0c2aec4ca3aeff94461df35270664e93f",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqav-request-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqdv-checkpoint-engine-payload.txt",
+      "sha256": "d6fa070430f13c9a5979533dfa321aa8fc91c2c0f52b53a9eb9f8d5dc676d901",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqdv-checkpoint-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqdv-delivery-cpp-payload.txt",
+      "sha256": "c1b2c79727383bc3d1510b5534195bfdc3665e3b886f57e2011d1a7f748ae2f7",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqdv-delivery-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqfv-batch-cpp-payload.txt",
+      "sha256": "b6202d97011877794f6e25bf0187879e3fd8a3e5788588735512205c72af40a6",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqfv-batch-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqfv-flow-engine-payload.txt",
+      "sha256": "5e3855de4cf969cd19287b6d6dd5774aec504cbb742d07b2731b9a52971b3e38",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqfv-flow-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqmv-metadata-cpp-payload.txt",
+      "sha256": "7d73c4d0ba748a60f32128a8ee11c9ed029bbbaa71dbe663ceff864a08569e8f",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqmv-metadata-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqmv-metadata-engine-payload.txt",
+      "sha256": "883e8df6de750038705b5b4c5c5544b9981f88abd55982db65be28009e5030fe",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqmv-metadata-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqpv-inspection-engine-payload.txt",
+      "sha256": "e4e28a3f817cf89cd4273cd2b1f65609307344506e7d08445f2a992b5165262b",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqpv-inspection-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqpv-local-store-cpp-payload.txt",
+      "sha256": "e9968499df1e2f73360b3651d6ebb4820e254b67e9f9cfb5e17bfb57c9feb05b",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqpv-local-store-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqtv-conversion-engine-payload.txt",
+      "sha256": "8202e0e12c0fbabe0eae9118ec3bddb52788905d72829918ac72cf05af6b7523",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqtv-conversion-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqtv-integer-conversion-cpp-payload.txt",
+      "sha256": "5d83282dd77d6bf452039247cca143364149a9137ec7cc13e111d95497633e59",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-sqtv-integer-conversion-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-ssfv-engine-payload.txt",
+      "sha256": "13b86fc4f0b83c37e30bbf6b82a53b21980b2a9f5f5ba9755a24b576e489af97",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-ssfv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-ssiag-provider-private-store-payload.txt",
+      "sha256": "d85b92950c9d871cf85f6316787a64608ace2443ac706c36c8ca92bc4b5274e1",
+      "size": 226,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-ssiag-provider-private-store-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-stav-append-authority-payload.txt",
+      "sha256": "26cae697858ee0d06280ae41f765a132c946ea1d8edc9bdf25b237d1cfd44427",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-stav-append-authority-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-symphony-validator-payload.txt",
+      "sha256": "a4f927516d0ae1d74a10c2b6ee8986adddcd6342f1cb7c622331a9a421ec73e9",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/units/symphony-symphony-validator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/BOOTSTRAP-INDEX.json",
+      "sha256": "19f00af9e80334cd036848534fb97362aa9646ea82874c299efd4881f1098170",
+      "size": 29932,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/BOOTSTRAP-INDEX.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/COHORT.json",
+      "sha256": "ce858399af239eaed582c3ad47c92a0d46abf836a5f8f578088afd3d6653937a",
+      "size": 30535,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/COHORT.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/default-explicit.txt",
+      "sha256": "6723472a7454446aca662beea6141881fe58cea4009797b91f30ef126008663c",
+      "size": 12012,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/default-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/optional-source-explicit.txt",
+      "sha256": "eb27d9f3bcab7abf1e09a07ced8d8d5ee92b9d444e824759578deb153b3c5b95",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/optional-source-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/symphony-retain.py",
+      "sha256": "d329c7b69c4ff94a95f704b621fc91b7f3501e3bf48a66c372abea93f6875828",
+      "size": 20563,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/symphony-retain.py"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-accordare-stav-producer-payload.txt",
+      "sha256": "82ff93ba50660ae7839052e6d7df4864322968e0cb2da04b766cf163c81d4d82",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-accordare-stav-producer-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-client-payload.txt",
+      "sha256": "f1d65fa60e97e8a4b0dc4384167273cabd268cd790c102daf5fb8e50c0c33792",
+      "size": 199,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-client-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-corresponding-source-payload.txt",
+      "sha256": "eb27d9f3bcab7abf1e09a07ced8d8d5ee92b9d444e824759578deb153b3c5b95",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-corresponding-source-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-external-curl-zstd-payload.txt",
+      "sha256": "13b23fd1dab58518b5f73db56c4c436b684ef02be15a09a9620b6c1dbfd48639",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-external-curl-zstd-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-knowledge-session-coordinator-payload.txt",
+      "sha256": "6712d7c9507fc25aeb91136c081c9de5551925079398adfd347fdf98c4b66eb2",
+      "size": 226,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-knowledge-session-coordinator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-knowledge-vector-engine-cpp-payload.txt",
+      "sha256": "fbb4dfa73deaad637ed6490d46bf2e17960f3e52d7671a219362d91186159845",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-knowledge-vector-engine-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-maestro-payload.txt",
+      "sha256": "ac1da286941f02f0a9742174266b48c473f2b6ff0eb1ef4b5039a88ae8b9adeb",
+      "size": 204,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-maestro-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-native-source-support-cpp-payload.txt",
+      "sha256": "6d41c3f37b0d66bab40cbef74ac596b8d485c3c31bd8bbe54379f6e88dffe5a2",
+      "size": 222,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-native-source-support-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-qxctl-payload.txt",
+      "sha256": "f63e8bceca08d6bdfb3a15e6e23303c5529756ad3e440de66eb91b7227b66fb2",
+      "size": 202,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-qxctl-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sacv-engine-payload.txt",
+      "sha256": "97dd65cb7d04ba6697a549b7af1d48dae2d64b7e50731decfa79ca90f184fff5",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sacv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sav-engine-payload.txt",
+      "sha256": "77c705badb8bdacd927d0401a450ba469f2faa819d852f6872d837f81f5c24ea",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sav-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sbv-engine-payload.txt",
+      "sha256": "a4ed6413613c53f4593b1527ae108728478d5aa41f76a0ddd93d48295e12946e",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sbv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scev-cf-engine-payload.txt",
+      "sha256": "d72fa3ac12bdc5bf1baa22d5bbb07c0602ab0e3aeb124bc4ee3ff6c20b588216",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scev-cf-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scev-engine-payload.txt",
+      "sha256": "631daeff8b80b1f5f1f656f52b065573c43f448930c5566af5df013249e61fc5",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-aws-engine-payload.txt",
+      "sha256": "3df5377a929b10c06c18ee74fbc8275d5852d74d29968ce3a6293ce561b9e2cd",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-aws-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-azure-engine-payload.txt",
+      "sha256": "20695e195a17a2b8b6d9f74b03fd7d3c3f561bb83907b880034ce9896e5adde2",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-azure-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-do-engine-payload.txt",
+      "sha256": "b80df24c2398f6a51e0e0907cc934662f0f2bd1cc15dfb61410aec1e91736384",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-do-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-engine-payload.txt",
+      "sha256": "9ff1d9cbce99fde09512c8d5eeaec5dfbd85384057aca20cf75bcb9d2c93bd04",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-gcp-engine-payload.txt",
+      "sha256": "1b2f9ccb9c8d4b4b491bc387414832cfc775e0cffdcd9ff04612db2e4942eb5e",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-schv-gcp-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sciv-engine-payload.txt",
+      "sha256": "16e7c1715370ee5ffff6a75c71e78e2a0c6dc56931690932403e65d80e86460f",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sciv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sclv-engine-payload.txt",
+      "sha256": "dd7b500c8c94a743b5fb04a325801f2bf636f556dc8475df7a7394d032c90a8e",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sclv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scnv-engine-payload.txt",
+      "sha256": "244ed691ea1b5bb75840f0618a4798c6227b699fd240bb0e29547eeb5d31a0cf",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scnv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scv-engine-payload.txt",
+      "sha256": "f085ada5ffe9c70ead11982fdff782d7d3fd501185880a31bd6161d2da71f827",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-scv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-secure-identity-access-governance-payload.txt",
+      "sha256": "78e715460376e54192966f27b9f81e9835d9b0ff94fb100cfa697e0f2830392d",
+      "size": 230,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-secure-identity-access-governance-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sev-engine-payload.txt",
+      "sha256": "9a9fc4a455218f8cdd633235e1b13b0ef1b7efb4bc6fd3540e9e8ee8b7000041",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-engine-payload.txt",
+      "sha256": "4ebd750f564fe6002d0b4e26415f55eb89622119bf8a896db0c01e4c0d218072",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-graph-adapter-payload.txt",
+      "sha256": "72ad3bac6e2fff5fd31dc42e59e0056a7fba723a15c30c6dcac4e7800811b783",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-graph-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-partition-engine-payload.txt",
+      "sha256": "6dba0d12fb537e8ccf11f6a8f90dd0a0cac621345ad845b117bf915d09f00afd",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-partition-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-profile-engine-payload.txt",
+      "sha256": "949524d2c65be6026ad1c2f4222049c5fb0a92f1ca277998d58441545e678caf",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-profile-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-publication-engine-payload.txt",
+      "sha256": "52d1c16883f7d1b2bc2ee42957300576ffb5d9aa6e9459144f5b5bae9fb430c6",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-publication-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-source-engine-payload.txt",
+      "sha256": "ac91e167f8bf7480a0494175d3c5aad5669952be4597b521435764293d5bbabf",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-shv-source-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-skvi-engine-payload.txt",
+      "sha256": "18d673f2d0da60ab0b4c8e7726bc533b79675b1db2ff2672d87db10f9bcd17cd",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-skvi-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sniv-engine-payload.txt",
+      "sha256": "2e7413f1438efe17e46a8c0faeec52d0074c4365cefc417a7e5f5abcda52f27d",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sniv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-snrv-engine-payload.txt",
+      "sha256": "7dc155afa913b95c18932a684cdba50d454cdc570bf31ec0abf08896a897a25d",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-snrv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-snv-common-cpp-payload.txt",
+      "sha256": "97b6aa2a939bbad5f131d94ff5c94fecf54e9e994e220ada73dc6c2dca7da039",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-snv-common-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-snv-engine-payload.txt",
+      "sha256": "e47d536929735ba7f3dae92822d2e8404c59440b410fe31a36bd6165a6e72d04",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-snv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sodv-engine-payload.txt",
+      "sha256": "421951dd63be4a727e67ca3104af96a06ef38263af4dc033cc70358f8dc83ca0",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sodv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sov-cloudflare-adapter-payload.txt",
+      "sha256": "7999b193f7068c6aadede3111d1a2570c39c67064d1ec885618d0ae2941d66ef",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sov-cloudflare-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sov-ssh-adapter-payload.txt",
+      "sha256": "0922ef0be9e030bae658d9fc9f4ce2e9a757a6c4ed2bc0bf6e9e31d60ecba0f3",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sov-ssh-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sov-stdio-adapter-payload.txt",
+      "sha256": "0c587a79c1104c04a133e3597ebd50ef89b0384842f26dd3e83831a478453ca3",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sov-stdio-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-attempt-engine-payload.txt",
+      "sha256": "e2ade811f535445cdaa759214d7b01ed20444b79534ab95bf309707825ab0624",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-attempt-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-capture-cpp-payload.txt",
+      "sha256": "e9ebd0543389e4f27a9344b128f4353a0a25dc06c9208fe31f8781a810f948f5",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-capture-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-databento-dbn-cpp-payload.txt",
+      "sha256": "d057c09763810f818d5217fde2ebf8c423c4b62b19d2e5da67f435bc6f52a86c",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-databento-dbn-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-databento-reference-cpp-payload.txt",
+      "sha256": "f7ec454ced45b5110ab7002c14284010156b66994f01b5d67fdfb317f45a4035",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-databento-reference-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-fred-cpp-payload.txt",
+      "sha256": "edb033c89ed2bfb03f5c3ca2bb08cb608be794f031d11af0781c56032034b15b",
+      "size": 210,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-fred-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-request-engine-payload.txt",
+      "sha256": "728f61c429426ee10d9bd29ca031236535b218ddfaf69e5ca6c33c71aa4f0822",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqav-request-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqdv-checkpoint-engine-payload.txt",
+      "sha256": "e900fc7536fc16534e47ae1a2f5593741d684a5741839a891a771f45124170d2",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqdv-checkpoint-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqdv-delivery-cpp-payload.txt",
+      "sha256": "10412355413fcc59573b57144f81ab445f6c4f197b71fbf05d0caa819aa50329",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqdv-delivery-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqfv-batch-cpp-payload.txt",
+      "sha256": "c37ae8bd11dab985d9cb03fde7d217803524e2c04376db920a8b5dad6a0c7048",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqfv-batch-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqfv-flow-engine-payload.txt",
+      "sha256": "143066444f785d2aede2f53631866ca1a37a1f6d3a83cdb6b03fb6e6e2b0019e",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqfv-flow-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqmv-metadata-cpp-payload.txt",
+      "sha256": "3803af92e54d673d1297be1c2f56f50334bac318b98fb111922a3d061cfc8336",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqmv-metadata-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqmv-metadata-engine-payload.txt",
+      "sha256": "421f82b62787db960e3bd47712538dc1f3c3c1368a15042c30429cb1dcf6e44f",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqmv-metadata-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqpv-inspection-engine-payload.txt",
+      "sha256": "1f9f80ebd3dbf7dc6029480859a7181dfa0e12930161e8573f46a4fbcde02e2a",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqpv-inspection-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqpv-local-store-cpp-payload.txt",
+      "sha256": "8b36b483d7973d8e8237bf794001d9f5b4deb8130937ba9c568fbce5f7918e63",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqpv-local-store-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqtv-conversion-engine-payload.txt",
+      "sha256": "bbb9fcc9cfaa28e27b17a401bf081f7aaa92445e48aa797609677da42b00446f",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqtv-conversion-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqtv-integer-conversion-cpp-payload.txt",
+      "sha256": "0a6a31021e00d222d1eab42294ab763c4062d5c858909129d2c628c6ce371d8a",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-sqtv-integer-conversion-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-ssfv-engine-payload.txt",
+      "sha256": "3ab88fe42c82626d28443f3585d49555c5ffc74651f392518961e3a04389d9ac",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-ssfv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-ssiag-provider-private-store-payload.txt",
+      "sha256": "c68425565f947520d1197f16f6cc5cff62fc7c2e13d2389ae52c25f173a31c25",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-ssiag-provider-private-store-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-stav-append-authority-payload.txt",
+      "sha256": "44b85780144e94fac3f74a18e8f6fe5747daad7d53783a93f68eca39878422fc",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-stav-append-authority-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-symphony-validator-payload.txt",
+      "sha256": "c78d0ae8712221329e5de13b8e1a40f36d8019e5b64243eb5258ab9df89ce62b",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/units/symphony-symphony-validator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/BOOTSTRAP-INDEX.json",
+      "sha256": "39b0a211e45ceb0201eebc8ca761c8b421dcb849758f195ef767efa0a565291d",
+      "size": 29932,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/BOOTSTRAP-INDEX.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/COHORT.json",
+      "sha256": "37b10efe3139bf35258f25960cf4a4ce9c59aa80a91fc3194d172e077bb2dd70",
+      "size": 30829,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/COHORT.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/default-explicit.txt",
+      "sha256": "d72e52f1ffec4e361e08a0b15ff6ac70159c51a7e5ba6ab7f3fb5cdb5e4c9ab6",
+      "size": 12307,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/default-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/optional-source-explicit.txt",
+      "sha256": "ed5de231e17569b2da2cc6e05a648bb698991e418ea93e77df75f5931ff40aff",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/optional-source-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/symphony-retain.py",
+      "sha256": "d329c7b69c4ff94a95f704b621fc91b7f3501e3bf48a66c372abea93f6875828",
+      "size": 20563,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/symphony-retain.py"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-accordare-stav-producer-payload.txt",
+      "sha256": "5e110bc60da4159ee1b269b274ade50dfaff9e6faaaaeecd57a636c0ff22a4e1",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-accordare-stav-producer-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-client-payload.txt",
+      "sha256": "d115f2eef96bcc458587e4a24b9221710c058e5451febf242995c22be2282f20",
+      "size": 204,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-client-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-corresponding-source-payload.txt",
+      "sha256": "ed5de231e17569b2da2cc6e05a648bb698991e418ea93e77df75f5931ff40aff",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-corresponding-source-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-external-curl-zstd-payload.txt",
+      "sha256": "443e66216a7131494be7c3725615be13d5b7fd08e626404ed5e89bf1959b848b",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-external-curl-zstd-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-knowledge-session-coordinator-payload.txt",
+      "sha256": "222af6c065b37621827e2691767680204946fa0ba3b80ba807b0f0af2c364dac",
+      "size": 231,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-knowledge-session-coordinator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-knowledge-vector-engine-cpp-payload.txt",
+      "sha256": "34afa05fe650ede7fea86665034e729aeb0c90d3a99802a9eec44bebed02eb7b",
+      "size": 229,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-knowledge-vector-engine-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-maestro-payload.txt",
+      "sha256": "7f38dcde57ce705fe0e6de9fabf8077c2abfeb2916df98eb33c6049a7f61395c",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-maestro-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-native-source-support-cpp-payload.txt",
+      "sha256": "b6610bc7bac70d7c069ba8f9bbe597b8e3fb889e79639e75d7400e9eb00b531d",
+      "size": 227,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-native-source-support-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-qxctl-payload.txt",
+      "sha256": "479761bd4c3757dc27ad843894a208bdfac9e7636834a56dad273a52b95234ab",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-qxctl-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sacv-engine-payload.txt",
+      "sha256": "2a8ced6ca9fa1dca1aa6d0bb86068f21b6555d9238c14305858e323f90f807a6",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sacv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sav-engine-payload.txt",
+      "sha256": "674cb962b2a300a17940112da23df0d4e2c9f3fbe24e3efb5d7cc4446ba8b0ae",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sav-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sbv-engine-payload.txt",
+      "sha256": "f64a5afea028c9084b6a08f449e076d486db9a2a0cce994631b43684d63c3dd4",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sbv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scev-cf-engine-payload.txt",
+      "sha256": "34cce50a5e8faf3fcd0bd3aa4b40ec1e293c7849b8e15611c80d7f2b2e0f43dc",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scev-cf-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scev-engine-payload.txt",
+      "sha256": "3d0a7277aa9cda8c780b416e56a6d4eee96423addf3f0bbc142284608b6ea7a8",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-aws-engine-payload.txt",
+      "sha256": "80317b17c0a50a9faa056044d76370365a8015e6940fe39783b9ad4f1c94aeec",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-aws-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-azure-engine-payload.txt",
+      "sha256": "96e431c0ba6ec6ec542b8c0bcee31ac0ebac317e5419a8120f967210d311a2a8",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-azure-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-do-engine-payload.txt",
+      "sha256": "e1e7626c7b7811a43581bb11fb423cafa52bbfb64509bf766494fc699380eb84",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-do-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-engine-payload.txt",
+      "sha256": "c7855fc94d44006bcb2d282a0f698b0dd9eb9cdaefbf5ab00ad82615468bf870",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-gcp-engine-payload.txt",
+      "sha256": "f719857758bb836990368e193a117a9d2df5458ce706d7be20389b51f36bf534",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-schv-gcp-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sciv-engine-payload.txt",
+      "sha256": "b98fc8ba40b7199e9f6a5c9344547fa414d643115040b2751e209200b668d45a",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sciv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sclv-engine-payload.txt",
+      "sha256": "916fa2ab866b3b9748995595758235c76f26307c9525e9993b11f78a3c9bb56c",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sclv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scnv-engine-payload.txt",
+      "sha256": "a19b10bcad7b62e9129643819cf0231c1eed4b90efa5665ecd8b8f302b66550f",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scnv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scv-engine-payload.txt",
+      "sha256": "d707022f208abcd102148201b7f13ac80c45bf3752cf92377a92d0cff941dc34",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-scv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-secure-identity-access-governance-payload.txt",
+      "sha256": "ca3a61c41103050e44a0c3a6a63299a543cc26b587c66db353e8ffcb39f98eda",
+      "size": 235,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-secure-identity-access-governance-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sev-engine-payload.txt",
+      "sha256": "7bb99fdfcb43d80be332870b8d92ea56dc9d35e84400382620b687b2700fb24c",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-engine-payload.txt",
+      "sha256": "270fee389518c71f9a9912e20d5e61edcbaa28e4e2bb8c8c47db4efe390e677a",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-graph-adapter-payload.txt",
+      "sha256": "fac9ee54264e2dd3e8f85bb8a47ffcb959352acad872e2aaa7b085bebd117911",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-graph-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-partition-engine-payload.txt",
+      "sha256": "25bdeea6621b441ae0254c6e5b4d497d47fa93bccf3b079b78bf749273727396",
+      "size": 222,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-partition-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-profile-engine-payload.txt",
+      "sha256": "460ba883e2f712bbf7462d872b0c33f078bf519bc6480846e87accc9b3e73211",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-profile-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-publication-engine-payload.txt",
+      "sha256": "28ca4ba6c1905436b42fcc130fa7eabc0ac7cda89c2b610cb4184b8f4c215491",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-publication-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-source-engine-payload.txt",
+      "sha256": "0f6a97963f35a8e7eea444337365a0c7934e79d96acec34e67a11cce24903584",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-shv-source-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-skvi-engine-payload.txt",
+      "sha256": "12773a97e62385c9de0ab37ac3eeb08995eaf0cdccce6fcb7f5583075b1f263b",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-skvi-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sniv-engine-payload.txt",
+      "sha256": "2ac59b941869c15a3347c0dae5085f6edd2796a9ac81fb8f15cdeb0fcef979ad",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sniv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-snrv-engine-payload.txt",
+      "sha256": "045c25ae03ec59e8059f409e75b749382b9519c3d69c958f4f32eb5fa210a2f2",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-snrv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-snv-common-cpp-payload.txt",
+      "sha256": "7eeb2f10a94b0f40a3b0ec0f37b707e8441471545145c2d0899f3fedb5599ca3",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-snv-common-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-snv-engine-payload.txt",
+      "sha256": "32b00d54f756660a8d412548c0e9690559d35a9b71b91004a91417dd6db2bf62",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-snv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sodv-engine-payload.txt",
+      "sha256": "0f3d2a2d885d96ce85c98559fa35b46ce6eb5b01948a79e6d3078fa49fe2ca93",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sodv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sov-cloudflare-adapter-payload.txt",
+      "sha256": "0a9614005c2aa9ec85dc7fd28b6f4646fcd93af4e3963b8e0e60e40e59097ed1",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sov-cloudflare-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sov-ssh-adapter-payload.txt",
+      "sha256": "d6b257cb427fcb2d0e97742b8bf0885a413240038f98476097422a1131f98487",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sov-ssh-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sov-stdio-adapter-payload.txt",
+      "sha256": "f6b504d30e55a8e0a382c024bd777593da33b6ddbc31df93103223356359be63",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sov-stdio-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-attempt-engine-payload.txt",
+      "sha256": "7ac9a705821eafabd746bfbdb8d375173a28bb1c02bedacec5d97751253cea02",
+      "size": 221,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-attempt-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-capture-cpp-payload.txt",
+      "sha256": "860e60f26a2e6210360a8531f6bc4e8bb305b8a1e51789878a8cfee4d1d58a33",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-capture-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-databento-dbn-cpp-payload.txt",
+      "sha256": "8ec6887c516b146c0017280523299d54d731d10282978b8b24107dbd917d389a",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-databento-dbn-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-databento-reference-cpp-payload.txt",
+      "sha256": "187a61295a92ddb8641b313db4675e9a11468417e391abe3efc06713116ab7a6",
+      "size": 230,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-databento-reference-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-fred-cpp-payload.txt",
+      "sha256": "36b854da9d0130e7bf31d23874d3aafd4f24dd49c33d533d49dfadbd79075a96",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-fred-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-request-engine-payload.txt",
+      "sha256": "1723abe13f4c1cf181fa45a53d12b33189bcccf0204be0eecf7323383e0adc7e",
+      "size": 221,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqav-request-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqdv-checkpoint-engine-payload.txt",
+      "sha256": "b6130423f5f4265d978a3099ab2f65d1b92393c83398b89db2df662bc2f8d3c5",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqdv-checkpoint-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqdv-delivery-cpp-payload.txt",
+      "sha256": "0e5d33e773fae156adc7bb5f2825bd54a94484276e5d7e4e535fe633f2ee2510",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqdv-delivery-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqfv-batch-cpp-payload.txt",
+      "sha256": "37606e41eff118593d9cdf18e582e561b16fdb41d475eb1df981ce89ecad6a45",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqfv-batch-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqfv-flow-engine-payload.txt",
+      "sha256": "d6995a2777e3e95bffb72b3efcb16d9e7cd34ec7c3f60f96b3bc61b95e49eaad",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqfv-flow-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqmv-metadata-cpp-payload.txt",
+      "sha256": "d750c89d98ca3ea716a5b5e8d5fd9cba718d535299e71d831f0a84bc71a293f6",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqmv-metadata-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqmv-metadata-engine-payload.txt",
+      "sha256": "b22e99a7d114fd6ab4dfbaecf8c304a8b1fbfeb2252651df2afc3d71e433b2c1",
+      "size": 222,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqmv-metadata-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqpv-inspection-engine-payload.txt",
+      "sha256": "186b9bac1cf2e28cfe086ea8fcf7d43a8c2eee78cce88d02f408dd5c431d0981",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqpv-inspection-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqpv-local-store-cpp-payload.txt",
+      "sha256": "35af74696d547eba98d7f15733bc4b2aa43293c4c38fdd87a631894f0a8f8f16",
+      "size": 222,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqpv-local-store-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqtv-conversion-engine-payload.txt",
+      "sha256": "f76e77b2aa59ea3918fd52f9370d386e21180d310b65f855e8b0905a1ec9c905",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqtv-conversion-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqtv-integer-conversion-cpp-payload.txt",
+      "sha256": "5fc749f0cda32550dcda55ebaa5ce7b9a4d2e1cf7c640587e7dd0815a09f34fe",
+      "size": 229,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-sqtv-integer-conversion-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-ssfv-engine-payload.txt",
+      "sha256": "70376635d0af458b14b53738e69482492e7ab011bd988cfc43d2f5963fbab5fe",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-ssfv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-ssiag-provider-private-store-payload.txt",
+      "sha256": "26ce512d267203474169c38d948fa1a9caf1efec55b4e0ae4d1c515f410b2ec6",
+      "size": 230,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-ssiag-provider-private-store-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-stav-append-authority-payload.txt",
+      "sha256": "f35698ac53919da938fa0d49b76f8216f316d04ee02744e0a9df061fba6b332e",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-stav-append-authority-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-symphony-validator-payload.txt",
+      "sha256": "3a31b9d13bf231a53b543fbc61cec650a7cb7d75df657a3166abc8e498431d38",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/units/symphony-symphony-validator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/BOOTSTRAP-INDEX.json",
+      "sha256": "b9c1024bcc85f58c461d06a86f52b238be4e4f00c949e9bdf2712f55d1fa3bb9",
+      "size": 29932,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/BOOTSTRAP-INDEX.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/COHORT.json",
+      "sha256": "f84827c3c7e6dea982b7c8e7be4dfd50dba5d50a9804e16c4890047ac17562a9",
+      "size": 30535,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/COHORT.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/default-explicit.txt",
+      "sha256": "ee0edf294190af25578e62da27645c323cf926bc2796083cc42f7b7773bc2261",
+      "size": 12012,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/default-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/optional-source-explicit.txt",
+      "sha256": "81a82462c482d8f2fcb76422070109f52181ab569030e4d9b3a7b5ab328648f1",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/optional-source-explicit.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/symphony-retain.py",
+      "sha256": "d329c7b69c4ff94a95f704b621fc91b7f3501e3bf48a66c372abea93f6875828",
+      "size": 20563,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/symphony-retain.py"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-accordare-stav-producer-payload.txt",
+      "sha256": "a51c52b5a1757ca53ca6929953690c82176c28c7d226624a6e9ba497830b82fb",
+      "size": 220,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-accordare-stav-producer-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-client-payload.txt",
+      "sha256": "579c239c6ef7b8c5a2dce3a49dfe4a76fe38a87bd697cee186936065d070e142",
+      "size": 199,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-client-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-corresponding-source-payload.txt",
+      "sha256": "81a82462c482d8f2fcb76422070109f52181ab569030e4d9b3a7b5ab328648f1",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-corresponding-source-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-external-curl-zstd-payload.txt",
+      "sha256": "f073e633c21ffbb9db5432a6f8ca584baf56e4e10bf5739ff47efda1caa9d620",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-external-curl-zstd-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-knowledge-session-coordinator-payload.txt",
+      "sha256": "09cd76c155967ff1a733ac100367d40fe5571739699959d123f106fbdbcdfb05",
+      "size": 226,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-knowledge-session-coordinator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-knowledge-vector-engine-cpp-payload.txt",
+      "sha256": "ab1f529c1cea330a78875255f96f05d5a8d2ad3f9af422e9b0b9a462e6274685",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-knowledge-vector-engine-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-maestro-payload.txt",
+      "sha256": "a1d0f8c5f2db1b2d020a1580b16a84a51ebd02fe376d5a350569144620507c64",
+      "size": 204,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-maestro-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-native-source-support-cpp-payload.txt",
+      "sha256": "4dbdc76c17402228be19f8feebe787c0948c092b5c60dbf6b9267e30a7af661b",
+      "size": 222,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-native-source-support-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-qxctl-payload.txt",
+      "sha256": "864bed5876fc5503dc73af2d3605b1b82a0bc9f3b5a857684c2afcf4fd574d30",
+      "size": 202,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-qxctl-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sacv-engine-payload.txt",
+      "sha256": "8bb15c290127ff713ea52886359f4ff4962a0eabf22882445337380226e96a47",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sacv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sav-engine-payload.txt",
+      "sha256": "1ca961e64896dbf36aad5ecb12a806478ec70ed5542b766796d43fea6b45d134",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sav-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sbv-engine-payload.txt",
+      "sha256": "1ca7f9ac8a264dd1ad1dcfe79ed36beae9338054297b3cc1bea8e6789ce9f5e0",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sbv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scev-cf-engine-payload.txt",
+      "sha256": "792bef6dc9720f0589a8f5a9c66ad68f41e4833b522c95d940af418fff2914e9",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scev-cf-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scev-engine-payload.txt",
+      "sha256": "55abfb2c310d96120aaea38220e92abf3650a4da0e8352dbf07216c7cf3ae8b3",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-aws-engine-payload.txt",
+      "sha256": "f4c416cde51cd09a148a1452b30b6b19655ab406896089f4182399dcfcf2cd82",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-aws-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-azure-engine-payload.txt",
+      "sha256": "20beb0ffee0d15ded60ab66452793d6ed29e52681dfd7892ad55814293c21cae",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-azure-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-do-engine-payload.txt",
+      "sha256": "014143581b06099cd8c33b19074f165df7eb7815f8d129866b69dd928d8e0e01",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-do-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-engine-payload.txt",
+      "sha256": "62243fc681231e831dfb0fa303f4379e1e4a252541ee752007f24d4385d5c746",
+      "size": 209,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-gcp-engine-payload.txt",
+      "sha256": "9c166d6d8ea77aba83c1a80350b0b4c0b4c03dfc5a4db25bbaa268a26e03fec5",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-schv-gcp-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sciv-engine-payload.txt",
+      "sha256": "792f40707f1903d2c950aa82769ca7049a12f30e1242440259c91c666a10caec",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sciv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sclv-engine-payload.txt",
+      "sha256": "bf7ac84a0c47b61ee25248ed851329110a27be8a8ed5405523242d11f669123f",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sclv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scnv-engine-payload.txt",
+      "sha256": "529408866dc5f8b33f6f259c943223dd52768b2b3b3253ec6aeb10865c0531c6",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scnv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scv-engine-payload.txt",
+      "sha256": "0b0a8610beaf567ad5b3ef60168e40bea4a366020bdfa34896077e75ad1fe988",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-scv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-secure-identity-access-governance-payload.txt",
+      "sha256": "546ab6cb221f8f769ea0c746a9ee42019fade9a4ab914dffd46524604084c782",
+      "size": 230,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-secure-identity-access-governance-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sev-engine-payload.txt",
+      "sha256": "e6242e352678ce378ea3738465519ceaed29eb9065471baa708aad9711b9b910",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sev-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-engine-payload.txt",
+      "sha256": "0ad56b222f7e797a1291e9bdab94197dbadbff69c220757f2319728375197f85",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-graph-adapter-payload.txt",
+      "sha256": "1a9b616363f8a9636944cd8811ebb0608f7ef4436ace74bda0e38f0a8cca8d2b",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-graph-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-partition-engine-payload.txt",
+      "sha256": "3789e4d022f7e90b95376cadf88685c1e25b85c96ecad889d783441f24870bbf",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-partition-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-profile-engine-payload.txt",
+      "sha256": "5a0873105b85d106e151581c0cc6f4dd075101f3556d0e197c9fdbad6d16541f",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-profile-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-publication-engine-payload.txt",
+      "sha256": "8ed08d44ecd37de928b627dfb38f28dde85db7206b8f59ff654203ca2bee0c98",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-publication-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-source-engine-payload.txt",
+      "sha256": "6f9bfa7a9a3e27302f8138b2d811938187837a4fac3a9363ce5a5112d1c5d8a5",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-shv-source-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-skvi-engine-payload.txt",
+      "sha256": "81446d141fd112aeb67564baf70d848d63261ffd7634138a15d6bc4f998a9962",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-skvi-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sniv-engine-payload.txt",
+      "sha256": "46abb420a0d30d961767222b4ae6816724592edb07e965f2ac47058540c40cd8",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sniv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-snrv-engine-payload.txt",
+      "sha256": "75232c9f3aa4883885915bae3411283bb6618102e1790184246de701496acdb3",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-snrv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-snv-common-cpp-payload.txt",
+      "sha256": "7e0afa8b6138fdade80744a9d5400f50c53a5188e91a09b0a56041426667ad6f",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-snv-common-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-snv-engine-payload.txt",
+      "sha256": "503538c9bca4db6b4bbe1cf187c6e0677db7ed15ed0646805dd36725c845a6bb",
+      "size": 207,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-snv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sodv-engine-payload.txt",
+      "sha256": "320097afeb71a4da636005c39bf56bf464e704ee0b279d43aeb87bb1f0f0a38f",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sodv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sov-cloudflare-adapter-payload.txt",
+      "sha256": "1db57472d2c0b3b2b80c839afa7e6b902d8ca4079cabbf0b9608218d2b297fbd",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sov-cloudflare-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sov-ssh-adapter-payload.txt",
+      "sha256": "5537237e80473e3836e251428405f0651e85962c75e965797228858d96f1bda6",
+      "size": 212,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sov-ssh-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sov-stdio-adapter-payload.txt",
+      "sha256": "4e252faa3d9995d027fb6e1e921abf9a020ee6f3ffad32eab248268fda9bd649",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sov-stdio-adapter-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-attempt-engine-payload.txt",
+      "sha256": "53abb1d9f613f1ce7626d813cc5543d52d503f0163aa4e239c12df9c025d093a",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-attempt-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-capture-cpp-payload.txt",
+      "sha256": "59ada448194a582c967771203d9452627c44eba7db3e6df363b43783efee02c4",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-capture-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-databento-dbn-cpp-payload.txt",
+      "sha256": "694efb41ac80e39f765138b3d3c221f2ddc0f3b6ecd3e6f021e4c580cc2802ed",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-databento-dbn-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-databento-reference-cpp-payload.txt",
+      "sha256": "5fa8a4cc4f8f1b4abed5636c251d79dbe9963df21c8ec51f225488e26084f63b",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-databento-reference-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-fred-cpp-payload.txt",
+      "sha256": "910845552d33ce8819b254ce157dcbae589b1dee2b9015bfc5b3021c6ed8f672",
+      "size": 210,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-fred-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-request-engine-payload.txt",
+      "sha256": "19c7b58d3c1f88e5feb615ad37c48d6b68747ae8d5ee81b9b62e1908ad3395c6",
+      "size": 216,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqav-request-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqdv-checkpoint-engine-payload.txt",
+      "sha256": "7de15fc76cc46bee936919467188cd53ddff1b2aca218ed77fe082dd7fd07037",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqdv-checkpoint-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqdv-delivery-cpp-payload.txt",
+      "sha256": "abdaebb15c02815472eb18a8d6ccef35aabb58a6c7085e087e0d672c3c9df867",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqdv-delivery-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqfv-batch-cpp-payload.txt",
+      "sha256": "1190c3da795f6f6a970b30fe82bc6f5003f88ea8daa3f552dacc4d0f26aa8cf9",
+      "size": 211,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqfv-batch-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqfv-flow-engine-payload.txt",
+      "sha256": "81271628c1c2ac3fa6c9fc25e7552fad87ab4682d8a449ddc351054c07daffea",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqfv-flow-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqmv-metadata-cpp-payload.txt",
+      "sha256": "54230f4bdaa0c33bdc681395a9921f980b73a5fdd8b3e86072499a1d58485881",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqmv-metadata-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqmv-metadata-engine-payload.txt",
+      "sha256": "235e9e6952aea9e5830e64682f0901977dc10897cbc6b26f75f95a1e0547ee4c",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqmv-metadata-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqpv-inspection-engine-payload.txt",
+      "sha256": "db455704a2f35d71efc46a80152fe26633d2768d544dc250dfb90a0750e04e46",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqpv-inspection-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqpv-local-store-cpp-payload.txt",
+      "sha256": "acfe7f103302a715862a4bcd6ae2e758f4f7fd626f30e91f19d1146c8ce16ac3",
+      "size": 217,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqpv-local-store-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqtv-conversion-engine-payload.txt",
+      "sha256": "df8de8be21e7b287d662fee6a84eb660bd59a122c1544391d19695773960c736",
+      "size": 219,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqtv-conversion-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqtv-integer-conversion-cpp-payload.txt",
+      "sha256": "98d0b02c186242557b71cc36e4415848ae04d4c1c9396c0664501739bb456da4",
+      "size": 224,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-sqtv-integer-conversion-cpp-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-ssfv-engine-payload.txt",
+      "sha256": "6e776652e467fc3226c6a555284c4f0d829e86067d06dff3a80e495837c17575",
+      "size": 208,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-ssfv-engine-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-ssiag-provider-private-store-payload.txt",
+      "sha256": "c698deeacf70efe1ec166bf0ee41c239d1b17ceed28ed4cebebf5f7564bc315b",
+      "size": 225,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-ssiag-provider-private-store-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-stav-append-authority-payload.txt",
+      "sha256": "7f974f9c949a0e79db61028f43fef41ef31e30a9eda1b8b05e5188ad44b3b5c3",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-stav-append-authority-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-symphony-validator-payload.txt",
+      "sha256": "d48d1fb42e882044b489a91d3e39659ee7e23be196b9b637d40efbcaf398c071",
+      "size": 215,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/units/symphony-symphony-validator-payload.txt"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/verify_beta.py",
+      "sha256": "ad60efa14b3ba901c568d85d9074be6e41be299f939d47e46dc0d64809b06523",
+      "size": 6188,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/verify_beta.py"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/beta-manifest.json",
+      "sha256": "c9abc50797aae650a1e77b9625f93663ab9bd5818643f58cc006f51e7cedd6d8",
+      "size": 98418,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/beta-manifest.json"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/beta-manifest.sig",
+      "sha256": "37b412ac247537587efd0e8a137889b52d29bc5460998294c5d8ee5eb493234c",
+      "size": 384,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/beta-manifest.sig"
+    },
+    {
+      "existing_identical": false,
+      "key": "symphony/0.2.0-beta.2/beta-cert.pem",
+      "sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+      "size": 1704,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/beta-cert.pem"
+    }
+  ],
+  "overwrite_performed": false,
+  "protocol": "symphony.distribution.beta-download-publication.v1",
+  "release": "0.2.0-beta.2",
+  "state": "all_selected_public_downloads_verified"
+}

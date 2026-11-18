@@ -1,0 +1,79 @@
+{
+  "acceptance_basis": {
+    "prior_production_or_independent_person_requirements": "superseded for initial beta release by the publisher's direct acceptance; historical evidence is unchanged",
+    "publisher_direct_approval": true,
+    "separate_reviewer_independence_established": false,
+    "technical_results_must_remain_actual": true
+  },
+  "assembly_boundary": "Assembly, signing and publication do not modify source branches. Source merges and checkpoint tags are separately authorized by the release-owner statement.",
+  "candidate_authorization": {
+    "path": "evidence/beta2-candidate.json",
+    "sha256": "a307c4dd931708c535a5ee81a34a215e1de7bc62c03072f000fbdea3a7297295"
+  },
+  "date": "2026-11-17",
+  "interpretation": "Release-owner approval is recorded as supplied. It is not proof of an unobserved host test, an unrelated independent reviewer, Apple trust or a successful future job.",
+  "latest_release_authorized": true,
+  "legal_approval": true,
+  "preserved_constraints": {
+    "feature_freeze": true,
+    "main_unchanged": true,
+    "no_automatic_runtime_or_provider_activation": true,
+    "no_private_publisher_state_in_distribution": true
+  },
+  "prior_legal_acceptance_sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943",
+  "profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "protocol": "symphony.distribution.beta-publisher-decision.v1",
+  "publication_authorized": true,
+  "publication_destinations": {
+    "conda_label": "beta",
+    "conda_organization": "QuanuX",
+    "standalone_storage": "Cloudflare R2",
+    "website_integration": "separate later step; direct download links permitted"
+  },
+  "publisher_acceptance": true,
+  "release_acceptance_complete": false,
+  "release_class": "public-beta",
+  "release_version": "0.2.0-beta.2",
+  "reviewer_kind": "human",
+  "reviewer_role": "publisher-release-owner",
+  "scope": [
+    "four primary platform packages and downloadable installers",
+    "existing native module and Go owner contracts",
+    "Codex primary with existing adapters maintained",
+    "verified source and optional SDK delivery",
+    "package revision upgrade swap removal and rollback",
+    "self-signed detached artifact integrity under an explicit publisher key pin"
+  ],
+  "source": "explicit release-owner instruction in the active task",
+  "source_binding": {
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac"
+  },
+  "source_checkpoint": {
+    "commit": "8a6889597eef3d2713f48bf6962456f989188e18",
+    "relation": "post-merge source checkpoint; the native artifacts retain the exact source_binding commit",
+    "repository": "QuanuX/Symphony"
+  },
+  "statement": "Everything is now passing in both repos! Symphony has completed its merge, let's merge pr's from symphony-distribution now into main and clean up branches. When ready, make RC2 live and latest. Also, be sure to tag the release on Symphony so we can capture the exact state before future development begins.",
+  "statement_sha256": "2b48898a19542ab642fb09d092be1e7021a3b4ef8c20a5cef88bc969775406c4",
+  "technical_release_conditions": [
+    "all selected artifacts retain exact source and byte identities",
+    "failed supported-platform qualification repaired and passing",
+    "actual final installer and carrier journeys pass",
+    "unsupported live or native-version operations refuse without altering user state",
+    "release manifests identify actual qualification and known limits"
+  ],
+  "trust": {
+    "apple_developer_id": false,
+    "earlier_self_signing_authorization": "I don't have those currently. Can we self sign for now?",
+    "mode": "publisher-pinned-self-signed-detached-manifest",
+    "notarization": false,
+    "os_trust_store_change_authorized": false
+  },
+  "version_confirmation": "Keep 0.2.0-beta.2 (Recommended)"
+}

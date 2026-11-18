@@ -1,0 +1,37 @@
+{
+  "apple_trust_claimed": false,
+  "beta1_authority_and_artifacts_unchanged": true,
+  "date": "2026-11-17",
+  "git_diff_check_passed": true,
+  "helper_sha256": {
+    ".github/workflows/d14-beta-assembly.yml": "b73400680f962bfa725c6bf805ca0456a7733787bfc4bf781d16331583cb4c98",
+    ".github/workflows/d14-release-contracts.yml": "f4b9279bc102f72ed68d500416d2c7e05390baad0ba3f62387d152bb3f1421ab",
+    "channel/beta_downloads.py": "a93e3edf8893bcb2381ab488c3aa83d2729c4acfdcd90a9502b012a2334313b5",
+    "channel/beta_publish.py": "3c6bd55f3413cc8c9f7b68280646b8a35802d0e5908672d03ff16e3615db04d4",
+    "channel/release_bundle.py": "a0a986a4bc3d5554537728ec5b3af304258c70088d9ee834b9b0e0241bb72f6a",
+    "channel/verify_beta.py": "ad60efa14b3ba901c568d85d9074be6e41be299f939d47e46dc0d64809b06523",
+    "installer_assembly/beta.py": "627649f5a4c344f1dc92e8925431a4ae81b9587f4a6f20321b50b3ca5a8f6266",
+    "installer_assembly/beta_signing.py": "98b031fb2c6f15e604f0b1ab71938fda0d278e8dbfcc48568974270dbc715dc4",
+    "installer_assembly/construct.py": "bf2ce879ce72fca59a7355e675de61db80dbe4ed8c116741bda0624d10637a74"
+  },
+  "publication_performed": false,
+  "publisher_decision_sha256": "420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a",
+  "release": "0.2.0-beta.2",
+  "review_artifact_promotion_supported": false,
+  "review_candidate_authority_unchanged": true,
+  "runtime_or_native_payload_changed": false,
+  "scope": "beta2 public assembly authority, exact release signing and immutable publication routing",
+  "signature_created_for_release_artifacts": false,
+  "state": "focused_contracts_passed_publication_not_performed",
+  "tests": {
+    "beta_assembly": 26,
+    "constructor_with_actual_publisher_codec": 33,
+    "native_pkg_safety": 21,
+    "publisher_and_download_contracts_including_beta2_real_crypto": 31,
+    "release_bundle": 15,
+    "signing_real_crypto": 10,
+    "standalone_verifier_real_crypto": 5
+  },
+  "unique_focused_tests": 141,
+  "workflow_yaml_parsed": true
+}

@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "beta": {
+      "artifact": {
+        "id": 14397772232,
+        "name": "d14-beta-assembly-macos15-arm64-1",
+        "sha256": "3390f383ba029777270c01e2e3b29f183d45dfa7d2fae83d02ceb09e8bb4e507",
+        "size": 512594927
+      },
+      "result_sha256": "a7193bbe210f557941dceeb46154eba3b734a65224105f9b85a2b75db46c4444",
+      "run_attempt": 1,
+      "run_id": 44236529925,
+      "workflow_commit": "ab6b8b9012dbd9004bf9c56f7e57e537e0ccc5e5",
+      "workflow_path": ".github/workflows/d14-beta-assembly.yml"
+    }
+  },
+  "profile": "macos15-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}

@@ -22,6 +22,14 @@ PROFILES = {'macos15-arm64': 'osx-arm64', 'ubuntu24.04-amd64': 'linux-64',
             'ubuntu24.04-arm64': 'linux-aarch64', 'ubuntu26.04-amd64': 'linux-64'}
 ROW = {'profile', 'path', 'name', 'version', 'build', 'build_number', 'subdir', 'filename', 'sha256', 'size', 'selection'}
 SUMMARY = 'Symphony modular package payload; installation, removal and application selection remain explicit.'
+DESCRIPTION = ('Symphony independently maintainable modular package carriers. Corresponding source: '
+    'each exact filename/build has its own source URL in that distribution description; a native version alone '
+    'does not identify a release, platform or source cohort. Signed release indices, exact platform package lists, '
+    'source archives and verification instructions are listed at '
+    'https://github.com/QuanuX/symphony-distribution/releases. Select the same platform and release source as '
+    'the exact verified build. The optional corresponding-source carrier may be installed separately; unpack '
+    'its payload.tar under share/symphony/carriers and read its source index and scope records. '
+    'Installation does not activate Symphony or change application selections.')
 SERVER_FIELDS = {'access', 'builds', 'conda_platforms', 'created_at', 'files', 'full_name', 'html_url', 'id',
     'latest_version', 'modified_at', 'name', 'ndownloads', 'owner', 'platforms', 'public', 'releases', 'revision',
     'upvoted', 'url', 'versions', 'watchers'}
@@ -65,7 +73,8 @@ def prepare(release_root, signature_root, cert_pin, public_key_pin, openssl, pro
     c.require(c.sha(index_raw) == proof['release_index_sha256'], 'Signed release index changed')
     index = b.strict_json(index_raw)
     rows = index.get('conda_packages')
-    c.require(index['release'] == b.RELEASE and type(rows) is list and 1 <= len(rows) <= 512, 'Invalid beta package selection')
+    release = index['release']; policy = b.release_policy(release)
+    c.require(type(rows) is list and 1 <= len(rows) <= 512, 'Invalid beta package selection')
     signed = {row['path']: row for row in manifest['artifacts']}
     identities, paths, present_profiles = {}, set(), set()
     for row in rows:
@@ -96,12 +105,12 @@ def prepare(release_root, signature_root, cert_pin, public_key_pin, openssl, pro
         set(selected_profiles) <= present_profiles, 'Requested profiles differ from signed release')
     selected = sorted((dict(row, url=url(row)) for row in rows if row['profile'] in selected_profiles),
                       key=lambda row: (row['selection'] != 'optional-source', row['profile'], row['filename']))
-    label = 'beta-' + b.RELEASE + '-' + proof['release_index_sha256'][:12]
+    label = 'beta-' + release + '-' + proof['release_index_sha256'][:12]
     sources = {row['profile']: url(row, label) for row in selected if row['selection'] == 'optional-source'}
-    return s.seal({'protocol': PROTOCOL, 'release': b.RELEASE, 'organization': 'QuanuX', 'labels': ['beta', label],
+    return s.seal({'protocol': PROTOCOL, 'release': release, 'organization': 'QuanuX', 'labels': ['beta', label],
         'profiles': selected_profiles, 'packages': selected, 'corresponding_source_urls': sources,
         'certificate_sha256': cert_pin, 'public_key_sha256': public_key_pin,
-        'publisher_decision_sha256': b.DECISION, 'release_index_sha256': proof['release_index_sha256'],
+        'publisher_decision_sha256': policy['decision_sha256'], 'release_index_sha256': proof['release_index_sha256'],
         'signed_manifest_sha256': c.sha(manifest_raw), 'publisher_helper_sha256': fs.digest(Path(__file__)),
         'shared_remote_builds': len({remote_key(row) for row in selected}) != len(selected),
         'publication_authorized': True, 'overwrite_supported': False, 'automatic_retry': False,
@@ -160,25 +169,22 @@ def ensure_catalog(api, plan, row, attempt, *, require_existing):
         package = api.package('QuanuX', row['name'])
     c.require(package.get('public') is True, 'Existing package is not public')
     attrs = public_attrs(package)
-    desired = {**attrs, 'summary': SUMMARY}
+    desired = {**attrs, 'summary': SUMMARY, 'description': DESCRIPTION}
     try: api.release('QuanuX', row['name'], row['version'])
     except NotFound:
         c.require(not require_existing, 'Serial release preparation required before parallel publication')
-        sources = '; '.join(f"{profile}: {location}" for profile, location in sorted(plan['corresponding_source_urls'].items()))
-        description = ('Symphony public beta modular payload. Corresponding source: ' + sources +
-            '. Install the optional source carrier separately and unpack its payload.tar under share/symphony/carriers. '
-            'Read the source index and scope records inside. Application activation remains explicit.')
-        desired['description'] = description
         attempt.mutate('create_release', row, lambda: api.add_release('QuanuX', row['name'], row['version'], {}, '',
-            {'description': description}))
+            {'description': DESCRIPTION}))
         api.release('QuanuX', row['name'], row['version'])
     # Creating a release may reset package-level attributes on the live service.
     # Restore the selected metadata only after that operation, then read it back.
+    # Package overviews cover every build of a reused native version. Exact
+    # source URLs remain on immutable distribution records, never rewritten here.
     current = api.package('QuanuX', row['name'])
     c.require(current.get('public') is True, 'Existing package is not public')
     if public_attrs(current) != desired:
         c.require(not require_existing, 'Serial package metadata preparation required')
-        attempt.mutate('update_summary_preserving_attributes', row, lambda: api.update_package('QuanuX', row['name'], desired))
+        attempt.mutate('update_catalog_metadata_preserving_attributes', row, lambda: api.update_package('QuanuX', row['name'], desired))
         after = api.package('QuanuX', row['name'])
         c.require(after.get('public') is True and public_attrs(after) == desired, 'Package attributes were not preserved')
 
@@ -238,8 +244,8 @@ def execute(plan, release_root, signature_root, cert_pin, public_key_pin, openss
         attempt.event({'state': 'stopped_reconcile_before_retry', 'error_class': type(exc).__name__, 'completed': len(completed)})
         raise ValueError('Publication stopped; reconcile journal and remote state before another mutation') from None
     result = {'protocol': PROTOCOL, 'state': 'catalog_prepared' if catalog_only else 'public_beta_packages_freshly_verified',
-        'release': b.RELEASE, 'plan_sha256': plan['plan_sha256'], 'release_index_sha256': plan['release_index_sha256'],
-        'signed_manifest_sha256': plan['signed_manifest_sha256'], 'publisher_decision_sha256': b.DECISION,
+        'release': plan['release'], 'plan_sha256': plan['plan_sha256'], 'release_index_sha256': plan['release_index_sha256'],
+        'signed_manifest_sha256': plan['signed_manifest_sha256'], 'publisher_decision_sha256': plan['publisher_decision_sha256'],
         'labels': plan['labels'], 'profiles': plan['profiles'], 'packages': completed,
         'publication_authorized': True, 'account_credentials_used_for_download': False,
         'automatic_retry': False, 'overwrite_performed': False, 'native_install_or_activation': False}

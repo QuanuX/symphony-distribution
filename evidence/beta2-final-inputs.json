@@ -1,0 +1,146 @@
+{
+  "protocol": "symphony.distribution.beta2-final-inputs.v1",
+  "release": "0.2.0-beta.2",
+  "state": "completed_primary_client_wrapper_and_native_maintenance_inputs_verified",
+  "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+  "core_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+  "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+  "verified_boundaries": [
+    "github_run_attempt_and_workflow",
+    "artifact_bytes_and_result_digest",
+    "safe_extraction_and_transport",
+    "native_and_sdk_original_provenance",
+    "51_native_units_and_six_go_commands_per_profile",
+    "51_native_maintenance_receipts_and_safety_checks_per_profile"
+  ],
+  "selections": [
+    {
+      "profile": "macos15-arm64",
+      "role": "package-and-client",
+      "path": "evidence/beta-selections/macos15-arm64-beta2.json",
+      "sha256": "52926104eed68632eb8955d5e3d153f1e3c474b1922bcdec468c94719b70d58b",
+      "selected_runs": {
+        "client": {
+          "run_id": 44150235638,
+          "run_attempt": 2,
+          "workflow_commit": "1abbe48c181f874dc06f64cba449d6172ddc8382"
+        },
+        "package": {
+          "run_id": 44103650965,
+          "run_attempt": 5,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "macos15-arm64",
+      "role": "native-maintenance",
+      "path": "evidence/beta-selections/macos15-arm64-beta2-maintenance.json",
+      "sha256": "1612394c9951e9191bc7a631a3bf10f9f61ad446620bc44a86a82557739cda77",
+      "selected_runs": {
+        "maintenance": {
+          "run_id": 44103780254,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "role": "package-and-client",
+      "path": "evidence/beta-selections/ubuntu24.04-amd64-beta2.json",
+      "sha256": "f767261f442ad186a32365746ec0c0dd74d9f0d9d15d278584dc10404ea38a9b",
+      "selected_runs": {
+        "client": {
+          "run_id": 44150235495,
+          "run_attempt": 1,
+          "workflow_commit": "1abbe48c181f874dc06f64cba449d6172ddc8382"
+        },
+        "package": {
+          "run_id": 44103659664,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "role": "native-maintenance",
+      "path": "evidence/beta-selections/ubuntu24.04-amd64-beta2-maintenance.json",
+      "sha256": "86361ef625d0d4573de097341ba0aafbde4c6d1977e40be43df8f8d5e2cbeac4",
+      "selected_runs": {
+        "maintenance": {
+          "run_id": 44103789667,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "role": "package-and-client",
+      "path": "evidence/beta-selections/ubuntu24.04-arm64-beta2.json",
+      "sha256": "4eee1c03d30eaa4ada4cb1c0786e553eb51a153d4f1d7c335ac1b498d3ef78bb",
+      "selected_runs": {
+        "client": {
+          "run_id": 44150235798,
+          "run_attempt": 1,
+          "workflow_commit": "1abbe48c181f874dc06f64cba449d6172ddc8382"
+        },
+        "package": {
+          "run_id": 44103669315,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "role": "native-maintenance",
+      "path": "evidence/beta-selections/ubuntu24.04-arm64-beta2-maintenance.json",
+      "sha256": "c72e3b247197919e155422c988269adcbc091db2997ce8acdf9f96c3c88d468e",
+      "selected_runs": {
+        "maintenance": {
+          "run_id": 44103804745,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "role": "package-and-client",
+      "path": "evidence/beta-selections/ubuntu26.04-amd64-beta2.json",
+      "sha256": "e290a609ff73585c1faf687e6a82174079c30b5362611b4df070083ef8284d66",
+      "selected_runs": {
+        "client": {
+          "run_id": 44150236469,
+          "run_attempt": 1,
+          "workflow_commit": "1abbe48c181f874dc06f64cba449d6172ddc8382"
+        },
+        "package": {
+          "run_id": 44103676761,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "role": "native-maintenance",
+      "path": "evidence/beta-selections/ubuntu26.04-amd64-beta2-maintenance.json",
+      "sha256": "f274dfdf8142ac3f9e8c8e10b83090ab7eceda48c9c9b0378e31036b0af7f29d",
+      "selected_runs": {
+        "maintenance": {
+          "run_id": 44103816746,
+          "run_attempt": 1,
+          "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80"
+        }
+      }
+    }
+  ],
+  "final_assembly": "pending_dispatch",
+  "native_pkg": "pending_final_assembly",
+  "publication_performed": false,
+  "feature_freeze_preserved": true
+}

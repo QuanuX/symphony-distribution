@@ -92,6 +92,53 @@ class BundleTests(unittest.TestCase):
              patch.object(r.c,'load_module',return_value=scanner),patch.object(r.signing,'certificate'),\
              patch.object(r.verifier,'CERTIFICATE_SHA256',self.certpin):
             return r.assemble(self.request_path,self.request_sha,self.root/'release',Path('/openssl'))
+    def select_beta2(self):
+        release = '0.2.0-beta.2'; policy = r.signing.release_policy(release)
+        decision = self.root / 'decision.json'
+        decision.write_bytes((r.ROOT / 'evidence/beta2-publisher-decision.json').read_bytes())
+        self.request['release'] = release
+        self.request['publisher_decision']['sha256'] = policy['decision_sha256']
+        for profile, (beta, cohort, _) in self.betas.items():
+            beta.update(release_version=release, publication_authorized=True,
+                        publisher_decision_sha256=policy['decision_sha256'])
+            beta['original_native_lineage']['source_commit'] = policy['core_commit']
+            beta['client_sources'] = {'core': {'commit': policy['core_commit']},
+                                      'plugin': {'commit': policy['client_commit']}}
+            for role, path in [('beta', 'result.json'), ('maintenance', 'd13-maintenance/result.json')]:
+                folder, record, proof = self.transports[profile, role]
+                proof['selection']['artifacts'][role]['result_sha256'] = self.write(folder / path, record)
+        self.save_request()
+
+    def test_beta2_bundle_uses_its_own_approval_and_preserves_qualification_bytes(self):
+        self.select_beta2(); originals = {}
+        for profile in r.publisher.PROFILES:
+            original = self.transports[profile, 'beta'][0] / 'result.json'
+            originals[profile] = original.read_bytes()
+        result = self.assemble()
+        self.assertEqual(result['release'], '0.2.0-beta.2')
+        self.assertEqual(result['publisher_decision_sha256'], r.signing.release_policy('0.2.0-beta.2')['decision_sha256'])
+        for profile in r.publisher.PROFILES:
+            self.assertEqual((self.root / 'release/evidence' / profile / 'beta-qualification.json').read_bytes(), originals[profile])
+        self.assertFalse(result['signature_performed'])
+        self.assertFalse(result['publication_performed'])
+
+    def test_beta2_cannot_reuse_old_or_review_authority(self):
+        self.select_beta2()
+        self.betas['macos15-arm64'][0]['publisher_decision_sha256'] = r.signing.DECISION
+        with self.assertRaisesRegex(ValueError, 'owner admission'): self.assemble()
+        self.assertFalse((self.root / 'release').exists())
+
+    def test_beta2_foreign_source_or_unpublished_candidate_refuses_before_output(self):
+        self.select_beta2()
+        beta = self.betas['macos15-arm64'][0]
+        original = beta['client_sources']['core']['commit']
+        beta['client_sources']['core']['commit'] = '0' * 40
+        with self.assertRaisesRegex(ValueError, 'source or publication'): self.assemble()
+        beta['client_sources']['core']['commit'] = original
+        beta['publication_authorized'] = False
+        with self.assertRaisesRegex(ValueError, 'source or publication'): self.assemble()
+        self.assertFalse((self.root / 'release').exists())
+
     def test_complete_bundle_copies_exact_packages_evidence_and_explicit_modular_urls(self):
         result=self.assemble(); out=self.root/'release'
         self.assertEqual(len(result['conda_packages']),240); self.assertEqual(len(result['profiles']),4)

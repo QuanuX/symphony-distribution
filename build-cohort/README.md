@@ -1,8 +1,8 @@
 # D06 clean native and SDK cohort
 
-For the published **0.2.0-beta.1** artifacts, use the
+For the published **0.2.0-beta.2** artifacts, use the
 [installation guide](../docs/BETA-INSTALL.md) and
-[release evidence](../evidence/d14-publication.json). This page describes the
+[release evidence](../evidence/beta2-publication.json). This page describes the
 build-stage contracts. The selected four-profile native/SDK outputs feed the
 completed beta qualification; a later repeat build does not replace those bytes.
 

@@ -1,0 +1,33 @@
+{
+  "artifacts": {
+    "client": {
+      "artifact": {
+        "id": 14357344817,
+        "name": "d13-primary-client-ubuntu24.04-arm64-1",
+        "sha256": "21b3f50dd831cae10794f33480eef82c3dc8525b32c99e2f10286dead127cc37",
+        "size": 670864
+      },
+      "result_sha256": "f2c76cdbc3a4524279d58435c7ce5e7aecad7e92fe74ab518e732f55b1621ee3",
+      "run_attempt": 1,
+      "run_id": 44150235798,
+      "workflow_commit": "1abbe48c181f874dc06f64cba449d6172ddc8382",
+      "workflow_path": ".github/workflows/d13-primary-client.yml"
+    },
+    "package": {
+      "artifact": {
+        "id": 14337478440,
+        "name": "d10-rewrapped-ubuntu24.04-arm64-1",
+        "sha256": "810cba9e1b2124054aa1ca9e82b2a4c9b070ce7239472cb2a641681887be7baf",
+        "size": 309749797
+      },
+      "result_sha256": "bcf7df76778f2cf31af06405667599aa3f29e658338dfd3f9142196078bd8526",
+      "run_attempt": 1,
+      "run_id": 44103669315,
+      "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml"
+    }
+  },
+  "profile": "ubuntu24.04-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}

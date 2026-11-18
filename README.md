@@ -1,9 +1,12 @@
 # Symphony Public Beta distribution
 
-Symphony **0.2.0-beta.1** is published through **QuanuX/beta on Anaconda** and
-Cloudflare downloads. Start with the [release page and platform downloads](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1)
+Symphony is a quantOS developed through VGAA (Vector-Graph Application Architecture).
+Users compose their own environments from independently maintained modules.
+
+Symphony **0.2.0-beta.2** is published through **QuanuX/beta on Anaconda** and
+Cloudflare downloads. Start with the [release page and platform downloads](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2)
 and the [installation and verification guide](docs/BETA-INSTALL.md).
-The [publication record](evidence/d14-publication.json) binds 240 published
+The [publication record](evidence/beta2-publication.json) binds 240 published
 packages and 304 verified download objects to the signed release.
 
 ## Install the published beta
@@ -38,8 +41,8 @@ Installing packages does not activate services or select application modules.
 Completed release qualification includes 88 actual Codex cases, 204 native
 owner receipts, 728 packaging maintenance transactions, four shell/first-use
 campaigns, and installation/removal of the exact native Mac home installer.
-The [publisher decision](evidence/d14-publisher-decision.json) records legal
-approval and acceptance; the [publication evidence](evidence/d14-publication.json)
+The [publisher decision](evidence/beta2-publisher-decision.json) records legal
+approval and acceptance; the [publication evidence](evidence/beta2-publication.json)
 records the selected artifacts and public retrieval results.
 
 This beta uses a pinned, self-signed detached publisher signature. Apple
@@ -57,31 +60,31 @@ builds or documentation commits do not replace the selected release bytes.
 Website integration remains a later presentation step; the release page and
 Cloudflare downloads are available now.
 
-## Published beta maintenance notes
+## Beta.2 maintenance fixes and source checkpoint
 
-The beta.1 downloads retain their original qualified bytes and do not include
-three later [core lifecycle repairs](https://github.com/QuanuX/Symphony#published-beta-maintenance-notes).
-Complete a dependency's replacement before introducing a new dependent. If a
-completed scoped apply reports a validation error on retry, inspect durable
-status and preserve the journal instead of repeating effects. For SSIAG or
-Accordare reinstall maintenance, use the exact retained owner binary outside the
-installation; self-reinstall from the installed binary may report a busy package.
-Existing ownership and active-use checks still apply.
+Beta.2 includes the three lifecycle repairs: dependency replacements complete
+before their new dependents are installed; retrying a verified completed scoped
+close preserves durable state; installed SSIAG and Accordare owners can safely
+reinstall under exclusive target custody. Existing ownership, active-use and
+uncertain-outcome protections continue to apply.
 
-The **0.2.0-beta.2 review candidate** now selects the repaired core plus its
-matching public Accordare dependency. Its [candidate authorization](evidence/beta2-candidate.json)
-permits clean builds and qualification; the new bytes are not yet a published or
-qualified release. All four primary clean-build, SDK and separate hosted
-installer runs have passed; [verified artifact selections](evidence/beta2-primary-qualification.json)
-bind the next client, native maintenance and final packaging checks to those
-bytes. Follow the [candidate handoff](docs/BETA2-CANDIDATE.md) for the exact
-source and remaining checks. The beta.1 release tag, signatures,
-public artifacts and historical qualification records remain unchanged.
+Native binaries retain source commit `bae2e817120467561ae051c1b08cf61be3436bac`.
+Symphony's `v0.2.0-beta.2` tag captures the merged source checkpoint
+`8a6889597eef3d2713f48bf6962456f989188e18`; only README text differs from the
+native build revision. The unchanged original client source remains
+`572627e939250763756167a9dc05d8cb37ab4e30`.
+
+Use a new private installation prefix and retention directory for beta.2.
+An in-place native upgrade or rollback between beta.1 and beta.2 is not qualified.
+The [0.2.0-beta.1 release](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1),
+its signatures, downloads and historical qualification records remain available
+for their original bytes. The [release evidence](evidence/beta2-publication.json)
+binds beta.2's completed qualification and freshly retrieved public downloads.
 
 ## Engineering and maintenance
 
 This repository is separate from [Symphony core](https://github.com/QuanuX/Symphony).
-The active candidate's exact core commit and source-file hashes remain in
+The selected native build's exact core commit and source-file hashes remain in
 [source-binding.json](source-binding.json); the seven Go delivery routes remain
 in [go-owner-catalog.json](go-owner-catalog.json). Builds must match these bindings
 and the pinned Go 1.26.5 recipes, even after their source branches merge to main.
@@ -120,7 +123,7 @@ it does not claim exclusion against unrelated clients of existing environments.
 
 These records preserve the evidence and unresolved inputs observed at each
 milestone. Their historical pending gates do not override the current
-[publication result](evidence/d14-publication.json), and completed release
+[publication result](evidence/beta2-publication.json), and completed release
 qualification does not expand their narrower fixture claims.
 
 | Milestone | Retained record |
@@ -136,4 +139,4 @@ qualification does not expand their narrower fixture claims.
 | D11 artifact admission | [Status](docs/D11-STATUS.md), [selection rules](docs/D11-ARTIFACT-SELECTION.md) |
 | D12 retained native recovery | [Handoff](docs/D12-NATIVE-RECOVERY.md) |
 | D13 fresh-host/client qualification | [Handoff](docs/D13-FRESH-HOST-CLIENT.md) |
-| D14 beta assembly and publication | [Hosted qualification](evidence/d14-beta-hosted-qualification.json), [publication](evidence/d14-publication.json) |
+| D14 beta assembly and publication | [Beta.2 qualification and publication](evidence/beta2-publication.json), [historical beta.1 hosted qualification](evidence/d14-beta-hosted-qualification.json) |

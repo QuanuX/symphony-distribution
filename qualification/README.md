@@ -1,8 +1,10 @@
 # S07 fault, concurrency and platform qualification
 
-Current initial-beta results are recorded in the
-[publication evidence](../evidence/d14-publication.json) and
-[hosted qualification record](../evidence/d14-beta-hosted-qualification.json).
+Current **0.2.0-beta.2** results are recorded in the
+[publication evidence](../evidence/beta2-publication.json), which binds the
+selected hosted qualification and public retrieval results. The
+[beta.1 hosted record](../evidence/d14-beta-hosted-qualification.json) remains
+historical evidence for its original bytes.
 The S07/D06 methods and tables below retain their engineering-stage scope;
 historical unobserved cells are not current release status. The beta qualifies
 packaging revision changes and same-candidate recovery, with distinct-native-version
@@ -166,4 +168,4 @@ index. Installed payloads and publisher-created files receive no such exception.
 
 See [D06 results](../evidence/D06-RESULTS.md) for the historical local evidence
 and gates outstanding at that stage. The selected final artifacts and accepted
-initial-beta scope are recorded in the [publication record](../evidence/d14-publication.json).
+beta.2 scope are recorded in the [publication record](../evidence/beta2-publication.json).

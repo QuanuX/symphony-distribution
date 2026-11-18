@@ -81,7 +81,7 @@ class BetaPublishTests(unittest.TestCase):
     def populate(self, api, labels=None):
         for row in self.rows:
             api.files[p.remote_key(row)] = {'sha256': row['sha256'], 'size': row['size'], 'labels': labels or ['review']}
-            api.packages[row['name']] = {'public': True, 'summary': p.SUMMARY, 'custom': {'keep': True}}
+            api.packages[row['name']] = {'public': True, 'summary': p.SUMMARY, 'description': p.DESCRIPTION, 'custom': {'keep': True}}
             api.releases.add((row['name'], row['version']))
     def archive_entries(self, row):
         prefix = 'share/symphony/carriers/unit/1.0.0/d08_ab_1'
@@ -202,6 +202,38 @@ class BetaPublishTests(unittest.TestCase):
             value = api.packages[row['name']]
             self.assertEqual(value['custom'], {'preserve': ['all', 'values']}); self.assertEqual(value['summary'], p.SUMMARY)
         self.assertFalse(any(call[0] in ('upload', 'label') for call in api.calls))
+    def test_reused_native_version_gets_neutral_overview_without_changing_build_source_links(self):
+        api = API(); self.populate(api)
+        for row in self.rows:
+            api.packages[row['name']]['description'] = 'Review-only carrier. Exact reviewed corresponding source: https://example.org/old-source'
+            api.packages[row['name']]['home'] = 'https://example.org/preserved'
+            api.files[p.remote_key(row)]['description'] = 'Immutable build source: https://example.org/exact-old-build-source'
+        before_files = copy.deepcopy(api.files); before_releases = copy.deepcopy(api.releases)
+        result = self.execute(api, catalog_only=True)
+        self.assertEqual(result['state'], 'catalog_prepared')
+        self.assertEqual(api.files, before_files); self.assertEqual(api.releases, before_releases)
+        self.assertTrue(api.calls); self.assertTrue(all(call[0] == 'summary' for call in api.calls))
+        for value in api.packages.values():
+            self.assertEqual(value['description'], p.DESCRIPTION)
+            self.assertEqual(value['home'], 'https://example.org/preserved'); self.assertEqual(value['custom'], {'keep': True})
+            self.assertNotIn('Review-only', value['description'])
+            self.assertNotIn('beta.1', value['description']); self.assertNotIn('beta.2', value['description'])
+            self.assertIn('https://github.com/QuanuX/symphony-distribution/releases', value['description'])
+
+    def test_parallel_publication_refuses_stale_overview_before_mutation(self):
+        api = API(); self.populate(api)
+        for value in api.packages.values(): value['description'] = 'review-only source from another build'
+        with self.assertRaisesRegex(ValueError, 'reconcile'): self.execute(api, require_catalog=True)
+        self.assertEqual(api.calls, [])
+
+    def test_new_build_description_keeps_its_exact_source_after_generic_catalog_preparation(self):
+        api = API(); plan = self.prepare(); self.execute(api, plan=plan)
+        for call in api.calls:
+            if call[0] == 'upload':
+                self.assertIn(plan['corresponding_source_urls']['macos15-arm64'], call[3]['description'])
+                self.assertNotEqual(call[3]['description'], p.DESCRIPTION)
+        for value in api.packages.values(): self.assertEqual(value['description'], p.DESCRIPTION)
+
     def test_release_creation_resets_metadata_then_catalog_restores_selected_values(self):
         api=API()
         for row in self.rows:
@@ -214,7 +246,7 @@ class BetaPublishTests(unittest.TestCase):
         self.execute(api,catalog_only=True)
         for value in api.packages.values():
             self.assertEqual(value['summary'],p.SUMMARY);self.assertEqual(value['home'],'https://example.org')
-            self.assertEqual(value['custom'],{'keep':1});self.assertIn('Corresponding source:',value['description'])
+            self.assertEqual(value['custom'],{'keep':1});self.assertEqual(value['description'],p.DESCRIPTION)
         self.execute(api,output='after-catalog',require_catalog=True)
         self.assertEqual(len(self.downloads),3)
     def test_missing_post_upload_metadata_never_succeeds(self):

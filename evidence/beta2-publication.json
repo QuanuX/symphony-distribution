@@ -1,0 +1,155 @@
+{
+  "acceptance": {
+    "distinct_native_version_rollback_qualified": false,
+    "distinct_native_version_upgrade_qualified": false,
+    "engineering_qualification_complete": true,
+    "historical_qualification_records_preserved": true,
+    "per_profile_supported_gates": {
+      "macos15-arm64": {
+        "carrier_packaging_revision_transactions": 182,
+        "codex_cases": 22,
+        "default_carrier_packages": 59,
+        "first_run_retention_profiles": 1,
+        "native_owner_receipts": 51,
+        "optional_source_packages": 1,
+        "shell_install_and_removal_profiles": 1
+      },
+      "ubuntu24.04-amd64": {
+        "carrier_packaging_revision_transactions": 182,
+        "codex_cases": 22,
+        "default_carrier_packages": 59,
+        "first_run_retention_profiles": 1,
+        "native_owner_receipts": 51,
+        "optional_source_packages": 1,
+        "shell_install_and_removal_profiles": 1
+      },
+      "ubuntu24.04-arm64": {
+        "carrier_packaging_revision_transactions": 182,
+        "codex_cases": 22,
+        "default_carrier_packages": 59,
+        "first_run_retention_profiles": 1,
+        "native_owner_receipts": 51,
+        "optional_source_packages": 1,
+        "shell_install_and_removal_profiles": 1
+      },
+      "ubuntu26.04-amd64": {
+        "carrier_packaging_revision_transactions": 182,
+        "codex_cases": 22,
+        "default_carrier_packages": 59,
+        "first_run_retention_profiles": 1,
+        "native_owner_receipts": 51,
+        "optional_source_packages": 1,
+        "shell_install_and_removal_profiles": 1
+      }
+    },
+    "publisher_acceptance": true,
+    "publisher_decision_sha256": "420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a",
+    "publisher_legal_approval": true,
+    "recognized_apple_trust_claimed": false,
+    "scope": "initial-public-beta",
+    "separate_reviewer_independence_claimed": false,
+    "supported_gate_counts": {
+      "carrier_packaging_revision_transactions": 728,
+      "codex_cases": 88,
+      "default_carrier_packages": 236,
+      "first_run_retention_profiles": 4,
+      "native_owner_receipts": 204,
+      "native_pkg_install_and_removal_profiles": 1,
+      "optional_source_packages": 4,
+      "profiles": 4,
+      "shell_install_and_removal_profiles": 4
+    }
+  },
+  "anaconda": {
+    "organization": "QuanuX",
+    "package_count": 240,
+    "profiles": {
+      "macos15-arm64": {
+        "labels": [
+          "beta",
+          "beta-0.2.0-beta.2-978551b46748"
+        ],
+        "packages": 60,
+        "path": "evidence/beta2-publication/macos15-arm64-anaconda.json",
+        "public_bytes_verified": true,
+        "sha256": "998fe6275fcb19ee5e82fdef099668f0f6746fdf85a9969fe7cc55e0188e95d7"
+      },
+      "ubuntu24.04-amd64": {
+        "labels": [
+          "beta",
+          "beta-0.2.0-beta.2-978551b46748"
+        ],
+        "packages": 60,
+        "path": "evidence/beta2-publication/ubuntu24.04-amd64-anaconda.json",
+        "public_bytes_verified": true,
+        "sha256": "5e93242d103ee5acb5b68fedddc5e00665d12f22200026d3440d6dc0058763c4"
+      },
+      "ubuntu24.04-arm64": {
+        "labels": [
+          "beta",
+          "beta-0.2.0-beta.2-978551b46748"
+        ],
+        "packages": 60,
+        "path": "evidence/beta2-publication/ubuntu24.04-arm64-anaconda.json",
+        "public_bytes_verified": true,
+        "sha256": "ad422e697a1300d37df038257137d6356764745eb48706270ed26531b7ce2266"
+      },
+      "ubuntu26.04-amd64": {
+        "labels": [
+          "beta",
+          "beta-0.2.0-beta.2-978551b46748"
+        ],
+        "packages": 60,
+        "path": "evidence/beta2-publication/ubuntu26.04-amd64-anaconda.json",
+        "public_bytes_verified": true,
+        "sha256": "d51d3ffe0a816a372b9d134d37252c19bcecf729922932b478671bbd35fe5db3"
+      }
+    }
+  },
+  "assembly_main_modified": false,
+  "cloudflare": {
+    "download_objects": 304,
+    "origin": "https://downloads.quanux.org/symphony/0.2.0-beta.2/",
+    "path": "evidence/beta2-publication/cloudflare.json",
+    "public_bytes_verified": true,
+    "sha256": "0440bd7e908f14b59d28105136540990ee90afbac835c43e3c4f93c75505cbd5"
+  },
+  "execution_toolkit_commit": "205fd69e0973c8aaa2fbe1a5d4d95082cf1241f4",
+  "feature_freeze_preserved": true,
+  "overwrite_performed": false,
+  "protocol": "symphony.distribution.public-beta-delivery.v1",
+  "public_user_verification": {
+    "path": "evidence/beta2-publication/public-user-verification.json",
+    "sha256": "eaac77f26e6607a0997289440871ab03dae6ce704444551d93f77b4260b6b3a8"
+  },
+  "recorded_at": "2026-11-18T05:01:51.508944+00:00",
+  "release": "0.2.0-beta.2",
+  "runtime_activated": false,
+  "signature": {
+    "apple_developer_id": false,
+    "certificate_sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+    "manifest_sha256": "c9abc50797aae650a1e77b9625f93663ab9bd5818643f58cc006f51e7cedd6d8",
+    "notarized": false,
+    "public_key_sha256": "34621e652aef5649ba2eea9310a93a108cfc65466abc2c164d8fab0079715010",
+    "publisher_pinned_detached_signature_verified": true,
+    "release_index_sha256": "978551b467483a9fc0e583724aefadc962a6fde15617a885272c084bc2f42c0e",
+    "signed_artifacts": 541
+  },
+  "source_binding": {
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac"
+  },
+  "source_checkpoint": {
+    "commit": "8a6889597eef3d2713f48bf6962456f989188e18",
+    "native_build_revision_is_distinct": true,
+    "relation": "post-merge source checkpoint; the native artifacts retain the exact source_binding commit",
+    "repository": "QuanuX/Symphony",
+    "tag": "v0.2.0-beta.2"
+  },
+  "source_merge_and_checkpoint_separately_authorized": true,
+  "state": "anaconda_and_cloudflare_public_bytes_verified",
+  "temporary_publisher_credential_cleanup": {
+    "path": "evidence/beta2-publication/credential-cleanup.json",
+    "sha256": "e735d88a18baad828cedce54202ec4f595965ad71cc66834fdf439a8b0cd8c59"
+  }
+}

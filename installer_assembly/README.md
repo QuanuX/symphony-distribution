@@ -1,11 +1,11 @@
 # Installer assembly and beta signing
 
-The published **0.2.0-beta.1** installers are listed on the
-[release page](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1).
+The published **0.2.0-beta.2** installers are listed on the
+[release page](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2).
 Use the [verification and installation guide](../docs/BETA-INSTALL.md) for the
 pinned publisher signature and exact platform choice. Four shell installation
 campaigns and the exact Mac PKG installation/removal passed; the
-[publication record](../evidence/d14-publication.json) binds those results.
+[publication record](../evidence/beta2-publication.json) binds those results.
 
 `beta.py` assembles approved beta inputs and `beta_signing.py` produces and checks
 the detached signature. This is publisher-pinned self-signing, with no Apple
