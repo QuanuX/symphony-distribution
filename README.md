@@ -71,8 +71,11 @@ Existing ownership and active-use checks still apply.
 The **0.2.0-beta.2 review candidate** now selects the repaired core plus its
 matching public Accordare dependency. Its [candidate authorization](evidence/beta2-candidate.json)
 permits clean builds and qualification; the new bytes are not yet a published or
-qualified release. Follow the [candidate handoff](docs/BETA2-CANDIDATE.md) for
-the exact source and remaining checks. The beta.1 release tag, signatures,
+qualified release. All four primary clean-build, SDK and separate hosted
+installer runs have passed; [verified artifact selections](evidence/beta2-primary-qualification.json)
+bind the next client, native maintenance and final packaging checks to those
+bytes. Follow the [candidate handoff](docs/BETA2-CANDIDATE.md) for the exact
+source and remaining checks. The beta.1 release tag, signatures,
 public artifacts and historical qualification records remain unchanged.
 
 ## Engineering and maintenance

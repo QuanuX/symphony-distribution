@@ -1,0 +1,164 @@
+{
+  "protocol": "symphony.distribution.beta-candidate-followup-dispatches.v1",
+  "release_version": "0.2.0-beta.2",
+  "core_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+  "workflow_commit": "4ac0da65c8a4b7a9c0325a5c310c24ceb3bb2f80",
+  "state": "verified_native_artifacts_selected_next_qualification_dispatched",
+  "native_builds_repeated": false,
+  "previous_successful_runs_restarted": false,
+  "runs": [
+    {
+      "profile": "macos15-arm64",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml",
+      "run_id": "44103650965",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103650965",
+      "selection": "evidence/native-selections/macos15-arm64-beta2.json",
+      "selection_sha256": "e45bf101091e0f0424f82aa5535e887aec06f8798e50280dce256d6976378b58",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml",
+      "run_id": "44103659664",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103659664",
+      "selection": "evidence/native-selections/ubuntu24.04-amd64-beta2.json",
+      "selection_sha256": "a5de49d1b65b454734c2fd0a2304cc6a21ca6a4ce50fa29a6749068979360912",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml",
+      "run_id": "44103669315",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103669315",
+      "selection": "evidence/native-selections/ubuntu24.04-arm64-beta2.json",
+      "selection_sha256": "6f20d30fbbde519181da7d05d32983be75a50d45888312323b1aa42057d02801",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml",
+      "run_id": "44103676761",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103676761",
+      "selection": "evidence/native-selections/ubuntu26.04-amd64-beta2.json",
+      "selection_sha256": "90aea195af33b7cfbde9f1203a310e0a35cbe630b08dac16fea07ebb3fdf50a4",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "macos15-arm64",
+      "workflow_path": ".github/workflows/d13-primary-client.yml",
+      "run_id": "44103715074",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103715074",
+      "selection": "evidence/native-selections/macos15-arm64-beta2.json",
+      "selection_sha256": "e45bf101091e0f0424f82aa5535e887aec06f8798e50280dce256d6976378b58",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "workflow_path": ".github/workflows/d13-primary-client.yml",
+      "run_id": "44103725039",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103725039",
+      "selection": "evidence/native-selections/ubuntu24.04-amd64-beta2.json",
+      "selection_sha256": "a5de49d1b65b454734c2fd0a2304cc6a21ca6a4ce50fa29a6749068979360912",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "workflow_path": ".github/workflows/d13-primary-client.yml",
+      "run_id": "44103734403",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103734403",
+      "selection": "evidence/native-selections/ubuntu24.04-arm64-beta2.json",
+      "selection_sha256": "6f20d30fbbde519181da7d05d32983be75a50d45888312323b1aa42057d02801",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "workflow_path": ".github/workflows/d13-primary-client.yml",
+      "run_id": "44103744675",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103744675",
+      "selection": "evidence/native-selections/ubuntu26.04-amd64-beta2.json",
+      "selection_sha256": "90aea195af33b7cfbde9f1203a310e0a35cbe630b08dac16fea07ebb3fdf50a4",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "macos15-arm64",
+      "workflow_path": ".github/workflows/d13-native-maintenance.yml",
+      "run_id": "44103780254",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103780254",
+      "selection": "evidence/native-selections/macos15-arm64-beta2.json",
+      "selection_sha256": "e45bf101091e0f0424f82aa5535e887aec06f8798e50280dce256d6976378b58",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "workflow_path": ".github/workflows/d13-native-maintenance.yml",
+      "run_id": "44103789667",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103789667",
+      "selection": "evidence/native-selections/ubuntu24.04-amd64-beta2.json",
+      "selection_sha256": "a5de49d1b65b454734c2fd0a2304cc6a21ca6a4ce50fa29a6749068979360912",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "workflow_path": ".github/workflows/d13-native-maintenance.yml",
+      "run_id": "44103804745",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103804745",
+      "selection": "evidence/native-selections/ubuntu24.04-arm64-beta2.json",
+      "selection_sha256": "6f20d30fbbde519181da7d05d32983be75a50d45888312323b1aa42057d02801",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "workflow_path": ".github/workflows/d13-native-maintenance.yml",
+      "run_id": "44103816746",
+      "run_attempt": 1,
+      "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44103816746",
+      "selection": "evidence/native-selections/ubuntu26.04-amd64-beta2.json",
+      "selection_sha256": "90aea195af33b7cfbde9f1203a310e0a35cbe630b08dac16fea07ebb3fdf50a4",
+      "status_at_dispatch": "queued",
+      "conclusion_at_dispatch": null
+    }
+  ],
+  "final_assembly": {
+    "state": "awaiting_verified_completed_package_and_client_artifacts",
+    "workflow_path": ".github/workflows/d14-beta-assembly.yml",
+    "authorization": "evidence/beta2-candidate.json",
+    "required_roles": [
+      "package",
+      "client"
+    ],
+    "native_pkg_followup": ".github/workflows/d14-native-pkg.yml"
+  },
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "core_ci_fix": {
+    "pull_request": "https://github.com/QuanuX/Symphony/pull/205",
+    "commit": "7bae4e0d28235d6d56f3e2ccaadfb0fd9f9224ee",
+    "change_scope": "README terminology only; runtime and selected candidate provenance unchanged",
+    "focused_old_input": "exit 15; one forbidden-term violation",
+    "focused_corrected_input": "exit 0; zero violations",
+    "old_main_failures_require_merging_the_fix": true,
+    "successful_jobs_manually_rerun": false
+  }
+}

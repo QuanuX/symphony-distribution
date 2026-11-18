@@ -134,11 +134,14 @@ class BetaTests(unittest.TestCase):
 
     def client(self):
         root = self.root / 'client'; root.mkdir()
-        profile = 'ubuntu24.04-amd64'; proof = {'build_info': {'executable_sha256': 'sha256:' + 'a'*64},
+        core = {'commit': 'c'*40, 'tree': 'd'*40}
+        profile = 'ubuntu24.04-amd64'; proof = {'build_info': {'executable_sha256': 'sha256:' + 'a'*64,
+            'source_commit': core['commit'], 'source_tree': core['tree']}, 'original_source': dict(core),
             'binary_sha256': 'a'*64, 'compiled_input_equivalence': {'inputs': [{'path': 'source'}]},
             'cohort_source': {'export_digest': 'e'*64}, 'isolated_builds': 2}
         proof_path = self.put(self.root / 'proof.json', proof)
-        original_meta = {'qxctl_build': {'executable_sha256': 'sha256:' + 'b'*64}, 'client_dependency': {},
+        original_meta = {'core': {'repository': 'QuanuX/Symphony', 'commit': '1'*40, 'tree': '2'*40},
+            'qxctl_build': {'executable_sha256': 'sha256:' + 'b'*64}, 'client_dependency': {},
             'observed_registry_digest': 'old', 'catalog_sha256': 'old', 'original_git_source_binding': {'method': 'retained'}}
         originals = {'README.md': (b'readme', 0o644), 'src/main.cpp': (b'unchanged bridge source', 0o644),
             '.claude-plugin/plugin.json': (b'{"version":"0.2.0-alpha.1"}', 0o644),
@@ -147,7 +150,8 @@ class BetaTests(unittest.TestCase):
             'catalog/stamped-owner-delta.json': (b.signing.canonical({'scope': 'old'}), 0o644)}
         files = dict(originals); files['bin/symphony-mcp'] = (b'qualified bridge', 0o755)
         files['catalog/tools.json'] = (b.signing.canonical({'tools': [], 'source_registry_digest': 'observed'}), 0o644)
-        metadata = original_meta | {'qxctl_build': proof['build_info'], 'client_dependency': b.client_gate.CLIENT,
+        metadata = original_meta | {'core': original_meta['core'] | core,
+            'qxctl_build': proof['build_info'], 'client_dependency': b.client_gate.CLIENT,
             'observed_registry_digest': 'observed', 'catalog_sha256': 'sha256:' + b.c.sha(files['catalog/tools.json'][0]),
             'original_git_source_binding': {'method': 'retained', 'proof_sha256': 'sha256:' + b.gate.sha(proof_path),
                 'compiled_input_count': 1, 'derived_source_export_digest': 'e'*64, 'isolated_builds': 2}}
@@ -167,7 +171,6 @@ class BetaTests(unittest.TestCase):
         self.put(root / 'derivation.json', derivation)
         lineage = {key: 'a'*64 for key in ('source_commit', 'source_tree', 'source_export_digest', 'source_manifest_sha256',
             'build_result_sha256', 'round_sha256', 'payload_inventory_sha256', 'sdk_closure_sha256')}
-        core = {'commit': 'c'*40, 'tree': 'd'*40}
         binding = {'qxctl_sha256': 'sha256:'+'a'*64, 'package_sha256': 'sha256:'+b.gate.sha(root/'symphony-client.zip'),
             'bridge_sha256': inventory['bin/symphony-mcp'], 'catalog_sha256': inventory['catalog/tools.json'],
             'observed_registry_digest': 'observed'}
@@ -234,6 +237,39 @@ class BetaTests(unittest.TestCase):
     def test_catalog_binding_requires_actual_qxctl_source_proof(self):
         args=self.client(); proof=b.c.document(args[4]); proof['isolated_builds']=1; self.put(args[4],proof)
         with self.assertRaisesRegex(ValueError,'qxctl proof'): self.validate(args)
+
+    def rebind_client_metadata(self, args, metadata):
+        root = args[0]; files = b.zip_files(root/'symphony-client.zip')
+        files['catalog/beta-source.json'] = (b.signing.canonical(metadata), 0o644)
+        self.zip(root/'symphony-client.zip', files)
+        self.put(root/'package-inventory.json', {name: 'sha256:' + b.c.sha(raw) for name, (raw, _) in files.items()})
+        derivation = b.c.document(root/'derivation.json')
+        derivation['files']['catalog/beta-source.json']['derived_sha256'] = b.c.sha(files['catalog/beta-source.json'][0])
+        derivation['qxctl_source_proof_sha256'] = b.gate.sha(args[4])
+        self.put(root/'derivation.json', derivation)
+        report = b.c.document(root/'result.json')
+        report.update(derivation_sha256=b.gate.sha(root/'derivation.json'), package_inventory_sha256=b.gate.sha(root/'package-inventory.json'))
+        report['bindings']['package_sha256'] = 'sha256:' + b.gate.sha(root/'symphony-client.zip')
+        report['legacy_verifier']['bindings'] = report['bindings']
+        self.put(root/'result.json', report)
+
+    def test_derived_core_binding_cannot_change_beyond_selected_commit_and_tree(self):
+        args = self.client(); metadata = b.supplements.parse(b.zip_files(args[0]/'symphony-client.zip')['catalog/beta-source.json'][0])
+        for change in ({'commit': '1'*40}, {'tree': '2'*40}, {'repository': 'another/repository'}, {'extra': 'unreviewed'}):
+            with self.subTest(change=change):
+                self.rebind_client_metadata(args, metadata | {'core': metadata['core'] | change})
+                with self.assertRaisesRegex(ValueError, 'qxctl proof'): self.validate(args)
+
+    def test_matching_client_metadata_cannot_rebind_proof_to_another_core(self):
+        args = self.client(); proof = b.c.document(args[4])
+        proof['build_info']['source_commit'] = 'f'*40
+        proof['original_source']['commit'] = 'f'*40
+        self.put(args[4], proof)
+        metadata = b.supplements.parse(b.zip_files(args[0]/'symphony-client.zip')['catalog/beta-source.json'][0])
+        metadata['qxctl_build'] = proof['build_info']; metadata['core']['commit'] = 'f'*40
+        metadata['original_git_source_binding']['proof_sha256'] = 'sha256:' + b.gate.sha(args[4])
+        self.rebind_client_metadata(args, metadata)
+        with self.assertRaisesRegex(ValueError, 'qxctl proof'): self.validate(args)
 
     def test_zip_symlink_or_duplicate_member_refused(self):
         path=self.root/'bad.zip'

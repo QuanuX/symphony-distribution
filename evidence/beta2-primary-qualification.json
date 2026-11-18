@@ -1,0 +1,265 @@
+{
+  "client_qualified": false,
+  "core_source": {
+    "commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+    "source_binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e",
+    "tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4"
+  },
+  "default_go_commands_per_profile": 6,
+  "final_beta2_installer_qualified": false,
+  "native_tar_restored_by_selection": false,
+  "native_units_per_profile": 51,
+  "new_native_bytes_built_by_selection": false,
+  "original_build_rounds_per_profile": 2,
+  "profiles": [
+    {
+      "artifact": {
+        "id": 14307390553,
+        "name": "d10-native-recovery-macos15-arm64-1",
+        "sha256": "243d3faee7fd6ea0832e621b6f13b2a36ed92a980e6cf54d0a7689549c5550de",
+        "size": 93216778
+      },
+      "evidence_artifact": {
+        "id": 14306383961,
+        "name": "d09-evidence-macos15-arm64-1",
+        "sha256": "a937a0d0813f05ef2f9fe18b959dcf0dec11d5955b5aeb44f23f1d9a38f15912",
+        "size": 239332
+      },
+      "fresh_user_evidence": {
+        "artifact": {
+          "id": 14306557744,
+          "name": "d09-fresh-user-macos15-arm64-1",
+          "sha256": "b9e8e66f0e428c183b7e49d6c3b7cd0bcf44bca868996277affcd3bc2f2dead3",
+          "size": 10609
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "d2ca3866a97066bde221b918177fb02b9223eec9f2bf9ea9a87bdc4a037ca436",
+        "cohort_digest": "sha256:724ab9096b5b0b6f7acf0da436c89564d18e34f9e610ad737d62edcc568b8a6e",
+        "independent_human_acceptance": false,
+        "installed_carrier_file_count": 174,
+        "job_id": 133876477007,
+        "job_log_sha256": "35e0a5882b707078fa9acd1776d6e73469fd5ee97cdbd96e404edae472018ac6",
+        "native_pkg_executed": false,
+        "primary_wrapper_bytes_revalidated_by_this_selection": false,
+        "result_sha256": "a0233e18feb8423745400667b8d6c3197ee0b238785bfc1f4789945d7e03412e",
+        "scope": "Fresh-user result ZIP and exact job input verified; original producer-to-consumer wrapper selection remains recorded by the successful same-run workflow.",
+        "selected_digest_verified_against_job_input": true,
+        "selected_primary_result_sha256": "2daa8f424a960e3b0375239fb671e34a8de8d7ad8fa43c53cc924196165dcf8d",
+        "separate_disposable_hosted_runner": true,
+        "shell_wrapper_sha256": "43fce7fbeacb82a6a423d7913cc854fb011774979d6abd36500634c3946bc1ea",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "fresh_user_job_conclusion": "success",
+      "fresh_user_job_id": 133876477007,
+      "profile": "macos15-arm64",
+      "record_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "macos15-arm64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "run_attempt": "1",
+      "run_id": "44027970743",
+      "selection_path": "evidence/native-selections/macos15-arm64-beta2.json",
+      "selection_sha256": "e45bf101091e0f0424f82aa5535e887aec06f8798e50280dce256d6976378b58",
+      "transport_proof_sha256": "08fa483c2149a5c2e808d38d879f3a4a51fa611c5892afecf8ace60e7a250337",
+      "workflow_commit": "5fe806860de09ed93724b72e1aef7df5a927e492"
+    },
+    {
+      "artifact": {
+        "id": 14305589720,
+        "name": "d10-native-recovery-ubuntu24.04-amd64-1",
+        "sha256": "26204b026b736b927b69db85205270088c49ef5e3a28c6018e2faa02ed435517",
+        "size": 97044266
+      },
+      "evidence_artifact": {
+        "id": 14306701362,
+        "name": "d09-evidence-ubuntu24.04-amd64-1",
+        "sha256": "fbddb16c3dd93d2c9af2dd4d588b3eb2503388eb28fccd35dfb543f7d1fdd75b",
+        "size": 239766
+      },
+      "fresh_user_evidence": {
+        "artifact": {
+          "id": 14305639847,
+          "name": "d09-fresh-user-ubuntu24.04-amd64-1",
+          "sha256": "af755baa0c697201088b558567adc012834f57e03c08aa7f186f7175cea800b1",
+          "size": 10509
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "3e33ce8b4bf0743f8ecaf46e74c8d81c53b7b9db3355bd00c9583ba2155cebff",
+        "cohort_digest": "sha256:d7173f7de555849ecfcb7027aa8f77b99fc3625b55b7f8967c050a10f7c2572d",
+        "independent_human_acceptance": false,
+        "installed_carrier_file_count": 174,
+        "job_id": 133873537469,
+        "job_log_sha256": "104ba20fe495e3ffa6ea170a28ddbff218d9b9dce2a314c27ef3743524bbe15d",
+        "native_pkg_executed": false,
+        "primary_wrapper_bytes_revalidated_by_this_selection": false,
+        "result_sha256": "5e694db652a7bd04162064ceb14ab1d1ab1c2e12bdc2604406c8ac8288cda63b",
+        "scope": "Fresh-user result ZIP and exact job input verified; original producer-to-consumer wrapper selection remains recorded by the successful same-run workflow.",
+        "selected_digest_verified_against_job_input": true,
+        "selected_primary_result_sha256": "bc0c25219f9cce100cda87133d2830db3a90e38b3dc3fdbce2138c11a8adeda0",
+        "separate_disposable_hosted_runner": true,
+        "shell_wrapper_sha256": "7a3e0dd8a8d38fc4bac7575853c2a9c2e808ad35bca48f00717b64f88a2b7770",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "fresh_user_job_conclusion": "success",
+      "fresh_user_job_id": 133873537469,
+      "profile": "ubuntu24.04-amd64",
+      "record_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "ubuntu24.04-amd64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "run_attempt": "1",
+      "run_id": "44028007453",
+      "selection_path": "evidence/native-selections/ubuntu24.04-amd64-beta2.json",
+      "selection_sha256": "a5de49d1b65b454734c2fd0a2304cc6a21ca6a4ce50fa29a6749068979360912",
+      "transport_proof_sha256": "098b179b413ebe4b9c49a30b6896584b9aabc7132ebd5952567487d9b7e9ee74",
+      "workflow_commit": "5fe806860de09ed93724b72e1aef7df5a927e492"
+    },
+    {
+      "artifact": {
+        "id": 14307120057,
+        "name": "d10-native-recovery-ubuntu24.04-arm64-1",
+        "sha256": "c8b90039502ff3d1ca8448fe6db67e44113152fec2c50db7e059fe2e4c34bcf2",
+        "size": 91017753
+      },
+      "evidence_artifact": {
+        "id": 14306821419,
+        "name": "d09-evidence-ubuntu24.04-arm64-1",
+        "sha256": "46585fb8e94c69c264d793221c9778ac8ffc93fd965273a581c1a59364207895",
+        "size": 239759
+      },
+      "fresh_user_evidence": {
+        "artifact": {
+          "id": 14305994847,
+          "name": "d09-fresh-user-ubuntu24.04-arm64-1",
+          "sha256": "bb8bf08ea654b165a528b133b38ba5246fa816704f9a6c61cead1bde01c46ab3",
+          "size": 10513
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "e94ce6b969518f793959bd41a595ec4a81cb32c7643ecd43b094cb549c66c681",
+        "cohort_digest": "sha256:fa503affe8bcc7fe001cb961d702a700a2d858da84b593f5caab9718c60c9237",
+        "independent_human_acceptance": false,
+        "installed_carrier_file_count": 174,
+        "job_id": 133874155510,
+        "job_log_sha256": "b212a0a0d67b1e20836881531b95367f663fa3efd123757e4290bfb6fe6626dd",
+        "native_pkg_executed": false,
+        "primary_wrapper_bytes_revalidated_by_this_selection": false,
+        "result_sha256": "a9334a9f0fc19ff9fb6fd054aaf849f4b34a01ac0e105d483d75c5a89cb7816a",
+        "scope": "Fresh-user result ZIP and exact job input verified; original producer-to-consumer wrapper selection remains recorded by the successful same-run workflow.",
+        "selected_digest_verified_against_job_input": true,
+        "selected_primary_result_sha256": "c2eb328f47931fb8dea55068b5b30230652abf4249a584561feb67c08c32657e",
+        "separate_disposable_hosted_runner": true,
+        "shell_wrapper_sha256": "b5fec3741c8b8a726ddaddd0784a7f71a8a35cbf5bc6b4d30bc8dcfd704db83c",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "fresh_user_job_conclusion": "success",
+      "fresh_user_job_id": 133874155510,
+      "profile": "ubuntu24.04-arm64",
+      "record_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "ubuntu24.04-arm64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "run_attempt": "1",
+      "run_id": "44028013967",
+      "selection_path": "evidence/native-selections/ubuntu24.04-arm64-beta2.json",
+      "selection_sha256": "6f20d30fbbde519181da7d05d32983be75a50d45888312323b1aa42057d02801",
+      "transport_proof_sha256": "da6e5cab699ca8715b3917b24e0323a5328efcf4e3f64514cf0c3dbe514dcd69",
+      "workflow_commit": "5fe806860de09ed93724b72e1aef7df5a927e492"
+    },
+    {
+      "artifact": {
+        "id": 14304569665,
+        "name": "d10-native-recovery-ubuntu26.04-amd64-1",
+        "sha256": "50770216906ee51a5365d7722158c2ea7c8e91eb37b69a99ec36724cfdc9ab2c",
+        "size": 97151619
+      },
+      "evidence_artifact": {
+        "id": 14305932417,
+        "name": "d09-evidence-ubuntu26.04-amd64-1",
+        "sha256": "dd9f25c5e816a84e4a3cb5681bcacae40b389ab010f577e673af8448bbeb3ae1",
+        "size": 239905
+      },
+      "fresh_user_evidence": {
+        "artifact": {
+          "id": 14306215354,
+          "name": "d09-fresh-user-ubuntu26.04-amd64-1",
+          "sha256": "8c073fcbf3a3a6fc5a0d98063bd64e164bc91f284a13d819a95a616658b67054",
+          "size": 10511
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "7eac86f05f8c84eebbd3be4767e9bf265c9d5224cd43c2e7affa89f5d9fe8c6e",
+        "cohort_digest": "sha256:f7225fbab596587ed67898bc3a2cc1400c1b1815313d63577cbd67af1e9ac2db",
+        "independent_human_acceptance": false,
+        "installed_carrier_file_count": 174,
+        "job_id": 133867516957,
+        "job_log_sha256": "a140cfdb1ec8220fe87def7669561e739d65213b67ea5f334717604f68a9af40",
+        "native_pkg_executed": false,
+        "primary_wrapper_bytes_revalidated_by_this_selection": false,
+        "result_sha256": "587733fa0da7e6c771f9352c2c2ff6c0e14e22bfa7e910a8abff35379a826966",
+        "scope": "Fresh-user result ZIP and exact job input verified; original producer-to-consumer wrapper selection remains recorded by the successful same-run workflow.",
+        "selected_digest_verified_against_job_input": true,
+        "selected_primary_result_sha256": "e74a581b560846b6df55b03285ce93a9cb8d9f09fd9a3016a11014618c31dbde",
+        "separate_disposable_hosted_runner": true,
+        "shell_wrapper_sha256": "10630c4a7250a63bb2115aaeebf37f13e2a8750a619e2d3d7b9c5224f86f85fd",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "fresh_user_job_conclusion": "success",
+      "fresh_user_job_id": 133867516957,
+      "profile": "ubuntu26.04-amd64",
+      "record_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "ubuntu26.04-amd64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "run_attempt": "1",
+      "run_id": "44028022029",
+      "selection_path": "evidence/native-selections/ubuntu26.04-amd64-beta2.json",
+      "selection_sha256": "90aea195af33b7cfbde9f1203a310e0a35cbe630b08dac16fea07ebb3fdf50a4",
+      "transport_proof_sha256": "688ef5709aba9d15c1c0b2f2e867ad7c59dbc5278e73ae5e38109b9d13d9473e",
+      "workflow_commit": "5fe806860de09ed93724b72e1aef7df5a927e492"
+    }
+  ],
+  "protocol": "symphony.distribution.beta2-native-artifact-verification.v1",
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "scope": "GitHub metadata, exact ZIP bytes, safe extraction, capsule pins and original SDK/delivery evidence; native TAR restoration and downstream qualification remain separate. The small fresh-user artifact and selected result digest were verified against each successful separate-runner job; this is not independent human acceptance or final beta2 client/native PKG qualification.",
+  "state": "four_primary_native_sdk_and_disposable_user_results_verified"
+}

@@ -2,8 +2,9 @@
 
 The new candidate uses core commit
 `bae2e817120467561ae051c1b08cf61be3436bac` and the unchanged client source
-`572627e939250763756167a9dc05d8cb37ab4e30`. It must be rebuilt and qualified on
-all four primary profiles before any new candidate result is reported as passed.
+`572627e939250763756167a9dc05d8cb37ab4e30`. All four primary runs have passed
+their clean-build, SDK and separate hosted installer checks. Client, native
+maintenance and final beta installer qualification remain separate gates.
 The published `0.2.0-beta.1` artifacts, publisher decision, signatures and retained
 selectors remain historical evidence for their original bytes.
 
@@ -16,10 +17,32 @@ The [source preparation record](../evidence/beta2-source-preparation.json)
 binds the reviewed export and manifest digests to that source and verifies that
 all three repair commits are ancestors. It records source preparation only;
 primary build and qualification results must come from the new hosted runs.
-The [dispatch record](../evidence/beta2-dispatches.json) links all four requested
-primary runs; their recorded state is pending, not passed. The
+The [dispatch record](../evidence/beta2-dispatches.json) preserves their pending
+state at dispatch. The later [primary qualification record](../evidence/beta2-primary-qualification.json)
+records successful runs and the exact verified artifacts; it does not qualify
+unobserved downstream steps. The
 [local validation record](../evidence/beta2-local-validation.json) covers 350
 focused preparation and refusal checks.
+
+| Primary profile | Completed build and disposable-user run |
+| --- | --- |
+| macOS 15 ARM64 | [44027970743](https://github.com/QuanuX/symphony-distribution/actions/runs/44027970743) |
+| Ubuntu 24.04 AMD64 | [44028007453](https://github.com/QuanuX/symphony-distribution/actions/runs/44028007453) |
+| Ubuntu 24.04 ARM64 | [44028013967](https://github.com/QuanuX/symphony-distribution/actions/runs/44028013967) |
+| Ubuntu 26.04 AMD64 | [44028022029](https://github.com/QuanuX/symphony-distribution/actions/runs/44028022029) |
+
+The subsequent Symphony PR #205 README terminology repair does not change the
+runtime implementations. These selected artifacts retain their actual
+`bae2e817` source identity; a later documentation commit is not substituted into
+their build provenance.
+
+The [follow-up dispatch record](../evidence/beta2-qualification-dispatches.json)
+links twelve new runs: packaging/wrapper, actual client, and native maintenance
+qualification for each profile. They consume the verified selections above;
+the passing native builds were not restarted. Their results are pending.
+Final D14 assembly requires successful package and client outputs with actual
+artifact IDs and hashes; the macOS native installer gate follows its completed
+assembly. No future artifact selection is inferred.
 
 ## Review authority
 

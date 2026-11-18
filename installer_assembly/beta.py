@@ -128,7 +128,7 @@ def validate_client(client_root, base, base_root, original, client_source, *, pr
               {k: v for k, v in catalog.items() if k != 'source_registry_digest'} and
               catalog['source_registry_digest'] == binding['observed_registry_digest'], 'Catalog contract or observed binding differs')
     metadata = supplements.parse(files['catalog/beta-source.json'][0]); old_metadata = supplements.parse(client_source['catalog/beta-source.json'][0])
-    allowed = {'qxctl_build', 'client_dependency', 'observed_registry_digest', 'catalog_sha256', 'original_git_source_binding'}
+    allowed = {'core', 'qxctl_build', 'client_dependency', 'observed_registry_digest', 'catalog_sha256', 'original_git_source_binding'}
     c.require(metadata.keys() == old_metadata.keys() and all(metadata[k] == old_metadata[k] for k in metadata if k not in allowed) and
         metadata['client_dependency'] == client_gate.CLIENT and metadata['catalog_sha256'] == binding['catalog_sha256'] and
         metadata['observed_registry_digest'] == binding['observed_registry_digest'], 'Derived catalog metadata changed beyond bindings')
@@ -136,6 +136,8 @@ def validate_client(client_root, base, base_root, original, client_source, *, pr
     proof = c.document(proof_path)
     proof_sha = gate.sha(proof_path)
     c.require(metadata['qxctl_build'] == proof['build_info'] and derivation['qxctl_source_proof_sha256'] == proof_sha and
+        metadata['core'] == {**old_metadata['core'], 'commit': core['commit'], 'tree': core['tree']} and
+        all(proof['build_info']['source_' + key] == proof['original_source'][key] == core[key] for key in ('commit', 'tree')) and
         metadata['original_git_source_binding'] == {**old_metadata['original_git_source_binding'],
             'proof_sha256': 'sha256:' + proof_sha, 'compiled_input_count': len(proof['compiled_input_equivalence']['inputs']),
             'derived_source_export_digest': proof['cohort_source']['export_digest'], 'isolated_builds': proof['isolated_builds']},
