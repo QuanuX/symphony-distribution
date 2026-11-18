@@ -1,4 +1,4 @@
-# Symphony 0.2.0-beta.1
+# Symphony 0.2.0-beta.2
 
 Symphony Public Beta supplies clean CI-built native binaries and a Codex client,
 with each module delivered as an independently maintainable Conda package.
@@ -13,20 +13,20 @@ qualified builds. Use the explicit package lists below to preserve that choice.
 ## Verify a download
 
 Release files are under
-`https://downloads.quanux.org/symphony/0.2.0-beta.1/`.
+`https://downloads.quanux.org/symphony/0.2.0-beta.2/`.
 Download `beta-manifest.json`, `beta-manifest.sig`, `beta-cert.pem` and
 `release-index.json` into a new directory. The release page lists each platform's
 installer and corresponding source. Preserve their relative paths when saving.
 
 Use Python 3.11+ and OpenSSL with the verifier from the immutable source revision:
 
-`https://raw.githubusercontent.com/QuanuX/symphony-distribution/22355061a066862f3a8d303217165f672e281874/channel/verify_beta.py`
+`https://raw.githubusercontent.com/QuanuX/symphony-distribution/bd70dc3c3e6204a85a65f2a4de21b29a9dad9cf1/channel/verify_beta.py`
 
 From the download directory, verify the index and your chosen installer:
 
 ```sh
-python3 verify_beta.py --artifact release-index.json
-python3 verify_beta.py --artifact "$SELECTED_INSTALLER_PATH"
+python3 verify_beta.py --release 0.2.0-beta.2 --artifact release-index.json
+python3 verify_beta.py --release 0.2.0-beta.2 --artifact "$SELECTED_INSTALLER_PATH"
 ```
 
 `SELECTED_INSTALLER_PATH` is the relative `installers/<profile>/<filename>`
@@ -144,7 +144,8 @@ Before a future upgrade, retain the accepted explicit list and archives. Apply
 the separately verified new profile or unit list; to roll back, apply the
 retained prior exact list. This beta qualifies packaging revision 0→1→0 with
 identical native bytes, independent module changes, swap, removal and retained
-same-candidate recovery. It does not invent a second native release. Native
+same-candidate recovery. An in-place native upgrade or rollback between beta.1 and beta.2 is not qualified.
+Use a fresh prefix and separate retention directory for beta.2. Native
 version transitions and live retirement outside the qualified owner contracts
 remain refused. Never force altered receipts or blindly retry an unknown native
 mutation outcome.
@@ -155,3 +156,13 @@ under `source/<profile>/`. The source archive includes the exact native/Go sourc
 external dependency source and notices, original client source with explicit
 catalog derivations, and the packaging toolkit. No user profiles, credentials,
 host inventory or publisher build directory are included.
+
+## Maintenance changes in beta.2
+
+This release includes dependent-replacement ordering, completed scoped-close replay,
+and installed SSIAG/Accordare self-repair fixes. Its native build source is
+`bae2e817120467561ae051c1b08cf61be3436bac`. The Symphony tag
+`v0.2.0-beta.2` captures main at `8a6889597eef3d2713f48bf6962456f989188e18`;
+only README text differs from the native build revision. Every package retains
+its actual source identity. Existing ownership, active-use and recovery checks
+continue to apply.

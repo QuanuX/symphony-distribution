@@ -1,8 +1,8 @@
 # Retaining the supplied binaries
 
-For **0.2.0-beta.1** download verification, platform selection and installation,
+For **0.2.0-beta.2** download verification, platform selection and installation,
 start with the [beta guide](../docs/BETA-INSTALL.md) and
-[release page](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.1).
+[release page](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2).
 The retention commands below apply to that release's verified setup inputs.
 
 The standard installer links immutable carriers. It does not start Symphony,

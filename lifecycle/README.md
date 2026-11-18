@@ -1,6 +1,6 @@
 # Exact package handoff preparation
 
-For the shipped **0.2.0-beta.1** carriers, start with
+For the shipped **0.2.0-beta.2** carriers, start with
 [beta installation and maintenance](../docs/BETA-INSTALL.md) and
 [binary retention](../delivery/README.md). This lower-level handoff protocol
 remains available for its exact selected inputs; it must not be pointed at the

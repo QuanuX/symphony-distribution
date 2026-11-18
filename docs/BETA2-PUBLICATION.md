@@ -1,6 +1,11 @@
-# Public beta.2 release preparation
+# Public beta.2 publication
 
-The publisher has authorized **0.2.0-beta.2** as the next live beta and latest
+**0.2.0-beta.2** is published on QuanuX/beta and Cloudflare downloads.
+The [publication record](../evidence/beta2-publication.json) binds all 240 packages
+and 304 download objects to their signed release and completed public readbacks.
+The procedure below records how those artifacts were assembled and published.
+
+The publisher authorized **0.2.0-beta.2** as the live beta and latest
 release. The separately pinned [publisher decision](../evidence/beta2-publisher-decision.json)
 records that instruction and the existing legal acceptance and detached-signature
 trust policy. It does not assert that a future build, installer or publication

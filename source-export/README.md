@@ -1,9 +1,9 @@
 # Reviewed corresponding-source preparation
 
-The published **0.2.0-beta.1** supplies corresponding source as a separate Conda
+The published **0.2.0-beta.2** supplies corresponding source as a separate Conda
 package and per-platform source archive. See the
 [installation guide](../docs/BETA-INSTALL.md) and
-[publication evidence](../evidence/d14-publication.json). This page documents the
+[publication evidence](../evidence/beta2-publication.json). This page documents the
 source-preparation tool and its earlier selected proof; release acceptance is
 established by the separately bound final artifact records.
 

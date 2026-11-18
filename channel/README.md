@@ -1,8 +1,8 @@
 # Signed beta publication and review staging
 
-**0.2.0-beta.1 is published** to QuanuX/beta on Anaconda and
-[Cloudflare downloads](https://downloads.quanux.org/symphony/0.2.0-beta.1/docs/BETA-INSTALL.md).
-The [publication record](../evidence/d14-publication.json) verifies 240 packages
+**0.2.0-beta.2 is published** to QuanuX/beta on Anaconda and
+[Cloudflare downloads](https://downloads.quanux.org/symphony/0.2.0-beta.2/docs/BETA-INSTALL.md).
+The [publication record](../evidence/beta2-publication.json) verifies 240 packages
 and 304 download objects, including corresponding source. The
 [installation guide](../docs/BETA-INSTALL.md) supplies the exact platform lists
 and publisher verification pins.
@@ -16,8 +16,15 @@ is not an automatic consequence of a branch merge or passing CI.
 
 The self-signed detached publisher signature does not assert Apple Developer ID,
 notarization or separate human-reviewer independence. The completed publication
-record supplies the accepted initial-beta scope; historical D09 review labels
+record supplies the accepted beta scope; historical D09 review labels
 remain distinct from that release.
+
+The [beta.1 publication record](../evidence/d14-publication.json) and its exact
+build source links remain historical evidence for beta.1. Use a fresh installation
+prefix and retention directory for beta.2; in-place native transitions between
+beta.1 and beta.2 are not qualified. Each exact Anaconda build description names
+its own corresponding source; a reused native version alone does not select
+a release, platform or source cohort.
 
 ## D09 review-stage contracts
 

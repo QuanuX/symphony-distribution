@@ -1,9 +1,9 @@
 # S08 Public Beta distribution dossier
 
-The current **0.2.0-beta.1** release is published. See the
+The current **0.2.0-beta.2** release is published. See the
 [installation guide](../docs/BETA-INSTALL.md),
-[publisher decision](../evidence/d14-publisher-decision.json) and
-[publication evidence](../evidence/d14-publication.json) for its accepted scope,
+[publisher decision](../evidence/beta2-publisher-decision.json) and
+[publication evidence](../evidence/beta2-publication.json) for its accepted scope,
 exact artifacts and public retrieval results. The feature freeze remains.
 
 This page preserves the S08 distribution supplement to Symphony's W01–W12
@@ -128,13 +128,17 @@ cohort, or accept another physical platform.
 
 ## Validate or refresh
 
-For the fresh beta.2 candidate, the active dossier explicitly reports
-`fresh_candidate_qualification_pending`. The original S08 dossier is preserved in
+The retained beta.2 preparation dossier explicitly reports
+`fresh_candidate_qualification_pending`; that field describes this earlier
+preparation snapshot, not the completed release. The final signed beta.2 index
+and [publication record](../evidence/beta2-publication.json) bind the actual
+completed qualification and public retrieval results separately. The original
+S08 dossier is preserved in
 `history/s08-beta1.json`; its E1 results remain historical. Validate preparation
 with `python3 dossier/validate.py --source /absolute/reviewed-core --candidate-preparation`.
 The strict `--require-rebuild`, `--require-source-export`, and
 `--require-hosted-status` gates still refuse missing current-candidate evidence.
-Refresh this pending snapshot with `dossier/refresh.py --fresh-candidate`; do not
+For a future candidate, refresh its preparation snapshot with `dossier/refresh.py --fresh-candidate`; do not
 supply beta.1 reports as new candidate qualification.
 
 Use the exact clean bound core checkout. The validation command checks source

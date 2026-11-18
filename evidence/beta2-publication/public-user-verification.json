@@ -1,0 +1,123 @@
+{
+  "account_credentials_used": false,
+  "apple_developer_id": false,
+  "certificate_sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+  "downloaded_from_public_origin": true,
+  "downloads": [
+    {
+      "path": "beta-manifest.json",
+      "sha256": "c9abc50797aae650a1e77b9625f93663ab9bd5818643f58cc006f51e7cedd6d8",
+      "size": 98418,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/beta-manifest.json"
+    },
+    {
+      "path": "beta-manifest.sig",
+      "sha256": "37b412ac247537587efd0e8a137889b52d29bc5460998294c5d8ee5eb493234c",
+      "size": 384,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/beta-manifest.sig"
+    },
+    {
+      "path": "beta-cert.pem",
+      "sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+      "size": 1704,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/beta-cert.pem"
+    },
+    {
+      "path": "release-index.json",
+      "sha256": "978551b467483a9fc0e583724aefadc962a6fde15617a885272c084bc2f42c0e",
+      "size": 242179,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/release-index.json"
+    },
+    {
+      "path": "verify_beta.py",
+      "sha256": "ad60efa14b3ba901c568d85d9074be6e41be299f939d47e46dc0d64809b06523",
+      "size": 6188,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/verify_beta.py"
+    },
+    {
+      "path": "docs/BETA-INSTALL.md",
+      "sha256": "036a55543242bb48f38b10d59b3433e3ec24aec45dd3783e6c2a2d1b38067416",
+      "size": 8340,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/docs/BETA-INSTALL.md"
+    },
+    {
+      "path": "installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.pkg",
+      "sha256": "74c3b22e9352f54b432a57f7791164a139ac0f4dab19135161a5560789ea5eed",
+      "size": 108597268,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.pkg"
+    },
+    {
+      "path": "installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.sh",
+      "sha256": "917ce36366ee84d98cb584cfec8c98f859412dcfc56088cf68a200362f78fad4",
+      "size": 108913918,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.sh"
+    },
+    {
+      "path": "installers/ubuntu24.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh",
+      "sha256": "c337228e961dabaed45148004c91a7f3244f686222cdb84e718f11247a795e09",
+      "size": 116835986,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/ubuntu24.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh"
+    },
+    {
+      "path": "installers/ubuntu24.04-arm64/Symphony-0.2.0-beta.2-Linux-aarch64.sh",
+      "sha256": "a0f91fc16d40e05eb34b7f396efe1bc3154738292cf1ccc18b1e093686cde368",
+      "size": 112481149,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/ubuntu24.04-arm64/Symphony-0.2.0-beta.2-Linux-aarch64.sh"
+    },
+    {
+      "path": "installers/ubuntu26.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh",
+      "sha256": "38468c64df15fd674c7936cfab54cc833a0dcc39f707e7a20fa20f9770983e9a",
+      "size": 116887186,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/installers/ubuntu26.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh"
+    },
+    {
+      "path": "setup/macos15-arm64/default-explicit.txt",
+      "sha256": "85c7b0c3075a0c7a6640f19f06707edda35c7a0fea37d3ec76241cf7c2bc5c96",
+      "size": 12071,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/macos15-arm64/default-explicit.txt"
+    },
+    {
+      "path": "setup/ubuntu24.04-amd64/default-explicit.txt",
+      "sha256": "6723472a7454446aca662beea6141881fe58cea4009797b91f30ef126008663c",
+      "size": 12012,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-amd64/default-explicit.txt"
+    },
+    {
+      "path": "setup/ubuntu24.04-arm64/default-explicit.txt",
+      "sha256": "d72e52f1ffec4e361e08a0b15ff6ac70159c51a7e5ba6ab7f3fb5cdb5e4c9ab6",
+      "size": 12307,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu24.04-arm64/default-explicit.txt"
+    },
+    {
+      "path": "setup/ubuntu26.04-amd64/default-explicit.txt",
+      "sha256": "ee0edf294190af25578e62da27645c323cf926bc2796083cc42f7b7773bc2261",
+      "size": 12012,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2/setup/ubuntu26.04-amd64/default-explicit.txt"
+    }
+  ],
+  "manifest_sha256": "c9abc50797aae650a1e77b9625f93663ab9bd5818643f58cc006f51e7cedd6d8",
+  "notarized": false,
+  "public_key_sha256": "34621e652aef5649ba2eea9310a93a108cfc65466abc2c164d8fab0079715010",
+  "publisher_signature": "verified",
+  "recorded_at": "2026-11-18T04:59:08.868666+00:00",
+  "release": "0.2.0-beta.2",
+  "release_index_sha256": "978551b467483a9fc0e583724aefadc962a6fde15617a885272c084bc2f42c0e",
+  "state": "public_release_selected_downloads_verified",
+  "system_trust_changed": false,
+  "verified_downloads": [
+    "release-index.json",
+    "verify_beta.py",
+    "docs/BETA-INSTALL.md",
+    "installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.pkg",
+    "installers/macos15-arm64/Symphony-0.2.0-beta.2-MacOSX-arm64.sh",
+    "installers/ubuntu24.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh",
+    "installers/ubuntu24.04-arm64/Symphony-0.2.0-beta.2-Linux-aarch64.sh",
+    "installers/ubuntu26.04-amd64/Symphony-0.2.0-beta.2-Linux-x86_64.sh",
+    "setup/macos15-arm64/default-explicit.txt",
+    "setup/ubuntu24.04-amd64/default-explicit.txt",
+    "setup/ubuntu24.04-arm64/default-explicit.txt",
+    "setup/ubuntu26.04-amd64/default-explicit.txt"
+  ],
+  "verifier_independently_pinned": true,
+  "verifier_sha256": "ad60efa14b3ba901c568d85d9074be6e41be299f939d47e46dc0d64809b06523"
+}
