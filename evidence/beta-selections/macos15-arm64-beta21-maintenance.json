@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "maintenance": {
+      "artifact": {
+        "id": 14720505592,
+        "name": "d13-native-maintenance-macos15-arm64-1",
+        "sha256": "6d81b40793e4994251c29bd9ebb5515753d2c89b5bc687c91f9a9fd080f12d75",
+        "size": 72454
+      },
+      "result_sha256": "626c2820d57583f46bb23e45f9f99668f3508c27abaf033c8ab134c49091b633",
+      "run_attempt": 1,
+      "run_id": 44936881644,
+      "workflow_commit": "8df8da2b3ac966c343f77c408130dfe941e4d0cb",
+      "workflow_path": ".github/workflows/d13-native-maintenance.yml"
+    }
+  },
+  "profile": "macos15-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}

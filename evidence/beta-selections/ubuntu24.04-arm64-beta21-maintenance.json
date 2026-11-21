@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "maintenance": {
+      "artifact": {
+        "id": 14720675450,
+        "name": "d13-native-maintenance-ubuntu24.04-arm64-1",
+        "sha256": "6545271ba4237263f61e8ae530101fd2e5ba87a60c0f4120b9da4fdf94d3826a",
+        "size": 72356
+      },
+      "result_sha256": "25208bda66cb0899bc6112419cdb09ef2c35d81b47dbdb822b2b153e2f6618b1",
+      "run_attempt": 1,
+      "run_id": 44937206288,
+      "workflow_commit": "a013df2edcdf2b31657401c3a7ab3fd43752184f",
+      "workflow_path": ".github/workflows/d13-native-maintenance.yml"
+    }
+  },
+  "profile": "ubuntu24.04-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}
