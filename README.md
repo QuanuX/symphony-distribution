@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/distribution-hero-terminal.svg" width="100%" alt="QuanuX Symphony Public Beta Distribution — v0.2.0-beta.2 Signed Conda Cohort and Standalone Platform Installers" />
+  <img src="assets/distribution-hero-terminal.svg" width="100%" alt="QuanuX Symphony Public Beta Distribution — v0.2.0-beta.2.1 Signed Conda Cohort and Standalone Platform Installers" />
   <img src="assets/distribution-pillars-matrix.svg" width="100%" alt="Symphony Public Beta Distribution Packaging Architecture, Lifecycle Repairs, and Source Checkpoints" />
   <img src="assets/distribution-formal-specs.svg" width="100%" alt="Symphony Public Beta Distribution Qualification Evidence, Unittest Suites, and Publication Boundaries" />
 </div>
@@ -12,14 +12,14 @@
 
 **Independently maintainable packages, clean CI native builds, and signed platform installers for Symphony quantOS.**
 
-[**Release Page (`v0.2.0-beta.2`)**](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2) · [**Installation & Verification Guide**](docs/BETA-INSTALL.md) · [**Publication Record**](evidence/beta2-publication.json) · [**Publisher Decision**](evidence/beta2-publisher-decision.json) · [**Symphony Core**](https://github.com/QuanuX/Symphony)
+[**Release Page (`v0.2.0-beta.2.1`)**](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2.1) · [**Installation & Verification Guide**](docs/BETA21-INSTALL.md) · [**Publication Record**](evidence/beta21-publication.json) · [**Publisher Decision**](evidence/beta21-publisher-decision.json) · [**Symphony Core**](https://github.com/QuanuX/Symphony)
 
 </div>
 
 Symphony is a quantOS developed through **VGAA (Vector-Graph Application Architecture)**. Users compose their own environments from independently maintained modules.
 
 > [!IMPORTANT]
-> Symphony **0.2.0-beta.2** is published through **QuanuX/beta on Anaconda** and Cloudflare downloads. Start with the [release page and platform downloads](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2) and the [installation and verification guide](docs/BETA-INSTALL.md). The [publication record](evidence/beta2-publication.json) binds **240 published packages** and **304 verified download objects** to the signed release.
+> Symphony **0.2.0-beta.2.1** is published through **QuanuX/beta on Anaconda** and Cloudflare downloads. Start with the [release page and platform downloads](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2.1) and the [installation and verification guide](docs/BETA21-INSTALL.md). The [publication record](evidence/beta21-publication.json) binds **240 standard Anaconda records**, **two optional node packages** and **316 verified download objects** to the signed release.
 
 ---
 
@@ -29,15 +29,15 @@ Symphony is a quantOS developed through **VGAA (Vector-Graph Application Archite
 ```mermaid
 flowchart TD
     subgraph Source["Pinned Upstream Source & Catalog Bindings"]
-        SB["source-binding.json\nNative Build Commit bae2e817..."]
+        SB["source-binding.json\nNative Build Commit f828e558..."]
         GC["go-owner-catalog.json\n7 Go Delivery Units · Go 1.26.5 Recipes"]
-        TAG["QuanuX/Symphony v0.2.0-beta.2\nMerged Checkpoint 8a688959... · Client 572627e9..."]
+        TAG["QuanuX/Symphony v0.2.0-beta.2.1\nCore f828e558... · Client 572627e9..."]
     end
 
     subgraph Build["Clean CI Cohort & Signed Publication"]
         CI["4 Qualified OS Profiles\n59 Default Packages + Optional Source per Profile"]
-        PUB["Signed Public Channels\nAnaconda QuanuX/beta (240 Pkgs) · Cloudflare (.pkg / .sh · 304 Objects)"]
-        EV["Immutable Release Evidence\nbeta2-publisher-decision.json · beta2-publication.json"]
+        PUB["Signed Public Channels\nAnaconda QuanuX/beta (240 Standard + 2 Node) · Cloudflare (.pkg / .sh · 316 Objects)"]
+        EV["Immutable Release Evidence\nbeta21-publisher-decision.json · beta21-publication.json"]
     end
 
     subgraph Recipient["Recipient System (Inert Carriers vs. Sovereign Custody)"]
@@ -49,7 +49,7 @@ flowchart TD
     CI --> PUB
     PUB --> EV
     PUB -->|"Verify Detached Signature\n& Exact OS Profile"| CAR
-    CAR -->|"Explicit First-Use Retention\n(New Private Prefix for Beta.2)"| RET
+    CAR -->|"Explicit First-Use Retention\n(New Private Installation Prefix)"| RET
 ```
 
 ---
@@ -64,9 +64,11 @@ flowchart TD
 | **Ubuntu 24.04 ARM64** | `.sh` | `ubuntu24.04-arm64` |
 | **Ubuntu 26.04 AMD64** | `.sh` | `ubuntu26.04-amd64` |
 
+The [optional Linux node keyring](https://quanux.org/downloads#node-keyring) has separate Debian and Anaconda downloads for Ubuntu 26.04 on AMD64 and ARM64.
+
 Each profile supplies 59 independently maintainable default packages and a separate optional corresponding-source package. SDK headers, libraries and exports stay with their module owners. Native and SDK bytes come from the selected clean CI builds; user profiles, credentials, hardware knowledge and workflow state are created on the recipient's system.
 
-Verify the detached signature and exact platform package list before installing. The [installation guide](docs/BETA-INSTALL.md) covers both standalone and existing Conda routes, first-use retention, Codex setup, and per-module install, change, swap and removal. Select the exact operating-system profile; the two AMD64 Linux cohorts share a Conda subdirectory but are different qualified builds.
+Verify the detached signature and exact platform package list before installing. The [installation guide](docs/BETA21-INSTALL.md) covers both standalone and existing Conda routes, first-use retention, Codex setup, and per-module install, change, swap and removal. Select the exact operating-system profile; the two AMD64 Linux cohorts share a Conda subdirectory but are different qualified builds.
 
 > [!NOTE]
 > Packages contain inert carrier files. Existing Symphony owners retain control of runtime files, credentials, process retirement and application selection; Maestro's selection is separate from package delivery. Independent retained copies outside Conda prefixes and caches survive carrier upgrade or removal. Installing packages does not activate services or select application modules.
@@ -76,11 +78,11 @@ Verify the detached signature and exact platform package list before installing.
 `02 // RELEASE QUALIFICATION & PUBLISHER SIGNATURE`
 ## Qualified scope and trust
 
-Completed release qualification includes 88 actual Codex cases, 204 native owner receipts, 728 packaging maintenance transactions, four shell/first-use campaigns, and installation/removal of the exact native Mac home installer. The [publisher decision](evidence/beta2-publisher-decision.json) records legal approval and acceptance; the [publication evidence](evidence/beta2-publication.json) records the selected artifacts and public retrieval results.
+The historical beta.2 qualification included 88 actual Codex cases, 204 native owner receipts, 728 packaging maintenance transactions, four shell/first-use campaigns, and installation/removal of the exact native Mac home installer. The [beta.2 publisher decision](evidence/beta2-publisher-decision.json) and [beta.2 qualification record](evidence/beta2-publication.json) preserve those results.
 
 This beta uses a pinned, self-signed detached publisher signature. Apple Developer ID, notarization, Gatekeeper acceptance and separate human-reviewer independence are not claimed. Packaging revision **0→1→0** upgrade/rollback, independent carrier changes and same-candidate recovery are qualified. Transitions between distinct native releases remain outside this initial beta. Unsupported ownership, uncertain effects and unexamined live consumers retain their existing refusal and recovery boundaries.
 
-The feature freeze remains in force. Integration into `main` consolidates the reviewed release fixes and documentation; it does not add features or alter the published release. The tag and signed artifact identities are immutable. Later builds or documentation commits do not replace the selected release bytes. Website integration remains a later presentation step; the release page and Cloudflare downloads are available now.
+The feature freeze remains in force. Integration into `main` consolidates the reviewed release fixes and documentation; it does not add features or alter the published release. The tag and signed artifact identities are immutable. Later builds or documentation commits do not replace the selected release bytes. The [downloads page](https://quanux.org/downloads) lists the full installers and optional node packages.
 
 ---
 
@@ -103,7 +105,7 @@ This repository is separate from [Symphony core](https://github.com/QuanuX/Symph
 
 | Area | Guide |
 | :--- | :--- |
-| **End-user installation and independent modules** | [Beta installation](docs/BETA-INSTALL.md) |
+| **End-user installation and independent modules** | [Beta installation](docs/BETA21-INSTALL.md) |
 | **Retained binaries and explicit first use** | [Retention](delivery/README.md) |
 | **Scoped native proposals and uncertain effects** | [Lifecycle](lifecycle/README.md), [recovery](docs/RECOVERY.md) |
 | **Clean native/SDK builds** | [Build cohort](build-cohort/README.md) |
@@ -130,7 +132,7 @@ Real Conda qualification uses an isolated publisher environment with Python 3.12
 `05 // MILESTONE EVIDENCE ARCHIVE (S06 – D14)`
 ## Historical milestone records
 
-These records preserve the evidence and unresolved inputs observed at each milestone. Their historical pending gates do not override the current [publication result](evidence/beta2-publication.json), and completed release qualification does not expand their narrower fixture claims.
+These records preserve the evidence and unresolved inputs observed at each milestone. Their historical pending gates do not override the current [publication result](evidence/beta21-publication.json), and completed release qualification does not expand their narrower fixture claims.
 
 | Milestone | Retained record |
 | :--- | :--- |

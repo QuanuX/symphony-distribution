@@ -1,0 +1,543 @@
+[
+  {
+    "filename": "symphony-accordare-stav-producer-payload-0.1.0dev0-d14_0708252a2f3d487ff315_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-accordare-stav-producer-payload-0.1.0dev0-d14_0708252a2f3d487ff315_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "99da45936527fb92410af93f7e027924b646c09429c2391cac9bcdfd6f3df535",
+    "size": 3739581
+  },
+  {
+    "filename": "symphony-client-payload-0.2.0-d14_c101eaf0aad0a94e81bc_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-client-payload-0.2.0-d14_c101eaf0aad0a94e81bc_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "b879aeb5d285016e15d8473b412499daf1db543615c60181d95b19b8750d9ed7",
+    "size": 674353
+  },
+  {
+    "filename": "symphony-corresponding-source-payload-0.2.0-d08_fd9da4e7950b5d13600f_0.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-corresponding-source-payload-0.2.0-d08_fd9da4e7950b5d13600f_0.conda",
+      "https://conda.anaconda.org/QuanuX/label/beta-0.2.0-beta.2.1-69c89fef8a2a/linux-64/symphony-corresponding-source-payload-0.2.0-d08_fd9da4e7950b5d13600f_0.conda"
+    ],
+    "selection": "optional-source",
+    "sha256": "225f4e7e2ba7e9fb1a2929251cbb2f3f058722ac415c9f3df6531cedb894ebc0",
+    "size": 20456957
+  },
+  {
+    "filename": "symphony-external-curl-zstd-payload-8.7.1-d14_345cc3cb35773b5e8256_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-external-curl-zstd-payload-8.7.1-d14_345cc3cb35773b5e8256_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "91c3baad0e873af59f428323fd7d87a1b6e4ef729d51bcce4e022cd6924ad9df",
+    "size": 727572
+  },
+  {
+    "filename": "symphony-knowledge-session-coordinator-payload-0.1.0dev0-d14_fa40cd4df43b6fbc8142_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-knowledge-session-coordinator-payload-0.1.0dev0-d14_fa40cd4df43b6fbc8142_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "3f414e56a8456e2bd0d5e39e84a2aaf457fe230ada6d12eee262f95961d5b478",
+    "size": 684575
+  },
+  {
+    "filename": "symphony-knowledge-vector-engine-cpp-payload-0.2.0dev0-d14_bbc97650ebddc79aa9f4_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-knowledge-vector-engine-cpp-payload-0.2.0dev0-d14_bbc97650ebddc79aa9f4_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "fb12cd27d098961d0b64d44a68fc8e9d2e3febe61735d366aef35d5ba49ec802",
+    "size": 270016
+  },
+  {
+    "filename": "symphony-maestro-payload-0.1.0dev0-d14_75d33b07b9d84f5c5c76_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-maestro-payload-0.1.0dev0-d14_75d33b07b9d84f5c5c76_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "3bcb7391414d22125d88e700fc0e33e8faacd476619e1c7f9b19db645c68cc95",
+    "size": 176720
+  },
+  {
+    "filename": "symphony-native-source-support-cpp-payload-0.1.0dev0-d14_04c5710c2e021783aa62_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-native-source-support-cpp-payload-0.1.0dev0-d14_04c5710c2e021783aa62_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "d36c9fd828b07b94855c00e30dbe76e2af2208c7a8dbdc37f611e7b30f64d37b",
+    "size": 75439
+  },
+  {
+    "filename": "symphony-qxctl-payload-0.1.0dev0-d14_3e82d2adfffb1407f2f0_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-qxctl-payload-0.1.0dev0-d14_3e82d2adfffb1407f2f0_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "302f857dc73c9d6a3765346e5991cafa4d56ffe77e365d1991f54a1975ec4c37",
+    "size": 10805153
+  },
+  {
+    "filename": "symphony-sacv-engine-payload-0.1.0dev0-d14_411e7373c23551314cf9_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sacv-engine-payload-0.1.0dev0-d14_411e7373c23551314cf9_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "53c97bc394d9b98a91095378cd78093a7c932c40a94934bb091528916a3fbc0a",
+    "size": 171173
+  },
+  {
+    "filename": "symphony-sav-engine-payload-0.1.0dev0-d14_3d7f7c903943173da2cf_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sav-engine-payload-0.1.0dev0-d14_3d7f7c903943173da2cf_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "78912117c093644dbdc0f1785e3ce5a8c1b6cac963c1eb720ea78fbf96a87204",
+    "size": 169614
+  },
+  {
+    "filename": "symphony-sbv-engine-payload-0.33.0dev0-d14_777df67380b451af15c6_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sbv-engine-payload-0.33.0dev0-d14_777df67380b451af15c6_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "274bbf6dadd52ee737142a323b2ad8ffaae982b4f7c1e6bcb395f4fa2c88f13b",
+    "size": 2079896
+  },
+  {
+    "filename": "symphony-scev-cf-engine-payload-0.10.0dev0-d14_094ac3ec0ca51786a0e3_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-scev-cf-engine-payload-0.10.0dev0-d14_094ac3ec0ca51786a0e3_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "ebf7ed1c91e3debceb92a64da41f7e163834a3c817b4951fdd5700b9e4b444bb",
+    "size": 579179
+  },
+  {
+    "filename": "symphony-scev-engine-payload-0.10.0dev0-d14_68fb3056aac146e40f78_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-scev-engine-payload-0.10.0dev0-d14_68fb3056aac146e40f78_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "faafe931d05dd094f2b52c7ed74fc6384a695bf149ea995a5f127e1ff046dfd4",
+    "size": 579380
+  },
+  {
+    "filename": "symphony-schv-aws-engine-payload-0.10.0dev0-d14_a856aef1dab843f16606_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-schv-aws-engine-payload-0.10.0dev0-d14_a856aef1dab843f16606_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "56e3d56df7a0ed5d9eb3139acfc0548575f2b15c806478acda7c9da5b588ded4",
+    "size": 579233
+  },
+  {
+    "filename": "symphony-schv-azure-engine-payload-0.10.0dev0-d14_ac50f9895adc559ed2d1_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-schv-azure-engine-payload-0.10.0dev0-d14_ac50f9895adc559ed2d1_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "d5936f268a1360f6cb882197348d78e6568c65c28375517084571815a4652ece",
+    "size": 579256
+  },
+  {
+    "filename": "symphony-schv-do-engine-payload-0.10.0dev0-d14_ab8a5c9524d7fbfb8d8b_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-schv-do-engine-payload-0.10.0dev0-d14_ab8a5c9524d7fbfb8d8b_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "54b7bc0aa122f36a6fe220b1802f662764dacf3bc77ec0e970c62d4ee4ec7939",
+    "size": 579319
+  },
+  {
+    "filename": "symphony-schv-engine-payload-0.10.0dev0-d14_7c3f2e675938aaa09c54_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-schv-engine-payload-0.10.0dev0-d14_7c3f2e675938aaa09c54_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "b84b41bc6e335ccc354a35b772617775f1e85af078dcf6f7a3bed3a6c8d972db",
+    "size": 579366
+  },
+  {
+    "filename": "symphony-schv-gcp-engine-payload-0.10.0dev0-d14_fa83b93083489f407f85_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-schv-gcp-engine-payload-0.10.0dev0-d14_fa83b93083489f407f85_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "1bfe79990693e75d39a21b1654f0f5e7670c899994eaa2dce87af4772fbd8516",
+    "size": 579289
+  },
+  {
+    "filename": "symphony-sciv-engine-payload-0.1.0dev0-d14_21426a9c271b38d6902f_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sciv-engine-payload-0.1.0dev0-d14_21426a9c271b38d6902f_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "38718135361d214058b9d4dd86bfe27ef77dcc8ac4e15cdd45e0aed42ea47ec2",
+    "size": 189428
+  },
+  {
+    "filename": "symphony-sclv-engine-payload-0.1.0dev0-d14_07165088a213b80cd53e_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sclv-engine-payload-0.1.0dev0-d14_07165088a213b80cd53e_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "b372a6cd142bd24fab1624a5c6c63baa009b10d23c0db28fbb65676b7e003683",
+    "size": 232199
+  },
+  {
+    "filename": "symphony-scnv-engine-payload-0.1.0dev0-d14_b6a7c89287ec3953d4be_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-scnv-engine-payload-0.1.0dev0-d14_b6a7c89287ec3953d4be_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "342c15a408cb764a531165217565540632b5b357b18eb5a9cf8fd3e50c0393b9",
+    "size": 194811
+  },
+  {
+    "filename": "symphony-scv-engine-payload-0.10.0dev0-d14_f6ae2da1b23a82851afd_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-scv-engine-payload-0.10.0dev0-d14_f6ae2da1b23a82851afd_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "370f05430c946ab66a2d4bbd13a09194f222786b11e98c99f61c3abc097caa27",
+    "size": 579330
+  },
+  {
+    "filename": "symphony-secure-identity-access-governance-payload-0.1.0dev0-d14_68718ce0f4eab5f47681_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-secure-identity-access-governance-payload-0.1.0dev0-d14_68718ce0f4eab5f47681_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "593e71e2c8cf5283b7b72553ad615a17bcd3500acdc0383a25dd0937c70737e1",
+    "size": 7147270
+  },
+  {
+    "filename": "symphony-sev-engine-payload-0.1.0dev0-d14_919663a62cdf31fe62a7_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sev-engine-payload-0.1.0dev0-d14_919663a62cdf31fe62a7_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "c8a1824d2872937039e3c4f260f7d4aa9a1e90c9d3ada37f8423ea9c695f6f51",
+    "size": 177007
+  },
+  {
+    "filename": "symphony-shv-engine-payload-0.4.0dev0-d14_616cf6c0c155abd37b26_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-shv-engine-payload-0.4.0dev0-d14_616cf6c0c155abd37b26_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "ffa908736232078136623a7ccd9231eb05cfbfc10c7bab445b7a1133f193c5a1",
+    "size": 251321
+  },
+  {
+    "filename": "symphony-shv-graph-adapter-payload-0.2.0dev0-d14_0cd94424583666258a0e_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-shv-graph-adapter-payload-0.2.0dev0-d14_0cd94424583666258a0e_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "0176a07f506395e44586fc77c261ad63e32e3efd40bfd703b4de21f371c9db69",
+    "size": 141306
+  },
+  {
+    "filename": "symphony-shv-partition-engine-payload-0.4.0dev0-d14_f18b85af3a6f7de268b5_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-shv-partition-engine-payload-0.4.0dev0-d14_f18b85af3a6f7de268b5_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "2992b748ced7affed660e52099daa875770d591ab48582209bf7a6a6f46a5b72",
+    "size": 124199
+  },
+  {
+    "filename": "symphony-shv-profile-engine-payload-0.3.0dev0-d14_b443a59da4de9fb51d56_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-shv-profile-engine-payload-0.3.0dev0-d14_b443a59da4de9fb51d56_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "a24d2f7bf32b906988616e945e92d11c639d725402fd61ad0633a9f898020af6",
+    "size": 291288
+  },
+  {
+    "filename": "symphony-shv-publication-engine-payload-0.4.0dev0-d14_73ca9b5e94a3827252c7_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-shv-publication-engine-payload-0.4.0dev0-d14_73ca9b5e94a3827252c7_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "fc10268759b3e992dccceb89bc2a5a19c2ab2b5c99c8e10124c6fc1f6f02e379",
+    "size": 188445
+  },
+  {
+    "filename": "symphony-shv-source-engine-payload-0.2.0dev0-d14_f6f0c4c30a0e147425fd_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-shv-source-engine-payload-0.2.0dev0-d14_f6f0c4c30a0e147425fd_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "3b674ca662668ae3e5e00616d3c75a5f6049a55be45f9c119924b24833402928",
+    "size": 144889
+  },
+  {
+    "filename": "symphony-skvi-engine-payload-0.2.0dev0-d14_1c6df5d64b3d4f4181ce_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-skvi-engine-payload-0.2.0dev0-d14_1c6df5d64b3d4f4181ce_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "5370dfd24d4c4c18cedfaaae311eb4372eac8baf9e0ad9c8c02dc39dbbc1997c",
+    "size": 161307
+  },
+  {
+    "filename": "symphony-sniv-engine-payload-0.1.0dev0-d14_4b95e49bbbdded859875_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sniv-engine-payload-0.1.0dev0-d14_4b95e49bbbdded859875_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "d70adb10588f7f264aa4a6ac3d32a6e3c949ab25311c3942dbe5a3d36e02127b",
+    "size": 187136
+  },
+  {
+    "filename": "symphony-snrv-engine-payload-0.1.0dev0-d14_2df8f5466a08139d40f8_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-snrv-engine-payload-0.1.0dev0-d14_2df8f5466a08139d40f8_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "8322bf8b0612a6c35ec248635ee56fa565b6c24a8e9feae28d005a79c199b812",
+    "size": 182559
+  },
+  {
+    "filename": "symphony-snv-common-cpp-payload-0.1.0dev0-d14_e6b519d319356e81eacd_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-snv-common-cpp-payload-0.1.0dev0-d14_e6b519d319356e81eacd_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "99adadd4ead65dacad64a04721791b8b6d735549dbdc1a6354faeb866ae32d0d",
+    "size": 61815
+  },
+  {
+    "filename": "symphony-snv-engine-payload-0.1.0dev0-d14_17af70cfe06b711d1c18_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-snv-engine-payload-0.1.0dev0-d14_17af70cfe06b711d1c18_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "82dca4bddbf40e3399e598dad6bcb5003fb7863535c4a4ab90c24ece15060dec",
+    "size": 352629
+  },
+  {
+    "filename": "symphony-sodv-engine-payload-0.1.0dev0-d14_55ef11b63a28b803d5b0_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sodv-engine-payload-0.1.0dev0-d14_55ef11b63a28b803d5b0_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "f6993cfc422e7ba70780296d242f5dad57aac28504314d54ca1640f866eda804",
+    "size": 189349
+  },
+  {
+    "filename": "symphony-sov-cloudflare-adapter-payload-0.1.0dev0-d14_62dc701ae91ae75f3df1_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sov-cloudflare-adapter-payload-0.1.0dev0-d14_62dc701ae91ae75f3df1_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "82d7f7f975dba013f5687d4776d933febc84e70349cd305874898973faa2ef50",
+    "size": 420876
+  },
+  {
+    "filename": "symphony-sov-ssh-adapter-payload-0.1.0dev0-d14_dd391e250ab8f4476f97_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sov-ssh-adapter-payload-0.1.0dev0-d14_dd391e250ab8f4476f97_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "ce78be02594e20435c5edc2ebc162020d3d6feb06ebb5cdc5001509256d96f72",
+    "size": 5024608
+  },
+  {
+    "filename": "symphony-sov-stdio-adapter-payload-0.1.0dev0-d14_9cc0c1a997362ba66285_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sov-stdio-adapter-payload-0.1.0dev0-d14_9cc0c1a997362ba66285_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "226fbcf59a1283e263993ecf667c91a4b0f76d2ce893b83aa09f5412170e994b",
+    "size": 1949074
+  },
+  {
+    "filename": "symphony-sqav-attempt-engine-payload-0.1.0dev0-d14_7e32e749ce877ebe0a0e_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqav-attempt-engine-payload-0.1.0dev0-d14_7e32e749ce877ebe0a0e_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "af03dfa9a9ae5a9f584889318c577c4e87bbc36bc433dd53e758b2489390b04e",
+    "size": 152097
+  },
+  {
+    "filename": "symphony-sqav-capture-cpp-payload-0.2.0dev0-d14_c9ef9f30321dcc97b08b_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqav-capture-cpp-payload-0.2.0dev0-d14_c9ef9f30321dcc97b08b_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "c3382329e07dbf476659e7b086ec37631569c34de872af1f01c61bbca8de18aa",
+    "size": 52049
+  },
+  {
+    "filename": "symphony-sqav-databento-dbn-cpp-payload-0.5.0dev0-d14_4babd049002bffcc0e19_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqav-databento-dbn-cpp-payload-0.5.0dev0-d14_4babd049002bffcc0e19_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "1154c2aefe4f94cd8a76df65bdbc0bae9fa1a4c75b8facc2c6d86a2c00c23d68",
+    "size": 85486
+  },
+  {
+    "filename": "symphony-sqav-databento-reference-cpp-payload-0.1.0dev0-d14_a650f3138f2117819b63_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqav-databento-reference-cpp-payload-0.1.0dev0-d14_a650f3138f2117819b63_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "620804ecb332035905ad292ddc3dad736550817e2ac172acad308b148932949d",
+    "size": 57814
+  },
+  {
+    "filename": "symphony-sqav-fred-cpp-payload-0.1.0dev0-d14_313cd80f153d6efc82f0_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqav-fred-cpp-payload-0.1.0dev0-d14_313cd80f153d6efc82f0_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "6137d7a5d181c5fe9c69548916d93317ef666ab13d436b174dcd9af1a365e51b",
+    "size": 56840
+  },
+  {
+    "filename": "symphony-sqav-request-engine-payload-0.1.0dev0-d14_253fa01ea99cd496b096_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqav-request-engine-payload-0.1.0dev0-d14_253fa01ea99cd496b096_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "d05ee499fed4b6c9da8c674e0b76a5898b49a9703d69868b6e8d1dd00dd2c6f7",
+    "size": 332186
+  },
+  {
+    "filename": "symphony-sqdv-checkpoint-engine-payload-0.1.0dev0-d14_1a41138a7473da87716e_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqdv-checkpoint-engine-payload-0.1.0dev0-d14_1a41138a7473da87716e_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "b7745b7844cb0f019637272422130edfcf61a985c5e7f7f3a48e3b1c509009b4",
+    "size": 145184
+  },
+  {
+    "filename": "symphony-sqdv-delivery-cpp-payload-0.3.0dev0-d14_9bc6ed0092775d42cb30_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqdv-delivery-cpp-payload-0.3.0dev0-d14_9bc6ed0092775d42cb30_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "8e88ebb7c922c3c74eb1353184c3b1fc39123853da7ec9f7fd36c6014445efc2",
+    "size": 61199
+  },
+  {
+    "filename": "symphony-sqfv-batch-cpp-payload-0.3.0dev0-d14_2fd98ca2f7820b0a40bc_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqfv-batch-cpp-payload-0.3.0dev0-d14_2fd98ca2f7820b0a40bc_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "f59c3fbf1a907d85ed15093e59272bebaa783a495a7aec922425e00d11ee0abe",
+    "size": 47975
+  },
+  {
+    "filename": "symphony-sqfv-flow-engine-payload-0.1.0dev0-d14_13efb9038330b8f741d3_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqfv-flow-engine-payload-0.1.0dev0-d14_13efb9038330b8f741d3_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "4d3412874705ba620d891da1907b288ce468e200af3975d427d62462f1a4e23e",
+    "size": 117252
+  },
+  {
+    "filename": "symphony-sqmv-metadata-cpp-payload-0.2.0dev0-d14_b5bfc4f527d13498fe80_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqmv-metadata-cpp-payload-0.2.0dev0-d14_b5bfc4f527d13498fe80_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "468f2f8a261b945cea1accbd60bb0bb1776c2efbd0c0d811c3292bd38fc33ea3",
+    "size": 44472
+  },
+  {
+    "filename": "symphony-sqmv-metadata-engine-payload-0.1.0dev0-d14_03b8cadac17a8c0db9bc_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqmv-metadata-engine-payload-0.1.0dev0-d14_03b8cadac17a8c0db9bc_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "04a55f8197e6b805b96ef3fb0a2d0686d24b75c03e3d6f225898ba406fbef83b",
+    "size": 123347
+  },
+  {
+    "filename": "symphony-sqpv-inspection-engine-payload-0.1.0dev0-d14_827709f2073e3d7f2dbf_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqpv-inspection-engine-payload-0.1.0dev0-d14_827709f2073e3d7f2dbf_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "da25b043515b22d9dad9268ad34f2c73b3354a82f7e35d5f7200f48ce8c244d3",
+    "size": 141941
+  },
+  {
+    "filename": "symphony-sqpv-local-store-cpp-payload-0.2.0dev0-d14_1b3f9d733a5c1cbc93b6_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqpv-local-store-cpp-payload-0.2.0dev0-d14_1b3f9d733a5c1cbc93b6_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "3bb03fd9aec78de391d285c4702e4448c79bedc937a1430c498a35a6c2372bf0",
+    "size": 60641
+  },
+  {
+    "filename": "symphony-sqtv-conversion-engine-payload-0.1.0dev0-d14_df117d47fad81b2d4f92_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqtv-conversion-engine-payload-0.1.0dev0-d14_df117d47fad81b2d4f92_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "c82423b1250f10f37204551c4492c34dae0665c284b2754d7062678fb3f0e100",
+    "size": 132210
+  },
+  {
+    "filename": "symphony-sqtv-integer-conversion-cpp-payload-0.2.0dev0-d14_e25732af83ae5b5d01ea_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-sqtv-integer-conversion-cpp-payload-0.2.0dev0-d14_e25732af83ae5b5d01ea_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "6f8f930ff2ea9aa90bddd7cac719e4b5a645cbf75a51e3a4dd8f5fdf843e8f33",
+    "size": 38437
+  },
+  {
+    "filename": "symphony-ssfv-engine-payload-0.1.0dev0-d14_f38248dd1062e7d0aa47_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-ssfv-engine-payload-0.1.0dev0-d14_f38248dd1062e7d0aa47_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "a98444e492a6012b85e437bcd160619c712e57dc64c6d85d5f85d09670c79723",
+    "size": 361753
+  },
+  {
+    "filename": "symphony-ssiag-provider-private-store-payload-0.1.0dev0-d14_338982e0544469f57806_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-ssiag-provider-private-store-payload-0.1.0dev0-d14_338982e0544469f57806_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "feb0025c4b39e3d3989ceba0eb704c8fcc1f939597ff428caa78182364308b3e",
+    "size": 152445
+  },
+  {
+    "filename": "symphony-stav-append-authority-payload-0.2.1-d14_7a4890732ffdb6d69b38_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-stav-append-authority-payload-0.2.1-d14_7a4890732ffdb6d69b38_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "539e5781a282679608d925c4c0ccb02571c4ebc20dfda2fbff04f69fd57ec307",
+    "size": 6275545
+  },
+  {
+    "filename": "symphony-symphony-validator-payload-0.2.0dev0-d14_55b806d4fac701074cca_1.conda",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-symphony-validator-payload-0.2.0dev0-d14_55b806d4fac701074cca_1.conda"
+    ],
+    "selection": "default",
+    "sha256": "16960355db99eff7110e6c40b0d117b3f5a432653eb89f3fe42005437e08d687",
+    "size": 505237
+  }
+]

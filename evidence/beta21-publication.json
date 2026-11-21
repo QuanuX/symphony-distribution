@@ -1,0 +1,82 @@
+{
+  "anaconda": {
+    "labels": [
+      "beta",
+      "beta-0.2.0-beta.2.1-69c89fef8a2a"
+    ],
+    "optional_node_packages": 2,
+    "optional_node_receipt": {
+      "path": "evidence/beta21-publication/optional-node-anaconda.json",
+      "sha256": "9ae4d42d67c818ffc46faf6b9610542032ccc7f341da625ac7d650de440f9d09"
+    },
+    "organization": "QuanuX",
+    "per_profile": {
+      "macos15-arm64": {
+        "path": "evidence/beta21-publication/macos15-arm64-anaconda.json",
+        "sha256": "4a76c811ea77fce6653d921020f94b71b09a4875e246e015d145e16879170d5d"
+      },
+      "ubuntu24.04-amd64": {
+        "path": "evidence/beta21-publication/ubuntu24.04-amd64-anaconda.json",
+        "sha256": "692dda2e222bf98d966bf1e34da380d13a9b04fccd7d60d45c87db8cfea5115f"
+      },
+      "ubuntu24.04-arm64": {
+        "path": "evidence/beta21-publication/ubuntu24.04-arm64-anaconda.json",
+        "sha256": "5ea3b234fa8b0cb17ba1db449a2701b94f1391f2711eaeab4795495fe4ba96f9"
+      },
+      "ubuntu26.04-amd64": {
+        "path": "evidence/beta21-publication/ubuntu26.04-amd64-anaconda.json",
+        "sha256": "f209152d0bd7609a12660ee35ee87d8e9ca762e0204cb8e3593549613d92524d"
+      }
+    },
+    "standard_package_records": 240
+  },
+  "cloudflare": {
+    "download_objects": 316,
+    "origin": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/",
+    "path": "evidence/beta21-publication/cloudflare.json",
+    "public_bytes_verified": true,
+    "sha256": "53ef1c351afc6c00a0742c3f84cf4f4eeb66b3d9cc0b5cf52f8fedc96d9b7fd3"
+  },
+  "github": {
+    "path": "evidence/beta21-publication/github.json",
+    "sha256": "e56510091110194187003b757693b839b8317bc642eb6017d4680a126dabc9be"
+  },
+  "protocol": "symphony.distribution.public-beta-delivery.v1",
+  "public_linux_install": {
+    "path": "evidence/beta21-publication/ubuntu26.04-amd64-public-install.json",
+    "sha256": "8ad4e9891fa30f4dcd22228712af17dd13b4f7f9df2dd708013ebaa421f823d1"
+  },
+  "public_user_verification": {
+    "path": "evidence/beta21-publication/public-user-verification.json",
+    "sha256": "f5f88c8a5cc9ff8022a6fc61fb636a355ff7c20c0c6e1d7eafc8b21ea9ddb5f9"
+  },
+  "publisher_decision_sha256": "c688adefc16c880026fa5deff2a794861766aca22c01829d23fa9dde680c440e",
+  "recorded_at": "2026-11-21T19:32:01+00:00",
+  "release": "0.2.0-beta.2.1",
+  "signature": {
+    "apple_developer_id": false,
+    "certificate_sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+    "manifest_sha256": "ed801309fc915b09f3810ef6a987955c1af3f8e5604a5909dacf9ff3750333d4",
+    "notarized": false,
+    "public_key_sha256": "34621e652aef5649ba2eea9310a93a108cfc65466abc2c164d8fab0079715010",
+    "release_index_sha256": "69c89fef8a2ab2eed8e78b56168fcdbbf285989fedf698a43ea499cd2883e9f0",
+    "signed_artifacts": 553,
+    "verifier_sha256": "0c94359511013edb19d990f853b2720a2049ceb40f6aa2ad9dd47b603156b547"
+  },
+  "source_binding": {
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "core_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
+    "distribution_commit": "df46119ccbaa3ad0d27a38b096dcbeb31cbac70a",
+    "tag": "v0.2.0-beta.2.1"
+  },
+  "state": "anaconda_cloudflare_github_and_website_public_readbacks_verified",
+  "temporary_publisher_credential_cleanup": {
+    "path": "evidence/beta21-publication/credential-cleanup.json",
+    "sha256": "b8fae3c265b35abbd8bb96f2713620cf5a8a3c4bf64aedc753f903a8bad40c40"
+  },
+  "website": {
+    "path": "evidence/beta21-publication/website.json",
+    "sha256": "8d6bec12d544f844335da26eb496a5d094dc63e3aa3068c6bb76cfaeafcd35ab"
+  }
+}

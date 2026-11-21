@@ -47,14 +47,14 @@
   <!-- Status Pill -->
   <rect x="594" y="26" width="326" height="34" rx="17" fill="#0b0d0f" stroke="#262b31" stroke-width="1"/>
   <circle cx="614" cy="43" r="4" fill="#d7ff69"/>
-  <text x="628" y="47" fill="#dfe4e8" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" letter-spacing="1.1">SIGNED COHORT // v0.2.0-beta.2</text>
+  <text x="628" y="47" fill="#dfe4e8" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="10.5" letter-spacing="1.1">SIGNED COHORT // v0.2.0-beta.2.1</text>
 
   <!-- Hero Eyebrow -->
   <text x="40" y="132" fill="#72f6ff" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11.5" letter-spacing="2">QUANUX/BETA ON ANACONDA // CLOUDFLARE STANDALONE INSTALLERS</text>
   <text x="40" y="160" fill="#858b92" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="12" letter-spacing="2.4">SYMPHONY PUBLIC BETA DISTRIBUTION</text>
 
   <!-- Hero Title -->
-  <text x="40" y="222" fill="url(#spectralWord)" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="60" font-weight="800" letter-spacing="-2.3">Symphony Beta.2</text>
+  <text x="40" y="222" fill="url(#spectralWord)" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="60" font-weight="800" letter-spacing="-2.3">Symphony Beta.2.1</text>
 
   <!-- Hero Kicker -->
   <text x="40" y="266" fill="#f6f7f8" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600" letter-spacing="-0.4">Independently maintainable packages, clean CI native builds,</text>
@@ -62,8 +62,8 @@
 
   <!-- Hero Description -->
   <text x="40" y="340" fill="#b6bbc0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5">Symphony is a quantOS developed through <tspan fill="#f6f7f8" font-weight="700">VGAA (Vector-Graph Application Architecture)</tspan>, where users compose</text>
-  <text x="40" y="363" fill="#b6bbc0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5">their own environments from independently maintained modules. <tspan fill="#72f6ff">Symphony 0.2.0-beta.2</tspan> binds <tspan fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace">240</tspan> published</text>
-  <text x="40" y="386" fill="#b6bbc0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5">Conda packages and <tspan fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace">304</tspan> verified download objects to a signed release across four OS profiles—delivering inert</text>
+  <text x="40" y="363" fill="#b6bbc0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5">their own environments from independently maintained modules. <tspan fill="#72f6ff">Symphony 0.2.0-beta.2.1</tspan> binds <tspan fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace">242</tspan> published</text>
+  <text x="40" y="386" fill="#b6bbc0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5">Conda packages and <tspan fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace">316</tspan> verified download objects to a signed release across four OS profiles—delivering inert</text>
   <text x="40" y="409" fill="#b6bbc0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5">package carriers while preserving explicit Symphony owner custody, credentials, and Maestro selection.</text>
 
   <!-- 4-Column Telemetry Strip -->
@@ -73,11 +73,11 @@
   <line x1="700" y1="436" x2="700" y2="512" stroke="#1e2227" stroke-width="1"/>
 
   <text x="56" y="462" fill="#858b92" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" letter-spacing="1.2">PUBLISHED COHORT</text>
-  <text x="56" y="483" fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700">240 Conda Packages</text>
+  <text x="56" y="483" fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700">242 Conda Packages</text>
   <text x="56" y="500" fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700">59 Default / Profile</text>
 
   <text x="276" y="462" fill="#858b92" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" letter-spacing="1.2">SIGNED ARTIFACTS</text>
-  <text x="276" y="483" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700">304 Download Objects</text>
+  <text x="276" y="483" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700">316 Download Objects</text>
   <text x="276" y="500" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11.5" font-weight="700">Detached Publisher Sig</text>
 
   <text x="496" y="462" fill="#858b92" font-family="'SFMono-Regular', Consolas, monospace" font-size="10" letter-spacing="1.2">MAINTENANCE QUAL</text>
@@ -99,7 +99,7 @@
   <circle cx="90" cy="566" r="4.5" fill="#6fe787"/>
 
   <text x="480" y="570" fill="#858b92" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1" text-anchor="middle">symphony-distribution // platform installers &amp; source binding</text>
-  <text x="900" y="570" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1.2" text-anchor="end">● BETA.2 VERIFIED</text>
+  <text x="900" y="570" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1.2" text-anchor="end">● BETA.2.1 VERIFIED</text>
 
   <!-- Terminal Command -->
   <text x="64" y="618" fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace" font-size="12.5">$</text>

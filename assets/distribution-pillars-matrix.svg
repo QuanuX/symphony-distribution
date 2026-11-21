@@ -43,12 +43,12 @@
 
   <!-- PILLAR 02 -->
   <text x="504" y="292" fill="#858b92" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5">PILLAR 02</text>
-  <text x="896" y="292" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" text-anchor="end">240 PKGS // 304 OBJECTS</text>
+  <text x="896" y="292" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" text-anchor="end">242 PKGS // 316 OBJECTS</text>
   <text x="504" y="320" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" letter-spacing="1.4">SIGNED PUBLICATION RECORD</text>
   <text x="504" y="346" fill="#f6f7f8" font-family="Inter, -apple-system, sans-serif" font-size="18.5" font-weight="700">Anaconda &amp; Cloudflare Verification</text>
   <text x="504" y="374" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">Published via <tspan fill="#f6f7f8" font-weight="600">QuanuX/beta on Anaconda</tspan> and Cloudflare</text>
-  <text x="504" y="394" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">downloads. <tspan fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace">evidence/beta2-publication.json</tspan> binds</text>
-  <text x="504" y="414" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13"><tspan fill="#f6f7f8" font-weight="600">240 packages</tspan> and <tspan fill="#f6f7f8" font-weight="600">304 verified download objects</tspan> to the</text>
+  <text x="504" y="394" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">downloads. <tspan fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace">evidence/beta21-publication.json</tspan> binds</text>
+  <text x="504" y="414" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13"><tspan fill="#f6f7f8" font-weight="600">242 packages</tspan> and <tspan fill="#f6f7f8" font-weight="600">316 verified download objects</tspan> to the</text>
   <text x="504" y="434" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">pinned self-signed detached publisher signature.</text>
 
   <!-- PILLAR 03 -->
@@ -67,7 +67,7 @@
   <text x="504" y="515" fill="#ff69c6" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" letter-spacing="1.4">QUALIFIED SCOPE &amp; TRUST LIMITS</text>
   <text x="504" y="541" fill="#f6f7f8" font-family="Inter, -apple-system, sans-serif" font-size="18.5" font-weight="700">Explicit Revision &amp; Prefix Isolation</text>
   <text x="504" y="569" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">Qualifies packaging revision <tspan fill="#f6f7f8" font-weight="600">0-&gt;1-&gt;0</tspan> upgrade/rollback and</text>
-  <text x="504" y="589" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">same-candidate recovery. Install beta.2 into a <tspan fill="#f6f7f8" font-weight="600">new private</tspan></text>
+  <text x="504" y="589" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">same-candidate recovery. Install into a <tspan fill="#f6f7f8" font-weight="600">new private</tspan></text>
   <text x="504" y="609" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13"><tspan fill="#f6f7f8" font-weight="600">prefix</tspan>; Apple Developer ID, notarization, Gatekeeper, and</text>
   <text x="504" y="629" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="13">cross-native-release upgrades are not claimed.</text>
 
@@ -93,7 +93,7 @@
 
   <!-- SECTION 03: IMMUTABLE SOURCE CHECKPOINT MATRIX -->
   <rect x="40" y="876" width="880" height="248" fill="#080a0b" stroke="#1e2227" stroke-width="1"/>
-  <text x="64" y="908" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1.8">03 // BETA.2 SOURCE CHECKPOINTS &amp; IMMUTABLE COMMIT IDENTITIES</text>
+  <text x="64" y="908" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1.8">03 // BETA.2.1 SOURCE CHECKPOINTS &amp; IMMUTABLE COMMIT IDENTITIES</text>
   <text x="64" y="936" fill="#f6f7f8" font-family="Inter, -apple-system, sans-serif" font-size="20" font-weight="700" letter-spacing="-0.4">Feature Freeze in Force · Tag &amp; Signed Artifact Identities Are Immutable</text>
 
   <line x1="64" y1="954" x2="896" y2="954" stroke="#1e2227" stroke-width="1"/>
@@ -101,13 +101,13 @@
   <line x1="64" y1="1062" x2="896" y2="1062" stroke="#1e2227" stroke-width="1"/>
 
   <text x="64" y="985" fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1">NATIVE BUILD REV</text>
-  <text x="255" y="985" fill="#d8dcdf" font-family="'SFMono-Regular', Consolas, monospace" font-size="12"><tspan fill="#f6f7f8" font-weight="700">bae2e817120467561ae051c1b08cf61be3436bac</tspan> · Pinned in source-binding.json</text>
+  <text x="255" y="985" fill="#d8dcdf" font-family="'SFMono-Regular', Consolas, monospace" font-size="12"><tspan fill="#f6f7f8" font-weight="700">f828e558cae86ffb860a4fd3b55c6e0d0623d1c9</tspan> · Pinned in source-binding.json</text>
 
   <text x="64" y="1039" fill="#8f7cff" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1">TAGGED CHECKPOINT</text>
-  <text x="255" y="1039" fill="#d8dcdf" font-family="'SFMono-Regular', Consolas, monospace" font-size="12"><tspan fill="#f6f7f8" font-weight="700">8a6889597eef3d2713f48bf6962456f989188e18</tspan> · v0.2.0-beta.2 (README text only)</text>
+  <text x="255" y="1039" fill="#d8dcdf" font-family="'SFMono-Regular', Consolas, monospace" font-size="12"><tspan fill="#f6f7f8" font-weight="700">f828e558cae86ffb860a4fd3b55c6e0d0623d1c9</tspan> · v0.2.0-beta.2.1</text>
 
   <text x="64" y="1093" fill="#ff69c6" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1">CLIENT SOURCE REV</text>
-  <text x="255" y="1093" fill="#d8dcdf" font-family="'SFMono-Regular', Consolas, monospace" font-size="12"><tspan fill="#f6f7f8" font-weight="700">572627e939250763756167a9dc05d8cb37ab4e30</tspan> · Unchanged qualified client source</text>
+  <text x="255" y="1093" fill="#d8dcdf" font-family="'SFMono-Regular', Consolas, monospace" font-size="12"><tspan fill="#f6f7f8" font-weight="700">572627e939250763756167a9dc05d8cb37ab4e30</tspan> · Qualified client source</text>
 
   <!-- Bottom Spectral Divider -->
   <rect x="40" y="1144" width="880" height="1.5" fill="url(#dividerRule2)"/>

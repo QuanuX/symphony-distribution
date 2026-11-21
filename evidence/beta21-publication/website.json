@@ -1,0 +1,8 @@
+{
+  "catalog_sha256": "dff86221817082b46b2666518401a457795e7cb5397b661bcadd88b2c06430d8",
+  "catalog_url": "https://quanux.org/assets/beta-release-CE_bKCrx.json",
+  "full_installer_profiles": 4,
+  "optional_node_profiles": 2,
+  "standard_anaconda_records": 240,
+  "url": "https://quanux.org/downloads"
+}

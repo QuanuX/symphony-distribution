@@ -1,0 +1,22 @@
+[
+  {
+    "filename": "symphony-node-keyring-deb-payload-0.1.1dev0-d08_f73a728df50f420cdd84_0.conda",
+    "profile": "ubuntu26.04-amd64",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-64/symphony-node-keyring-deb-payload-0.1.1dev0-d08_f73a728df50f420cdd84_0.conda",
+      "https://conda.anaconda.org/QuanuX/label/beta-0.2.0-beta.2.1-69c89fef8a2a/linux-64/symphony-node-keyring-deb-payload-0.1.1dev0-d08_f73a728df50f420cdd84_0.conda"
+    ],
+    "sha256": "dcca67af24933a5596670d08693c16b3b69c5ee8e4c074f636d056481789dd41",
+    "size": 116188
+  },
+  {
+    "filename": "symphony-node-keyring-deb-payload-0.1.1dev0-d08_33ce47d2af4d9ed26501_0.conda",
+    "profile": "ubuntu26.04-arm64",
+    "public_readbacks": [
+      "https://conda.anaconda.org/QuanuX/label/beta/linux-aarch64/symphony-node-keyring-deb-payload-0.1.1dev0-d08_33ce47d2af4d9ed26501_0.conda",
+      "https://conda.anaconda.org/QuanuX/label/beta-0.2.0-beta.2.1-69c89fef8a2a/linux-aarch64/symphony-node-keyring-deb-payload-0.1.1dev0-d08_33ce47d2af4d9ed26501_0.conda"
+    ],
+    "sha256": "59c6c58fe5f371c4cb8a527c02dfd56f411f24c9fe6084413d18676d347a7c0c",
+    "size": 112462
+  }
+]

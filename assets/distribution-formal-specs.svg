@@ -21,14 +21,14 @@
   <line x1="480" y1="106" x2="480" y2="342" stroke="#1e2227" stroke-width="1"/>
 
   <!-- Left Card -->
-  <text x="64" y="136" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" letter-spacing="1.4">RECIPIENT ROUTE // docs/BETA-INSTALL.md</text>
+  <text x="64" y="136" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" letter-spacing="1.4">RECIPIENT ROUTE // docs/BETA21-INSTALL.md</text>
   <text x="64" y="164" fill="#f6f7f8" font-family="Inter, -apple-system, sans-serif" font-size="18" font-weight="700">Standalone Installers &amp; Conda Channel</text>
   <text x="64" y="192" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">• <tspan fill="#f6f7f8" font-weight="600">Signature &amp; Cohort Check:</tspan> Verify detached signature and</text>
   <text x="76" y="212" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">exact OS profile list (<tspan fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace">24.04</tspan> vs <tspan fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace">26.04</tspan> AMD64 differ).</text>
   <text x="64" y="238" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">• <tspan fill="#f6f7f8" font-weight="600">First-Use Retention:</tspan> Retain copies outside Conda prefixes</text>
   <text x="76" y="258" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">and caches; configure Codex or other client adapters.</text>
-  <text x="64" y="284" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">• <tspan fill="#f6f7f8" font-weight="600">Beta.2 Isolation:</tspan> Use a fresh private installation prefix</text>
-  <text x="76" y="304" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">and retention directory; keep beta.1 separate.</text>
+  <text x="64" y="284" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">• <tspan fill="#f6f7f8" font-weight="600">Prefix Isolation:</tspan> Use a fresh private installation prefix</text>
+  <text x="76" y="304" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">and retention directory; keep older releases separate.</text>
 
   <!-- Right Card -->
   <text x="504" y="136" fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace" font-size="10.5" letter-spacing="1.4">ENGINEERING ROUTE // PYTHON 3.11+ &amp; CONDA 26.10.0</text>
@@ -41,7 +41,7 @@
   <text x="516" y="304" fill="#989ea4" font-family="Inter, -apple-system, sans-serif" font-size="12.5">set and preserves failed output directories for inspection.</text>
 
   <!-- SECTION 05: COMPLETED RELEASE QUALIFICATION TABLE -->
-  <text x="40" y="388" fill="#858b92" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" letter-spacing="2">05 // COMPLETED BETA.2 QUALIFICATION &amp; PUBLICATION EVIDENCE</text>
+  <text x="40" y="388" fill="#858b92" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace" font-size="11" letter-spacing="2">05 // HISTORICAL BETA.2 QUALIFICATION &amp; PUBLICATION EVIDENCE</text>
 
   <rect x="40" y="406" width="880" height="272" fill="#080a0b" stroke="#1e2227" stroke-width="1"/>
   <rect x="41" y="407" width="878" height="36" fill="#0b0d0f"/>
@@ -85,7 +85,7 @@
   <text x="64" y="742" fill="#d7ff69" font-family="'SFMono-Regular', Consolas, monospace" font-size="11" letter-spacing="1.8">06 // SEPARATE DISTRIBUTION REPOSITORY &amp; PUBLICATION AUTHORITY</text>
   <text x="64" y="772" fill="#f6f7f8" font-family="Inter, -apple-system, sans-serif" font-size="20" font-weight="700">Passing Fixtures Never Automatically Authorize Publication</text>
   <text x="64" y="800" fill="#b6bbc0" font-family="Inter, -apple-system, sans-serif" font-size="13.5">Separate from <tspan fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace">QuanuX/Symphony</tspan>. Historical pending gates in <tspan fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace">S06–D14</tspan> do not override</text>
-  <text x="64" y="822" fill="#b6bbc0" font-family="Inter, -apple-system, sans-serif" font-size="13.5"><tspan fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace">evidence/beta2-publication.json</tspan>, and release qualification never expands narrower fixture claims.</text>
+  <text x="64" y="822" fill="#b6bbc0" font-family="Inter, -apple-system, sans-serif" font-size="13.5"><tspan fill="#f6f7f8" font-family="'SFMono-Regular', Consolas, monospace">evidence/beta21-publication.json</tspan>, and release qualification never expands narrower fixture claims.</text>
 
   <rect x="64" y="840" width="832" height="36" fill="#0b0d0f" stroke="#1e2227" stroke-width="1"/>
   <text x="80" y="863" fill="#72f6ff" font-family="'SFMono-Regular', Consolas, monospace" font-size="11">UNITTEST SUITES:</text>
