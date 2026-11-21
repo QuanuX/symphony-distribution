@@ -1,0 +1,35 @@
+{
+  "artifact": {
+    "id": 14719263345,
+    "name": "d10-native-recovery-ubuntu24.04-amd64-1",
+    "sha256": "3f4a2aaf8e59fb65f0d73b69faef84f1360d1215561b331df5b6c27887eb01cc",
+    "size": 97209063
+  },
+  "evidence_artifact": {
+    "id": 14719861937,
+    "name": "d09-evidence-ubuntu24.04-amd64-1",
+    "sha256": "6bf6af3f03f9d3b2db7bc36a673c788bbf1b46c182e4a7ee6ce90c92978dc553",
+    "size": 241723
+  },
+  "pins": {
+    "aggregate_sha256": "df11bc01416e3f86d740b5f3091f31a8b3f5cf5be3a6d7b7881e225574e5aa62",
+    "capsule_sha256": "e302c74c273acc3571210fc7c2798172c8061503becbea3db63e8520076dc19f",
+    "delivery_record_sha256": "e9f9e906a4c6c4ce25aadd30f487efdc5a172b7258fb9a86d809e7e5b67c49ed",
+    "native_archive_sha256": "3d89f59b721fb3117079ffbab6db42e8f41551e1e9433ebd53b83306ae5ae580",
+    "payload_inventory_sha256": "53e4a6864e750b2c66885caa33310c9d383837dce9ffa45c88b61d49bea46b69",
+    "retention_helper_sha256": "f2df0f1a6107c890db3efd423f31fa2752210cd33ad21e9ca2e7ff0a7980a56a",
+    "round1_result_sha256": "03c51a719495e060a9bec4cf3c2dd043fc84843e66f23a1488d1676cebfea0d9",
+    "round2_result_sha256": "0331723a08422cc611b7220c8c9e364811b0dbbb73ebb1e2c47c689d39f5315d",
+    "sdk_closure_sha256": "348f80a9c6029fe98eb6b8d18d228f84faedb13c4c900407d5a10d9750d564a9",
+    "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "source_export_digest": "afd1863730f14a704b7b79cdf48e0b390b5e1e61c73e8b08cd13972b1e41a043",
+    "source_manifest_sha256": "31ac1005226e9193d5f0eadd4270a94fe660d58bc1cc35a62d9f456927b8c3fe",
+    "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887"
+  },
+  "profile": "ubuntu24.04-amd64",
+  "protocol": "symphony.distribution.native-recovery-selection.v1",
+  "repository": "QuanuX/symphony-distribution",
+  "run_attempt": "1",
+  "run_id": "44932812100",
+  "workflow_commit": "6e4bb749b9274d3a91c5eb6a2e99fc02061a5613"
+}
