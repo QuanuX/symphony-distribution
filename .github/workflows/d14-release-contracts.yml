@@ -6,6 +6,8 @@ on:
       - '.github/workflows/d14-release-contracts.yml'
       - 'channel/beta*.py'
       - 'channel/release_bundle.py'
+      - 'channel/hosted_release_bundle.py'
+      - 'channel/node_keyring/**'
       - 'channel/verify_beta.py'
       - 'channel/test_beta*.py'
       - 'channel/test_release_bundle.py'
@@ -18,6 +20,8 @@ on:
       - '.github/workflows/d14-release-contracts.yml'
       - 'channel/beta*.py'
       - 'channel/release_bundle.py'
+      - 'channel/hosted_release_bundle.py'
+      - 'channel/node_keyring/**'
       - 'channel/verify_beta.py'
       - 'channel/test_beta*.py'
       - 'channel/test_release_bundle.py'
@@ -26,13 +30,25 @@ on:
       - 'evidence/beta2-publisher-decision.json'
       - 'evidence/beta21-publisher-decision.json'
   workflow_dispatch:
+    inputs:
+      assemble_beta21:
+        description: Assemble the unsigned beta.2.1 bundle from the nine committed final selections
+        type: boolean
+        required: false
+        default: false
+      admit_beta21_node:
+        description: Admit only the two optional Ubuntu 26.04 node packages from the pinned release asset
+        type: boolean
+        required: false
+        default: false
 permissions:
   contents: read
 concurrency:
-  group: d14-release-contracts-${{ github.ref }}-${{ github.event_name }}
+  group: d14-release-contracts-${{ github.ref }}-${{ github.event_name }}-${{ inputs.admit_beta21_node && 'node' || 'release' }}
   cancel-in-progress: false
 jobs:
   contracts:
+    if: github.event_name != 'workflow_dispatch' || !inputs.admit_beta21_node || inputs.assemble_beta21
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -44,3 +60,58 @@ jobs:
           python3 -B -m unittest discover -s channel -p 'test_beta*.py' -v
           python3 -B -m unittest discover -s channel -p test_release_bundle.py -v
           python3 -B -m unittest discover -s channel -p test_verify_beta.py -v
+  bundle:
+    if: github.event_name == 'workflow_dispatch' && inputs.assemble_beta21 && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
+    needs: contracts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Retrieve the completed installer and maintenance evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B channel/hosted_release_bundle.py fetch "$RUNNER_TEMP/beta21-release"
+      - name: Prepare the pinned Conda archive reader
+        run: python3 -B qualification/d09_platform_tools.py --profile ubuntu24.04-amd64 --output "$RUNNER_TEMP/beta21-tools"
+      - name: Verify all profiles and assemble the public files
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: '"$RUNNER_TEMP/beta21-tools/publisher/bin/python" -B channel/hosted_release_bundle.py assemble "$RUNNER_TEMP/beta21-release"'
+      - name: Retain verified public files for detached publisher signing
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: beta21-unsigned-release-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/beta21-release/public/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+  node-supplement:
+    if: github.event_name == 'workflow_dispatch' && inputs.admit_beta21_node && !inputs.assemble_beta21 && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Retrieve the exact optional Ubuntu node delivery
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B channel/hosted_release_bundle.py fetch-supplement "$RUNNER_TEMP/beta21-node"
+      - name: Prepare the selected archive reader
+        run: python3 -B qualification/d09_platform_tools.py --profile ubuntu24.04-amd64 --output "$RUNNER_TEMP/beta21-node-tools"
+      - name: Scan the expanded source, packages and qualification records
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: '"$RUNNER_TEMP/beta21-node-tools/publisher/bin/python" -B channel/hosted_release_bundle.py audit-supplement "$RUNNER_TEMP/beta21-node"'
+      - name: Retain the optional admission receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: beta21-node-admission-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/beta21-node/node-admission.json
+          if-no-files-found: error
+          retention-days: 14
