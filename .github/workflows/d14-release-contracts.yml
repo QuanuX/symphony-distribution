@@ -36,6 +36,11 @@ on:
         type: boolean
         required: false
         default: false
+      reuse_beta21_node:
+        description: Use the exact admitted node archive from aggregate run 44939485324
+        type: boolean
+        required: false
+        default: false
       admit_beta21_node:
         description: Admit only the two optional Ubuntu 26.04 node packages from the pinned release asset
         type: boolean
@@ -61,7 +66,11 @@ jobs:
           python3 -B -m unittest discover -s channel -p test_release_bundle.py -v
           python3 -B -m unittest discover -s channel -p test_verify_beta.py -v
   bundle:
-    if: github.event_name == 'workflow_dispatch' && inputs.assemble_beta21 && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
+    if: >-
+      !cancelled() && github.event_name == 'workflow_dispatch' && inputs.assemble_beta21 &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1') &&
+      needs.contracts.result == 'success' &&
+      (needs.node-supplement.result == 'success' || (inputs.reuse_beta21_node && needs.node-supplement.result == 'skipped'))
     needs: [contracts, node-supplement]
     runs-on: ubuntu-24.04
     timeout-minutes: 90
@@ -75,11 +84,28 @@ jobs:
       - name: Retrieve the completed installer and maintenance evidence
         env:
           GH_TOKEN: ${{ github.token }}
+        run: python3 -B channel/hosted_release_bundle.py fetch "$RUNNER_TEMP/beta21-release"
+      - name: Retrieve the node archive admitted by this run
+        if: '!inputs.reuse_beta21_node'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python3 -B channel/hosted_release_bundle.py fetch "$RUNNER_TEMP/beta21-release"
           archive_name=$(gh api "repos/QuanuX/symphony-distribution/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100" --jq '[.artifacts[] | select(.expired == false and (.name | test("^beta21-node-for-assembly-[0-9]+$")))] | sort_by(.id) | last | .name')
           [[ "$archive_name" =~ ^beta21-node-for-assembly-[0-9]+$ ]]
           gh run download "$GITHUB_RUN_ID" --repo QuanuX/symphony-distribution --name "$archive_name" --dir "$RUNNER_TEMP/beta21-release"
+      - name: Retrieve the previously admitted node archive
+        if: inputs.reuse_beta21_node
+        env:
+          GH_TOKEN: ${{ github.token }}
+        working-directory: ${{ runner.temp }}/beta21-release
+        run: |
+          set -euo pipefail
+          # Run 44939485324, attempt 1, completed node admission job 136953321122.
+          gh api repos/QuanuX/symphony-distribution/actions/artifacts/14720559408/zip > retained-node.zip
+          echo '87bff0ec2be0ac6fdd3be5685cb6eeeb9f9655d802218436fab9e6f1c1fb7ba0  retained-node.zip' | sha256sum --check --status
+          name=symphony-beta21-node-keyring-supplement.tar.gz
+          unzip -p retained-node.zip "$name" > "$name"
+          echo "eed4337e49ec8c7f770a9bd03d0a877a90b17dfb797a7f4d2faad33c2b936784  $name" | sha256sum --check --status
       - name: Prepare the pinned Conda archive reader
         run: python3 -B qualification/d09_platform_tools.py --profile ubuntu24.04-amd64 --output "$RUNNER_TEMP/beta21-tools"
       - name: Verify all profiles and assemble the public files
@@ -95,7 +121,7 @@ jobs:
           retention-days: 14
           compression-level: 0
   node-supplement:
-    if: github.event_name == 'workflow_dispatch' && (inputs.admit_beta21_node || inputs.assemble_beta21) && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
+    if: github.event_name == 'workflow_dispatch' && (inputs.admit_beta21_node || (inputs.assemble_beta21 && !inputs.reuse_beta21_node)) && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
     runs-on: ubuntu-24.04
     timeout-minutes: 35
     # Access to a draft release requires repository push rights on GitHub.
