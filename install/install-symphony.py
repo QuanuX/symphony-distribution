@@ -18,7 +18,6 @@ RELEASE = "0.2.0-beta.2.1"
 VERIFIER_SHA256 = "0c94359511013edb19d990f853b2720a2049ceb40f6aa2ad9dd47b603156b547"
 INDEX_SHA256 = "69c89fef8a2ab2eed8e78b56168fcdbbf285989fedf698a43ea499cd2883e9f0"
 GITHUB = f"https://github.com/QuanuX/symphony-distribution/releases/download/v{RELEASE}"
-DOWNLOADS = f"https://downloads.quanux.org/symphony/{RELEASE}"
 ARCHIVES = {
     "macos15-arm64": "MacOSX-arm64",
     "ubuntu24.04-amd64": "Linux-x86_64",
@@ -83,7 +82,9 @@ def prepare(work, profile):
     path = work / selected
     path.parent.mkdir(parents=True)
     print(f"Downloading the {profile} installer ({installer['size'] / 1_000_000:.0f} MB)…", flush=True)
-    fetch(f"{DOWNLOADS}/{selected}", path, installer["size"])
+    # GitHub release assets share one directory; the two Ubuntu AMD64 archives
+    # have the same signed basename. Verify each mirror under its original path.
+    fetch(f"{GITHUB}/Symphony-{RELEASE}-{profile}.sh", path, installer["size"])
     verify(work, selected)
     return path, index["profiles"][profile]
 
@@ -120,7 +121,7 @@ def install(root, archive, profile_info):
     print(f"Symphony {RELEASE} is ready.\n"
           f"Check your installation: {shlex.quote(str(cli))} version\n"
           f"Codex client: {tools / 'client'}\n"
-          f"Client setup: {DOWNLOADS}/docs/BETA-INSTALL.md")
+          f"Client setup: {GITHUB}/BETA-INSTALL.md")
 
 
 def main():
@@ -139,7 +140,7 @@ def main():
     root = home / f"symphony-{RELEASE}"
     if os.path.lexists(root):
         raise ValueError(f"{root} already exists. Check your existing installation with "
-                         f"{shlex.quote(str(root / 'bin/qxctl'))} version. For other setups, see {DOWNLOADS}/docs/BETA-INSTALL.md.")
+                         f"{shlex.quote(str(root / 'bin/qxctl'))} version. For other setups, see {GITHUB}/BETA-INSTALL.md.")
     os.umask(0o077)
     print(f"Preparing Symphony {RELEASE} for {profile}…", flush=True)
     with tempfile.TemporaryDirectory(prefix="symphony-download-") as temporary:

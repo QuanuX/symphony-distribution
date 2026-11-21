@@ -64,8 +64,17 @@ class QuickInstallTests(unittest.TestCase):
             fetch.assert_not_called()
 
     def test_verifies_trust_inputs_and_selected_archive_before_install(self):
-        profile = "ubuntu24.04-arm64"
-        name = f"installers/{profile}/Symphony-{installer.RELEASE}-Linux-aarch64.sh"
+        for profile, signed_suffix in [
+            ("macos15-arm64", "MacOSX-arm64"),
+            ("ubuntu24.04-amd64", "Linux-x86_64"),
+            ("ubuntu24.04-arm64", "Linux-aarch64"),
+            ("ubuntu26.04-amd64", "Linux-x86_64"),
+        ]:
+            with self.subTest(profile=profile):
+                self.check_verified_download(profile, signed_suffix)
+
+    def check_verified_download(self, profile, signed_suffix):
+        name = f"installers/{profile}/Symphony-{installer.RELEASE}-{signed_suffix}.sh"
         archive = b"installer bytes"
         index = json.dumps({"artifacts":[{"path": name, "size": len(archive)}],
                             "profiles":{profile: {"receipt":"arm64"}}}).encode()
@@ -74,7 +83,8 @@ class QuickInstallTests(unittest.TestCase):
         def fetch(url, target, limit):
             if target.suffix == ".sh":
                 self.assertEqual(verified, ["release-index.json"])
-                self.assertEqual(url, installer.DOWNLOADS + "/" + name)
+                self.assertEqual(url, f"{installer.GITHUB}/Symphony-{installer.RELEASE}-{profile}.sh")
+                self.assertEqual(target.relative_to(work).as_posix(), name)
                 self.assertEqual(limit, len(archive))
                 target.write_bytes(archive)
             else:
