@@ -62,7 +62,7 @@ jobs:
           python3 -B -m unittest discover -s channel -p test_verify_beta.py -v
   bundle:
     if: github.event_name == 'workflow_dispatch' && inputs.assemble_beta21 && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
-    needs: contracts
+    needs: [contracts, node-supplement]
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     permissions:
@@ -75,7 +75,11 @@ jobs:
       - name: Retrieve the completed installer and maintenance evidence
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 -B channel/hosted_release_bundle.py fetch "$RUNNER_TEMP/beta21-release"
+        run: |
+          python3 -B channel/hosted_release_bundle.py fetch "$RUNNER_TEMP/beta21-release"
+          archive_name=$(gh api "repos/QuanuX/symphony-distribution/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100" --jq '[.artifacts[] | select(.expired == false and (.name | test("^beta21-node-for-assembly-[0-9]+$")))] | sort_by(.id) | last | .name')
+          [[ "$archive_name" =~ ^beta21-node-for-assembly-[0-9]+$ ]]
+          gh run download "$GITHUB_RUN_ID" --repo QuanuX/symphony-distribution --name "$archive_name" --dir "$RUNNER_TEMP/beta21-release"
       - name: Prepare the pinned Conda archive reader
         run: python3 -B qualification/d09_platform_tools.py --profile ubuntu24.04-amd64 --output "$RUNNER_TEMP/beta21-tools"
       - name: Verify all profiles and assemble the public files
@@ -91,13 +95,20 @@ jobs:
           retention-days: 14
           compression-level: 0
   node-supplement:
-    if: github.event_name == 'workflow_dispatch' && inputs.admit_beta21_node && !inputs.assemble_beta21 && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
+    if: github.event_name == 'workflow_dispatch' && (inputs.admit_beta21_node || inputs.assemble_beta21) && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/release/beta-2-1')
     runs-on: ubuntu-24.04
     timeout-minutes: 35
+    # Access to a draft release requires repository push rights on GitHub.
+    # The fixed GETs below are the only operations that receive this token.
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-        with:
-          persist-credentials: false
+      - name: Select the public workflow source without account credentials
+        run: |
+          git init --quiet
+          git fetch --quiet --no-tags --depth=1 https://github.com/QuanuX/symphony-distribution.git "$GITHUB_SHA"
+          git checkout --quiet --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
       - name: Retrieve the exact optional Ubuntu node delivery
         env:
           GH_TOKEN: ${{ github.token }}
@@ -115,3 +126,12 @@ jobs:
           path: ${{ runner.temp }}/beta21-node/node-admission.json
           if-no-files-found: error
           retention-days: 14
+      - name: Hand the admitted archive to this run's primary assembly
+        if: inputs.assemble_beta21
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: beta21-node-for-assembly-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/beta21-node/symphony-beta21-node-keyring-supplement.tar.gz
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0

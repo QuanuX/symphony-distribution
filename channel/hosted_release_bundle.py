@@ -95,7 +95,6 @@ def request_for(work):
 
 
 def fetch(work):
-    fetch_supplement(work)
     request = request_for(work)
     inputs = [item for profile in request['profiles'].values() for item in profile.values()] + [request['native_pkg']]
     gh = Path(shutil.which('gh')).resolve(strict=True)
