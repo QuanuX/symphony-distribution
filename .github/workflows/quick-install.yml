@@ -1,0 +1,68 @@
+name: Public beta quick install
+
+on:
+  pull_request:
+    paths:
+      - 'install/**'
+      - '.github/workflows/quick-install.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-install:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            profile: macos15-arm64
+          - os: ubuntu-24.04
+            profile: ubuntu24.04-amd64
+          - os: ubuntu-24.04-arm
+            profile: ubuntu24.04-arm64
+          - os: ubuntu-26.04
+            profile: ubuntu26.04-amd64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install the public release as a fresh user
+        env:
+          PROFILE: ${{ matrix.profile }}
+        shell: bash
+        run: |
+          export HOME="$(mktemp -d "${RUNNER_TEMP}/symphony-home.XXXXXXXX")"
+          python3 -I install/install-symphony.py
+          python3 -I - <<'PY'
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          profile = os.environ["PROFILE"]
+          release_root, = Path.home().glob("symphony-*")
+          packages = release_root / "packages" / "conda-meta"
+          shipped = json.loads(Path(f"evidence/beta21-publication/{profile}-anaconda.json").read_bytes())
+          expected = {r["filename"] for r in shipped if r["selection"] == "default"}
+          installed = [json.loads(p.read_bytes()) for p in packages.glob("*.json")]
+          filenames = {f"{r['name']}-{r['version']}-{r['build']}.conda" for r in installed}
+          assert filenames == expected and len(installed) == len(expected) == 59
+
+          receipt = json.loads((release_root / "tools" / "CUSTODY.json").read_bytes())
+          assert receipt["profile"] == profile
+          assert set(receipt["selected_units"]) == {
+              "go:qxctl", "client:client", "go:secure-identity-access-governance",
+              "go:stav-append-authority", "go:accordare-stav-producer",
+          }
+          assert os.access(release_root / "tools" / receipt["entrypoints"]["client"], os.X_OK)
+          assert not any(receipt[k] for k in (
+              "native_installation_performed", "runtime_activation_changed", "client_configuration_changed",
+          ))
+          version = subprocess.check_output([release_root / "bin/qxctl", "version", "--json"])
+          assert json.loads(version)
+          print(f"Verified {len(installed)} public packages, retained tools and qxctl on {profile}.")
+          PY
