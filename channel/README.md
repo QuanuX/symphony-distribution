@@ -1,11 +1,35 @@
 # Signed beta publication and review staging
 
-**0.2.0-beta.2 is published** to QuanuX/beta on Anaconda and
-[Cloudflare downloads](https://downloads.quanux.org/symphony/0.2.0-beta.2/docs/BETA-INSTALL.md).
-The [publication record](../evidence/beta2-publication.json) verifies 240 packages
-and 304 download objects, including corresponding source. The
-[installation guide](../docs/BETA-INSTALL.md) supplies the exact platform lists
-and publisher verification pins.
+Choose your operating system and installation method on the
+[Symphony downloads page](https://quanux.org/downloads). It links the public
+QuanuX/beta packages, signed installers and matching verification instructions.
+The [beta.2.1 publication record](../evidence/beta21-publication.json) includes
+checksums and public readbacks for all four profiles.
+
+## Public download links
+
+The downloads hostname and its `/symphony/` directory lead to the platform
+selector. Each version directory opens that version's tagged release. Saved
+package links under `/symphony/<version>/packages/<profile>/` resolve to the
+same archive on that release's immutable Anaconda label. Installers, signatures,
+explicit package lists and other signed objects are served directly from R2.
+
+Render the Cloudflare configuration from the repository's publication records.
+
+```sh
+python3 channel/beta_download_redirects.py > downloads-redirects.json
+```
+
+The output contains the `symphony_public_downloads` Bulk Redirect List definition,
+its exact source and destination pairs, and the rule for the account's
+`http_request_redirect` phase. Provision the dedicated list, load the items,
+and check the completed list operation and item readback before enabling the rule.
+When updating an existing account entry point, add or update only the rule
+with that list's reference. Verify package responses by following the redirects
+and comparing file SHA-256 values with the release index. A request for an
+unknown filename continues to R2. [Cloudflare Bulk Redirects API](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-api/)
+
+## Publication tools
 
 `release_bundle.py` admits the explicitly selected completed qualification and
 publisher decision. `beta_publish.py` and `beta_downloads.py` require the exact
