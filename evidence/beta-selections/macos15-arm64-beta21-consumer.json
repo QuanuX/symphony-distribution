@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "consumer": {
+      "artifact": {
+        "id": 14720057277,
+        "name": "d12-native-rewrap-consumer-macos15-arm64-1",
+        "sha256": "f103c5df2d5c3148e5e556649b31d6fdc4aad003cc8f3d31e90f28e134360b90",
+        "size": 5896
+      },
+      "result_sha256": "de0a11c583c01d9cc55c6befb8b8618fa58ee7d904b3efafe8ec5009072c666e",
+      "run_attempt": 1,
+      "run_id": 44936873724,
+      "workflow_commit": "8df8da2b3ac966c343f77c408130dfe941e4d0cb",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml"
+    }
+  },
+  "profile": "macos15-arm64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}
