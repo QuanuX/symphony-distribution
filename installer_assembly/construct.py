@@ -28,6 +28,7 @@ import zipfile
 HERE = Path(__file__).resolve().parent
 SCHEMA = 'symphony.distribution.d08-unsigned-wrapper.v1'
 REVIEW_CHANNEL = 'https://symphony-review.invalid/unsigned'
+REVIEW_IDS = {'0.2.0-beta.2': 'beta2', '0.2.0-beta.2.1': 'beta2-1'}
 MAX_WRAPPER = 4 * 1024 ** 3
 PROFILES = {'macos15-arm64': ('osx-arm64', 'Darwin', 'arm64'),
             'ubuntu24.04-amd64': ('linux-64', 'Linux', 'x86_64'),
@@ -143,7 +144,7 @@ def beta_authorization(path, expected_sha256, profile):
                 set(decision['profiles']) == set(PROFILES) - {'local-macos-amd64-fixture'} and len(decision['profiles']) == 4,
                 'Exact approved beta.2 publication decision and source required')
     else:
-        require(decision['release_class'] == 'beta-review-candidate' and decision['release_version'] == '0.2.0-beta.2' and
+        require(decision['release_class'] == 'beta-review-candidate' and decision['release_version'] in REVIEW_IDS and
                 decision['candidate_assembly_authorized'] is True and decision['publication_authorized'] is False and
                 decision['trust']['mode'] == 'unsigned-review' and
                 set(decision['profiles']) == set(PROFILES) - {'local-macos-amd64-fixture'} and
@@ -204,9 +205,11 @@ def configuration(cohort, channel, formats, *, beta=None):
                         'Python 3.11 or later is required for explicit first-run retention using the included symphony-retain.py helper. '
                         'The macOS installer is unsigned and not notarized; a self-signed integrity manifest does not establish Apple trust.')
         if not scope['publication_authorized']:
+            review_id = REVIEW_IDS[scope['release_version']]
             result.update(name='SymphonyReview',
                 channels_remap=[{'src': Path(channel).resolve().as_uri(), 'dest': REVIEW_CHANNEL}],
-                reverse_domain_identifier='org.quanux.symphony.beta2.review', default_prefix='${HOME}/symphony-beta2-review',
+                reverse_domain_identifier='org.quanux.symphony.' + review_id + '.review',
+                default_prefix='${HOME}/symphony-' + review_id + '-review',
                 welcome_text='Symphony beta review candidate ' + scope['release_version'],
                 conclusion_text='Symphony review carriers are installed. No services have started. '
                                 'This candidate is unsigned and is not approved for public distribution.',

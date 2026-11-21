@@ -25,11 +25,12 @@ on:
         type: string
         required: true
       authorization:
-        description: Exact committed published-beta decision or beta2 review authorization
+        description: Exact committed publisher decision or review authorization
         type: choice
         options:
           - evidence/d14-publisher-decision.json
           - evidence/beta2-candidate.json
+          - evidence/beta21-candidate.json
           - evidence/beta2-publisher-decision.json
         default: evidence/d14-publisher-decision.json
         required: true
@@ -82,7 +83,8 @@ jobs:
           authority = os.environ['AUTHORIZATION']
           expected = {'evidence/d14-publisher-decision.json': ('symphony.distribution.beta-publisher-decision.v1', '0.2.0-beta.1'),
                       'evidence/beta2-publisher-decision.json': ('symphony.distribution.beta-publisher-decision.v1', '0.2.0-beta.2'),
-                      'evidence/beta2-candidate.json': ('symphony.distribution.beta-candidate-authorization.v1', '0.2.0-beta.2')}
+                      'evidence/beta2-candidate.json': ('symphony.distribution.beta-candidate-authorization.v1', '0.2.0-beta.2'),
+                      'evidence/beta21-candidate.json': ('symphony.distribution.beta-candidate-authorization.v1', '0.2.0-beta.2.1')}
           assert authority in expected, 'Unselected assembly authority path'
           decision = pathlib.Path(authority).resolve()
           raw = decision.read_bytes()

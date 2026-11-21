@@ -15,7 +15,7 @@
   "runtime_owner_invoked": false,
   "schema_count": 11,
   "source": {
-    "commit": "bae2e817120467561ae051c1b08cf61be3436bac",
+    "commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
     "files": [
       {
         "path": "knowledge/schemas/v1/lifecycle-profile.schema.json",
@@ -74,7 +74,7 @@
         "sha256": "eb3e36c75698a652a84d2d5be10ffcf3630f08eb1bb784bdef1000f3a7dbbbd6"
       }
     ],
-    "tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4"
+    "tree": "db96c62e62378499f9adb24dfc7b3ea170d01887"
   },
   "status": "immutable_candidate_source_verified"
 }

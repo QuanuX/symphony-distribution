@@ -77,6 +77,14 @@ class BetaTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
 
+    def test_beta21_review_keeps_separate_prefix_and_version(self):
+        path = b.ROOT / 'evidence/beta21-candidate.json'
+        auth = b.construct.beta_authorization(path, b.gate.sha(path), 'macos15-arm64')
+        config = b.construct.configuration(cohort(), self.root, ['sh'], beta=auth)
+        self.assertEqual(config['version'], '0.2.0-beta.2.1')
+        self.assertEqual(config['default_prefix'], '${HOME}/symphony-beta2-1-review')
+        self.assertEqual(config['channels_remap'][0]['dest'], b.construct.REVIEW_CHANNEL)
+
     def test_review_result_cannot_be_promoted_or_relabelled(self):
         path, _ = self.review_decision()
         result = {'protocol': b.PROTOCOL, 'profile': 'macos15-arm64',

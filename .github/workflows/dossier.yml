@@ -6,6 +6,12 @@ on:
   pull_request:
     paths: ['.github/workflows/dossier.yml', 'README.md', 'docs/**', 'dossier/**', 'source-export/**', 'evidence/**', 'source-binding.json', 'go-owner-catalog.json', 'lifecycle/README.md']
   workflow_dispatch:
+    inputs:
+      review_export:
+        description: Prepare the verified export digests for native qualification
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: read
 concurrency:
@@ -44,3 +50,38 @@ jobs:
       - name: Validate fresh candidate preparation without claiming qualification
         run: |
           python3 dossier/validate.py --source work/core --candidate-preparation
+      - name: Prepare and verify corresponding source for the selected commit
+        if: github.event_name == 'workflow_dispatch' && inputs.review_export
+        env:
+          PRIVATE_SOURCE_POLICY: ${{ secrets.SYMPHONY_SOURCE_PRIVACY_POLICY }}
+        run: |
+          python3 -B - <<'PY'
+          import hashlib, json, os, pathlib, sys
+          sys.path[:0] = ['qualification', 'source-export']
+          from d09_platform import write_private_policy
+          import export_source
+
+          runner = pathlib.Path(os.environ['RUNNER_TEMP'])
+          policy = write_private_policy(runner / 'dossier-policy.json', os.environ.pop('PRIVATE_SOURCE_POLICY', ''))
+          try:
+              export_source.configure_policy(policy)
+              checkout = pathlib.Path('work/core').resolve()
+              output = runner / 'reviewed-source'
+              export_source.build(checkout, output)
+              proof = export_source.verify(output, checkout)
+              proof['manifest_sha256'] = hashlib.sha256((output / 'SOURCE-EXPORT.json').read_bytes()).hexdigest()
+              proof['source_commit'] = export_source.EXPECTED_COMMIT
+              proof['source_tree'] = export_source.EXPECTED_TREE
+              print(json.dumps(proof, sort_keys=True))
+              (runner / 'source-export-proof.json').write_text(json.dumps(proof, indent=2) + '\n')
+          finally:
+              policy.unlink(missing_ok=True)
+          PY
+      - name: Retain verified source selection
+        if: github.event_name == 'workflow_dispatch' && inputs.review_export
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: source-export-proof
+          path: ${{ runner.temp }}/source-export-proof.json
+          if-no-files-found: error
+          retention-days: 14

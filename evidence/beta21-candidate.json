@@ -1,0 +1,33 @@
+{
+  "protocol": "symphony.distribution.beta-candidate-authorization.v1",
+  "release_class": "beta-review-candidate",
+  "candidate_assembly_authorized": true,
+  "publication_authorized": false,
+  "release_acceptance_complete": false,
+  "preserved_constraints": {
+    "feature_freeze": true,
+    "main_unchanged": true,
+    "no_automatic_runtime_or_provider_activation": true,
+    "no_private_publisher_state_in_distribution": true
+  },
+  "trust": {
+    "mode": "unsigned-review",
+    "apple_developer_id": false,
+    "notarization": false,
+    "os_trust_store_change_authorized": false
+  },
+  "profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "date": "2026-11-21",
+  "release_version": "0.2.0-beta.2.1",
+  "source": "Publisher request to prepare and verify the beta.2.1 release",
+  "source_binding": {
+    "core_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30"
+  },
+  "qualification_state": "pending_new_candidate_builds"
+}
