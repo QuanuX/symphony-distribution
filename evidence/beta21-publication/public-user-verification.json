@@ -1,0 +1,94 @@
+{
+  "account_credentials_used": false,
+  "downloads": {
+    "beta-cert.pem": {
+      "sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+      "size": 1704,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/beta-cert.pem"
+    },
+    "beta-manifest.json": {
+      "sha256": "ed801309fc915b09f3810ef6a987955c1af3f8e5604a5909dacf9ff3750333d4",
+      "size": 100387,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/beta-manifest.json"
+    },
+    "beta-manifest.sig": {
+      "sha256": "5435e893c29669dc60cb445f70916cd80a6fc4a81189595020efe4c76a1d8905",
+      "size": 384,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/beta-manifest.sig"
+    },
+    "docs/BETA-INSTALL.md": {
+      "sha256": "4f255a3b275be4c3a913c6a80cfb0d3c4cbe9b4eb4f64dc0dddfb3e4cbaec581",
+      "size": 9569,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/docs/BETA-INSTALL.md"
+    },
+    "release-index.json": {
+      "sha256": "69c89fef8a2ab2eed8e78b56168fcdbbf285989fedf698a43ea499cd2883e9f0",
+      "size": 245303,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/release-index.json"
+    },
+    "setup/macos15-arm64/default-explicit.txt": {
+      "sha256": "5883745834ab53737f04774c4cf0a0985a14bd6f08ef7dd6310a2aac570ea4e4",
+      "size": 12071,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/macos15-arm64/default-explicit.txt"
+    },
+    "setup/macos15-arm64/optional-source-explicit.txt": {
+      "sha256": "8ae49929f66ad18ef128ce0bf850f238676653a534d295d20648fa485ee06268",
+      "size": 214,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/macos15-arm64/optional-source-explicit.txt"
+    },
+    "setup/ubuntu24.04-amd64/default-explicit.txt": {
+      "sha256": "0d48ec025b5f8d2af816fc558a8c67cbb07b62b1a996ac69b40e1b72f20df77b",
+      "size": 12012,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/ubuntu24.04-amd64/default-explicit.txt"
+    },
+    "setup/ubuntu24.04-amd64/optional-source-explicit.txt": {
+      "sha256": "ebffbdebc1d6fc961c0f701897dbc3839c4963f622267d4eaa42ae0b612d95c1",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/ubuntu24.04-amd64/optional-source-explicit.txt"
+    },
+    "setup/ubuntu24.04-arm64/default-explicit.txt": {
+      "sha256": "70c1d31b087bf93f5d4ebb248d6fcf69ea0ec6c4319f652df11f73143e6de1dd",
+      "size": 12307,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/ubuntu24.04-arm64/default-explicit.txt"
+    },
+    "setup/ubuntu24.04-arm64/optional-source-explicit.txt": {
+      "sha256": "89947561e2d3ba807c19b2d881e876193b1b577cb1344571d2988845155e861f",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/ubuntu24.04-arm64/optional-source-explicit.txt"
+    },
+    "setup/ubuntu26.04-amd64/default-explicit.txt": {
+      "sha256": "53dde33275c5fe5bd5886c3c625923171e9e935a0d2216be1c481038863c6839",
+      "size": 12012,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/ubuntu26.04-amd64/default-explicit.txt"
+    },
+    "setup/ubuntu26.04-amd64/optional-source-explicit.txt": {
+      "sha256": "f979e92b816e3ad8b58aea6fa0a035e60624e3816490f0ab45f20ef29b38dbdf",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/setup/ubuntu26.04-amd64/optional-source-explicit.txt"
+    },
+    "supplements/linux-node-keyring/index.json": {
+      "sha256": "deb6dd8ac42ef446ec4962d3cc93c06ec796401181a7128f48e12c7e61158bef",
+      "size": 7083,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/supplements/linux-node-keyring/index.json"
+    },
+    "supplements/linux-node-keyring/ubuntu26.04-amd64/explicit.txt": {
+      "sha256": "835d9124e37bc15163976f533abc2460a25edcf904e9b304e1f1bc933c99112c",
+      "size": 213,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/supplements/linux-node-keyring/ubuntu26.04-amd64/explicit.txt"
+    },
+    "supplements/linux-node-keyring/ubuntu26.04-arm64/explicit.txt": {
+      "sha256": "ae81c24a2aa72a8d4dd0f2121f5b1c43f2683739ff67370eb7c5e659a94f1014",
+      "size": 218,
+      "url": "https://downloads.quanux.org/symphony/0.2.0-beta.2.1/supplements/linux-node-keyring/ubuntu26.04-arm64/explicit.txt"
+    }
+  },
+  "manifest_sha256": "ed801309fc915b09f3810ef6a987955c1af3f8e5604a5909dacf9ff3750333d4",
+  "public_verifier": {
+    "sha256": "0c94359511013edb19d990f853b2720a2049ceb40f6aa2ad9dd47b603156b547",
+    "size": 6278,
+    "url": "https://raw.githubusercontent.com/QuanuX/symphony-distribution/a93e8e384c308fa5735e3302dbdc5139161ecb23/channel/verify_beta.py"
+  },
+  "publisher_signature": "verified",
+  "release": "0.2.0-beta.2.1",
+  "release_index_sha256": "69c89fef8a2ab2eed8e78b56168fcdbbf285989fedf698a43ea499cd2883e9f0"
+}

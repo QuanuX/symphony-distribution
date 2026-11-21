@@ -1,0 +1,57 @@
+{
+  "latest_release": "https://github.com/QuanuX/symphony-distribution/releases/latest",
+  "public_release": "https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2.1",
+  "source": {
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "core_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
+    "distribution_commit": "df46119ccbaa3ad0d27a38b096dcbeb31cbac70a",
+    "tag": "v0.2.0-beta.2.1"
+  },
+  "tag": "v0.2.0-beta.2.1",
+  "verified_assets": [
+    {
+      "name": "BETA-INSTALL.md",
+      "sha256": "4f255a3b275be4c3a913c6a80cfb0d3c4cbe9b4eb4f64dc0dddfb3e4cbaec581",
+      "size": 9569,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/BETA-INSTALL.md"
+    },
+    {
+      "name": "beta-cert.pem",
+      "sha256": "03e9535b87e040410cf7130f2491d4e053298f3171071faee26b076d43e3da91",
+      "size": 1704,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/beta-cert.pem"
+    },
+    {
+      "name": "beta-manifest.json",
+      "sha256": "ed801309fc915b09f3810ef6a987955c1af3f8e5604a5909dacf9ff3750333d4",
+      "size": 100387,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/beta-manifest.json"
+    },
+    {
+      "name": "beta-manifest.sig",
+      "sha256": "5435e893c29669dc60cb445f70916cd80a6fc4a81189595020efe4c76a1d8905",
+      "size": 384,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/beta-manifest.sig"
+    },
+    {
+      "name": "release-index.json",
+      "sha256": "69c89fef8a2ab2eed8e78b56168fcdbbf285989fedf698a43ea499cd2883e9f0",
+      "size": 245303,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/release-index.json"
+    },
+    {
+      "name": "symphony-beta21-node-keyring-supplement.tar.gz",
+      "sha256": "eed4337e49ec8c7f770a9bd03d0a877a90b17dfb797a7f4d2faad33c2b936784",
+      "size": 798850,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/symphony-beta21-node-keyring-supplement.tar.gz"
+    },
+    {
+      "name": "verify_beta.py",
+      "sha256": "0c94359511013edb19d990f853b2720a2049ceb40f6aa2ad9dd47b603156b547",
+      "size": 6278,
+      "url": "https://github.com/QuanuX/symphony-distribution/releases/download/v0.2.0-beta.2.1/verify_beta.py"
+    }
+  ],
+  "verified_public_latest": true
+}
