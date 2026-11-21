@@ -118,12 +118,19 @@ def client(credentials):
     import boto3
     from botocore.config import Config
     from botocore.httpsession import get_cert_path
-    return boto3.client('s3', endpoint_url=f'https://{ACCOUNT}.r2.cloudflarestorage.com', region_name='auto',
+    # Older SDKs already restrict checksum calculation to required operations.
+    checksums = {name: 'when_required' for name in ('request_checksum_calculation', 'response_checksum_validation')
+                 if name in Config.OPTION_DEFAULTS}
+    api = boto3.client('s3', endpoint_url=f'https://{ACCOUNT}.r2.cloudflarestorage.com', region_name='auto',
         **credential_parameters(credentials),
         verify=get_cert_path(True),
         config=Config(signature_version='s3v4', s3={'addressing_style': 'path'},
-            connect_timeout=20, read_timeout=180, proxies={}, retries={'total_max_attempts': 1},
-            request_checksum_calculation='when_required', response_checksum_validation='when_required'))
+            connect_timeout=20, read_timeout=180, proxies={}, retries={'total_max_attempts': 1}, **checksums))
+    conditional = api.meta.service_model.operation_model('PutObject').input_shape.members.get('IfNoneMatch')
+    if conditional is None or conditional.serialization.get('location') != 'header' or conditional.serialization.get('name', '').lower() != 'if-none-match':
+        api.close()
+        raise ValueError('Publisher SDK must support the S3 PutObject If-None-Match header')
+    return api
 
 
 def streamed_digest(stream, expected_size):

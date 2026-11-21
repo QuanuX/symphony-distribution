@@ -173,9 +173,16 @@ class CredentialTests(unittest.TestCase):
 
     @unittest.skipUnless(importlib.util.find_spec('boto3'), 'requires the selected R2 publisher SDK')
     def test_boto_session_uses_explicit_real_sdk_fields_without_network(self):
+        from botocore.config import Config
+        from botocore.session import Session
         environment = {'AWS_EC2_METADATA_DISABLED': 'true', 'AWS_CONFIG_FILE': os.devnull,
                        'AWS_SHARED_CREDENTIALS_FILE': os.devnull}
         with patch.dict(os.environ, environment, clear=True), patch('socket.socket.connect', side_effect=AssertionError('Unexpected network connection')):
+            operation = Session().get_service_model('s3').operation_model('PutObject')
+            if 'IfNoneMatch' not in operation.input_shape.members:
+                with self.assertRaisesRegex(ValueError, 'PutObject If-None-Match'):
+                    d.client(self.store(self.direct))
+                return
             for session in ({}, {'sessionToken': 'example-session'}):
                 api = d.client(self.store({**self.direct, **session}))
                 try:
@@ -185,6 +192,18 @@ class CredentialTests(unittest.TestCase):
                     self.assertEqual(api.meta.endpoint_url, f'https://{d.ACCOUNT}.r2.cloudflarestorage.com')
                     self.assertEqual(api.meta.config.signature_version, 's3v4')
                     self.assertEqual(api.meta.config.retries['total_max_attempts'], 1)
+                    for name in ('request_checksum_calculation', 'response_checksum_validation'):
+                        if name in Config.OPTION_DEFAULTS:
+                            self.assertEqual(getattr(api.meta.config, name), 'when_required')
+                    class CapturedRequest(Exception):
+                        pass
+                    def before_send(request, **kwargs):
+                        self.assertEqual(request.headers['If-None-Match'], b'*')
+                        self.assertEqual(request.headers.get('X-Amz-Security-Token'), b'example-session' if session else None)
+                        raise CapturedRequest
+                    api.meta.events.register('before-send.s3.PutObject', before_send)
+                    with self.assertRaises(CapturedRequest):
+                        api.put_object(Bucket=d.BUCKET, Key='fixture', Body=b'fixture', IfNoneMatch='*')
                 finally:
                     api.close()
 
