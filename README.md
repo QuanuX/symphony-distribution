@@ -12,14 +12,14 @@
 
 **Independently maintainable packages, clean CI native builds, and signed platform installers for Symphony quantOS.**
 
-[**Release Page (`v0.2.0-beta.2.1`)**](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2.1) · [**Installation & Verification Guide**](docs/BETA21-INSTALL.md) · [**Publication Record**](evidence/beta21-publication.json) · [**Publisher Decision**](evidence/beta21-publisher-decision.json) · [**Symphony Core**](https://github.com/QuanuX/Symphony)
+[**Install the latest beta**](https://quanux.org/downloads) · [**Release Page (`v0.2.0-beta.2.1`)**](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2.1) · [**Installation & Verification Guide**](docs/BETA21-INSTALL.md) · [**Publication Record**](evidence/beta21-publication.json) · [**Publisher Decision**](evidence/beta21-publisher-decision.json) · [**Symphony Core**](https://github.com/QuanuX/Symphony)
 
 </div>
 
 Symphony is a quantOS developed through **VGAA (Vector-Graph Application Architecture)**. Users compose their own environments from independently maintained modules.
 
 > [!IMPORTANT]
-> Symphony **0.2.0-beta.2.1** is published through **QuanuX/beta on Anaconda** and Cloudflare downloads. Start with the [release page and platform downloads](https://github.com/QuanuX/symphony-distribution/releases/tag/v0.2.0-beta.2.1) and the [installation and verification guide](docs/BETA21-INSTALL.md). The [publication record](evidence/beta21-publication.json) binds **240 standard Anaconda records**, **two optional node packages** and **316 verified download objects** to the signed release.
+> Symphony **0.2.0-beta.2.1** is published through **QuanuX/beta on Anaconda** and Cloudflare downloads. The [publication record](evidence/beta21-publication.json) binds **240 standard Anaconda records**, **two optional node packages** and **316 verified download objects** to the signed release.
 
 ---
 
@@ -57,6 +57,10 @@ flowchart TD
 `01 // SUPPORTED PROFILES & INERT CARRIERS`
 ## Install the published beta
 
+[Install the latest beta](https://quanux.org/downloads) with one command. Run it as your normal user. It selects your platform, verifies the publisher's signature and installs all 59 default packages, the `qxctl` command and the Codex client under `~/symphony-0.2.0-beta.2.1/`.
+
+The installer needs Python 3.11 or later, curl, OpenSSL and Bash. Check your interpreter with `python3 --version`. If your Mac has an older Python or no interpreter, install a current stable version from [Python for macOS](https://www.python.org/downloads/macos/) and open a new terminal.
+
 | Supported profile | Standalone installers | Package selection |
 | :--- | :--- | :--- |
 | **macOS 15 Apple Silicon** | `.pkg` and `.sh` | `macos15-arm64` |
@@ -68,7 +72,7 @@ The [optional Linux node keyring](https://quanux.org/downloads#node-keyring) has
 
 Each profile supplies 59 independently maintainable default packages and a separate optional corresponding-source package. SDK headers, libraries and exports stay with their module owners. Native and SDK bytes come from the selected clean CI builds; user profiles, credentials, hardware knowledge and workflow state are created on the recipient's system.
 
-Verify the detached signature and exact platform package list before installing. The [installation guide](docs/BETA21-INSTALL.md) covers both standalone and existing Conda routes, first-use retention, Codex setup, and per-module install, change, swap and removal. Select the exact operating-system profile; the two AMD64 Linux cohorts share a Conda subdirectory but are different qualified builds.
+For a manual install or an existing Conda environment, follow the [installation and verification guide](docs/BETA21-INSTALL.md). It covers signature and profile verification, first-use retention, Codex setup, and per-module install, change, swap and removal. The two AMD64 Linux cohorts share a Conda subdirectory and require different builds.
 
 > [!NOTE]
 > Packages contain inert carrier files. Existing Symphony owners retain control of runtime files, credentials, process retirement and application selection; Maestro's selection is separate from package delivery. Independent retained copies outside Conda prefixes and caches survive carrier upgrade or removal. Installing packages does not activate services or select application modules.
