@@ -1,0 +1,20 @@
+{
+  "artifacts": {
+    "consumer": {
+      "artifact": {
+        "id": 14719614181,
+        "name": "d12-native-rewrap-consumer-ubuntu24.04-amd64-1",
+        "sha256": "d014f30a55df5cc21fba3780f4d6577a59d3833d427f73534a7214abdae151f8",
+        "size": 5901
+      },
+      "result_sha256": "ec90550d7be1b4ae4b2794e8e018c31662b95fef8ca56c821cbdd6ff657a93a7",
+      "run_attempt": 1,
+      "run_id": 44936278176,
+      "workflow_commit": "ab843933ef71722d5bf00654bdcd73e77a71e5f8",
+      "workflow_path": ".github/workflows/d12-native-rewrap.yml"
+    }
+  },
+  "profile": "ubuntu24.04-amd64",
+  "protocol": "symphony.distribution.beta-artifact-selection.v1",
+  "repository": "QuanuX/symphony-distribution"
+}
