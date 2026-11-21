@@ -12,6 +12,7 @@ on:
       - 'channel/test_verify_beta.py'
       - 'installer_assembly/beta_signing.py'
       - 'evidence/beta2-publisher-decision.json'
+      - 'evidence/beta21-publisher-decision.json'
   pull_request:
     paths:
       - '.github/workflows/d14-release-contracts.yml'
@@ -23,6 +24,7 @@ on:
       - 'channel/test_verify_beta.py'
       - 'installer_assembly/beta_signing.py'
       - 'evidence/beta2-publisher-decision.json'
+      - 'evidence/beta21-publisher-decision.json'
   workflow_dispatch:
 permissions:
   contents: read
