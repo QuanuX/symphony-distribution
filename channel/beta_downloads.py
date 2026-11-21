@@ -7,6 +7,7 @@ write outcome is retained and must be reconciled before another invocation.
 """
 from __future__ import annotations
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 import mimetypes
@@ -14,6 +15,7 @@ import os
 from pathlib import Path
 import sys
 import ssl
+import stat
 import tempfile
 import urllib.request
 
@@ -79,19 +81,56 @@ def journal(path, value):
         finally: os.close(descriptor)
 
 
+def credential_parameters(credentials):
+    """Read the legacy token record or the R2 S3 credential fields in a private file."""
+    path = signing.base.regular(credentials, private=True)
+    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    with os.fdopen(fd, 'rb') as stream:
+        info = os.fstat(stream.fileno())
+        require(stat.S_ISREG(info.st_mode) and info.st_nlink == 1 and info.st_uid == os.getuid() and
+                stat.S_IMODE(info.st_mode) == 0o600, 'Expected an owner-only 0600 credential file')
+        value = signing.strict_json(stream.read(4 * 1024 * 1024 + 1))
+    require(isinstance(value, dict), 'Unexpected publisher credential format')
+    keys = set(value)
+    legacy = keys == {'id', 'value', 'expires_on'}
+    direct = {'accessKeyId', 'secretAccessKey'}
+    require(legacy or direct <= keys <= direct | {'sessionToken', 'expires_on'}, 'Unexpected publisher credential format')
+    for name in keys - {'expires_on'}:
+        field = value[name]
+        require(isinstance(field, str) and field and all('!' <= char <= '~' for char in field),
+                'Invalid publisher credential field')
+    expiry = value.get('expires_on')
+    if expiry is not None:
+        try:
+            deadline = datetime.fromisoformat(expiry)
+        except (TypeError, ValueError):
+            raise ValueError('Invalid publisher credential expiry') from None
+        require(deadline.utcoffset() is not None and deadline > datetime.now(timezone.utc), 'Expired or unzoned publisher credential')
+    if legacy:
+        return {'aws_access_key_id': value['id'], 'aws_secret_access_key': sha(value['value'].encode())}
+    parameters = {'aws_access_key_id': value['accessKeyId'], 'aws_secret_access_key': value['secretAccessKey']}
+    if 'sessionToken' in value:
+        parameters['aws_session_token'] = value['sessionToken']
+    return parameters
+
+
 def client(credentials):
     import boto3
     from botocore.config import Config
     from botocore.httpsession import get_cert_path
-    path = signing.base.regular(credentials, private=True)
-    value = signing.strict_json(path.read_bytes())
-    require(set(value) == {'id', 'value', 'expires_on'}, 'Unexpected publisher credential format')
-    return boto3.client('s3', endpoint_url=f'https://{ACCOUNT}.r2.cloudflarestorage.com', region_name='auto',
-        aws_access_key_id=value['id'], aws_secret_access_key=sha(value['value'].encode()),
+    # Older SDKs already restrict checksum calculation to required operations.
+    checksums = {name: 'when_required' for name in ('request_checksum_calculation', 'response_checksum_validation')
+                 if name in Config.OPTION_DEFAULTS}
+    api = boto3.client('s3', endpoint_url=f'https://{ACCOUNT}.r2.cloudflarestorage.com', region_name='auto',
+        **credential_parameters(credentials),
         verify=get_cert_path(True),
         config=Config(signature_version='s3v4', s3={'addressing_style': 'path'},
-            connect_timeout=20, read_timeout=180, proxies={}, retries={'total_max_attempts': 1},
-            request_checksum_calculation='when_required', response_checksum_validation='when_required'))
+            connect_timeout=20, read_timeout=180, proxies={}, retries={'total_max_attempts': 1}, **checksums))
+    conditional = api.meta.service_model.operation_model('PutObject').input_shape.members.get('IfNoneMatch')
+    if conditional is None or conditional.serialization.get('location') != 'header' or conditional.serialization.get('name', '').lower() != 'if-none-match':
+        api.close()
+        raise ValueError('Publisher SDK must support the S3 PutObject If-None-Match header')
+    return api
 
 
 def streamed_digest(stream, expected_size):
@@ -191,7 +230,8 @@ def main():
         parser.add_argument('--' + name, type=Path, required=True)
     for name in ('certificate-sha256', 'public-key-sha256'):
         parser.add_argument('--' + name, required=True)
-    parser.add_argument('--plan', type=Path); parser.add_argument('--credentials', type=Path)
+    parser.add_argument('--plan', type=Path)
+    parser.add_argument('--credentials', type=Path, help='Private 0600 JSON with id/value/expires_on, or accessKeyId/secretAccessKey and optional sessionToken and expires_on')
     parser.add_argument('--allow-public-beta-publication', action='store_true')
     args = parser.parse_args()
     plan = prepare(args.artifacts_root, args.signature_root, args.certificate_sha256, args.public_key_sha256, args.openssl)

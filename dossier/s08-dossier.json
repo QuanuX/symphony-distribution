@@ -337,9 +337,9 @@
   ],
   "completion_boundary": "Fresh source binding only. Historical E1 and beta1 evidence do not qualify these new bytes; rebuild, installed-client, maintenance and final-delivery qualification remain pending.",
   "core_source": {
-    "binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e",
-    "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-    "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4"
+    "binding_digest": "sha256:36812e622271536c1a81f2f54fbf39dc80a85fe864fc690c072fec3433753731",
+    "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887"
   },
   "d05_safety_acceptance": [
     {
@@ -1447,11 +1447,11 @@
   "distribution_inputs": [
     {
       "path": "source-binding.json",
-      "sha256": "959fb84e2af3a04bc6c3bd1ded69bad1afb67e6a7ff034ff27a89dd0822a7488"
+      "sha256": "8976a334775c9cdd89acfcb1793ea66994909effbe20b4af132f85ed2e434330"
     },
     {
       "path": "go-owner-catalog.json",
-      "sha256": "40cc8bb6c1753c364107547700435928312e7acb620e90dee63265618037002a"
+      "sha256": "53aa2780f8d6a14517809fac3ed92c07b05119e5464200fc63d826eabc365dba"
     },
     {
       "path": "evidence/s06-local-qualification.json",
@@ -1503,7 +1503,7 @@
       "component_id": "accordare-stav-producer",
       "conda_name": "symphony-accordare-stav-producer-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:4425cd88f8acf60b74b2de1acd530de2e7f58e3dc20ac24499ab9f5c842c8581",
+      "definition_digest": "sha256:2dbb12c6776260e77c196d7fa375851f0b5776da8817f823733e13ef88f757c6",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "accordare.package-owner.v1",
@@ -1530,7 +1530,7 @@
       "component_id": "qxctl",
       "conda_name": "symphony-qxctl-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:9173a7af0379aace09e43c8074ea87bee288bbed54bbb162bce2a51d6aaa46c4",
+      "definition_digest": "sha256:51c5be384dbdf0cdd390db64c3555302d254092eb9fbddd5916701e91fbe5053",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "qxctl.executable-and-host-owner.v1",
@@ -1557,7 +1557,7 @@
       "component_id": "secure-identity-access-governance",
       "conda_name": "symphony-secure-identity-access-governance-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:7674a5540daf28b8ab10fe69421ce719168c88f73bbc5b66ba60635318c45aa2",
+      "definition_digest": "sha256:e0c8a303bc4a05280d3c843a42916763223d9b9f8bd7e938ba6bc250f3a5b3a7",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "ssiag.package-owner.v1",
@@ -1584,7 +1584,7 @@
       "component_id": "sov-ssh-adapter",
       "conda_name": "symphony-sov-ssh-adapter-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:a16aba668b418a2985e83332224b94431066eadf94a7333b64fdbc268a08a2c4",
+      "definition_digest": "sha256:150d5b47c3fa2aa3533ea50dd5533865cbbf34d2300218e823bc293dfb2b8b19",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "sov-ssh.exact-invocation-owner.v1",
@@ -1611,7 +1611,7 @@
       "component_id": "sov-stdio-adapter",
       "conda_name": "symphony-sov-stdio-adapter-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:8c786bc7f1c0aa6f5868f88ed0a756802c7be931b842b406a0efe4e2d0231c2d",
+      "definition_digest": "sha256:40f045743c31b13ed1fcc25a9c40ace32b4d69a8dc1067495c5afdf37062a573",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "sov-stdio.exact-invocation-owner.v1",
@@ -1638,7 +1638,7 @@
       "component_id": "sov-transport-profile-admin",
       "conda_name": "symphony-sov-transport-profile-admin-payload",
       "conda_version": "0.1.0dev0",
-      "definition_digest": "sha256:7c171dbd3aa78b3cddcae6b0bd9cd4a270d5dbdbd1e03113d99c86b3440eb801",
+      "definition_digest": "sha256:8902ba392132271881bc3cab60274bf0bc40a529fb99e6dcadebd8f3b9713bc8",
       "live_raw_cleanup_supported": false,
       "native_version": "0.1.0-dev",
       "owner_contract": "sov-admin.protected-host-provisioning.v1",
@@ -1665,7 +1665,7 @@
       "component_id": "stav-append-authority",
       "conda_name": "symphony-stav-append-authority-payload",
       "conda_version": "0.2.1",
-      "definition_digest": "sha256:52e356012ef89fae18cc944f6046d35fcef91294fba977c7e64c41a311f1cff0",
+      "definition_digest": "sha256:fe19bfe97bcebd4e9f4b5b086ff28dedf5dd8818416f939254b4ee06de9256ae",
       "live_raw_cleanup_supported": false,
       "native_version": "0.2.1",
       "owner_contract": "stav.package-owner.v1",

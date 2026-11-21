@@ -1,8 +1,8 @@
 {
   "protocol": "symphony.distribution.d06-build-cohort.v1",
-  "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-  "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
-  "source_binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e",
+  "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+  "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
+  "source_binding_digest": "sha256:36812e622271536c1a81f2f54fbf39dc80a85fe864fc690c072fec3433753731",
   "source_inputs": [
     {
       "path": "cmake/mvp-dependencies.json",

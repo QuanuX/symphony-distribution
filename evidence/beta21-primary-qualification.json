@@ -1,0 +1,343 @@
+{
+  "go_commands_per_profile": 6,
+  "native_clean_build_rounds_per_profile": 2,
+  "native_units_per_profile": 51,
+  "profiles": [
+    {
+      "downstream_dispatches": {
+        "client": {
+          "run_attempt": 1,
+          "run_id": 44936878168,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44936878168",
+          "workflow": "d13-primary-client.yml",
+          "workflow_commit": "8df8da2b3ac966c343f77c408130dfe941e4d0cb"
+        },
+        "maintenance": {
+          "run_attempt": 1,
+          "run_id": 44936881644,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44936881644",
+          "workflow": "d13-native-maintenance.yml",
+          "workflow_commit": "8df8da2b3ac966c343f77c408130dfe941e4d0cb"
+        },
+        "package": {
+          "run_attempt": 1,
+          "run_id": 44936873724,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44936873724",
+          "workflow": "d12-native-rewrap.yml",
+          "workflow_commit": "8df8da2b3ac966c343f77c408130dfe941e4d0cb"
+        }
+      },
+      "github_native": {
+        "conclusion": "success",
+        "event": "workflow_dispatch",
+        "job_conclusion": "success",
+        "job_id": 136932970353,
+        "job_name": "native",
+        "status": "completed",
+        "successful_steps": [
+          "Build two clean cohorts and qualify final installed SDKs",
+          "Retain verified native bytes before delivery collection",
+          "Upload completed native recovery capsule before later gates",
+          "Record final package and public dependency closure",
+          "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "Retain bounded engineering evidence"
+        ],
+        "workflow_path": ".github/workflows/d09-platform.yml"
+      },
+      "original_artifact_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "macos15-arm64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "profile": "macos15-arm64",
+      "run_attempt": 1,
+      "run_id": "44932805964",
+      "selection": "evidence/native-selections/macos15-arm64-beta21.json",
+      "selection_sha256": "535b53c25b76b9216aaac64c251c4f5621313c1a6ef9c72be3581dbbc472b2de",
+      "separate_fresh_user_evidence": {
+        "artifact": {
+          "id": 14719083899,
+          "name": "d09-fresh-user-macos15-arm64-1",
+          "sha256": "6a931371b7b16c76adb07f5916e3dd268bcfaf7111a335577e1b5a8f4bd26577",
+          "size": 10601
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "1f923db88101d5bc1319bbfdd302b9085d9ce1ef78ecbd0d8a31470357854e3c",
+        "cohort_digest": "sha256:fee30c4817c505e24eaa4da2c1798579fe0be62ac40fda1f677f0ed06128c0d1",
+        "installed_carrier_file_count": 174,
+        "job_id": 136944025275,
+        "job_log_sha256": "425a88ae8e4263d3f39ba9d7a92cf5c942be470186d90c438b8a69f058524442",
+        "result_sha256": "e186e782d30ac5ded5ac3f05caa20d1ec72e42fbac419163f4b4eed95c289297",
+        "selected_primary_result_sha256": "38be08badc4f0c1678b657691b50dbeb1a10a759ebcea6ea74487a1e3e00c323",
+        "shell_wrapper_sha256": "17443850d596c626e52d3dba2fa1639e0836a08593e260908ffb5108f57ff381",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "workflow_commit": "6e4bb749b9274d3a91c5eb6a2e99fc02061a5613"
+    },
+    {
+      "downstream_dispatches": {
+        "client": {
+          "run_attempt": 1,
+          "run_id": 44936282699,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44936282699",
+          "workflow": "d13-primary-client.yml",
+          "workflow_commit": "ab843933ef71722d5bf00654bdcd73e77a71e5f8"
+        },
+        "maintenance": {
+          "run_attempt": 1,
+          "run_id": 44936286854,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44936286854",
+          "workflow": "d13-native-maintenance.yml",
+          "workflow_commit": "ab843933ef71722d5bf00654bdcd73e77a71e5f8"
+        },
+        "package": {
+          "run_attempt": 1,
+          "run_id": 44936278176,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44936278176",
+          "workflow": "d12-native-rewrap.yml",
+          "workflow_commit": "ab843933ef71722d5bf00654bdcd73e77a71e5f8"
+        }
+      },
+      "github_native": {
+        "conclusion": "success",
+        "event": "workflow_dispatch",
+        "job_conclusion": "success",
+        "job_id": 136932991599,
+        "job_name": "native",
+        "status": "completed",
+        "successful_steps": [
+          "Build two clean cohorts and qualify final installed SDKs",
+          "Retain verified native bytes before delivery collection",
+          "Upload completed native recovery capsule before later gates",
+          "Record final package and public dependency closure",
+          "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "Retain bounded engineering evidence"
+        ],
+        "workflow_path": ".github/workflows/d09-platform.yml"
+      },
+      "original_artifact_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "ubuntu24.04-amd64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "profile": "ubuntu24.04-amd64",
+      "run_attempt": 1,
+      "run_id": "44932812100",
+      "selection": "evidence/native-selections/ubuntu24.04-amd64-beta21.json",
+      "selection_sha256": "edd2e11f43440c35d5b4fd56504f60120b2ca03b3443e1d5ab12d17e38176403",
+      "separate_fresh_user_evidence": {
+        "artifact": {
+          "id": 14719193007,
+          "name": "d09-fresh-user-ubuntu24.04-amd64-1",
+          "sha256": "5b49f6c6b3a4f00ed2983ac10c2aa704f48207e92c3ff73ece270566cf2ee576",
+          "size": 10506
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "69219d9acd3331bb727f65d96b507559b53b6e609852c2846397cafe54f2c2ff",
+        "cohort_digest": "sha256:ced0c592ba84a0a41373ba523162ea4c19b9a18810a69ccbd41be0a92a91e898",
+        "installed_carrier_file_count": 174,
+        "job_id": 136942744385,
+        "job_log_sha256": "9e1ccafcd6e1db70b9ce522b1a73d63ee1186717452fcf09d6a189b96c8634cf",
+        "result_sha256": "a951a4379e27d84316f54ae152d6b82dc6c15346446f658c72a85e0d3b3a696b",
+        "selected_primary_result_sha256": "592bbfd2929f680d097b4fe5f8d7a6b5b1e844e316f6cf0e3ed6aedcacd2cb9e",
+        "shell_wrapper_sha256": "5394381e1cc46235b00cf3edc90ad752b5fb9ed39fcbf5d2e8f9a27c269bf5c4",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "workflow_commit": "6e4bb749b9274d3a91c5eb6a2e99fc02061a5613"
+    },
+    {
+      "downstream_dispatches": {
+        "client": {
+          "run_attempt": 1,
+          "run_id": 44937202466,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44937202466",
+          "workflow": "d13-primary-client.yml",
+          "workflow_commit": "a013df2edcdf2b31657401c3a7ab3fd43752184f"
+        },
+        "maintenance": {
+          "run_attempt": 1,
+          "run_id": 44937206288,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44937206288",
+          "workflow": "d13-native-maintenance.yml",
+          "workflow_commit": "a013df2edcdf2b31657401c3a7ab3fd43752184f"
+        },
+        "package": {
+          "run_attempt": 1,
+          "run_id": 44937198949,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44937198949",
+          "workflow": "d12-native-rewrap.yml",
+          "workflow_commit": "a013df2edcdf2b31657401c3a7ab3fd43752184f"
+        }
+      },
+      "github_native": {
+        "conclusion": "success",
+        "event": "workflow_dispatch",
+        "job_conclusion": "success",
+        "job_id": 136933008869,
+        "job_name": "native",
+        "status": "completed",
+        "successful_steps": [
+          "Build two clean cohorts and qualify final installed SDKs",
+          "Retain verified native bytes before delivery collection",
+          "Upload completed native recovery capsule before later gates",
+          "Record final package and public dependency closure",
+          "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "Retain bounded engineering evidence"
+        ],
+        "workflow_path": ".github/workflows/d09-platform.yml"
+      },
+      "original_artifact_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "ubuntu24.04-arm64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "profile": "ubuntu24.04-arm64",
+      "run_attempt": 1,
+      "run_id": "44932818456",
+      "selection": "evidence/native-selections/ubuntu24.04-arm64-beta21.json",
+      "selection_sha256": "45886eeeaf5728610b9a52f534de2c34f10c0d72465f40e50cdc8371808f09fe",
+      "separate_fresh_user_evidence": {
+        "artifact": {
+          "id": 14720031723,
+          "name": "d09-fresh-user-ubuntu24.04-arm64-1",
+          "sha256": "ce2d0b68de939e317f895ec1909dea9e9e8e3bbb07f20b4fe597d7cb9c04a964",
+          "size": 10512
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "3d4063cbc3e6afadce040294030eeb5893d33aad6edebb50ee32d96d9db4d452",
+        "cohort_digest": "sha256:f60937ea634126b305858306708bea9594f97d32be2f7e1f1e95e0e6b4a280ec",
+        "installed_carrier_file_count": 174,
+        "job_id": 136945740956,
+        "job_log_sha256": "e59ac3a78ea9abd16a2720164ca6099814255bbc3fefeca2fb0e8219814c6573",
+        "result_sha256": "2fd685a1c03bbdd9e73dedb3ca34e3073c36cafa5f1c4af5db1feaf6bc6cdcd1",
+        "selected_primary_result_sha256": "99e51bba1634c9063d485ecdbc97c15989ae896b184d80f36eda50654a598460",
+        "shell_wrapper_sha256": "27a3ff5906dbb64e50817d71467320e7c00f119772d6499abeef341549a592a1",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "workflow_commit": "6e4bb749b9274d3a91c5eb6a2e99fc02061a5613"
+    },
+    {
+      "downstream_dispatches": {
+        "client": {
+          "run_attempt": 1,
+          "run_id": 44937989376,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44937989376",
+          "workflow": "d13-primary-client.yml",
+          "workflow_commit": "23807e05e946acdb1ac9cbdea6d1efae707fa9ae"
+        },
+        "maintenance": {
+          "run_attempt": 1,
+          "run_id": 44937993553,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44937993553",
+          "workflow": "d13-native-maintenance.yml",
+          "workflow_commit": "23807e05e946acdb1ac9cbdea6d1efae707fa9ae"
+        },
+        "package": {
+          "run_attempt": 1,
+          "run_id": 44937985227,
+          "url": "https://github.com/QuanuX/symphony-distribution/actions/runs/44937985227",
+          "workflow": "d12-native-rewrap.yml",
+          "workflow_commit": "23807e05e946acdb1ac9cbdea6d1efae707fa9ae"
+        }
+      },
+      "github_native": {
+        "conclusion": "success",
+        "event": "workflow_dispatch",
+        "job_conclusion": "success",
+        "job_id": 136933010481,
+        "job_name": "native",
+        "status": "completed",
+        "successful_steps": [
+          "Build two clean cohorts and qualify final installed SDKs",
+          "Retain verified native bytes before delivery collection",
+          "Upload completed native recovery capsule before later gates",
+          "Record final package and public dependency closure",
+          "Qualify core SNV APIs, copied Go SDK and disposable removal",
+          "Retain bounded engineering evidence"
+        ],
+        "workflow_path": ".github/workflows/d09-platform.yml"
+      },
+      "original_artifact_binding": {
+        "carrier_capsule_completed": false,
+        "go_count": 6,
+        "native_bytes_requalified": false,
+        "native_count": 51,
+        "native_tar_restored": false,
+        "original_delivery_evidence_bound": true,
+        "original_sdk_evidence_bound": true,
+        "profile": "ubuntu26.04-amd64",
+        "publication_authorized": false,
+        "release_acceptance_complete": false,
+        "source_or_notice_payload_recreated": false
+      },
+      "profile": "ubuntu26.04-amd64",
+      "run_attempt": 1,
+      "run_id": "44932824620",
+      "selection": "evidence/native-selections/ubuntu26.04-amd64-beta21.json",
+      "selection_sha256": "e8cafd076e81f8a215a1cb056c23a5a52bf3afabf8184369754b3ddfe4dc1366",
+      "separate_fresh_user_evidence": {
+        "artifact": {
+          "id": 14719969085,
+          "name": "d09-fresh-user-ubuntu26.04-amd64-1",
+          "sha256": "efbe5171977941bb54388ae56a82d4449cf2f944f1e3eddcf71c87f6305b5526",
+          "size": 10508
+        },
+        "cli_link_and_removal": "passed",
+        "cli_result_sha256": "6f93234c5a4b0dfdf00d834dbd4a8b9aa9ea50c658ac25905e1c12401341b2ab",
+        "cohort_digest": "sha256:418c27876cad8960bc211782ea99eea56533cef001ce397bfbaae2ad74f4d717",
+        "installed_carrier_file_count": 174,
+        "job_id": 136948152650,
+        "job_log_sha256": "8cdf0040c32b7171a6d02b7ba97e486caf5fe06dd8beffc57b6f5f6b79cb4f13",
+        "result_sha256": "6f4c056c224cc8bc37780d716255699bcc0dc56502acabd57a4c77ac1eb2fde3",
+        "selected_primary_result_sha256": "81bf6ec07ac5c5235746e85535a2dc54fcd3fad0e355a3ad9583e7d82de91706",
+        "shell_wrapper_sha256": "280d5f282613657e61ef3ecc31389bda0e931fa50d80835bf77b50d73aaf863b",
+        "state": "passed",
+        "user_state_unchanged": true
+      },
+      "workflow_commit": "6e4bb749b9274d3a91c5eb6a2e99fc02061a5613"
+    }
+  ],
+  "protocol": "symphony.distribution.beta-primary-qualification.v1",
+  "release": "0.2.0-beta.2.1",
+  "scope": "Native and SDK records, retained archive ZIPs, and the separate fresh-user installer input and result are verified. Dependent job references identify the selected inputs at dispatch.",
+  "source": {
+    "archive_sha256": "fc1b6a7207fa1262d8960c0cf41483ba43fc5d5d536e5db6edd8827e27209893",
+    "excluded": 60,
+    "export_digest": "afd1863730f14a704b7b79cdf48e0b390b5e1e61c73e8b08cd13972b1e41a043",
+    "files": 5433,
+    "manifest_sha256": "31ac1005226e9193d5f0eadd4270a94fe660d58bc1cc35a62d9f456927b8c3fe",
+    "origin_binding": "all_original_git_blobs_and_export_transformations_verified",
+    "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
+    "transformed": 27,
+    "verified": true
+  },
+  "state": "four_native_sdk_and_disposable_fresh_user_results_verified"
+}

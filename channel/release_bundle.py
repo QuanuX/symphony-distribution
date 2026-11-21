@@ -128,13 +128,13 @@ def assemble(request_path, request_sha256, output, openssl):
         c.require(beta == verified and beta['publisher_decision_sha256'] == decision_pin, 'Final beta owner admission differs')
         maintenance_root, maintained, maintenance_selected = admit_transport(inputs['maintenance'], 'maintenance', profile)
         maintenance(maintained, beta, cohort, beta_root/'carriers', maintenance_selected)
-        if release == '0.2.0-beta.2':
+        if 'core_commit' in release_policy:
             c.require(beta.get('release_version') == release and beta['publication_authorized'] is True and
                 beta['original_native_lineage']['source_commit'] == release_policy['core_commit'] and
                 beta['client_sources']['core']['commit'] == release_policy['core_commit'] and
                 beta['client_sources']['plugin']['commit'] == release_policy['client_commit'] and
                 decision['source_binding'] == {'core_commit': release_policy['core_commit'], 'client_commit': release_policy['client_commit']},
-                'Final beta.2 source or publication authority differs')
+                'Final beta source or publication authority differs')
         wrapper = doc(beta_root/'wrappers/result.json', beta['wrappers_result_sha256'])
         admitted[profile] = (beta_root, beta, cohort, wrapper, maintained, beta_selected, maintenance_selected)
     pkg_root, pkg_result, pkg_selected = admit_transport(request['native_pkg'], 'native_pkg', 'macos15-arm64')

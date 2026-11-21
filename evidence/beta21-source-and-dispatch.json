@@ -1,0 +1,48 @@
+{
+  "release": "0.2.0-beta.2.1",
+  "state": "verified_source_export_primary_builds_dispatched",
+  "workflow_commit": "6e4bb749b9274d3a91c5eb6a2e99fc02061a5613",
+  "source_review": {
+    "run_id": "44932715433",
+    "run_attempt": 1,
+    "artifact_id": "14718143139",
+    "artifact_zip_sha256": "a325a504fec72e8704c2fc356ea20c48263390fc06f3d6eb496e750e898a5da7",
+    "proof": {
+      "files": 5433,
+      "excluded": 60,
+      "transformed": 27,
+      "archive_sha256": "fc1b6a7207fa1262d8960c0cf41483ba43fc5d5d536e5db6edd8827e27209893",
+      "export_digest": "afd1863730f14a704b7b79cdf48e0b390b5e1e61c73e8b08cd13972b1e41a043",
+      "origin_binding": "all_original_git_blobs_and_export_transformations_verified",
+      "verified": true,
+      "manifest_sha256": "31ac1005226e9193d5f0eadd4270a94fe660d58bc1cc35a62d9f456927b8c3fe",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887"
+    }
+  },
+  "primary_workflow": ".github/workflows/d09-platform.yml",
+  "fresh_user": true,
+  "core_source_binding": "sha256:36812e622271536c1a81f2f54fbf39dc80a85fe864fc690c072fec3433753731",
+  "primary_runs": [
+    {
+      "profile": "macos15-arm64",
+      "run_id": "44932805964",
+      "run_attempt": 1
+    },
+    {
+      "profile": "ubuntu24.04-amd64",
+      "run_id": "44932812100",
+      "run_attempt": 1
+    },
+    {
+      "profile": "ubuntu24.04-arm64",
+      "run_id": "44932818456",
+      "run_attempt": 1
+    },
+    {
+      "profile": "ubuntu26.04-amd64",
+      "run_id": "44932824620",
+      "run_attempt": 1
+    }
+  ]
+}

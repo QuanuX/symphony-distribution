@@ -1,6 +1,8 @@
 import hashlib
 import importlib.util
 import io
+import json
+import os
 from pathlib import Path
 import tempfile
 import sys
@@ -115,5 +117,94 @@ class AdmissionTests(unittest.TestCase):
             (sig/'beta-manifest.sig').write_bytes(b'signature')
             with patch.object(d.signing,'verify',return_value={'release_index_sha256':d.sha(index)}):
                 with self.assertRaisesRegex(ValueError,'signed non-Conda'):d.prepare(art,sig,'cert','key','openssl')
+
+
+class CredentialTests(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        self.path = Path(temp.name).resolve() / 'credentials.json'
+        self.direct = {'accessKeyId': 'example-access-key', 'secretAccessKey': 'example-direct-secret'}
+
+    def store(self, value):
+        self.path.write_text(json.dumps(value))
+        self.path.chmod(0o600)
+        return self.path
+
+    def test_legacy_token_derives_secret_and_requires_exact_fields(self):
+        record = {'id': 'example-id', 'value': 'example-token', 'expires_on': None}
+        self.assertEqual(d.credential_parameters(self.store(record)), {
+            'aws_access_key_id': 'example-id', 'aws_secret_access_key': hashlib.sha256(b'example-token').hexdigest()})
+        for wrong in ({'id': 'example-id', 'value': 'example-token'}, {**record, **self.direct}, {**record, 'sessionToken': 'example-session'}):
+            with self.assertRaisesRegex(ValueError, 'format'):
+                d.credential_parameters(self.store(wrong))
+
+    def test_direct_pairs_and_session_tokens_pass_through_with_optional_expiry(self):
+        for session in ({}, {'sessionToken': 'example-session'}):
+            for expiry in ({}, {'expires_on': '2999-01-01T00:00:00Z'}):
+                expected = {'aws_access_key_id': 'example-access-key', 'aws_secret_access_key': 'example-direct-secret'}
+                if session:
+                    expected['aws_session_token'] = session['sessionToken']
+                self.assertEqual(d.credential_parameters(self.store({**self.direct, **session, **expiry})), expected)
+
+    def test_invalid_fields_and_expiry_fail_without_reporting_values(self):
+        invalid = [[], {**self.direct, 'endpoint': 'https://example.invalid'}, {**self.direct, 'secretAccessKey': ''},
+            {**self.direct, 'sessionToken': None}, {**self.direct, 'sessionToken': 'do-not-echo\n'},
+            {**self.direct, 'expires_on': 'do-not-echo'}, {**self.direct, 'expires_on': '2000-01-01T00:00:00Z'},
+            {**self.direct, 'expires_on': '2999-01-01T00:00:00'}, {**self.direct, 'expires_on': 1}]
+        for value in invalid:
+            with self.assertRaises(ValueError) as exc:
+                d.credential_parameters(self.store(value))
+            self.assertNotIn('do-not-echo', str(exc.exception))
+
+    def test_public_or_linked_credentials_refused(self):
+        self.store(self.direct).chmod(0o644)
+        with self.assertRaises(ValueError):
+            d.credential_parameters(self.path)
+        self.path.chmod(0o600)
+        alias = self.path.with_name('alias')
+        alias.symlink_to(self.path)
+        with self.assertRaises(ValueError):
+            d.credential_parameters(alias)
+        alias.unlink()
+        os.link(self.path, alias)
+        with self.assertRaises(ValueError):
+            d.credential_parameters(self.path)
+
+    @unittest.skipUnless(importlib.util.find_spec('boto3'), 'requires the selected R2 publisher SDK')
+    def test_boto_session_uses_explicit_real_sdk_fields_without_network(self):
+        from botocore.config import Config
+        from botocore.session import Session
+        environment = {'AWS_EC2_METADATA_DISABLED': 'true', 'AWS_CONFIG_FILE': os.devnull,
+                       'AWS_SHARED_CREDENTIALS_FILE': os.devnull}
+        with patch.dict(os.environ, environment, clear=True), patch('socket.socket.connect', side_effect=AssertionError('Unexpected network connection')):
+            operation = Session().get_service_model('s3').operation_model('PutObject')
+            if 'IfNoneMatch' not in operation.input_shape.members:
+                with self.assertRaisesRegex(ValueError, 'PutObject If-None-Match'):
+                    d.client(self.store(self.direct))
+                return
+            for session in ({}, {'sessionToken': 'example-session'}):
+                api = d.client(self.store({**self.direct, **session}))
+                try:
+                    creds = api._request_signer._credentials.get_frozen_credentials()
+                    self.assertEqual((creds.access_key, creds.secret_key, creds.token),
+                                     ('example-access-key', 'example-direct-secret', session.get('sessionToken')))
+                    self.assertEqual(api.meta.endpoint_url, f'https://{d.ACCOUNT}.r2.cloudflarestorage.com')
+                    self.assertEqual(api.meta.config.signature_version, 's3v4')
+                    self.assertEqual(api.meta.config.retries['total_max_attempts'], 1)
+                    for name in ('request_checksum_calculation', 'response_checksum_validation'):
+                        if name in Config.OPTION_DEFAULTS:
+                            self.assertEqual(getattr(api.meta.config, name), 'when_required')
+                    class CapturedRequest(Exception):
+                        pass
+                    def before_send(request, **kwargs):
+                        self.assertEqual(request.headers['If-None-Match'], b'*')
+                        self.assertEqual(request.headers.get('X-Amz-Security-Token'), b'example-session' if session else None)
+                        raise CapturedRequest
+                    api.meta.events.register('before-send.s3.PutObject', before_send)
+                    with self.assertRaises(CapturedRequest):
+                        api.put_object(Bucket=d.BUCKET, Key='fixture', Body=b'fixture', IfNoneMatch='*')
+                finally:
+                    api.close()
 
 if __name__ == '__main__': unittest.main()

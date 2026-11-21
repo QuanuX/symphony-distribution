@@ -1,0 +1,68 @@
+{
+  "acceptance_basis": {
+    "legal_scope": "Continuing publisher acceptance for the existing public beta distribution and its source and notice obligations. New release qualification and the complete corresponding source must be verified before publication.",
+    "publisher_direct_approval": true,
+    "separate_reviewer_independence_established": false,
+    "technical_results_must_remain_actual": true
+  },
+  "candidate_authorization": {
+    "path": "evidence/beta21-candidate.json",
+    "sha256": "e20408f1a3c09991c0a23181f4e0a143b195b3a278b4b45e56055961b0b96a86"
+  },
+  "confirmation_question": "Once the four installers and their hashes are verified, should `0.2.0-beta.2.1` become the live/latest release on GitHub, QuanuX/beta on Anaconda, and downloads.quanux.org using the same publisher-pinned signing policy as beta.2? The release tooling records that publisher decision for each version.",
+  "date": "2026-11-21",
+  "latest_release_authorized": true,
+  "legal_approval": true,
+  "preserved_constraints": {
+    "feature_freeze": true,
+    "main_unchanged": true,
+    "no_automatic_runtime_or_provider_activation": true,
+    "no_private_publisher_state_in_distribution": true
+  },
+  "prior_legal_acceptance_sha256": "d87a413093f3e70b67f86973db3b04dfd0d4e394b1b2d0dce384b70a4730e943",
+  "prior_publisher_decision_sha256": "420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a",
+  "profiles": [
+    "macos15-arm64",
+    "ubuntu24.04-amd64",
+    "ubuntu24.04-arm64",
+    "ubuntu26.04-amd64"
+  ],
+  "protocol": "symphony.distribution.beta-publisher-decision.v1",
+  "publication_authorized": true,
+  "publication_destinations": {
+    "conda_label": "beta",
+    "conda_organization": "QuanuX",
+    "downloads_origin": "https://downloads.quanux.org",
+    "github_repository": "QuanuX/symphony-distribution",
+    "standalone_storage": "Cloudflare R2",
+    "website": "https://quanux.org/downloads"
+  },
+  "publisher_acceptance": true,
+  "release_acceptance_complete": false,
+  "release_class": "public-beta",
+  "release_version": "0.2.0-beta.2.1",
+  "reviewer_kind": "human",
+  "reviewer_role": "publisher-release-owner",
+  "source": "release owner confirmation in the release preparation conversation",
+  "source_binding": {
+    "client_commit": "572627e939250763756167a9dc05d8cb37ab4e30",
+    "core_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9"
+  },
+  "source_checkpoint": {
+    "commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+    "repository": "QuanuX/Symphony"
+  },
+  "statement": "Publish as latest after verification",
+  "statement_sha256": "e1754996130e2932fb086fe3040d7b0958ebe6ec6cb8f13dfd44440990677b21",
+  "technical_release_conditions": [
+    "Verify the native, installer, client, and maintenance evidence for each of the four named platform profiles against the selected source.",
+    "Verify installer and package hashes, the detached publisher signature, source and notices, and public readbacks before setting GitHub latest and advertising release downloads.",
+    "Any optional platform-specific keyring packages must carry their own source and qualification and be identified separately from the default installation."
+  ],
+  "trust": {
+    "apple_developer_id": false,
+    "mode": "publisher-pinned-self-signed-detached-manifest",
+    "notarization": false,
+    "os_trust_store_change_authorized": false
+  }
+}

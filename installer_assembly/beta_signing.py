@@ -27,6 +27,9 @@ RELEASE_POLICIES = {
     '0.2.0-beta.2': {'decision_sha256': '420e682c63bb86cd5781443df1964d17bb5f70c95b33c79b8b23f2d4a604f85a',
         'core_commit': 'bae2e817120467561ae051c1b08cf61be3436bac',
         'client_commit': '572627e939250763756167a9dc05d8cb37ab4e30'},
+    '0.2.0-beta.2.1': {'decision_sha256': 'c688adefc16c880026fa5deff2a794861766aca22c01829d23fa9dde680c440e',
+        'core_commit': 'f828e558cae86ffb860a4fd3b55c6e0d0623d1c9',
+        'client_commit': '572627e939250763756167a9dc05d8cb37ab4e30'},
 }
 SUBJECT = '/O=QuanuX/OU=Symphony Public Beta/CN=QuanuX Symphony Beta Distribution'
 RFC_SUBJECT = 'subject=CN=QuanuX Symphony Beta Distribution,OU=Symphony Public Beta,O=QuanuX'

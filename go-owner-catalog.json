@@ -1,9 +1,9 @@
 {
   "schema": "symphony.distribution.go-owner-catalog.v2",
   "format_version": 2,
-  "source_binding_digest": "sha256:5f920bbd8162390824c3822a6621161e8c053c7f9dcd457d3bea154ecc9dab4e",
-  "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-  "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+  "source_binding_digest": "sha256:36812e622271536c1a81f2f54fbf39dc80a85fe864fc690c072fec3433753731",
+  "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+  "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
   "units": [
     {
       "component_id": "accordare-stav-producer",
@@ -23,8 +23,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-accordare-stav-producer",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -36,7 +36,7 @@
       "owner_invocation_implemented": true,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:4425cd88f8acf60b74b2de1acd530de2e7f58e3dc20ac24499ab9f5c842c8581"
+      "definition_digest": "sha256:2dbb12c6776260e77c196d7fa375851f0b5776da8817f823733e13ef88f757c6"
     },
     {
       "component_id": "qxctl",
@@ -56,8 +56,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-qxctl",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -69,7 +69,7 @@
       "owner_invocation_implemented": false,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:9173a7af0379aace09e43c8074ea87bee288bbed54bbb162bce2a51d6aaa46c4"
+      "definition_digest": "sha256:51c5be384dbdf0cdd390db64c3555302d254092eb9fbddd5916701e91fbe5053"
     },
     {
       "component_id": "secure-identity-access-governance",
@@ -89,8 +89,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-secure-identity-access-governance",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -102,7 +102,7 @@
       "owner_invocation_implemented": true,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:7674a5540daf28b8ab10fe69421ce719168c88f73bbc5b66ba60635318c45aa2"
+      "definition_digest": "sha256:e0c8a303bc4a05280d3c843a42916763223d9b9f8bd7e938ba6bc250f3a5b3a7"
     },
     {
       "component_id": "sov-ssh-adapter",
@@ -122,8 +122,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-sov-ssh-adapter",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -135,7 +135,7 @@
       "owner_invocation_implemented": false,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:a16aba668b418a2985e83332224b94431066eadf94a7333b64fdbc268a08a2c4"
+      "definition_digest": "sha256:150d5b47c3fa2aa3533ea50dd5533865cbbf34d2300218e823bc293dfb2b8b19"
     },
     {
       "component_id": "sov-stdio-adapter",
@@ -155,8 +155,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-sov-stdio-adapter",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -168,7 +168,7 @@
       "owner_invocation_implemented": false,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:8c786bc7f1c0aa6f5868f88ed0a756802c7be931b842b406a0efe4e2d0231c2d"
+      "definition_digest": "sha256:40f045743c31b13ed1fcc25a9c40ace32b4d69a8dc1067495c5afdf37062a573"
     },
     {
       "component_id": "sov-transport-profile-admin",
@@ -188,8 +188,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-sov-transport-profile-admin",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -201,7 +201,7 @@
       "owner_invocation_implemented": false,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:7c171dbd3aa78b3cddcae6b0bd9cd4a270d5dbdbd1e03113d99c86b3440eb801"
+      "definition_digest": "sha256:8902ba392132271881bc3cab60274bf0bc40a529fb99e6dcadebd8f3b9713bc8"
     },
     {
       "component_id": "stav-append-authority",
@@ -221,8 +221,8 @@
       "automatic_privilege": false,
       "runtime_dependencies": [],
       "unit_id": "PKG-GO-stav-append-authority",
-      "source_commit": "bae2e817120467561ae051c1b08cf61be3436bac",
-      "source_tree": "53b29be6255fc96210ba75601b7aca5f90dd30a4",
+      "source_commit": "f828e558cae86ffb860a4fd3b55c6e0d0623d1c9",
+      "source_tree": "db96c62e62378499f9adb24dfc7b3ea170d01887",
       "profiles": [
         "macos15-arm64",
         "ubuntu24.04-amd64",
@@ -234,11 +234,11 @@
       "owner_invocation_implemented": true,
       "system_removal_qualified": false,
       "fresh_host_accepted": false,
-      "definition_digest": "sha256:52e356012ef89fae18cc944f6046d35fcef91294fba977c7e64c41a311f1cff0"
+      "definition_digest": "sha256:fe19bfe97bcebd4e9f4b5b086ff28dedf5dd8818416f939254b4ee06de9256ae"
     }
   ],
   "runtime_selection_changed": false,
   "publication_authorized": false,
   "release_acceptance_complete": false,
-  "catalog_digest": "sha256:b9217135c5a6294cfc157fdeecfee1065f40160c8af74ac0c254562984ba2643"
+  "catalog_digest": "sha256:3f019f7db13fe49c4b0f0356c9c8a6aa1b6f4a604f52d0d640f3227878e47379"
 }
