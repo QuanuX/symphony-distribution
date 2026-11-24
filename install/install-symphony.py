@@ -18,6 +18,9 @@ RELEASE = "0.2.0-beta.2.1"
 VERIFIER_SHA256 = "0c94359511013edb19d990f853b2720a2049ceb40f6aa2ad9dd47b603156b547"
 INDEX_SHA256 = "69c89fef8a2ab2eed8e78b56168fcdbbf285989fedf698a43ea499cd2883e9f0"
 GITHUB = f"https://github.com/QuanuX/symphony-distribution/releases/download/v{RELEASE}"
+CODEX_HELPER = ("https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills/"
+                f"releases/download/v{RELEASE}/install-codex.py")
+CODEX_SHA256 = "66efff88e0a62bcf3c4f0916d37463416563cb2a00c22c3f24994bd3d03a346b"
 ARCHIVES = {
     "macos15-arm64": "MacOSX-arm64",
     "ubuntu24.04-amd64": "Linux-x86_64",
@@ -124,8 +127,19 @@ def install(root, archive, profile_info):
           f"Client setup: {GITHUB}/BETA-INSTALL.md")
 
 
+def install_codex(root):
+    """The plugin is a separately pinned release. An interrupted setup can resume."""
+    with tempfile.TemporaryDirectory(prefix="symphony-codex-") as temporary:
+        helper = Path(temporary) / "install-codex.py"
+        fetch(CODEX_HELPER, helper, 1024 * 1024)
+        check_digest(helper, CODEX_SHA256)
+        subprocess.run([sys.executable, "-I", str(helper), "--qxctl", str(root / "bin/qxctl")], check=True)
+
+
 def main():
-    argparse.ArgumentParser(description=__doc__).parse_args()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--codex", action="store_true", help="Also install and configure the matching local Codex plugin")
+    args = parser.parse_args()
     if sys.version_info < (3, 11):
         raise ValueError("Python 3.11 or newer is required.")
     profile = host_profile()
@@ -139,6 +153,9 @@ def main():
         raise ValueError("Your home directory must be owned by your account.")
     root = home / f"symphony-{RELEASE}"
     if os.path.lexists(root):
+        if args.codex and (root / "bin/qxctl").is_file():
+            install_codex(root)
+            return
         raise ValueError(f"{root} already exists. Check your existing installation with "
                          f"{shlex.quote(str(root / 'bin/qxctl'))} version. For other setups, see {GITHUB}/BETA-INSTALL.md.")
     os.umask(0o077)
@@ -147,6 +164,8 @@ def main():
         work = Path(temporary).resolve(strict=True)
         archive, profile_info = prepare(work, profile)
         install(root, archive, profile_info)
+    if args.codex:
+        install_codex(root)
 
 
 if __name__ == "__main__":

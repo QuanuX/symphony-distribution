@@ -21,6 +21,12 @@ Symphony is a quantOS developed through **VGAA (Vector-Graph Application Archite
 > [!IMPORTANT]
 > Symphony **0.2.0-beta.2.1** is published through **QuanuX/beta on Anaconda** and Cloudflare downloads. The [publication record](evidence/beta21-publication.json) binds **240 standard Anaconda records**, **two optional node packages** and **316 verified download objects** to the signed release.
 
+### Install the Codex plugin
+
+Use [Symphony downloads](https://quanux.org/downloads#codex) to copy the verified installation command. From this checkout, `python3 -I install/install-symphony.py --codex` installs the signed framework and the matching local Codex plugin on a supported host. The same command completes plugin setup if the default beta.2.1 framework installation already exists. The standalone [Codex installer and instructions](https://github.com/QuanuX/symphony-codex-ipc-mcp-and-skills#install-the-codex-plugin) also support an explicitly selected qxctl.
+
+Open a new Codex chat and ask it to call `symphony_connection` and read the SOV target configuration template. The initial connection enables reads. Workspace plugin permissions apply.
+
 ---
 
 `00 // DELIVERY & CUSTODY TOPOLOGY`
