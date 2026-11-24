@@ -106,6 +106,20 @@ class QuickInstallTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(), archive)
             self.assertEqual(record, {"receipt":"arm64"})
 
+    def test_codex_helper_digest_checked_before_execution(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(installer, 'fetch') as fetch, \
+             patch.object(installer.subprocess, 'run') as run:
+            def download(url, target, limit):
+                self.assertEqual(url, installer.CODEX_HELPER)
+                target.write_bytes(b'fixture')
+            fetch.side_effect = download
+            with self.assertRaisesRegex(ValueError, 'SHA-256'):
+                installer.install_codex(Path(tmp))
+            run.assert_not_called()
+            with patch.object(installer, 'CODEX_SHA256', hashlib.sha256(b'fixture').hexdigest()):
+                installer.install_codex(Path(tmp))
+            self.assertEqual(run.call_args.args[0][-2:], ['--qxctl', str(Path(tmp) / 'bin/qxctl')])
+
     def test_failed_constructor_is_preserved_and_retry_can_reserve_path(self):
         with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()), \
              contextlib.redirect_stderr(io.StringIO()):
