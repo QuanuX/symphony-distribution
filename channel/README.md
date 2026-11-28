@@ -6,6 +6,18 @@ QuanuX/beta packages, signed installers and matching verification instructions.
 The [beta.2.1 publication record](../evidence/beta21-publication.json) includes
 checksums and public readbacks for all four profiles.
 
+## Anaconda package overviews
+
+The package summary describes the individual component. The overview links installation instructions, explains how to find corresponding source for a particular build and identifies historical D09 review files where applicable. The optional Ubuntu node keyring has its own Debian installation directions. [Anaconda installation guide](https://quanux.org/downloads/anaconda)
+
+Run this command from the repository root to print the package and version overview fields as JSON. It reads the package summaries and the original D09 source record locally.
+
+```sh
+python3 channel/package_metadata.py
+```
+
+The beta, optional keyring and D09 publishers use the same summaries and documentation links when creating catalog records. Each published file carries its own exact source reference. The legacy `quanux` package uses a separate publication path within the organization.
+
 ## Public download links
 
 The downloads hostname and its `/symphony/` directory lead to the platform

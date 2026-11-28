@@ -15,15 +15,27 @@ class Missing(Exception): pass
 
 class API:
     def __init__(self, conflict=False, uncertain=False):
+        self.packages = {}; self.releases = {}
         self.calls = []; self.present = {}; self.conflict = conflict; self.uncertain = uncertain
     def distribution(self, owner, name, version, filename):
         if self.conflict: return {'sha256': '0' * 64, 'size': 3, 'labels': ['d09-review-aaaaaaaaaaaa']}
         if filename not in self.present: raise Missing()
         return self.present[filename]
-    def package(self, *args): raise Missing()
-    def add_package(self, *args, **kwargs): self.calls.append(('package', args, kwargs))
-    def release(self, *args): raise Missing()
-    def add_release(self, *args): self.calls.append(('release', args))
+    def package(self, owner, name):
+        if name not in self.packages: raise Missing()
+        return copy.deepcopy(self.packages[name])
+    def add_package(self, owner, name, **kwargs):
+        self.calls.append(('package', name, kwargs))
+        self.packages[name] = {'public': True, **kwargs['attrs']}
+    def update_package(self, owner, name, attrs):
+        self.calls.append(('update', name, attrs))
+        self.packages[name] = {'public': True, **attrs}
+    def release(self, owner, name, version):
+        if (name, version) not in self.releases: raise Missing()
+        return self.releases[name, version]
+    def add_release(self, owner, name, version, requirements, announce, attrs):
+        self.calls.append(('release', name, attrs))
+        self.releases[name, version] = attrs.copy()
     def upload(self, owner, name, version, filename, stream, kind, **kwargs):
         self.calls.append(('upload', filename, kwargs))
         if self.uncertain: raise TimeoutError('private account material must not be retained')
@@ -34,8 +46,8 @@ class StageTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(); self.root = Path(self.tmp.name).resolve()
         self.delivery = self.root / 'delivery'; (self.delivery / 'artifacts').mkdir(parents=True)
-        row = {'name': 'symphony-unit-payload', 'version': '1.0', 'build': 'd08_abc_0', 'build_number': 0,
-               'subdir': 'osx-64', 'filename': 'symphony-unit-payload-1.0-d08_abc_0.conda',
+        row = {'name': 'symphony-corresponding-source-review-payload', 'version': '1.0', 'build': 'd08_abc_0', 'build_number': 0,
+               'subdir': 'osx-64', 'filename': 'symphony-corresponding-source-review-payload-1.0-d08_abc_0.conda',
                'sha256': hashlib.sha256(b'abc').hexdigest(), 'size': 3, 'selection': 'optional-source'}
         row['url'] = s.package_url({'label': 'd09-review-aaaaaaaaaaaa'}, row)
         self.plan = s.seal({'protocol': s.PROTOCOL, 'organization': 'QuanuX', 'label': 'd09-review-aaaaaaaaaaaa',
@@ -77,9 +89,10 @@ class StageTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.stage(self.plan, self.delivery, self.root/'attempt', api)
     def test_upload_uses_verified_snapshot_when_original_changes_during_remote_calls(self):
         api=API(); path=self.delivery/'artifacts'/self.plan['packages'][0]['filename']
+        package = api.package
         def changed(*args):
             path.write_bytes(b'hostile replacement')
-            raise Missing()
+            return package(*args)
         api.package=changed
         result=self.stage(self.plan,self.delivery,self.root/'attempt',api)
         self.assertEqual(result['state'],'public_review_staged_metadata_verified')
@@ -90,6 +103,16 @@ class StageTests(unittest.TestCase):
         api.upload=discard
         with self.assertRaisesRegex(ValueError,'reconcile'): self.stage(self.plan,self.delivery,self.root/'attempt',api)
         self.assertFalse((self.root/'attempt/staging.json').exists())
+    def test_review_release_and_package_keep_historical_source_and_docs(self):
+        api = API()
+        self.stage(self.plan, self.delivery, self.root/'attempt', api)
+        row = self.plan['packages'][0]
+        attrs = api.releases[row['name'], row['version']]
+        self.assertIn(self.plan['corresponding_source_url'], attrs['description'])
+        self.assertIn('Intel macOS', attrs['summary'])
+        self.assertEqual(attrs['doc_url'], s.package_metadata.DOCS)
+        self.assertEqual(api.packages[row['name']]['description'], attrs['description'])
+
     def test_source_retrieval_failure_stops_before_binary_upload(self):
         api=API(); plan=copy.deepcopy(self.plan); binary=copy.deepcopy(plan['packages'][0])
         binary.update(name='symphony-binary-payload',filename='symphony-binary-payload-1.0-d08_abc_0.conda',selection='default-carrier')
