@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+from functools import cache
 from pathlib import Path
 
 HOME = 'https://quanux.org'
@@ -15,6 +16,7 @@ REVIEW_SOURCE = D09_PLAN['corresponding_source_url']
 D09_NAMES = {item['name'] for item in D09_PLAN['packages']}
 REVIEW_NAMES = {'symphony-client-bridge-review-payload', 'symphony-corresponding-source-review-payload'}
 KEYRING = 'symphony-node-keyring-deb-payload'
+BETA1_SOURCE_NAMES = {'symphony-client-payload', 'symphony-corresponding-source-payload'}
 SUMMARIES = json.loads(Path(__file__).with_name('package_summaries.json').read_text(encoding='utf-8'))
 
 BETA_GUIDANCE = (
@@ -25,15 +27,28 @@ BETA_GUIDANCE = (
     'A component version can be reused across platforms and Symphony releases. '
     'Install the matching optional source package in a separate environment, extract its payload.tar, '
     'and read the source index, scope records and included license notices. '
-    f'Signed release indexes and verification instructions are available at {RELEASES}.'
+    f'Signed release indexes and verification instructions are available at <{RELEASES}>.'
 )
 KEYRING_GUIDANCE = (
     'Select the Ubuntu 26.04 AMD64 or ARM64 build for your node. The Conda archive delivers a .deb. '
     'Install the .deb with the Debian package manager to configure the native keyring. '
     'This supplement is optional and is separate from the default Symphony installation.\n\n'
     'Use the file description for the corresponding source of your exact build. '
-    f'The signed supplement index, source archive and license notices accompany the Symphony release at {RELEASES}.'
+    f'The signed supplement index, source archive and license notices accompany the Symphony release at <{RELEASES}>.'
 )
+
+
+@cache
+def beta1_source_guidance():
+    """Reuse the per-platform source links published on the original beta.1 version cards."""
+    references = []
+    for profile in ('macos15-arm64', 'ubuntu24.04-amd64', 'ubuntu24.04-arm64', 'ubuntu26.04-amd64'):
+        receipt = ROOT / 'evidence/beta-publication' / f'{profile}-anaconda.json'
+        publication = json.loads(receipt.read_text(encoding='utf-8'))
+        source, = (row for row in publication['packages'] if row['selection'] == 'optional-source')
+        url = source['immutable_source_retrieval']['url']
+        references.append(f'- {profile}: <{url}>')
+    return 'Historical corresponding source for Symphony 0.2.0-beta.1:\n\n' + '\n'.join(references)
 
 
 def overview(name, *, review_source=REVIEW_SOURCE):
@@ -46,7 +61,7 @@ def overview(name, *, review_source=REVIEW_SOURCE):
         guidance = (
             'This package was staged for D09 review on Intel macOS using the d09-review label. '
             'For the supported public beta, use the platform lists in the Anaconda installation guide.\n\n'
-            f'Exact reviewed corresponding source: {review_source}. Install that optional source package '
+            f'Exact reviewed corresponding source: <{review_source}>. Install that optional source package '
             'in a separate environment, extract payload.tar under share/symphony/carriers, and read '
             'source-index.json and SOURCE-SCOPE.json inside the source archive for original and derived '
             'source bindings. The archive includes the corresponding notices. Native activation is separate.'
@@ -61,7 +76,11 @@ def overview(name, *, review_source=REVIEW_SOURCE):
                 f'<{review_source}>. The optional review archive contains source-index.json and SOURCE-SCOPE.json '
                 'with the original and derived source bindings.'
             )
-    return {'summary': summary, 'description': summary + '\n\n' + guidance, 'home': HOME, 'doc_url': DOCS}
+    paragraphs = [summary, guidance]
+    if name in BETA1_SOURCE_NAMES:
+        paragraphs.append(beta1_source_guidance())
+    paragraphs.append(f'Installation and verification: <{DOCS}>.')
+    return {'summary': summary, 'description': '\n\n'.join(paragraphs), 'home': HOME, 'doc_url': DOCS}
 
 
 SERVER_FIELDS = {'access', 'builds', 'conda_platforms', 'created_at', 'files', 'full_name', 'html_url', 'id',

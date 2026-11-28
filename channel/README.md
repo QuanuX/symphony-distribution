@@ -10,7 +10,7 @@ checksums and public readbacks for all four profiles.
 
 The package summary describes the individual component. The overview links installation instructions, explains how to find corresponding source for a particular build and identifies historical D09 review files where applicable. The optional Ubuntu node keyring has its own Debian installation directions. [Anaconda installation guide](https://quanux.org/downloads/anaconda)
 
-Run this command from the repository root to print the package and version overview fields as JSON. It reads the package summaries and the original D09 source record locally.
+Run this command from the repository root to print the package and version overview fields as JSON. Both use identical Markdown because Anaconda can mirror an edit to a version description onto the package. The two original beta.1 client and corresponding-source cards retain their four platform-specific URLs from the signed release's publication records. The D09 review source links come from the original staging plan.
 
 ```sh
 python3 channel/package_metadata.py

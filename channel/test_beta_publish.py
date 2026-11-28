@@ -202,7 +202,7 @@ class BetaPublishTests(unittest.TestCase):
             value = api.packages[row['name']]
             self.assertEqual(value['custom'], {'preserve': ['all', 'values']}); self.assertEqual(value['summary'], p.package_metadata.overview(row['name'])['summary'])
         self.assertFalse(any(call[0] in ('upload', 'label') for call in api.calls))
-    def test_reused_native_version_gets_neutral_overview_without_changing_build_source_links(self):
+    def test_reused_native_version_gets_maintained_overview_without_changing_build_source_links(self):
         api = API(); self.populate(api)
         for row in self.rows:
             api.packages[row['name']]['description'] = 'Review-only carrier. Exact reviewed corresponding source: https://example.org/old-source'
@@ -217,7 +217,9 @@ class BetaPublishTests(unittest.TestCase):
             self.assertEqual(value['description'], p.package_metadata.overview(name)['description'])
             self.assertEqual(value['home'], p.package_metadata.HOME); self.assertEqual(value['custom'], {'keep': True})
             self.assertNotIn('Review-only', value['description'])
-            self.assertNotIn('beta.1', value['description']); self.assertNotIn('beta.2', value['description'])
+            self.assertEqual('Historical corresponding source for Symphony 0.2.0-beta.1:' in value['description'],
+                             name in p.package_metadata.BETA1_SOURCE_NAMES)
+            self.assertNotIn('beta.2', value['description'])
             self.assertIn('https://github.com/QuanuX/symphony-distribution/releases', value['description'])
 
     def test_parallel_publication_refuses_stale_overview_before_mutation(self):

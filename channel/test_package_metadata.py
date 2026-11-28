@@ -1,4 +1,5 @@
 import json
+import re
 import unittest
 
 import package_metadata as metadata
@@ -21,7 +22,10 @@ class PackageMetadataTests(unittest.TestCase):
             self.assertEqual(fields['home'], 'https://quanux.org')
             self.assertEqual(fields['doc_url'], 'https://quanux.org/downloads/anaconda')
             self.assertTrue(fields['description'].startswith(fields['summary'] + '\n\n'))
-            self.assertEqual(metadata.REVIEW_SOURCE in fields['description'], name in metadata.D09_NAMES)
+            description = fields['description']
+            self.assertEqual(f'<{metadata.REVIEW_SOURCE}>' in description, name in metadata.D09_NAMES)
+            self.assertTrue(description.endswith(f'Installation and verification: <{metadata.DOCS}>.'))
+            self.assertNotRegex(description, r'(?<!<)https://')
         self.assertNotIn('quanux', expected)
 
     def test_selection_and_source_guidance_follow_the_actual_package(self):
@@ -38,6 +42,23 @@ class PackageMetadataTests(unittest.TestCase):
         self.assertIn('Debian package manager', keyring)
         self.assertIn('signed supplement index', keyring)
         self.assertNotIn('optional source package in a separate environment', keyring)
+
+    def test_original_beta1_cards_keep_four_distinct_source_links(self):
+        paths = sorted((metadata.ROOT / 'evidence/beta-publication').glob('*-anaconda.json'))
+        self.assertEqual(len(paths), 4)
+        expected = []
+        for path in paths:
+            receipt = json.loads(path.read_text())
+            profile, = receipt['profiles']
+            source, = [p for p in receipt['packages'] if p['selection'] == 'optional-source']
+            url = source['immutable_source_retrieval']['final_url']
+            self.assertIn('/label/beta-0.2.0-beta.1-', url)
+            expected.append((profile, url))
+        for name in metadata.SUMMARIES:
+            with self.subTest(name=name):
+                links = re.findall(r'^- ([\w.-]+): <([^>]+)>$', metadata.overview(name)['description'], re.M)
+                self.assertEqual(links, expected if name in {
+                    'symphony-client-payload', 'symphony-corresponding-source-payload'} else [])
 
 
 if __name__ == '__main__':
