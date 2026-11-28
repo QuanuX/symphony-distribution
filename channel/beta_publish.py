@@ -6,7 +6,6 @@ module has no overwrite, delete, automatic retry or historical review mutation.
 """
 from __future__ import annotations
 import argparse
-import copy
 import json
 import os
 from pathlib import Path
@@ -14,6 +13,7 @@ import sys
 import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import package_metadata
 import staging as s
 import beta_signing as b
 c, fs = s.c, b.base
@@ -21,18 +21,6 @@ PROTOCOL = 'symphony.distribution.public-beta-publish.v1'
 PROFILES = {'macos15-arm64': 'osx-arm64', 'ubuntu24.04-amd64': 'linux-64',
             'ubuntu24.04-arm64': 'linux-aarch64', 'ubuntu26.04-amd64': 'linux-64'}
 ROW = {'profile', 'path', 'name', 'version', 'build', 'build_number', 'subdir', 'filename', 'sha256', 'size', 'selection'}
-SUMMARY = 'Symphony modular package payload; installation, removal and application selection remain explicit.'
-DESCRIPTION = ('Symphony independently maintainable modular package carriers. Corresponding source: '
-    'each exact filename/build has its own source URL in that distribution description; a native version alone '
-    'does not identify a release, platform or source cohort. Signed release indices, exact platform package lists, '
-    'source archives and verification instructions are listed at '
-    'https://github.com/QuanuX/symphony-distribution/releases. Select the same platform and release source as '
-    'the exact verified build. The optional corresponding-source carrier may be installed separately; unpack '
-    'its payload.tar under share/symphony/carriers and read its source index and scope records. '
-    'Installation does not activate Symphony or change application selections.')
-SERVER_FIELDS = {'access', 'builds', 'conda_platforms', 'created_at', 'files', 'full_name', 'html_url', 'id',
-    'latest_version', 'modified_at', 'name', 'ndownloads', 'owner', 'platforms', 'public', 'releases', 'revision',
-    'upvoted', 'url', 'versions', 'watchers'}
 
 
 def remote_key(row): return row['name'], row['version'], row['subdir'] + '/' + row['filename']
@@ -127,13 +115,6 @@ def metadata(api, row):
     return value
 
 
-def public_attrs(package):
-    if 'public_attrs' in package:
-        c.require(type(package['public_attrs']) is dict, 'Package attributes unavailable')
-        return copy.deepcopy(package['public_attrs'])
-    return copy.deepcopy({k: v for k, v in package.items() if k not in SERVER_FIELDS})
-
-
 class Attempt:
     def __init__(self, output, plan):
         self.root = fs.new_directory(output)
@@ -159,34 +140,8 @@ class Attempt:
 
 
 def ensure_catalog(api, plan, row, attempt, *, require_existing):
-    from binstar_client.errors import NotFound
-    from binstar_client.utils.config import PackageType
-    try: package = api.package('QuanuX', row['name'])
-    except NotFound:
-        c.require(not require_existing, 'Serial catalog preparation required before parallel profile publication')
-        attempt.mutate('create_package', row, lambda: api.add_package('QuanuX', row['name'], summary=SUMMARY,
-            license='LicenseRef-Complete-Embedded-Notices', public=True, package_type=PackageType.CONDA))
-        package = api.package('QuanuX', row['name'])
-    c.require(package.get('public') is True, 'Existing package is not public')
-    attrs = public_attrs(package)
-    desired = {**attrs, 'summary': SUMMARY, 'description': DESCRIPTION}
-    try: api.release('QuanuX', row['name'], row['version'])
-    except NotFound:
-        c.require(not require_existing, 'Serial release preparation required before parallel publication')
-        attempt.mutate('create_release', row, lambda: api.add_release('QuanuX', row['name'], row['version'], {}, '',
-            {'description': DESCRIPTION}))
-        api.release('QuanuX', row['name'], row['version'])
-    # Creating a release may reset package-level attributes on the live service.
-    # Restore the selected metadata only after that operation, then read it back.
-    # Package overviews cover every build of a reused native version. Exact
-    # source URLs remain on immutable distribution records, never rewritten here.
-    current = api.package('QuanuX', row['name'])
-    c.require(current.get('public') is True, 'Existing package is not public')
-    if public_attrs(current) != desired:
-        c.require(not require_existing, 'Serial package metadata preparation required')
-        attempt.mutate('update_catalog_metadata_preserving_attributes', row, lambda: api.update_package('QuanuX', row['name'], desired))
-        after = api.package('QuanuX', row['name'])
-        c.require(after.get('public') is True and public_attrs(after) == desired, 'Package attributes were not preserved')
+    package_metadata.ensure_catalog(api, 'QuanuX', row, package_metadata.overview(row['name']),
+                                    attempt.mutate, require_existing=require_existing)
 
 
 def execute(plan, release_root, signature_root, cert_pin, public_key_pin, openssl, output, api,

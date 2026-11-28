@@ -48,7 +48,7 @@ class BetaPublishTests(unittest.TestCase):
         self.artifacts = self.root / 'artifacts'; self.artifacts.mkdir()
         self.signatures = self.root / 'signatures'; self.signatures.mkdir()
         self.rows = []
-        for name, selection in [('symphony-source-payload', 'optional-source'), ('symphony-qxctl-payload', 'default')]:
+        for name, selection in [('symphony-corresponding-source-payload', 'optional-source'), ('symphony-qxctl-payload', 'default')]:
             filename = name + '-1.0.0-d08_ab_1.conda'; raw = name.encode()
             row = {'profile': 'macos15-arm64', 'path': 'mac/' + filename, 'name': name, 'version': '1.0.0',
                 'build': 'd08_ab_1', 'build_number': 1, 'subdir': 'osx-arm64', 'filename': filename,
@@ -81,7 +81,7 @@ class BetaPublishTests(unittest.TestCase):
     def populate(self, api, labels=None):
         for row in self.rows:
             api.files[p.remote_key(row)] = {'sha256': row['sha256'], 'size': row['size'], 'labels': labels or ['review']}
-            api.packages[row['name']] = {'public': True, 'summary': p.SUMMARY, 'description': p.DESCRIPTION, 'custom': {'keep': True}}
+            api.packages[row['name']] = {'public': True, **p.package_metadata.overview(row['name']), 'custom': {'keep': True}}
             api.releases.add((row['name'], row['version']))
     def archive_entries(self, row):
         prefix = 'share/symphony/carriers/unit/1.0.0/d08_ab_1'
@@ -200,7 +200,7 @@ class BetaPublishTests(unittest.TestCase):
         self.assertEqual(result['state'], 'catalog_prepared'); self.assertFalse(self.downloads)
         for row in self.rows:
             value = api.packages[row['name']]
-            self.assertEqual(value['custom'], {'preserve': ['all', 'values']}); self.assertEqual(value['summary'], p.SUMMARY)
+            self.assertEqual(value['custom'], {'preserve': ['all', 'values']}); self.assertEqual(value['summary'], p.package_metadata.overview(row['name'])['summary'])
         self.assertFalse(any(call[0] in ('upload', 'label') for call in api.calls))
     def test_reused_native_version_gets_neutral_overview_without_changing_build_source_links(self):
         api = API(); self.populate(api)
@@ -213,9 +213,9 @@ class BetaPublishTests(unittest.TestCase):
         self.assertEqual(result['state'], 'catalog_prepared')
         self.assertEqual(api.files, before_files); self.assertEqual(api.releases, before_releases)
         self.assertTrue(api.calls); self.assertTrue(all(call[0] == 'summary' for call in api.calls))
-        for value in api.packages.values():
-            self.assertEqual(value['description'], p.DESCRIPTION)
-            self.assertEqual(value['home'], 'https://example.org/preserved'); self.assertEqual(value['custom'], {'keep': True})
+        for name, value in api.packages.items():
+            self.assertEqual(value['description'], p.package_metadata.overview(name)['description'])
+            self.assertEqual(value['home'], p.package_metadata.HOME); self.assertEqual(value['custom'], {'keep': True})
             self.assertNotIn('Review-only', value['description'])
             self.assertNotIn('beta.1', value['description']); self.assertNotIn('beta.2', value['description'])
             self.assertIn('https://github.com/QuanuX/symphony-distribution/releases', value['description'])
@@ -231,8 +231,9 @@ class BetaPublishTests(unittest.TestCase):
         for call in api.calls:
             if call[0] == 'upload':
                 self.assertIn(plan['corresponding_source_urls']['macos15-arm64'], call[3]['description'])
-                self.assertNotEqual(call[3]['description'], p.DESCRIPTION)
-        for value in api.packages.values(): self.assertEqual(value['description'], p.DESCRIPTION)
+                self.assertTrue(all(call[3]['description'] != p.package_metadata.overview(row['name'])['description'] for row in self.rows))
+        for name, value in api.packages.items():
+            self.assertEqual(value['description'], p.package_metadata.overview(name)['description'])
 
     def test_release_creation_resets_metadata_then_catalog_restores_selected_values(self):
         api=API()
@@ -244,9 +245,12 @@ class BetaPublishTests(unittest.TestCase):
             api.packages[name]={'public':True,'summary':'','home':'','description':attrs['description']}
         api.add_release=create
         self.execute(api,catalog_only=True)
-        for value in api.packages.values():
-            self.assertEqual(value['summary'],p.SUMMARY);self.assertEqual(value['home'],'https://example.org')
-            self.assertEqual(value['custom'],{'keep':1});self.assertEqual(value['description'],p.DESCRIPTION)
+        for name, value in api.packages.items():
+            expected = p.package_metadata.overview(name)
+            self.assertEqual({key: value[key] for key in expected}, expected)
+            self.assertEqual(value['custom'], {'keep': 1})
+            release, = [call for call in api.calls if call[0] == 'release' and call[1] == name]
+            self.assertEqual(release[3], expected)
         self.execute(api,output='after-catalog',require_catalog=True)
         self.assertEqual(len(self.downloads),3)
     def test_missing_post_upload_metadata_never_succeeds(self):

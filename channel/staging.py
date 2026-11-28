@@ -20,6 +20,10 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'installer_assembly'))
+if __package__:
+    from . import package_metadata
+else:
+    import package_metadata
 import carriers as c
 import review_signing as signing
 
@@ -229,8 +233,6 @@ def upload_attrs(row):
 
 def stage(plan, delivery, output, api):
     """One new, non-replayable attempt; exceptions leave durable uncertain evidence."""
-    from binstar_client.errors import NotFound
-    from binstar_client.utils.config import PackageType
     check_plan(plan); artifacts = signing.plain(delivery) / 'artifacts'
     # Admission of every archive precedes any remote mutation.
     for row in plan['packages']:
@@ -249,6 +251,10 @@ def stage(plan, delivery, output, api):
         fd = os.open(output, os.O_RDONLY)
         try: os.fsync(fd)
         finally: os.close(fd)
+    def mutate_catalog(operation, row, callback):
+        event({'state': 'mutation_pending', 'operation': operation, 'filename': row['filename']})
+        return callback()
+
     event({'state': 'started', 'plan_sha256': plan['plan_sha256'], 'public_staging_authorized': True,
            'beta_release_authorized': False, 'automatic_retry': False})
     completed = []
@@ -268,17 +274,8 @@ def stage(plan, delivery, output, api):
             c.require(c.sha(raw) == row['sha256'] and len(raw) == row['size'], 'Candidate changed before upload snapshot')
             snapshot = tempfile.TemporaryFile(dir=output)
             snapshot.write(raw); snapshot.seek(0); del raw
-            try:
-                package = api.package(plan['organization'], row['name'])
-                c.require(package.get('public') is True, 'Existing package visibility differs')
-            except NotFound:
-                api.add_package(plan['organization'], row['name'],
-                    summary='Symphony inert review carrier; native installation is separate; not a public beta release',
-                    license='LicenseRef-Complete-Embedded-Notices', public=True, package_type=PackageType.CONDA)
-            try: api.release(plan['organization'], row['name'], row['version'])
-            except NotFound:
-                api.add_release(plan['organization'], row['name'], row['version'], {}, '',
-                    {'description': 'Review-only carrier. ' + source_directions})
+            fields = package_metadata.overview(row['name'], review_source=plan['corresponding_source_url'])
+            package_metadata.ensure_catalog(api, plan['organization'], row, fields, mutate_catalog)
             with snapshot as stream:
                 api.upload(plan['organization'], row['name'], row['version'], row['subdir'] + '/' + row['filename'],
                     stream, 'conda', description='D09 public review staging; no release acceptance. ' + source_directions,
